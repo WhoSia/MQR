@@ -1,6 +1,6 @@
 # Challenge-Admission Governance Protocol
 
-Canonical stage: **MQR-3.137**
+Canonical stage: **MQR-3.137**, live with **MQR-3.138** allocation handoff.
 
 ## Core laws
 
@@ -67,11 +67,9 @@ A strong irrelevance veto must give a typed reason showing why no current or suc
 
 Full translation into the incumbent vocabulary is not required when the challenge tests the adequacy of that vocabulary. A bounded consequence interface is enough for admission review.
 
-## Scarcity rule
+## Scarcity handoff
 
-Epistemic admissibility and execution priority are separate. A scientifically admissible challenge may be deferred for resources without being reclassified as scientifically irrelevant.
-
-A live programme should preserve some nontrivial path from exterior standing to world contact. Realizers can include pilots, rotating adjudication, instrument-time reserves, external facilities, or partial randomization among proposals that already pass a minimum admissibility floor. No universal quota or mechanism is required.
+Epistemic admissibility and execution priority remain separate. **All live allocation semantics now live in `protocols/challenge-opportunity.md`.** Do not duplicate quota, exploration, staging, or stop rules here.
 
 ## Challenge-Admission Governance ladder
 
