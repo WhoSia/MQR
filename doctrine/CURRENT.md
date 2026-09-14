@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.137**.
+Status: live through **MQR-3.138**.
 
 ## Current compression
 
@@ -12,8 +12,12 @@ Status: live through **MQR-3.137**.
 6. **Generator exteriority is not world-contact access.** A programme is not open-world if the incumbent ontology can block nonconforming challenges as irrelevant before they touch the world.
 7. **Weird ≠ irrelevant; weird ≠ warranted.** Exterior challenges need a coherent route to possible world-facing consequence, but need not already speak the incumbent vocabulary perfectly.
 8. **Resource deferred ≠ epistemically rejected.** Standing/admissibility and execution priority are different decisions.
-9. **Governance veto ≠ world refutation.** Rejected, deferred, or terminated challenges retain a traceable reason and reopening path when scientifically live.
-10. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+9. **Equal standing ≠ equal allocation.** Scarce world contact may be allocated asymmetrically, but the asymmetry must preserve some live noncommon defeat routes for authority-bearing claims.
+10. **Expected information gain ≠ expected authority value.** Precision, cost, option value, irreversibility, certification-reserve consumption and route noncommonness must remain separable.
+11. **Protected exploration ≠ full commitment.** Prefer reversible staged contact where scientifically valid: register → pilot → discriminate → escalate → replicate/certify.
+12. **Exteriority ≠ permanent resource entitlement.** Low-yield or outcome-redefined challenge families may be stopped traceably without erasing their standing history.
+13. **Governance veto ≠ world refutation.** Rejected, deferred, stopped, or terminated challenges retain a traceable reason and reopening path when scientifically live.
+14. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -23,7 +27,10 @@ Status: live through **MQR-3.137**.
 - Unknown Common-Cause Reserve (UCCR)
 - Challenge-Generator Ancestry Graph (CGAG)
 - Challenge Admission Record (CAR)
+- Challenge Opportunity Profile (COP)
+- Challenge-Opportunity Ledger (COL)
 - Admission-veto/defer ledger
+- Authority-Preserving Exploration Floor (APEF)
 
 ## Repository doctrine
 
