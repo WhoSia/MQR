@@ -1,0 +1,30 @@
+# MQR Current Doctrine
+
+Status: live through **MQR-3.137**.
+
+## Current compression
+
+1. **Authority is earned by reachable defeat, not by agreement count.**
+2. **Evidence reserve is claim-relative defeat geometry, not a count of unused columns, channels, models, or scenarios.**
+3. **Dependence correction does not certify dependence-class completeness.** Robustness inside an admitted graph/model family remains conditional on that family's adequacy.
+4. **Open-world discipline requires expansion capacity, not exhaustive enumeration of unknowns.**
+5. **Challenge plurality is not challenge-generator exteriority.** Multiple critics or algorithms sharing one ancestry do not create multiple independent challenge lineages.
+6. **Generator exteriority is not world-contact access.** A programme is not open-world if the incumbent ontology can block nonconforming challenges as irrelevant before they touch the world.
+7. **Weird ≠ irrelevant; weird ≠ warranted.** Exterior challenges need a coherent route to possible world-facing consequence, but need not already speak the incumbent vocabulary perfectly.
+8. **Resource deferred ≠ epistemically rejected.** Standing/admissibility and execution priority are different decisions.
+9. **Governance veto ≠ world refutation.** Rejected, deferred, or terminated challenges retain a traceable reason and reopening path when scientifically live.
+10. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+
+## Live governance objects
+
+- Evidence-Family Common-Cause Graph (EFCG)
+- Evidence-Reuse Ledger / Reserve-Decomposition Ledger
+- Graph–Aggregation specification family
+- Unknown Common-Cause Reserve (UCCR)
+- Challenge-Generator Ancestry Graph (CGAG)
+- Challenge Admission Record (CAR)
+- Admission-veto/defer ledger
+
+## Repository doctrine
+
+This repository contains only the living formal surface. Historical Courts/stages are not mirrored here. Superseded files should be removed once a successor is live; historical reconstruction belongs to Git history and external archival storage.
