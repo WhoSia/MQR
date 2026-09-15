@@ -1,96 +1,80 @@
-# Infrastructure-Transition Governance Protocol
+# Infrastructure-Transition & Bridge-Stability Protocol
 
-Canonical stage: **MQR-3.141**
+Canonical stage: **MQR-3.142**
 
-This file supersedes the 3.140-only observability audit while retaining its live laws.
+This file is the living successor of MQR-3.140–3.141. It retains observability and transition rules while adding post-cutover bridge lifecycle governance.
 
 ## Core laws
 
 - `NOT RECORDED != NOT PRESENT`
-- `SCHEMA ABSENCE != WORLD ABSENCE`
-- `INFRASTRUCTURE COMPATIBILITY != REALIST AUTHORITY`
 - `NEGATIVE RESULT REQUIRES POSITIVE OBSERVABILITY OF THE NEGATED DISTINCTION`
 - `BETTER SUCCESSOR != LOSSLESS HISTORICAL PORTABILITY`
 - `LONGITUDINAL COMPARABILITY != ONTOLOGICAL IDENTITY`
 - `COMMON CORE != FULL SUCCESSOR ONTOLOGY`
 - `EXPLICIT DISCONTINUITY > FABRICATED CONTINUITY`
-- `SCHEMA EXTENSION != RETROACTIVE WORLD CONTACT`
-- `RETROSPECTIVE MODELING != RETROACTIVE OVERLAP`
-- `A FROZEN HARMONIZED SERIES != A REOPENABLE LONGITUDINAL RECORD`
+- `ONCE VALID != PERMANENTLY TRANSPORTABLE`
+- `EXECUTABLE CROSSWALK != CURRENTLY VALID BRIDGE`
+- `SUCCESSOR QUALITY != BRIDGE QUALITY`
+- `BRIDGE REPAIR != RETROACTIVE BRIDGE AUTHORITY`
+- `STABLE ON REPEATED SENTINELS != UNIVERSALLY TRANSPORTABLE`
 
-## Observation stack
+## Transition lifecycle
 
-Treat each infrastructure as:
+`PRESEAL -> OVERLAP -> BRIDGE -> CUTOVER -> MONITOR -> REAUTHORIZE / REVISE / BREAK`
 
-`WORLD -> ACQUISITION -> SAMPLING/FILTERING -> SCHEMA -> LABEL/DERIVATION -> OPERATIONAL RECORD`
+Transition governance does not end at cutover.
 
-A rival discriminator outside the installed stack's observability envelope is unadjudicated by that infrastructure, not automatically false.
+## Bridge support domain
 
-## Transition objects
+Treat each load-bearing bridge as scoped to population/material, workflow/context, successor version, claim family, bridge procedure and tolerated loss.
+
+A bridge outside its earned support is unadjudicated unless transport invariance is separately earned.
+
+## Live transition objects
 
 - Observability Envelope
 - Observability-Ancestry Ledger (OAL)
 - Transition Overlap Window (TOW)
 - Transition-Bridge Receipt (TBR)
 - Inter-Regime Common Core (IRCC)
-- native legacy / native successor / migrated evidence separation
-- Successor Compression Failure (SCF)
-- Bridge Overreach (BO)
+- Bridge Support Domain
+- Bridge Sentinel Set (BSS)
+- Bridge Drift Monitor (BDM)
+- Bridge-Version Lineage (BVL)
+- Successor Mutation Receipt (SMR)
+- Population-Shift Replay (PSR)
+- Bridge Reopenability Reserve (BRR)
 - Irreversible Cutover Debt (ICD)
-- Transition-Before-Retirement rule
-- Migration-Induced Observability Loss (MIOL)
 - Installed-Base Authority Ceiling (IBAC)
 
-## Prospective transition sequence
+## Bridge stability rule
 
-Where scientifically load-bearing and feasible:
+A bridge remains authoritative only while its claim-relevant support remains live or renewed. Population shift, workflow mutation, successor recalibration/schema change, altered missingness/censoring, or target manifestation change can trigger reauthorization.
 
-`PRESEAL -> OVERLAP -> DIFFERENCE CHARACTERIZATION -> CLAIM-SCOPED BRIDGE -> CUTOVER -> LEGACY CUSTODY -> SUCCESSOR FRESH RISK`
+Do not infer bridge failure from every residual shift; localize world change, population composition, successor drift, workflow mutation and bridge failure as rival explanations.
 
-Do not require permanent parallel operation. If overlap is infeasible, preserve an explicit break and lower cross-regime authority rather than fabricate continuity.
+## Sentinel rule
 
-## Inter-Regime Common Core
+Use bounded sentinels or references where feasible to keep bridge failure reachable after legacy retirement. Sentinel stability increases scoped confidence but does not license uncontrolled domain expansion.
 
-Preserve only distinctions shown to transport across old and new infrastructures to declared scope/tolerance. Keep successor-only distinctions outside the common core rather than collapsing them for backward compatibility.
+## Version lineage
 
-`IRCC != FULL SUCCESSOR ONTOLOGY`.
+Bridge revisions are versioned. Keep old and new bridge receipts and recomputed longitudinal products distinct. Never silently overwrite native evidence or pretend a repaired bridge had retrospective authority.
 
-## Dual-native custody
+## Selection firewall
 
-Keep:
+Bridge revision criteria must be bridge-facing: reference agreement, out-of-sample overlap, residual structure or documented mechanism change. Do not select the bridge version because it preserves the preferred substantive trend.
 
-1. native legacy records;
-2. native successor records;
-3. bridge/migration products as derived, versioned objects.
+## Support-exit rule
 
-Never overwrite native evidence with harmonized values.
+Distinguish:
 
-## Transition-Before-Retirement rule
+- in-support instability;
+- support exit;
+- support ambiguity.
 
-If the old capability is about to disappear, longitudinal authority depends on continuity, the successor materially changes observability, and bounded overlap is feasible, characterize the relation before retirement. Otherwise ledger the lost comparison opportunity as an authority ceiling.
-
-## Bridge scope
-
-A bridge is claim- and regime-scoped. Local adjacent bridges do not automatically create strong end-to-end comparability across a long version chain.
-
-Bridge uncertainty, semantic nonidentity and unresolved migration loss remain visible after harmonization.
-
-## Reopenability guard
-
-Preserve enough transition memory, where feasible, to revise the bridge later:
-
-- paired overlap receipts
-- lower-level native measurements
-- calibration/reference records
-- schema and crosswalk versions
-- anomaly/unclassified cases
-- executable transforms
-- representative preserved material when relevant
-
-## Standardization guard
-
-Standards remain epistemically valuable for calibration, comparability, interoperability and cumulative learning. Their authority is bounded by what they can observe and transport.
+Support exit blocks extrapolation without retroactively defeating the original bridge.
 
 ## Origin rule
 
-**Scientific succession requires both change capacity and transition memory. The past need not be made native to the successor in order to remain evidence.**
+**A bridge earns durable authority by remaining vulnerable to the drift of the conditions that made it valid.**
