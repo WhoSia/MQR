@@ -1,8 +1,8 @@
-# Infrastructure-Transition & Bridge-Stability Protocol
+# Infrastructure-Transition, Bridge-Stability & Monitoring-Exteriority Protocol
 
-Canonical stage: **MQR-3.142**
+Canonical stage: **MQR-3.143**
 
-This file is the living successor of MQR-3.140–3.141. It retains observability and transition rules while adding post-cutover bridge lifecycle governance.
+This file is the living successor of MQR-3.140–3.142. It retains observability, transition and bridge-lifecycle rules while adding monitoring-exteriority governance.
 
 ## Core laws
 
@@ -10,71 +10,75 @@ This file is the living successor of MQR-3.140–3.141. It retains observability
 - `NEGATIVE RESULT REQUIRES POSITIVE OBSERVABILITY OF THE NEGATED DISTINCTION`
 - `BETTER SUCCESSOR != LOSSLESS HISTORICAL PORTABILITY`
 - `LONGITUDINAL COMPARABILITY != ONTOLOGICAL IDENTITY`
-- `COMMON CORE != FULL SUCCESSOR ONTOLOGY`
-- `EXPLICIT DISCONTINUITY > FABRICATED CONTINUITY`
 - `ONCE VALID != PERMANENTLY TRANSPORTABLE`
-- `EXECUTABLE CROSSWALK != CURRENTLY VALID BRIDGE`
-- `SUCCESSOR QUALITY != BRIDGE QUALITY`
-- `BRIDGE REPAIR != RETROACTIVE BRIDGE AUTHORITY`
-- `STABLE ON REPEATED SENTINELS != UNIVERSALLY TRANSPORTABLE`
+- `MONITOR STABILITY != BRIDGE STABILITY`
+- `SENTINEL COVERAGE != FAILURE-SPACE COVERAGE`
+- `MULTIPLE DETECTORS != MULTIPLE FAILURE SURFACES`
+- `LONG QUIET RUN != BROAD FAILURE EXCLUSION`
+- `MONITORING EXTERIORITY = CORRIGIBILITY CAPACITY, NOT META-OMNISCIENCE`
 
-## Transition lifecycle
+## Lifecycle
 
 `PRESEAL -> OVERLAP -> BRIDGE -> CUTOVER -> MONITOR -> REAUTHORIZE / REVISE / BREAK`
 
-Transition governance does not end at cutover.
+Monitoring is itself part of the authority surface and must remain defeasible.
 
-## Bridge support domain
+## Sentinel surface
 
-Treat each load-bearing bridge as scoped to population/material, workflow/context, successor version, claim family, bridge procedure and tolerated loss.
+For each load-bearing bridge, distinguish the full live failure family from the subset reachable through deployed sentinel features, detector objectives and alarm semantics.
 
-A bridge outside its earned support is unadjudicated unless transport invariance is separately earned.
+`NO ALARM != NO BRIDGE FAILURE`.
 
-## Live transition objects
+## Live monitoring objects
 
-- Observability Envelope
-- Observability-Ancestry Ledger (OAL)
-- Transition Overlap Window (TOW)
-- Transition-Bridge Receipt (TBR)
-- Inter-Regime Common Core (IRCC)
-- Bridge Support Domain
-- Bridge Sentinel Set (BSS)
-- Bridge Drift Monitor (BDM)
-- Bridge-Version Lineage (BVL)
-- Successor Mutation Receipt (SMR)
-- Population-Shift Replay (PSR)
-- Bridge Reopenability Reserve (BRR)
-- Irreversible Cutover Debt (ICD)
-- Installed-Base Authority Ceiling (IBAC)
+- Sentinel Surface
+- Sentinel-Surface Closure (SSC)
+- Monitoring-Induced Blindness (MIB)
+- Structural Drift-Detector Goodharting
+- Monitor-Ancestry Graph (MAG)
+- Monitoring Exteriority
+- Exterior Sentinel Route (ESR)
+- Sentinel Representation Escape (SRE)
+- Blind-Spot Injection Test (BIT)
+- Monitor Counterfactual Test (MCT)
+- Monitoring Exteriority Profile (MEP)
+- Monitoring-Closure Authority Ceiling (MCAC)
+- monitoring states `MX-0..MX-4`
 
-## Bridge stability rule
+## Monitoring-exteriority rule
 
-A bridge remains authoritative only while its claim-relevant support remains live or renewed. Population shift, workflow mutation, successor recalibration/schema change, altered missingness/censoring, or target manifestation change can trigger reauthorization.
+At least one live route should be able to trigger bridge review without first requiring the deviation to be legible under the bridge's own residual grammar when broad bridge-stability authority is claimed.
 
-Do not infer bridge failure from every residual shift; localize world change, population composition, successor drift, workflow mutation and bridge failure as rival explanations.
+Exterior routes may use materially noncommon sensors, representations, grains, preserved anomaly streams, independent recoding, coverage samples, successor-only measurements or lower-level/raw audits. No single route is universally required.
 
-## Sentinel rule
+## Stable-sentinel guard
 
-Use bounded sentinels or references where feasible to keep bridge failure reachable after legacy retirement. Sentinel stability increases scoped confidence but does not license uncontrolled domain expansion.
+Quiet operation increases confidence only over failure modes that the monitoring surface could expose. Long runs without alarms must not be laundered into broad evidence against unmonitored failure families.
 
-## Version lineage
+## Monitor ancestry
 
-Bridge revisions are versioned. Keep old and new bridge receipts and recomputed longitudinal products distinct. Never silently overwrite native evidence or pretend a repaired bridge had retrospective authority.
+Detector count is not monitoring diversity. Collapse monitors that share load-bearing ancestry in feature representation, objective, training/reference window, bridge residual definition, ground-truth source or measurement route.
 
-## Selection firewall
+## Monitoring states
 
-Bridge revision criteria must be bridge-facing: reference agreement, out-of-sample overlap, residual structure or documented mechanism change. Do not select the bridge version because it preserves the preferred substantive trend.
+- `MX-0 CLOSED` — all monitors descend from incumbent bridge grammar
+- `MX-1 PLURAL-COMMON-SURFACE` — multiple detectors, materially shared failure surface
+- `MX-2 NONCOMMON-SENTINEL` — at least one protected exterior sentinel route
+- `MX-3 ESCAPE-DEMONSTRATED` — an exterior route exposed an official sentinel blind spot
+- `MX-4 RECONSTITUTED` — monitoring surface expanded and the successor bridge faces fresh risk
 
-## Support-exit rule
+## Regress guard
 
-Distinguish:
+Do not create an infinite monitor-of-monitor hierarchy. No monitor claims open-world completeness; instead preserve bounded noncommon monitoring routes, anomaly channels and explicit blind-surface custody.
 
-- in-support instability;
-- support exit;
-- support ambiguity.
+## Allocation guard
 
-Support exit blocks extrapolation without retroactively defeating the original bridge.
+Exterior monitoring is not permanent entitlement. Use staged allocation when valid:
+
+`REGISTER -> CHEAP SENTINEL/PILOT -> DISCRIMINATE -> ESCALATE`
+
+Retiring a low-yield route is allowed if the distinction between `NOT MONITORED` and `MONITORED STABLE` remains explicit.
 
 ## Origin rule
 
-**A bridge earns durable authority by remaining vulnerable to the drift of the conditions that made it valid.**
+**A monitor earns authority not by watching everything, but by remaining vulnerable to failures that force it to change what counts as watchable.**
