@@ -1,8 +1,8 @@
 # Infrastructure-Transition, Bridge-Stability & Monitoring-Ecology Protocol
 
-Canonical stage: **MQR-3.144**
+Canonical stage: **MQR-3.145**
 
-This file is the living successor of MQR-3.140–3.143. It retains observability, transition, bridge-lifecycle and monitoring-exteriority rules while adding monitoring-portfolio evolution governance.
+This file is the living successor of MQR-3.140–3.144. It retains observability, transition, bridge-lifecycle, monitoring-exteriority and portfolio-evolution rules while adding monitor-retirement reversibility governance.
 
 ## Core laws
 
@@ -18,19 +18,23 @@ This file is the living successor of MQR-3.140–3.143. It retains observability
 - `DETECTION YIELD != MARGINAL PORTFOLIO AUTHORITY`
 - `TURNOVER != GENEALOGICAL DIVERSIFICATION`
 - `STANDARDIZED EXTERIORITY != PERSISTENT EXTERIORITY`
-- `MONITOR COUNT != SURVEILLANCE ECOLOGY DIVERSITY`
+- `LOW RECENT YIELD != EPISTEMIC REDUNDANCY`
+- `NO OBSERVATION AFTER RETIREMENT != EVIDENCE OF ABSENCE`
+- `ARCHIVED DESCRIPTION != RECOVERABLE MONITORING CAPACITY`
+- `POST-RETIREMENT SILENCE != RETIREMENT VALIDATION`
+- `BETTER REPLACEMENT != LOSSLESS MONITOR SUCCESSION`
 
 ## Lifecycle
 
-`PRESEAL -> OVERLAP -> BRIDGE -> CUTOVER -> MONITOR -> PORTFOLIO EVOLVE -> REAUTHORIZE / REVISE / BREAK`
+`PRESEAL -> OVERLAP -> BRIDGE -> CUTOVER -> MONITOR -> PORTFOLIO EVOLVE -> RETIRE / DORMANT / REACTIVATE -> REAUTHORIZE / REVISE / BREAK`
 
-Monitoring is part of the authority surface, and the portfolio selection rule must itself remain defeasible.
+Monitoring is part of the authority surface, and retirement is itself an intervention on future evidence production.
 
 ## Monitoring ecology
 
-Treat deployed monitors as an evolving portfolio with ancestry, representation, objective, physical route, cost, covered failure surface, promotion history, replacement cost and demonstrated escape history.
+Treat deployed and dormant monitors as an evolving portfolio with ancestry, representation, objective, physical route, cost, covered failure surface, promotion history, replacement cost, demonstrated escape history, retirement state and restart feasibility.
 
-Portfolio authority depends on **joint reachable defeat geometry**, not detector count or aggregate hit rate.
+Portfolio authority depends on **joint reachable defeat geometry**, not detector count, aggregate hit rate, or post-retirement silence.
 
 ## Live monitoring-ecology objects
 
@@ -52,59 +56,59 @@ Portfolio authority depends on **joint reachable defeat geometry**, not detector
 - Promotion Counterfactual Test (PCT)
 - Blind-Spot Migration Probe (BMP)
 - Common-Mode Surveillance Ecology (CMSE)
-- evolution states `MEC-0..MEC-5`
+- Sentinel Extinction (SE)
+- Counterfactual Monitor Irrecoverability (CMI)
+- Evidence-of-Absence Feedback (EAF)
+- Retirement-Conditioned Observability Loss (RCOL)
+- Retirement Counterfactual Packet (RCP)
+- Minimum Reconstitution Set (MRS)
+- Shadow Retirement Window (SRW)
+- Retired-Route Resurvey (R3)
+- Retirement-Selection Leakage (RSL)
+- Retirement Diversity Debt (RDD)
+- retirement states `RET-0..RET-5`
 
-## Success-selection guard
+## Retirement as evidence intervention
 
-Promoting a monitor because it found an important failure is legitimate, but repeated promotion can standardize its representation, labels, infrastructure and objectives across the whole ecology.
+Retiring a monitor can change which events remain observable, whether a baseline continues, whether a replacement can be stress-tested against the old route, and whether lost skills/materials can be recreated.
 
-`DETECT -> PROMOTE -> STANDARDIZE -> REUSE -> COMMON ANCESTRY -> NEW BLIND SURFACE`
+`RETIRE -> NO ROUTE TO OBSERVE -> NO NEW DETECTIONS` must never be converted into evidence that the route was redundant.
 
-Historic independent origin does not imply current monitoring noncommonness.
+## Redundancy guard
 
-## Portfolio-value guard
+Retirement authority should be portfolio-relative and, where load-bearing, prospectively supported by replacement agreement under relevant perturbations. Raw low hit count is insufficient because it confounds rarity, exposure, sensitivity, jurisdiction and prevention.
 
-Evaluate a monitor relative to the current portfolio. High detection yield can add little authority when close relatives already cover the same failure surface; a low-frequency monitor can remain valuable when it uniquely preserves a noncommon defeat route.
+`LOW HIT COUNT != LOW MARGINAL DEFEAT CAPACITY`.
 
-No universal scalar FSMC formula is required.
+## Reconstitution guard
 
-## Baseline-mutation separation
+Before an irreversible retirement, preserve a Minimum Reconstitution Set where feasible: executable configuration, calibration/schema versions, representative raw evidence, hardware/reference specifications, critical materials, operator procedures and replacement-comparison receipts.
 
-Maintain functional distinction among:
+`REIMPLEMENTABLE CODE != RECONSTITUTABLE MONITOR`.
 
-1. baseline continuity monitors;
-2. adaptive exploitation monitors for known active risks;
-3. mutation/exterior monitors that can search outside the dominant failure grammar.
+## Retirement states
 
-No fixed diversity share or quota is constitutionalized.
+- `RET-0 ACTIVE`
+- `RET-1 DORMANT-RESTARTABLE`
+- `RET-2 ARCHIVED-RECONSTITUTABLE`
+- `RET-3 PARTIALLY-IRRECOVERABLE`
+- `RET-4 EXTINCT`
+- `RET-5 EXTINCTION-ACKNOWLEDGED`
 
-## Exteriority reserve
+These are custody/authority states, not monitor-quality rankings.
 
-When broad monitoring authority is claimed, some live noncommon monitoring path must survive over the relevant horizon. The reserve may reside in raw channels, alternate references, reconfigurable sensors, independent recoding, archived anomaly streams, bounded external routes or restartable legacy monitors.
+## Shadow and resurvey routes
 
-## Promotion counterfactual
+Where scientifically valid and proportionate, use bounded shadow retirement or later retired-route resurvey to test whether surviving monitors systematically miss signals that the retired route would have exposed. Permanent dual operation is not required.
 
-Before institutionalizing a successful monitor, audit which independent routes become cheaper, redundant, extinct or expensive to rebuild. Promotion decisions are versioned through MPRs.
+## Diversity debt
 
-## Rotation guard
+If retirement removes the last materially noncommon route against a broad claim, incur Retirement Diversity Debt. Discharge it through a credible restart reserve, materially noncommon replacement, bounded external challenge route, claim narrowing or explicit authority ceiling.
 
-Changing detector names, vendors, sites or versions does not create diversity if replacements inherit the same load-bearing representation and objective ancestry.
+## Anti-entitlement rule
 
-## Evolution states
-
-- `MEC-0 FRAGMENTED`
-- `MEC-1 COORDINATED`
-- `MEC-2 CONVERGING`
-- `MEC-3 COMMON-MODE`
-- `MEC-4 MUTATION-RESERVED`
-- `MEC-5 EVOLUTIONARILY-CORRIGIBLE`
-
-## Retirement custody
-
-A monitor may be retired for redundancy, cost or low yield, but preserve its ancestry, covered failure surface, replacement relation, lost unique route, restart feasibility and effect on MER.
-
-`LOW RECENT YIELD` alone is not evidence of epistemic redundancy.
+Historical existence does not create permanent funding entitlement. Low-yield or redundant monitors may be retired. The invariant is narrower: retirement must not manufacture its own evidential vindication by destroying the route that could show the decision was wrong.
 
 ## Origin rule
 
-**A monitoring ecology earns long-run authority by preserving the capacity to mutate away from its own success.**
+**Retirement earns authority when it preserves a route to defeat the retirement decision itself.**
