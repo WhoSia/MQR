@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.143**.
+Status: live through **MQR-3.144**.
 
 ## Current compression
 
@@ -29,9 +29,14 @@ Status: live through **MQR-3.143**.
 23. **Monitor stability ≠ bridge stability.** A stable detector only supports failure modes that its sentinel surface could expose.
 24. **Sentinel coverage ≠ failure-space coverage.** Detector plurality sharing one ancestry does not create multiple monitoring surfaces.
 25. **Long quiet run ≠ broad failure exclusion.** Silence outside the monitor's reachable deviation grammar is not negative evidence.
-26. **Monitoring exteriority is corrigibility capacity, not meta-omniscience.** Preserve bounded routes that can force mutation of what counts as watchable; do not posit a universal meta-monitor.
-27. **Governance veto ≠ world refutation.**
-28. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+26. **Monitoring exteriority is corrigibility capacity, not meta-omniscience.** Preserve bounded routes that can force mutation of what counts as watchable.
+27. **Monitor success ≠ portfolio fitness.** Past detection yield does not by itself measure marginal future defeat capacity.
+28. **Detection yield ≠ marginal portfolio authority.** Portfolio value is nonseparable and failure-surface-relative.
+29. **Standardized exteriority ≠ persistent exteriority.** Successful exterior monitors can become common-mode through promotion, reuse and shared infrastructure.
+30. **Turnover ≠ genealogical diversification.** Replacing detectors without changing load-bearing ancestry does not restore monitoring exteriority.
+31. **A monitoring ecology must preserve capacity to mutate away from its own success.** No fixed diversity quota is required, but broad authority requires some live noncommon path over the relevant horizon.
+32. **Governance veto ≠ world refutation.**
+33. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -70,6 +75,13 @@ Status: live through **MQR-3.143**.
 - Monitor Counterfactual Test (MCT)
 - Monitoring Exteriority Profile (MEP)
 - Monitoring-Closure Authority Ceiling (MCAC)
+- Monitoring-Ecology Genealogy Graph (MEGG)
+- Monitor Promotion Receipt (MPR)
+- Failure-Surface Marginal Contribution (FSMC)
+- Monitoring Exteriority Reserve (MER)
+- Promotion Counterfactual Test (PCT)
+- Blind-Spot Migration Probe (BMP)
+- Common-Mode Surveillance Ecology (CMSE)
 
 ## Repository doctrine
 
