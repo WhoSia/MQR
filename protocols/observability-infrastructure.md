@@ -1,6 +1,8 @@
-# Observability-Infrastructure Audit
+# Infrastructure-Transition Governance Protocol
 
-Canonical stage: **MQR-3.140**
+Canonical stage: **MQR-3.141**
+
+This file supersedes the 3.140-only observability audit while retaining its live laws.
 
 ## Core laws
 
@@ -8,52 +10,87 @@ Canonical stage: **MQR-3.140**
 - `SCHEMA ABSENCE != WORLD ABSENCE`
 - `INFRASTRUCTURE COMPATIBILITY != REALIST AUTHORITY`
 - `NEGATIVE RESULT REQUIRES POSITIVE OBSERVABILITY OF THE NEGATED DISTINCTION`
-- `MORE NATIVE DATA != MORE ONTOLOGY-INDEPENDENT WORLD RESISTANCE`
+- `BETTER SUCCESSOR != LOSSLESS HISTORICAL PORTABILITY`
+- `LONGITUDINAL COMPARABILITY != ONTOLOGICAL IDENTITY`
+- `COMMON CORE != FULL SUCCESSOR ONTOLOGY`
+- `EXPLICIT DISCONTINUITY > FABRICATED CONTINUITY`
 - `SCHEMA EXTENSION != RETROACTIVE WORLD CONTACT`
-- `RAW DATA != ONTOLOGY-NEUTRAL DATA`
-- `SUCCESSFUL DATA MIGRATION != SEMANTICALLY LOSSLESS SCIENTIFIC MIGRATION`
+- `RETROSPECTIVE MODELING != RETROACTIVE OVERLAP`
+- `A FROZEN HARMONIZED SERIES != A REOPENABLE LONGITUDINAL RECORD`
 
-## Infrastructure-shaped observability
+## Observation stack
 
-Treat the observation stack as:
+Treat each infrastructure as:
 
 `WORLD -> ACQUISITION -> SAMPLING/FILTERING -> SCHEMA -> LABEL/DERIVATION -> OPERATIONAL RECORD`
 
 A rival discriminator outside the installed stack's observability envelope is unadjudicated by that infrastructure, not automatically false.
 
-## Live objects
+## Transition objects
 
 - Observability Envelope
-- Measurement-Capability Lock-In (MCLI)
-- Data-Schema Entrenchment (DSE)
-- Schema-Silence Laundering (SSL)
-- Observability Symmetry states `OS-0..OS-4`
 - Observability-Ancestry Ledger (OAL)
-- Cross-Infrastructure Challenge (CIC)
-- Schema-Bypass Probe (SBP)
-- Installed-Base Authority Ceiling (IBAC)
+- Transition Overlap Window (TOW)
+- Transition-Bridge Receipt (TBR)
+- Inter-Regime Common Core (IRCC)
+- native legacy / native successor / migrated evidence separation
+- Successor Compression Failure (SCF)
+- Bridge Overreach (BO)
+- Irreversible Cutover Debt (ICD)
+- Transition-Before-Retirement rule
 - Migration-Induced Observability Loss (MIOL)
-- Observability-Boundary Witness (OBW)
+- Installed-Base Authority Ceiling (IBAC)
 
-## Authority rule
+## Prospective transition sequence
 
-If a live rival's material discriminator was not observable under the installed infrastructure, absence of that discriminator in the routine record cannot receive full negative-evidence credit.
+Where scientifically load-bearing and feasible:
 
-Broad authority requires at least one of:
+`PRESEAL -> OVERLAP -> DIFFERENCE CHARACTERIZATION -> CLAIM-SCOPED BRIDGE -> CUTOVER -> LEGACY CUSTODY -> SUCCESSOR FRESH RISK`
 
-- a materially noncommon cross-infrastructure challenge;
-- a justified bridge showing the rival distinction would have been observable;
-- a bounded capability/schema reconstitution test;
-- or claim narrowing to the actually observable scope.
+Do not require permanent parallel operation. If overlap is infeasible, preserve an explicit break and lower cross-regime authority rather than fabricate continuity.
+
+## Inter-Regime Common Core
+
+Preserve only distinctions shown to transport across old and new infrastructures to declared scope/tolerance. Keep successor-only distinctions outside the common core rather than collapsing them for backward compatibility.
+
+`IRCC != FULL SUCCESSOR ONTOLOGY`.
+
+## Dual-native custody
+
+Keep:
+
+1. native legacy records;
+2. native successor records;
+3. bridge/migration products as derived, versioned objects.
+
+Never overwrite native evidence with harmonized values.
+
+## Transition-Before-Retirement rule
+
+If the old capability is about to disappear, longitudinal authority depends on continuity, the successor materially changes observability, and bounded overlap is feasible, characterize the relation before retirement. Otherwise ledger the lost comparison opportunity as an authority ceiling.
+
+## Bridge scope
+
+A bridge is claim- and regime-scoped. Local adjacent bridges do not automatically create strong end-to-end comparability across a long version chain.
+
+Bridge uncertainty, semantic nonidentity and unresolved migration loss remain visible after harmonization.
+
+## Reopenability guard
+
+Preserve enough transition memory, where feasible, to revise the bridge later:
+
+- paired overlap receipts
+- lower-level native measurements
+- calibration/reference records
+- schema and crosswalk versions
+- anomaly/unclassified cases
+- executable transforms
+- representative preserved material when relevant
 
 ## Standardization guard
 
-Standardization is not rejected. Standards can improve calibration, comparability, interoperability, correction and cumulative learning. The restriction is narrower: a standard does not earn authority over distinctions it cannot expose merely because it coordinates the distinctions it does expose well.
-
-## Migration guard
-
-Schema/version migration must preserve or explicitly ledger load-bearing distinctions, missingness semantics, anomalies and known irreversible collapses. A clean migration is not evidence of semantic losslessness.
+Standards remain epistemically valuable for calibration, comparability, interoperability and cumulative learning. Their authority is bounded by what they can observe and transport.
 
 ## Origin rule
 
-**A scientific infrastructure earns realist authority not by recording everything, but by keeping its own observability boundaries visible and reopenable.**
+**Scientific succession requires both change capacity and transition memory. The past need not be made native to the successor in order to remain evidence.**
