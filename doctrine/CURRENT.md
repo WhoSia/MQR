@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.139**.
+Status: live through **MQR-3.140**.
 
 ## Current compression
 
@@ -18,9 +18,13 @@ Status: live through **MQR-3.139**.
 12. **Current cheapness ≠ intrinsic epistemic efficiency.** Present cost and verifiability can be products of previous allocation.
 13. **Track record ≠ allocation-independent merit.** Prior success may predict execution competence without constituting a new world-contact receipt.
 14. **Path dependence ≠ error.** Genuine learning-by-doing is allowed; untraced allocation-mediated reinforcement imposes an authority ceiling.
-15. **Exteriority ≠ permanent resource entitlement.** Low-yield or outcome-redefined challenge families may be stopped traceably without erasing their standing history.
-16. **Governance veto ≠ world refutation.** Rejected, deferred, stopped, or terminated challenges retain a traceable reason and reopening path when scientifically live.
-17. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+15. **Not recorded ≠ not present.** The installed acquisition/sampling/schema stack conditions which distinctions can appear in routine evidence.
+16. **Negative evidence requires positive observability of the negated distinction.** Schema silence or sensor blindness cannot be credited as symmetric evidence against a rival.
+17. **Standardization is epistemically valuable but scope-bounded.** Coordination, comparability and traceability do not confer authority over distinctions outside the standard's observability envelope.
+18. **Schema extension ≠ retroactive world contact.** Successor fields can recover old distinctions only when lower-level receipts preserved them.
+19. **Exteriority ≠ permanent resource entitlement.** Low-yield or outcome-redefined challenge families may be stopped traceably without erasing their standing history.
+20. **Governance veto ≠ world refutation.** Rejected, deferred, stopped, or terminated challenges retain a traceable reason and reopening path when scientifically live.
+21. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -39,6 +43,12 @@ Status: live through **MQR-3.139**.
 - Admission-veto/defer ledger
 - Authority-Preserving Exploration Floor (APEF)
 - Minimal Counter-Path Preservation (MCP)
+- Observability Envelope
+- Observability-Ancestry Ledger (OAL)
+- Cross-Infrastructure Challenge (CIC)
+- Schema-Bypass Probe (SBP)
+- Installed-Base Authority Ceiling (IBAC)
+- Migration-Induced Observability Loss (MIOL)
 
 ## Repository doctrine
 
