@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.138**.
+Status: live through **MQR-3.139**.
 
 ## Current compression
 
@@ -15,9 +15,12 @@ Status: live through **MQR-3.138**.
 9. **Equal standing ≠ equal allocation.** Scarce world contact may be allocated asymmetrically, but the asymmetry must preserve some live noncommon defeat routes for authority-bearing claims.
 10. **Expected information gain ≠ expected authority value.** Precision, cost, option value, irreversibility, certification-reserve consumption and route noncommonness must remain separable.
 11. **Protected exploration ≠ full commitment.** Prefer reversible staged contact where scientifically valid: register → pilot → discriminate → escalate → replicate/certify.
-12. **Exteriority ≠ permanent resource entitlement.** Low-yield or outcome-redefined challenge families may be stopped traceably without erasing their standing history.
-13. **Governance veto ≠ world refutation.** Rejected, deferred, stopped, or terminated challenges retain a traceable reason and reopening path when scientifically live.
-14. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+12. **Current cheapness ≠ intrinsic epistemic efficiency.** Present cost and verifiability can be products of previous allocation.
+13. **Track record ≠ allocation-independent merit.** Prior success may predict execution competence without constituting a new world-contact receipt.
+14. **Path dependence ≠ error.** Genuine learning-by-doing is allowed; untraced allocation-mediated reinforcement imposes an authority ceiling.
+15. **Exteriority ≠ permanent resource entitlement.** Low-yield or outcome-redefined challenge families may be stopped traceably without erasing their standing history.
+16. **Governance veto ≠ world refutation.** Rejected, deferred, stopped, or terminated challenges retain a traceable reason and reopening path when scientifically live.
+17. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -27,10 +30,15 @@ Status: live through **MQR-3.138**.
 - Unknown Common-Cause Reserve (UCCR)
 - Challenge-Generator Ancestry Graph (CGAG)
 - Challenge Admission Record (CAR)
-- Challenge Opportunity Profile (COP)
+- Dynamic Challenge Opportunity Profile (COP)
 - Challenge-Opportunity Ledger (COL)
+- Cost Ancestry
+- Allocation-Induced Legibility (AIL)
+- Counterfactual Allocation Replay (CARP)
+- Path-Adjusted Marginal Authority Return (PA-MAR)
 - Admission-veto/defer ledger
 - Authority-Preserving Exploration Floor (APEF)
+- Minimal Counter-Path Preservation (MCP)
 
 ## Repository doctrine
 
