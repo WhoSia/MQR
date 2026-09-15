@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.147**.
+Status: live through **MQR-3.148**.
 
 ## Current compression
 
@@ -51,9 +51,17 @@ Status: live through **MQR-3.147**.
 45. **Earlier internal anomaly detection ≠ earlier public discovery.** Historical replay must distinguish acquisition, processing, anomaly recognition, validation, publication and public recognition.
 46. **Historical counterfactual governance advantage ≠ historical priority claim.** MQR may claim a better typed authority/escalation rule only where the frozen record supports it.
 47. **Historical modules activate selectively.** Do not force every constitutional layer onto every famous scientific episode.
-48. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
-49. **Governance veto ≠ world refutation.**
-50. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+48. **Reproducible residual ≠ world-level property.** A repeatable endpoint signal can be a real property of the realized measurement chain while its physical cause remains underidentified.
+49. **Same-chain replication ≠ noncommon confirmation.** Repetition earns only the authority associated with the failure classes it actually breaks.
+50. **Replication of effect ≠ replication of cause.** World-level promotion depends on noncommon defeat geometry, not repeat count.
+51. **One found fault ≠ complete error accounting.** Candidate systematics with opposing signs require joint, signed localization rather than retrospective single-fault storytelling.
+52. **Systematic inventory ≠ systematic identification.** Listing uncertainties is weaker than intervening on the measurement graph and observing the predicted movement of the result.
+53. **Theory conflict ≠ instrument-fault localization.** Theoretical pressure can lower interpretation authority without identifying which measurement component failed.
+54. **Surprise changes the probe burden, not the truth standard.** Radical anomalies deserve preservation and aggressive discrimination, not privileged belief or automatic suppression.
+55. **Repair confirmation requires intervention plus convergence.** A suspicious component earns causal localization only when repair/recalibration produces the predicted effect and materially noncommon routes agree.
+56. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
+57. **Governance veto ≠ world refutation.**
+58. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -120,10 +128,13 @@ Status: live through **MQR-3.147**.
 - Reopening Trigger Ledger (RTL)
 - Reopening-Closure Authority Ceiling (RCAC)
 - reopening states `RX-0..RX-5`
+- Failure-Localization Matrix (FLM)
+- signed systematic ledger
+- Repair-Confirmation Receipt (RepCR)
 
 ## Historical replay discipline
 
-Historical world-contact stress tests must freeze contemporaneous information, separate detection from processing/validation/publication, correct retrospective myths before scoring MQR, activate only materially implicated modules, and treat later truth as adjudication rather than input.
+Historical world-contact stress tests must freeze contemporaneous information, separate detection from processing/validation/publication, correct retrospective myths before scoring MQR, preserve residuals at their native scope, distinguish probes by defeat-class independence, activate only materially implicated modules, and treat later truth as adjudication rather than input.
 
 ## Repository doctrine
 
