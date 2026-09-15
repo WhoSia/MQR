@@ -1,8 +1,8 @@
 # Infrastructure-Transition, Bridge-Stability & Monitoring-Ecology Protocol
 
-Canonical stage: **MQR-3.145**
+Canonical stage: **MQR-3.146**
 
-This file is the living successor of MQR-3.140–3.144. It retains observability, transition, bridge-lifecycle, monitoring-exteriority and portfolio-evolution rules while adding monitor-retirement reversibility governance.
+This file is the living successor of MQR-3.140–3.145. It retains observability, transition, bridge-lifecycle, monitoring-exteriority, portfolio-evolution and retirement-reversibility rules while adding reopening-trigger exteriority governance.
 
 ## Core laws
 
@@ -23,92 +23,79 @@ This file is the living successor of MQR-3.140–3.144. It retains observability
 - `ARCHIVED DESCRIPTION != RECOVERABLE MONITORING CAPACITY`
 - `POST-RETIREMENT SILENCE != RETIREMENT VALIDATION`
 - `BETTER REPLACEMENT != LOSSLESS MONITOR SUCCESSION`
+- `TRIGGER EXISTENCE != TRIGGER EXTERIORITY`
+- `RESTARTABLE CAPACITY != REOPENABLE CHALLENGE`
+- `SURVIVING-MONITOR SILENCE != NO REACTIVATION-WORTHY FAILURE`
+- `ONCE-EXTERIOR TRIGGER != PERMANENTLY EXTERIOR TRIGGER`
 
 ## Lifecycle
 
-`PRESEAL -> OVERLAP -> BRIDGE -> CUTOVER -> MONITOR -> PORTFOLIO EVOLVE -> RETIRE / DORMANT / REACTIVATE -> REAUTHORIZE / REVISE / BREAK`
+`PRESEAL -> OVERLAP -> BRIDGE -> CUTOVER -> MONITOR -> PORTFOLIO EVOLVE -> RETIRE / DORMANT -> TRIGGER / RECALL -> REAUTHORIZE / REVISE / BREAK`
 
-Monitoring is part of the authority surface, and retirement is itself an intervention on future evidence production.
+A dormant monitor earns authority credit only when the evidence path that can wake it remains scientifically reachable.
 
-## Monitoring ecology
+## Reopening-trigger exteriority
 
-Treat deployed and dormant monitors as an evolving portfolio with ancestry, representation, objective, physical route, cost, covered failure surface, promotion history, replacement cost, demonstrated escape history, retirement state and restart feasibility.
+A restart condition written on paper is insufficient. When a dormant route exists to cover a blind surface of the surviving monitoring ecology, at least one load-bearing recall path must not require that same failure to be recognized by the incumbent ecology first.
 
-Portfolio authority depends on **joint reachable defeat geometry**, not detector count, aggregate hit rate, or post-retirement silence.
+## Live reopening objects
 
-## Live monitoring-ecology objects
+- Reactivation-Trigger Endogeneity (RTE)
+- Surviving-Monitor Gatekeeping (SMG)
+- Dormant-Sentinel Recall Bias (DSRB)
+- Reactivation Trigger Ancestry Graph (RTAG)
+- Trigger Exteriority (TE)
+- Exterior Reactivation Route (ERR)
+- Trigger Nullspace
+- Reopenability Gap (RG)
+- Dormant Recall Calibration (DRC)
+- Trigger Escape Test (TET)
+- Recall Counterfactual Replay (RCR)
+- Reopening Trigger Ledger (RTL)
+- Reopening-Closure Authority Ceiling (RCAC)
+- reopening states `RX-0..RX-5`
 
-- Sentinel Surface / Sentinel-Surface Closure (SSC)
-- Monitoring-Induced Blindness (MIB)
-- Monitor-Ancestry Graph (MAG)
-- Exterior Sentinel Route (ESR)
-- Sentinel Representation Escape (SRE)
-- Blind-Spot Injection Test (BIT)
-- Monitoring Exteriority Profile (MEP)
-- Monitoring-Portfolio Convergence (MPC)
-- Sentinel Success Selection (SSS)
-- Success-Induced Ancestry Collapse (SIAC)
-- Adaptive Blind-Spot Migration (ABM)
-- Monitoring-Ecology Genealogy Graph (MEGG)
-- Monitor Promotion Receipt (MPR)
-- Failure-Surface Marginal Contribution (FSMC)
-- Monitoring Exteriority Reserve (MER)
-- Promotion Counterfactual Test (PCT)
-- Blind-Spot Migration Probe (BMP)
-- Common-Mode Surveillance Ecology (CMSE)
-- Sentinel Extinction (SE)
-- Counterfactual Monitor Irrecoverability (CMI)
-- Evidence-of-Absence Feedback (EAF)
-- Retirement-Conditioned Observability Loss (RCOL)
-- Retirement Counterfactual Packet (RCP)
-- Minimum Reconstitution Set (MRS)
-- Shadow Retirement Window (SRW)
-- Retired-Route Resurvey (R3)
-- Retirement-Selection Leakage (RSL)
-- Retirement Diversity Debt (RDD)
-- retirement states `RET-0..RET-5`
+## Trigger ancestry guard
 
-## Retirement as evidence intervention
+Trace the signal source, representation, threshold, admission authority, severity rule and surviving-monitor dependencies of each reactivation trigger. Organizationally separate review does not create trigger exteriority when all evidence inputs descend from the incumbent failure grammar.
 
-Retiring a monitor can change which events remain observable, whether a baseline continues, whether a replacement can be stress-tested against the old route, and whether lost skills/materials can be recreated.
+## Exterior route rule
 
-`RETIRE -> NO ROUTE TO OBSERVE -> NO NEW DETECTIONS` must never be converted into evidence that the route was redundant.
+An Exterior Reactivation Route may use periodic or coverage-based recall, preserved raw-event review, independent recoding, cross-infrastructure signals, external physical references, successor-only evidence or direct external scientific standing. No single mechanism is universal.
 
-## Redundancy guard
+`EXTERIOR ACCESS != AUTOMATIC REACTIVATION`.
 
-Retirement authority should be portfolio-relative and, where load-bearing, prospectively supported by replacement agreement under relevant perturbations. Raw low hit count is insufficient because it confounds rarity, exposure, sensitivity, jurisdiction and prevention.
+Existing reopening burdens still apply: relevance, consequence-bearing distinction, evidential basis and staged pilot where appropriate.
 
-`LOW HIT COUNT != LOW MARGINAL DEFEAT CAPACITY`.
+## Trigger-nullspace guard
 
-## Reconstitution guard
+For each dormant route distinguish its retained target failure family from the subset capable of activating its recall rule. If authority credit relies on failures outside the triggerable subset, declare a Reopenability Gap or provide a materially noncommon trigger path.
 
-Before an irreversible retirement, preserve a Minimum Reconstitution Set where feasible: executable configuration, calibration/schema versions, representative raw evidence, hardware/reference specifications, critical materials, operator procedures and replacement-comparison receipts.
+## Recall calibration
 
-`REIMPLEMENTABLE CODE != RECONSTITUTABLE MONITOR`.
+Where proportionate, periodically or conditionally test dormant-route reconstruction and trigger reachability through bounded DRC/TET/RCR procedures. No universal cadence or permanent dual-monitoring requirement is imposed.
 
-## Retirement states
+## Trigger transport
 
-- `RET-0 ACTIVE`
-- `RET-1 DORMANT-RESTARTABLE`
-- `RET-2 ARCHIVED-RECONSTITUTABLE`
-- `RET-3 PARTIALLY-IRRECOVERABLE`
-- `RET-4 EXTINCT`
-- `RET-5 EXTINCTION-ACKNOWLEDGED`
+Trigger exteriority is versioned. A formerly exterior trigger can become incumbent-dependent after data retention changes, reference loss, institutional absorption, threshold rewriting or monitor-stack convergence.
 
-These are custody/authority states, not monitor-quality rankings.
+## Reopening states
 
-## Shadow and resurvey routes
+- `RX-0 NOMINAL`
+- `RX-1 INCUMBENT-GATED`
+- `RX-2 MIXED-TRIGGER`
+- `RX-3 EXTERIOR-REACHABLE`
+- `RX-4 ESCAPE-DEMONSTRATED`
+- `RX-5 REOPENING-CORRIGIBLE`
 
-Where scientifically valid and proportionate, use bounded shadow retirement or later retired-route resurvey to test whether surviving monitors systematically miss signals that the retired route would have exposed. Permanent dual operation is not required.
+## Prior-art / genealogy firewall
 
-## Diversity debt
+MQR-2.81-A already established `TRIGGER EXISTENCE != TRIGGER INTEGRITY` for strategic trigger capture. MQR-3.146 adds only the post-retirement observability-and-admission layer, including nonstrategic cases where the surviving monitor ecology structurally controls what can become a recall signal.
 
-If retirement removes the last materially noncommon route against a broad claim, incur Retirement Diversity Debt. Discharge it through a credible restart reserve, materially noncommon replacement, bounded external challenge route, claim narrowing or explicit authority ceiling.
+## Authority ceiling
 
-## Anti-entitlement rule
-
-Historical existence does not create permanent funding entitlement. Low-yield or redundant monitors may be retired. The invariant is narrower: retirement must not manufacture its own evidential vindication by destroying the route that could show the decision was wrong.
+Broad authority cannot count dormant-route challenge capacity at full strength when all recall routes are `RX-0/1`. Lift the ceiling through an operational ERR, successful trigger-escape receipt, materially noncommon trigger path, claim narrowing or abandonment of dormant-route authority credit.
 
 ## Origin rule
 
-**Retirement earns authority when it preserves a route to defeat the retirement decision itself.**
+**A dormant challenge is live only if some path to wake it survives the blindness it exists to test.**
