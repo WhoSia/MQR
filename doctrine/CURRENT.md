@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.144**.
+Status: live through **MQR-3.145**.
 
 ## Current compression
 
@@ -34,9 +34,14 @@ Status: live through **MQR-3.144**.
 28. **Detection yield ≠ marginal portfolio authority.** Portfolio value is nonseparable and failure-surface-relative.
 29. **Standardized exteriority ≠ persistent exteriority.** Successful exterior monitors can become common-mode through promotion, reuse and shared infrastructure.
 30. **Turnover ≠ genealogical diversification.** Replacing detectors without changing load-bearing ancestry does not restore monitoring exteriority.
-31. **A monitoring ecology must preserve capacity to mutate away from its own success.** No fixed diversity quota is required, but broad authority requires some live noncommon path over the relevant horizon.
-32. **Governance veto ≠ world refutation.**
-33. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+31. **Low recent yield ≠ epistemic redundancy.** Retirement must be justified relative to exposure, jurisdiction, replacement coverage and failure-surface contribution.
+32. **Post-retirement silence ≠ retirement validation.** Destroying an observation route cannot manufacture evidence that its target failure family is absent.
+33. **Archived description ≠ recoverable monitoring capacity.** Code and documents may survive while sensor geometry, baseline, access, materials or tacit skill become irrecoverable.
+34. **Better replacement ≠ lossless monitor succession.** A successor can improve average performance while deleting a unique noncommon defeat route.
+35. **Retirement earns authority when it preserves a route to defeat the retirement decision itself.** No universal retirement threshold or permanent sentinel entitlement is required.
+36. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
+37. **Governance veto ≠ world refutation.**
+38. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -82,6 +87,17 @@ Status: live through **MQR-3.144**.
 - Promotion Counterfactual Test (PCT)
 - Blind-Spot Migration Probe (BMP)
 - Common-Mode Surveillance Ecology (CMSE)
+- Sentinel Extinction (SE)
+- Counterfactual Monitor Irrecoverability (CMI)
+- Evidence-of-Absence Feedback (EAF)
+- Retirement-Conditioned Observability Loss (RCOL)
+- Retirement Counterfactual Packet (RCP)
+- Minimum Reconstitution Set (MRS)
+- Shadow Retirement Window (SRW)
+- Retired-Route Resurvey (R3)
+- Retirement-Selection Leakage (RSL)
+- Retirement Diversity Debt (RDD)
+- retirement states `RET-0..RET-5`
 
 ## Repository doctrine
 
