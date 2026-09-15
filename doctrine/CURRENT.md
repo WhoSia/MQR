@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.142**.
+Status: live through **MQR-3.143**.
 
 ## Current compression
 
@@ -26,9 +26,12 @@ Status: live through **MQR-3.142**.
 20. **Executable crosswalk ≠ currently valid bridge.** Population, workflow, successor-version and target changes can invalidate transport without changing the code.
 21. **Successor quality ≠ bridge quality.** Native successor fitness and longitudinal transport authority are distinct.
 22. **Bridge repair ≠ retroactive bridge authority.** Revised bridges remain versioned derived objects.
-23. **Stable repeated sentinels ≠ universal transportability.** Stability extends authority only over earned support.
-24. **Governance veto ≠ world refutation.**
-25. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+23. **Monitor stability ≠ bridge stability.** A stable detector only supports failure modes that its sentinel surface could expose.
+24. **Sentinel coverage ≠ failure-space coverage.** Detector plurality sharing one ancestry does not create multiple monitoring surfaces.
+25. **Long quiet run ≠ broad failure exclusion.** Silence outside the monitor's reachable deviation grammar is not negative evidence.
+26. **Monitoring exteriority is corrigibility capacity, not meta-omniscience.** Preserve bounded routes that can force mutation of what counts as watchable; do not posit a universal meta-monitor.
+27. **Governance veto ≠ world refutation.**
+28. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -59,6 +62,14 @@ Status: live through **MQR-3.142**.
 - Population-Shift Replay (PSR)
 - Bridge Reopenability Reserve (BRR)
 - Irreversible Cutover Debt (ICD)
+- Sentinel Surface
+- Monitor-Ancestry Graph (MAG)
+- Exterior Sentinel Route (ESR)
+- Sentinel Representation Escape (SRE)
+- Blind-Spot Injection Test (BIT)
+- Monitor Counterfactual Test (MCT)
+- Monitoring Exteriority Profile (MEP)
+- Monitoring-Closure Authority Ceiling (MCAC)
 
 ## Repository doctrine
 
