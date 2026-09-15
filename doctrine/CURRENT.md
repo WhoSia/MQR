@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.145**.
+Status: live through **MQR-3.146**.
 
 ## Current compression
 
@@ -39,9 +39,14 @@ Status: live through **MQR-3.145**.
 33. **Archived description ≠ recoverable monitoring capacity.** Code and documents may survive while sensor geometry, baseline, access, materials or tacit skill become irrecoverable.
 34. **Better replacement ≠ lossless monitor succession.** A successor can improve average performance while deleting a unique noncommon defeat route.
 35. **Retirement earns authority when it preserves a route to defeat the retirement decision itself.** No universal retirement threshold or permanent sentinel entitlement is required.
-36. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
-37. **Governance veto ≠ world refutation.**
-38. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+36. **Trigger existence ≠ trigger exteriority.** A dormant route is not meaningfully reopenable if all evidence capable of waking it must first be recognized by the monitoring ecology it exists to challenge.
+37. **Restartable capacity ≠ reopenable challenge.** Hardware, code and reconstruction readiness do not substitute for a live evidence-to-recall path.
+38. **Surviving-monitor silence ≠ no reactivation-worthy failure.** Trigger nullspaces and gatekeeping ancestry must be explicit.
+39. **Once-exterior trigger ≠ permanently exterior trigger.** Reactivation routes can be absorbed into incumbent infrastructure and require lifecycle revalidation.
+40. **A dormant challenge is live only if some path to wake it survives the blindness it exists to test.**
+41. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
+42. **Governance veto ≠ world refutation.**
+43. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -98,6 +103,16 @@ Status: live through **MQR-3.145**.
 - Retirement-Selection Leakage (RSL)
 - Retirement Diversity Debt (RDD)
 - retirement states `RET-0..RET-5`
+- Reactivation Trigger Ancestry Graph (RTAG)
+- Trigger Exteriority (TE)
+- Exterior Reactivation Route (ERR)
+- Trigger Nullspace / Reopenability Gap (RG)
+- Dormant Recall Calibration (DRC)
+- Trigger Escape Test (TET)
+- Recall Counterfactual Replay (RCR)
+- Reopening Trigger Ledger (RTL)
+- Reopening-Closure Authority Ceiling (RCAC)
+- reopening states `RX-0..RX-5`
 
 ## Repository doctrine
 
