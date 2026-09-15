@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.146**.
+Status: live through **MQR-3.147**.
 
 ## Current compression
 
@@ -44,9 +44,16 @@ Status: live through **MQR-3.146**.
 38. **Surviving-monitor silence ≠ no reactivation-worthy failure.** Trigger nullspaces and gatekeeping ancestry must be explicit.
 39. **Once-exterior trigger ≠ permanently exterior trigger.** Reactivation routes can be absorbed into incumbent infrastructure and require lifecycle revalidation.
 40. **A dormant challenge is live only if some path to wake it survives the blindness it exists to test.**
-41. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
-42. **Governance veto ≠ world refutation.**
-43. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+41. **QC flag ≠ world rejection; out-of-support ≠ out-of-world.** A retrieval pipeline may be unable to interpret a structured signal without licensing its deletion as a world-level defeater.
+42. **Validation conflict ≠ instrument defeat.** Cross-route disagreement creates a typed HOLD and demand for a noncommon discriminator, not automatic sovereignty for either route.
+43. **Validation authority ≠ validator infallibility.** A trusted ground-truth role still requires calibration, provenance and failure-mode receipts.
+44. **Anomaly preservation ≠ anomaly belief.** Preserving an adverse receipt and lowering interpretive authority is distinct from promoting the anomaly to truth.
+45. **Earlier internal anomaly detection ≠ earlier public discovery.** Historical replay must distinguish acquisition, processing, anomaly recognition, validation, publication and public recognition.
+46. **Historical counterfactual governance advantage ≠ historical priority claim.** MQR may claim a better typed authority/escalation rule only where the frozen record supports it.
+47. **Historical modules activate selectively.** Do not force every constitutional layer onto every famous scientific episode.
+48. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
+49. **Governance veto ≠ world refutation.**
+50. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -113,6 +120,10 @@ Status: live through **MQR-3.146**.
 - Reopening Trigger Ledger (RTL)
 - Reopening-Closure Authority Ceiling (RCAC)
 - reopening states `RX-0..RX-5`
+
+## Historical replay discipline
+
+Historical world-contact stress tests must freeze contemporaneous information, separate detection from processing/validation/publication, correct retrospective myths before scoring MQR, activate only materially implicated modules, and treat later truth as adjudication rather than input.
 
 ## Repository doctrine
 
