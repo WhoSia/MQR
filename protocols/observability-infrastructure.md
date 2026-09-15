@@ -1,8 +1,8 @@
-# Infrastructure-Transition, Bridge-Stability & Monitoring-Exteriority Protocol
+# Infrastructure-Transition, Bridge-Stability & Monitoring-Ecology Protocol
 
-Canonical stage: **MQR-3.143**
+Canonical stage: **MQR-3.144**
 
-This file is the living successor of MQR-3.140–3.142. It retains observability, transition and bridge-lifecycle rules while adding monitoring-exteriority governance.
+This file is the living successor of MQR-3.140–3.143. It retains observability, transition, bridge-lifecycle and monitoring-exteriority rules while adding monitoring-portfolio evolution governance.
 
 ## Core laws
 
@@ -14,71 +14,97 @@ This file is the living successor of MQR-3.140–3.142. It retains observability
 - `MONITOR STABILITY != BRIDGE STABILITY`
 - `SENTINEL COVERAGE != FAILURE-SPACE COVERAGE`
 - `MULTIPLE DETECTORS != MULTIPLE FAILURE SURFACES`
-- `LONG QUIET RUN != BROAD FAILURE EXCLUSION`
-- `MONITORING EXTERIORITY = CORRIGIBILITY CAPACITY, NOT META-OMNISCIENCE`
+- `MONITOR SUCCESS != PORTFOLIO FITNESS`
+- `DETECTION YIELD != MARGINAL PORTFOLIO AUTHORITY`
+- `TURNOVER != GENEALOGICAL DIVERSIFICATION`
+- `STANDARDIZED EXTERIORITY != PERSISTENT EXTERIORITY`
+- `MONITOR COUNT != SURVEILLANCE ECOLOGY DIVERSITY`
 
 ## Lifecycle
 
-`PRESEAL -> OVERLAP -> BRIDGE -> CUTOVER -> MONITOR -> REAUTHORIZE / REVISE / BREAK`
+`PRESEAL -> OVERLAP -> BRIDGE -> CUTOVER -> MONITOR -> PORTFOLIO EVOLVE -> REAUTHORIZE / REVISE / BREAK`
 
-Monitoring is itself part of the authority surface and must remain defeasible.
+Monitoring is part of the authority surface, and the portfolio selection rule must itself remain defeasible.
 
-## Sentinel surface
+## Monitoring ecology
 
-For each load-bearing bridge, distinguish the full live failure family from the subset reachable through deployed sentinel features, detector objectives and alarm semantics.
+Treat deployed monitors as an evolving portfolio with ancestry, representation, objective, physical route, cost, covered failure surface, promotion history, replacement cost and demonstrated escape history.
 
-`NO ALARM != NO BRIDGE FAILURE`.
+Portfolio authority depends on **joint reachable defeat geometry**, not detector count or aggregate hit rate.
 
-## Live monitoring objects
+## Live monitoring-ecology objects
 
-- Sentinel Surface
-- Sentinel-Surface Closure (SSC)
+- Sentinel Surface / Sentinel-Surface Closure (SSC)
 - Monitoring-Induced Blindness (MIB)
-- Structural Drift-Detector Goodharting
 - Monitor-Ancestry Graph (MAG)
-- Monitoring Exteriority
 - Exterior Sentinel Route (ESR)
 - Sentinel Representation Escape (SRE)
 - Blind-Spot Injection Test (BIT)
-- Monitor Counterfactual Test (MCT)
 - Monitoring Exteriority Profile (MEP)
-- Monitoring-Closure Authority Ceiling (MCAC)
-- monitoring states `MX-0..MX-4`
+- Monitoring-Portfolio Convergence (MPC)
+- Sentinel Success Selection (SSS)
+- Success-Induced Ancestry Collapse (SIAC)
+- Adaptive Blind-Spot Migration (ABM)
+- Monitoring-Ecology Genealogy Graph (MEGG)
+- Monitor Promotion Receipt (MPR)
+- Failure-Surface Marginal Contribution (FSMC)
+- Monitoring Exteriority Reserve (MER)
+- Promotion Counterfactual Test (PCT)
+- Blind-Spot Migration Probe (BMP)
+- Common-Mode Surveillance Ecology (CMSE)
+- evolution states `MEC-0..MEC-5`
 
-## Monitoring-exteriority rule
+## Success-selection guard
 
-At least one live route should be able to trigger bridge review without first requiring the deviation to be legible under the bridge's own residual grammar when broad bridge-stability authority is claimed.
+Promoting a monitor because it found an important failure is legitimate, but repeated promotion can standardize its representation, labels, infrastructure and objectives across the whole ecology.
 
-Exterior routes may use materially noncommon sensors, representations, grains, preserved anomaly streams, independent recoding, coverage samples, successor-only measurements or lower-level/raw audits. No single route is universally required.
+`DETECT -> PROMOTE -> STANDARDIZE -> REUSE -> COMMON ANCESTRY -> NEW BLIND SURFACE`
 
-## Stable-sentinel guard
+Historic independent origin does not imply current monitoring noncommonness.
 
-Quiet operation increases confidence only over failure modes that the monitoring surface could expose. Long runs without alarms must not be laundered into broad evidence against unmonitored failure families.
+## Portfolio-value guard
 
-## Monitor ancestry
+Evaluate a monitor relative to the current portfolio. High detection yield can add little authority when close relatives already cover the same failure surface; a low-frequency monitor can remain valuable when it uniquely preserves a noncommon defeat route.
 
-Detector count is not monitoring diversity. Collapse monitors that share load-bearing ancestry in feature representation, objective, training/reference window, bridge residual definition, ground-truth source or measurement route.
+No universal scalar FSMC formula is required.
 
-## Monitoring states
+## Baseline-mutation separation
 
-- `MX-0 CLOSED` — all monitors descend from incumbent bridge grammar
-- `MX-1 PLURAL-COMMON-SURFACE` — multiple detectors, materially shared failure surface
-- `MX-2 NONCOMMON-SENTINEL` — at least one protected exterior sentinel route
-- `MX-3 ESCAPE-DEMONSTRATED` — an exterior route exposed an official sentinel blind spot
-- `MX-4 RECONSTITUTED` — monitoring surface expanded and the successor bridge faces fresh risk
+Maintain functional distinction among:
 
-## Regress guard
+1. baseline continuity monitors;
+2. adaptive exploitation monitors for known active risks;
+3. mutation/exterior monitors that can search outside the dominant failure grammar.
 
-Do not create an infinite monitor-of-monitor hierarchy. No monitor claims open-world completeness; instead preserve bounded noncommon monitoring routes, anomaly channels and explicit blind-surface custody.
+No fixed diversity share or quota is constitutionalized.
 
-## Allocation guard
+## Exteriority reserve
 
-Exterior monitoring is not permanent entitlement. Use staged allocation when valid:
+When broad monitoring authority is claimed, some live noncommon monitoring path must survive over the relevant horizon. The reserve may reside in raw channels, alternate references, reconfigurable sensors, independent recoding, archived anomaly streams, bounded external routes or restartable legacy monitors.
 
-`REGISTER -> CHEAP SENTINEL/PILOT -> DISCRIMINATE -> ESCALATE`
+## Promotion counterfactual
 
-Retiring a low-yield route is allowed if the distinction between `NOT MONITORED` and `MONITORED STABLE` remains explicit.
+Before institutionalizing a successful monitor, audit which independent routes become cheaper, redundant, extinct or expensive to rebuild. Promotion decisions are versioned through MPRs.
+
+## Rotation guard
+
+Changing detector names, vendors, sites or versions does not create diversity if replacements inherit the same load-bearing representation and objective ancestry.
+
+## Evolution states
+
+- `MEC-0 FRAGMENTED`
+- `MEC-1 COORDINATED`
+- `MEC-2 CONVERGING`
+- `MEC-3 COMMON-MODE`
+- `MEC-4 MUTATION-RESERVED`
+- `MEC-5 EVOLUTIONARILY-CORRIGIBLE`
+
+## Retirement custody
+
+A monitor may be retired for redundancy, cost or low yield, but preserve its ancestry, covered failure surface, replacement relation, lost unique route, restart feasibility and effect on MER.
+
+`LOW RECENT YIELD` alone is not evidence of epistemic redundancy.
 
 ## Origin rule
 
-**A monitor earns authority not by watching everything, but by remaining vulnerable to failures that force it to change what counts as watchable.**
+**A monitoring ecology earns long-run authority by preserving the capacity to mutate away from its own success.**
