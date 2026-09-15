@@ -1,8 +1,8 @@
 # Infrastructure-Transition, Bridge-Stability & Monitoring-Ecology Protocol
 
-Canonical stage: **MQR-3.146**
+Canonical stage: **MQR-3.147**
 
-This file is the living successor of MQR-3.140–3.145. It retains observability, transition, bridge-lifecycle, monitoring-exteriority, portfolio-evolution and retirement-reversibility rules while adding reopening-trigger exteriority governance.
+This file is the living successor of MQR-3.140–3.146. It retains the observability, transition, bridge-lifecycle, monitoring-exteriority, portfolio-evolution, retirement-reversibility and reopening-trigger rules, now stress-tested against the corrected 1983–1985 Antarctic ozone-hole chronology.
 
 ## Core laws
 
@@ -13,89 +13,79 @@ This file is the living successor of MQR-3.140–3.145. It retains observability
 - `ONCE VALID != PERMANENTLY TRANSPORTABLE`
 - `MONITOR STABILITY != BRIDGE STABILITY`
 - `SENTINEL COVERAGE != FAILURE-SPACE COVERAGE`
-- `MULTIPLE DETECTORS != MULTIPLE FAILURE SURFACES`
 - `MONITOR SUCCESS != PORTFOLIO FITNESS`
-- `DETECTION YIELD != MARGINAL PORTFOLIO AUTHORITY`
-- `TURNOVER != GENEALOGICAL DIVERSIFICATION`
-- `STANDARDIZED EXTERIORITY != PERSISTENT EXTERIORITY`
 - `LOW RECENT YIELD != EPISTEMIC REDUNDANCY`
-- `NO OBSERVATION AFTER RETIREMENT != EVIDENCE OF ABSENCE`
-- `ARCHIVED DESCRIPTION != RECOVERABLE MONITORING CAPACITY`
-- `POST-RETIREMENT SILENCE != RETIREMENT VALIDATION`
-- `BETTER REPLACEMENT != LOSSLESS MONITOR SUCCESSION`
 - `TRIGGER EXISTENCE != TRIGGER EXTERIORITY`
 - `RESTARTABLE CAPACITY != REOPENABLE CHALLENGE`
-- `SURVIVING-MONITOR SILENCE != NO REACTIVATION-WORTHY FAILURE`
-- `ONCE-EXTERIOR TRIGGER != PERMANENTLY EXTERIOR TRIGGER`
+- `QC FLAG != WORLD REJECTION`
+- `OUT-OF-SUPPORT != OUT-OF-WORLD`
+- `VALIDATION CONFLICT != INSTRUMENT DEFEAT`
+- `VALIDATION AUTHORITY != VALIDATOR INFALLIBILITY`
+- `ANOMALY PRESERVATION != ANOMALY BELIEF`
+- `EARLIER INTERNAL ANOMALY DETECTION != EARLIER PUBLIC DISCOVERY`
 
 ## Lifecycle
 
 `PRESEAL -> OVERLAP -> BRIDGE -> CUTOVER -> MONITOR -> PORTFOLIO EVOLVE -> RETIRE / DORMANT -> TRIGGER / RECALL -> REAUTHORIZE / REVISE / BREAK`
 
-A dormant monitor earns authority credit only when the evidence path that can wake it remains scientifically reachable.
+The historical stress result adds no new constitutional coordinate. It tests whether the existing lifecycle produces non-vacuous, chronology-respecting authority states.
 
-## Reopening-trigger exteriority
+## Ozone-hole historical stress result
 
-A restart condition written on paper is insufficient. When a dormant route exists to cover a blind surface of the surviving monitoring ecology, at least one load-bearing recall path must not require that same failure to be recognized by the incumbent ecology first.
+The popular story that NASA discovered discarded low-ozone satellite data only after Farman et al. (1985) is rejected. The corrected chronology is:
 
-## Live reopening objects
+1. BAS reported very low Halley ozone and sought satellite confirmation in October 1983.
+2. October 1983 TOMS/SBUV data were not processed until June 1984 because processing lagged by roughly nine months.
+3. When processed, the very low Antarctic values were surfaced quickly; out-of-support values were flagged because the retrieval family used standard ozone profiles spanning roughly 200–650 DU.
+4. Instrument/satellite failure was considered and quickly reduced as an explanation.
+5. Trusted South Pole ground validation then contradicted the satellite result with apparently normal values; those ground values were later judged erroneous.
+6. Fresh South Pole data in October 1984 confirmed the low satellite values; a NASA abstract was submitted in December 1984, before the May 1985 Farman paper.
 
-- Reactivation-Trigger Endogeneity (RTE)
-- Surviving-Monitor Gatekeeping (SMG)
-- Dormant-Sentinel Recall Bias (DSRB)
-- Reactivation Trigger Ancestry Graph (RTAG)
-- Trigger Exteriority (TE)
-- Exterior Reactivation Route (ERR)
-- Trigger Nullspace
-- Reopenability Gap (RG)
-- Dormant Recall Calibration (DRC)
-- Trigger Escape Test (TET)
-- Recall Counterfactual Replay (RCR)
-- Reopening Trigger Ledger (RTL)
-- Reopening-Closure Authority Ceiling (RCAC)
-- reopening states `RX-0..RX-5`
+Therefore the case is not a simple `AUTOMATIC QC HID DISCOVERY` story. It is a compound case of retrieval-support limitation, processing latency, validation-route conflict and incomplete cross-network information flow.
 
-## Trigger ancestry guard
+## Frozen-time authority trajectory
 
-Trace the signal source, representation, threshold, admission authority, severity rule and surviving-monitor dependencies of each reactivation trigger. Organizationally separate review does not create trigger exteriority when all evidence inputs descend from the incumbent failure grammar.
+- `1983 HALLEY SIGNAL -> NONCOMMON GROUND SIGNAL / CROSS-INFRASTRUCTURE REVIEW REQUEST`
+- `JUNE 1984 SATELLITE ANOMALY -> OBSERVABILITY SUPPORT BREACH / FLAG-PRESERVE / RETRIEVAL AUTHORITY HOLD`
+- `GROUND-SATELLITE CONFLICT -> CROSS-INFRASTRUCTURE DISCORDANCE / NO INSTRUMENT SOVEREIGNTY / SEEK NONCOMMON WITNESS`
+- `OCT-DEC 1984 CONFIRMATION -> CROSS-ROUTE CONVERGENCE / SUPPORT-EXTENDING RETRIEVAL AUTHORIZED / CAUSAL ATTRIBUTION STILL OPEN`
 
-## Exterior route rule
+## Selective activation guard
 
-An Exterior Reactivation Route may use periodic or coverage-based recall, preserved raw-event review, independent recoding, cross-infrastructure signals, external physical references, successor-only evidence or direct external scientific standing. No single mechanism is universal.
+The historical case strongly activates:
 
-`EXTERIOR ACCESS != AUTOMATIC REACTIVATION`.
+- MQR-3.140 Observability-Infrastructure;
+- MQR-3.142 Bridge-Succession Stability;
+- MQR-3.143 Monitoring Exteriority.
 
-Existing reopening burdens still apply: relevance, consequence-bearing distinction, evidential basis and staged pilot where appropriate.
+It activates MQR-3.141 and MQR-3.144 only moderately. MQR-3.145 retirement reversibility is not central and must not be force-fit. MQR-3.146 is only partially analogous because the historical routes were not literally retired/dormant sentinels.
 
-## Trigger-nullspace guard
+A framework does not gain authority by claiming every module explains every famous episode.
 
-For each dormant route distinguish its retained target failure family from the subset capable of activating its recall rule. If authority credit relies on failures outside the triggerable subset, declare a Reopenability Gap or provide a materially noncommon trigger path.
+## Validation asymmetry guard
 
-## Recall calibration
+When an unprecedented primary measurement conflicts with a trusted validator, caution is legitimate. But the validator must itself carry provenance, calibration/support and failure-mode receipts.
 
-Where proportionate, periodically or conditionally test dormant-route reconstruction and trigger reachability through bounded DRC/TET/RCR procedures. No universal cadence or permanent dual-monitoring requirement is imposed.
+`GROUND TRUTH` is an authority role, not an infallibility status.
 
-## Trigger transport
+## Counterfactual claim limit
 
-Trigger exteriority is versioned. A formerly exterior trigger can become incumbent-dependent after data retention changes, reference loss, institutional absorption, threshold rewriting or monitor-stack convergence.
+MQR does **not** claim that it would have discovered the ozone hole years earlier or displaced BAS priority.
 
-## Reopening states
+The defensible counterfactual is narrower: MQR could have made the June–October 1984 authority state more explicit and potentially reduced untyped validation delay by preserving out-of-support receipts, separating `RETRIEVAL UNSUPPORTED` from `MEASUREMENT REFUTED`, auditing validator provenance, and routing matching noncommon signals directly across infrastructure boundaries.
 
-- `RX-0 NOMINAL`
-- `RX-1 INCUMBENT-GATED`
-- `RX-2 MIXED-TRIGGER`
-- `RX-3 EXTERIOR-REACHABLE`
-- `RX-4 ESCAPE-DEMONSTRATED`
-- `RX-5 REOPENING-CORRIGIBLE`
+This is a governance advantage claim, not a priority claim.
 
-## Prior-art / genealogy firewall
+## Historical replay discipline
 
-MQR-2.81-A already established `TRIGGER EXISTENCE != TRIGGER INTEGRITY` for strategic trigger capture. MQR-3.146 adds only the post-retirement observability-and-admission layer, including nonstrategic cases where the surviving monitor ecology structurally controls what can become a recall signal.
+For historical cases:
 
-## Authority ceiling
-
-Broad authority cannot count dormant-route challenge capacity at full strength when all recall routes are `RX-0/1`. Lift the ceiling through an operational ERR, successful trigger-escape receipt, materially noncommon trigger path, claim narrowing or abandonment of dormant-route authority credit.
+1. freeze the contemporaneous information state;
+2. distinguish detection time from processing, validation, publication and public-recognition time;
+3. correct retrospective myths before evaluating MQR;
+4. activate only the constitutional modules materially implicated by the historical record;
+5. treat later truth as adjudication, not as an input to the frozen-time verdict.
 
 ## Origin rule
 
-**A dormant challenge is live only if some path to wake it survives the blindness it exists to test.**
+**When a measurement falls outside the infrastructure that knows how to interpret it, preserve the contact, lower interpretive authority, and seek a genuinely noncommon discriminator.**
