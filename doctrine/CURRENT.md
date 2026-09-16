@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.148**.
+Status: live through **MQR-3.149**.
 
 ## Current compression
 
@@ -59,9 +59,18 @@ Status: live through **MQR-3.148**.
 53. **Theory conflict ≠ instrument-fault localization.** Theoretical pressure can lower interpretation authority without identifying which measurement component failed.
 54. **Surprise changes the probe burden, not the truth standard.** Radical anomalies deserve preservation and aggressive discrimination, not privileged belief or automatic suppression.
 55. **Repair confirmation requires intervention plus convergence.** A suspicious component earns causal localization only when repair/recalibration produces the predicted effect and materially noncommon routes agree.
-56. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
-57. **Governance veto ≠ world refutation.**
-58. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+56. **Preserve ≠ believe ≠ fully fund.** Anomaly custody, authority and resource allocation are separate decisions.
+57. **Budget matching ≠ cost fiction.** Compare probe opportunity classes when historical dollar-equivalence is not identifiable.
+58. **Predictive sufficiency ≠ epistemic sufficiency.** A representation can predict well while deleting distinctions needed to discover model failure.
+59. **Latent compression ≠ ontological closure.** Task-irrelevant under one objective may be authority-relevant under a future defeat route.
+60. **Low prediction error ≠ high realist authority.** World-level authority depends on measurement ancestry, intervention and reachable defeat, not predictive fit alone.
+61. **Truth-seeking constitution ≠ truth loss function.** Corrigibility, anomaly custody, representation escape and authority typing should not be silently collapsed into one optimized scalar.
+62. **Science label ≠ world-contact receipt.** Inquiry authority should be typed by how the world can resist a claim, not by disciplinary prestige alone.
+63. **Nonexperimental ≠ nonempirical.** Domains with weak intervention can still possess constrained, defeasible world contact, but must carry lower or differently typed authority where defeat routes are weaker.
+64. **Same constitution + different world contact can yield different authority trajectories.** A hindsight-blind method earns strength by routing later-true and later-artifactual anomalies toward discriminators that separate them.
+65. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
+66. **Governance veto ≠ world refutation.**
+67. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
 
 ## Live governance objects
 
@@ -131,6 +140,13 @@ Status: live through **MQR-3.148**.
 - Failure-Localization Matrix (FLM)
 - signed systematic ledger
 - Repair-Confirmation Receipt (RepCR)
+- Matched Probe Opportunity Budget (MPOB)
+- Epistemic World Model (EWM), candidate implementation wrapper
+- World-Resistance Learning (WRL), candidate learning constitution
+
+## Epistemic world-model bridge
+
+MQR does not compete with predictive world-model architectures such as JEPA at the representation-learning layer. Its candidate contribution is a constitutional wrapper that tracks measurement/contact models, live rivals, discriminator topology, authority scope and representation-reopening capacity. The key research question is whether a learned representation can remain vulnerable to world-forced distinctions that were not useful under its current predictive objective.
 
 ## Historical replay discipline
 
