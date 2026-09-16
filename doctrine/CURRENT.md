@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.149**.
+Status: live through **MQR-3.153**.
 
 ## Current compression
 
@@ -71,6 +71,14 @@ Status: live through **MQR-3.149**.
 65. **A monitoring ecology must preserve capacity to mutate away from its own success.** Broad authority requires some live noncommon path over the relevant horizon.
 66. **Governance veto ≠ world refutation.**
 67. **Successor vulnerability is corrigibility capacity, not a completeness proof.**
+68. **Predictive equivalence ≠ epistemic equivalence.** A latent quotient may be sufficient for current prediction while deleting distinctions needed for future defeat.
+69. **Quotient break ≠ kind birth.** A world-forced split begins as a provisional distinction, not permanent ontic promotion.
+70. **Stable residual ≠ natural kind.** Residual structure may trigger inquiry but cannot skip fresh stress and recombination pressure.
+71. **Split success ≠ split persistence warrant.** A retained distinction earns authority when its erasure destroys fresh world-facing competence at the declared scope.
+72. **Pairwise warrant ≠ joint warrant.** Two separately retained distinctions need not form one coherent joint ontology.
+73. **Formal composability ≠ epistemic composability.** Mathematical composition of model transformations does not by itself transport realist authority.
+74. **Order sensitivity ≠ invalidity.** Noncommuting ontology revision can reflect real conditional or historically induced structure.
+75. **Path dependence ≠ arbitrary path authority.** When revision order changes load-bearing consequences, the sequence must survive a counter-order challenge where feasible or be explicitly typed as path-dependent reality with an authority ceiling.
 
 ## Live governance objects
 
@@ -143,10 +151,23 @@ Status: live through **MQR-3.149**.
 - Matched Probe Opportunity Budget (MPOB)
 - Epistemic World Model (EWM), candidate implementation wrapper
 - World-Resistance Learning (WRL), candidate learning constitution
+- Quotient-Stability Claim (QSC)
+- Quotient-Breaking Probe (QBP)
+- Ontology-Expansion Receipt (OER)
+- Split Retention Burden (SRB)
+- Recombination Test (RT)
+- Recombination Failure Receipt / Recombination Pass Receipt (RFR/RPR)
+- Distinction Load
+- Revision Diamond
+- Quotient Composition Obstruction (QCO)
+- Joint Retention Burden (JRB)
+- Counter-Order Challenge (COC)
+- Distinction Interaction Map (DIM)
+- Order-Dependence Debt
 
 ## Epistemic world-model bridge
 
-MQR does not compete with predictive world-model architectures such as JEPA at the representation-learning layer. Its candidate contribution is a constitutional wrapper that tracks measurement/contact models, live rivals, discriminator topology, authority scope and representation-reopening capacity. The key research question is whether a learned representation can remain vulnerable to world-forced distinctions that were not useful under its current predictive objective.
+MQR does not compete with predictive world-model architectures such as JEPA at the representation-learning layer. Its candidate contribution is a constitutional wrapper that tracks measurement/contact models, live rivals, discriminator topology, authority scope and representation-reopening capacity. The key research question is whether a learned representation can remain vulnerable to world-forced distinctions that were not useful under its current predictive objective, and whether multiple such revisions remain jointly defeasible under alternative refinement orders.
 
 ## Historical replay discipline
 
