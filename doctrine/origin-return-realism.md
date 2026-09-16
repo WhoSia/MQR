@@ -1,4 +1,4 @@
-# MQR Origin-Return Realism — live through MQR-3.157
+# MQR Origin-Return Realism — live through MQR-3.158
 
 This file exists to keep MQR's founding philosophical question visible while the project continues to use technical and empirical courts.
 
@@ -37,30 +37,13 @@ Only the last supports realist promotion, and only at declared scope.
 
 ## Modal Access Profile
 
-MQR-3.157 requires every load-bearing modal exclusion to carry a typed access profile. Relevant classes include:
-
-- direct intervention/contact;
-- naturally realized contact;
-- source-to-target transported contact;
-- boundary-trace-only access;
-- currently unreachable access;
-- ill-typed/counterpossible access.
-
-Human non-performability is not world-contact impossibility.
+MQR-3.157 requires every load-bearing modal exclusion to carry a typed access profile. Relevant classes include direct, natural, transported, boundary-trace-only, unreachable, and ill-typed/counterpossible access.
 
 `NO SURGICAL INTERVENTION != NO WORLD CONTACT`.
 
 ## Access–Refusal Decomposition
 
-When an alternative does not appear, distinguish at least:
-
-- world-side exclusion;
-- access/resource/causal-horizon barriers;
-- representation/schema barriers;
-- governance or ethical barriers;
-- unresolved remainder.
-
-Failure to realize an alternative cannot certify its impossibility when the mechanism of access inherits the same assumptions that excluded the alternative in the first place.
+When an alternative does not appear, distinguish world-side exclusion from access/resource barriers, representation barriers, governance barriers, and unresolved remainder.
 
 `FAILURE TO ACCESS != EVIDENCE OF IMPOSSIBILITY` unless an independent access audit breaks that circularity.
 
@@ -72,17 +55,46 @@ Examples include finite-resource scaling, conservation-law tradeoffs, reachable 
 
 `UNREACHABLE TARGET != UNCONTACTABLE MODAL BOUNDARY`.
 
-Boundary evidence earns only the authority supported by its premises, transport, and fresh contact.
+## MQR-3.158 — boundary-evidence independence
+
+Boundary evidence must not become a theory echo. A trace has realist force only to the extent that the route by which it is predicted, measured, calibrated, transported and interpreted can disagree with the boundary claim it is meant to support.
+
+- `DERIVATIONAL ROBUSTNESS != EMPIRICAL INDEPENDENCE`
+- `MANY TRACES != MANY INDEPENDENT WORLD RESISTANCES`
+- `ASYMPTOTIC AGREEMENT != ENDPOINT REALIZATION`
+- `TRACE PREDICTED BY LAW + TRACE INTERPRETED THROUGH LAW != INDEPENDENT SUPPORT FOR LAW`
+
+### Boundary-Evidence Independence Profile
+
+Each load-bearing boundary trace should record theorem-premise ancestry, measurement/calibration ancestry, preprocessing and inference ancestry, transport-model ancestry, simulator dependence, shared assumptions with the target law, independent support for those assumptions, and whether the trace could have counted against the law under the same pipeline.
+
+### Boundary-Trace Ancestry Graph
+
+A trace is stronger when its world-to-claim path does not pass through the same load-bearing assumptions that define the inaccessible boundary. Repeated derivations or readouts sharing one decisive ancestor do not multiply world resistance.
+
+### Premise-Perturbation Test
+
+For each load-bearing premise, ask whether the boundary and its finite trace survive coherent weakening, whether the premise is independently tested, and whether the trace can distinguish premise failure from boundary failure.
+
+### Asymptotic Neighborhood Challenge
+
+An unattainable endpoint may earn authority from finite neighborhoods only when scaling predictions are prospectively stated, empirically reachable, discriminating against rivals where possible, and measured through a route that does not assume the endpoint claim.
+
+`FINITE-SCALING CONTACT CAN SUPPORT A BOUNDARY WITHOUT OBSERVING THE BOUNDARY ITSELF`.
+
+### Boundary Confirmation Ceiling
+
+If all surviving traces inherit one common untested premise family, the boundary's authority cannot outrun that family. Evidence inherited through the same premise is not re-counted each time it appears in another derivation or trace.
+
+Failure mode: `TRACE-ECHO-LAUNDERING`.
+
+Deep compression:
+
+> **A boundary trace is evidence only if it can become a wound.**
 
 ## No-go theorem firewall
 
-A mathematical no-go result does not by itself settle ontology.
-
-A no-go theorem supports modal realist authority only when:
-
-1. the derivation is valid;
-2. its premises have independent world-contact support;
-3. it generates reachable consequences or boundary traces whose failure would reopen the claim.
+A mathematical no-go result does not by itself settle ontology. Its premises need independent world-contact support, and at least some reachable consequence must be capable of reopening the claim.
 
 `NO-GO THEOREM != UNIQUE ONTOLOGICAL VERDICT`.
 
@@ -92,8 +104,6 @@ Well-grounded hypothetical interventions can carry genuine scientific content ev
 
 `COUNTERFACTUAL WELL-GROUNDEDNESS != NEW EMPIRICAL RECEIPT`.
 
-This blocks counterfactual receipt laundering while preserving the scientific role of inaccessible counterfactuals.
-
 ## Real without reduction
 
 Two levels or non-isomorphic ontologies may both be real when each carries compatible but nonredundant world-resistant exclusions.
@@ -101,21 +111,15 @@ Two levels or non-isomorphic ontologies may both be real when each carries compa
 - `NONREDUCIBILITY != ANTI-REALITY`
 - `MULTIPLE DESCRIPTIONS != MULTIPLE REALITIES`
 
-Reality is not counted by the number of vocabularies.
-
 ## Higher-Law Non-Vacuity Gate
 
-A higher-law candidate must earn more than extensional fit. It should provide cross-domain generation, modal consequences not fixed by the construction record, reachable or boundary-trace defeat routes, resistance to lookup-table reconstruction, and humility about governing-law versus Humean versus deeper-realizer metaphysics.
+A higher-law candidate must earn more than extensional fit. It should provide cross-domain generation, modal consequences not fixed by the construction record, reachable or independently grounded boundary-trace defeat routes, resistance to lookup-table reconstruction, and humility about governing-law versus Humean versus deeper-realizer metaphysics.
 
 `LAW AUTHORITY = MODAL EXCESS + REOPENABLE DEFEAT + NONVACUITY`.
 
 ## Structural and perspectival realism boundary
 
-MQR is sympathetic to realism about modal structure but does not identify modal structure with the whole of ontology.
-
 `MODAL STRUCTURE = REALIST CARRIER, NOT COMPLETE ONTOLOGY`.
-
-Scientific access may be perspectival without reality itself becoming merely perspective-relative.
 
 `PERSPECTIVAL ACCESS != PERSPECTIVE-RELATIVE REALITY`.
 
@@ -125,7 +129,9 @@ The strongest reason to preserve rival theories and methods is that they can cre
 
 `RIVAL VALUE = NEW REACHABLE WAYS FOR THE WORLD TO SAY NO`.
 
-This preserves Feyerabend's anti-monopoly insight without turning plurality itself into authority.
+MQR-3.158 adds that rival calibration and interpretation routes are also needed so that an apparent boundary scar can turn into a defeater rather than remain locked inside one theoretical language.
+
+`BOUNDARY REALISM REQUIRES INTERPRETIVE VULNERABILITY`.
 
 ## Reality / authority firewall
 
@@ -135,15 +141,9 @@ MQR governs scientific authority, not reality itself. Increasing authority for a
 
 ## Revised meaning of 'reality refuses'
 
-MQR-3.157 narrows the phrase:
-
-> Reality's refusal is not mere non-occurrence. It is the persistence of an exclusion after access failure has been separated from world failure, and after the exclusion is supported by direct/natural contact or independently grounded, reopenable boundary evidence.
-
-A useful shorthand is:
+Reality's refusal is not mere non-occurrence. It is the persistence of an exclusion after access failure has been separated from world failure, and after the exclusion is supported by direct/natural contact or independently grounded, reopenable boundary evidence.
 
 `WORLD REFUSAL = EXCLUSION + ACCESS AUDIT + REOPENABLE CONTACT`.
-
-This is constitutional shorthand, not a metaphysical reduction.
 
 ## Origin-return cycle
 
@@ -153,4 +153,4 @@ Formal machinery that does not sharpen a founding ontic or epistemic question, e
 
 ## Next pressure
 
-Boundary traces can themselves be theory-manufactured. The next audit must ask when an unreachable law earns authority from reachable scars without using the law's own assumptions twice: once to predict the trace and again to certify it.
+Independence audits still assume we know the shared premises. The next audit should ask what happens when two apparently independent boundary traces fail together and reveal a previously unknown common theoretical ancestor.
