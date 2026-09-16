@@ -1,10 +1,10 @@
-# Epistemic World Model — live note through MQR-3.153
+# Epistemic World Model — live note through MQR-3.154
 
 This is intentionally a lightweight research note, not a formal protocol mirror of the Notion stage.
 
 ## Core distinction
 
-A learned latent state can be excellent for prediction, control, or planning while collapsing distinctions that matter under a future discriminating intervention.
+A learned or scientific representation can predict and control well while collapsing distinctions needed to discover its own failure.
 
 - `PREDICTIVE EQUIVALENCE != EPISTEMIC EQUIVALENCE`
 - `TASK SUFFICIENCY != DEFEAT SUFFICIENCY`
@@ -12,77 +12,104 @@ A learned latent state can be excellent for prediction, control, or planning whi
 - `GOOD ABSTRACTION != IRREVERSIBLE ABSTRACTION`
 - `BETTER MEMORY != BETTER WORLD CONTACT`
 
-## Defeat-Relative Sufficiency
-
-For claim C, live rivals R_C, and reachable discriminator family D_C, a representation Z is **defeat-relatively sufficient** only when it preserves the distinctions already known to be needed for D_C to separate C from at least one live rival.
-
-This is local and revisable. It is not ontology completeness.
-
-## Representation Escape Reserve
-
-A truth-seeking world model needs some bounded route by which world contact can force its state space to grow. Possible routes include alternate sensors, raw/native anomaly custody where feasible, independent encoders, intervention diversity, out-of-support routing, and structured residuals that are not silently projected back into the old latent.
-
 ## Quotient-level corrigibility
 
-MQR-3.151 treats a representation-induced equivalence relation as an epistemic commitment rather than invisible preprocessing.
-
-A **Quotient-Stability Claim (QSC)** says that distinctions erased by a current representation remain irrelevant over a declared scope and challenge family.
-
-A **Quotient-Breaking Probe (QBP)** challenges that commitment through a materially noncommon world-contact route. If one previous equivalence class produces structured divergence under the probe, the correct response is representation expansion, not immediate ontology victory.
+A **Quotient-Stability Claim (QSC)** treats representation-induced equivalence as a defeasible scientific commitment. A **Quotient-Breaking Probe (QBP)** challenges that commitment through a materially noncommon world-contact route. An **Ontology-Expansion Receipt (OER)** records which prior class split and which claims change scope.
 
 `QUOTIENT BREAK != ONTOLOGY WINNER`
 
-An **Ontology-Expansion Receipt (OER)** records which prior class split, which contact forced the split, which claims lose authority, and which coarse claims remain valid.
-
 ## Recombination discipline
 
-MQR-3.152 adds the reverse direction. A world-forced split begins as a provisional distinction, not a permanent kind.
+MQR-3.152 adds the reverse direction. A world-forced split begins as provisional, not as a permanent kind.
 
 - `QUOTIENT BREAK != KIND BIRTH`
 - `STABLE RESIDUAL != NATURAL KIND`
 - `SPLIT SUCCESS != SPLIT PERSISTENCE WARRANT`
 
-A **Recombination Test** deliberately merges a newly split representation back together and asks whether fresh world-facing competence is lost.
-
-If merging preserves the relevant predictive, intervention, measurement and transport capacities, the split should be demoted or retained only as an operational convenience. If merging repeatedly destroys fresh competence under materially noncommon routes, the distinction earns scoped retention credit.
-
-This gives the EWM both ontology expansion and ontology garbage collection.
+A **Recombination Test** deliberately merges a new distinction back together. If fresh world-facing competence survives, the split is demoted or kept only operationally. If merging repeatedly destroys fresh competence under materially noncommon routes, the distinction earns scoped retention credit.
 
 > A new distinction earns realist authority when the world resists our attempt to forget it.
 
-No universal simplicity prior is assumed: fewer kinds are not automatically truer. The requirement is reversible commitment, not minimal category count.
-
 ## Quotient-composition discipline
 
-MQR-3.153 asks whether two individually warranted ontology revisions compose epistemically.
+MQR-3.153 asks whether two individually warranted revisions compose epistemically.
 
-Let revisions A and B define two paths:
-
-`Q -> A -> B|A` and `Q -> B -> A|B`.
-
-The **Revision Diamond** closes only when the terminal representations are equivalent for the declared authority-bearing consequences and preserve materially comparable defeat routes. Literal vocabulary identity is not required.
+`Q -> A -> B|A` and `Q -> B -> A|B` form a **Revision Diamond**. The diamond closes only when terminal representations are equivalent for declared authority-bearing consequences and preserve materially comparable defeat routes.
 
 - `PAIRWISE WARRANT != JOINT WARRANT`
 - `FORMAL COMPOSABILITY != EPISTEMIC COMPOSABILITY`
 - `ORDER SENSITIVITY != INVALIDITY`
 - `PATH DEPENDENCE != ARBITRARY PATH AUTHORITY`
 
-A **Quotient Composition Obstruction (QCO)** is recorded when the two paths diverge in a load-bearing way: one revision may change observability, intervention grammar, residual structure, target variables, transport support, or the discoverability of the other.
+A **Quotient Composition Obstruction (QCO)** records load-bearing path divergence in observability, intervention grammar, residual structure, transport support or challenge reachability.
 
-The correct response is not to force path independence. MQR instead requires a **Counter-Order Challenge** where feasible and explicit sequence/genealogy typing where it is not.
+## MQR-3.154 four-node execution
 
-> Two distinctions are jointly warranted only when their authority survives composition—or when the failure of composition is itself a world-resistant, explicitly scoped fact about the revision path.
+The concrete world is:
+
+```text
+X1 -> X3 <- X2
+       |
+       v
+       X4
+```
+
+with `X3 = X1 XOR X2` and `X4 = X3 XOR Bernoulli(0.1)`.
+
+Two valid refinement paths reach the same terminal partition:
+
+- `1234 -> 1|234 -> 1|2|34`
+- `1234 -> 12|34 -> 1|2|34`
+
+The **formal** revision diamond closes exactly.
+
+But atomic probes are null:
+
+- `P(X4=1 | do(X1=1)) = 0.5`
+- `P(X4=1 | do(X2=1)) = 0.5`
+
+while joint probes reveal the interaction:
+
+- `P(X4=1 | do(X1=1,X2=1)) = 0.1`
+- `P(X4=1 | do(X1=1,X2=0)) = 0.9`
+
+and observationally:
+
+- `I(X1;X4) = I(X2;X4) = 0`
+- `I((X1,X2);X4) ~= 0.531 bits`
+
+Therefore a refinement history that only acquires one-variable marginal intervention receipts can reach the same endpoint vocabulary with weaker causal authority than a history that previously exposed the joint block `12`.
+
+- `SAME TERMINAL PARTITION != SAME EVIDENTIAL HISTORY`
+- `REFINEMENT COMPLETENESS != EPISTEMIC PATH INDEPENDENCE`
+- `FORMAL DIAMOND CLOSURE != AUTHORITY DIAMOND CLOSURE`
+
+## Common-Endpoint Replay
+
+A **Common-Endpoint Replay (CER)** freezes the common terminal representation and challenges both histories with the same endpoint query family. In the XOR stress test, the factorial joint interventions `00, 01, 10, 11` recover the same world pattern from both paths, so the authority diamond closes.
+
+This yields an important distinction:
+
+`PATH-DEPENDENT EVIDENCE != PATH-DEPENDENT REALITY`.
+
+If a common replay still fails to close under preserved, materially comparable contact routes, then sequence dependence deserves stronger realist attention. If replay closes, the earlier discrepancy was evidential-history dependence rather than a different world.
+
+## Custody implication
+
+Preserving raw joint observations or sufficiently rich intervention receipts allows later representations to re-read earlier evidence after a split. Marginal-only summaries can make that reconstruction impossible.
+
+`RAW RECEIPT CUSTODY CAN TURN APPARENT ONTOLOGY NONCOMMUTATION INTO AUDITABLE EVIDENCE TRANSPORT`.
 
 ## Philosophy-first position
 
-The AI use case is an executable laboratory for a broader philosophy-of-science claim. MQR does not claim novelty for interventionism, exploratory experimentation, epistemic iteration, severe testing, natural-kind anti-essentialism, Hacking-style looping, causal abstraction, mathematical compositionality, partition lattices, or information-seeking model discrimination.
+MQR does not claim novelty for interventionism, exploratory experimentation, epistemic iteration, causal abstraction, partition lattices, category-theoretic compositionality or model-level abstraction error bounds.
 
-The candidate MQR layer is **bidirectional and compositional ontology corrigibility**:
+The candidate layer is **bidirectional and compositional ontology corrigibility** with explicit world-facing authority accounting:
 
-`COARSE -> WORLD-FORCED SPLIT -> PROVISIONAL DISTINCTION -> FRESH STRESS -> ATTEMPTED RECOMBINATION -> JOINT COMPOSITION AUDIT`.
+`COARSE -> WORLD-FORCED SPLIT -> PROVISIONAL DISTINCTION -> RECOMBINATION -> COMPOSITION AUDIT -> COMMON-ENDPOINT REPLAY`.
 
-AI remains one application. The philosophical target is how scientific representations earn, lose, interact and transport authority when their own state distinctions change.
+AI remains one application. The philosophical target is how scientific representations earn, lose, interact and transport authority when their state distinctions change.
 
 ## Next pressure
 
-The abstraction cluster now needs concrete execution. MQR-3.154 should instantiate two alternative refinement orders on a small causal DAG, compute whether the revision diamond closes, and separate mathematical partition reachability from authority-bearing equivalence.
+MQR-3.155 should drop literal partition identity and test whether two non-isomorphic ontologies can be epistemically equivalent relative to a declared query/challenge family without being forced into one common vocabulary.
