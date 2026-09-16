@@ -1,4 +1,4 @@
-# Epistemic World Model — live note through MQR-3.150
+# Epistemic World Model — live note through MQR-3.151
 
 This is intentionally a lightweight research note, not a formal protocol mirror of the Notion stage.
 
@@ -45,16 +45,48 @@ They solve different problems: abstraction, planning, simulation, sequence memor
 
 MQR's candidate contribution is orthogonal: a constitution that prevents optimization from making a model epistemically stronger merely by making its own failure distinctions unrepresentable.
 
-## Strong rival
+## Active inference boundary
 
-Active inference is currently a particularly serious rival because it explicitly chooses actions for expected information gain about competing model structures. MQR's residual claim must therefore concern **open-family corrigibility**: the candidate model family, contact model, and failure vocabulary may themselves be incomplete.
+Active inference is a strong rival, not a foil. If the true competing structures and the relevant intervention are already represented, expected information gain can choose the discriminating action and MQR claims no advantage.
 
-## Next executable test
+The residual problem begins when the candidate model family and observation vocabulary inherit the same coarse quotient. Then information gain over the frozen family cannot reward a distinction the family cannot express.
 
-Build a minimal two-world environment in which both worlds are equally predictable under the training policy but diverge under one cheap intervention. Compare:
+- `MODEL-DISCRIMINATING VALUE != MODEL-CLASS-CHALLENGING VALUE`
+- `ZERO EIG WITHIN H != ZERO OUT-OF-FAMILY EPISTEMIC VALUE`
 
-1. predictive-loss learner;
-2. information-gain probe selector with a frozen candidate family;
-3. MQR-style defeat-relative selector with representation-escape capacity.
+## Quotient-level corrigibility
 
-The important outcome is not which method has the lowest average prediction error, but which one can discover that its own latent quotient was too coarse.
+MQR-3.151 treats a representation-induced equivalence relation as an epistemic commitment rather than invisible preprocessing.
+
+A **Quotient-Stability Claim (QSC)** says that distinctions erased by a current representation remain irrelevant over a declared scope and challenge family.
+
+A **Quotient-Breaking Probe (QBP)** challenges that commitment through a materially noncommon world-contact route. If one previous equivalence class produces structured divergence under the probe, the correct response is representation expansion, not immediate ontology victory.
+
+`QUOTIENT BREAK != ONTOLOGY WINNER`
+
+An **Ontology-Expansion Receipt (OER)** records which prior class split, which contact forced the split, which claims lose authority, and which coarse claims remain valid.
+
+## Philosophy-first position
+
+The AI use case is an executable laboratory for a broader philosophy-of-science claim. MQR does not claim novelty for interventionism, exploratory experimentation, epistemic iteration, severe testing, or information-seeking model discrimination.
+
+The narrower candidate novelty is:
+
+> Scientific representations themselves must remain defeasible by world contact. A mature inquiry needs some route by which the world can force a split of what the current ontology treats as one.
+
+This places MQR closer to a philosophy of **corrigible quotient formation** than to a proposal for one particular AI architecture.
+
+## Minimal simulation result
+
+Two worlds are observationally identical under the training policy. A hidden intervention yields Bernoulli outcomes with probabilities 0.05 versus 0.95. One such probe carries about 0.714 bits of expected information and a single outcome gives a 19:1 Bayes factor.
+
+- predictive-only learner: remains inside the quotient;
+- active inference with adequate candidate family: selects the probe and succeeds;
+- active inference over a frozen misspecified family: cannot value the unrepresented contrast;
+- EWM with bounded representation-escape capacity: can spend a challenge slot on the quotient itself and reopen the state space.
+
+The point is not that MQR beats active inference. The point is to isolate **model-class challenge** as a distinct epistemic role.
+
+## Next pressure
+
+Representation splitting can itself become pathological. If every stable residual licenses a new category, corrigibility turns into ontological overfitting. The next philosophical audit should therefore ask when a newly forced distinction earns persistence, recombination, or retirement.
