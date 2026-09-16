@@ -1,4 +1,4 @@
-# MQR Origin-Return Realism — live through MQR-3.159
+# MQR Origin-Return Realism — live through MQR-3.161
 
 This file exists to keep MQR's founding philosophical question visible while the project continues to use technical and empirical courts.
 
@@ -63,37 +63,14 @@ MQR therefore distinguishes:
 - `APPARENTLY-INDEPENDENT / LCPR-ACTIVE`;
 - `DEPENDENCE-DISCOVERED`.
 
-### Latent Common-Premise Reserve
-
-The **LCPR** records that independence is conditional on the discovered ancestry surface. It does not assign arbitrary probability mass to every imaginable hidden common cause and does not license universal dependence skepticism.
-
-### Joint-Breakdown Dependence Update
-
-A coordinated breakdown raises the priority of dependence discovery but does not prove a single common cause.
+The **LCPR** records that independence is conditional on the discovered ancestry surface. A coordinated breakdown raises the priority of dependence discovery but does not prove a single common cause.
 
 `JOINT FAILURE != COMMON-CAUSE PROOF`.
 
-The search must retain genuine world-level failure, multiple independent regime-specific failures, and hidden shared ancestry as live alternatives.
+When a new common ancestor is found, prior receipts are not deleted. Their authority is recomputed.
 
-### Trace-Dependence Retroaudit
-
-When a new common ancestor is found, prior receipts are not deleted. Their authority is recomputed by identifying which inference edges actually depended on the ancestor, whether any bypass route survives, and which claims remain valid at narrower scope.
-
-`DEPENDENCE DISCOVERY != RETROACTIVE DATA INVALIDATION`.
-
-`NEW COMMON ANCESTOR -> AUTHORITY RECOMPUTATION, NOT HISTORY ERASURE`.
-
-The historical state is versioned from `PRE-DEPENDENCE-AUDIT WARRANT` to `DEPENDENCE-REVISED WARRANT`.
-
-### Unknown-Ancestor Authority Ceiling
-
-If all current traces plausibly share an undiscovered load-bearing ancestor, the appropriate state is
-
-`WORLD-RESISTANCE-PROVISIONAL / INDEPENDENCE-CONDITIONAL / NONCOMMON-PROBE-DUE`.
-
-Increasing precision through repeated descendants of one lineage does not create additional independent world resistance.
-
-- `APPARENT INDEPENDENCE != CERTIFIED INDEPENDENCE`
+- `DEPENDENCE DISCOVERY != RETROACTIVE DATA INVALIDATION`
+- `NEW COMMON ANCESTOR -> AUTHORITY RECOMPUTATION, NOT HISTORY ERASURE`
 - `MORE PRECISE != MORE INDEPENDENT`
 - `PLURAL FORM != PLURAL FAILURE ANCESTRY`
 
@@ -101,19 +78,50 @@ Deep philosophical compression:
 
 > **Evidence can remain real while its independence status changes.**
 
-Scientific realism must therefore remain corrigible not only about what the world is like, but about how many genuinely distinct ways we have asked the world.
+## MQR-3.160 — finite independence without genealogical completeness
+
+Scientific realism does not require proving that no hidden common ancestor remains. It requires enough **Finite Route Separation (FRS)** that the major known and plausible common-failure modes have been actively made capable of diverging.
+
+A claim may therefore earn `WORLD-RESISTANT@SCOPE` while retaining a **Residual Dependence Reserve (RDR)**.
+
+- `STRONG INDEPENDENCE WARRANT != PROOF OF NO HIDDEN COMMON CAUSE`
+- `FALLIBILISM != PERMANENT WEAK WARRANT`
+- `STRONG WARRANT != FINAL WARRANT`
+
+The relevant question is whether a newly proposed hidden ancestor would have to explain both surviving convergence and deliberately induced cross-route divergence.
+
+## MQR-3.161 — route saturation
+
+Additional evidence need not continue increasing realist authority once currently reachable failure geometry is saturated.
+
+A claim reaches **Route Saturation** over a declared scope and failure family when new receipts from available routes add no materially new defeat surface.
+
+At saturation, additional evidence may still improve statistical precision, local prediction, drift detection, or engineering reliability. But it does not automatically increase realist authority.
+
+- `PRECISION GAIN != AUTHORITY GAIN`
+- `MORE RECEIPTS != MORE WORLD-RESISTANCE ROUTES`
+- `ROUTE COUNT != EXTERIORITY`
+- `SATURATION != FINALITY`
+
+A nominally new route is authority-incrementing only when it creates a new **marginal defeat opportunity**: for example by breaking shared calibration/theory/software ancestry, entering a previously untested regime, or making a rival-sensitive intervention available.
+
+Otherwise it is `PRECISION-ADDING / AUTHORITY-NEUTRAL`.
+
+A Route-Saturation Receipt records current route families, exercised failure surfaces, redundant additions, untested exteriority classes, and reopening triggers.
+
+Deep compression:
+
+> **Scientific authority grows when inquiry creates new ways for reality to disagree, not merely when it accumulates more agreement.**
 
 ## Full-text novelty boundary
 
-Recent full-text pressure further narrows the claim. Lehtinen's 2026 *Inferential Rules for Confirmatory Robustness* already allows incomplete knowledge of experimental components, overlapping auxiliary content, and shared false auxiliaries that generate apparently robust results. MQR therefore claims no novelty for hidden dependence as such.
+Full-text prior-art pressure constrains novelty claims. Lehtinen's 2026 *Inferential Rules for Confirmatory Robustness* already allows incomplete knowledge of experimental components, overlapping auxiliary content, and shared false auxiliaries. Kuorikoski & Marchionni and Stegenga & Menon already supply strong prior art on fallible triangulation and dependence-sensitive robustness.
 
-The residual contribution of 3.159 is the **versioned authority migration rule after hidden ancestry becomes discoverable**, preserving earlier world contact while correcting its overstated independence.
+MQR therefore does not claim novelty for generic evidential diversity, hidden dependence, or the fact that more evidence may fail to strengthen confirmation. The residual contribution is the explicit authority constitution: finite route separation, residual dependence reserve, and route saturation keyed to marginal defeat geometry.
 
 ## No-go theorem firewall
 
-A mathematical no-go result does not by itself settle ontology. Dardashti's full analysis already separates physical premises, mathematical machinery, framework, goal and background assumptions and shows that the theorem itself does not uniquely dictate which element to abandon.
-
-MQR's residual role is therefore narrower: track the world-contact ancestry of those premises, block receipt reuse, and require reopenable boundary evidence.
+A mathematical no-go result does not by itself settle ontology. Its premises need independent world-contact support, and at least some reachable consequence must be capable of reopening the claim.
 
 `NO-GO THEOREM != UNIQUE ONTOLOGICAL VERDICT`.
 
@@ -136,9 +144,7 @@ The strongest reason to preserve rival theories and methods is that they can cre
 
 `RIVAL VALUE = NEW REACHABLE WAYS FOR THE WORLD TO SAY NO`.
 
-MQR-3.159 adds that plurality is epistemically shallow when its apparent alternatives inherit one hidden failure ancestry.
-
-`PLURAL FORM != PLURAL FAILURE ANCESTRY`.
+Plurality is epistemically shallow when apparent alternatives inherit one hidden failure ancestry, and additional routes are epistemically redundant when they add no marginal defeat geometry.
 
 ## Reality / authority firewall
 
@@ -160,4 +166,4 @@ Formal machinery that does not sharpen a founding ontic or epistemic question, e
 
 ## Next pressure
 
-If dependence genealogy is never provably complete, MQR must explain how finite route separation can nevertheless support strong realism without either claiming impossible completeness or collapsing into permanent skepticism.
+If mature route families saturate, the next question is how inquiry should allocate scarce resources between improving precision inside saturated routes and paying for expensive genuinely noncommon routes that may create new ways for reality to disagree.
