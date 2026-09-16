@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.153**.
+Status: live through **MQR-3.154**.
 
 ## Current compression
 
@@ -79,6 +79,11 @@ Status: live through **MQR-3.153**.
 73. **Formal composability ≠ epistemic composability.** Mathematical composition of model transformations does not by itself transport realist authority.
 74. **Order sensitivity ≠ invalidity.** Noncommuting ontology revision can reflect real conditional or historically induced structure.
 75. **Path dependence ≠ arbitrary path authority.** When revision order changes load-bearing consequences, the sequence must survive a counter-order challenge where feasible or be explicitly typed as path-dependent reality with an authority ceiling.
+76. **Same terminal partition ≠ same evidential history.** Convergent vocabulary can inherit different intervention and measurement receipts.
+77. **Refinement completeness ≠ epistemic path independence.** An oracle-guided guarantee that a target abstraction is reachable does not guarantee empirical histories are authority-equivalent.
+78. **Formal diamond closure ≠ authority diamond closure.** Endpoint identity must be separated from equality of world-facing defeat routes.
+79. **Path-dependent evidence ≠ path-dependent reality.** A common endpoint replay can test whether sequence dependence persists when the same challenge family is restored.
+80. **Raw receipt custody is composition infrastructure.** Preserving sufficiently rich native evidence can convert apparent ontology noncommutation into auditable evidence transport.
 
 ## Live governance objects
 
@@ -164,10 +169,11 @@ Status: live through **MQR-3.153**.
 - Counter-Order Challenge (COC)
 - Distinction Interaction Map (DIM)
 - Order-Dependence Debt
+- Common-Endpoint Replay (CER)
 
 ## Epistemic world-model bridge
 
-MQR does not compete with predictive world-model architectures such as JEPA at the representation-learning layer. Its candidate contribution is a constitutional wrapper that tracks measurement/contact models, live rivals, discriminator topology, authority scope and representation-reopening capacity. The key research question is whether a learned representation can remain vulnerable to world-forced distinctions that were not useful under its current predictive objective, and whether multiple such revisions remain jointly defeasible under alternative refinement orders.
+MQR does not compete with predictive world-model architectures at the representation-learning layer. Its candidate contribution is a constitutional wrapper that tracks measurement/contact models, live rivals, discriminator topology, authority scope and representation-reopening capacity. MQR-3.154 adds a concrete requirement: when two revision histories claim a common endpoint representation, compare them under a common endpoint challenge family before treating historical convergence as epistemic convergence.
 
 ## Historical replay discipline
 
@@ -175,4 +181,4 @@ Historical world-contact stress tests must freeze contemporaneous information, s
 
 ## Repository doctrine
 
-This repository contains only the living formal surface. Historical Courts/stages are not mirrored here. Superseded files should be removed once a successor is live; historical reconstruction belongs to Git history and external archival storage.
+This repository contains only the living formal surface. Historical stages are not mirrored here. Small executable stress tests may be retained when they directly instantiate a live doctrine rule. Superseded formal files should be removed once a successor is live; historical reconstruction belongs to Git history and external archival storage.
