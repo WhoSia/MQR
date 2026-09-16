@@ -1,4 +1,4 @@
-# MQR Origin-Return Realism — live through MQR-3.156
+# MQR Origin-Return Realism — live through MQR-3.157
 
 This file exists to keep MQR's founding philosophical question visible while the project continues to use technical and empirical courts.
 
@@ -6,13 +6,12 @@ This file exists to keep MQR's founding philosophical question visible while the
 
 MQR does not identify reality with one ontology, one privileged grain, one formalism, or the currently best predictive model.
 
-Its realist target is **world-resistant constraint**: a claim earns scoped realist authority when materially noncommon routes of inquiry repeatedly fail to realize alternatives that the claim excludes, while rival descriptions remain able to reopen the claim.
+Its realist target is **world-resistant constraint**: a claim earns scoped realist authority when alternatives are excluded in ways that survive hostile reformulation and materially noncommon contact, while remaining reopenable.
 
-`CURRENTLY RULED OUT != WORLD-IMPOSSIBLE`
-
-`GLOBAL FIT != GLOBAL LAW`
-
-`UNIFICATION != ULTIMATE METAPHYSICS`
+- `CURRENTLY RULED OUT != WORLD-IMPOSSIBLE`
+- `ACCESS FAILURE != WORLD REFUSAL`
+- `GLOBAL FIT != GLOBAL LAW`
+- `UNIFICATION != ULTIMATE METAPHYSICS`
 
 ## World-Possibility Cut
 
@@ -20,7 +19,7 @@ For a scientific claim `C`, let `W_C` denote the currently articulated worlds co
 
 `Cut(C) = W \ W_C`.
 
-This is not a metaphysical definition of reality. It is an authority device for asking whether the excluded alternatives fail because of the world or merely because the current ontology, measurement system, or method cannot express or reach them.
+This is not a metaphysical definition of reality. It is an authority device for asking whether the excluded alternatives fail because of the world or merely because the current ontology, measurement system, method, intervention grammar, governance regime, or resource envelope cannot express or reach them.
 
 ## World-Resistance Realism
 
@@ -29,66 +28,96 @@ A constraint gains realist authority when its exclusions:
 - survive materially noncommon contact routes;
 - survive hostile reformulation in rival ontologies;
 - extend beyond cases used to construct the claim;
-- remain prospectively vulnerable to fresh interventions, measurements, or domains;
-- can lose authority when the possibility space expands.
+- remain prospectively vulnerable to fresh interventions, measurements, natural regimes, transported inference, or boundary evidence;
+- can lose authority when the possibility space or access map expands.
 
-The project therefore separates:
-
-- epistemic exclusion;
-- model-induced exclusion;
-- world-resistant exclusion.
+The project separates epistemic exclusion, model-induced exclusion, access-induced exclusion, and world-resistant exclusion.
 
 Only the last supports realist promotion, and only at declared scope.
+
+## Modal Access Profile
+
+MQR-3.157 requires every load-bearing modal exclusion to carry a typed access profile. Relevant classes include:
+
+- direct intervention/contact;
+- naturally realized contact;
+- source-to-target transported contact;
+- boundary-trace-only access;
+- currently unreachable access;
+- ill-typed/counterpossible access.
+
+Human non-performability is not world-contact impossibility.
+
+`NO SURGICAL INTERVENTION != NO WORLD CONTACT`.
+
+## Access–Refusal Decomposition
+
+When an alternative does not appear, distinguish at least:
+
+- world-side exclusion;
+- access/resource/causal-horizon barriers;
+- representation/schema barriers;
+- governance or ethical barriers;
+- unresolved remainder.
+
+Failure to realize an alternative cannot certify its impossibility when the mechanism of access inherits the same assumptions that excluded the alternative in the first place.
+
+`FAILURE TO ACCESS != EVIDENCE OF IMPOSSIBILITY` unless an independent access audit breaks that circularity.
+
+## Modal Boundary Trace
+
+An unreachable target need not be epistemically silent. A **Modal Boundary Trace** is a reachable consequence generated near or because of an inaccessible boundary.
+
+Examples include finite-resource scaling, conservation-law tradeoffs, reachable inequalities implied by no-go results, naturally occupied neighboring regimes, and independently validated source-to-target transport.
+
+`UNREACHABLE TARGET != UNCONTACTABLE MODAL BOUNDARY`.
+
+Boundary evidence earns only the authority supported by its premises, transport, and fresh contact.
+
+## No-go theorem firewall
+
+A mathematical no-go result does not by itself settle ontology.
+
+A no-go theorem supports modal realist authority only when:
+
+1. the derivation is valid;
+2. its premises have independent world-contact support;
+3. it generates reachable consequences or boundary traces whose failure would reopen the claim.
+
+`NO-GO THEOREM != UNIQUE ONTOLOGICAL VERDICT`.
+
+## Counterfactual authority
+
+Well-grounded hypothetical interventions can carry genuine scientific content even when they cannot literally be performed. Their authority is inherited from independently warranted theory and invariance structure.
+
+`COUNTERFACTUAL WELL-GROUNDEDNESS != NEW EMPIRICAL RECEIPT`.
+
+This blocks counterfactual receipt laundering while preserving the scientific role of inaccessible counterfactuals.
 
 ## Real without reduction
 
 Two levels or non-isomorphic ontologies may both be real when each carries compatible but nonredundant world-resistant exclusions.
 
-`NONREDUCIBILITY != ANTI-REALITY`
-
-`MULTIPLE DESCRIPTIONS != MULTIPLE REALITIES`
+- `NONREDUCIBILITY != ANTI-REALITY`
+- `MULTIPLE DESCRIPTIONS != MULTIPLE REALITIES`
 
 Reality is not counted by the number of vocabularies.
 
 ## Higher-Law Non-Vacuity Gate
 
-A higher-law candidate must earn more than extensional fit.
+A higher-law candidate must earn more than extensional fit. It should provide cross-domain generation, modal consequences not fixed by the construction record, reachable or boundary-trace defeat routes, resistance to lookup-table reconstruction, and humility about governing-law versus Humean versus deeper-realizer metaphysics.
 
-It should provide:
+`LAW AUTHORITY = MODAL EXCESS + REOPENABLE DEFEAT + NONVACUITY`.
 
-1. cross-domain generation;
-2. modal consequences not fixed by the construction record;
-3. reachable ways to fail while lower-level descriptions remain locally adequate;
-4. resistance to lookup-table reconstruction;
-5. humility about the governing-law vs Humean vs deeper-realizer metaphysical question.
-
-A useful compression is:
-
-`LAW AUTHORITY = MODAL EXCESS + REACHABLE DEFEAT + NONVACUITY`.
-
-## Law-Excess Test
-
-For a law candidate `L` built from evidence `E0`, define its modal excess as consequences licensed or forbidden by `L` that were not fixed by `E0`.
-
-A scientific law candidate becomes nonvacuous only when some of that excess can be challenged by fresh world contact.
-
-More excess is not automatically better, and MQR does not claim every real modal fact must be experimentally reachable.
-
-## Structural realism boundary
+## Structural and perspectival realism boundary
 
 MQR is sympathetic to realism about modal structure but does not identify modal structure with the whole of ontology.
 
 `MODAL STRUCTURE = REALIST CARRIER, NOT COMPLETE ONTOLOGY`.
 
-Objects, processes, mechanisms, organizations, and higher-level constraints may all earn scoped realist authority when they contribute nonredundant world resistance.
-
-## Perspectival realism boundary
-
 Scientific access may be perspectival without reality itself becoming merely perspective-relative.
 
 `PERSPECTIVAL ACCESS != PERSPECTIVE-RELATIVE REALITY`.
-
-A perspective earns realist authority by surviving hostile re-perspectivization, not by escaping perspective altogether.
 
 ## Feyerabend return
 
@@ -100,11 +129,21 @@ This preserves Feyerabend's anti-monopoly insight without turning plurality itse
 
 ## Reality / authority firewall
 
-MQR governs scientific authority, not reality itself.
-
-Increasing authority for a claim does not make the claim metaphysically final. Realism remains fallibilist because the articulated possibility space and the routes by which it can be challenged remain expandable.
+MQR governs scientific authority, not reality itself. Increasing authority for a claim does not make the claim metaphysically final.
 
 `NO FINITE SCIENTIFIC CONSTITUTION CERTIFIES ITS OWN POSSIBILITY-SPACE COMPLETENESS`.
+
+## Revised meaning of 'reality refuses'
+
+MQR-3.157 narrows the phrase:
+
+> Reality's refusal is not mere non-occurrence. It is the persistence of an exclusion after access failure has been separated from world failure, and after the exclusion is supported by direct/natural contact or independently grounded, reopenable boundary evidence.
+
+A useful shorthand is:
+
+`WORLD REFUSAL = EXCLUSION + ACCESS AUDIT + REOPENABLE CONTACT`.
+
+This is constitutional shorthand, not a metaphysical reduction.
 
 ## Origin-return cycle
 
@@ -114,4 +153,4 @@ Formal machinery that does not sharpen a founding ontic or epistemic question, e
 
 ## Next pressure
 
-The phrase 'the world refuses an alternative' can itself be too easy. The next audit must distinguish genuine world-side impossibility from our inability to reach the alternative because of intervention limits, inaccessible initial conditions, ethical constraints, or measurement closure.
+Boundary traces can themselves be theory-manufactured. The next audit must ask when an unreachable law earns authority from reachable scars without using the law's own assumptions twice: once to predict the trace and again to certify it.
