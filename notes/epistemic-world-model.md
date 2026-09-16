@@ -1,4 +1,4 @@
-# Epistemic World Model — live note through MQR-3.152
+# Epistemic World Model — live note through MQR-3.153
 
 This is intentionally a lightweight research note, not a formal protocol mirror of the Notion stage.
 
@@ -52,16 +52,37 @@ This gives the EWM both ontology expansion and ontology garbage collection.
 
 No universal simplicity prior is assumed: fewer kinds are not automatically truer. The requirement is reversible commitment, not minimal category count.
 
+## Quotient-composition discipline
+
+MQR-3.153 asks whether two individually warranted ontology revisions compose epistemically.
+
+Let revisions A and B define two paths:
+
+`Q -> A -> B|A` and `Q -> B -> A|B`.
+
+The **Revision Diamond** closes only when the terminal representations are equivalent for the declared authority-bearing consequences and preserve materially comparable defeat routes. Literal vocabulary identity is not required.
+
+- `PAIRWISE WARRANT != JOINT WARRANT`
+- `FORMAL COMPOSABILITY != EPISTEMIC COMPOSABILITY`
+- `ORDER SENSITIVITY != INVALIDITY`
+- `PATH DEPENDENCE != ARBITRARY PATH AUTHORITY`
+
+A **Quotient Composition Obstruction (QCO)** is recorded when the two paths diverge in a load-bearing way: one revision may change observability, intervention grammar, residual structure, target variables, transport support, or the discoverability of the other.
+
+The correct response is not to force path independence. MQR instead requires a **Counter-Order Challenge** where feasible and explicit sequence/genealogy typing where it is not.
+
+> Two distinctions are jointly warranted only when their authority survives composition—or when the failure of composition is itself a world-resistant, explicitly scoped fact about the revision path.
+
 ## Philosophy-first position
 
-The AI use case is an executable laboratory for a broader philosophy-of-science claim. MQR does not claim novelty for interventionism, exploratory experimentation, epistemic iteration, severe testing, natural-kind anti-essentialism, Hacking-style looping, or information-seeking model discrimination.
+The AI use case is an executable laboratory for a broader philosophy-of-science claim. MQR does not claim novelty for interventionism, exploratory experimentation, epistemic iteration, severe testing, natural-kind anti-essentialism, Hacking-style looping, causal abstraction, mathematical compositionality, partition lattices, or information-seeking model discrimination.
 
-The candidate MQR layer is **bidirectional ontology corrigibility**:
+The candidate MQR layer is **bidirectional and compositional ontology corrigibility**:
 
-`COARSE -> WORLD-FORCED SPLIT -> PROVISIONAL DISTINCTION -> FRESH STRESS -> ATTEMPTED RECOMBINATION -> {MERGE | RETAIN@SCOPE | DEMOTE}`.
+`COARSE -> WORLD-FORCED SPLIT -> PROVISIONAL DISTINCTION -> FRESH STRESS -> ATTEMPTED RECOMBINATION -> JOINT COMPOSITION AUDIT`.
 
-AI remains one application. The philosophical target is how scientific representations earn, lose and transport authority when their own state distinctions change.
+AI remains one application. The philosophical target is how scientific representations earn, lose, interact and transport authority when their own state distinctions change.
 
 ## Next pressure
 
-Two individually warranted splits may interact noncommutatively: applying split A before B can yield a different ontology, evidential map or intervention grammar than applying B before A. The next audit should test order-dependent quotient revision rather than assuming ontology repair composes cleanly.
+The abstraction cluster now needs concrete execution. MQR-3.154 should instantiate two alternative refinement orders on a small causal DAG, compute whether the revision diamond closes, and separate mathematical partition reachability from authority-bearing equivalence.
