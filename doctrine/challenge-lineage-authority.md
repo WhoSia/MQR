@@ -1,6 +1,6 @@
-# MQR Challenge-Lineage Authority Doctrine — live through MQR-3.171
+# MQR Challenge-Lineage Authority Doctrine — live through MQR-3.172
 
-This file compresses the reusable doctrine produced by MQR-3.163–3.171. Detailed genealogy, literature pressure, and stage verdicts remain in Notion.
+This file compresses the reusable doctrine produced by MQR-3.163–3.172. Detailed genealogy, literature pressure, and stage verdicts remain in Notion.
 
 ## 1. Exterior challenges must not be assimilated before they become testable
 
@@ -115,8 +115,23 @@ Run a **consensus-reversibility test** by restoring collapsed source distinction
 
 Flag `ALIGNMENT-LAUNDERING` when an alignment is selected after seeing disagreement to maximize overlap, silently drops untranslatable negative receipts, hides one ontology as the supposedly neutral target language, or counts mapped equality as full equivalence despite different counterfactual or intervention profiles.
 
+## 10. Competing alignment maps do not elect a sovereign dictionary
+
+When several scientifically admissible translations preserve different distinctions, no single map receives realist authority merely because it yields the largest overlap.
+
+- `ONE VALID MAP != THE UNIQUE CORRECT MAP`
+- `MAP ADEQUACY != MAP SOVEREIGNTY`
+- `MAXIMUM AGREEMENT != MAXIMUM REALIST WARRANT`
+- `CONSENSUS UNDER ONE MAP != CONSENSUS ACROSS ADMISSIBLE MAPS`
+
+Audit the admissible alignment family rather than only the selected map. For each mapping, record preserved consequences, deleted defeat routes, intervention/counterfactual profiles, and assumptions used to declare the mapping admissible.
+
+Prefer translations that preserve both genuine common consequence and live disagreement. If equally defensible mappings license different consensus claims, report `MAP-RELATIVE-CONVERGENCE` rather than unqualified agreement.
+
+Flag `MAP-SELECTION-LAUNDERING` when map choice is made after inspecting which mapping maximizes consensus, when residual disagreement is dismissed as translation noise without independent support, or when one ontology is silently installed as the target language.
+
 ## Deep compression
 
-> **Science may inherit what survived contact with the world, but succession, branching, recombination, and translation are not allowed to manufacture agreement or world-contact by genealogy or vocabulary alone.**
+> **Science may inherit what survived contact with the world, but succession, branching, recombination, translation, and map selection are not allowed to manufacture agreement or world-contact by genealogy or vocabulary alone.**
 
-A fork cannot multiply the past; a merger cannot erase the past; a translation cannot resolve a disagreement merely by making it unsayable. Authority follows unique, time-indexed claim–receipt relations and the failure routes that remain live.
+A fork cannot multiply the past; a merger cannot erase the past; a translation cannot resolve a disagreement merely by making it unsayable; and a dictionary cannot become metaphysically privileged merely because it maximizes agreement. Authority follows unique, time-indexed claim–receipt relations and the failure routes that remain live.
