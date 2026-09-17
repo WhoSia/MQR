@@ -1,6 +1,6 @@
-# MQR Challenge-Lineage Authority Doctrine — live through MQR-3.169
+# MQR Challenge-Lineage Authority Doctrine — live through MQR-3.170
 
-This file compresses the reusable doctrine produced by MQR-3.163–3.169. Detailed genealogy, literature pressure, and stage verdicts remain in Notion.
+This file compresses the reusable doctrine produced by MQR-3.163–3.170. Detailed genealogy, literature pressure, and stage verdicts remain in Notion.
 
 ## 1. Exterior challenges must not be assimilated before they become testable
 
@@ -80,8 +80,25 @@ Genealogical branching can create hypotheses and future opportunities for defeat
 
 New authority requires branch-specific noncommon contact: distinct intervention or measurement routes, separable calibration chains, divergent frozen predictions, distinct regimes, or other ways branches can independently fail.
 
+## 8. Recombined lineages preserve time-indexed provenance
+
+When independently evolved lineages later converge, the act of merger neither creates a new world-contact nor retroactively erases genuine pre-merger independence.
+
+- `SHARED ENDPOINT != SHARED ANCESTRY`
+- `LATER MERGER != RETROACTIVE DEPENDENCE`
+- `MERGER AGREEMENT != NEW WORLD-CONTACT`
+- `CONSENSUS FORMATION != ADDITIONAL RECEIPT`
+- `PRE-MERGE INDEPENDENCE != POST-MERGE INDEPENDENCE`
+- `CONSENSUS SIZE != INDEPENDENT EVIDENCE SIZE`
+
+For a recombination `A + B -> M`, retain a time-indexed ledger of A-premerge receipts, B-premerge receipts, the exact merge relation or translation, and post-merge receipts. Distinct pre-merger receipts remain distinct when their ancestry is materially noncommon; the merger itself is represented as a relation among claims and receipts, not as another receipt.
+
+Once the merged programme shares apparatus, calibration, datasets, code, standards or ontology, later evidence begins a fresh dependence audit. Earlier route diversity cannot be projected automatically onto post-merger tests.
+
+Flag `RECOMBINATION-LAUNDERING` when a merger counts consensus itself as confirmation, rewrites post-merger common tests as independent, drops negative ancestral receipts during unification, or suppresses residual disagreement through translation.
+
 ## Deep compression
 
-> **Science may inherit what survived contact with the world, but neither succession nor branching is allowed to manufacture additional world-contact from the same historical receipt.**
+> **Science may inherit what survived contact with the world, but succession, branching, and recombination are not allowed to manufacture additional world-contact from genealogy alone.**
 
-The same rule applies symmetrically to positive and negative lineage memory: ancestry may transport warrant, but it cannot duplicate warrant, erase liabilities, or turn historical prestige into fresh realist authority.
+A fork cannot multiply the past; a merger cannot erase the past. Authority follows unique, time-indexed claim–receipt relations and the failure routes that remain live.
