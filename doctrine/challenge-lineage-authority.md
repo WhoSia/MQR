@@ -1,6 +1,6 @@
-# MQR Challenge-Lineage Authority Doctrine — live through MQR-3.170
+# MQR Challenge-Lineage Authority Doctrine — live through MQR-3.171
 
-This file compresses the reusable doctrine produced by MQR-3.163–3.170. Detailed genealogy, literature pressure, and stage verdicts remain in Notion.
+This file compresses the reusable doctrine produced by MQR-3.163–3.171. Detailed genealogy, literature pressure, and stage verdicts remain in Notion.
 
 ## 1. Exterior challenges must not be assimilated before they become testable
 
@@ -97,8 +97,26 @@ Once the merged programme shares apparatus, calibration, datasets, code, standar
 
 Flag `RECOMBINATION-LAUNDERING` when a merger counts consensus itself as confirmation, rewrites post-merger common tests as independent, drops negative ancestral receipts during unification, or suppresses residual disagreement through translation.
 
+## 9. Translation-mediated consensus preserves residual disagreement
+
+A common vocabulary is an alignment device, not a neutral court.
+
+- `SHARED VOCABULARY != NEUTRAL VOCABULARY`
+- `TRANSLATABLE OVERLAP != COMPLETE EQUIVALENCE`
+- `AGREEMENT AFTER PROJECTION != AGREEMENT BEFORE PROJECTION`
+- `QUOTIENTED DISAGREEMENT != RESOLVED DISAGREEMENT`
+- `SAME SYMBOL AFTER ALIGNMENT != SAME CLAIM`
+
+For alignments `A -> V` and `B -> V`, retain a translation-loss ledger: source claims, preserved distinctions, collapsed or undefined distinctions, reachable consequences deleted by the map, and alternative translations capable of restoring them.
+
+A recombination claim is licensed only at the granularity actually preserved by the map. Source-level predictions and defeat routes that disappear under the shared vocabulary remain live residuals rather than being treated as resolved.
+
+Run a **consensus-reversibility test** by restoring collapsed source distinctions and replaying rival-sensitive queries or interventions. If consensus disappears when the deleted distinctions are restored, classify `TRANSLATION-INDUCED-CONSENSUS` rather than genuine convergence.
+
+Flag `ALIGNMENT-LAUNDERING` when an alignment is selected after seeing disagreement to maximize overlap, silently drops untranslatable negative receipts, hides one ontology as the supposedly neutral target language, or counts mapped equality as full equivalence despite different counterfactual or intervention profiles.
+
 ## Deep compression
 
-> **Science may inherit what survived contact with the world, but succession, branching, and recombination are not allowed to manufacture additional world-contact from genealogy alone.**
+> **Science may inherit what survived contact with the world, but succession, branching, recombination, and translation are not allowed to manufacture agreement or world-contact by genealogy or vocabulary alone.**
 
-A fork cannot multiply the past; a merger cannot erase the past. Authority follows unique, time-indexed claim–receipt relations and the failure routes that remain live.
+A fork cannot multiply the past; a merger cannot erase the past; a translation cannot resolve a disagreement merely by making it unsayable. Authority follows unique, time-indexed claim–receipt relations and the failure routes that remain live.
