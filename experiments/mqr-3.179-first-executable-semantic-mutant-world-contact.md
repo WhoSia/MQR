@@ -164,7 +164,72 @@ Harvest receipt:
 `Literature Harvest LR-20260918-MQR-CPC — Context-of-Use Credibility, Assurance Cases, Permissible-Use Mapping & Challenge-Authority Transport`
 Notion page: `3dfef561-cf92-817f-87b5-c69c32cfa339`.
 
-## 11. Evidence still missing
+## 11. Third prior-art kill — formal semantic preservation, witnesses, and diagnosability
+The revised challenge-authority transport candidate also faces strong reduction.
+
+- Full abstraction already preserves and reflects contextual equivalence.
+- Robust property preservation in secure compilation already asks whether source-level trace/hyperproperties survive arbitrary adversarial target contexts.
+- Counterexample-preserving reduction explicitly treats a counterexample set as the object to preserve under transformation.
+- Verification-witness work treats independently checkable violation witnesses as first-class artifacts and can minimize them by fault-localization relevance.
+- Abstraction-based diagnosability asks whether a projection retains the ability to detect and isolate faults.
+- ACCESS/ATTEST-style assurance engineering tracks claims/evidence across evolving system artifacts and supports change-impact reassessment.
+
+Therefore MQR may not claim novelty for:
+1. preserving/reflection of hostile contextual distinctions;
+2. preservation against arbitrary adversarial contexts;
+3. preservation of counterexample sets;
+4. minimal failure witnesses;
+5. diagnosability/localization under abstraction;
+6. claim-evidence traceability under system evolution.
+
+### CRF-transport compositional residue
+The candidate must now move from one property/counterexample/witness to a typed **portfolio of scientific challenge routes**.
+
+For source artifact A and claim q:
+`CRF_A(q)={r_j}`,
+where each route records at least:
+- trigger/intervention;
+- witness/data/material;
+- reconstruction path;
+- semantic fidelity;
+- common-mode ancestry / noncommonness;
+- required competence/environment;
+- reconstruction cost/time;
+- localization power;
+- authority role;
+- substitute-route / replaceability structure.
+
+For compiler `K:A→I`, a provisional route map is:
+`τ_R:CRF_A(q)→CRF_I(K(q)) ∪ {JUSTIFIED-RETIREMENT, LICENSED-SUBSTITUTE}`.
+
+A CPC/CRF transport claim requires:
+1. every load-bearing source challenge receives an explicit target fate;
+2. no challenge disappears through silent quotienting;
+3. scoped defeat/licensing judgments commute over transported outcomes;
+4. relevant noncommonness is not silently collapsed;
+5. substitute routes are counted as substitutions, not identical preservation;
+6. degradation in reconstruction cost/competence remains visible.
+
+### Strong limitation
+This is **not yet a novelty claim**. It may be only a composition of secure compilation, diagnosability, verification witnesses, assurance-case evolution, provenance/dependency analysis, and cost-aware reproducibility.
+
+The distinctness question is now:
+> Does joint CRF transport over scientific-authority roles yield a verdict or prediction that those mature frameworks, applied side-by-side, do not already yield?
+
+### q_ALLELE scope correction
+The frozen q_ALLELE experiment tests only a narrow CRF slice:
+- adverse-trigger expressibility;
+- source-backed semantic boundary;
+- observable exclusion/failure;
+- elementary localization.
+
+It does not test noncommonness, substitute-route topology, long-term reconstruction cost, competence decay, or multi-route frontier preservation. Therefore even a q_ALLELE CPC win cannot promote the full CRF-transport thesis.
+
+Harvest receipt:
+`Literature Harvest LR-20260918-MQR-FMT — Full Abstraction, Robust Property Preservation, Counterexample/Witness Preservation, Diagnosability & CRF-Transport Reduction`
+Notion page: `3dfef561-cf92-81de-aa23-c2c71efa492c`.
+
+## 12. Evidence still missing
 No q_ALLELE baseline/mutant Paper2Agent run has been executed in this stage.
 No native verifier verdict is recorded.
 No CPC survival claim is licensed.
