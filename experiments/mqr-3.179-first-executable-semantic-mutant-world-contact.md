@@ -126,12 +126,50 @@ define `B_q` as the minimal distinction set that must survive compilation so tha
 This is **PROVISIONAL / NOT NOVELTY-BEARING**.
 It is useful only if it produces a smaller executable contract than full semantic equivalence while preserving the same defeat decision.
 
-## 10. Evidence still missing
+## 10. Second prior-art kill — context-of-use credibility and assurance cases
+A stronger rival family substantially reduces `Def` as an independent novelty candidate.
+
+- **NASA-STD-7009B** explicitly ties model/simulation credibility to intended use, criticality, permissible uses, V&V status, uncertainty, robustness, and reporting of risks/caveats.
+- **ASME V&V 40** and regulatory applications explicitly assess whether completed V&V evidence is sufficient for a declared context of use, with required credibility scaled by model influence and decision consequence.
+- Parvinian et al. (2019), DOI **10.3389/fphys.2019.00220**, and Kuemmel et al. (2020), DOI **10.1002/psp4.12479**, make this evidence→credibility-for-use relation operational in biomedical/regulatory settings.
+- Viceconti et al. (2021), DOI **10.1016/j.ymeth.2020.01.011**, likewise frames verification/validation/uncertainty evidence as licensing or failing to license a model for its context of use.
+- Assurance-case traditions already organize a scoped top-level claim through explicit evidence and assumptions.
+
+Therefore MQR may **not** claim novelty for a generic authority-defeat map or for the proposition that evidence/failures alter permissible scientific use.
+
+### Revised residue
+The candidate is now narrower:
+**challenge-authority transport across epistemic compilation**.
+
+Let source object `A` induce a scoped licensing relation `L_A(q,e,u)`, where evidence/challenge state `e` licenses use/claim `u` for target `q`. For compiler `K:A→I`, a challenge-preserving compilation requires a typed bridge `τ` such that, over a declared challenge basis `B_q`,
+
+`L_A(q,e,u) = L_I(τ(q),τ(e),τ(u))`
+
+within declared tolerance and scope.
+
+The novelty candidate, if any, is **preservation of the credibility/licensing relation through compilation/interface transformation**, not the licensing relation itself.
+
+### Next fatal rival
+This residue must now be attacked against:
+- assurance-case transformation/refinement;
+- requirements traceability under model transformation;
+- certified compilation;
+- proof-carrying code;
+- refinement/bisimulation preserving safety or proof obligations;
+- semantics-preserving API/interface transformation.
+
+If those literatures already preserve claim–evidence/use judgments under transformation in an equivalent form, CPC distinctness contracts again.
+
+Harvest receipt:
+`Literature Harvest LR-20260918-MQR-CPC — Context-of-Use Credibility, Assurance Cases, Permissible-Use Mapping & Challenge-Authority Transport`
+Notion page: `3dfef561-cf92-817f-87b5-c69c32cfa339`.
+
+## 11. Evidence still missing
 No q_ALLELE baseline/mutant Paper2Agent run has been executed in this stage.
 No native verifier verdict is recorded.
 No CPC survival claim is licensed.
 
-## 11. Current judgment
+## 12. Current judgment
 **DO NOT INCREMENT THE MQR NUMBER.**
 Continue inside MQR-3.179 until the frozen q_ALLELE execution yields a native-verifier verdict or the executable route is demonstrated unrecoverable under bounded reconstruction effort.
 
