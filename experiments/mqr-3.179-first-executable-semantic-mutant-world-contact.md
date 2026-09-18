@@ -633,3 +633,100 @@ Generation IV remains **NOT EARNED**.
 
 ## 31. Updated state
 **ACTIVE / HISTORICAL-vs-SUCCESSOR-RIVAL-SEPARATED / q_ALLELE-CURRENT-POSITIVE-CONTROL / EXTERNAL-CHALLENGE-CUSTODY-ADOPTED / COLOCATION-CRITERION-REJECTED / CPC-RESIDUE-FURTHER-NARROWED / G4-A-OPEN / NO-4.0-PROMOTION.**
+
+
+## 32. Research-OS backflow — custody tuple withdrawn as redundant
+Cross-Lab retrieval found that the provisional Challenge Custody Tuple `C(r)=<L,B,A,R,P>` does not earn a new MQR object.
+
+### Reduction to existing MQR
+MQR-3.13 already represents custody topology through:
+- `I` byte/content integrity;
+- `P` temporal priority/pre-outcome commitment;
+- `A` continued availability;
+- `D` discoverability/linkability;
+- `S` semantic adequacy;
+- `R` replay/reconstruction capacity;
+- `X` adversarial reach.
+
+MQR-3.10 already defines the authority object as:
+`(terminal summary, provenance reserve)`
+and explicitly requires a challenge-generative reserve rather than archival maximalism.
+
+The provisional tuple therefore maps approximately as:
+- Locator → `D`;
+- Binding → `I/P` plus source identity;
+- Accessibility/Retention → `A`;
+- Replay sufficiency → `S/R/X`.
+
+FMS-4.2 independently adds the organizational-custody warning:
+**distributed custody ≠ distributed accessibility; ownership map ≠ repair map.**
+
+### Verdict
+**CHALLENGE-CUSTODY-TUPLE = REDUNDANT VIEW / NO NEW PRIMITIVE / ABSORB INTO MQR-3.10 + MQR-3.13.**
+
+The Paper2Agent delivery case is therefore best treated as a new positive external witness for already-existing MQR custody doctrine:
+- runtime artifact and defeat-preservation reserve may be separate;
+- equivalence depends on reachable defeat topology, not co-location;
+- cryptographic binding alone is insufficient without availability, semantics, replay and adversarial reach.
+
+## 33. Information-gain reassessment of q_ALLELE runtime
+Research OS 2.4.4 requires frontier compression, authority separation, minimal world contact, and stopping when further work mainly improves machinery without reducing the live uncertainty.
+
+After the verifier-succession audit:
+- historical verifier: q_ALLELE lies outside its authorized challenge envelope;
+- current successor verifier: q_ALLELE lies inside its explicit changed/invalid-input and silent-repair envelope;
+- raw January demo: not a compliant current-rival baseline;
+- current verifier should detect/repair/refuse the mutant if implemented faithfully.
+
+Therefore the expected information value of a q_ALLELE runtime is now asymmetric.
+
+### What runtime can still answer
+It can test **implementation compliance**:
+does the current Paper2Agent successor actually operationalize its stronger written verifier doctrine on this concrete mutant?
+
+### What runtime can no longer answer by itself
+It cannot establish CPC philosophical distinctness:
+- detection confirms rival absorption;
+- a miss exposes a verifier implementation gap, but still does not establish CRF novelty;
+- either branch leaves G4-B/C/D untouched.
+
+### Resource decision
+q_ALLELE runtime is reclassified:
+**OPTIONAL HIGH-QUALITY COMPLIANCE WORLD-CONTACT / NOT REQUIRED FOR CURRENT NOVELTY ADJUDICATION.**
+
+This is not cancellation of the frozen experiment. The packet remains executable and may be run later without redesign.
+It is a decision that scarce execution effort should not be spent merely to confirm a low-discrimination positive control when a stronger current-rival matched pair has not yet been found.
+
+## 34. Successor-hard discriminant requirement
+The next informative object inside MQR-3.179 is now a matched pair `(A,B)` satisfying all of:
+
+1. **Current Paper2Agent equivalence:** the strongest current verifier, runtime acceptance, source-reuse checks, changed/invalid-input tests and delivery validation classify A and B identically.
+2. **Mature-framework equivalence:** provenance/assurance/full-abstraction/diagnosability machinery, applied in ordinary form, also does not already separate A and B.
+3. **MQR divergence:** a pre-existing MQR coordinate—preferably defeat-route noncommonness, substitute topology, or replay-authority role—classifies A and B differently.
+4. **Authority relevance:** that difference changes a scoped scientific licensing/refusal/reopenability judgment rather than merely archive convenience.
+5. **Prospective testability:** the divergence can be frozen and world-contacted without defining the MQR coordinate after seeing the result.
+
+Until such a pair exists:
+**NO CURRENT-RIVAL DISTINCTNESS TEST IS READY.**
+
+## 35. Generation-IV gate update
+The Paper2Agent encounter has produced valuable external contact, but it currently reduces rather than expands MQR.
+
+- **G4-A:** OPEN — no current-rival empirical differential.
+- **G4-B:** OPEN — no non-isomorphic replicated differential.
+- **G4-C:** NEGATIVE PRESSURE — mature rivals absorb most CPC components.
+- **G4-D:** NOT CONSTITUTED — existing MQR-3.x custody/provenance machinery already absorbs the latest candidate.
+
+Therefore:
+**MQR-4.0 PROMOTION NOT JUSTIFIED.**
+
+## 36. Current judgment
+MQR-3.179 remains the correct number.
+
+Its present result is:
+**SUCCESSOR ABSORPTION + INTERNAL REDUCTION, NOT GENERATIONAL BREAK.**
+
+The scientifically justified continuation is not another easy mutant. It is a successor-hard matched-pair search under the five conditions above.
+
+## 37. Updated state
+**ACTIVE / q_ALLELE-OPTIONAL-COMPLIANCE-WORLD-CONTACT / HISTORICAL-VERIFIER-ENVELOPE-WITNESS / CURRENT-SUCCESSOR-ABSORPTION / CHALLENGE-CUSTODY-TUPLE-WITHDRAWN-AS-REDUNDANT / MQR-3.10+3.13-REUSED / SUCCESSOR-HARD-MATCHED-PAIR-REQUIRED / G4-A-OPEN / NO-4.0.**
