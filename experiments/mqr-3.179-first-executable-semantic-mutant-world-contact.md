@@ -312,3 +312,102 @@ It does not replace q_ALLELE and cannot be promoted as a new mutant after the pr
 - frozen CPC holdout verdict: **OPEN**
 
 **EMPIRICAL PROMOTION REMAINS HOLD.**
+
+
+## 17. Prospective rival prediction — frozen before runtime
+Source-level inspection of current Paper2Agent verification doctrine materially changes the expected result.
+
+The current independent verifier is explicitly required to:
+- trace every exposed tool to pinned upstream scientific code;
+- establish expected behavior by direct upstream execution on the same inputs;
+- add meaningful changed inputs and relevant missing/invalid inputs;
+- preserve upstream assumptions, defaults, units, and error meaning;
+- reject silent repair of scientific inputs;
+- inspect wrapper code for altered defaults, ignored parameters, unjustified restrictions, duplicated scientific logic, and other deviations;
+- record source-call review, changed-input/error checks, commands/exits, repairs, exclusions, limitations, and production hashes.
+
+Therefore the prospective prediction is now:
+
+**P2A-STRONG-RIVAL PREDICTION:** a faithfully executed current Paper2Agent independent verifier *should* detect the frozen q_ALLELE laundering mutant, because the mutant silently repairs a source-invalid scientific input and diverges from direct upstream behavior on an invalid-input challenge.
+
+This prediction is frozen before any runtime outcome.
+
+### Interpretation discipline
+- If Paper2Agent catches q_ALLELE: this is a substantive rival victory, not a null result. CPC loses this single-route distinctness claim.
+- If Paper2Agent misses q_ALLELE despite the doctrine above: the result is stronger than merely showing weak reference testing, because the framework expressly claims changed/invalid-input and source-fidelity verification.
+- If only `verify_mcp_server.py` passes: no verdict. Runtime acceptance alone is not the strong rival.
+- If the verifier repairs the mutant before final acceptance: count as **DETECTED**, because bounded repair is part of the native verification procedure.
+- If the verifier excludes/defer the affected tool: count as **DETECTED/REFUSED**, not PASS.
+- If execution is blocked by environment/dependency failure: **NO EMPIRICAL VERDICT**.
+
+## 18. MQR-4.0 promotion constitution — presealed
+MQR-3.179 may promote directly to **MQR-4.0** only if all four gates below are satisfied. No numerical 3.180–3.999 ladder is required if a genuine generational constitution is earned.
+
+### G4-A — Empirical differential
+At least one prospectively frozen challenge must yield:
+- ordinary/reference/runtime acceptance PASS;
+- mature rival verification PASS or materially insufficient localization;
+- MQR challenge-route holdout FAIL;
+- with source identity, mutant identity, and verdict path frozen before outcome.
+
+A q_ALLELE miss can satisfy G4-A, but never the whole promotion.
+
+### G4-B — Non-isomorphic route replication
+The differential must recur on at least one second challenge route whose failure geometry is not merely another input-validity check.
+
+Acceptable second-route families include, if presealed before observation:
+- provenance/common-mode collapse;
+- substitute-route loss;
+- reconstruction-cost/competence degradation;
+- failure/abstention semantic erasure;
+- authority-bearing composition that changes route independence.
+
+The two routes must require distinct challenge coordinates in the CRF representation.
+
+### G4-C — Side-by-side reduction defeat
+For each promoted differential, explicitly instantiate the strongest relevant existing frameworks:
+- robust/full-abstraction or property-preservation machinery;
+- counterexample/witness preservation;
+- diagnosability/fault localization;
+- assurance-case/context-of-use credibility;
+- provenance/reproducibility/change-impact analysis.
+
+Promotion requires at least one matched pair where those frameworks, applied with their ordinary native state, do **not** recover the MQR verdict unless they are augmented with the CRF-specific route portfolio variables being claimed as new.
+
+If ordinary composition of existing frameworks yields the same verdict without extra MQR machinery, remain Generation III.
+
+### G4-D — Constitutional compression
+The proposed Generation IV object must compress a substantial fraction of the 3.x machinery rather than merely add another audit.
+
+Minimum requirement:
+one compact state object and update rule must jointly recover, as special cases:
+- live defeat geometry;
+- challenge lineage / successor burden;
+- common-mode genealogy;
+- translation burden;
+- certification/reuse debt where relevant;
+- substitute-route topology;
+- reopenability / reconstruction frontier;
+- typed failure localization;
+- refusal/HOLD semantics.
+
+The object must generate at least one new prospective prediction not explicitly baked into its construction.
+
+### Promotion verdicts
+- **ALL G4-A/B/C/D PASS → MQR-4.0 AUTHORIZED.**
+- **G4-A PASS, B/C/D OPEN → remain MQR-3.179.**
+- **G4-A FAIL because Paper2Agent catches q_ALLELE → remain MQR-3.179 and reduce CPC.**
+- **Execution unavailable → remain MQR-3.179 / EMPIRICAL HOLD.**
+- **Existing frameworks fully recover all tested verdicts → close the CPC branch without Generation IV promotion.**
+
+## 19. Current judgment after verifier-source audit
+The current Paper2Agent verifier is a substantially stronger rival than the earlier T0/T1 framing suggested.
+
+Accordingly:
+- q_ALLELE is retained unchanged;
+- the expected rival outcome is now **DETECTION**;
+- a Paper2Agent miss, if observed, becomes more informative;
+- no result can authorize MQR-4.0 by itself;
+- Generation IV remains **PREAUTHORIZED-BUT-NOT-EARNED** under G4-A/B/C/D.
+
+**CURRENT STATE: ACTIVE / STRONG-RIVAL-PREDICTION-FROZEN / EXECUTION-PENDING / MQR-4.0 GATE-PRESEALED / NO PROMOTION.**
