@@ -519,3 +519,117 @@ What has been earned is narrower:
 
 ## 24. Updated state
 **ACTIVE / VERIFIER-SUCCESSION-WITNESS / HISTORICAL-ENVELOPE-NARROWER / CURRENT-SUCCESSOR-ABSORPTION / RAW-DEMO-NONCOMPLIANT-WITH-CURRENT-VERIFIER / CURRENT-BASELINE-REGENERATION-REQUIRED / G4-A-OPEN / HISTORICAL-NOVELTY-HOLD.**
+
+
+## 25. Delivery-custody audit — co-location is not challenge preservation
+The first delivery-level CRF candidate was deliberately attacked before promotion.
+
+Current Paper2Agent delivery rules intentionally separate:
+- the **runtime package** delivered to the user;
+- the **development/verification evidence** retained outside that package.
+
+The delivered ZIP must contain the verified runtime, pinned runtime requirements, relevant scientific implementation/provenance or fixed-version installation instructions, and `USAGE.md` with scope and validation limits.
+
+By default the ZIP omits:
+- examples;
+- test fixtures;
+- test suites;
+- notebooks;
+- reports;
+- agent records;
+- environments;
+- intermediate outputs.
+
+However delivery validation is not evidence-free. Paper2Agent requires:
+- ZIP SHA-256;
+- packaged file/hash inventory outside the package;
+- independent verification of the extracted ZIP;
+- source-backed acceptance evidence kept outside the ZIP;
+- `reports/delivery-validation.json` tied to the exact archive hash;
+- completion hashes linking the final ZIP and delivery report.
+
+Therefore:
+**EVIDENCE NOT CO-LOCATED WITH THE EXECUTABLE ≠ CHALLENGE ROUTE DESTROYED.**
+
+A challenge route can remain live through an externally bound evidence object.
+
+## 26. Challenge Custody Tuple — provisional CRF refinement
+For each challenge route r, replace the binary “inside package / outside package” criterion with a custody tuple:
+
+`C(r)=<L,B,A,R,P>`
+
+where:
+- **L — Locator:** where the evidence/replay materials reside;
+- **B — Binding:** how strongly those materials are cryptographically/version-identically tied to the exact artifact under judgment;
+- **A — Accessibility:** whether an independent recipient can actually obtain them;
+- **R — Retention:** whether the route persists over the relevant time horizon rather than only in an ephemeral builder workspace;
+- **P — Replay sufficiency:** whether the retained material is enough to reconstruct the intended challenge rather than merely prove that “some validation happened”.
+
+Provisional states:
+- **LIVE-LOCAL** — challenge materials travel with the artifact and are replay-sufficient;
+- **LIVE-EXTERNAL** — materials are external but strongly bound, accessible, retained, and replay-sufficient;
+- **BOUND-BUT-INACCESSIBLE** — identity is preserved but recipient challenge reconstruction is unavailable;
+- **ACCESSIBLE-BUT-UNBOUND** — evidence exists but cannot be reliably tied to the judged artifact;
+- **EPHEMERAL** — builder-side evidence existed but retention is not established;
+- **DEAD** — no adequate challenge route remains.
+
+This is a CRF bookkeeping refinement, **not a novelty claim**.
+
+## 27. Paper2Agent delivery classification
+Paper2Agent-current supplies strong machinery for **B**:
+- final ZIP hash;
+- file/hash inventory;
+- delivery-report hash;
+- completion evidence tied to the verified production revision.
+
+It also supplies a process for **P** inside the builder workspace:
+- source-backed acceptance evidence;
+- changed-input/error cases;
+- independent verifier reports;
+- delivery-validation records.
+
+But recipient-side **A** and long-horizon **R** are not guaranteed merely by successful generation:
+- detailed workspace evidence is not shipped by default;
+- the final response links detailed evidence only when useful;
+- evidence retained only in a private/ephemeral workspace can therefore become unreconstructable to a later independent recipient.
+
+Thus the correct MQR verdict is not “Paper2Agent destroys challenge evidence”. It is:
+**PAPER2AGENT SUPPORTS EXTERNAL CHALLENGE CUSTODY, BUT RECIPIENT REOPENABILITY DEPENDS ON ACCESS/RETENTION POLICY BEYOND THE RUNTIME ZIP.**
+
+## 28. Prior-art reduction of custody residue
+This custody distinction is already strongly anticipated by:
+- SLSA-style external provenance attestations;
+- in-toto-style artifact/step attestations;
+- Workflow Run RO-Crate and related workflow provenance;
+- assurance-case evidence stores;
+- archival reproducibility packages.
+
+Therefore “keep verification evidence externally but cryptographically bind it to the artifact” is not MQR novelty.
+
+The only remaining MQR-specific question is whether **challenge-route replay sufficiency and authority role** require richer typed state than generic provenance/attestation provides.
+
+This remains open and must be tested, not presumed.
+
+## 29. Successor-custody synthesis
+The Paper2Agent encounter now yields two concrete reductions and one retained MQR function:
+
+1. **Historical verifier weakness cannot be projected onto the current successor.**
+2. **Externalized verification evidence cannot be equated with lost challenge custody.**
+3. MQR's remaining role, if any, is to ask whether the surviving external evidence preserves the *specific defeat route and authority consequence*, not merely artifact identity and execution provenance.
+
+This further narrows CPC from “preserve semantics/provenance/tests” to:
+**preserve the reconstructable, typed defeat route needed for a scoped authority judgment.**
+
+## 30. Promotion impact
+Neither verifier succession nor delivery custody satisfies MQR-4.0 promotion.
+
+Current gate state:
+- **G4-A:** OPEN;
+- **G4-B:** OPEN;
+- **G4-C:** currently under strong reduction;
+- **G4-D:** NOT CONSTITUTED.
+
+Generation IV remains **NOT EARNED**.
+
+## 31. Updated state
+**ACTIVE / HISTORICAL-vs-SUCCESSOR-RIVAL-SEPARATED / q_ALLELE-CURRENT-POSITIVE-CONTROL / EXTERNAL-CHALLENGE-CUSTODY-ADOPTED / COLOCATION-CRITERION-REJECTED / CPC-RESIDUE-FURTHER-NARROWED / G4-A-OPEN / NO-4.0-PROMOTION.**
