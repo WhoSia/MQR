@@ -806,3 +806,40 @@ If a qualifying pair is found:
 - then close 3.179 before opening the next stage.
 
 No further concept invention is authorized inside 3.179 unless forced by a concrete matched-pair failure that existing 3.x machinery cannot represent.
+
+
+## 38. Novelty-kill literature byte-custody closure
+The prior-art sources that materially reduced or destroyed candidate CPC/CRF novelty claims have now been rechecked against Google Drive canonical custody.
+
+### Canonical scholarly-paper custody — 10_PAPERS
+Confirmed present under `10_PAPERS — Canonical Literature Commons`:
+- Shulepov (2026), *Mutation Testing for Reproducibility Safeguards in Machine Learning Research Software: An Empirical Study* — arXiv 2608.27100v1.
+- Bartocci et al. (2023), *Property-Based Mutation Testing* — arXiv 2301.13615v1.
+- Lin, Simon & Niu (2020), *Exploratory Metamorphic Testing for Scientific Software*.
+- Leo et al. (2024), *Recording Provenance of Workflow Runs with RO-Crate*.
+- Abate, Busi & Tsampas (2020), *Fully Abstract and Robust Compilation and How to Reconcile the Two, Abstractly* — arXiv 2006.14969v4.
+- Abate et al. (2018), *Journey Beyond Full Abstraction: Exploring Robust Property Preservation for Secure Compilation* — arXiv 1807.04603v6.
+- Liu et al. (2013), *Counterexample-Preserving Reduction for Symbolic Model Checking* — arXiv 1301.3299v1.
+- Beyer, Kettl & Lemberger (2024), *Fault Localization on Verification Witnesses*.
+- Wei et al. (2024), *ACCESS: Assurance Case Centric Engineering of Safety-Critical Systems*.
+- Muram & Javed (2023), *ATTEST: Automating the Review and Update of Assurance Case Arguments*.
+- Almeida, Iacob & van Eck (2007), *Requirements Traceability in Model-Driven Development: Applying Model and Transformation Conformance*.
+- Parvinian et al. (2019), *Credibility Evidence for Computational Patient Models Used in the Development of Physiological Closed-Loop Controlled Devices for Critical Care Medicine*.
+- Kuemmel et al. (2020), *Consideration of a Credibility Assessment Framework in Model-Informed Drug Development*.
+- Viceconti et al. (2021), *In Silico Trials: Verification, Validation and Uncertainty Quantification of Predictive Models Used in the Regulatory Evaluation of Biomedical Products*.
+
+### Canonical non-paper / artifact custody — 20_NON_PAPER_SOURCES
+Confirmed present under `20_NON_PAPER_SOURCES — Proceedings, Corpora & Scholarly Reference Objects`:
+- NASA (2024), *NASA-STD-7009B — Standard for Models and Simulations*.
+- NASA (2026), *NASA-HDBK-7009B — Handbook for Models and Simulations*.
+- NASA (2026), *NASA-HDBK-7009B — Worksheet.xlsx*.
+- NASA legacy/current comparison copies for NASA-STD-7009 / 7009A also present.
+- Shulepov (2026), *MLReproMutate v0.1.0 — Reproduction Artifact.zip*.
+
+### Intake state
+`00_INTAKE — Literature Radar` no longer contains this novelty-kill batch. The only remaining visible file at audit time is unrelated `knight1986.pdf`.
+
+### Custody verdict
+**NOVELTY-KILL BYTE-CUSTODY = COMPLETE FOR THE MATERIALS USED IN MQR-3.179 PRIOR-ART REDUCTION.**
+
+This closes the literature-custody obligation for the current 3.179 novelty attack. It does not by itself alter the scientific verdict: CPC/CRF distinctness remains under reduction and Generation IV remains unauthorized.
