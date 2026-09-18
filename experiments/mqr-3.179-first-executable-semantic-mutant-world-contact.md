@@ -730,3 +730,27 @@ The scientifically justified continuation is not another easy mutant. It is a su
 
 ## 37. Updated state
 **ACTIVE / q_ALLELE-OPTIONAL-COMPLIANCE-WORLD-CONTACT / HISTORICAL-VERIFIER-ENVELOPE-WITNESS / CURRENT-SUCCESSOR-ABSORPTION / CHALLENGE-CUSTODY-TUPLE-WITHDRAWN-AS-REDUNDANT / MQR-3.10+3.13-REUSED / SUCCESSOR-HARD-MATCHED-PAIR-REQUIRED / G4-A-OPEN / NO-4.0.**
+
+
+## 38. Closure
+MQR-3.179 now closes.
+
+### Why closure is justified
+The stage's original question was whether a first executable semantic-mutant probe could show that challenge-preserving compilation adds something beyond ordinary runtime/reference validation.
+
+The answer is no longer a simple empirical yes/no:
+1. mutation/provenance/metamorphic/property-specific testing prior art absorbed most of the original novelty surface;
+2. context-of-use credibility and assurance cases absorbed the generic authority-defeat mapping;
+3. full abstraction, robust property preservation, counterexample/witness preservation and diagnosability absorbed generic semantic/challenge preservation;
+4. Paper2Agent's own verifier evolved from tutorial-only validation to changed/invalid-input and source-fidelity verification, directly absorbing q_ALLELE into the current rival;
+5. q_ALLELE is therefore a historical challenge-envelope witness and current-rival positive control, not the decisive current distinctness test;
+6. the provisional custody tuple was redundant with MQR-3.8/3.10/3.13 and was withdrawn.
+
+### Final verdict
+**PASS-REDUCTION / FIRST-WORLD-CONTACT-CONSTITUTION-REVISED / SUCCESSOR-ABSORPTION-WITNESS / CPC-BROAD-NOVELTY-REJECTED / q_ALLELE-POSITIVE-CONTROL / MQR-3.10+3.13-REUSED / CURRENT-DISTINCTNESS-UNRESOLVED / GENERATION-IV-NOT-EARNED.**
+
+### Carry-forward invariant
+The only scientifically justified continuation is a new problem:
+find a **successor-hard matched pair** that the strongest current rival and mature adjacent frameworks classify alike, but a pre-existing MQR defeat-route coordinate prospectively separates in an authority-relevant way.
+
+That is no longer the same experiment. It becomes MQR-3.180.
