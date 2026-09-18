@@ -754,3 +754,55 @@ The only scientifically justified continuation is a new problem:
 find a **successor-hard matched pair** that the strongest current rival and mature adjacent frameworks classify alike, but a pre-existing MQR defeat-route coordinate prospectively separates in an authority-relevant way.
 
 That is no longer the same experiment. It becomes MQR-3.180.
+
+
+## 38. Novelty-defeat literature byte-custody closure
+All literature objects that materially defeated or narrowed CPC/CRF novelty claims in MQR-3.179 have now been ingested into the canonical Research OS custody structure.
+
+### 10_PAPERS — Canonical Literature Commons
+Canonicalized and moved:
+- Shulepov (2026), *Mutation Testing for Reproducibility Safeguards in Machine Learning Research Software: An Empirical Study* — arXiv 2608.27100v1.
+- Bartocci et al. (2023), *Property-Based Mutation Testing* — arXiv 2301.13615v1.
+- Lin, Simon & Niu (2020), *Exploratory Metamorphic Testing for Scientific Software*.
+- Leo et al. (2024), *Recording Provenance of Workflow Runs with RO-Crate*.
+- Abate, Busi & Tsampas (2020), *Fully Abstract and Robust Compilation and How to Reconcile the Two, Abstractly* — arXiv 2006.14969v4.
+- Abate et al. (2018), *Journey Beyond Full Abstraction: Exploring Robust Property Preservation for Secure Compilation* — arXiv 1807.04603v6.
+- Liu et al. (2013), *Counterexample-Preserving Reduction for Symbolic Model Checking* — arXiv 1301.3299v1.
+- Beyer, Kettl & Lemberger (2024), *Fault Localization on Verification Witnesses*.
+- Wei et al. (2024), *ACCESS: Assurance Case Centric Engineering of Safety-Critical Systems*.
+- Muram & Javed (2023), *ATTEST: Automating the Review and Update of Assurance Case Arguments*.
+- Almeida, Iacob & van Eck (2007), *Requirements Traceability in Model-Driven Development: Applying Model and Transformation Conformance*.
+- Parvinian et al. (2019), *Credibility Evidence for Computational Patient Models Used in the Development of Physiological Closed-Loop Controlled Devices for Critical Care Medicine*.
+- Kuemmel et al. (2020), *Consideration of a Credibility Assessment Framework in Model-Informed Drug Development*.
+- Viceconti et al. (2021), *In Silico Trials: Verification, Validation and Uncertainty Quantification of Predictive Models Used in the Regulatory Evaluation of Biomedical Products*.
+
+### 20_NON_PAPER_SOURCES
+Canonicalized and moved:
+- Shulepov (2026), *MLReproMutate v0.1.0* reproduction artifact ZIP.
+- NASA (2024), *NASA-STD-7009B — Standard for Models and Simulations*.
+- NASA (2026), *NASA-HDBK-7009B — Handbook for Models and Simulations*.
+- NASA-HDBK-7009B worksheet.
+- NASA-STD-7009A and historical NASA-STD-7009 reference versions.
+- NASA-STD-7009A requirements/recommendations lifecycle worksheet.
+
+### Custody verdict
+**NOVELTY-DEFEAT LITERATURE BYTE-CUSTODY = COMPLETE FOR THE CURRENT 3.179 PRIOR-ART ATTACK SET.**
+
+This closes the gap between literature-based novelty reduction and actual source-byte custody. The prior-art defeat is no longer metadata/abstract-only for the current canonical set.
+
+The remaining item in 00_INTAKE, `knight1986.pdf`, is unrelated to this MQR-3.179 acquisition batch and was intentionally left untouched.
+
+## 39. MQR-3.179 stopping rule
+MQR-3.179 now has one remaining substantive task:
+**attempt one successor-hard matched-pair construction under the already frozen five-condition requirement.**
+
+If no non-reducible pair is found after a focused attempt:
+- close MQR-3.179 as **SUCCESSOR ABSORPTION / CPC DISTINCTNESS NOT EARNED / PRIOR-ART CUSTODY COMPLETE**;
+- proceed to MQR-3.180 rather than prolonging the current stage through additional ad hoc mutants.
+
+If a qualifying pair is found:
+- preseal it prospectively inside 3.179;
+- execute only the minimum world-contact needed to adjudicate that pair;
+- then close 3.179 before opening the next stage.
+
+No further concept invention is authorized inside 3.179 unless forced by a concrete matched-pair failure that existing 3.x machinery cannot represent.
