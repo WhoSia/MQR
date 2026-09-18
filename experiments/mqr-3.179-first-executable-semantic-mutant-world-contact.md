@@ -411,3 +411,111 @@ Accordingly:
 - Generation IV remains **PREAUTHORIZED-BUT-NOT-EARNED** under G4-A/B/C/D.
 
 **CURRENT STATE: ACTIVE / STRONG-RIVAL-PREDICTION-FROZEN / EXECUTION-PENDING / MQR-4.0 GATE-PRESEALED / NO PROMOTION.**
+
+
+## 20. Verifier-succession audit — historical rival vs current successor
+A temporal confound has now been resolved.
+
+### Historical Paper2Agent verifier
+The last public Paper2Agent state before the POP-TOOLS demo date is represented by:
+- `jmiao24/Paper2Agent@cbcd5dfd2324fde298758c8092b1d96059567290` (2025-12-15);
+- the same verifier constitution remains in `e573687e15f345e3f375cd0851373d588e436be3` (2026-02-10).
+
+Its `test-verifier-improver` explicitly requires:
+- “Test exactly what the tutorial demonstrates — no more, no less”;
+- exact tutorial examples verbatim;
+- “No Exploration”;
+- “Do not write assertions beyond what the tutorial demonstrates”;
+- no mock/synthetic test cases.
+
+The Nature paper's own pipeline description is aligned with this historical constitution: the verifier creates per-function tests using the tutorial's example data as ground truth and removes tools that repeatedly fail those tests.
+
+Because q_ALLELE is intentionally a **new synthetic invalid-input challenge** not present in the tutorial example set, it lies outside the historical verifier's authorized challenge envelope.
+
+This does **not** prove a runtime mutant would necessarily pass historical Paper2Agent; it proves only:
+**q_ALLELE was not a required or authorized test under the historical verifier constitution.**
+
+### Current successor verifier
+The current strong verifier documents were introduced in commit:
+`61bdd684eb2d8ce57355d0ee0072393cb700f539` on **2026-09-16**.
+
+They newly require:
+- direct upstream execution;
+- meaningful changed inputs;
+- relevant missing/invalid inputs;
+- detection of ignored inputs and changed defaults;
+- preservation of upstream assumptions/defaults/units/error meaning;
+- rejection of silent scientific-input repair;
+- source-reuse and wrapper-quality review.
+
+Therefore q_ALLELE is now inside the successor verifier's declared challenge envelope.
+
+### Challenge-envelope succession
+Define the authorized challenge envelope of verifier version V_t as:
+`E(V_t)={q : q is licensed/required by V_t's verification constitution}`.
+
+For the frozen q_ALLELE:
+`q_ALLELE ∉ E(V_historical)`
+while
+`q_ALLELE ∈ E(V_2026-09-16+)`.
+
+Thus:
+`E(V_historical) ⊊ E(V_successor)`
+for at least this observed challenge coordinate.
+
+This is an externally observed **challenge-space expansion** in a real scientific-agentification method.
+
+## 21. No-Retroactive-Rival-Strengthening rule
+MQR must not conflate historical and present distinctness.
+
+For a rival method R with versioned verification constitutions:
+- historical comparison at time t uses `R_t`;
+- present irreducibility uses the strongest current successor `R_now`;
+- later successor absorption may defeat a **current** novelty claim;
+- later successor absorption must not be projected backward to claim that the earlier rival already possessed that challenge capacity.
+
+Formally, if:
+`q ∉ E(R_t)` and `q ∈ E(R_{t+1})`,
+then successor absorption updates present reduction status but does not rewrite the historical challenge envelope.
+
+This is a fairness/lineage rule, not itself a novelty claim.
+
+### Consequence for MQR-3.179
+q_ALLELE changes role:
+- **historical lane:** challenge-envelope succession witness;
+- **current lane:** strong-rival positive control / compliance probe;
+- **not sufficient:** current MQR-vs-Paper2Agent discriminant.
+
+Therefore even if the current successor detects q_ALLELE, the result is scientifically useful: it confirms successor absorption and reduces CPC on this axis.
+
+## 22. Raw demo baseline is not a current-rival baseline
+The author-controlled `jmiao24/pop_gwas_agent@ca345e4d...` predates the 2026-09-16 verifier strengthening and is not compliant with the current verifier contract in at least two visible ways:
+1. upstream failures are returned as ordinary `{"success": false, ...}` data instead of MCP tool errors;
+2. the current verifier's preferred `message/reference/artifacts` output contract is not the demo's native return structure.
+
+Therefore a fair current-rival experiment cannot use the untouched January demo as “Paper2Agent-current PASS”.
+
+The admissible current-rival baseline must be:
+1. regenerated or repaired under the current successor verifier;
+2. independently verified to PASS;
+3. hashed/frozen;
+4. only then receive the q_ALLELE mutant.
+
+The January demo remains a provenance/sibling execution surface, not the final current-rival baseline.
+
+## 23. Generation-IV consequence
+The verifier-succession result does **not** satisfy G4-A.
+
+Reason:
+- there is a documented constitutional difference between historical and successor verifier challenge envelopes;
+- there is not yet an empirical current-rival PASS vs MQR-holdout differential.
+
+Accordingly:
+**G4-A = OPEN, not PASS.**
+**MQR-4.0 remains NOT AUTHORIZED.**
+
+What has been earned is narrower:
+**REAL-WORLD SUCCESSOR-CHALLENGE-ENVELOPE EXPANSION OBSERVED / TEMPORAL RIVAL INDEXING REQUIRED / q_ALLELE DOWNGRADED TO CURRENT-RIVAL POSITIVE CONTROL.**
+
+## 24. Updated state
+**ACTIVE / VERIFIER-SUCCESSION-WITNESS / HISTORICAL-ENVELOPE-NARROWER / CURRENT-SUCCESSOR-ABSORPTION / RAW-DEMO-NONCOMPLIANT-WITH-CURRENT-VERIFIER / CURRENT-BASELINE-REGENERATION-REQUIRED / G4-A-OPEN / HISTORICAL-NOVELTY-HOLD.**
