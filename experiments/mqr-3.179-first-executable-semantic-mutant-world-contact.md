@@ -1,7 +1,7 @@
 # MQR-3.179 — First Executable Semantic-Mutant World Contact
 
 ## Status
-**ACTIVE / CONTRACT-FROZEN / PRIOR-ART-COLLAPSE / CHALLENGE-ROUTE-ACCESS DEGRADED / EXECUTION-PENDING / HISTORICAL-NOVELTY-HOLD**
+**ACTIVE / CONTRACT-FROZEN / PRIOR-ART-COLLAPSE / EXECUTION-SURFACE-PARTIALLY-RECOVERED / EXECUTION-PENDING / HISTORICAL-NOVELTY-HOLD**
 
 This stage remains **MQR-3.179**. No R1/R2/substage numbering is authorized.
 
@@ -26,13 +26,31 @@ For the common-variant POP-GWAS path (`rare=False`), POP-TOOLS removes rows when
 - **Def** — if a compiled paper-agent interface instead silently normalizes/coerces the invalid allele and returns an ordinary inferential result for the injected SNP, challenge-function transport fails.
 - **S** — common-variant POP-GWAS only. No automatic claim about POP-RARE/burden paths.
 
-### Paired fixture
-Start from a known-valid POP-TOOLS quantitative-trait fixture. Copy one valid row into each of the three input files, assign a fresh SNP identifier, retain ordinary numeric fields, and alter one allele field to `N`.
+### Paired fixture — outcome-blind deterministic construction
+Use the pinned POP-TOOLS `Head_BMD` common-variant triplet:
+- `test/data/Head_BMD_y_lab.txt.gz`
+- `test/data/Head_BMD_yhat_lab.txt.gz`
+- `test/data/Head_BMD_yhat_unlab.txt.gz`
 
-The baseline/source oracle is therefore:
-1. original fixture remains unchanged;
-2. injected-invalid fixture executes;
-3. injected SNP is excluded from canonical output.
+At execution time, before any verifier outcome is observed:
+1. identify the lexicographically smallest SNP identifier present exactly once in each of the three files whose source alleles are ordinary A/T/G/C values and are source-compatible across the triplet;
+2. save the three source rows and their original A1/A2 values in a fixture manifest;
+3. duplicate those rows under fresh sentinel SNP id `MQR_QALLELE_001`;
+4. preserve all file-specific numeric/statistical fields and set sentinel `A1=N` in all three copies;
+5. leave the original rows untouched.
+
+The source-oracle holdout is frozen as:
+- ordinary fixture output is unchanged;
+- the invalid-sentinel fixture executes under the pinned source;
+- `MQR_QALLELE_001` is absent from canonical POP-GWAS output.
+
+The interface-side mutant is equally frozen:
+- never modify the pinned POP-TOOLS source;
+- copy the three input files to temporary inputs;
+- only for `MQR_QALLELE_001`, restore A1 from the pre-mutation fixture manifest;
+- pass those temporary files to the same upstream POP-GWAS command.
+
+Thus the mutant launders exactly one presealed scientific-admission boundary and does not invent an arbitrary replacement allele.
 
 ## 3. Mutant semantics
 The mutant must alter **only the compiled/interface-side handling of the frozen boundary**, not the original source oracle.
@@ -76,10 +94,16 @@ Forbidden:
 ## 6. Challenge-Reconstruction Frontier finding
 The previously public `jmiao24/Paper2AgentBench` repository was indexed with an `eval/adversarial_repos/POP-TOOLS_i{1-4}` structure and published as the benchmark home for the Nature work, but the current GitHub API returns 404 for the repository.
 
-This is recorded as:
-**PUBLISHED ROUTE HISTORICALLY VISIBLE / CURRENT PRIMARY BENCHMARK ROUTE DEGRADED-OR-DEAD / PAPER+SUPPLEMENT SUBSTITUTE ROUTE LIVE.**
+The reconstruction census is now finer:
+- `jmiao24/Paper2AgentBench`: current primary URL/API route is dead (404), although historical indexes preserve the POP-TOOLS adversarial path names;
+- `joed3/Paper2AgentBench`: an author-collaborator sibling benchmark repository is live, but inspected current/history trees preserve AlphaGenome materials rather than the missing POP-TOOLS artifact;
+- `jmiao24/pop_gwas_agent@ca345e4d0921bdd8dd9ce089518c0b747fe737c2`: a live author-controlled repository explicitly titled **Paper2Agent: POP-TOOLS Demo**, exposing `run_pop_gwas` and `run_pop_rare`;
+- the Nature no-tutorial ablation reports four callable tools, whereas this demo exposes two, so identity with the published ablation is **not licensed**.
 
-This accessibility fact is a CRF observation, not a substitute q_ALLELE verdict.
+CRF classification:
+**EXACT PUBLISHED ABLATION ROUTE DEAD/UNRECOVERED / AUTHOR-CONTROLLED SIBLING EXECUTION SURFACE LIVE / CANONICAL SOURCE LIVE / CURRENT PAPER2AGENT VERIFIER SPEC LIVE.**
+
+This accessibility recovery is a CRF result, not a q_ALLELE verdict.
 
 ## 7. Prior-art collapse
 The following components are explicitly removed from MQR novelty:
@@ -239,3 +263,52 @@ No CPC survival claim is licensed.
 Continue inside MQR-3.179 until the frozen q_ALLELE execution yields a native-verifier verdict or the executable route is demonstrated unrecoverable under bounded reconstruction effort.
 
 If the route remains unavailable, close 3.179 as an accessibility/world-contact failure rather than fabricating execution.
+
+
+## 15. Execution-surface recovery and double-pin constitution
+A real POP-TOOLS paper-agent implementation is now recoverable without pretending that it is the exact Nature ablation artifact.
+
+### Live interface
+`jmiao24/pop_gwas_agent@ca345e4d0921bdd8dd9ce089518c0b747fe737c2`
+was created by Jiacheng Miao and describes itself as a **Paper2Agent: POP-TOOLS Demo**. Its MCP wrapper exposes:
+- `run_pop_gwas`;
+- `run_pop_rare`.
+
+The wrapper is thin: it forwards user-supplied file paths to the upstream POP-TOOLS CLI through `subprocess.run`. It does not itself reinterpret A1/A2 content before the call. Static inspection therefore supports:
+**BASELINE WRAPPER STRUCTURALLY PRESERVES q_ALLELE INPUT PASS-THROUGH.**
+This is not yet a runtime verdict.
+
+### Identity caveat
+The demo README tells users to clone `jmiao24/POP-TOOLS` separately and does not pin a commit. That fork's current main is `34fe4ff45532577f810502b2b5aebc68679cf878`, while the canonical qlu-lab source used by this stage is pinned later at `f1db4032b7ffe3d65cc03c314ee06da07ac9bd50`.
+
+Therefore the executable world-contact pair is constitutionally double-pinned:
+1. interface: `jmiao24/pop_gwas_agent@ca345e4d0921bdd8dd9ce089518c0b747fe737c2`;
+2. scientific source: `qlu-lab/POP-TOOLS@f1db4032b7ffe3d65cc03c314ee06da07ac9bd50`.
+
+No unpinned clone is admissible evidence for MQR-3.179.
+
+### Native-verifier clarification
+The current Paper2Agent semantic verifier is not merely `verify_mcp_server.py`. Runtime acceptance checks package/tool execution, whereas the independent verifier agent is instructed to inspect direct upstream execution, changed inputs/defaults, invalid inputs, upstream failures, and source reuse.
+
+Therefore the fatal comparison must use the same **current Paper2Agent verifier doctrine/agent procedure** on baseline and mutant. Passing only the standalone runtime helper cannot count as “native Paper2Agent verifier PASS.”
+
+### Incidental source-defect localization
+Static inspection also found that pinned `POP-GWAS.py` defines `--ovp/--sample-overlap` with `action="store_true", default=True`. Omitting the flag therefore does not create an effective false branch. The public wrapper's apparent `ovp=False` path can inherit this source behavior.
+
+This is recorded only as a localization calibration:
+**SOURCE-DEFECT INHERITANCE ≠ COMPILATION DISTORTION.**
+It does not replace q_ALLELE and cannot be promoted as a new mutant after the preseal.
+
+## 16. Current executable packet state
+- source boundary contract: **FROZEN**
+- deterministic fixture rule: **FROZEN**
+- interface commit: **FROZEN**
+- source commit: **FROZEN**
+- baseline wrapper static pass-through audit: **PASS**
+- exact Nature 4-tool artifact identity: **UNRESOLVED**
+- baseline runtime: **NOT RUN**
+- mutant runtime: **NOT RUN**
+- current Paper2Agent semantic-verifier verdict: **OPEN**
+- frozen CPC holdout verdict: **OPEN**
+
+**EMPIRICAL PROMOTION REMAINS HOLD.**
