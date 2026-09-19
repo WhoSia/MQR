@@ -196,14 +196,22 @@ Substantive body findings:
 4. **Failure to find a counterexample under a large random campaign is not a completeness certificate.**
 
 ### 5.4 Angluin 1987
-**READ DEPTH: PARTIAL-FULL-TEXT / accessible article opening and theorem-level description; full article byte-level reread still pending canonical intake.**
+**READ DEPTH: FULL-TEXT-SUBSTANTIVE-READ from canonical Drive PDF.**
 
-Safe finding:
-exact (L^*)-style learning assumes membership access plus a teacher capable of answering equivalence queries with counterexamples.
+Verified in the body:
+- a minimally adequate teacher answers membership queries and conjecture/equivalence queries;
+- incorrect conjectures must be accompanied by a counterexample;
+- L* maintains a closed/consistent observation table;
+- observation-table rows serve as candidate states and suffix columns as distinguishing experiments;
+- once the table is closed and consistent, the induced DFA is the uniquely smallest acceptor consistent with the finite table;
+- counterexamples and their prefixes are added back into the table and trigger another refinement cycle;
+- Angluin explicitly flags equivalence-query feasibility as the problematic teacher assumption and discusses stochastic approximate substitution separately.
 
-### Harvest status
-**PROVISIONAL-HARVEST ONLY.**
-Do not elevate finer claims until the canonical PDF is read end-to-end.
+### Harvest
+1. **Exact identification is teacher/oracle-relative, not evidence-free induction.**
+2. **Distinguishing experiments are constitutive of state discovery rather than an after-the-fact test.**
+3. **The exactness guarantee depends on the semantics of MEMBER/EQUIV access; replacing EQUIV changes the authority class.**
+4. **Approximate stochastic substitution must not inherit the word exact from the MAT result.**
 
 ### 5.5 Rivest & Schapire 1993
 **READ DEPTH: PARTIAL-FULL-TEXT / accessible extended-paper material and bibliographic full-article record.**
@@ -449,3 +457,25 @@ Do not choose a domain merely because MQR itself defines the states.
 
 ## 16. Verdict
 **PASS-BOUNDED-EXACTNESS-CONSTITUTION / PROSPECTIVE-ENVELOPE-PRESEAL / FAULT-DOMAIN-CERTIFICATE / K-COMPLETE-CLASS-IDENTIFICATION / DESTRUCTIVE-PROBE-BUDGET / LEARNING-CERTIFICATION-SEPARATION / RESET-HOMING-REPLICA-TRICHOTOMY / ENVELOPE-BOUNDARY-PRINCIPLE / FULL-TEXT-HARVEST-PROTOCOL-ACTIVE / REAL-AUTHORITY-AUTOMATON-EXECUTION-HOLD / GENERATION-III-STABLE / NO-MQR-4.0.**
+
+
+## 17. Post-custody full-text correction — Lee & Yannakakis 1994
+**READ DEPTH: FULL-TEXT-SUBSTANTIVE-READ from canonical Drive PDF.**
+
+Verified in the body:
+- adaptive distinguishing sequences are decision-tree experiments for state identification;
+- if an adaptive distinguishing sequence exists, one of length at most n(n-1)/2 can be constructed, and this bound is tight;
+- intermediate-subset state-identification can become PSPACE-complete;
+- checking sequences distinguish a specification from non-isomorphic implementations in the stated bounded setting;
+- preset distinguishing sequences/UIO sequences can be exponentially long or hard to decide, while adaptive distinguishing sequences yield stronger constructive results.
+
+### Harvest
+1. **Probe adaptivity can turn an otherwise prohibitive fixed experiment into a tractable state-identification procedure.**
+2. **Existence of a finite state space does not imply cheap preset certification.**
+3. **Adaptive identification cost and checking-sequence completeness are distinct resources and must be recorded separately.**
+4. **The MQR destructive-probe budget must distinguish preset, adaptive, homing and checking-sequence costs rather than collapsing them to test count.**
+
+Drive custody:
+- Angluin (1987) canonical PDF confirmed.
+- Lee & Yannakakis (1994) canonical PDF confirmed.
+- Rivest & Schapire (1993) previously unidentified PII file canonically renamed.
