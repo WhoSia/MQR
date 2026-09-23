@@ -1,0 +1,38 @@
+name: MQR 4.20 Sigstore Provenance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.20/evidence-bundle.txt'
+      - '.github/workflows/mqr-4.20-sigstore.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  sign-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: sigstore/cosign-installer@v3
+      - name: Hash bundle
+        run: sha256sum experiments/mqr-4.20/evidence-bundle.txt | tee mqr-4.20.sha256
+      - name: Keyless sign with Rekor
+        run: |
+          cosign sign-blob --yes             --bundle mqr-4.20.sigstore-bundle.json             experiments/mqr-4.20/evidence-bundle.txt
+      - name: Verify bundle
+        run: |
+          cosign verify-blob             --bundle mqr-4.20.sigstore-bundle.json             --certificate-identity-regexp 'https://github.com/WhoSia/MQR/.github/workflows/mqr-4.20-sigstore.yml@refs/heads/main'             --certificate-oidc-issuer 'https://token.actions.githubusercontent.com'             experiments/mqr-4.20/evidence-bundle.txt
+      - name: Show receipt
+        run: |
+          cat mqr-4.20.sha256
+          cat mqr-4.20.sigstore-bundle.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.20-sigstore-receipt
+          path: |
+            mqr-4.20.sha256
+            mqr-4.20.sigstore-bundle.json
