@@ -1,0 +1,37 @@
+name: MQR 4.21 Identity Clock Separation
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.21-identity-clock.yml'
+      - 'experiments/mqr-4.20/evidence-bundle.txt'
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: sigstore/cosign-installer@v3
+      - name: Confirm evidence digest
+        run: sha256sum experiments/mqr-4.20/evidence-bundle.txt
+      - name: Sign with default Sigstore services
+        run: |
+          cosign sign-blob --yes --bundle mqr-4.21.bundle.json experiments/mqr-4.20/evidence-bundle.txt
+      - name: Verify identity and signed timestamp
+        run: |
+          cosign verify-blob             --bundle mqr-4.21.bundle.json             --certificate-identity-regexp 'https://github.com/WhoSia/MQR/.github/workflows/mqr-4.21-identity-clock.yml@refs/heads/main'             --certificate-oidc-issuer 'https://token.actions.githubusercontent.com'             experiments/mqr-4.20/evidence-bundle.txt
+      - name: Inspect timestamp material
+        run: |
+          python - <<'PY'
+          import json
+          p='mqr-4.21.bundle.json'
+          d=json.load(open(p))
+          print(json.dumps(d,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.21-identity-clock-receipt
+          path: mqr-4.21.bundle.json
