@@ -36,3 +36,5 @@ jobs:
           path: |
             mqr-4.20.sha256
             mqr-4.20.sigstore-bundle.json
+
+# trigger-receipt: mqr-4.20
