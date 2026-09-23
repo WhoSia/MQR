@@ -26,9 +26,24 @@ jobs:
       - name: Verify bundle
         run: |
           cosign verify-blob             --bundle mqr-4.20.sigstore-bundle.json             --certificate-identity-regexp 'https://github.com/WhoSia/MQR/.github/workflows/mqr-4.20-sigstore.yml@refs/heads/main'             --certificate-oidc-issuer 'https://token.actions.githubusercontent.com'             experiments/mqr-4.20/evidence-bundle.txt
+      - name: Tamper-detection attack
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/WhoSia/MQR/mqr-4.20-history-rewrite-attack/experiments/mqr-4.20/evidence-bundle.txt -o attacked-evidence-bundle.txt
+          sha256sum attacked-evidence-bundle.txt | tee attacked.sha256
+          if cosign verify-blob \
+            --bundle mqr-4.20.sigstore-bundle.json \
+            --certificate-identity-regexp 'https://github.com/WhoSia/MQR/.github/workflows/mqr-4.20-sigstore.yml@refs/heads/main' \
+            --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
+            attacked-evidence-bundle.txt; then
+            echo "ATTACK_UNDETECTED"
+            exit 1
+          else
+            echo "ATTACK_DETECTED"
+          fi
       - name: Show receipt
         run: |
           cat mqr-4.20.sha256
+          cat attacked.sha256
           cat mqr-4.20.sigstore-bundle.json
       - uses: actions/upload-artifact@v4
         with:
