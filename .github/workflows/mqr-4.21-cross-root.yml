@@ -1,0 +1,60 @@
+name: MQR 4.21 Cross Trust Root
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.21-cross-root.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  cross-root:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: sigstore/cosign-installer@v3
+      - name: Sign canonical evidence with Sigstore
+        run: |
+          sha256sum experiments/mqr-4.20/evidence-bundle.txt
+          cosign sign-blob --yes --bundle sigstore.bundle.json experiments/mqr-4.20/evidence-bundle.txt
+          cosign verify-blob \
+            --bundle sigstore.bundle.json \
+            --certificate-identity-regexp 'https://github.com/WhoSia/MQR/.github/workflows/mqr-4.21-cross-root.yml@refs/heads/main' \
+            --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
+            experiments/mqr-4.20/evidence-bundle.txt
+      - name: Extract raw Sigstore signature
+        run: |
+          python - <<'PY'
+          import json,base64
+          d=json.load(open('sigstore.bundle.json'))
+          raw=base64.b64decode(d['base64Signature'])
+          open('sigstore-signature.bin','wb').write(raw)
+          print('SIGSTORE_SIGNATURE_SHA256')
+          import hashlib
+          print(hashlib.sha256(raw).hexdigest())
+          PY
+      - name: Request independent DigiCert RFC3161 timestamp over signature
+        run: |
+          openssl ts -query -data sigstore-signature.bin -sha256 -cert -out digicert.tsq
+          curl --fail --silent --show-error \
+            -H 'Content-Type: application/timestamp-query' \
+            --data-binary @digicert.tsq \
+            'http://timestamp.digicert.com' \
+            -o digicert.tsr
+          echo 'DIGICERT_TSA_INSPECT'
+          openssl ts -reply -in digicert.tsr -text
+      - name: Verify DigiCert RFC3161 token
+        run: |
+          openssl ts -verify \
+            -in digicert.tsr \
+            -data sigstore-signature.bin \
+            -CApath /etc/ssl/certs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.21-cross-root-receipt
+          path: |
+            sigstore.bundle.json
+            sigstore-signature.bin
+            digicert.tsq
+            digicert.tsr
