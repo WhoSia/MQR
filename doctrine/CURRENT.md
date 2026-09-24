@@ -1,6 +1,60 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-3.154**.
+Status: live through **MQR-4.27**.
+
+## Generation-IV authority kernel
+
+Generation IV currently compiles scientific realist authority as:
+
+```text
+AUTH_t(phi) = C_t AND E_t AND P_t AND R_open,t(phi)
+```
+
+where:
+
+- **C** — constitutional/adjudication legitimacy: the protocol, claim scope and authority rule can be challenged without the incumbent unilaterally rewriting the test.
+- **E** — admissible execution/world-contact: the claimed restriction is actually exposed to a world-facing measurement/intervention route.
+- **P** — provenance/time/auditability: the binding between rule, execution and outcome is externally inspectable and cannot be repaired after reveal without a new receipt.
+- **R_open** — open-world rival invariance: the promoted claim is invariant across the currently surviving adversarially generated rivals at the declared scope.
+
+Every PASS retains:
+
+```text
+OPEN_WORLD_RESIDUE = ACTIVE
+SUCCESSOR_VULNERABILITY = ACTIVE
+FINAL_ONTOLOGY = HOLD unless independently earned
+```
+
+A finite rival search never licenses the sentence “all possible rivals have been eliminated.”
+
+### R-Language
+
+`language/r/` is the active executable representation surface.
+
+An R-Packet carries:
+- claim + scope,
+- C/E/P/R gates,
+- TPP axes W/N/I/T/D,
+- rival-generator provenance,
+- surviving rivals / identified-set state,
+- adverse residue,
+- ontic reserve,
+- successor shocks.
+
+The optional scalar:
+
+```text
+TPX = geometric_mean(W,N,I,T,D)
+```
+
+is emitted only when C/E/P/R all PASS.
+
+TPX means **CURRENT_WORLD_CONSTRAINED_PROXIMITY_PROXY**.
+It is not a probability of truth and not metaphysical distance to final Truth.
+
+The language's central invariant is:
+
+> strong current realist authority may coexist with mystery, open ontology and unconceived future rivals.
 
 ## Current compression
 
