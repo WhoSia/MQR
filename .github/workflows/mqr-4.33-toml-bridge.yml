@@ -1,0 +1,94 @@
+name: MQR 4.33 TOML Bridge
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.33/external/toml/**'
+      - '.github/workflows/mqr-4.33-toml-bridge.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  version:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - regime: A
+            version: '0.8.23'
+          - regime: B
+            version: '0.9.12+spec-1.1.0'
+          - regime: C
+            version: '1.0.7+spec-1.1.0'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt
+      - name: Materialize exact TOML dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed 's/__TOML_VERSION__/${{ matrix.version }}/g' \
+            experiments/mqr-4.33/external/toml/Cargo.template.toml \
+            > experiments/mqr-4.33/external/toml/Cargo.toml
+      - name: Format gate
+        run: cargo fmt --manifest-path experiments/mqr-4.33/external/toml/Cargo.toml -- --check
+      - name: Generate lockfile
+        run: cargo generate-lockfile --manifest-path experiments/mqr-4.33/external/toml/Cargo.toml
+      - name: Locked build
+        run: cargo build --locked --manifest-path experiments/mqr-4.33/external/toml/Cargo.toml
+      - name: Execute bridge surface only
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=experiments/mqr-4.33/external/toml/target/debug/mqr433-toml-probe
+          "$BIN" bridge > "bridge-${{ matrix.regime }}.tsv"
+          sha256sum experiments/mqr-4.33/external/toml/Cargo.lock > "lock-${{ matrix.regime }}.sha256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: toml-bridge-${{ matrix.regime }}
+          path: |
+            bridge-${{ matrix.regime }}.tsv
+            lock-${{ matrix.regime }}.sha256
+          retention-days: 30
+
+  adjudicate:
+    needs: version
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: toml-bridge-*
+          path: results
+          merge-multiple: true
+      - name: Adjacent bridge adjudication
+        shell: bash
+        run: |
+          set -euo pipefail
+          AB=TRANSPORT_FAIL
+          BC=TRANSPORT_FAIL
+          if cmp -s results/bridge-A.tsv results/bridge-B.tsv; then AB=TRANSPORT_PASS; fi
+          if cmp -s results/bridge-B.tsv results/bridge-C.tsv; then BC=TRANSPORT_PASS; fi
+          {
+            echo -e 'field\tvalue'
+            echo -e "trigger_sha\t${GITHUB_SHA}"
+            echo -e "A_TO_B\t$AB"
+            echo -e "B_TO_C\t$BC"
+            echo -e 'DIRECT_A_TO_C\tNOT_EXECUTED'
+          } | tee toml-bridge-adjudication.tsv
+          echo "TOML_A_TO_B=$AB"
+          echo "TOML_B_TO_C=$BC"
+          echo "TOML_DIRECT_A_TO_C=NOT_EXECUTED"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: toml-bridge-adjudication
+          path: |
+            toml-bridge-adjudication.tsv
+            results/
+          retention-days: 30
