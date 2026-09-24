@@ -1,0 +1,42 @@
+name: MQR 4.32 Transport Composition
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.32/**'
+      - '.github/workflows/mqr-4.32-transport-composition.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  algebra:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+      - name: Formatting gate
+        run: cargo fmt --manifest-path experiments/mqr-4.32/rust/Cargo.toml -- --check
+      - name: Clippy gate
+        run: cargo clippy --manifest-path experiments/mqr-4.32/rust/Cargo.toml --all-targets -- -D warnings
+      - name: Unit tests
+        run: cargo test --manifest-path experiments/mqr-4.32/rust/Cargo.toml
+      - name: Release build
+        run: cargo build --manifest-path experiments/mqr-4.32/rust/Cargo.toml --release
+      - name: Synthetic edge-algebra regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=./experiments/mqr-4.32/rust/target/release/mqr432
+          OUT=/tmp/mqr432.out
+          "$BIN" experiments/mqr-4.32/synthetic-triangles.tsv | tee "$OUT"
+          grep -F 'TRIANGLES=8' "$OUT"
+          grep -F 'COMPOSITION_PASS_COUNT=1' "$OUT"
+          grep -F 'NONTRANSITIVITY_WITNESS_COUNT=1' "$OUT"
+          grep -F 'PATH_DIVERGENT_PASS_COUNT=1' "$OUT"
+          grep -F 'MQR432_EXTERNAL_PROMOTION=HOLD' "$OUT"
+          grep -F 'GLOBAL_TRANSITIVITY=REJECTED_AS_DEFAULT' "$OUT"
