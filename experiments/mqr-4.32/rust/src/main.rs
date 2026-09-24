@@ -260,7 +260,11 @@ fn main() {
     println!("CONFIRMATORY_TRIANGLES={confirmatory}");
     println!(
         "CROSS_LINEAGE_CONFIRMATORY={}",
-        if research && engineering { "PASS" } else { "HOLD" }
+        if research && engineering {
+            "PASS"
+        } else {
+            "HOLD"
+        }
     );
 
     let external_ready = confirmatory >= 6
