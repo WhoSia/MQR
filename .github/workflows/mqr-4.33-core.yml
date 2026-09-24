@@ -1,11 +1,6 @@
-name: MQR 4.33 Composition Counterexample Core
+name: MQR 4.33 Composition Counterexample Core Replay
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'experiments/mqr-4.33/**'
-      - '.github/workflows/mqr-4.33-core.yml'
   workflow_dispatch:
 
 permissions:
