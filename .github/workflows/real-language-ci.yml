@@ -32,6 +32,27 @@ jobs:
             diff -u /tmp/python.scalar /tmp/rust.scalar
           done
           echo REAL_LANGUAGE_PACKET_CONCORDANCE=PASS
+      - name: Real-Packet v0.3 typed-transport guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          EX=language/real/examples/mqr-4.31-hwpx-transport.real
+          ./language/real/target/release/real "$EX" > /tmp/v03.out
+          grep -F 'lineage.kind=ENGINEERING_DEVELOPMENT' /tmp/v03.out
+          grep -F 'legacy.profile.T=DEPRECATED' /tmp/v03.out
+          grep -F 'transport.mode=TYPED_RELATION_MAP' /tmp/v03.out
+          grep -F 'transport.claim_state=PARTIAL_WITH_HOLDS' /tmp/v03.out
+          ./language/real/target/release/real --diagnostic-scalar "$EX" > /tmp/v03.scalar
+          grep -F 'display.scalar.status=UNAVAILABLE_V0_3_TYPED_TRANSPORT' /tmp/v03.scalar
+          if ./language/real/target/release/real language/real/tests/v03-invalid-legacy-t.real; then
+            echo 'Rust unexpectedly accepted legacy T in v0.3' >&2
+            exit 1
+          fi
+          if python language/real/reference.py language/real/tests/v03-invalid-legacy-t.real; then
+            echo 'Python unexpectedly accepted legacy T in v0.3' >&2
+            exit 1
+          fi
+          echo REAL_LANGUAGE_V03_TYPED_TRANSPORT_GUARDS=PASS
       - name: Calibration scorer persistent smoke
         shell: bash
         run: |
