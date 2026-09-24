@@ -198,11 +198,76 @@
       "path": "active/p28_result.json",
       "blob_sha": "e77f577a354aaff09abdc1ccfa93363c3d2439cb",
       "selection_role": "sealed_unopened_result"
+    },
+    {
+      "id": "R29m",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p29_manifest.json",
+      "blob_sha": "6f454666d44659514058a900d135852397537a46",
+      "selection_role": "descriptor_only_before_result_open"
+    },
+    {
+      "id": "R29r",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p29_result.json",
+      "blob_sha": "5e1e05505de4f350ae9ab16be8bcc9c647e7f0c4",
+      "selection_role": "sealed_unopened_result"
+    },
+    {
+      "id": "R30m",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p30_manifest.json",
+      "blob_sha": "670dceb57905320f4f93688f1ccd991fc4b478fc",
+      "selection_role": "descriptor_only_before_result_open"
+    },
+    {
+      "id": "R30r",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p30_result.json",
+      "blob_sha": "1ce2cc6f5310dd4e655f1e9208662661cbd569d6",
+      "selection_role": "sealed_unopened_result"
+    },
+    {
+      "id": "R31m",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p31_manifest.json",
+      "blob_sha": "a4f85f1af0a80b0dcb1cf892d699e139af924e82",
+      "selection_role": "descriptor_only_before_result_open"
+    },
+    {
+      "id": "R31r",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p31_result.json",
+      "blob_sha": "036bb2b442c39e1161b25b502f55cdcd23de06e6",
+      "selection_role": "sealed_unopened_result"
+    },
+    {
+      "id": "R32m",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p32_manifest.json",
+      "blob_sha": "203df9930f794e49774293392a69d68f5d6f2f00",
+      "selection_role": "descriptor_only_before_result_open"
+    },
+    {
+      "id": "R32r",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p32_result.json",
+      "blob_sha": "e29790efb16a40314848d1268459277f946ff5b3",
+      "selection_role": "sealed_unopened_result"
     }
   ],
   "confirmatory_exclusions": [
     "R07 C3X p14 — narrative interpretation leaked during masked inspection; may be replayed diagnostically only",
     "R08 C3X p15 — narrative interpretation leaked during masked inspection; may be replayed diagnostically only",
-    "R09/R10 EPISTEME P22/P23 — classification/invariance fields leaked through first scrubber; diagnostic-only"
+    "R09/R10 EPISTEME P22/P23 — classification/invariance fields leaked through first scrubber; diagnostic-only",
+    "EPISTEME P27/P28 — raw scrub leaked native fail-labelled keys; discovery/stress evidence only"
   ]
 }
