@@ -6,3 +6,7 @@ edition = "2024"
 [[bin]]
 name = "real"
 path = "src/main.rs"
+
+[[bin]]
+name = "real-calibrate"
+path = "src/calibrate.rs"
