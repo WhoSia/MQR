@@ -5,4 +5,4 @@ edition = "2024"
 publish = false
 
 [dependencies]
-tokenizers = { version = "=__TOKENIZERS_VERSION__", default-features = false }
+tokenizers = { version = "=__TOKENIZERS_VERSION__", default-features = false, features = ["fancy-regex"] }
