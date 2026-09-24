@@ -92,7 +92,10 @@ Workflow commit:
 64546e5ec2f6ee652e79f912d08aa179a6708c46
 
 Canonical run:
-36015720376
+36016178395
+
+Canonical final head:
+3b2786d24c9871b254f9f80ab847abcd09f87495
 
 Run conclusion:
 SUCCESS.
