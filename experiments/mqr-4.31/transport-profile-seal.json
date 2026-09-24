@@ -1,0 +1,175 @@
+{
+  "stage": "MQR-4.31",
+  "basis": "fresh source manifest + masked/raw receipts only; native verdict/conclusion labels not revealed",
+  "legacy_T_used": false,
+  "cases": [
+    {
+      "id": "C3X-P12-INSTRUMENT",
+      "lineage_kind": "RESEARCH_LAB",
+      "source": "C3X P12 frozen_20260810",
+      "target": "C3X P12 stockfish_19",
+      "transition_dimension": "engine_version",
+      "cells": [
+        {
+          "component": "TT-read instrument engages MAIN/SUCCESSOR/QSEARCH semantic paths under fixed-node harness",
+          "evaluability": "TESTED",
+          "survival": "SURVIVED",
+          "authority": "TRANSPORT_PASS",
+          "basis": "both engines show breadth=3, semantic_uses>0, target-specific fixed-node semantic records, frozen binary/artifact custody"
+        }
+      ]
+    },
+    {
+      "id": "EPISTEME-P30-ADDITIVE-GEOMETRY",
+      "lineage_kind": "RESEARCH_LAB",
+      "source": "P29 training/held-out additive context geometry",
+      "target": "P30 six fresh critical worlds",
+      "transition_dimension": "fresh_world_context",
+      "cells": [
+        {
+          "component": "full 32-cell additive geometry row",
+          "target_regime": "P30W01",
+          "evaluability": "TESTED",
+          "survival": "FAILED",
+          "authority": "TRANSPORT_FAIL",
+          "basis": "predicted vs observed 15/32 equal; row not identical"
+        },
+        {
+          "component": "full 32-cell additive geometry row",
+          "target_regime": "P30W02",
+          "evaluability": "TESTED",
+          "survival": "FAILED",
+          "authority": "TRANSPORT_FAIL",
+          "basis": "13/32 equal; row not identical"
+        },
+        {
+          "component": "full 32-cell additive geometry row",
+          "target_regime": "P30W03",
+          "evaluability": "TESTED",
+          "survival": "FAILED",
+          "authority": "TRANSPORT_FAIL",
+          "basis": "15/32 equal; row not identical"
+        },
+        {
+          "component": "full 32-cell additive geometry row",
+          "target_regime": "P30W04",
+          "evaluability": "TESTED",
+          "survival": "FAILED",
+          "authority": "TRANSPORT_FAIL",
+          "basis": "17/32 equal; row not identical"
+        },
+        {
+          "component": "full 32-cell additive geometry row",
+          "target_regime": "P30W05",
+          "evaluability": "TESTED",
+          "survival": "FAILED",
+          "authority": "TRANSPORT_FAIL",
+          "basis": "17/32 equal; row not identical"
+        },
+        {
+          "component": "full 32-cell additive geometry row",
+          "target_regime": "P30W06",
+          "evaluability": "TESTED",
+          "survival": "FAILED",
+          "authority": "TRANSPORT_FAIL",
+          "basis": "16/32 equal; row not identical"
+        }
+      ]
+    },
+    {
+      "id": "HWPX-P334R2-TRACKED-RESOLUTION",
+      "lineage_kind": "ENGINEERING_DEVELOPMENT",
+      "source": "native Hancom tracked-change resolution semantics",
+      "target": "implementation-generated Hancom open/save round-trip",
+      "transition_dimension": "implementation_to_native_roundtrip",
+      "cells": [
+        {
+          "component": "accept-all inserted-text final state",
+          "evaluability": "TESTED",
+          "survival": "SURVIVED",
+          "authority": "TRANSPORT_PASS",
+          "basis": "round-trip final text preserved; tracked changes/authors remain retired"
+        },
+        {
+          "component": "reject-all inserted-text final state",
+          "evaluability": "TESTED",
+          "survival": "SURVIVED",
+          "authority": "TRANSPORT_PASS",
+          "basis": "round-trip final text preserved; tracked changes/authors remain retired"
+        },
+        {
+          "component": "accept/reject delete/replace bounded final-state semantics",
+          "evaluability": "TESTED",
+          "survival": "SURVIVED",
+          "authority": "TRANSPORT_PASS",
+          "basis": "implementation-generated specimens preserve bounded final text and retired markers/authors"
+        },
+        {
+          "component": "protected/password tracked-change resolution",
+          "evaluability": "UNTESTED_AVAILABLE",
+          "survival": "NA",
+          "authority": "HOLD_UNTESTED",
+          "basis": "native protected artifact exists, but round-trip scope explicitly limited to unprotected HWPX"
+        },
+        {
+          "component": "selective per-change resolution",
+          "evaluability": "OUT_OF_SCOPE",
+          "survival": "NA",
+          "authority": "OUT_OF_SCOPE",
+          "basis": "round-trip authority explicitly whole-document only"
+        }
+      ]
+    },
+    {
+      "id": "HWPX-P334R3-GROUP-UNGROUP",
+      "lineage_kind": "ENGINEERING_DEVELOPMENT",
+      "source": "native Hancom bounded group/ungroup geometry",
+      "target": "implementation-generated Hancom open/save round-trip",
+      "transition_dimension": "implementation_to_native_roundtrip",
+      "cells": [
+        {
+          "component": "group exactly two admitted floating rect/ellipse objects",
+          "evaluability": "TESTED",
+          "survival": "SURVIVED",
+          "authority": "TRANSPORT_PASS",
+          "basis": "container geometry/topology preserved after round-trip"
+        },
+        {
+          "component": "ungroup admitted existing group",
+          "evaluability": "TESTED",
+          "survival": "SURVIVED",
+          "authority": "TRANSPORT_PASS",
+          "basis": "top-level child positions preserved after round-trip"
+        },
+        {
+          "component": "ungroup translated admitted group",
+          "evaluability": "TESTED",
+          "survival": "SURVIVED",
+          "authority": "TRANSPORT_PASS",
+          "basis": "translated child positions preserved after round-trip"
+        },
+        {
+          "component": "rotated/scaled/nested/mixed-anchor grouping",
+          "evaluability": "OUT_OF_SCOPE",
+          "survival": "NA",
+          "authority": "OUT_OF_SCOPE",
+          "basis": "native evidence explicitly marks these as non-evidence/outside bounded candidate"
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    "MQR-4.30 A03/A05/A08 discovery-only",
+    "C3X P14/P15 interpretation text leaked during masking; diagnostic-only",
+    "EPISTEME P22/P23 classification/invariance leaked during masking; diagnostic-only",
+    "EPISTEME P27/P28 fail-labelled raw keys leaked during masking; stress/discovery-only",
+    "CUBE-REV/EvoNOMOS selected files retained as contextual diagnostics but not counted unless separately sealed"
+  ],
+  "success_tests": {
+    "C1": "HOLD_UNTESTED versus TRANSPORT_FAIL both occur in fresh sealed cases",
+    "C2": "fresh cases contain different component states without scalar averaging",
+    "C3": "native reveal must agree on >=80% of sealed transport states across research and engineering lineages",
+    "C4": "HWPX remains ENGINEERING_DEVELOPMENT",
+    "C5": "source/native success must not determine transport state"
+  }
+}
