@@ -1,0 +1,114 @@
+{
+  "stage": "MQR-4.30",
+  "profile_seal_commit": "a202952b8c56d121f49ec408a3bde8cbc7084227",
+  "mapping": {
+    "HIGH": "HIGH",
+    "MID": "MID",
+    "LOW": "LOW",
+    "HOLD": "HOLD"
+  },
+  "cases": {
+    "A01": {
+      "domain": "C3X",
+      "native": {
+        "W": "MID",
+        "I": "LOW",
+        "T": "LOW",
+        "D": "HIGH"
+      },
+      "evidence": "resource-conditioned structure observed; stable timeless MAIN localization and cross-version dynamic reassignment not supported; preregistered fresh dual-target phase test"
+    },
+    "A02": {
+      "domain": "C3X",
+      "native": {
+        "W": "MID",
+        "I": "MID",
+        "T": "LOW",
+        "D": "HIGH"
+      },
+      "evidence": "broad MAIN dominance observed; bounded window not replicated; cross-version phase-boundary transport not supported"
+    },
+    "A03": {
+      "domain": "C3X",
+      "native": {
+        "W": "HIGH",
+        "I": "MID",
+        "T": "MID",
+        "D": "HIGH"
+      },
+      "evidence": "sealed NO-GLOBAL-LAW prediction survives heldout pooled NULL on both targets; vector envelope and analog phase transport survive while interaction-sign/orientation relations do not"
+    },
+    "A04": {
+      "domain": "EPISTEME",
+      "native": {
+        "W": "LOW",
+        "I": "LOW",
+        "T": "LOW",
+        "D": "HIGH"
+      },
+      "evidence": "0/12 exact geometry; 1/12 cell identity; full-rank world-instance residual; fresh replication defeats cell identity"
+    },
+    "A05": {
+      "domain": "EPISTEME",
+      "native": {
+        "W": "LOW",
+        "I": "LOW",
+        "T": "LOW",
+        "D": "HIGH"
+      },
+      "evidence": "degree-1 and degree-2 laws defeated; holdout authority failed; no cross-context transport licensed"
+    },
+    "A06": {
+      "domain": "PEA-Scope",
+      "native": {
+        "D": "HIGH"
+      },
+      "evidence": "hidden gold frozen before tournament outputs; explicit obligation ledger and stop scopes create independent defeat surface"
+    },
+    "A07": {
+      "domain": "RITHM",
+      "native": {
+        "W": "HOLD",
+        "I": "HOLD",
+        "T": "HOLD",
+        "D": "HIGH"
+      },
+      "evidence": "scientific target unobserved; target aggregation prohibited; timeout not scientific evidence; no post-reveal retuning"
+    },
+    "A08": {
+      "domain": "HWPX",
+      "native": {
+        "W": "HIGH",
+        "T": "HOLD",
+        "D": "HIGH"
+      },
+      "evidence": "first trusted Hancom world contact; 19/19 native executions; cross-version world contact explicitly HOLD"
+    },
+    "A09": {
+      "domain": "HWPX",
+      "native": {
+        "W": "HIGH",
+        "I": "HIGH",
+        "T": "MID",
+        "D": "HIGH"
+      },
+      "evidence": "count=1 native semantics pass; one misleading count>1 witness excluded; production authority remains closed"
+    }
+  },
+  "literature_N_lane": {
+    "Javadi2019": {
+      "N": "MID",
+      "criterion": "two distinct neuroimaging modalities and non-overlapping participant groups, but shared task/theory/environment leave common-mode ancestry"
+    },
+    "Zhang2011": {
+      "N": "LOW-MID",
+      "criterion": "three experiments add replication but stay within one behavioral/reference-direction measurement family"
+    },
+    "RayWelsh2018": {
+      "N": "LOW",
+      "criterion": "single principal behavioral task/measurement lineage"
+    },
+    "promotion_eligible": false,
+    "reason": "all three cases are one broad cognitive/behavioral domain; no >=2-domain external calibration"
+  }
+}
