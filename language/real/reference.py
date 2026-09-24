@@ -25,7 +25,7 @@ def transport_authority(e:str,s:str)->str:
     return pairs[(e,s)]
 
 def parse(path:Path):
-    p={"version":"","id":"","epoch":"","claim_type":"","claim_text":"","scope":"","gates":{},"axes":{},
+    p={"version":"","id":"","epoch":"","claim_type":"","claim_text":"","scope":"","lineage_kind":"","gates":{},"axes":{},
        "transports":[],"generators":[],"rivals":[],"residue":[],"mystery":[],"ontic":[],
        "successor":"VULNERABLE","shocks":[],"sources":[]}
     started=ended=False
@@ -46,6 +46,10 @@ def parse(path:Path):
         elif cmd=="epoch" and len(t)==2:p["epoch"]=t[1]
         elif cmd=="claim" and len(t)>=3:p["claim_type"]=t[1].upper();p["claim_text"]=" ".join(t[2:])
         elif cmd=="scope" and len(t)>=2:p["scope"]=" ".join(t[1:])
+        elif cmd=="lineage" and len(t)==2:
+            k=t[1].upper()
+            if k not in {"RESEARCH_LAB","ENGINEERING_DEVELOPMENT","METHODOLOGY_DEVELOPMENT","OTHER"}:raise PacketError(f"{path}:{n}: invalid lineage kind")
+            p["lineage_kind"]=k
         elif cmd=="gate" and len(t)==3:
             g,s=t[1].upper(),t[2].upper()
             if g not in GATES or s not in {"PASS","HOLD","FAIL"}:raise PacketError(f"{path}:{n}: invalid gate")
@@ -81,6 +85,7 @@ def parse(path:Path):
     for a in required:
         if a not in p["axes"]:raise PacketError(f"{path}: missing axis {a}")
     if p["version"]=="0.3" and "T" in p["axes"]:raise PacketError(f"{path}: v0.3 forbids legacy axis T")
+    if p["version"]=="0.3" and not p["lineage_kind"]:raise PacketError(f"{path}: v0.3 requires lineage kind")
     return p
 
 def claim_state(p):
@@ -102,6 +107,7 @@ def claim_state(p):
 def canonical(p,scalar=False):
     o=[f"REAL-LANGUAGE={p['version']}",f"id={esc(p['id'])}",f"epoch={esc(p['epoch'])}",
        f"claim.type={esc(p['claim_type'])}",f"claim.text={esc(p['claim_text'])}",f"scope={esc(p['scope'])}"]
+    if p["version"]=="0.3":o.append(f"lineage.kind={p['lineage_kind']}")
     for g in GATES:o.append(f"gate.{g}={p['gates'][g]}")
     axes=V2_AXES if p["version"]=="0.2" else V3_AXES
     for a in axes:
