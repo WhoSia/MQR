@@ -1,4 +1,4 @@
-RPACKET 0.1
+REALPACKET 0.2
 id "newton-mercury-1859"
 epoch "1859-after-Le-Verrier-Mercury-residual"
 claim CONSTRAINT "Newtonian gravitation retains strong scoped authority for major planetary orbital constraints while Mercury's residual perihelion advance remains unresolved"
