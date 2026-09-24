@@ -1,0 +1,16 @@
+REALPACKET 0.3
+id "invalid-v03-legacy-t"
+epoch "test"
+claim CONSTRAINT "v0.3 must reject legacy T"
+scope "test"
+lineage OTHER
+gate C PASS
+gate E PASS
+gate P PASS
+gate R PASS
+axis W 0.5 "test"
+axis N 0.5 "test"
+axis I 0.5 "test"
+axis T 0.5 "forbidden"
+axis D 0.5 "test"
+END
