@@ -45,3 +45,5 @@ jobs:
           der=subprocess.check_output(['openssl','pkey','-pubin','-outform','DER'],input=pub)
           print('SPKI_SHA256='+hashlib.sha256(der).hexdigest())
           PY
+
+# event-b-trigger
