@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import csv,math,sys
+import csv,itertools,math,sys
 from pathlib import Path
 
 AX=["W","N","I","T","D"]
@@ -16,12 +16,12 @@ def pearson(x,y):
     den=math.sqrt(sum(a*a for a in dx)*sum(b*b for b in dy))
     return sum(a*b for a,b in zip(dx,dy))/den if den else float("nan")
 
-if len(sys.argv)!=5:
-    raise SystemExit("usage: evaluate_calibration.py HIDDEN.tsv PRED.tsv DECOY_PRED.tsv PUBLIC.tsv")
+if len(sys.argv)!=6:
+    raise SystemExit("usage: evaluate_calibration.py HIDDEN.tsv PRED.tsv DECOY_PRED.tsv PUBLIC.tsv PUBLIC_DECOY.tsv")
 
-key=rows(sys.argv[1]); pred=rows(sys.argv[2]); dpred=rows(sys.argv[3]); pub=rows(sys.argv[4])
-K={r["id"]:r for r in key}; P={r["id"]:r for r in pred}; DP={r["id"]:r for r in dpred}; U={r["id"]:r for r in pub}
-assert K.keys()==P.keys()==DP.keys()==U.keys()
+key=rows(sys.argv[1]); pred=rows(sys.argv[2]); dpred=rows(sys.argv[3]); pub=rows(sys.argv[4]); pubd=rows(sys.argv[5])
+K={r["id"]:r for r in key}; P={r["id"]:r for r in pred}; DP={r["id"]:r for r in dpred}; U={r["id"]:r for r in pub}; UD={r["id"]:r for r in pubd}
+assert K.keys()==P.keys()==DP.keys()==U.keys()==UD.keys()
 
 # S1 exact recovery
 exact=[i for i,r in K.items() if r["lane"]=="exact"]
@@ -39,12 +39,12 @@ for i in exact:
 leaks=0; monotonic_checks=0
 for target in range(5):
     others=[j for j in range(5) if j!=target]
-    for fixed in __import__("itertools").product(range(3),repeat=4):
+    for fixed in itertools.product(range(3),repeat=4):
         combos=[]
         for lev in range(3):
             c=[None]*5
             c[target]=lev
-            for j,v in zip(others,fixed):c[j]=v
+            for j,v in zip(others,fixed): c[j]=v
             combos.append(tuple(c))
         rr=[emap[c] for c in combos]
         vals=[float(r[AX[target]]) for r in rr]
@@ -70,7 +70,7 @@ for ai,a in enumerate(AX):
     if own[a]<0.90:
         raise AssertionError(f"S4 {a} correlation={own[a]}")
     for bi,b in enumerate(AX):
-        if ai==bi:continue
+        if ai==bi: continue
         c=abs(pearson(measured,[float(K[i][b]) for i in noisy]))
         maxcross=max(maxcross,c)
         if c>0.10:
@@ -79,7 +79,6 @@ for ai,a in enumerate(AX):
 print(f"S4_NOISY_CRITERION_RECOVERY=PASS min_r={min(own.values()):.6f}")
 print(f"S5_CROSS_AXIS_DISCRIMINANT_STRESS=PASS max_abs_r={maxcross:.6f}")
 
-# measured-measured redundancy diagnostic under orthogonal factorial design
 max_mm=0.0
 for i,a in enumerate(AX):
     for b in AX[i+1:]:
@@ -98,23 +97,20 @@ for a,l in zip(AX,LV):
     print(f"NOISY_LEVEL_MEANS_{a}="+",".join(f"{x:.6f}" for x in means))
 print("S3_NOISY_MEAN_MONOTONICITY=PASS")
 
-# diagnostic absolute error
-mae={}
 for a in AX:
-    mae[a]=sum(abs(float(P[i][a])-float(K[i][a])) for i in noisy)/len(noisy)
-    print(f"NOISY_MAE_{a}={mae[a]:.6f}")
+    mae=sum(abs(float(P[i][a])-float(K[i][a])) for i in noisy)/len(noisy)
+    print(f"NOISY_MAE_{a}={mae:.6f}")
 
 # S6 decoy invariance
 changed=0
 for i in P:
     for a in AX:
-        if P[i][a]!=DP[i][a]:changed+=1
-if changed:raise AssertionError(f"S6 decoy changed cells={changed}")
+        if P[i][a]!=DP[i][a]: changed+=1
+if changed: raise AssertionError(f"S6 decoy changed cells={changed}")
 print(f"S6_DECOY_INVARIANCE=PASS changed_profile_cells={changed}")
 
-# Explicitly show decoys themselves changed
 decoy_cols=["w_repeat_decoy","n_replicate_decoy","i_rival_count_decoy","t_train_decoy","d_challenge_decoy"]
-decoy_changed=sum(1 for i in U for col in decoy_cols if U[i][col] != UD[i][col])
+decoy_changed=sum(1 for i in U for col in decoy_cols if U[i][col]!=UD[i][col])
 expected=len(U)*len(decoy_cols)
 if decoy_changed!=expected:
     raise AssertionError(f"not all decoys changed: {decoy_changed}/{expected}")
