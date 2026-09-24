@@ -1,0 +1,29 @@
+RPACKET 0.1
+id "ozone-1985-halley"
+epoch "1985-Farman-Gardiner-Shanklin"
+claim CONSTRAINT "A severe recurring springtime depletion of total column ozone over Halley, Antarctica is a real atmospheric phenomenon"
+scope "Halley / Antarctic springtime column-ozone phenomenon as directly supported by the published ground record"
+
+gate C PASS
+gate E PASS
+gate P PASS
+gate R PASS
+
+axis W 0.75 "Long-running Dobson measurements show a large recurring seasonal decline; instrument concern was actively checked rather than silently normalized"
+axis N 0.50 "The published claim is strongly grounded in the British Antarctic Survey route; broader satellite confirmation is not yet imported"
+axis I 0.75 "The existence of the depletion pattern is robust at the declared site/scope even though mechanism and full regional extent remain open"
+axis T 0.25 "The packet is deliberately local to the published Halley/Antarctic observational scope before regional satellite replay"
+axis D 0.75 "The anomaly is exposed to replacement instruments, subsequent seasons, satellite comparison and chemical mechanism tests"
+
+generator STRUCTURAL "Instrument-fault, meteorological-variability, regional-depletion and chemical-loss rivals"
+rival LIVE "Instrument/calibration explanation for unexpectedly low ozone"
+rival LIVE "Meteorological explanation for the seasonal pattern"
+residue HIGH "Regional extent and chemical causal mechanism are not yet identified by this packet"
+mystery OPEN "The world-level phenomenon is stronger than the causal ontology available at publication"
+ontic HOLD "Observation of depletion does not yet identify the full chlorine-chemistry mechanism"
+successor VULNERABLE
+shock "1986-NASA-regional-satellite-confirmation" PRESERVE "Satellite analysis supports a regional-scale Antarctic ozone-hole phenomenon and expands transport beyond the Halley ground route"
+shock "later-aircraft-chemistry" REINTERPRET "Later chemical measurements localize chlorine chemistry without retroactively changing the 1985 observational packet"
+source "Farman, Gardiner & Shanklin, Nature 315 (1985), 207-210"
+source "NASA Ozone Watch historical record"
+END
