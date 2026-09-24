@@ -1,0 +1,29 @@
+REALPACKET 0.3
+id "mqr-4.31-hwpx-transport"
+epoch "2026-09-25"
+claim CONSTRAINT "Bounded tracked-change resolution semantics survive implementation-generated Hancom round-trip only for tested components"
+scope "unprotected whole-document direct tracked spans under Hancom 13.0.0.3622"
+lineage ENGINEERING_DEVELOPMENT
+
+gate C PASS
+gate E PASS
+gate P PASS
+gate R PASS
+
+axis W 1.00 "Native Hancom capture and implementation-generated open/save provide direct world-facing engineering contact"
+axis N 0.50 "Native renderer and structural package checks diversify evidence but share one Hancom/tool lineage"
+axis I 1.00 "Bounded accept/reject semantics are component-specific and marker/final-text outcomes are explicit"
+axis D 1.00 "Round-trip, protection boundary and fail-closed unsupported scopes provide live defeat routes"
+
+transport "insert-accept" "native-hancom-13" "implementation-roundtrip-hancom-13" NATIVE_ROUNDTRIP TESTED SURVIVED "Final text and retired tracked-change state preserved"
+transport "protected-resolution" "native-protected-artifact" "implementation-roundtrip-protected" NATIVE_ROUNDTRIP UNTESTED_AVAILABLE NA "Protection encoding exists but protected resolution round-trip was not executed"
+transport "selective-per-change" "native-semantics" "production-operation" OPERATION_SCOPE OUT_OF_SCOPE NA "Current bounded authority is whole-document only"
+
+generator STRUCTURAL "Tracked-change component and round-trip boundary decomposition"
+rival SURVIVING "Operation-level success may overgeneralize to an untested component"
+residue MODERATE "Nested, overlapping, mixed-inline and password-resolution behavior remains outside tested authority"
+mystery OPEN "No claim is made about unsupported Hancom internals"
+ontic HOLD "Engineering behavior is not promoted to scientific ontology"
+successor VULNERABLE
+source "WhoSia/ChatGPT-Web-HWPX-MCP P3.34-R2 native and round-trip receipts"
+END
