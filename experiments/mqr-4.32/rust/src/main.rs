@@ -286,120 +286,70 @@ fn main() {
 mod tests {
     use super::*;
 
-    fn row(
-        ab: EdgeState,
-        bc: EdgeState,
-        bridge_ab: BridgeClass,
-        bridge_bc: BridgeClass,
-        mid: bool,
-        preserved: bool,
-        direct: EdgeState,
-        path: PathClass,
-    ) -> Row {
+    fn base_row() -> Row {
         Row {
             id: "T".to_owned(),
             lineage: "OTHER".to_owned(),
-            ab,
-            bc,
-            bridge_ab,
-            bridge_bc,
-            mid_compatible: mid,
-            downstream_distinctions_preserved: preserved,
-            direct,
-            path,
+            ab: EdgeState::Pass,
+            bc: EdgeState::Pass,
+            bridge_ab: BridgeClass::Exact,
+            bridge_bc: BridgeClass::Exact,
+            mid_compatible: true,
+            downstream_distinctions_preserved: true,
+            direct: EdgeState::Pass,
+            path: PathClass::CommutesExact,
             confirmatory: false,
         }
     }
 
     #[test]
     fn pass_plus_pass_does_not_create_pass_without_direct_test() {
-        let r = row(
-            EdgeState::Pass,
-            EdgeState::Pass,
-            BridgeClass::Exact,
-            BridgeClass::Exact,
-            true,
-            true,
-            EdgeState::HoldUntested,
-            PathClass::Untested,
-        );
+        let mut r = base_row();
+        r.direct = EdgeState::HoldUntested;
+        r.path = PathClass::Untested;
         assert!(r.candidate());
         assert_eq!(r.adjudicate(), CompositionState::CompositionHoldUntested);
     }
 
     #[test]
     fn lossy_bridge_blocks_candidate() {
-        let r = row(
-            EdgeState::Pass,
-            EdgeState::Pass,
-            BridgeClass::Lossy,
-            BridgeClass::Exact,
-            true,
-            true,
-            EdgeState::Pass,
-            PathClass::CommutesExact,
-        );
+        let mut r = base_row();
+        r.bridge_ab = BridgeClass::Lossy;
         assert!(!r.candidate());
         assert_eq!(r.adjudicate(), CompositionState::NoCandidate);
     }
 
     #[test]
     fn missing_successor_distinction_blocks_candidate() {
-        let r = row(
-            EdgeState::Pass,
-            EdgeState::Pass,
-            BridgeClass::SuccessorRefinement,
-            BridgeClass::Exact,
-            true,
-            false,
-            EdgeState::Pass,
-            PathClass::CommutesExact,
-        );
+        let mut r = base_row();
+        r.bridge_ab = BridgeClass::SuccessorRefinement;
+        r.downstream_distinctions_preserved = false;
         assert!(!r.candidate());
     }
 
     #[test]
     fn adjacent_pass_with_direct_fail_is_nontransitivity_witness() {
-        let r = row(
-            EdgeState::Pass,
-            EdgeState::Pass,
-            BridgeClass::Exact,
-            BridgeClass::QuotientCompatible,
-            true,
-            true,
-            EdgeState::Fail,
-            PathClass::NoncommutesOther,
-        );
+        let mut r = base_row();
+        r.bridge_bc = BridgeClass::QuotientCompatible;
+        r.direct = EdgeState::Fail;
+        r.path = PathClass::NoncommutesOther;
         assert_eq!(r.adjudicate(), CompositionState::NontransitivityWitness);
     }
 
     #[test]
     fn direct_pass_does_not_imply_path_equivalence() {
-        let r = row(
-            EdgeState::Pass,
-            EdgeState::Pass,
-            BridgeClass::Exact,
-            BridgeClass::SuccessorRefinement,
-            true,
-            true,
-            EdgeState::Pass,
-            PathClass::NoncommutesRefinement,
-        );
+        let mut r = base_row();
+        r.bridge_bc = BridgeClass::SuccessorRefinement;
+        r.path = PathClass::NoncommutesRefinement;
         assert_eq!(r.adjudicate(), CompositionState::PathDivergentPass);
     }
 
     #[test]
     fn quotient_commutation_can_support_scoped_composition() {
-        let r = row(
-            EdgeState::Pass,
-            EdgeState::Pass,
-            BridgeClass::QuotientCompatible,
-            BridgeClass::QuotientCompatible,
-            true,
-            true,
-            EdgeState::Pass,
-            PathClass::CommutesAtClaimQuotient,
-        );
+        let mut r = base_row();
+        r.bridge_ab = BridgeClass::QuotientCompatible;
+        r.bridge_bc = BridgeClass::QuotientCompatible;
+        r.path = PathClass::CommutesAtClaimQuotient;
         assert_eq!(r.adjudicate(), CompositionState::CompositionPass);
     }
 }
