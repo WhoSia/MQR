@@ -62,6 +62,34 @@
       "repo": "WhoSia/ChatGPT-Web-HWPX-MCP",
       "path": "docs/p334r3-existing-group-ungroup-roundtrip-receipt.md",
       "blob_sha": "4d66262fe74a5814b9094056a4c135d169242d90"
+    },
+    {
+      "id": "R05",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/C3X",
+      "path": "receipts/g9.4-p12-rc1.json",
+      "blob_sha": "686072694aa64288b5fa7d349d7b3f2339ac4b09"
+    },
+    {
+      "id": "R06",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/C3X",
+      "path": "receipts/g9.4-p13.json",
+      "blob_sha": "c7c0f8542a73320405c2b51d31e44361debf4309"
+    },
+    {
+      "id": "R07",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/C3X",
+      "path": "receipts/g9.4-p14.json",
+      "blob_sha": "1b2048b1b51c1c049321543b94044d890a47dc6e"
+    },
+    {
+      "id": "R08",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/C3X",
+      "path": "receipts/g9.4-p15.json",
+      "blob_sha": "d1d19b61c4e52c88a4be2e0dc017a6075c00221d"
     }
   ]
 }
