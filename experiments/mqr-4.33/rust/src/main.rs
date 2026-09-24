@@ -241,7 +241,8 @@ fn main() {
             strict_support += 1;
             strict_false_safe += usize::from(state != CompositionState::CompositionPass);
         }
-        nontrans += usize::from(row.confirmatory && state == CompositionState::NontransitivityWitness);
+        nontrans +=
+            usize::from(row.confirmatory && state == CompositionState::NontransitivityWitness);
         path_risk_hits += usize::from(
             row.confirmatory
                 && matches!(
