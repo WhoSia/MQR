@@ -10,7 +10,10 @@ Masked profile seal:
 a202952b8c56d121f49ec408a3bde8cbc7084227
 
 Canonical CI run:
-36015720376
+36016178395
+
+Canonical final head:
+3b2786d24c9871b254f9f80ab847abcd09f87495
 
 Overall:
 29/32 exact directional matches = 0.90625.
