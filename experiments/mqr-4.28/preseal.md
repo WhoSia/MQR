@@ -147,3 +147,6 @@ Real-Language must never output an unqualified percentage of "truth" unless a do
 
 Historical/scientific packets without such an oracle must retain:
 FINAL_TRUTH_DISTANCE = UNIDENTIFIED.
+
+
+Execution note: canonical engine candidate = Rust; Python retained as independent reference implementation.
