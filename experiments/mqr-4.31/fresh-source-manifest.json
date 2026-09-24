@@ -1,0 +1,67 @@
+{
+  "stage": "MQR-4.31",
+  "created": "2026-09-25",
+  "discovery_only": [
+    "MQR-4.30/A03",
+    "MQR-4.30/A05",
+    "MQR-4.30/A08"
+  ],
+  "sources": [
+    {
+      "id": "R01",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/CUBE-REV",
+      "path": "research/0.7.12/GATE_STATUS.json",
+      "blob_sha": "adffb27bde02b35ee8d14bcb22a78f15e3b8ffc5"
+    },
+    {
+      "id": "R02",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/CUBE-REV",
+      "path": "research/0.7.12/VALIDATION.json",
+      "blob_sha": "d779a6b42029247ce87fb1e616bf50cae3a5b4a0"
+    },
+    {
+      "id": "R03",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EvoNOMOS",
+      "path": "experiments/dip70_wc7x/RESULT_SEAL.json",
+      "blob_sha": "8bb8f41e9fb54db2fbf716364bf15ccf06fd8870"
+    },
+    {
+      "id": "R04",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EvoNOMOS",
+      "path": "experiments/dip70_wc8_mrx/RESULT_SEAL.json",
+      "blob_sha": "128aa166ebf4377922a9814dea594257c8d7ba7f"
+    },
+    {
+      "id": "E01-native",
+      "lineage_kind": "ENGINEERING_DEVELOPMENT",
+      "repo": "WhoSia/ChatGPT-Web-HWPX-MCP",
+      "path": "docs/p334r2-tracked-resolution-native-receipt-stage1.md",
+      "blob_sha": "ef6a87236928686acfb7c165382ae5c21c4a703b"
+    },
+    {
+      "id": "E01-roundtrip",
+      "lineage_kind": "ENGINEERING_DEVELOPMENT",
+      "repo": "WhoSia/ChatGPT-Web-HWPX-MCP",
+      "path": "docs/p334r2-tracked-resolution-roundtrip-receipt.md",
+      "blob_sha": "257e0f105308d790d61f6f0714a334c784f67e5f"
+    },
+    {
+      "id": "E02-native",
+      "lineage_kind": "ENGINEERING_DEVELOPMENT",
+      "repo": "WhoSia/ChatGPT-Web-HWPX-MCP",
+      "path": "docs/p334r3-existing-group-ungroup-native-receipt.md",
+      "blob_sha": "57cd68b01c7d8f0f300b91a990eb669ac4713409"
+    },
+    {
+      "id": "E02-roundtrip",
+      "lineage_kind": "ENGINEERING_DEVELOPMENT",
+      "repo": "WhoSia/ChatGPT-Web-HWPX-MCP",
+      "path": "docs/p334r3-existing-group-ungroup-roundtrip-receipt.md",
+      "blob_sha": "4d66262fe74a5814b9094056a4c135d169242d90"
+    }
+  ]
+}
