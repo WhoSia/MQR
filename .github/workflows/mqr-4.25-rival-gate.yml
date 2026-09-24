@@ -1,0 +1,68 @@
+name: MQR 4.25 Rival Separation Gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.25-rival-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rival-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute prospective rival-separation gate
+        run: |
+          python - <<'PY'
+          def H1(x): return x
+          def H2(x): return 1-x
+          def H3(x): return x if x in (0,1) else 0
+          rivals={"H1":H1,"H2":H2,"H3":H3}
+          claim_domain=[0,1,2]
+
+          def surviving(obs):
+              return {
+                  name:fn for name,fn in rivals.items()
+                  if all(fn(x)==y for x,y in obs.items())
+              }
+
+          def R_gate(obs, promoted="H1"):
+              s=surviving(obs)
+              h=rivals[promoted]
+              divergence=[]
+              for name,fn in s.items():
+                  if name==promoted: continue
+                  ds=[x for x in claim_domain if fn(x)!=h(x)]
+                  if ds: divergence.append((name,ds))
+              return (len(divergence)==0,s,divergence)
+
+          # Case A: clean C/E/P receipts but only x=0,1 observed.
+          obs_A={0:0,1:1}
+          R_A,s_A,d_A=R_gate(obs_A)
+          print("CASE_A_SURVIVORS="+",".join(sorted(s_A)))
+          print("CASE_A_DIVERGENCES="+repr(d_A))
+          print("CASE_A_R="+("PASS" if R_A else "HOLD"))
+
+          # Case B: additional admissible world-contact x=2 -> y=2.
+          obs_B={0:0,1:1,2:2}
+          R_B,s_B,d_B=R_gate(obs_B)
+          print("CASE_B_SURVIVORS="+",".join(sorted(s_B)))
+          print("CASE_B_DIVERGENCES="+repr(d_B))
+          print("CASE_B_R="+("PASS" if R_B else "HOLD"))
+
+          tests={
+              "ambiguous_case_blocks": R_A is False,
+              "hidden_rival_found": "H3" in s_A,
+              "identified_case_passes": R_B is True,
+              "hidden_rival_removed_by_new_world_contact": "H3" not in s_B,
+              "valid_prior_case_preserved": list(s_B)==["H1"],
+          }
+          for k,v in tests.items():
+              print(f"{k}={'PASS' if v else 'FAIL'}")
+          if not all(tests.values()):
+              raise SystemExit(1)
+
+          print("R_OPERATIONALIZATION=PASS")
+          print("R_IS_CLAIM_LEVEL_SEPARATION_NOT_CREDENTIAL")
+          print("AMBIGUOUS_CLAIM_CONTRACT_TO_IDENTIFIED_SET={H1,H3}")
+          PY
