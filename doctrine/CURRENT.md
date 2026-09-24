@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.31**.
+Status: live through **MQR-4.32**.
 
 ## Generation-IV authority kernel
 
@@ -247,6 +247,111 @@ Implementation policy:
 The language's central invariant is:
 
 > strong current realist authority may coexist with mystery, open ontology and unconceived future rivals.
+
+#### MQR-4.32 transport composition result
+
+MQR-4.32 tests the MQR-4.31 default that adjacent transport PASS edges do not automatically compose.
+
+The live composition object is a three-regime, component-indexed path:
+
+```text
+A --tau_AB--> B --tau_BC--> C
+ \----------tau_AC---------/
+```
+
+Adjacent PASS edges establish at most a `COMPOSITION_CANDIDATE`.
+
+Promotion to `COMPOSITION_PASS` requires:
+- explicit bridge classes;
+- compatibility of the actual intermediate state;
+- preservation of downstream-required distinctions;
+- a mediated A→C prediction frozen before direct reveal;
+- an independently admissible direct A→C surface;
+- direct survival;
+- path congruence at the declared claim scope.
+
+Bridge classes are typed, not scored:
+- EXACT
+- QUOTIENT_COMPATIBLE
+- SUCCESSOR_REFINEMENT
+- LOSSY
+- NONCOMMENSURABLE
+- UNRESOLVED
+
+Direct path outcomes distinguish:
+- COMPOSITION_PASS
+- PATH_DIVERGENT_PASS
+- NONTRANSITIVITY_WITNESS
+- COMPOSITION_SPLIT_REQUIRED
+- typed HOLD/OUT_OF_SCOPE states.
+
+The first admitted external prospective triangle is TKN-001, an ENGINEERING_DEVELOPMENT case over Hugging Face tokenizers 0.21.4 → 0.22.2 → 0.23.2.
+
+Frozen component:
+ordered token IDs plus ordered token strings under a fixed WordLevel vocabulary, [UNK] token, Whitespace pre-tokenizer and declared fixture set.
+
+Prospective result:
+
+```text
+A→B = TRANSPORT_PASS
+B→C = TRANSPORT_PASS
+mediated A→C prediction = TRANSPORT_PASS  [sealed before direct execution]
+held-out direct A→C = TRANSPORT_PASS
+path = COMMUTES_AT_CLAIM_QUOTIENT
+composition = COMPOSITION_PASS
+```
+
+This earns one scoped external witness that typed transport can compose under receipt-conditioned, independently tested conditions.
+
+It does **not** establish general transport transitivity or regime equivalence.
+
+The pre-reveal external candidate manifest froze a stricter promotion requirement:
+- at least six confirmatory triangles;
+- at least two lineage kinds;
+- at least one RESEARCH_LAB triangle;
+- at least one ENGINEERING_DEVELOPMENT triangle;
+- at least one COMPOSITION_PASS;
+- at least one canonical NONTRANSITIVITY_WITNESS;
+- at least one path-divergence/refinement witness.
+
+The admitted 4.32 confirmatory corpus contains only TKN-001. A research-lab confirmatory triangle is absent. EPISTEME P35 and HWPX P316 are diagnostic-only because their proposed direct comparisons do not provide the required independent direct surface; C3X P19 is excluded from fresh confirmation because candidate discovery exposed outcome-bearing information before a valid mediated seal.
+
+Therefore:
+
+```text
+SCOPED_RECEIPT_CONDITIONED_COMPOSITION = EXTERNALLY_WITNESSED
+MQR432_EXTERNAL_PROMOTION = HOLD
+CROSS_LINEAGE_CONFIRMATION = HOLD
+GLOBAL_TRANSITIVITY = REJECTED_AS_DEFAULT
+```
+
+The direct TKN world-contact produced an additional failure-typing result. World-contact and adjudication succeeded, but the final workflow receipt push lost a race with a concurrent main commit. MQR therefore distinguishes:
+
+```text
+CUSTODY_FAILURE_AFTER_SUCCESSFUL_ADJUDICATION
+!=
+SCIENTIFIC_TRANSPORT_FAILURE
+```
+
+Canonical world-contact workflows are frozen as manual read-only replay surfaces after adjudication so later documentation changes cannot mutate canonical receipts.
+
+ChatGPT-Web-HWPX-MCP remains `ENGINEERING_DEVELOPMENT`, not a research Lab.
+
+#### Research-engineering standard after MQR-4.32
+
+Repository engineering is explicitly non-epistemic infrastructure, but newly touched load-bearing executable surfaces now separate failure families:
+
+- G0 deterministic core: format, lint, unit/regression tests, release build;
+- G1 generated-contract integrity: generated-file/schema/golden-output and lock-state drift;
+- G2 compatibility geometry: OS/target/feature/version/adapter matrices;
+- G3 integration and conformance: E2E/native/provider contact with retained failure traces;
+- G4 security and supply-chain provenance: dependency audit, CI pinning/policy, hashes/attestations;
+- G5 scientific world contact: preseal, frozen criterion/prediction, execution and immutable scientific receipt.
+
+G0–G4 cannot manufacture G5 authority.
+G5 does not excuse weak G0–G4 engineering.
+
+Rust remains the default canonical language for newly touched authority-bearing adjudication when practical. Python remains suitable for independent reference implementations, exploratory statistics and non-authority-bearing glue.
 
 ## Current compression
 
