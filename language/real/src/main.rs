@@ -18,7 +18,7 @@ struct Transport{
 #[derive(Default)]
 struct Packet{
     version:String,
-    id:String, epoch:String, claim_type:String, claim_text:String, scope:String,
+    id:String, epoch:String, claim_type:String, claim_text:String, scope:String, lineage_kind:String,
     gates:BTreeMap<String,String>,
     axes:BTreeMap<String,(f64,String)>,
     transports:Vec<Transport>,
@@ -86,6 +86,13 @@ fn parse(path:&Path)->Result<Packet,String>{
             "epoch" if t.len()==2 => p.epoch=t[1].clone(),
             "claim" if t.len()>=3 => {p.claim_type=t[1].to_uppercase();p.claim_text=t[2..].join(" ");},
             "scope" if t.len()>=2 => p.scope=t[1..].join(" "),
+            "lineage" if t.len()==2 => {
+                let k=t[1].to_uppercase();
+                if !["RESEARCH_LAB","ENGINEERING_DEVELOPMENT","METHODOLOGY_DEVELOPMENT","OTHER"].contains(&k.as_str()){
+                    return Err(format!("{}:{}: invalid lineage kind",path.display(),i+1))
+                }
+                p.lineage_kind=k;
+            },
             "gate" if t.len()==3 => {
                 let g=t[1].to_uppercase(); let s=t[2].to_uppercase();
                 if !GATES.contains(&g.as_str()) || !["PASS","HOLD","FAIL"].contains(&s.as_str()){
@@ -136,6 +143,7 @@ fn parse(path:&Path)->Result<Packet,String>{
     let required=if p.version=="0.2"{V2_AXES.as_slice()}else{V3_AXES.as_slice()};
     for a in required{if !p.axes.contains_key(*a){return Err(format!("{}: missing axis {}",path.display(),a))}}
     if p.version=="0.3" && p.axes.contains_key("T"){return Err(format!("{}: v0.3 forbids legacy axis T",path.display()))}
+    if p.version=="0.3" && p.lineage_kind.is_empty(){return Err(format!("{}: v0.3 requires lineage kind",path.display()))}
     Ok(p)
 }
 
@@ -170,6 +178,7 @@ fn canonical(p:&Packet,scalar:bool)->String{
     o.push(format!("claim.type={}",esc(&p.claim_type)));
     o.push(format!("claim.text={}",esc(&p.claim_text)));
     o.push(format!("scope={}",esc(&p.scope)));
+    if p.version=="0.3"{o.push(format!("lineage.kind={}",p.lineage_kind));}
     for g in GATES{o.push(format!("gate.{}={}",g,p.gates[g]));}
     let axes=if p.version=="0.2"{V2_AXES.as_slice()}else{V3_AXES.as_slice()};
     for a in axes{
