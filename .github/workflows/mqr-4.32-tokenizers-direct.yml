@@ -1,0 +1,120 @@
+name: MQR 4.32 Tokenizers Direct
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.32-tokenizers-direct.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify pre-direct mediated seal
+        shell: bash
+        run: |
+          set -euo pipefail
+          SEAL=experiments/mqr-4.32/seals/tkn-001-mediated.md
+          test -f "$SEAL"
+          grep -F 'TKN-001-COMPOSITION-CANDIDATE=YES' "$SEAL"
+          grep -F 'MEDIATED-A-C-PREDICTION=TRANSPORT_PASS' "$SEAL"
+          grep -F 'DIRECT-A-C=SEALED-UNOPENED' "$SEAL"
+
+  version:
+    needs: preflight
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        version: ['0.21.4', '0.23.2']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt, clippy
+      - name: Materialize exact dependency manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed 's/__TOKENIZERS_VERSION__/${{ matrix.version }}/g' \
+            experiments/mqr-4.32/external/tokenizers/Cargo.template.toml \
+            > experiments/mqr-4.32/external/tokenizers/Cargo.toml
+      - name: Format gate
+        run: cargo fmt --manifest-path experiments/mqr-4.32/external/tokenizers/Cargo.toml -- --check
+      - name: Generate exact lockfile
+        run: cargo generate-lockfile --manifest-path experiments/mqr-4.32/external/tokenizers/Cargo.toml
+      - name: Locked build
+        run: cargo build --locked --manifest-path experiments/mqr-4.32/external/tokenizers/Cargo.toml
+      - name: Execute held-out direct fixtures only
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=experiments/mqr-4.32/external/tokenizers/target/debug/mqr432-tokenizers-probe
+          "$BIN" heldout > "heldout-${{ matrix.version }}.tsv"
+          sha256sum experiments/mqr-4.32/external/tokenizers/Cargo.lock > "lock-${{ matrix.version }}.sha256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tokenizers-direct-${{ matrix.version }}
+          path: |
+            heldout-${{ matrix.version }}.tsv
+            lock-${{ matrix.version }}.sha256
+          retention-days: 30
+
+  adjudicate:
+    needs: version
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: tokenizers-direct-*
+          path: results
+          merge-multiple: true
+      - name: Direct A-to-C adjudication
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIRECT=TRANSPORT_FAIL
+          PATH_CLASS=NONCOMMUTES_OTHER
+          COMPOSITION=NONTRANSITIVITY_WITNESS
+          if cmp -s results/heldout-0.21.4.tsv results/heldout-0.23.2.tsv; then
+            DIRECT=TRANSPORT_PASS
+            PATH_CLASS=COMMUTES_AT_CLAIM_QUOTIENT
+            COMPOSITION=COMPOSITION_PASS
+          fi
+          {
+            echo -e 'field\tvalue'
+            echo -e "trigger_sha\t${GITHUB_SHA}"
+            echo -e 'mediated_seal_commit\tb03c31531d8eca42f5b567d6ffbe94164fad5371'
+            echo -e 'predicted_direct_A_TO_C\tTRANSPORT_PASS'
+            echo -e "observed_direct_A_TO_C\t$DIRECT"
+            echo -e "path_class\t$PATH_CLASS"
+            echo -e "composition_state\t$COMPOSITION"
+          } | tee tokenizers-direct-adjudication.tsv
+          echo "TOKENIZERS_DIRECT_A_TO_C=$DIRECT"
+          echo "TOKENIZERS_PATH_CLASS=$PATH_CLASS"
+          echo "TOKENIZERS_COMPOSITION_STATE=$COMPOSITION"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tokenizers-direct-adjudication
+          path: |
+            tokenizers-direct-adjudication.tsv
+            results/
+          retention-days: 30
+      - name: Persist canonical direct receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p receipts/mqr-4.32
+          cp tokenizers-direct-adjudication.tsv receipts/mqr-4.32/tokenizers-direct.tsv
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add receipts/mqr-4.32/tokenizers-direct.tsv
+          git commit -m 'MQR-4.32: persist canonical tokenizers direct receipt [skip ci]'
+          git push
