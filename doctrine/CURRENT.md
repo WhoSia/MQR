@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.27**.
+Status: live through **MQR-4.28 preseal / Real-Language v0.2 migration in validation**.
 
 ## Generation-IV authority kernel
 
@@ -27,11 +27,11 @@ FINAL_ONTOLOGY = HOLD unless independently earned
 
 A finite rival search never licenses the sentence “all possible rivals have been eliminated.”
 
-### R-Language
+### Real-Language
 
-`language/r/` is the active executable representation surface.
+`language/real/` is the active executable representation surface. Rust is canonical; Python is an independent reference implementation.
 
-An R-Packet carries:
+A Real-Packet carries:
 - claim + scope,
 - C/E/P/R gates,
 - TPP axes W/N/I/T/D,
