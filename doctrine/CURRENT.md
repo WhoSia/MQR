@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.30**.
+Status: live through **MQR-4.31**.
 
 ## Generation-IV authority kernel
 
@@ -39,7 +39,8 @@ Implementation:
 A Real-Packet carries:
 - claim + scope;
 - C/E/P/R_open gates;
-- world-constraint profile W/N/I/T/D;
+- world-constraint profile W/N/I/D;
+- typed transport relation map (target/evaluability/survival);
 - rival-generator provenance;
 - surviving rivals / identified-set state;
 - adverse residue;
@@ -161,6 +162,87 @@ Kuipers is now treated as a revision lineage rather than a static authority:
 - 2020 refined structurelikeness/idealization successor.
 
 Author continuity does not establish framework identity.
+
+#### MQR-4.31 transport reconstitution result
+
+MQR-4.31 retires the legacy one-coordinate T construct.
+
+Fresh confirmatory corpus:
+- RESEARCH_LAB: C3X and EPISTEME;
+- ENGINEERING_DEVELOPMENT: ChatGPT-Web-HWPX-MCP.
+
+Canonical fresh result:
+
+```text
+16 confirmatory cells
+15/16 exact typed-state agreement = 0.9375
+C1 untested-vs-failed = PASS
+C2 componentwise transport = PASS
+C3 cross-lineage concordance = PASS
+C4 HWPX engineering/non-Lab typing = PASS
+C5 success-collapse attack = PASS
+```
+
+Transport is now represented as:
+
+```text
+TRANSPORT(component, source_regime -> target_regime) = {
+  TARGET,
+  EVALUABILITY,
+  SURVIVAL,
+  RECEIPT
+}
+```
+
+Evaluability states:
+- TESTED
+- UNTESTED_AVAILABLE
+- TARGET_UNAVAILABLE
+- OUT_OF_SCOPE
+
+Survival is defined only when TESTED:
+- SURVIVED
+- FAILED
+- MIXED_OR_NONATOMIC
+
+Derived states:
+
+```text
+TESTED + SURVIVED            -> TRANSPORT_PASS
+TESTED + FAILED              -> TRANSPORT_FAIL
+TESTED + MIXED_OR_NONATOMIC -> SPLIT_REQUIRED
+UNTESTED_AVAILABLE           -> HOLD_UNTESTED
+TARGET_UNAVAILABLE           -> HOLD_TARGET_UNAVAILABLE
+OUT_OF_SCOPE                 -> OUT_OF_SCOPE
+```
+
+The single confirmatory mismatch was itself diagnostic:
+operation-level `reject_all` promotion did not license a component-specific `insert-reject` transport PASS when that exact round-trip specimen had not been instantiated.
+
+Therefore:
+**broader operation success cannot launder component-specific evaluability**.
+
+The old T axis is now:
+
+```text
+LEGACY_T = DEPRECATED
+REAL_LANGUAGE_TRANSPORT = TYPED_RELATION_MAP
+```
+
+Real-Language v0.3 requires explicit lineage typing:
+- RESEARCH_LAB
+- ENGINEERING_DEVELOPMENT
+- METHODOLOGY_DEVELOPMENT
+- OTHER
+
+**ChatGPT-Web-HWPX-MCP is ENGINEERING_DEVELOPMENT, not a research Lab.**
+It remains admissible and useful as an external engineering case.
+
+Implementation policy:
+- newly touched executable MQR surfaces prefer Rust as canonical implementation when practical;
+- Python remains an independent reference/audit implementation where useful;
+- existing Python is not rewritten merely to alter repository language composition;
+- migration occurs when a surface becomes live again or when a concrete reliability/portability/performance advantage exists.
 
 The language's central invariant is:
 
