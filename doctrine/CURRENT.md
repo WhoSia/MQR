@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.28 preseal / Real-Language v0.2 migration in validation**.
+Status: live through **MQR-4.28**.
 
 ## Generation-IV authority kernel
 
@@ -29,28 +29,56 @@ A finite rival search never licenses the sentence “all possible rivals have be
 
 ### Real-Language
 
-`language/real/` is the active executable representation surface. Rust is canonical; Python is an independent reference implementation.
+`language/real/` is the active executable representation surface.
+
+Implementation:
+- canonical compiler: Rust;
+- independent reference compiler: Python;
+- canonical CI requires byte-identical receipts across both implementations.
 
 A Real-Packet carries:
-- claim + scope,
-- C/E/P/R gates,
-- TPP axes W/N/I/T/D,
-- rival-generator provenance,
-- surviving rivals / identified-set state,
-- adverse residue,
-- ontic reserve,
+- claim + scope;
+- C/E/P/R_open gates;
+- world-constraint profile W/N/I/T/D;
+- rival-generator provenance;
+- surviving rivals / identified-set state;
+- adverse residue;
+- ontic reserve;
 - successor shocks.
 
-The optional scalar:
+#### MQR-4.28 scalar result
+
+The former TPX geometric mean is **not** retained as a scientific truth-proximity measure.
+
+Current policy:
 
 ```text
-TPX = geometric_mean(W,N,I,T,D)
+PROFILE_ORDER = PARETO_PARTIAL
+SCALAR_PROJECTION_DEFAULT = OFF
+FINAL_TRUTH_DISTANCE = UNIDENTIFIED
 ```
 
-is emitted only when C/E/P/R all PASS.
+An optional geometric mean may be emitted only as:
 
-TPX means **CURRENT_WORLD_CONSTRAINED_PROXIMITY_PROXY**.
-It is not a probability of truth and not metaphysical distance to final Truth.
+```text
+UNCALIBRATED_DISPLAY_ONLY
+```
+
+and never changes authority.
+
+Reasons:
+- contemporaneous epistemic maturity can rank differently from retrospective successor standing;
+- crossing W/N/I/T/D profiles reverse order under admissible aggregation rules and positive weights;
+- scalar removal leaves C/E/P/R_open authority decisions unchanged;
+- a controlled truth-oracle sandbox can contain a true but evidentially young claim with lower scalar value than a mature false claim;
+- the present six-case historical corpus does not independently calibrate the axes: D has zero variance and W/N/T are strongly correlated.
+
+Therefore W/N/I/T/D currently have:
+- face validity: PASS-NARROW;
+- discriminant validity: HOLD;
+- external calibration: HOLD.
+
+They are typed diagnostics of world-constrained evidential state, not a validated interval-scale distance to Truth.
 
 The language's central invariant is:
 
