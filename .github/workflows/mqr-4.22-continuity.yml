@@ -1,0 +1,47 @@
+name: MQR 4.22 OIDC vs Key Continuity
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.22-continuity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  continuity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: sigstore/cosign-installer@v3
+      - name: Read stable OIDC principal without exposing token
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os,json,base64,urllib.request
+          url=os.environ['ACTIONS_ID_TOKEN_REQUEST_URL']
+          sep='&' if '?' in url else '?'
+          req=urllib.request.Request(url+sep+'audience=mqr-4.22')
+          req.add_header('Authorization','Bearer '+os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN'])
+          tok=json.load(urllib.request.urlopen(req))['value']
+          payload=tok.split('.')[1]
+          payload += '='*((4-len(payload)%4)%4)
+          c=json.loads(base64.urlsafe_b64decode(payload))
+          out={k:c.get(k) for k in ['iss','sub','aud','repository','repository_owner','ref','sha','workflow','job_workflow_ref'] if k in c}
+          print('OIDC_CLAIMS='+json.dumps(out,sort_keys=True))
+          PY
+      - name: Sign canonical statement keylessly
+        run: |
+          printf 'MQR-4.22 continuity event\n' > event.txt
+          cosign sign-blob --yes --bundle continuity.bundle.json event.txt
+      - name: Extract ephemeral certificate public-key fingerprint
+        run: |
+          python - <<'PY'
+          import json,base64,subprocess,hashlib
+          d=json.load(open('continuity.bundle.json'))
+          cert=base64.b64decode(d['cert'])
+          open('cert.pem','wb').write(cert)
+          pub=subprocess.check_output(['openssl','x509','-in','cert.pem','-pubkey','-noout'])
+          der=subprocess.check_output(['openssl','pkey','-pubin','-outform','DER'],input=pub)
+          print('SPKI_SHA256='+hashlib.sha256(der).hexdigest())
+          PY
