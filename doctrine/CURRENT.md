@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.29**.
+Status: live through **MQR-4.30**.
 
 ## Generation-IV authority kernel
 
@@ -111,6 +111,56 @@ FINAL_TRUTH_DISTANCE = UNIDENTIFIED
 ```
 
 This promotion is intentionally narrow. The synthetic benchmark shares the construct constitution with the scorer, so it demonstrates internal calibration and axis separation, not real-world criterion validity or universal measurement invariance.
+
+#### MQR-4.30 external calibration result
+
+External calibration used label-blind scoring against independent, pre-existing non-MQR research constitutions across C3X, EPISTEME, PEA-Scope, RITHM and HWPX.
+
+Canonical result:
+
+```text
+32 evaluable claim-axis judgments
+29 exact directional matches
+overall agreement = 0.90625
+W = 8/8 across 4 domains
+I = 7/7 across 4 domains
+T = 5/8 across 4 domains
+D = 9/9 across 5 domains, but all native D labels = HIGH
+```
+
+Current status:
+
+```text
+W = LEVEL-3 EXTERNALLY CALIBRATED ORDINAL INDEX
+I = LEVEL-3 EXTERNALLY CALIBRATED ORDINAL INDEX
+N = LEVEL-3 HOLD
+T = LEVEL-3 HOLD / CONSTRUCT RECONSTITUTION REQUIRED
+D = LEVEL-3 HOLD / RANGE RESTRICTION
+FULL W/N/I/T/D LEVEL-3 = HOLD
+LEVEL-3 NUMERIC = HOLD
+```
+
+The T failures are substantive. The legacy T coordinate conflates:
+- **TRANSPORT_TARGET** — which claim component/relation is transported;
+- **TRANSPORT_EVALUABILITY** — whether the relevant held-out regime was actually tested;
+- **TRANSPORT_SURVIVAL** — whether the target survived conditional on evaluation.
+
+Therefore:
+**untested transport ≠ failed transport ≠ mixed component-specific transport**.
+
+The D result also changes doctrine:
+**defeat exposure ≠ claim success**. A claim may be defeated or remain unevaluable while D is HIGH. However, the MQR-4.30 external sample is range-restricted to mature projects with HIGH defeat exposure, so D does not yet have external discriminant calibration.
+
+For N:
+**method count ≠ noncommon evidence ancestry**. Distinct modalities, experiments or replications count as stronger N only to the extent that they break genuinely noncommon failure lineages.
+
+Kuipers is now treated as a revision lineage rather than a static authority:
+- 2000/2005 historical architecture;
+- 2014 explicit correction of the earlier strong/maximal-theory assumption;
+- 2016 generalized two-sided <Models, Postulates> successor;
+- 2020 refined structurelikeness/idealization successor.
+
+Author continuity does not establish framework identity.
 
 The language's central invariant is:
 
