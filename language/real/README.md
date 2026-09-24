@@ -34,6 +34,38 @@ It outputs:
    - mystery / ontic reserve
    - successor vulnerability
 
+## Calibration status
+
+MQR-4.29 promotes W/N/I/T/D to **LEVEL-2 internally calibrated operational indices**.
+
+Prospective calibration:
+- 243 exact full-factorial worlds;
+- 243 noisy blind worlds;
+- hidden-key reveal only after scoring;
+- matched single-axis interventions;
+- decoy attacks;
+- Rust/Python scorer concordance.
+
+Canonical results:
+- exact recovery: PASS;
+- cross-axis leakage in exact lane: 0;
+- noisy self-axis r: 0.973079–0.976977;
+- max nonmatching hidden-axis |r|: 0.022682;
+- max measured-axis |r|: 0.038496;
+- decoy mutations: 2430 cells;
+- decoy-induced profile changes: 0.
+
+Interpretation ceiling:
+
+```text
+LEVEL-2 INTERNAL CALIBRATION = PASS
+LEVEL-3 EXTERNAL CALIBRATION = HOLD
+INTERVAL SCALE = HOLD
+TRUTH-DISTANCE METRIC = NOT ESTABLISHED
+```
+
+The profile values are normalized construct-relative indices. Numeric differences are not yet licensed as equal epistemic intervals across domains.
+
 ## Scalar policy
 
 The v0.1 TPX geometric mean is demoted.
