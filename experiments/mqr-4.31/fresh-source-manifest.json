@@ -90,6 +90,38 @@
       "repo": "WhoSia/C3X",
       "path": "receipts/g9.4-p15.json",
       "blob_sha": "d1d19b61c4e52c88a4be2e0dc017a6075c00221d"
+    },
+    {
+      "id": "R09-manifest",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p22_manifest.json",
+      "blob_sha": "d5bb7845e8030db549c992b6d901fc4b7387de65"
+    },
+    {
+      "id": "R09-result",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p22_result.json",
+      "blob_sha": "aac0fe1c2747723293e7c0d7a993dd468217da75"
+    },
+    {
+      "id": "R10-manifest",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p23_manifest.json",
+      "blob_sha": "46e83545cb9a9bf90b3d1037f082286eadbcd177"
+    },
+    {
+      "id": "R10-result",
+      "lineage_kind": "RESEARCH_LAB",
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p23_result.json",
+      "blob_sha": "9f1f40e6d2469424ec7fcfd46b3c64f00347db2b"
     }
+  ],
+  "confirmatory_exclusions": [
+    "R07 C3X p14 — narrative interpretation leaked during masked inspection; may be replayed diagnostically only",
+    "R08 C3X p15 — narrative interpretation leaked during masked inspection; may be replayed diagnostically only"
   ]
 }
