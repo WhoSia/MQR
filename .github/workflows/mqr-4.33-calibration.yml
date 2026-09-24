@@ -1,0 +1,35 @@
+name: MQR 4.33 Inherited Calibration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.33/calibration/**'
+      - '.github/workflows/mqr-4.33-calibration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  calibrate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+      - name: Build frozen classifier
+        run: cargo build --manifest-path experiments/mqr-4.33/rust/Cargo.toml --release
+      - name: Replay inherited TKN mapping
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=./experiments/mqr-4.33/rust/target/release/mqr433
+          OUT=/tmp/tkn-calibration.out
+          "$BIN" experiments/mqr-4.33/calibration/tkn-001.tsv | tee "$OUT"
+          grep -F 'TRIANGLE=TKN-001-CAL' "$OUT"
+          grep -F 'composition=COMPOSITION_PASS' "$OUT"
+          grep -F 'prediction_match=false' "$OUT"
+          grep -F 'FORCING_EXPECTATION_MISMATCHES=1' "$OUT"
+          grep -F 'SUPPORT_DOMAIN_DISCOVERY=HOLD' "$OUT"
