@@ -24,7 +24,7 @@ It outputs:
    - W: world resistance
    - N: noncommon evidence-route strength
    - I: rival invariance / identification
-   - T: declared-scope transport
+   - T: declared-scope transport **(legacy v0.2 field; MQR-4.30 shows this construct requires successor decomposition into transport target/evaluability/survival)**
    - D: defeat exposure / corrigibility
 
 3. Residue
@@ -55,16 +55,21 @@ Canonical results:
 - decoy mutations: 2430 cells;
 - decoy-induced profile changes: 0.
 
-Interpretation ceiling:
+Interpretation ceiling after MQR-4.30:
 
 ```text
-LEVEL-2 INTERNAL CALIBRATION = PASS
-LEVEL-3 EXTERNAL CALIBRATION = HOLD
+W = LEVEL-3 EXTERNALLY CALIBRATED ORDINAL INDEX
+I = LEVEL-3 EXTERNALLY CALIBRATED ORDINAL INDEX
+N = LEVEL-2 RETAINED / LEVEL-3 EXTERNAL HOLD
+T = LEVEL-2 RETAINED-WITH-WARNING / LEVEL-3 EXTERNAL HOLD
+D = LEVEL-2 RETAINED / EXTERNAL POLARITY PASS / LEVEL-3 RANGE HOLD
 INTERVAL SCALE = HOLD
 TRUTH-DISTANCE METRIC = NOT ESTABLISHED
 ```
 
-The profile values are normalized construct-relative indices. Numeric differences are not yet licensed as equal epistemic intervals across domains.
+MQR-4.30 used label-blind scoring against independent non-MQR research constitutions and obtained 29/32 exact directional agreements. W matched 8/8 and I 7/7 across four external domains. T matched only 5/8 and is now known to conflate at least transport target, transport evaluability, and transport survival. D matched 9/9 but the external sample contained only HIGH-D cases, so discriminant calibration is range-restricted. N passes the anti-counting test but lacks cross-domain external criterion coverage.
+
+The profile values remain construct-relative indices. Only W and I currently possess external ordinal calibration; numeric differences are not licensed as equal epistemic intervals across domains.
 
 ## Scalar policy
 
