@@ -1,0 +1,25 @@
+RPACKET 0.1
+id "newton-gr-1915"
+epoch "1915-general-relativity-mercury"
+claim CONSTRAINT "General relativity accounts for Mercury's anomalous perihelion advance while recovering a Newtonian-like regime for weaker gravitational conditions"
+scope "Mercury perihelion and the weak-field gravitational relation to established celestial mechanics, as warranted in 1915"
+
+gate C PASS
+gate E PASS
+gate P PASS
+gate R PASS
+
+axis W 0.75 "Mercury provides a striking nontrivial fit without tuning the anomaly as a free parameter, but later classic tests are not yet imported"
+axis N 0.50 "The 1915 packet is dominated by the Mercury route; later eclipse and broader tests are excluded by hindsight firewall"
+axis I 0.75 "The gravitational explanation survives the principal live Mercury rival pressure represented at this stage"
+axis T 0.50 "Transport beyond Mercury is theoretically structured but broad later empirical transport is not yet available in this epoch packet"
+axis D 0.75 "The theory exposes further astronomical consequences and remains prospectively defeasible"
+
+generator STRUCTURAL "Successor gravitational frameworks capable of reproducing weak-field successes while differing in strong/relativistic regimes"
+rival HISTORICAL "Newtonian gravity plus unseen intra-Mercurial matter"
+residue MODERATE "Broad empirical transport of the new framework is still immature in 1915"
+mystery OPEN "Whether the new field equations are final governing laws or one successful deeper representation remains unresolved"
+ontic HOLD "Success on Mercury does not establish final gravitational ontology"
+successor VULNERABLE
+source "Einstein 1915, explanation of Mercury perihelion in general relativity"
+END
