@@ -1,0 +1,172 @@
+{
+  "stage": "MQR-4.30",
+  "basis": "masked external receipts only; native verdict/authority labels not revealed",
+  "scale": [
+    "HIGH",
+    "MID",
+    "LOW",
+    "HOLD"
+  ],
+  "cases": [
+    {
+      "id": "A01",
+      "profile": {
+        "W": "MID",
+        "N": "MID",
+        "I": "LOW",
+        "T": "LOW",
+        "D": "HIGH"
+      },
+      "rationale": {
+        "W": "Intervention effects exist at action/fine levels but robust WDL is invariant.",
+        "N": "Two engine targets provide some route diversity but share engine lineage and exact-world framework.",
+        "I": "stable_localization=false; witness identity is regime-sensitive.",
+        "T": "cross-version regime concordance=2/3 but stable localization and dynamic reassignment do not transport.",
+        "D": "fresh precommit, multiple regimes, multiple intervention surfaces, dual engine targets."
+      }
+    },
+    {
+      "id": "A02",
+      "profile": {
+        "W": "MID",
+        "N": "MID",
+        "I": "MID",
+        "T": "LOW",
+        "D": "HIGH"
+      },
+      "rationale": {
+        "W": "Repeated MAIN/QSEARCH effects occur across the dense resource ladder while robust WDL remains invariant.",
+        "N": "Two engine versions, but common code/problem lineage prevents HIGH.",
+        "I": "MAIN-dominant pattern is broad but strict bounded-window localization is not established.",
+        "T": "cross_version_boundary_transport=false and both strict bounded-window gates are false.",
+        "D": "five resource regimes, multiple intervention surfaces, prospective precommit and dual targets."
+      }
+    },
+    {
+      "id": "A03",
+      "profile": {
+        "W": "HIGH",
+        "N": "MID",
+        "I": "MID",
+        "T": "HIGH",
+        "D": "HIGH"
+      },
+      "rationale": {
+        "W": "The sealed NO-GLOBAL-LAW prediction is matched by held-out pooled NULL phases on both engine targets.",
+        "N": "Two versions and eight material families provide diversity but not independent scientific ancestry.",
+        "I": "Primary no-global-law claim is bounded, while secondary ontology relations remain mixed/noncommuting.",
+        "T": "held-out prediction transports on both engines; vector envelope 4/4 and analog phase 3/3 per target.",
+        "D": "held-out outcomes were not consulted before sealing; far extrapolation and secondary ontology tests remain live."
+      }
+    },
+    {
+      "id": "A04",
+      "profile": {
+        "W": "LOW",
+        "N": "LOW",
+        "I": "LOW",
+        "T": "LOW",
+        "D": "HIGH"
+      },
+      "rationale": {
+        "W": "0/12 exact geometry matches and 1/12 unique nearest own-cell.",
+        "N": "No distinct external evidence lineage is visible in the masked receipt.",
+        "I": "no stable representation vertices; residual rank is full and residual signatures are maximally heterogeneous.",
+        "T": "fresh-world cell identity is not reproduced relative to canonical geometry.",
+        "D": "fresh-world replication, assignment, rank and quotient tests create multiple live defeat routes."
+      }
+    },
+    {
+      "id": "A05",
+      "profile": {
+        "W": "LOW",
+        "N": "LOW",
+        "I": "LOW",
+        "T": "HOLD",
+        "D": "HIGH"
+      },
+      "rationale": {
+        "W": "degree-1 fits 0/32 and degree-2 fits only 12/32; exact Boolean reconstruction requires higher degree post hoc.",
+        "N": "No distinct external evidence lineage is visible.",
+        "I": "an uninstrumented archive-id channel covaries with world/profile, leaving identification contaminated.",
+        "T": "masked evidence does not expose a distinct held-out transport regime sufficient for scoring.",
+        "D": "prospective degree tests and explicit confound audit can defeat low-degree explanations."
+      }
+    },
+    {
+      "id": "A06",
+      "profile": {
+        "W": "HOLD",
+        "N": "HOLD",
+        "I": "HOLD",
+        "T": "HOLD",
+        "D": "HIGH"
+      },
+      "rationale": {
+        "W": "blind episodes expose requests but no outcome/gold is visible before criterion reveal.",
+        "N": "independence of evidence routes is not established from the blind episode inventory.",
+        "I": "gold role labels are deliberately hidden.",
+        "T": "no scored held-out outcome is visible in the masked packet.",
+        "D": "24 blind episodes plus hidden-gold custody and multiple stop scopes create a real precommitted defeat surface."
+      }
+    },
+    {
+      "id": "A07",
+      "profile": {
+        "W": "HOLD",
+        "N": "LOW",
+        "I": "HOLD",
+        "T": "HOLD",
+        "D": "HIGH"
+      },
+      "rationale": {
+        "W": "all four cells exhaust runtime and the scientific target remains unobserved; timeout is not target evidence.",
+        "N": "one execution lineage/simulator configuration is visible.",
+        "I": "B_NEG/R_B_NEG/C_B_NEG are null, so the target is not identified.",
+        "T": "no target result exists to transport.",
+        "D": "frozen admission rules prevent aggregation and explicitly block reinterpretation of runtime exhaustion as scientific evidence."
+      }
+    },
+    {
+      "id": "A08",
+      "profile": {
+        "W": "HIGH",
+        "N": "MID",
+        "I": "HIGH",
+        "T": "LOW",
+        "D": "HIGH"
+      },
+      "rationale": {
+        "W": "19/19 native Hancom runs succeed; unchanged baseline is exact-pixel equal; two positive-control boundaries diverge as expected.",
+        "N": "native renderer, PDF backend/rasterization and custody/integrity layers diversify checks but share one document/render pipeline.",
+        "I": "two controlled perturbation families isolate advance and frame boundaries with predecessor-vs-selected contrast.",
+        "T": "only one Hancom version is present, so cross-version transport is not established.",
+        "D": "positive controls, integrity hashes and boundary search provide explicit failure routes."
+      }
+    },
+    {
+      "id": "A09",
+      "profile": {
+        "W": "HIGH",
+        "N": "MID",
+        "I": "HIGH",
+        "T": "MID",
+        "D": "HIGH"
+      },
+      "rationale": {
+        "W": "multiple native column-insertion cases show consistent count=1 semantics and survive native open/save regression.",
+        "N": "native capture plus structural package observations provide some method diversity but remain one Hancom lineage.",
+        "I": "left/right boundary, merged-span and width behavior support a bounded count=1 semantic rule; invalid count>1 evidence is excluded.",
+        "T": "the rule survives multiple table structures including merged boundaries, but no cross-version transport is shown.",
+        "D": "one misleading count>1 case is explicitly excluded and multiple structural edge cases are exercised."
+      }
+    }
+  ],
+  "literature_N_lane": {
+    "Javadi et al. (2019)": "MID — fMRI and MEG are distinct modalities, but share task/hypothesis lineage; method-count alone cannot yield HIGH.",
+    "Zhang, Mou & McNamara (2011)": "LOW-MID — multiple experiments strengthen replication but largely retain one behavioral measurement family.",
+    "Ray & Welsh (2018)": "LOW — one principal behavioral task/measurement lineage.",
+    "rule": "N tracks noncommon failure ancestry, not experiment or modality count."
+  },
+  "scalar_used": false
+}
