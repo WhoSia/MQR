@@ -1,0 +1,26 @@
+RPACKET 0.1
+id "hpylori-causal-consolidation"
+epoch "late-1980s-causal-consolidation"
+claim CAUSAL "Helicobacter pylori infection is a major causal driver of chronic gastritis and peptic ulcer disease and eradication changes disease course"
+scope "human gastritis and peptic-ulcer causal role supported by culture, volunteer/intervention, treatment and epidemiological evidence"
+
+gate C PASS
+gate E PASS
+gate P PASS
+gate R PASS
+
+axis W 1.00 "Intervention and disease-course change provide strong world resistance beyond association"
+axis N 0.75 "Culture, histology, volunteer evidence, antibiotic-treatment response and epidemiology span distinct routes"
+axis I 0.75 "Major bystander and purely acid/stress-primary accounts are strongly constrained at the declared scope"
+axis T 0.75 "Evidence transports across patients, diagnostic routes and treatment contexts"
+axis D 0.75 "Competing causal explanations remain testable and the claim remains vulnerable to scope-specific counterexamples"
+
+generator STRUCTURAL "Bystander, secondary-infection, acid-primary, host-factor and mixed-cause rivals"
+rival SURVIVING "Host, strain and disease-subtype factors modulate whether infection produces ulcer disease"
+residue MODERATE "Not every infected person develops ulcer disease; causal scope remains conditional rather than universal"
+mystery OPEN "Mechanistic heterogeneity and host-pathogen interaction remain open beyond the major causal role"
+ontic HOLD "Causal authority for disease does not imply a final complete ontology of all ulcer pathogenesis"
+successor VULNERABLE
+source "Marshall & Warren clinical/culture programme"
+source "Volunteer, eradication-treatment and epidemiological studies summarized by Nobel Prize 2005"
+END
