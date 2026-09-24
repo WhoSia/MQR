@@ -1,7 +1,7 @@
 use std::{env, process};
 
 use tokenizers::{
-    Tokenizer, models::wordlevel::WordLevel, pre_tokenizers::whitespace::Whitespace,
+    models::wordlevel::WordLevel, pre_tokenizers::whitespace::Whitespace, Tokenizer,
 };
 
 const BRIDGE: &[(&str, &str)] = &[
