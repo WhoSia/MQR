@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.28**.
+Status: live through **MQR-4.29**.
 
 ## Generation-IV authority kernel
 
@@ -79,6 +79,38 @@ Therefore W/N/I/T/D currently have:
 - external calibration: HOLD.
 
 They are typed diagnostics of world-constrained evidential state, not a validated interval-scale distance to Truth.
+
+#### MQR-4.29 calibration result
+
+W/N/I/T/D have now passed a prospective full-factorial internal calibration benchmark.
+
+Benchmark:
+- 243 exact worlds + 243 noisy blind worlds;
+- hidden latent key separated from public observation receipts;
+- exact matched single-axis interventions;
+- independent Rust/Python scorers;
+- decoy mutation attacks.
+
+Results:
+- exact recovery: 243/243;
+- exact matched intervention leakage: 0;
+- exact monotonicity checks: 405/405;
+- noisy self-axis correlation: 0.973079–0.976977;
+- maximum nonmatching latent-axis correlation: 0.022682;
+- maximum measured-axis cross-correlation: 0.038496;
+- decoy profile changes: 0 despite 2430 mutated decoy cells;
+- Rust/Python calibration output concordance: PASS.
+
+Therefore the profile status is now:
+
+```text
+W/N/I/T/D = LEVEL-2 INTERNALLY_CALIBRATED_OPERATIONAL_INDICES
+PROFILE_EXTERNAL_CALIBRATION = HOLD
+INTERVAL-SCALE_STATUS = HOLD
+FINAL_TRUTH_DISTANCE = UNIDENTIFIED
+```
+
+This promotion is intentionally narrow. The synthetic benchmark shares the construct constitution with the scorer, so it demonstrates internal calibration and axis separation, not real-world criterion validity or universal measurement invariance.
 
 The language's central invariant is:
 
