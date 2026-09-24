@@ -1,4 +1,4 @@
-RPACKET 0.1
+REALPACKET 0.2
 id "newton-gr-1915"
 epoch "1915-general-relativity-mercury"
 claim CONSTRAINT "General relativity accounts for Mercury's anomalous perihelion advance while recovering a Newtonian-like regime for weaker gravitational conditions"
