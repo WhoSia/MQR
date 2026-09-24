@@ -5,7 +5,10 @@ Status: ACTIVE / LEGACY T DEPRECATED / REAL-LANGUAGE v0.3 TYPED TRANSPORT LIVE
 ## Fresh confirmation
 
 Canonical Rust run:
-36018530909
+36019437526
+
+Canonical evidence head:
+17037a1b342da676e8126077b0e81e2f4eda4b64
 
 Result:
 
