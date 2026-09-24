@@ -1,11 +1,6 @@
-name: MQR 4.33 TOML Bridge
+name: MQR 4.33 TOML Bridge Replay
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'experiments/mqr-4.33/external/toml/**'
-      - '.github/workflows/mqr-4.33-toml-bridge.yml'
   workflow_dispatch:
 
 permissions:
