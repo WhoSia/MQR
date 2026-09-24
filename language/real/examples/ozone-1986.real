@@ -1,4 +1,4 @@
-RPACKET 0.1
+REALPACKET 0.2
 id "ozone-1986-regional"
 epoch "1986-regional-satellite-replay"
 claim CONSTRAINT "The Antarctic spring ozone-hole phenomenon is regional-scale rather than a local Halley-instrument artifact"
