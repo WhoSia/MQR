@@ -114,8 +114,11 @@ print(f"S6_DECOY_INVARIANCE=PASS changed_profile_cells={changed}")
 
 # Explicitly show decoys themselves changed
 decoy_cols=["w_repeat_decoy","n_replicate_decoy","i_rival_count_decoy","t_train_decoy","d_challenge_decoy"]
-decoy_changed=sum(1 for i in U for c in decoy_cols if U[i][c] != rows(sys.argv[4])[list(U).index(i)][c])
-# Above public-vs-public is not useful; decoy change is established by generator contract and scorer twin diff.
+decoy_changed=sum(1 for i in U for col in decoy_cols if U[i][col] != UD[i][col])
+expected=len(U)*len(decoy_cols)
+if decoy_changed!=expected:
+    raise AssertionError(f"not all decoys changed: {decoy_changed}/{expected}")
+print(f"DECOY_FIELDS_MUTATED=PASS cells={decoy_changed}")
 print("DECOY_FIELDS_NONCONSTITUTIVE=PASS")
 
 print("LEVEL2_INTERNAL_CALIBRATION_CRITERIA_S1_TO_S6=PASS")
