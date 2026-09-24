@@ -1,0 +1,26 @@
+RPACKET 0.1
+id "ozone-1986-regional"
+epoch "1986-regional-satellite-replay"
+claim CONSTRAINT "The Antarctic spring ozone-hole phenomenon is regional-scale rather than a local Halley-instrument artifact"
+
+scope "Antarctic regional springtime total-column ozone depletion supported by noncommon ground and satellite routes"
+
+gate C PASS
+gate E PASS
+gate P PASS
+gate R PASS
+
+axis W 1.00 "Ground and satellite contact converge on the regional depletion phenomenon"
+axis N 0.75 "Ground Dobson and satellite TOMS/SBUV routes provide materially noncommon measurement ancestry"
+axis I 0.75 "Local-instrument explanations are strongly weakened; causal chemical rivals remain"
+axis T 0.75 "Authority transports from Halley to a regional Antarctic phenomenon"
+axis D 0.75 "Chemical, dynamical and instrumental alternatives remain testable by later aircraft and atmospheric measurements"
+
+generator STRUCTURAL "Independent instrument, spatial-scale, meteorological and chemical-mechanism rivals"
+rival SURVIVING "Competing causal mechanisms for why the regional ozone loss occurs"
+residue MODERATE "Mechanism is not yet fully identified by regional spatial confirmation alone"
+mystery OPEN "Regional reality is strong while detailed causal decomposition remains incomplete"
+ontic HOLD "Regional depletion does not by itself settle the complete chemical mechanism"
+successor VULNERABLE
+source "NASA Ozone Watch historical account of 1986 TOMS/SBUV regional demonstration"
+END
