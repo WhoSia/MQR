@@ -1,0 +1,37 @@
+name: Real-Language CI
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'language/real/**'
+      - 'experiments/mqr-4.28/tpx_validity.py'
+      - '.github/workflows/real-language-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build canonical Rust compiler
+        run: cargo build --manifest-path language/real/Cargo.toml --release
+      - name: Rust Python concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in language/real/examples/*.real; do
+            ./language/real/target/release/real "$f" > /tmp/rust.out
+            python language/real/reference.py "$f" > /tmp/python.out
+            diff -u /tmp/python.out /tmp/rust.out
+            ./language/real/target/release/real --diagnostic-scalar "$f" > /tmp/rust.scalar
+            python language/real/reference.py --diagnostic-scalar "$f" > /tmp/python.scalar
+            diff -u /tmp/python.scalar /tmp/rust.scalar
+          done
+          echo REAL_LANGUAGE_CROSS_IMPLEMENTATION_CONCORDANCE=PASS
+      - name: TPX construct validity attacks
+        run: python experiments/mqr-4.28/tpx_validity.py
