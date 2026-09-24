@@ -230,7 +230,10 @@ Workflow commit:
 d9a6e0e849987959b07a5cbb6b8e3bf28679eeba
 
 Canonical fresh-confirmation run:
-36018530909
+36019437526
+
+Canonical evidence head:
+17037a1b342da676e8126077b0e81e2f4eda4b64
 
 Rust:
 1.98.1.
