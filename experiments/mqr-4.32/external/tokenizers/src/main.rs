@@ -1,7 +1,7 @@
 use std::{env, process};
 
 use tokenizers::{
-    TokenizerBuilder, models::wordlevel::WordLevel, pre_tokenizers::whitespace::Whitespace,
+    Tokenizer, models::wordlevel::WordLevel, pre_tokenizers::whitespace::Whitespace,
 };
 
 const BRIDGE: &[(&str, &str)] = &[
@@ -40,10 +40,8 @@ fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         "[UNK]".to_owned(),
     )?;
 
-    let tokenizer = TokenizerBuilder::new()
-        .with_model(model)
-        .with_pre_tokenizer(Some(Whitespace))
-        .build()?;
+    let mut tokenizer = Tokenizer::new(model);
+    tokenizer.with_pre_tokenizer(Some(Whitespace::default()));
 
     println!("case_id\tids\ttokens");
     for (id, input) in cases(&mode) {
