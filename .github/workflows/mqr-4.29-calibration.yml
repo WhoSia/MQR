@@ -1,0 +1,47 @@
+name: MQR 4.29 Profile Calibration
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.29/**'
+      - 'language/real/src/calibrate.rs'
+      - 'language/real/calibration_reference.py'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.29-calibration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  calibrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate prospective blind benchmark
+        run: |
+          python experiments/mqr-4.29/generate_calibration.py
+          sha256sum experiments/mqr-4.29/generated/public.tsv
+          sha256sum experiments/mqr-4.29/generated/public_decoy.tsv
+          sha256sum experiments/mqr-4.29/generated/hidden_key.tsv
+      - name: Build canonical Rust scorer
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-calibrate
+      - name: Score public observations with Rust and Python independently
+        run: |
+          language/real/target/release/real-calibrate experiments/mqr-4.29/generated/public.tsv > /tmp/rust.tsv
+          python language/real/calibration_reference.py experiments/mqr-4.29/generated/public.tsv > /tmp/python.tsv
+          diff -u /tmp/python.tsv /tmp/rust.tsv
+          language/real/target/release/real-calibrate experiments/mqr-4.29/generated/public_decoy.tsv > /tmp/rust_decoy.tsv
+          python language/real/calibration_reference.py experiments/mqr-4.29/generated/public_decoy.tsv > /tmp/python_decoy.tsv
+          diff -u /tmp/python_decoy.tsv /tmp/rust_decoy.tsv
+          echo S7_CROSS_IMPLEMENTATION_REPRODUCIBILITY=PASS
+      - name: Reveal hidden key and evaluate calibration
+        run: |
+          python experiments/mqr-4.29/evaluate_calibration.py \
+            experiments/mqr-4.29/generated/hidden_key.tsv \
+            /tmp/rust.tsv \
+            /tmp/rust_decoy.tsv \
+            experiments/mqr-4.29/generated/public.tsv \
+            experiments/mqr-4.29/generated/public_decoy.tsv
