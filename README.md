@@ -15,7 +15,7 @@ This repository is the **living formal substrate** of MQR.
 - `language/real/src/main.rs` — canonical Rust compiler; `language/real/reference.py` — independent Python reference
 - `language/real/examples/` — historical and current Real-Packets
 - `protocols/challenge-admission.md` — challenge-admission governance protocol
-- `experiments/mqr-4.28/` — current live research stage
+- `experiments/mqr-4.29/` — current live research stage
 
-Real-Language v0.2 represents **world-constrained evidential profile + residue**. Direct truth-distance remains unidentified; scalar projection is OFF by default.
+Real-Language v0.2 represents **world-constrained evidential profile + residue**. W/N/I/T/D are LEVEL-2 internally calibrated operational indices; external calibration and truth-distance semantics remain HOLD. Scalar projection is OFF by default.
 The repository should stay small enough that a new contributor can tell what is *currently alive* without reconstructing the whole genealogy.
