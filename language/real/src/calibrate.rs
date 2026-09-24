@@ -26,7 +26,7 @@ fn main(){
     println!("id	W	N	I	T	D");
     for (ln,line) in it.enumerate(){
         if line.trim().is_empty(){continue}
-        let f:Vec<&str>=line.split('	').collect();
+        let f:Vec<&str>=line.split('\t').collect();
         if f.len()!=16{
             eprintln!("line {}: expected 16 fields",ln+2);
             std::process::exit(1)
