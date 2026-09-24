@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   version:
@@ -28,7 +28,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sed 's/__TOKENIZERS_VERSION__/${{ matrix.version }}/g'             experiments/mqr-4.32/external/tokenizers/Cargo.template.toml             > experiments/mqr-4.32/external/tokenizers/Cargo.toml
+          sed 's/__TOKENIZERS_VERSION__/${{ matrix.version }}/g' \
+            experiments/mqr-4.32/external/tokenizers/Cargo.template.toml \
+            > experiments/mqr-4.32/external/tokenizers/Cargo.toml
       - name: Format gate
         run: cargo fmt --manifest-path experiments/mqr-4.32/external/tokenizers/Cargo.toml -- --check
       - name: Generate exact lockfile
@@ -54,6 +56,7 @@ jobs:
     needs: version
     runs-on: ubuntu-24.04
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           pattern: tokenizers-*
@@ -68,9 +71,11 @@ jobs:
           if cmp -s results/bridge-0.21.4.tsv results/bridge-0.22.2.tsv; then AB=TRANSPORT_PASS; fi
           if cmp -s results/bridge-0.22.2.tsv results/bridge-0.23.2.tsv; then BC=TRANSPORT_PASS; fi
           {
-            echo -e 'edge\tstate'
+            echo -e 'field\tvalue'
+            echo -e "trigger_sha\t${GITHUB_SHA}"
             echo -e "A_TO_B\t$AB"
             echo -e "B_TO_C\t$BC"
+            echo -e 'DIRECT_A_TO_C\tNOT_EXECUTED'
           } | tee tokenizers-bridge-adjudication.tsv
           echo "TOKENIZERS_A_TO_B=$AB"
           echo "TOKENIZERS_B_TO_C=$BC"
@@ -82,3 +87,18 @@ jobs:
             tokenizers-bridge-adjudication.tsv
             results/
           retention-days: 30
+      - name: Persist canonical bridge receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p receipts/mqr-4.32
+          cp tokenizers-bridge-adjudication.tsv receipts/mqr-4.32/tokenizers-bridge.tsv
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add receipts/mqr-4.32/tokenizers-bridge.tsv
+          if git diff --cached --quiet; then
+            echo 'Canonical receipt already matches.'
+          else
+            git commit -m 'MQR-4.32: persist canonical tokenizers bridge receipt [skip ci]'
+            git push
+          fi
