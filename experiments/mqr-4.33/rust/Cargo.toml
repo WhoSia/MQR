@@ -1,0 +1,9 @@
+[package]
+name = "mqr-4-33-support-domain"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "mqr433"
+path = "src/main.rs"
