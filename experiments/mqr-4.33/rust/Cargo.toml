@@ -7,3 +7,7 @@ publish = false
 [[bin]]
 name = "mqr433"
 path = "src/main.rs"
+
+[[bin]]
+name = "mqr433-collision"
+path = "src/bin/collision.rs"
