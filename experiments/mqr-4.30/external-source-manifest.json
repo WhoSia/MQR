@@ -1,0 +1,65 @@
+{
+  "stage": "MQR-4.30",
+  "created": "2026-09-24",
+  "unopened_before_preseal": true,
+  "sources": [
+    {
+      "repo": "WhoSia/C3X",
+      "path": "receipts/g9.4-p16.json",
+      "blob_sha": "1733b2482ba71bd2c1a1b25ce0f4514e8e578d5c"
+    },
+    {
+      "repo": "WhoSia/C3X",
+      "path": "receipts/g9.4-p17.json",
+      "blob_sha": "eb4d7247c8c788ede8bc38110afc9c5abd4ca9ce"
+    },
+    {
+      "repo": "WhoSia/C3X",
+      "path": "receipts/g9.4-p18.json",
+      "blob_sha": "7eb2217f2860565ec9b9431dc2117595d9f44d2d"
+    },
+    {
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p33_result.json",
+      "blob_sha": "620fda4eb2092a95d683621a8219eabbbb277729"
+    },
+    {
+      "repo": "WhoSia/EPISTEME",
+      "path": "active/p34_result.json",
+      "blob_sha": "bfe18dc2e4f87ae139a11b27491be14f7c702c2e"
+    },
+    {
+      "repo": "WhoSia/PEA-Scope",
+      "path": "research/pea_revision_contract_p4_blind_episodes.json",
+      "blob_sha": "cf12c825b2c831e6ce0bb3e09ee51460717281d9",
+      "role": "masked_input"
+    },
+    {
+      "repo": "WhoSia/PEA-Scope",
+      "path": "research/pea_revision_contract_p4_hidden_gold.json",
+      "blob_sha": "1ebc6bee8717501d3914235547a3454e6cf47197",
+      "role": "hidden_criterion"
+    },
+    {
+      "repo": "WhoSia/PEA-Scope",
+      "path": "research/pea_revision_contract_p4_protocol.json",
+      "blob_sha": "9db7f536bae460c1914b648c27cccee17aaa8af9",
+      "role": "external_protocol"
+    },
+    {
+      "repo": "WhoSia/RITHM",
+      "path": "receipts/RITHM-ORIGIN-S02.14-E3-final.md",
+      "blob_sha": "0f3208006549388b8bf81fb368a6f97f1c638c2b"
+    },
+    {
+      "repo": "WhoSia/ChatGPT-Web-HWPX-MCP",
+      "path": "fixtures/p314_first_hancom_capture_receipt.json",
+      "blob_sha": "c70468343afa74da347817ee9be98c5b16fe87b5"
+    },
+    {
+      "repo": "WhoSia/ChatGPT-Web-HWPX-MCP",
+      "path": "docs/p334r1-column-insertion-native-receipt.md",
+      "blob_sha": "985b773dc8a523c4b3e88a3dc7b2f9f7cc55cd19"
+    }
+  ]
+}
