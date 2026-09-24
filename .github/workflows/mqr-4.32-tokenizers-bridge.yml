@@ -1,0 +1,84 @@
+name: MQR 4.32 Tokenizers Bridge
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.32/external/tokenizers/**'
+      - '.github/workflows/mqr-4.32-tokenizers-bridge.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  version:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        version: ['0.21.4', '0.22.2', '0.23.2']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt, clippy
+      - name: Materialize exact dependency manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed 's/__TOKENIZERS_VERSION__/${{ matrix.version }}/g'             experiments/mqr-4.32/external/tokenizers/Cargo.template.toml             > experiments/mqr-4.32/external/tokenizers/Cargo.toml
+      - name: Format gate
+        run: cargo fmt --manifest-path experiments/mqr-4.32/external/tokenizers/Cargo.toml -- --check
+      - name: Generate exact lockfile
+        run: cargo generate-lockfile --manifest-path experiments/mqr-4.32/external/tokenizers/Cargo.toml
+      - name: Locked build
+        run: cargo build --locked --manifest-path experiments/mqr-4.32/external/tokenizers/Cargo.toml
+      - name: Execute bridge fixtures only
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=experiments/mqr-4.32/external/tokenizers/target/debug/mqr432-tokenizers-probe
+          "$BIN" bridge > "bridge-${{ matrix.version }}.tsv"
+          sha256sum experiments/mqr-4.32/external/tokenizers/Cargo.lock > "lock-${{ matrix.version }}.sha256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tokenizers-${{ matrix.version }}
+          path: |
+            bridge-${{ matrix.version }}.tsv
+            lock-${{ matrix.version }}.sha256
+          retention-days: 30
+
+  adjudicate:
+    needs: version
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: tokenizers-*
+          path: results
+          merge-multiple: true
+      - name: Adjacent-edge adjudication
+        shell: bash
+        run: |
+          set -euo pipefail
+          AB=TRANSPORT_FAIL
+          BC=TRANSPORT_FAIL
+          if cmp -s results/bridge-0.21.4.tsv results/bridge-0.22.2.tsv; then AB=TRANSPORT_PASS; fi
+          if cmp -s results/bridge-0.22.2.tsv results/bridge-0.23.2.tsv; then BC=TRANSPORT_PASS; fi
+          {
+            echo -e 'edge\tstate'
+            echo -e "A_TO_B\t$AB"
+            echo -e "B_TO_C\t$BC"
+          } | tee tokenizers-bridge-adjudication.tsv
+          echo "TOKENIZERS_A_TO_B=$AB"
+          echo "TOKENIZERS_B_TO_C=$BC"
+          echo "DIRECT_A_TO_C=NOT_EXECUTED"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tokenizers-bridge-adjudication
+          path: |
+            tokenizers-bridge-adjudication.tsv
+            results/
+          retention-days: 30
