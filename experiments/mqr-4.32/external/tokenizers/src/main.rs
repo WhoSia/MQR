@@ -1,8 +1,6 @@
 use std::{env, process};
 
-use tokenizers::{
-    models::wordlevel::WordLevel, pre_tokenizers::whitespace::Whitespace, Tokenizer,
-};
+use tokenizers::{Tokenizer, models::wordlevel::WordLevel, pre_tokenizers::whitespace::Whitespace};
 
 const BRIDGE: &[(&str, &str)] = &[
     ("B01", "alpha beta"),
