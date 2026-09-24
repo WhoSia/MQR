@@ -91,6 +91,43 @@ impl FromStr for PathClass {
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum DirectSurface {
+    HeldoutWorld,
+    HeldoutComponent,
+    NoncommonMeasurementRoute,
+    SealedSelectiveReveal,
+    NotIndependent,
+    Unresolved,
+}
+
+impl DirectSurface {
+    fn admissible(self) -> bool {
+        matches!(
+            self,
+            Self::HeldoutWorld
+                | Self::HeldoutComponent
+                | Self::NoncommonMeasurementRoute
+                | Self::SealedSelectiveReveal
+        )
+    }
+}
+
+impl FromStr for DirectSurface {
+    type Err = String;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "HELDOUT_WORLD" => Ok(Self::HeldoutWorld),
+            "HELDOUT_COMPONENT" => Ok(Self::HeldoutComponent),
+            "NONCOMMON_MEASUREMENT_ROUTE" => Ok(Self::NoncommonMeasurementRoute),
+            "SEALED_SELECTIVE_REVEAL" => Ok(Self::SealedSelectiveReveal),
+            "NOT_INDEPENDENT" => Ok(Self::NotIndependent),
+            "UNRESOLVED" => Ok(Self::Unresolved),
+            _ => Err(format!("invalid direct surface: {s}")),
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 enum CompositionState {
     NoCandidate,
     CompositionPass,
@@ -130,6 +167,7 @@ struct Row {
     downstream_distinctions_preserved: bool,
     direct: EdgeState,
     path: PathClass,
+    direct_surface: DirectSurface,
     confirmatory: bool,
 }
 
@@ -141,6 +179,10 @@ impl Row {
             && self.bridge_bc.admissible()
             && self.mid_compatible
             && self.downstream_distinctions_preserved
+    }
+
+    fn confirmatory_admitted(&self) -> bool {
+        self.confirmatory && self.direct_surface.admissible()
     }
 
     fn adjudicate(&self) -> CompositionState {
@@ -171,7 +213,7 @@ fn parse(path: &str) -> Result<Vec<Row>, String> {
     let s = fs::read_to_string(path).map_err(|e| e.to_string())?;
     let mut it = s.lines();
     let header = it.next().ok_or("missing header")?;
-    let expected = "id\tlineage\tab\tbc\tbridge_ab\tbridge_bc\tmid_compatible\tdownstream_distinctions_preserved\tdirect\tpath\tconfirmatory";
+    let expected = "id\tlineage\tab\tbc\tbridge_ab\tbridge_bc\tmid_compatible\tdownstream_distinctions_preserved\tdirect\tpath\tdirect_surface\tconfirmatory";
     if header != expected {
         return Err(format!("unexpected header: {header}"));
     }
@@ -182,7 +224,7 @@ fn parse(path: &str) -> Result<Vec<Row>, String> {
             continue;
         }
         let p: Vec<&str> = line.split('\t').collect();
-        if p.len() != 11 {
+        if p.len() != 12 {
             return Err(format!("line {} has {} columns", i + 2, p.len()));
         }
         rows.push(Row {
@@ -199,7 +241,8 @@ fn parse(path: &str) -> Result<Vec<Row>, String> {
             )?,
             direct: p[8].parse()?,
             path: p[9].parse()?,
-            confirmatory: parse_bool(p[10], "confirmatory")?,
+            direct_surface: p[10].parse()?,
+            confirmatory: parse_bool(p[11], "confirmatory")?,
         });
     }
     Ok(rows)
@@ -222,6 +265,7 @@ fn main() {
     let mut holds = 0usize;
     let mut no_candidate = 0usize;
     let mut confirmatory = 0usize;
+    let mut rejected_confirmatory = 0usize;
     let mut research = false;
     let mut engineering = false;
 
@@ -229,9 +273,11 @@ fn main() {
         let candidate = row.candidate();
         let state = row.adjudicate();
         candidates += usize::from(candidate);
-        confirmatory += usize::from(row.confirmatory);
-        research |= row.confirmatory && row.lineage == "RESEARCH_LAB";
-        engineering |= row.confirmatory && row.lineage == "ENGINEERING_DEVELOPMENT";
+        let admitted = row.confirmatory_admitted();
+        confirmatory += usize::from(admitted);
+        rejected_confirmatory += usize::from(row.confirmatory && !admitted);
+        research |= admitted && row.lineage == "RESEARCH_LAB";
+        engineering |= admitted && row.lineage == "ENGINEERING_DEVELOPMENT";
 
         match state {
             CompositionState::CompositionPass => passes += 1,
@@ -245,8 +291,15 @@ fn main() {
         }
 
         println!(
-            "TRIANGLE={} lineage={} candidate={} direct={:?} path={:?} composition={}",
-            row.id, row.lineage, candidate, row.direct, row.path, state
+            "TRIANGLE={} lineage={} candidate={} direct={:?} path={:?} direct_surface={:?} admitted={} composition={}",
+            row.id,
+            row.lineage,
+            candidate,
+            row.direct,
+            row.path,
+            row.direct_surface,
+            admitted,
+            state
         );
     }
 
@@ -258,6 +311,7 @@ fn main() {
     println!("COMPOSITION_HOLD_OR_SPLIT_COUNT={holds}");
     println!("NO_CANDIDATE_COUNT={no_candidate}");
     println!("CONFIRMATORY_TRIANGLES={confirmatory}");
+    println!("REJECTED_CONFIRMATORY_TRIANGLES={rejected_confirmatory}");
     println!(
         "CROSS_LINEAGE_CONFIRMATORY={}",
         if research && engineering {
@@ -298,6 +352,7 @@ mod tests {
             downstream_distinctions_preserved: true,
             direct: EdgeState::Pass,
             path: PathClass::CommutesExact,
+            direct_surface: DirectSurface::Unresolved,
             confirmatory: false,
         }
     }
@@ -351,5 +406,15 @@ mod tests {
         r.bridge_bc = BridgeClass::QuotientCompatible;
         r.path = PathClass::CommutesAtClaimQuotient;
         assert_eq!(r.adjudicate(), CompositionState::CompositionPass);
+    }
+
+    #[test]
+    fn confirmatory_triangle_requires_independent_direct_surface() {
+        let mut r = base_row();
+        r.confirmatory = true;
+        r.direct_surface = DirectSurface::NotIndependent;
+        assert!(!r.confirmatory_admitted());
+        r.direct_surface = DirectSurface::HeldoutWorld;
+        assert!(r.confirmatory_admitted());
     }
 }
