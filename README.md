@@ -11,11 +11,11 @@ This repository is the **living formal substrate** of MQR.
 ## Current live surface
 
 - `doctrine/CURRENT.md` — compressed current doctrine, including Generation-IV C/E/P/R_open authority semantics
-- `language/r/README.md` — **R-Language / R-Packet**, the active event-to-realist-authority language
-- `language/r/rpacket.py` — executable stdlib-only R-Packet compiler
-- `language/r/examples/` — historical and current event packets
+- `language/real/README.md` — **Real-Language / Real-Packet v0.2**, the active profile-first event-to-realist-authority language
+- `language/real/src/main.rs` — canonical Rust compiler; `language/real/reference.py` — independent Python reference
+- `language/real/examples/` — historical and current Real-Packets
 - `protocols/challenge-admission.md` — challenge-admission governance protocol
 - `experiments/mqr-4.27/` — current live research stage
 
-R-Language intentionally represents **truth-proximity as an auditable profile plus residue**, not as a primitive probability of truth.
+Real-Language v0.2 represents **world-constrained evidential profile + residue**. Direct truth-distance remains unidentified; scalar projection is OFF by default.
 The repository should stay small enough that a new contributor can tell what is *currently alive* without reconstructing the whole genealogy.
