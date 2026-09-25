@@ -1,3 +1,24 @@
 REALFRONTIER 0.9
-id placeholder
+id generator-common-mode
+claim_scope C
+query q0 BASE
+generator g0 THEORY A_SHARED
+generator g1 RESIDUAL A_SHARED
+rival r0 BASELINE g0
+rival r1 BASELINE g1
+admit r0 PASS
+admit r1 PASS
+distinguish q0 r0 r1
+root w0 EXTERNAL LIVE
+obligation o0 BASELINE
+separates w0 o0
+search g0 10 NO_NEW
+search g1 10 NO_NEW
+grammar CLOSED
+authorize_escape NO
+authorize_off_query_escape NO
+authorize_common_mode YES
+authorize_saturation_mirage NO
+authorize_rank_before 1
+authorize_rank_after 1
 END
