@@ -186,3 +186,24 @@ SUPPORT-DOMAIN-DISCOVERY=HOLD /
 POST-REVEAL-RESCUE=FORBIDDEN /
 STRONGEST-EARNED-RESULT=SUPPORT-REPRESENTATION-INSUFFICIENT /
 GENERATION-IV-CONTINUES.
+
+
+## Repository closure
+
+Doctrine promoted through MQR-4.33:
+
+`4452f051c0a8e73fcfdac5d019e76643f8ff5fa1`
+
+MQR-4.32 active experiment, receipt and replay-workflow surfaces retired from the live tree:
+
+`b98b852611bcf7210f03f34753f6aa27fb61ef5e`
+
+Historical 4.32 evidence remains recoverable through Git history and the inherited doctrine.
+
+Current live repository research surface:
+- experiments/mqr-4.33
+- receipts/mqr-4.33
+- manual/read-only 4.33 replay workflows
+- Real-Language CI
+
+No 4.32 execution surface remains live.
