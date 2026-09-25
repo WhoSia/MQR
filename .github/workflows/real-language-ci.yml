@@ -359,7 +359,8 @@ jobs:
             language/real/examples/mqr-4.43-common-mode-inflation.real \
             language/real/examples/mqr-4.43-debt-query.real \
             language/real/examples/mqr-4.43-debt-representation.real \
-            language/real/examples/mqr-4.43-escape-reallocation.real
+            language/real/examples/mqr-4.43-escape-reallocation.real \
+            language/real/examples/mqr-4.43-declared-model-local.real
           do
             "$V10" "$f" > /tmp/v10.rust
             swipl -q -s "$P10" -g "run('$f'),halt" -t "halt(1)" > /tmp/v10.prolog
@@ -416,6 +417,12 @@ jobs:
           grep -F 'allocation.escape_detected=YES' /tmp/esc43
           grep -F 'allocation.escape_reallocation_required=YES' /tmp/esc43
           grep -F 'allocation.reopen_on_escape=YES' /tmp/esc43
+
+          "$V10" language/real/examples/mqr-4.43-declared-model-local.real > /tmp/model43
+          grep -F 'allocation.local_optimizer_scope=DECLARED_MODEL_ONLY' /tmp/model43
+          grep -F 'allocation.unique_optimum_authorized=NO' /tmp/model43
+          grep -F 'allocation.world_optimum_identified=NO' /tmp/model43
+          grep -F 'allocation.world_frontier_complete=NO' /tmp/model43
 
           for x in language/real/tests/v10-invalid-*.real; do
             if "$V10" "$x"; then exit 1; fi
