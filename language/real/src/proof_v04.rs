@@ -1,8 +1,4 @@
-use std::{
-    collections::BTreeMap,
-    env, fs,
-    path::Path,
-};
+use std::{collections::BTreeMap, env, fs, path::Path};
 
 const GATES: [&str; 4] = ["C", "E", "P", "R"];
 const AXES: [&str; 4] = ["W", "N", "I", "D"];
