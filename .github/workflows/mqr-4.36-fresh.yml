@@ -31,7 +31,7 @@ jobs:
         run: |
           set -euo pipefail
           grep -F 'NU3 FROZEN' experiments/mqr-4.36/PRESEAL.md
-          grep -F 'POST_REVEAL_RESCUE = FORBIDDEN' experiments/mqr-4.36/CANDIDATE_MANIFEST.md
+          grep -F 'No post-reveal replacement case is allowed.' experiments/mqr-4.36/CANDIDATE_MANIFEST.md
           grep -F 'N = 4' experiments/mqr-4.36/CANDIDATE_MANIFEST.md
           grep -F 'U15_0_01  U+0CF3' experiments/mqr-4.36/PROBES.md
           grep -F 'U15_1_01  U+2FFC' experiments/mqr-4.36/PROBES.md
