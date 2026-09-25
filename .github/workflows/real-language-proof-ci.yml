@@ -1,7 +1,7 @@
 # mqr-4.43-final-same-head-seal
 # mqr-4.42-final-doctrine-seal-proof
 # mqr-4.42-final-same-head-seal
-name: Real-Language v0.4–v0.10 Lean Proof Boundary
+name: Real-Language v0.4–v0.11 Lean Proof Boundary
 # canonical-proof-trigger: pinned-lean4export-plus-nanoda
 
 on:
@@ -13,6 +13,7 @@ on:
       - 'language/real/V05-AUTHORITY-TRANSFER.md'
       - 'language/real/V06-COMPOSITION.md'
       - 'language/real/V10-ALLOCATION.md'
+      - 'language/real/V11-OBLIGATION-CONSTITUTION.md'
       - '.github/workflows/real-language-proof-ci.yml'
   workflow_dispatch:
 
@@ -46,7 +47,8 @@ jobs:
           lake env lean MQR/Composition.lean | tee /tmp/lean-composition.log
           lake env lean MQR/Frontier.lean | tee /tmp/lean-frontier.log
           lake env lean MQR/Allocation.lean | tee /tmp/lean-allocation.log
-          cat /tmp/lean-residue.log /tmp/lean-authority.log /tmp/lean-transfer.log /tmp/lean-composition.log /tmp/lean-frontier.log /tmp/lean-allocation.log > /tmp/lean-proof-boundary.log
+          lake env lean MQR/Constitution.lean | tee /tmp/lean-constitution.log
+          cat /tmp/lean-residue.log /tmp/lean-authority.log /tmp/lean-transfer.log /tmp/lean-composition.log /tmp/lean-frontier.log /tmp/lean-allocation.log /tmp/lean-constitution.log > /tmp/lean-proof-boundary.log
           if grep -F 'sorryAx' /tmp/lean-proof-boundary.log; then
             echo 'Finished proof unexpectedly depends on sorryAx' >&2
             exit 1
@@ -100,6 +102,18 @@ jobs:
             MQR.setValuedAdmissibilityDoesNotIdentifyUniqueWorldOptimum
             MQR.frontierEscapeCanMandateAllocationReopening
             MQR.randomizedCoverageIsNotAnEpistemicOracle
+            MQR.sameDeclaredBurdenCanHaveDifferentObligationCounts
+            MQR.multipleAgendaSourcesDoNotImplyIndependentAncestry
+            MQR.successorLabelDoesNotImplyBurdenCoverage
+            MQR.fullSuccessorRefinementCanPreserveDeclaredBurden
+            MQR.relabelingWithCoverageButWithoutDebtTransferCannotDischargeDebt
+            MQR.explicitWithdrawalCanRetireConstitutionalDebt
+            MQR.coveredSuccessorWithDebtTransferCanPreserveDebtContinuity
+            MQR.observationallyEquivalentConstitutionsCanDifferOnOmittedBurden
+            MQR.visibleConstitutionDoesNotDetermineOmittedBurden
+            MQR.frontierEscapeCanMandateObligationReconstitution
+            MQR.provenanceKindDoesNotCreateTruthOracle
+            MQR.finiteConstitutionAuditDoesNotImplyWorldObligationCompleteness
           )
           for theorem in "${theorems[@]}"; do
             grep -F "'$theorem' does not depend on any axioms" /tmp/lean-proof-boundary.log
@@ -130,7 +144,7 @@ jobs:
         run: |
           set -euo pipefail
           cd language/real/lean
-          lake env _lean4export/.lake/build/bin/lean4export MQR --             MQR.zeroInternalResidueOfComplete             MQR.extensionContainsUncoveredProbe             MQR.checkedProofCannotRaiseHoldToPass             MQR.smallClosedLargeOpen             MQR.receiptCompressionLosesLoadBearingDistinction             MQR.formalExpansionDoesNotEstablishWorldAdequacy             MQR.checkerPluralityDoesNotEntailAuthorityTransfer             MQR.formalCustodyDoesNotIdentifyTruthOrder             MQR.sameFormalStatementCanAliasDifferentWorldPredicates             MQR.formalScopeCanStrictlyExceedWorldSupport             MQR.coarseCompilationCanEraseAuthorityChangingAncestor             MQR.nominalReopenabilityDoesNotEntailDefeatReachability             MQR.bridgeSelfCertificationAddsNoIndependentConstraint             MQR.scientificAuthorityNeedNotRequireFormalCustody             MQR.transferMeetCannotRaiseWorldAuthority             MQR.authorityMeetAssociative             MQR.authorityMeetPassIdentity             MQR.noLaunderTransitive             MQR.adjacentPassDoesNotEntailDirectPass             MQR.authorityBaselineResetCanHideInflation             MQR.localAssumptionsCanBeSeparatelySatisfiableButJointlyInconsistent             MQR.localDefeatReachabilityDoesNotEntailGlobalDefeatReachability             MQR.localScopePassDoesNotEntailCompositeScopeAdmissibility             MQR.currentRivalSeparationDoesNotImplyQueryLanguageClosure             MQR.repeatedNoDiscoveryDoesNotImplyFrontierCompleteness             MQR.stableFcrCanAccompanyFrontierDiscovery             MQR.rankIncreaseAloneDoesNotEstablishDiscoveryValue             MQR.multipleGeneratorsDoNotImplyIndependentRivalSearch             MQR.finiteGrammarClosureDoesNotImplyScientificFrontierClosure             MQR.plausibleGeneratorPortfoliosCanYieldNonnestedFrontiers             MQR.queryExtensionCanRevealPreviouslyHiddenRival             MQR.conditionalFrontierGuidanceDoesNotRequireWorldCompleteness             MQR.reopeningReserveDoesNotEstablishFrontierCompleteness             MQR.observationallyEquivalentWorldsCanRequireOppositeEscapeActions             MQR.noSingleTwinWorldActionCapturesBothEscapes             MQR.noSingleActionCanCaptureBothTwinWorldEscapes             MQR.noDeterministicPolicyOverVisibleSignatureCapturesBoth             MQR.nominalReserveDoesNotImplyActivationCapability             MQR.activationThresholdCanCertifyNarrowReserveCompetence             MQR.equalScalarDebtCountDoesNotIdentifyDebtGeometry             MQR.finiteDeclaredAntiStarvationCanBeCertified             MQR.roundRobinVisitsEveryDeclaredLaneWithinOneCycle             MQR.finiteRoundRobinPreventsUnitActivationStarvation             MQR.proceduralCoverageDoesNotImplyWorldFrontierCompleteness             MQR.localExploitationGainDoesNotLicenseExplorationRetirement             MQR.setValuedAdmissibilityDoesNotIdentifyUniqueWorldOptimum             MQR.frontierEscapeCanMandateAllocationReopening             MQR.randomizedCoverageIsNotAnEpistemicOracle             > /tmp/mqr-real.export
+          lake env _lean4export/.lake/build/bin/lean4export MQR --             MQR.zeroInternalResidueOfComplete             MQR.extensionContainsUncoveredProbe             MQR.checkedProofCannotRaiseHoldToPass             MQR.smallClosedLargeOpen             MQR.receiptCompressionLosesLoadBearingDistinction             MQR.formalExpansionDoesNotEstablishWorldAdequacy             MQR.checkerPluralityDoesNotEntailAuthorityTransfer             MQR.formalCustodyDoesNotIdentifyTruthOrder             MQR.sameFormalStatementCanAliasDifferentWorldPredicates             MQR.formalScopeCanStrictlyExceedWorldSupport             MQR.coarseCompilationCanEraseAuthorityChangingAncestor             MQR.nominalReopenabilityDoesNotEntailDefeatReachability             MQR.bridgeSelfCertificationAddsNoIndependentConstraint             MQR.scientificAuthorityNeedNotRequireFormalCustody             MQR.transferMeetCannotRaiseWorldAuthority             MQR.authorityMeetAssociative             MQR.authorityMeetPassIdentity             MQR.noLaunderTransitive             MQR.adjacentPassDoesNotEntailDirectPass             MQR.authorityBaselineResetCanHideInflation             MQR.localAssumptionsCanBeSeparatelySatisfiableButJointlyInconsistent             MQR.localDefeatReachabilityDoesNotEntailGlobalDefeatReachability             MQR.localScopePassDoesNotEntailCompositeScopeAdmissibility             MQR.currentRivalSeparationDoesNotImplyQueryLanguageClosure             MQR.repeatedNoDiscoveryDoesNotImplyFrontierCompleteness             MQR.stableFcrCanAccompanyFrontierDiscovery             MQR.rankIncreaseAloneDoesNotEstablishDiscoveryValue             MQR.multipleGeneratorsDoNotImplyIndependentRivalSearch             MQR.finiteGrammarClosureDoesNotImplyScientificFrontierClosure             MQR.plausibleGeneratorPortfoliosCanYieldNonnestedFrontiers             MQR.queryExtensionCanRevealPreviouslyHiddenRival             MQR.conditionalFrontierGuidanceDoesNotRequireWorldCompleteness             MQR.reopeningReserveDoesNotEstablishFrontierCompleteness             MQR.observationallyEquivalentWorldsCanRequireOppositeEscapeActions             MQR.noSingleTwinWorldActionCapturesBothEscapes             MQR.noSingleActionCanCaptureBothTwinWorldEscapes             MQR.noDeterministicPolicyOverVisibleSignatureCapturesBoth             MQR.nominalReserveDoesNotImplyActivationCapability             MQR.activationThresholdCanCertifyNarrowReserveCompetence             MQR.equalScalarDebtCountDoesNotIdentifyDebtGeometry             MQR.finiteDeclaredAntiStarvationCanBeCertified             MQR.roundRobinVisitsEveryDeclaredLaneWithinOneCycle             MQR.finiteRoundRobinPreventsUnitActivationStarvation             MQR.proceduralCoverageDoesNotImplyWorldFrontierCompleteness             MQR.localExploitationGainDoesNotLicenseExplorationRetirement             MQR.setValuedAdmissibilityDoesNotIdentifyUniqueWorldOptimum             MQR.frontierEscapeCanMandateAllocationReopening             MQR.randomizedCoverageIsNotAnEpistemicOracle             MQR.sameDeclaredBurdenCanHaveDifferentObligationCounts             MQR.multipleAgendaSourcesDoNotImplyIndependentAncestry             MQR.successorLabelDoesNotImplyBurdenCoverage             MQR.fullSuccessorRefinementCanPreserveDeclaredBurden             MQR.relabelingWithCoverageButWithoutDebtTransferCannotDischargeDebt             MQR.explicitWithdrawalCanRetireConstitutionalDebt             MQR.coveredSuccessorWithDebtTransferCanPreserveDebtContinuity             MQR.observationallyEquivalentConstitutionsCanDifferOnOmittedBurden             MQR.visibleConstitutionDoesNotDetermineOmittedBurden             MQR.frontierEscapeCanMandateObligationReconstitution             MQR.provenanceKindDoesNotCreateTruthOracle             MQR.finiteConstitutionAuditDoesNotImplyWorldObligationCompleteness             > /tmp/mqr-real.export
           cat > /tmp/mqr-real-nanoda.json <<'JSON'
           {
             "export_file_path": "/tmp/mqr-real.export",
@@ -147,4 +161,5 @@ jobs:
           echo MQR439_NANODA_COMPOSITION_REPLAY=PASS
           echo MQR442_NANODA_FRONTIER_REPLAY=PASS
           echo MQR443_NANODA_ALLOCATION_REPLAY=PASS
+          echo MQR444_NANODA_CONSTITUTION_REPLAY=PASS
           echo ALGEBRAIC_COMPOSABILITY_IS_NOT_EPISTEMIC_COMPOSABILITY=TRUE
