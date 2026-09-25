@@ -157,8 +157,8 @@ fn main() -> Result<(),String> {
     println!("D36_CORE_COLLISION_FIBERS={dcore_collisions}");
     println!("EXECUTED_ATOMIC_ROWS={executed_atoms}");
     println!("UNRESOLVED_ATOMIC_ROWS={unresolved_atoms}");
-    println!("DECLARED_PROBE_CLASS_ENUMERATION={}",if unresolved_atoms==0{"COMPLETE"}else{"EXECUTED_WITH_UNRESOLVED"}");
-    println!("INTERNAL_RESIDUE_WITHIN_DECLARED_PROBE_CLASS={}",if unresolved_atoms==0{"ZERO"}else{"UNRESOLVED"}");
+    println!("DECLARED_PROBE_CLASS_ENUMERATION={}",if unresolved_atoms==0{"COMPLETE"}else{"EXECUTED_WITH_UNRESOLVED"});
+    println!("INTERNAL_RESIDUE_WITHIN_DECLARED_PROBE_CLASS={}",if unresolved_atoms==0{"ZERO"}else{"UNRESOLVED"});
     println!("OPEN_WORLD_RESIDUE=NOT_ELIMINATED");
     if e_collisions>0 {
         println!("NU3_NATURALISTIC_SUFFICIENCY=FAIL");
