@@ -872,6 +872,14 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 98. **Reopenable metadata ≠ reachable defeat.** Corrigibility requires an operational evidence-to-readjudication path; dead or forbidden edges do not earn defeatability credit.
 99. **Formalization is route-relative, not a universal authority prerequisite.** Directly world-facing scientific claims may have legitimate authority with formal custody and transfer machinery marked NOT_APPLICABLE.
 100. **Implementation diversity ≠ semantic or world independence.** Cross-language agreement can diversify compiler/custody failure modes while leaving the same interpretation, premise and world-contact assumptions untouched.
+101. **Local non-amplification ≠ pathwise non-amplification.** A chain of locally bounded bridges can still inflate apparent authority if an intermediate representation resets the source baseline or forgets load-bearing ancestry.
+102. **Adjacent transfer PASS ≠ composite transfer PASS.** Local bridge survival establishes a composition candidate, not an end-to-end scientific entitlement.
+103. **Semantic-witness PASS ≠ semantic-witness composability.** Two valid local interpretation witnesses require an explicit compatibility/composition warrant before they support an endpoint scientific claim.
+104. **Local scope containment ≠ composite scope containment.** Composite claim scope is bounded by the pathwise mapped/pulled-back support, never by a union of local scopes.
+105. **Local reopenability ≠ end-to-end defeatability.** Defeat paths must compose into a reachable source-evidence-to-final-readjudication route.
+106. **Intermediate representation ≠ new epistemic origin.** Load-bearing ancestry and assumptions must pull back to the original world-facing source across the whole path.
+107. **Separately admissible assumptions ≠ jointly admissible assumptions.** Composition must expose accumulated assumptions, weakest-state ceilings and contradictions.
+108. **Authority algebra composes more readily than scientific authority.** Meet associativity and NoLaunder transitivity license an algebraic skeleton; scientific composition remains partial, witness-indexed and defeasible.
 
 ## Live governance objects
 
