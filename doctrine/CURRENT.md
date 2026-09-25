@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.42**.
+Status: live through **MQR-4.43**.
 
 ## Generation-IV authority kernel
 
@@ -32,9 +32,9 @@ A finite rival search never licenses the sentence “all possible rivals have be
 `language/real/` is the active executable representation surface.
 
 Implementation:
-- canonical compiler: Rust;
-- independent reference compiler: Python;
-- canonical CI requires byte-identical receipts across both implementations.
+- canonical authority-bearing executors: Rust;
+- independent references are lane-specific: Python remains the historical packet/profile reference where applicable, while Prolog independently evaluates the relational/contact/frontier/allocation lanes;
+- canonical CI requires explicit lane-level concordance on the declared receipt surface rather than assuming one reference implementation covers every language generation.
 
 A Real-Packet carries:
 - claim + scope;
@@ -917,9 +917,27 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 143. **Frontier Reopening Reserve is load-bearing.** Conditional use of FCR requires live routes for rival, query, representation and generator escape; an admitted escape reopens every implicated rank and authority receipt.
 144. **Frontier-relative guidance can be useful without frontier completeness.** FCR may guide local experiment allocation or discriminator design inside an explicit Open Frontier Receipt, but it cannot justify stopping rival search or promoting the frontier to a closed world.
 145. **Reopening competence ≠ completeness proof.** Maintaining diverse escape routes is a governance property, not evidence that all relevant rivals are already represented.
+146. **Finite attention ≠ world-optimal search.** An open rival frontier plus a finite budget does not identify a universally correct allocation policy without additional probabilistic, utility, loss or mission structure.
+147. **Visible-history equivalence ≠ universally correct next action.** Two open worlds can expose the same current RSAR surface while placing the next accessible frontier escape behind different lanes.
+148. **Declared-model optimum ≠ scientific world optimum.** Explicit priors, utilities and costs may authorize optimization inside their declared model; that authority does not extend to unconceived rivals or undeclared objectives.
+149. **Admissible allocation ≠ optimal allocation.** MQR-4.43 licenses an Allocation Admissibility Envelope membership judgment under explicit constraints, not a total ordering of scientifically best schedules.
+150. **Nominal reserve ≠ activation-capable reopening.** A positive reserve earns reopening competence only when it can actually activate at least one declared reopening lane.
+151. **Activation capability ≠ ancestry independence.** ACRR and common-mode ancestry are separate coordinates; a live reserve does not by itself establish independent search lineage.
+152. **Current yield or FCR gain ≠ exploration-retirement authority.** Cheap rival production or improved current-frontier discrimination cannot silently starve mandatory frontier-search obligations.
+153. **Generator-count diversification ≠ ancestry diversification.** Funding several named lanes does not establish independent exploration when they share load-bearing ancestry.
+154. **Exploration debt is typed by default.** Debt remains indexed to the missed obligation and search class; scalarization or weighted prioritization requires externally declared weights.
+155. **Anti-starvation or randomization ≠ epistemic oracle.** Bounded access to declared lanes is a scheduling property, not calibrated discovery probability, equal scientific importance or frontier completeness.
+156. **Frontier escape reopens allocation.** An admitted escape invalidates or re-audits every allocation receipt whose obligations, query language, ancestry, contact rank or search surface is implicated.
+157. **More budget or fair declared-lane coverage ≠ frontier closure.** Additional attention can reduce declared debt without converting an open world into a complete rival ontology.
 
 ## Live governance objects
 
+- Rival-Search Allocation Receipt (RSAR)
+- Allocation Admissibility Envelope (AAE; membership predicate, not optimizer)
+- Research-Attention Budget (RAB)
+- Activation-Capable Reopening Reserve (ACRR)
+- Exploration Debt Ledger (EDL)
+- Search Opportunity-Cost Vector
 - Open Frontier Receipt (OFR)
 - Frontier Reopening Reserve (FRR)
 - Rival Generator / Rival-Generation Ancestry Graph (RGAG)
