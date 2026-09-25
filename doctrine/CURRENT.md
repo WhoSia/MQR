@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.36**.
+Status: live through **MQR-4.42**.
 
 ## Generation-IV authority kernel
 
