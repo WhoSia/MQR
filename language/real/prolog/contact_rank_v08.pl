@@ -28,7 +28,7 @@ basis_cost(B,C):-findall(X,(member(R,B),root(R,_,_,X)),Xs),sum_list(Xs,C).
 replace_one(B,A,X,R):-select(A,B,T),sort([X|T],R).
 exchange_status([], 'UNAVAILABLE').
 exchange_status([_], 'VACUOUS').
-exchange_status(Bases,'FAIL'):-member(B1,Bases),member(B2,Bases),B1\=B2,member(A,B1),\+member(A,B2),\+(member(X,B2),\+member(X,B1),replace_one(B1,A,X,R),member(R,Bases)),!.
+exchange_status(Bases,'FAIL'):-member(B1,Bases),member(B2,Bases),B1\=B2,member(A,B1),\+ member(A,B2),\+ (member(X,B2),\+ member(X,B1),replace_one(B1,A,X,R),member(R,Bases)),!.
 exchange_status(_, 'PASS').
 analysis(Min,Count,Unique,Exchange,CMin,CMax,Bases):-minimum_bases(Bases),!,Bases=[First|_],length(First,Min),length(Bases,Count),(Count=:=1->Unique='YES';Unique='NO'),exchange_status(Bases,Exchange),findall(C,(member(B,Bases),basis_cost(B,C)),Cs),min_list(Cs,CMin),max_list(Cs,CMax).
 analysis('UNCOVERED',0,'NO','UNAVAILABLE','UNAVAILABLE','UNAVAILABLE',[]).
