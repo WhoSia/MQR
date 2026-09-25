@@ -11,7 +11,7 @@ This repository is the **living formal substrate** of MQR.
 ## Current live surface
 
 - `doctrine/CURRENT.md` — compressed current doctrine, including Generation-IV C/E/P/R_open authority semantics
-- `language/real/README.md` — Real-Language v0.3–v0.11, including proof, transfer, composition, substitution, contact-rank, open-frontier, attention-allocation and obligation-constitution lanes
+- `language/real/README.md` — Real-Language v0.3–v0.12, including proof, transfer, composition, substitution, contact-rank, open-frontier, attention-allocation and obligation-constitution lanes
 - `language/real/src/main.rs` — canonical Rust compiler; `language/real/reference.py` — independent Python reference
 - `language/real/examples/` — historical and current Real-Packets
 - `protocols/challenge-admission.md` — challenge-admission governance protocol
