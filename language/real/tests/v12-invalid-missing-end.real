@@ -1,0 +1,9 @@
+REALREVISE 0.12
+id bad
+claim_scope x
+source_ontology V1
+target_ontology V2
+source_burden A q1 CLEAR
+target_burden A q1
+debt_count_mode SOURCE_ANCESTRY
+witness_future_burden NONE
