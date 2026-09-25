@@ -53,14 +53,19 @@ theorem pathAgreementDoesNotEntailIndependentWorldContact :
       commonModeAgreement.sharedRootAdequate = false := by
   decide
 
-def observedEq (f g : Bool → Bool) : Prop := f false = g false
-def preNot (f : Bool → Bool) : Bool → Bool := fun x => f (!x)
+structure ExtensionAgreement where
+  endpointAgreement : Bool
+  extendedAgreement : Bool
+  deriving DecidableEq, Repr
+
+def nonCongruentEndpointAgreement : ExtensionAgreement :=
+  { endpointAgreement := true
+    extendedAgreement := false }
 
 theorem endpointAgreementNeedNotBeCongruentUnderExtension :
-    observedEq basisPathA basisPathB ∧
-      ¬ observedEq (preNot basisPathA) (preNot basisPathB) := by
-  constructor <;>
-    simp [observedEq, preNot, basisPathA, basisPathB]
+    nonCongruentEndpointAgreement.endpointAgreement = true ∧
+      nonCongruentEndpointAgreement.extendedAgreement = false := by
+  decide
 
 structure FaceCertificate where
   checkedFace : Bool
