@@ -1,0 +1,166 @@
+name: MQR 4.34 UNORM Fresh Relation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.34/external/unorm/**'
+      - 'experiments/mqr-4.34/fresh-relations.tsv'
+      - '.github/workflows/mqr-4.34-unorm.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bridge:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - regime: A
+            version: '0.1.22'
+          - regime: B
+            version: '0.1.23'
+          - regime: C
+            version: '0.1.24'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt
+      - name: Materialize exact dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed 's/__UNORM_VERSION__/${{ matrix.version }}/g' experiments/mqr-4.34/external/unorm/Cargo.template.toml > experiments/mqr-4.34/external/unorm/Cargo.toml
+      - name: Format gate
+        run: cargo fmt --manifest-path experiments/mqr-4.34/external/unorm/Cargo.toml -- --check
+      - name: Generate lockfile
+        run: cargo generate-lockfile --manifest-path experiments/mqr-4.34/external/unorm/Cargo.toml
+      - name: Locked build
+        run: cargo build --locked --manifest-path experiments/mqr-4.34/external/unorm/Cargo.toml
+      - name: Execute preserved bridge quotient only
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=experiments/mqr-4.34/external/unorm/target/debug/mqr434-unorm-probe
+          "$BIN" bridge > "unorm-bridge-${{ matrix.regime }}.tsv"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unorm-bridge-${{ matrix.regime }}
+          path: unorm-bridge-${{ matrix.regime }}.tsv
+          retention-days: 30
+
+  bridge_adjudicate:
+    needs: bridge
+    runs-on: ubuntu-24.04
+    outputs:
+      candidate: ${{ steps.adj.outputs.candidate }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: unorm-bridge-*
+          path: results
+          merge-multiple: true
+      - id: adj
+        name: Seal coarse-quotient authority before successor direct reveal
+        shell: bash
+        run: |
+          set -euo pipefail
+          AB=TRANSPORT_FAIL
+          BC=TRANSPORT_FAIL
+          if cmp -s results/unorm-bridge-A.tsv results/unorm-bridge-B.tsv; then AB=TRANSPORT_PASS; fi
+          if cmp -s results/unorm-bridge-B.tsv results/unorm-bridge-C.tsv; then BC=TRANSPORT_PASS; fi
+          CANDIDATE=no
+          if [[ "$AB" == TRANSPORT_PASS && "$BC" == TRANSPORT_PASS ]]; then CANDIDATE=yes; fi
+          grep -F $'UNORM-001\tENGINEERING_DEVELOPMENT\tBRIDGE_SUBSET_DIRECT\tFORGETFUL_SURJECTION' experiments/mqr-4.34/fresh-relations.tsv
+          echo "A_TO_B_COARSE=$AB"
+          echo "B_TO_C_COARSE=$BC"
+          echo 'RELATION=R2_SUCCESSOR_REFINEMENT'
+          echo 'AUTHORITY=A2_REFINEMENT_SUPPORT_IS_QUOTIENT_INDEXED'
+          echo 'COARSE_MEDIATED_SUPPORT=ADMISSIBLE_IF_CANDIDATE'
+          echo 'SUCCESSOR_ONLY_DIRECT_PREDICTION=NOT_LICENSED'
+          echo 'DIRECT_BURDEN=FRESH_SUCCESSOR_CONTACT_REQUIRED'
+          echo "candidate=$CANDIDATE" >> "$GITHUB_OUTPUT"
+          {
+            echo "A_TO_B_COARSE=$AB"
+            echo "B_TO_C_COARSE=$BC"
+            echo 'RELATION=R2_SUCCESSOR_REFINEMENT'
+            echo 'AUTHORITY=A2_REFINEMENT_SUPPORT_IS_QUOTIENT_INDEXED'
+            echo 'SUCCESSOR_ONLY_DIRECT_PREDICTION=NOT_LICENSED'
+            echo "CANDIDATE=$CANDIDATE"
+          } > unorm-bridge-seal.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unorm-bridge-seal
+          path: unorm-bridge-seal.txt
+          retention-days: 30
+
+  direct:
+    needs: bridge_adjudicate
+    if: needs.bridge_adjudicate.outputs.candidate == 'yes'
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - regime: A
+            version: '0.1.22'
+          - regime: C
+            version: '0.1.24'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+      - name: Materialize exact dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed 's/__UNORM_VERSION__/${{ matrix.version }}/g' experiments/mqr-4.34/external/unorm/Cargo.template.toml > experiments/mqr-4.34/external/unorm/Cargo.toml
+      - name: Locked build
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo generate-lockfile --manifest-path experiments/mqr-4.34/external/unorm/Cargo.toml
+          cargo build --locked --manifest-path experiments/mqr-4.34/external/unorm/Cargo.toml
+      - name: Execute successor-only direct packet
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=experiments/mqr-4.34/external/unorm/target/debug/mqr434-unorm-probe
+          "$BIN" direct > "unorm-direct-${{ matrix.regime }}.tsv"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unorm-direct-${{ matrix.regime }}
+          path: unorm-direct-${{ matrix.regime }}.tsv
+          retention-days: 30
+
+  direct_adjudicate:
+    needs: direct
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: unorm-direct-*
+          path: results
+          merge-multiple: true
+      - name: Adjudicate successor refinement without retyping
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIRECT=TRANSPORT_DIVERGENCE
+          if cmp -s results/unorm-direct-A.tsv results/unorm-direct-C.tsv; then DIRECT=TRANSPORT_PASS; fi
+          echo "DIRECT_SUCCESSOR_A_TO_C=$DIRECT"
+          if [[ "$DIRECT" == TRANSPORT_DIVERGENCE ]]; then
+            echo 'QUOTIENT_INDEXED_INTERPRETATION=COARSE_PRESERVATION_WITH_SUCCESSOR_DIVERGENCE'
+          else
+            echo 'QUOTIENT_INDEXED_INTERPRETATION=COARSE_PRESERVATION_WITH_SUCCESSOR_AGREEMENT'
+          fi
+          echo 'RELATION_RETYPE=FORBIDDEN'
+          echo 'AUTHORITY_REMAINS=A2_REFINEMENT_SUPPORT_IS_QUOTIENT_INDEXED'
+          echo 'UNORM_001_FRESH_RELATION_STRESS=PASS'
