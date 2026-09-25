@@ -113,7 +113,7 @@ fn analyze(p:&Packet)->BTreeMap<String,String>{
     }
     a.insert("rank.obligation_count".into(),p.obligations.len().to_string());
     a.insert("rank.eligible_root_count".into(),eligible(p).len().to_string());
-    for (k,v) in [("rank.frontier_relative","true"),("rank.instrument_relative","true"),("rank.ontic_dimension","false"),("rank.degree_ontology_primitive","false"),("rank.cost_objective","SEPARATE"),("rank.open_world_final","false"),("rank.common_cause_independence_inferred","false")]{a.insert(k.into(),v.into());}
+    for (k,v) in [("rank.frontier_relative","true"),("rank.instrument_relative","true"),("rank.ontic_dimension","false"),("rank.degree_ontology_primitive","false"),("rank.cost_objective","SEPARATE"),("rank.open_world_final","false"),("rank.common_cause_independence_inferred","false"),("rank.calibration_authority_inferred","false"),("rank.selection_history_sufficiency_inferred","false"),("rank.decision_warrant_inferred","false"),("rank.evaluation_contract_authority_inferred","false")]{a.insert(k.into(),v.into());}
     a
 }
 fn validate(p:&Packet,a:&BTreeMap<String,String>)->Result<(),String>{
@@ -124,7 +124,7 @@ fn validate(p:&Packet,a:&BTreeMap<String,String>)->Result<(),String>{
 }
 fn emit(p:&Packet,a:&BTreeMap<String,String>)->String{
     let mut s=format!("REAL-CONTACT-RANK=0.8\nid={}\nclaim_scope={}\nfrontier={}\nquery_class={}\n",p.id,p.claim_scope,p.frontier,p.query_class);
-    for k in ["rank.coverage_complete","rank.minimum","rank.basis_count","rank.unique","rank.exchange_property","rank.minimum_basis_cost_min","rank.minimum_basis_cost_max","rank.minimum_bases","rank.obligation_count","rank.eligible_root_count","rank.frontier_relative","rank.instrument_relative","rank.ontic_dimension","rank.degree_ontology_primitive","rank.cost_objective","rank.open_world_final","rank.common_cause_independence_inferred"]{s.push_str(&format!("{k}={}\n",a[k]));}
+    for k in ["rank.coverage_complete","rank.minimum","rank.basis_count","rank.unique","rank.exchange_property","rank.minimum_basis_cost_min","rank.minimum_basis_cost_max","rank.minimum_bases","rank.obligation_count","rank.eligible_root_count","rank.frontier_relative","rank.instrument_relative","rank.ontic_dimension","rank.degree_ontology_primitive","rank.cost_objective","rank.open_world_final","rank.common_cause_independence_inferred","rank.calibration_authority_inferred","rank.selection_history_sufficiency_inferred","rank.decision_warrant_inferred","rank.evaluation_contract_authority_inferred"]{s.push_str(&format!("{k}={}\n",a[k]));}
     s.push_str("rank.meaning=FROZEN_FRONTIER_MINIMUM_EXTERNAL_DISCRIMINATION_COVER\nminimum_rank_does_not_identify_obligation_ontology=true\nminimum_rank_does_not_select_best_cost_or_robustness_basis=true\nfinal_truth_distance=UNIDENTIFIED\n");s
 }
 fn main(){

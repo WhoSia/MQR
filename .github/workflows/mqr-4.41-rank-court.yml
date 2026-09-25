@@ -38,6 +38,10 @@ jobs:
           echo CHECKPOINT=RUST_NONMATROID
           "$V" "$N" > /tmp/r
           cat /tmp/r
+          grep -F 'rank.calibration_authority_inferred=false' /tmp/r
+          grep -F 'rank.selection_history_sufficiency_inferred=false' /tmp/r
+          grep -F 'rank.decision_warrant_inferred=false' /tmp/r
+          grep -F 'rank.evaluation_contract_authority_inferred=false' /tmp/r
 
           echo CHECKPOINT=PROLOG_NONMATROID
           if ! swipl -q -s "$P" -g "run('$N'),halt" -t "halt(1)" > /tmp/p 2>/tmp/p.err; then

@@ -902,6 +902,10 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 128. **Finite frontier minimum ≠ final open-world minimum.** The optimizer proves minimality only over the frozen rival/query/root incidence supplied to it; successor rivals can invalidate the receipt.
 129. **Same FCR ≠ same ontology.** Distinct rival-obligation structures may have the same minimum root count, so rank equality cannot identify empirical ontology.
 130. **Optimizer completeness ≠ frontier completeness.** Exact enumeration of every minimum cover does not establish that the supplied rival frontier is scientifically complete.
+131. **Cover minimality ≠ calibration authority.** FCR may optimize only over separation edges whose calibration/comparability warrant is already admissible; rank minimization cannot certify that upstream metrological construction.
+132. **Separation incidence is evaluation-contract relative.** Metrics, thresholds, partitions or equivalence rules that define what counts as rival discrimination are load-bearing provenance; same measurement material may induce different ranks under different separation contracts.
+133. **Realized minimum ≠ selection-history sufficiency.** Data-dependent frontier construction, root pruning or incidence selection can change scientific warrant even when the realized WCSH is minimized exactly.
+134. **Descriptive contact rank ≠ decision warrant.** Robust action may be licensed under an explicit decision contract despite unresolved descriptive rivals, while low FCR alone licenses no action.
 
 ## Live governance objects
 

@@ -147,3 +147,55 @@ SAME RANK != SAME ONTOLOGY
 FINITE MINIMUM != FINAL OPEN-WORLD MINIMUM
 FINAL_TRUTH_DISTANCE = UNIDENTIFIED
 ```
+
+
+## Research OS cross-axis boundary
+
+MQR-4.41 separately stress-tested four operations that can be hidden behind an apparently clean rank result.
+
+### Calibration / metrology
+
+Root material and minimum coverage do not establish calibration authority.
+
+A root may enter FCR only after whatever calibration/comparability warrant makes its separation edges admissible. FCR does not manufacture that warrant.
+
+```text
+COVER MINIMALITY != CALIBRATION AUTHORITY
+```
+
+### Evaluation / metric construction
+
+The separation incidence is produced under an evaluation contract: metric, threshold, partition, equivalence relation, or other rule declaring what counts as discrimination.
+
+The same measurement material can support different finite ranks under different admissible separation contracts.
+
+Therefore that contract is load-bearing provenance even though v0.8 does not convert it into an ontic coordinate.
+
+### Post-selection
+
+Exact minimality over the realized WCSH does not establish that a data-dependent procedure which selected the frontier, roots, or edges preserved inferential authority.
+
+```text
+REALIZED MINIMUM != SELECTION-HISTORY SUFFICIENCY
+```
+
+Selection history is an upstream authority problem, not something solved by the rank optimizer.
+
+### Decision warrant
+
+FCR is a descriptive discrimination burden. It does not order decision warrant.
+
+A robust action may be available despite unresolved descriptive rivals under an explicit decision contract. Conversely, a low contact rank does not automatically license action.
+
+```text
+DESCRIPTIVE CONTACT RANK != DECISION WARRANT
+```
+
+Canonical non-inference outputs:
+
+```text
+rank.calibration_authority_inferred=false
+rank.selection_history_sufficiency_inferred=false
+rank.decision_warrant_inferred=false
+rank.evaluation_contract_authority_inferred=false
+```

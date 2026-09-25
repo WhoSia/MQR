@@ -410,6 +410,55 @@ The literature wins the combinatorial-precedent question because the same mathem
 
 It does not defeat the authority-boundary result because that result is not entailed by the precedence alone; it survives the executable/formal attacks above.
 
+## Research OS sidecar adjudication
+
+The Research OS sidecar supplied four cross-axis attacks after the independent 4.41 candidate had been frozen. They were treated as adversarial probes, not auto-imported doctrine.
+
+### Metrology — PARTIAL / UPSTREAM BOUNDARY
+
+A minimal root cover does not establish that the calibration network or measurement relation making those roots comparable is valid.
+
+```text
+TRANSFER != CALIBRATION != EVIDENCE SYNTHESIS
+COVER MINIMALITY != CALIBRATION AUTHORITY
+```
+
+FCR begins only after an admissible root/separation relation has been constructed. Calibration change may alter separation incidence and therefore reopen rank, but rank cannot self-certify calibration.
+
+### Deep uncertainty — OUTSIDE FCR / NON-INFERENCE
+
+FCR measures descriptive rival-separation burden.
+
+It does not rank action warrant.
+
+A robust decision can be available despite unresolved descriptive rivals under a separate decision contract, and a low FCR cannot be read back as decision permission.
+
+```text
+DESCRIPTIVE WARRANT != DECISION WARRANT
+```
+
+### Post-selection inference — UNRESOLVED BY STATIC FCR
+
+Exact minimization over the realized WCSH says nothing by itself about whether data-dependent frontier construction, root pruning or edge selection preserved inferential authority.
+
+```text
+REALIZED MINIMUM != SELECTION-HISTORY SUFFICIENCY
+```
+
+If selection history is authority-relevant and unaccounted, FCR remains a correct optimizer result but not a sufficient scientific-authority receipt.
+
+### Metric / evaluation construction — LOAD-BEARING CONTRACT
+
+The relation `root separates obligation` is not raw ontology. It is evaluated under a metric, threshold, partition, equivalence relation or other discrimination contract.
+
+The same measurement material can therefore produce different FCR values under different separation contracts without the world acquiring or losing dimensions.
+
+```text
+MEASUREMENT MATERIAL != EVALUATIVE ORDER != WORLD ORDER
+```
+
+The canonical Lean boundary now includes axiom-empty witnesses for all four non-inferences, and v0.8 emits explicit false flags for calibration authority, selection-history sufficiency, decision warrant and evaluation-contract authority.
+
 ## Outcome branches
 
 ```text

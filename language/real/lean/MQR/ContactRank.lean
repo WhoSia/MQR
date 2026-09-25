@@ -120,6 +120,65 @@ theorem declaredDegreeCountCanChangeWithoutAWorldWitness :
       declaredDegreeWitness.worldContactChanged = false := by
   decide
 
+
+structure CalibrationContractWitness where
+  coverMinimal : Bool
+  calibrationAuthorityEstablished : Bool
+  deriving DecidableEq, Repr
+
+def calibrationContractWitness : CalibrationContractWitness :=
+  { coverMinimal := true
+    calibrationAuthorityEstablished := false }
+
+theorem coverMinimalityDoesNotEstablishCalibrationAuthority :
+    calibrationContractWitness.coverMinimal = true ∧
+      calibrationContractWitness.calibrationAuthorityEstablished = false := by
+  decide
+
+structure SeparationContractWitness where
+  sameMeasurementMaterial : Bool
+  firstRank : Nat
+  secondRank : Nat
+  deriving DecidableEq, Repr
+
+def separationContractWitness : SeparationContractWitness :=
+  { sameMeasurementMaterial := true
+    firstRank := 1
+    secondRank := 2 }
+
+theorem sameMeasurementMaterialCanHaveDifferentRankUnderDifferentSeparationContracts :
+    separationContractWitness.sameMeasurementMaterial = true ∧
+      separationContractWitness.firstRank ≠ separationContractWitness.secondRank := by
+  decide
+
+structure SelectionHistoryWitness where
+  realizedMinimumRank : Nat
+  selectionHistoryComplete : Bool
+  deriving DecidableEq, Repr
+
+def selectionHistoryWitness : SelectionHistoryWitness :=
+  { realizedMinimumRank := 1
+    selectionHistoryComplete := false }
+
+theorem realizedMinimumDoesNotEstablishSelectionHistorySufficiency :
+    selectionHistoryWitness.realizedMinimumRank = 1 ∧
+      selectionHistoryWitness.selectionHistoryComplete = false := by
+  decide
+
+structure DecisionWarrantWitness where
+  descriptiveCoverageComplete : Bool
+  robustDecisionAvailable : Bool
+  deriving DecidableEq, Repr
+
+def decisionWarrantWitness : DecisionWarrantWitness :=
+  { descriptiveCoverageComplete := false
+    robustDecisionAvailable := true }
+
+theorem contactRankDoesNotDetermineDecisionWarrant :
+    decisionWarrantWitness.descriptiveCoverageComplete = false ∧
+      decisionWarrantWitness.robustDecisionAvailable = true := by
+  decide
+
 #print axioms MQR.twoMinimumCoverWitnesses
 #print axioms MQR.minimumWorldContactBasesNeedNotSatisfyExchange
 #print axioms MQR.frontierExpansionCanIncreaseContactRank
@@ -128,5 +187,9 @@ theorem declaredDegreeCountCanChangeWithoutAWorldWitness :
 #print axioms MQR.incidenceRenamingPreservesRankWitness
 #print axioms MQR.sameMinimumRankDoesNotIdentifyFrontierOntology
 #print axioms MQR.declaredDegreeCountCanChangeWithoutAWorldWitness
+#print axioms MQR.coverMinimalityDoesNotEstablishCalibrationAuthority
+#print axioms MQR.sameMeasurementMaterialCanHaveDifferentRankUnderDifferentSeparationContracts
+#print axioms MQR.realizedMinimumDoesNotEstablishSelectionHistorySufficiency
+#print axioms MQR.contactRankDoesNotDetermineDecisionWarrant
 
 end MQR
