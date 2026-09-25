@@ -6,6 +6,7 @@ on:
     paths:
       - 'language/real/lean/MQR/Revision.lean'
       - 'language/real/lean/MQR.lean'
+      - 'language/real/V12-BURDEN-REVISION.md'
       - '.github/workflows/mqr-4.45-proof-boundary.yml'
   workflow_dispatch:
 
