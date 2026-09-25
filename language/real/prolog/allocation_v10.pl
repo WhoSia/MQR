@@ -70,9 +70,11 @@ load_packet(File) :-
     maplist(parse_line,Lines),
     packet_id(_), claim_scope(_), budget(_), horizon(_), reserve(_), lane(_,_,_,_,_,_),
     normative_prior(_), normative_utility(_), history_signature(_), policy(_), witness_escape_lane(W),
-    forall(obligation(_,L,_),(lane(L,_,_,M,_,_),M='MANDATORY')),
-    forall(allocation(S,L,_),(lane(L,_,_,_,_,_),horizon(H),S=<H)),
-    forall(outcome(S,L,_),(lane(L,_,_,_,_,_),horizon(H),S=<H)),
+    \+ (obligation(_,L,_), \+ lane(L,_,_,'MANDATORY',_,_)),
+    \+ (allocation(_,L,_), \+ lane(L,_,_,_,_,_)),
+    \+ (allocation(S,_,_), horizon(H), S>H),
+    \+ (outcome(_,L,_), \+ lane(L,_,_,_,_,_)),
+    \+ (outcome(S,_,_), horizon(H), S>H),
     (W='NONE';lane(W,_,_,_,_,_)).
 
 sum_allocated(T) :-
