@@ -78,6 +78,14 @@ Therefore:
 - CODATA COMPOSITION_PASS diagnostics = 2
 - CODATA NONTRANSITIVITY_WITNESS diagnostics = 0
 
+Independent Rust recomputation:
+- run 36098164402
+- 12 triangles recomputed
+- composition candidates = 2
+- candidate direct PASS = 2
+- candidate direct FAIL = 0
+- committed z-results byte-match the recomputation
+
 This lane has zero RESEARCH_LAB promotion credit because the adjustments are not independent direct experimental routes and the frozen z relation ignores cross-adjustment covariance.
 
 ## Contaminated/excluded fresh candidates
@@ -103,9 +111,20 @@ S1 GENERALIZATION_RISK because bridge and direct fixture surfaces were disjoint.
 Historical result:
 COMPOSITION_PASS.
 
-Machine calibration is pending.
+Machine calibration completed.
 
-If the frozen S1 classifier returns prediction_match=false, S1 may remain only a risk indicator in 4.33; it cannot be promoted as a deterministic support-domain separator.
+Canonical calibration run:
+36042235864.
+
+Observed:
+- TKN-001-CAL composition = COMPOSITION_PASS;
+- prediction_match = false;
+- FORCING_EXPECTATION_MISMATCHES = 1.
+
+Therefore:
+S1_GENERALIZATION_RISK is not a deterministic NONTRANSITIVITY separator.
+
+It may remain only a risk/pressure indicator in 4.33.
 
 ## Promotion ceiling
 
@@ -122,3 +141,69 @@ The remaining question is whether 4.33 earns:
 - a component-identity admission lesson;
 - a post-failure diagnostic support-boundary witness;
 - or a direct falsification of its own S1 predictor.
+
+
+## Frozen support-profile collision
+
+TKN-001 and TOML-D1 share the exact frozen six-coordinate support profile:
+
+```text
+(component_identity,
+ direct_independent,
+ domain_covered,
+ information_preserved,
+ state_reset,
+ adapter_commutative)
+
+= (1,1,0,1,1,1)
+```
+
+But their observed outcomes differ:
+- TKN-001 = COMPOSITION_PASS
+- TOML-D1 = NONTRANSITIVITY_WITNESS at the postfail diagnostic adapter surface
+
+Canonical collision run:
+36098297037.
+
+Machine certificate:
+```text
+PROFILE_COLLISION_COUNT=1
+SUPPORT_PROFILE_IDENTIFIABILITY=FAIL
+OUTCOME_FACTORIZATION_THROUGH_FROZEN_PROFILE=FAIL
+FROZEN_SUPPORT_QUOTIENT_SUFFICIENCY=FAIL
+```
+
+Therefore no deterministic function of the frozen six-coordinate profile alone can reproduce both observed outcomes.
+
+This is an exact representational-insufficiency result on the observed pair.
+
+It does not identify the missing coordinate and does not promote TOML-D1 to fresh confirmation.
+
+## Integrated closure
+
+Canonical closure run:
+36098340499.
+
+All of the following passed in one current-head replay:
+- formatting;
+- Clippy with warnings denied;
+- unit tests;
+- release build;
+- F0-F3 forcing-world expectations;
+- inherited TKN classifier-defeat replay;
+- support-profile collision/factorization certificate;
+- CODATA recomputation;
+- fresh TOML admission-defeat receipt;
+- H04 minimal diagnostic witness receipt;
+- structural promotion ceiling.
+
+Closure summary:
+```text
+MQR433_COUNTEREXAMPLE_FIRST=PASS
+MQR433_EXTERNAL_FRESH_NONTRANSITIVITY=NOT_EARNED
+MQR433_DIAGNOSTIC_NONTRANSITIVITY=MINIMAL_H04
+MQR433_CLASSIFIER_SELF_FALSIFICATION=PASS
+MQR433_FROZEN_SUPPORT_QUOTIENT_IDENTIFIABILITY=FAIL
+MQR433_STRONGEST_EARNED_RESULT=SUPPORT_REPRESENTATION_INSUFFICIENT
+MQR433_SUPPORT_DOMAIN_DISCOVERY=HOLD
+```
