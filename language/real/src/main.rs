@@ -87,8 +87,10 @@ fn transport_authority(eval: &str, surv: &str) -> Result<&'static str, String> {
 
 fn parse(path: &Path) -> Result<Packet, String> {
     let text = fs::read_to_string(path).map_err(|e| e.to_string())?;
-    let mut p = Packet::default();
-    p.successor = "VULNERABLE".into();
+    let mut p = Packet {
+        successor: "VULNERABLE".into(),
+        ..Default::default()
+    };
     let mut started = false;
     let mut ended = false;
 
