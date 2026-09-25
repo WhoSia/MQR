@@ -136,6 +136,44 @@ theorem queryExtensionCanRevealPreviouslyHiddenRival :
       queryExtensionWitness.extensionSeparates = true := by
   decide
 
+
+structure ConditionalGuidanceWitness where
+  currentFrontierExplicit : Bool
+  localGuidanceAdmissible : Bool
+  worldComplete : Bool
+  reopenOnEscape : Bool
+  deriving DecidableEq, Repr
+
+def conditionalGuidanceWitness : ConditionalGuidanceWitness :=
+  { currentFrontierExplicit := true
+    localGuidanceAdmissible := true
+    worldComplete := false
+    reopenOnEscape := true }
+
+theorem conditionalFrontierGuidanceDoesNotRequireWorldCompleteness :
+    conditionalGuidanceWitness.currentFrontierExplicit = true ∧
+      conditionalGuidanceWitness.localGuidanceAdmissible = true ∧
+      conditionalGuidanceWitness.worldComplete = false ∧
+      conditionalGuidanceWitness.reopenOnEscape = true := by
+  decide
+
+structure ReopeningReserveWitness where
+  reserveLive : Bool
+  generatorRelativeSaturation : Bool
+  worldComplete : Bool
+  deriving DecidableEq, Repr
+
+def reopeningReserveWitness : ReopeningReserveWitness :=
+  { reserveLive := true
+    generatorRelativeSaturation := true
+    worldComplete := false }
+
+theorem reopeningReserveDoesNotEstablishFrontierCompleteness :
+    reopeningReserveWitness.reserveLive = true ∧
+      reopeningReserveWitness.generatorRelativeSaturation = true ∧
+      reopeningReserveWitness.worldComplete = false := by
+  decide
+
 #print axioms MQR.currentRivalSeparationDoesNotImplyQueryLanguageClosure
 #print axioms MQR.repeatedNoDiscoveryDoesNotImplyFrontierCompleteness
 #print axioms MQR.stableFcrCanAccompanyFrontierDiscovery
@@ -144,5 +182,7 @@ theorem queryExtensionCanRevealPreviouslyHiddenRival :
 #print axioms MQR.finiteGrammarClosureDoesNotImplyScientificFrontierClosure
 #print axioms MQR.plausibleGeneratorPortfoliosCanYieldNonnestedFrontiers
 #print axioms MQR.queryExtensionCanRevealPreviouslyHiddenRival
+#print axioms MQR.conditionalFrontierGuidanceDoesNotRequireWorldCompleteness
+#print axioms MQR.reopeningReserveDoesNotEstablishFrontierCompleteness
 
 end MQR
