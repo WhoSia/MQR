@@ -1,2 +1,0 @@
-id	lineage	generator_relation	semantic_map	component_relation	quotient_relation	state_relation	endpoint_contract	decoy	expected_relation	expected_authority	confirmatory
-I0	SYNTHETIC	BRIDGE_SUBSET_DIRECT	INCLUSION	SAME_COMPONENT	SAME_QUOTIENT	RESET_EQUIVALENT	ENDPOINT_CONTRACT_EXTENDED	alpha	R1_STRICT_DOMAIN_EXTENSION	A1_EXTENSION_REQUIRES_FRESH_CONTACT	0

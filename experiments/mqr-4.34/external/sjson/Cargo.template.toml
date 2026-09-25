@@ -1,8 +1,0 @@
-[package]
-name = "mqr434-sjson-probe"
-version = "0.1.0"
-edition = "2021"
-publish = false
-
-[dependencies]
-serde_json = "=__SJSON_VERSION__"

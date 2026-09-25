@@ -1,3 +1,0 @@
-id	component_identity	direct_independent	domain_covered	information_preserved	state_reset	adapter_commutative	outcome	evidence_role
-TKN-001	1	1	0	1	1	1	COMPOSITION_PASS	INHERITED_EXTERNAL_CALIBRATION
-TOML-D1	1	1	0	1	1	1	NONTRANSITIVITY_WITNESS	POSTFAIL_EXTERNAL_DIAGNOSTIC
