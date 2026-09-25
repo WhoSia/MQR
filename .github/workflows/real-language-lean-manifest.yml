@@ -1,4 +1,5 @@
 name: Real-Language v0.4 One-Shot Lake Manifest
+# regeneration-trigger: lakefile-lean-migration
 
 on:
   push:
