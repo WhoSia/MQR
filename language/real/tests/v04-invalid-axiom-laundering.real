@@ -1,0 +1,25 @@
+REALPACKET 0.4
+id "mqr-4.36-proof-boundary-negative"
+epoch "2026-09-25"
+claim CONSTRAINT "This packet must be rejected because formal proof launders empirical HOLD"
+scope "negative regression fixture"
+lineage METHODOLOGY_DEVELOPMENT
+
+gate C PASS
+gate E HOLD
+gate P PASS
+gate R PASS
+
+axis W 0.25 "empirical premise held"
+axis N 0.50 "mixed ancestry"
+axis I 0.75 "dependency explicit"
+axis D 1.00 "laundering guard targeted"
+
+premise PWORLD EMPIRICAL HOLD "world adequacy is not established"
+obligation OWORLD WORLD_DEPENDENT "world adequacy theorem"
+depends OWORLD PWORLD
+proof OWORLD CHECKED "lean:syntactically checked implication"
+authorize OWORLD PASS
+
+source "negative fixture"
+END
