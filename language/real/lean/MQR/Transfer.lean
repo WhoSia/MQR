@@ -13,15 +13,15 @@ theorem sameFormalStatementCanAliasDifferentWorldPredicates :
       worldPredB true = false := by
   decide
 
-def worldSupported : Fin 2 → Bool
-  | ⟨0, _⟩ => true
-  | ⟨1, _⟩ => false
+def worldSupported : Bool → Bool
+  | false => true
+  | true => false
 
-def formalStatementCovers (_ : Fin 2) : Bool := true
+def formalStatementCovers (_ : Bool) : Bool := true
 
 theorem formalScopeCanStrictlyExceedWorldSupport :
-    formalStatementCovers ⟨1, by decide⟩ = true ∧
-      worldSupported ⟨1, by decide⟩ = false := by
+    formalStatementCovers true = true ∧
+      worldSupported true = false := by
   decide
 
 structure FineAncestry where
