@@ -1,6 +1,6 @@
 # Real-Language v0.12 — Burden-Ontology Revision Transport
 
-Status: EXECUTABLE CANDIDATE / MQR-4.45 / VERSIONED / LOSS-AWARE / OPEN-WORLD
+Status: EXECUTABLE / MQR-4.45 CLOSED / VERSIONED / LOSS-AWARE / MAPPED-SUBSPACE / OPEN-REVISION
 
 ## Boundary
 
@@ -125,3 +125,28 @@ revision.guidance_mode=VERSIONED_LOSS_AWARE_TRANSPORT
 - formal boundary: Lean `lean/MQR/Revision.lean`
 
 Rust–Prolog concordance is implementation-diversity evidence only. Lean certifies finite structural countermodels, not world identity between evolving scientific concepts.
+
+
+## Final closure boundary
+
+MQR-4.45 closes only the declared cross-version transport problem.
+
+The final executable boundary is:
+
+```text
+SAME LABEL != BURDEN IDENTITY
+DIFFERENT LABEL != BURDEN NONIDENTITY
+REFINE REQUIRES FULL DECLARED COVERAGE FOR DEBT CONTINUITY
+MERGE MUST PRESERVE EACH SOURCE-DEBT ANCESTRY
+UNMAPPED DEBT REMAINS UNRESOLVED
+TARGET NOVELTY IS NOT RETROACTIVE SOURCE DEBT
+COMPARABILITY = MAPPED_SUBSPACE_ONLY
+CONFLICT LOCALIZATION != TRUE WINNER
+DIRECT / COMPOSED DISAGREEMENT -> REOPEN
+WORLD BURDEN IDENTITY = NOT INFERRED
+FUTURE REVISION CLOSURE = NO
+```
+
+The exact final same-head commit and workflow receipts are kept in the external Research OS closure receipt so recording those identifiers does not mutate the sealed Git head.
+
+<!-- mqr-4.45-final-same-head-seal -->
