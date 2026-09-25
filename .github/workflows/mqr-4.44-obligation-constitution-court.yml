@@ -10,6 +10,7 @@ on:
       - 'language/real/examples/mqr-4.44-*.real'
       - 'language/real/tests/v11-invalid-*.real'
       - 'language/real/V11-OBLIGATION-CONSTITUTION.md'
+      - 'language/real/lean/MQR/Constitution.lean'
       - 'language/real/Cargo.toml'
       - '.github/workflows/mqr-4.44-obligation-constitution-court.yml'
   workflow_dispatch:
