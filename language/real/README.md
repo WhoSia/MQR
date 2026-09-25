@@ -478,3 +478,59 @@ Final MQR-4.43 scope:
 - declared-model optimization never lifts `allocation.world_optimum_identified` or `allocation.world_frontier_complete`.
 
 The live doctrine is **finite attention governance without pricing the unknown**.
+
+
+## v0.11 — exploration-obligation constitution
+
+MQR-4.44 adds `REALCONSTITUTE 0.11`.
+
+Canonical Rust: `src/constitution_v11.rs` / `real-v11-constitute`.  
+Independent relational evaluator: `prolog/constitution_v11.pl`.  
+Lean boundary: `lean/MQR/Constitution.lean`.  
+Constitution: `V11-OBLIGATION-CONSTITUTION.md`.
+
+v0.11 moves one level upstream from v0.10's allocation contract and audits the constitution of the obligations themselves.
+
+Its primary representation attack is:
+
+```text
+ONE OBLIGATION -> {A,B}
+!= label count
+TWO OBLIGATIONS -> {A} + {B}
+
+while
+
+DECLARED BURDEN UNION = {A,B}
+```
+
+Therefore obligation count is rejected as an adequacy primitive. The live audit surface is the declared obligation–burden relation.
+
+v0.11 separately tracks agenda-source ancestry, predecessor/successor burden coverage and debt continuity. A successor label cannot retire predecessor debt merely by renaming or deletion. Full successor coverage and debt discharge are distinct checks.
+
+Endogenous mandate formation is permitted but marked. External provenance is likewise visible without becoming a truth oracle.
+
+The repair is explicitly second-order limited:
+
+```text
+OBLIGATION COUNT != SEARCH BURDEN
+DECLARED BURDEN UNION != WORLD-FUNDAMENTAL BURDEN ONTOLOGY
+SUCCESSOR COVERAGE != DEBT DISCHARGE
+PROVENANCE != TRUTH ORACLE
+FINITE EOCR PASS != WORLD-COMPLETE OBLIGATION ONTOLOGY
+```
+
+Canonical guards include:
+
+```text
+constitution.partition_count_authority=REJECT
+constitution.partition_audit_surface=DECLARED_BURDEN_UNION
+constitution.external_source_truth_oracle=NO
+constitution.endogenous_source_truth_oracle=NO
+constitution.world_obligation_complete=NO
+constitution.burden_atom_ontology_complete=NO
+constitution.open_world_receipt=REQUIRED
+constitution.reopen_on_escape=YES
+constitution.guidance_mode=CONTRACT_RELATIVE_CONSTITUTIONAL
+```
+
+The live doctrine is **provisional obligation constitution with burden continuity and open-world reopening**, not a complete theory of what science ought to search.
