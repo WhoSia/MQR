@@ -1,16 +1,16 @@
+import Std
+
 namespace MQR
 
 /-- A declared class has zero internal residue exactly when every relevant probe is tested. -/
 def InternalResidueEmpty {Probe : Type} (Relevant Tested : Probe → Prop) : Prop :=
   ∀ p, Relevant p → Tested p
 
-/-- If the declared relevant finite probe class has complete coverage, internal residue is zero.
-    Finiteness records the intended MQR use: an exhaustively enumerable declared class.
-    It is an explicit premise rather than a typeclass instance. -/
+/-- For an explicitly bounded probe index Fin n, complete coverage implies zero internal residue.
+    This theorem proves only the closure statement inside the declared class. -/
 theorem zeroInternalResidueOfComplete
-    {Probe : Type}
-    (_finite : Finite Probe)
-    (Relevant Tested : Probe → Prop)
+    {n : Nat}
+    (Relevant Tested : Fin n → Prop)
     (coverage : ∀ p, Relevant p → Tested p) :
     InternalResidueEmpty Relevant Tested :=
   coverage
@@ -47,13 +47,13 @@ def NoLaunder (premise conclusion : AuthorityStatus) : Prop :=
   conclusion.rank ≤ premise.rank
 
 theorem holdMayStayHold : NoLaunder .hold .hold := by
-  simp [NoLaunder, AuthorityStatus.rank]
+  decide
 
 theorem checkedProofCannotRaiseHoldToPass : ¬ NoLaunder .hold .pass := by
-  simp [NoLaunder, AuthorityStatus.rank]
+  decide
 
 theorem failedPremiseCannotAuthorizeHold : ¬ NoLaunder .fail .hold := by
-  simp [NoLaunder, AuthorityStatus.rank]
+  decide
 
 #print axioms MQR.zeroInternalResidueOfComplete
 #print axioms MQR.extensionContainsUncoveredProbe
