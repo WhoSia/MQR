@@ -1,0 +1,18 @@
+REALTRANSFER 0.5
+id "mqr-4.38-transfer-hold"
+mode FORMAL_MEDIATED
+claim_scope CLAIM_SCOPE
+world_scope WORLD_SCOPE
+statement_scope STATEMENT_SCOPE
+world_authority HOLD
+scope_contains WORLD_SCOPE CLAIM_SCOPE
+scope_contains STATEMENT_SCOPE CLAIM_SCOPE
+semantic_witness SW1 HOLD EXTERNAL "world interpretation not yet independently settled" "formal predicate fixed" "external interpretation receipt remains pending"
+ancestor MEASUREMENT LOAD_BEARING PASS
+ancestor CALIBRATION LOAD_BEARING PASS
+preserve MEASUREMENT
+preserve CALIBRATION
+defeat_path D1 REACHABLE "successor evidence can reopen"
+formal_custody PASS "checked formal route"
+authorize HOLD
+END
