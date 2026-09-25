@@ -43,7 +43,8 @@ jobs:
             echo 'Finished proof unexpectedly depends on sorryAx' >&2
             exit 1
           fi
-          for theorem in             MQR.zeroInternalResidueOfComplete             MQR.extensionContainsUncoveredProbe             MQR.checkedProofCannotRaiseHoldToPass             MQR.smallClosedLargeOpen             MQR.receiptCompressionLosesLoadBearingDistinction             MQR.formalExpansionDoesNotEstablishWorldAdequacy             MQR.checkerPluralityDoesNotEntailAuthorityTransfer             MQR.formalCustodyDoesNotIdentifyTruthOrder             MQR.sameFormalStatementCanAliasDifferentWorldPredicates             MQR.formalScopeCanStrictlyExceedWorldSupport             MQR.coarseCompilationCanEraseAuthorityChangingAncestor             MQR.nominalReopenabilityDoesNotEntailDefeatReachability             MQR.bridgeSelfCertificationAddsNoIndependentConstraint             MQR.scientificAuthorityNeedNotRequireFormalCustody
+          for theorem in             MQR.zeroInternalResidueOfComplete             MQR.extensionContainsUncoveredProbe             MQR.checkedProofCannotRaiseHoldToPass             MQR.smallClosedLargeOpen             MQR.receiptCompressionLosesLoadBearingDistinction             MQR.formalExpansionDoesNotEstablishWorldAdequacy             MQR.checkerPluralityDoesNotEntailAuthorityTransfer             MQR.formalCustodyDoesNotIdentifyTruthOrder             MQR.sameFormalStatementCanAliasDifferentWorldPredicates             MQR.formalScopeCanStrictlyExceedWorldSupport             MQR.coarseCompilationCanEraseAuthorityChangingAncestor             MQR.nominalReopenabilityDoesNotEntailDefeatReachability             MQR.bridgeSelfCertificationAddsNoIndependentConstraint             MQR.scientificAuthorityNeedNotRequireFormalCustody \
+            MQR.transferMeetCannotRaiseWorldAuthority
           do
             grep -F "'$theorem' does not depend on any axioms" /tmp/lean-proof-boundary.log
           done
