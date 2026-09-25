@@ -16,6 +16,10 @@ Canonical stage receipt:
 
 `experiments/mqr-4.34/transport-support-receipt.md`
 
+A later documentation-head replay also passed after ACTIVE materialization:
+
+`36139016686`
+
 ## Strongest earned result
 
 ```text
@@ -96,6 +100,22 @@ Existing Drive literature was re-read and bound to interpretation:
 Unicode UAX #15 supplies the concrete version-conditioned normalization rationale for UNORM-001.
 
 These sources constrain interpretation and carry zero fresh case credit.
+
+## Repository closure
+
+Doctrine was promoted through MQR-4.34 at:
+
+`32cfef350aaf361f5e5105d2cd2b2bdacb8874c6`
+
+Fresh evidence-generation workflows for REGEX, SJSON and UNORM were retired after canonical adjudication.
+
+The one-shot doctrine-promotion workflow was also retired after successful writeback.
+
+Superseded MQR-4.33 workflows were removed from the live workflow surface.
+
+Remaining MQR-4.34 core/closure CI is replay infrastructure; it does not create new fresh promotion credit.
+
+Historical evidence remains recoverable through Git history.
 
 ## Claim ceiling
 
