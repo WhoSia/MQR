@@ -1,4 +1,5 @@
 name: MQR 4.36 Fresh Naturalistic Fiber Court
+# canonical-world-contact-trigger: post-rustfmt
 
 on:
   push:
