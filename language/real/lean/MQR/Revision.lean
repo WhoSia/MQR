@@ -86,13 +86,13 @@ theorem equalBurdenCountsDoNotIdentifyCrossVersionRelation :
   decide
 
 inductive PathStrength where
-  | full
-  | partial
+  | complete
+  | limited
   | absent
   deriving DecidableEq, Repr
 
-def directRevisionStrength : PathStrength := .partial
-def composedRevisionStrength : PathStrength := .full
+def directRevisionStrength : PathStrength := .limited
+def composedRevisionStrength : PathStrength := .complete
 
 theorem directAndComposedRevisionPathsCanDisagree :
     directRevisionStrength ≠ composedRevisionStrength := by
