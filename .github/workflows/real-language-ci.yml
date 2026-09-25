@@ -31,7 +31,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -338,3 +338,96 @@ jobs:
           echo MQR442_FINITE_GRAMMAR_AS_SCIENTIFIC_CLOSURE=REJECT
           echo MQR442_CONDITIONAL_FRONTIER_GUIDANCE=PASS
           echo MQR442_WORLD_FRONTIER_COMPLETE=NO
+
+
+      - name: Real-Language v0.10 allocation guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V10=./language/real/target/release/real-v10-allocate
+          P10=language/real/prolog/allocation_v10.pl
+          CORE='^allocation\.(budget|horizon|total_allocated|reserve_units|budget_valid|lane_count|mandatory_lane_count|ancestry_count|common_mode_detected|nominal_reserve|activation_capable_reserve|reserve_state|starvation_detected|exploration_debt_count|exploration_debt_items|exploration_debt_classes|debt_scalar_default|opportunity_cost_mode|exploitation_spend|reopening_spend|exploration_starved|greedy_yield_starvation_witness|escape_detected|escape_reallocation_required|reopen_on_escape|normative_prior|normative_utility|hidden_prior_inferred|hidden_utility_inferred|expected_discovery_value_inferred|unique_optimum_authorized|universal_next_action|local_optimizer_scope|guidance_mode|admissible_envelope|randomization_epistemic_oracle|policy_path_provenance|world_optimum_identified|world_frontier_complete|stopping_rule)='
+
+          for f in \
+            language/real/examples/mqr-4.43-twin-world-a.real \
+            language/real/examples/mqr-4.43-twin-world-b.real \
+            language/real/examples/mqr-4.43-reserve-goodhart.real \
+            language/real/examples/mqr-4.43-reserve-live.real \
+            language/real/examples/mqr-4.43-anti-starvation.real \
+            language/real/examples/mqr-4.43-greedy-starvation.real \
+            language/real/examples/mqr-4.43-common-mode-inflation.real \
+            language/real/examples/mqr-4.43-debt-query.real \
+            language/real/examples/mqr-4.43-debt-representation.real \
+            language/real/examples/mqr-4.43-escape-reallocation.real
+          do
+            "$V10" "$f" > /tmp/v10.rust
+            swipl -q -s "$P10" -g "run('$f'),halt" -t "halt(1)" > /tmp/v10.prolog
+            grep -E "$CORE" /tmp/v10.rust > /tmp/v10.rust.core
+            grep -E "$CORE" /tmp/v10.prolog > /tmp/v10.prolog.core
+            diff -u /tmp/v10.rust.core /tmp/v10.prolog.core
+          done
+
+          "$V10" language/real/examples/mqr-4.43-twin-world-a.real > /tmp/twa
+          "$V10" language/real/examples/mqr-4.43-twin-world-b.real > /tmp/twb
+          grep -E "$CORE" /tmp/twa > /tmp/twa.core
+          grep -E "$CORE" /tmp/twb > /tmp/twb.core
+          diff -u /tmp/twa.core /tmp/twb.core
+          grep -F 'witness.escape_lane=A' /tmp/twa
+          grep -F 'witness.escape_lane=B' /tmp/twb
+          grep -F 'allocation.universal_next_action=UNIDENTIFIED' /tmp/twa
+          grep -F 'allocation.unique_optimum_authorized=NO' /tmp/twa
+
+          "$V10" language/real/examples/mqr-4.43-reserve-goodhart.real > /tmp/rg
+          "$V10" language/real/examples/mqr-4.43-reserve-live.real > /tmp/rl
+          grep -F 'allocation.reserve_units=2' /tmp/rg
+          grep -F 'allocation.reserve_units=2' /tmp/rl
+          grep -F 'allocation.activation_capable_reserve=NO' /tmp/rg
+          grep -F 'allocation.reserve_state=NOMINAL_ONLY' /tmp/rg
+          grep -F 'allocation.activation_capable_reserve=YES' /tmp/rl
+          grep -F 'allocation.reserve_state=LIVE' /tmp/rl
+
+          "$V10" language/real/examples/mqr-4.43-anti-starvation.real > /tmp/as
+          grep -F 'allocation.starvation_detected=NO' /tmp/as
+          grep -F 'allocation.exploration_debt_count=0' /tmp/as
+          grep -F 'allocation.admissible_envelope=YES' /tmp/as
+          grep -F 'allocation.world_frontier_complete=NO' /tmp/as
+
+          "$V10" language/real/examples/mqr-4.43-greedy-starvation.real > /tmp/gs
+          grep -F 'allocation.starvation_detected=YES' /tmp/gs
+          grep -F 'allocation.exploration_starved=YES' /tmp/gs
+          grep -F 'allocation.greedy_yield_starvation_witness=YES' /tmp/gs
+
+          "$V10" language/real/examples/mqr-4.43-common-mode-inflation.real > /tmp/cm43
+          grep -F 'allocation.lane_count=3' /tmp/cm43
+          grep -F 'allocation.ancestry_count=2' /tmp/cm43
+          grep -F 'allocation.common_mode_detected=YES' /tmp/cm43
+          grep -F 'allocation.exploration_debt_count=1' /tmp/cm43
+
+          "$V10" language/real/examples/mqr-4.43-debt-query.real > /tmp/dq
+          "$V10" language/real/examples/mqr-4.43-debt-representation.real > /tmp/dr
+          grep -F 'allocation.exploration_debt_count=1' /tmp/dq
+          grep -F 'allocation.exploration_debt_count=1' /tmp/dr
+          grep -F 'allocation.exploration_debt_classes=QUERY' /tmp/dq
+          grep -F 'allocation.exploration_debt_classes=REPRESENTATION' /tmp/dr
+          grep -F 'allocation.debt_scalar_default=OFF' /tmp/dq
+
+          "$V10" language/real/examples/mqr-4.43-escape-reallocation.real > /tmp/esc43
+          grep -F 'allocation.escape_detected=YES' /tmp/esc43
+          grep -F 'allocation.escape_reallocation_required=YES' /tmp/esc43
+          grep -F 'allocation.reopen_on_escape=YES' /tmp/esc43
+
+          for x in language/real/tests/v10-invalid-*.real; do
+            if "$V10" "$x"; then exit 1; fi
+            if swipl -q -s "$P10" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V10_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR443_TWIN_WORLD_ALLOCATION_NONIDENTIFIABILITY=PASS
+          echo MQR443_ACTIVATION_CAPABLE_REOPENING_RESERVE=PASS
+          echo MQR443_TYPED_EXPLORATION_DEBT=PASS
+          echo MQR443_GREEDY_YIELD_STARVATION_WITNESS=PASS
+          echo MQR443_COMMON_MODE_PORTFOLIO_INFLATION=PASS
+          echo MQR443_ESCAPE_TRIGGERED_REALLOCATION=PASS
+          echo MQR443_UNIQUE_WORLD_OPTIMUM=NO
+          echo MQR443_WORLD_FRONTIER_COMPLETE=NO
