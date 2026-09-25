@@ -864,6 +864,14 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 90. **Independent proof checker ≠ independent world-contact lineage.** Checker plurality diversifies formal custody, not measurement ancestry.
 91. **Formal composition theorem ≠ empirical composition warrant.** Explicit exact-transformation conditions can license composition formally; whether a scientific bridge satisfies them remains world-facing.
 92. **Formalization moves epistemic debt; it does not erase world-contact debt.** Moving more transformations into a proof assistant changes the frontier but does not turn the kernel into a physical oracle.
+93. **Formal custody ≠ scientific authority.** A checked derivation and its independent replay establish properties of the declared formal object; world-facing authority remains bounded by the load-bearing empirical/model ancestry.
+94. **Transfer-contract PASS ≠ authority creation.** A world–statement bridge can preserve or restrict already earned authority but may not raise the source world-authority ceiling.
+95. **Symbol correspondence ≠ semantic correspondence.** A theorem name, shared vocabulary or syntax-preserving translation does not establish that the formal predicate denotes the intended world predicate; a defeasible interpretation witness remains load-bearing.
+96. **Theorem scope ≠ evidence scope.** A formal proposition may quantify beyond the domain supported by world contact; scientific claim scope may not inherit that excess by theoremhood alone.
+97. **Provenance-graph preservation ≠ authority-relevant ancestry preservation.** Compilation must retain every ancestor capable of changing claim authority under admissible successor evidence, not merely coarse graph shape or terminal labels.
+98. **Reopenable metadata ≠ reachable defeat.** Corrigibility requires an operational evidence-to-readjudication path; dead or forbidden edges do not earn defeatability credit.
+99. **Formalization is route-relative, not a universal authority prerequisite.** Directly world-facing scientific claims may have legitimate authority with formal custody and transfer machinery marked NOT_APPLICABLE.
+100. **Implementation diversity ≠ semantic or world independence.** Cross-language agreement can diversify compiler/custody failure modes while leaving the same interpretation, premise and world-contact assumptions untouched.
 
 ## Live governance objects
 
