@@ -1,13 +1,7 @@
-name: MQR 4.36 Integrated Closure
+name: MQR 4.36 Integrated Closure Replay
 # canonical-replay-after-rustfmt
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'experiments/mqr-4.36/**'
-      - 'language/real/**'
-      - '.github/workflows/mqr-4.36-closure.yml'
   workflow_dispatch:
 
 permissions:
