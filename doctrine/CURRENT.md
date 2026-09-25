@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.43**.
+Status: live through **MQR-4.44**.
 
 ## Generation-IV authority kernel
 
@@ -930,8 +930,28 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 156. **Frontier escape reopens allocation.** An admitted escape invalidates or re-audits every allocation receipt whose obligations, query language, ancestry, contact rank or search surface is implicated.
 157. **More budget or fair declared-lane coverage ≠ frontier closure.** Additional attention can reduce declared debt without converting an open world into a complete rival ontology.
 
+
+158. **Explicit exploration obligation ≠ epistemic warrant.** An obligation being named, mandatory and auditable does not by itself justify the agenda that constituted it.
+159. **Obligation count ≠ scientific search burden.** Split/merge-equivalent obligation partitions must be audited through their declared burden coverage rather than label cardinality.
+160. **Declared burden atom ≠ primitive world dimension.** Burden-union invariance is relative to the frozen obligation–burden map; the burden ontology itself remains defeasible, refinable and open to omitted classes.
+161. **Agenda-source count ≠ agenda-ancestry diversity.** Multiple named sources may share one load-bearing ancestry; source provenance and ancestry must remain separate coordinates.
+162. **Agenda provenance ≠ truth oracle.** Neither external nor endogenous origin automatically establishes that the constituted obligation is scientifically correct.
+163. **Successor label ≠ successor burden coverage.** An obligation may be retired into successors only when declared predecessor burden is preserved or an explicit withdrawal changes the constitution with provenance.
+164. **Successor coverage ≠ predecessor debt discharge.** Unresolved constitutional debt survives relabeling and requires explicit withdrawal or burden-preserving debt transfer.
+165. **Rename/delete ≠ debt retirement.** Removing a debt-bearing obligation from the live label set cannot erase the unresolved burden it carried.
+166. **Endogenous mandate formation is admissible but dependence-marked.** Outcomes from a live research lineage may create successor obligations, but self-generation earns no independent-confirmation credit.
+167. **Frontier escape reopens obligation constitution.** An admitted burden outside the live obligation map reopens the EOCR/OBM and every downstream allocation receipt that depended on it.
+168. **Finite constitutional audit ≠ world-complete obligation ontology.** Passing provenance, partition, successor and debt-continuity checks licenses only provisional contract-relative governance.
+
 ## Live governance objects
 
+- Exploration-Obligation Constitution Receipt (EOCR)
+- Search-Burden Atom (SBA; declaration-relative)
+- Obligation-Burden Map (OBM)
+- Agenda Provenance Graph (APG)
+- Successor-Coverage Witness (SCW)
+- Obligation Debt Continuity Ledger (ODCL)
+- Constitution Admissibility Envelope (CAE; membership predicate, not agenda oracle)
 - Rival-Search Allocation Receipt (RSAR)
 - Allocation Admissibility Envelope (AAE; membership predicate, not optimizer)
 - Research-Attention Budget (RAB)
