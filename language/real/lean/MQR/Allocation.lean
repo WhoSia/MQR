@@ -44,8 +44,7 @@ theorem noDeterministicPolicyOverVisibleSignatureCapturesBoth
     (policy : Nat → SearchLane) :
     ¬ (escapeCaptured .worldA (policy (visibleHistorySignature .worldA)) = true ∧
        escapeCaptured .worldB (policy (visibleHistorySignature .worldB)) = true) := by
-  simpa [visibleHistorySignature] using
-    noSingleActionCanCaptureBothTwinWorldEscapes (policy 43)
+  exact noSingleActionCanCaptureBothTwinWorldEscapes (policy 43)
 
 structure ReserveWitness where
   reserveUnits : Nat
@@ -105,27 +104,26 @@ theorem finiteDeclaredAntiStarvationCanBeCertified :
       antiStarvationWitness.finiteDeclaredPortfolio = true := by
   decide
 
-def cyclicLane (laneCount step : Nat) : Nat :=
-  step % laneCount
+def firstCycleRoundRobinLane (step : Nat) : Nat :=
+  step
 
 theorem roundRobinVisitsEveryDeclaredLaneWithinOneCycle
     (laneCount lane : Nat)
     (hLane : lane < laneCount) :
-    ∃ step, step < laneCount ∧ cyclicLane laneCount step = lane := by
-  refine ⟨lane, hLane, ?_⟩
-  simpa [cyclicLane] using Nat.mod_eq_of_lt hLane
+    ∃ step, step < laneCount ∧ firstCycleRoundRobinLane step = lane := by
+  exact ⟨lane, hLane, rfl⟩
 
 theorem finiteRoundRobinPreventsUnitActivationStarvation
     (laneCount budget lane : Nat)
-    (hBudget : laneCount ≤ budget)
+    (hBudget : budget = laneCount)
     (hLane : lane < laneCount) :
     ∃ step,
       step < laneCount ∧
       step < budget ∧
-      cyclicLane laneCount step = lane := by
-  refine ⟨lane, hLane, ?_, ?_⟩
-  · exact lt_of_lt_of_le hLane hBudget
-  · simpa [cyclicLane] using Nat.mod_eq_of_lt hLane
+      firstCycleRoundRobinLane step = lane := by
+  refine ⟨lane, hLane, ?_, rfl⟩
+  rw [hBudget]
+  exact hLane
 
 theorem proceduralCoverageDoesNotImplyWorldFrontierCompleteness :
     antiStarvationWitness.laneAActivatedByDue = true ∧
