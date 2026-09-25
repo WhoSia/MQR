@@ -1,11 +1,6 @@
-name: MQR 4.33 TOML Postfail Diagnostic
+name: MQR 4.33 TOML Postfail Diagnostic Replay
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'experiments/mqr-4.33/external/toml-diagnostic/**'
-      - '.github/workflows/mqr-4.33-toml-diagnostic.yml'
   workflow_dispatch:
 
 permissions:
