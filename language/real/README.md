@@ -268,11 +268,13 @@ WORLD CONTACT
 Lean or another prover may certify derivability inside the formal region.
 It does not certify the truth of empirical premises merely because they are formalized.
 
-The current working architecture is **Proof-Carrying Realist Authority (PCRA)**. PCRA is a methodology/design hypothesis, not a new metaphysical primitive.
+MQR-4.37 retires **PCRA as one monolithic scientific-authority construct** while preserving it as historical workflow architecture. The live decomposition is: **formal custody + world-facing authority + explicit transfer contract**. See `V05-AUTHORITY-TRANSFER.md`.
 
 ## Ceiling
 
 Real-Language is allowed to represent earned authority, transport relations, premise ancestry and proof receipts.
+
+It is not allowed to infer `TRANSFER=PASS` merely from formal-custody PASS.
 
 It is not allowed to manufacture:
 - a truth percentage,
