@@ -1,12 +1,6 @@
-name: MQR 4.33 Closure Certificate
+name: MQR 4.33 Closure Certificate Replay
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/mqr-4.33-closure.yml'
-      - 'experiments/mqr-4.33/**'
-      - 'receipts/mqr-4.33/**'
   workflow_dispatch:
 
 permissions:
