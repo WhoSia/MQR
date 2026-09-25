@@ -1,0 +1,133 @@
+name: MQR-4.45 Burden-Ontology Revision Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.45/**'
+      - 'language/real/src/revision_v12.rs'
+      - 'language/real/prolog/revision_v12.pl'
+      - 'language/real/examples/mqr-4.45-*.real'
+      - 'language/real/tests/v12-invalid-*.real'
+      - 'language/real/V12-BURDEN-REVISION.md'
+      - 'language/real/lean/MQR/Revision.lean'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.45-burden-revision-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  revision-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.12 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v12-revise
+
+      - name: Execute burden revision attacks and Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v12-revise
+          P=language/real/prolog/revision_v12.pl
+          CORE='^revision\.(source_burden_count|target_burden_count|map_count|exact_count|refine_count|merge_count|overlap_count|unmapped_source_count|unmapped_sources|target_novel_burden_count|target_novel_burdens|same_label_drift|different_label_exact_alias|debt_source_count|debt_transport_complete|debt_accounting_mode|refinement_multiplicity|debt_double_count_detected|debt_collapse_detected|merge_provenance_preserved|comparable_source_burden_count|comparability_mode|conflict_count|arbitration_required|conflict_scalar_default|direct_composed_conflict|reopen_required|reopen_on_path_conflict|world_burden_identity_inferred|future_revision_closed|newer_ontology_truth_oracle|provenance_truth_oracle|guidance_mode|state)='
+
+          for f in language/real/examples/mqr-4.45-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep -E "$CORE" /tmp/rust > /tmp/rust.core
+            grep -E "$CORE" /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.45-same-label-drift.real > /tmp/drift
+          grep -F 'revision.same_label_drift=YES' /tmp/drift
+          grep -F 'revision.overlap_count=1' /tmp/drift
+
+          "$V" language/real/examples/mqr-4.45-exact-alias.real > /tmp/alias
+          grep -F 'revision.different_label_exact_alias=YES' /tmp/alias
+          grep -F 'revision.target_novel_burden_count=1' /tmp/alias
+          grep -F 'revision.target_novel_burdens=N' /tmp/alias
+
+          "$V" language/real/examples/mqr-4.45-refine-under.real > /tmp/ref_under
+          "$V" language/real/examples/mqr-4.45-refine-full.real > /tmp/ref_full
+          "$V" language/real/examples/mqr-4.45-refine-doublecount.real > /tmp/ref_double
+          grep -F 'revision.debt_transport_complete=NO' /tmp/ref_under
+          grep -F 'revision.debt_transport_complete=YES' /tmp/ref_full
+          grep -F 'revision.refinement_multiplicity=YES' /tmp/ref_full
+          grep -F 'revision.debt_double_count_detected=NO' /tmp/ref_full
+          grep -F 'revision.debt_double_count_detected=YES' /tmp/ref_double
+
+          "$V" language/real/examples/mqr-4.45-merge-launder.real > /tmp/merge_bad
+          "$V" language/real/examples/mqr-4.45-merge-preserve.real > /tmp/merge_good
+          grep -F 'revision.debt_collapse_detected=YES' /tmp/merge_bad
+          grep -F 'revision.merge_provenance_preserved=NO' /tmp/merge_bad
+          grep -F 'revision.debt_transport_complete=NO' /tmp/merge_bad
+          grep -F 'revision.debt_collapse_detected=NO' /tmp/merge_good
+          grep -F 'revision.merge_provenance_preserved=YES' /tmp/merge_good
+          grep -F 'revision.debt_transport_complete=YES' /tmp/merge_good
+
+          "$V" language/real/examples/mqr-4.45-noncommuting-diamond.real > /tmp/diamond
+          grep -F 'revision.direct_composed_conflict=YES' /tmp/diamond
+          grep -F 'revision.reopen_required=YES' /tmp/diamond
+
+          "$V" language/real/examples/mqr-4.45-obligation-conflict.real > /tmp/conflict
+          grep -F 'revision.conflict_count=1' /tmp/conflict
+          grep -F 'revision.arbitration_required=YES' /tmp/conflict
+          grep -F 'revision.conflict_scalar_default=OFF' /tmp/conflict
+
+          grep -F 'revision.comparability_mode=MAPPED_SUBSPACE_ONLY' /tmp/alias
+          grep -F 'revision.world_burden_identity_inferred=NO' /tmp/alias
+          grep -F 'revision.future_revision_closed=NO' /tmp/alias
+          grep -F 'revision.newer_ontology_truth_oracle=NO' /tmp/alias
+          grep -F 'revision.provenance_truth_oracle=NO' /tmp/alias
+          grep -F 'revision.guidance_mode=VERSIONED_LOSS_AWARE_TRANSPORT' /tmp/alias
+
+          for x in language/real/tests/v12-invalid-*.real; do
+            if "$V" "$x"; then
+              echo "Rust unexpectedly accepted $x" >&2
+              exit 1
+            fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then
+              echo "Prolog unexpectedly accepted $x" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V12_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR445_SAME_LABEL_DRIFT=PASS
+          echo MQR445_DIFFERENT_LABEL_EXACT_ALIAS=PASS
+          echo MQR445_REFINEMENT_DEBT_CONTINUITY=PASS
+          echo MQR445_MERGE_DEBT_ANCESTRY=PASS
+          echo MQR445_NONCOMMUTING_REVISION_DIAMOND=PASS
+          echo MQR445_CONFLICT_LOCALIZATION=PASS
+          echo MQR445_WORLD_BURDEN_IDENTITY=NO
+          echo MQR445_FUTURE_REVISION_CLOSED=NO
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.45/Court"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" \
+            -f context="$context" \
+            -f description="$description" \
+            -f target_url="$target"
