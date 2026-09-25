@@ -45,12 +45,18 @@ jobs:
           grep -F 'rank.minimum_basis_cost_min=2' /tmp/r
           grep -F 'rank.minimum_basis_cost_max=200' /tmp/r
 
-          "$V" language/real/examples/mqr-4.41-rank-frontier-base.real | grep -F 'rank.minimum=1'
-          "$V" language/real/examples/mqr-4.41-rank-frontier-expanded.real | grep -F 'rank.minimum=2'
-          "$V" language/real/examples/mqr-4.41-rank-drift-before.real | grep -F 'rank.minimum=1'
-          "$V" language/real/examples/mqr-4.41-rank-drift-after.real | grep -F 'rank.minimum=2'
-          "$V" language/real/examples/mqr-4.41-rank-instrument-before.real | grep -F 'rank.minimum=2'
-          "$V" language/real/examples/mqr-4.41-rank-instrument-after.real | grep -F 'rank.minimum=1'
+          "$V" language/real/examples/mqr-4.41-rank-frontier-base.real > /tmp/fb
+          "$V" language/real/examples/mqr-4.41-rank-frontier-expanded.real > /tmp/fe
+          "$V" language/real/examples/mqr-4.41-rank-drift-before.real > /tmp/db
+          "$V" language/real/examples/mqr-4.41-rank-drift-after.real > /tmp/da
+          "$V" language/real/examples/mqr-4.41-rank-instrument-before.real > /tmp/ib
+          "$V" language/real/examples/mqr-4.41-rank-instrument-after.real > /tmp/ia
+          grep -F 'rank.minimum=1' /tmp/fb
+          grep -F 'rank.minimum=2' /tmp/fe
+          grep -F 'rank.minimum=1' /tmp/db
+          grep -F 'rank.minimum=2' /tmp/da
+          grep -F 'rank.minimum=2' /tmp/ib
+          grep -F 'rank.minimum=1' /tmp/ia
 
           V07=./language/real/target/release/real-v07-substitute
           "$V07" experiments/mqr-4.41/legacy-degree-single.real > /tmp/legacy-single
