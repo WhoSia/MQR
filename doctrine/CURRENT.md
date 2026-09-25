@@ -906,8 +906,27 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 132. **Separation incidence is evaluation-contract relative.** Metrics, thresholds, partitions or equivalence rules that define what counts as rival discrimination are load-bearing provenance; same measurement material may induce different ranks under different separation contracts.
 133. **Realized minimum ≠ selection-history sufficiency.** Data-dependent frontier construction, root pruning or incidence selection can change scientific warrant even when the realized WCSH is minimized exactly.
 134. **Descriptive contact rank ≠ decision warrant.** Robust action may be licensed under an explicit decision contract despite unresolved descriptive rivals, while low FCR alone licenses no action.
+135. **Current-rival separation ≠ query-language closure.** A query family that distinguishes every admitted current rival may still alias a scientifically relevant successor rival revealed only after query extension.
+136. **Generator diversity ≠ generator independence.** Distinct rival generators that share ancestry, representation, data, heuristics or model class do not earn independent frontier-search credit merely by being separately named.
+137. **Generator-relative saturation ≠ frontier completeness.** Repeated no-discovery supports saturation only relative to the declared generator/query/admission/history contract; it never licenses a no-further-rival claim.
+138. **Finite grammar closure ≠ scientific frontier closure.** Exhaustive enumeration inside a declared rival grammar certifies only grammar closure, not exhaustion of scientifically relevant alternatives.
+139. **Stable FCR ≠ zero discovery value.** A newly admitted rival can change frontier knowledge, mechanism attribution, scope or future discriminator targets while the minimum external-root count stays fixed.
+140. **ΔFCR ≠ discovery value.** Rank increase can arise from a weakly motivated or claim-irrelevant construction, while a high-value discovery can leave FCR unchanged; discovery impact remains vector-valued.
+141. **Rival portfolio is path-dependent provenance.** Frontier receipts must expose generator portfolio, generator ancestry, query/intervention class, admission rule and discovery history rather than treating the current rival set as self-authenticating.
+142. **Open Frontier Receipt replaces frontier-completeness certification.** A scientific frontier earns only a scoped operational receipt by making its construction contract explicit while declaring world completeness unavailable.
+143. **Frontier Reopening Reserve is load-bearing.** Conditional use of FCR requires live routes for rival, query, representation and generator escape; an admitted escape reopens every implicated rank and authority receipt.
+144. **Frontier-relative guidance can be useful without frontier completeness.** FCR may guide local experiment allocation or discriminator design inside an explicit Open Frontier Receipt, but it cannot justify stopping rival search or promoting the frontier to a closed world.
+145. **Reopening competence ≠ completeness proof.** Maintaining diverse escape routes is a governance property, not evidence that all relevant rivals are already represented.
 
 ## Live governance objects
+
+- Open Frontier Receipt (OFR)
+- Frontier Reopening Reserve (FRR)
+- Rival Generator / Rival-Generation Ancestry Graph (RGAG)
+- Frontier Adequacy Surface (FAS)
+- Frontier Escape Witness (FEW)
+- Generator-Relative Saturation
+- Discovery-Impact Vector
 
 - Rival-Separation Obligation (RSO)
 - World-Contact Separation Hypergraph (WCSH)
