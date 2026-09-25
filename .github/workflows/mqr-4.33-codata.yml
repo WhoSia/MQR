@@ -1,0 +1,45 @@
+name: MQR 4.33 CODATA Diagnostic Replay
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.33/codata/**'
+      - 'experiments/mqr-4.33/rust/src/bin/codata.rs'
+      - 'experiments/mqr-4.33/rust/Cargo.toml'
+      - '.github/workflows/mqr-4.33-codata.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  codata:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt, clippy
+      - name: Format gate
+        run: cargo fmt --manifest-path experiments/mqr-4.33/rust/Cargo.toml -- --check
+      - name: Clippy gate
+        run: cargo clippy --manifest-path experiments/mqr-4.33/rust/Cargo.toml --bin mqr433-codata -- -D warnings
+      - name: Release build
+        run: cargo build --manifest-path experiments/mqr-4.33/rust/Cargo.toml --release --bin mqr433-codata
+      - name: Recompute frozen CODATA diagnostic
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=./experiments/mqr-4.33/rust/target/release/mqr433-codata
+          OUT=/tmp/codata-z-results.tsv
+          LOG=/tmp/codata-summary.log
+          "$BIN" experiments/mqr-4.33/codata/codata-values.tsv > "$OUT" 2> "$LOG"
+          diff -u experiments/mqr-4.33/codata/codata-z-results.tsv "$OUT"
+          cat "$LOG"
+          grep -F 'COMPOSITION_CANDIDATES=2' "$LOG"
+          grep -F 'CANDIDATE_DIRECT_PASS=2' "$LOG"
+          grep -F 'CANDIDATE_DIRECT_FAIL=0' "$LOG"
+          echo 'CODATA_RECOMPUTATION=PASS'
+          echo 'RESEARCH_LAB_PROMOTION_CREDIT=ZERO'
