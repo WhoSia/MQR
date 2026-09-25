@@ -217,7 +217,7 @@ jobs:
           N=language/real/examples/mqr-4.41-rank-nonmatroid.real
 
           "$V08" "$N" > /tmp/n.rust
-          swipl -q -s "$P08" -- "$N" > /tmp/n.prolog
+          swipl -q -s "$P08" -g "run('$N'),halt" -t "halt(1)" > /tmp/n.prolog
           grep -E '^rank\.(coverage_complete|minimum|basis_count|unique|exchange_property|minimum_basis_cost_min|minimum_basis_cost_max|minimum_bases)=' /tmp/n.rust > /tmp/n.rust.core
           grep -E '^rank\.(coverage_complete|minimum|basis_count|unique|exchange_property|minimum_basis_cost_min|minimum_basis_cost_max|minimum_bases)=' /tmp/n.prolog > /tmp/n.prolog.core
           diff -u /tmp/n.rust.core /tmp/n.prolog.core
@@ -260,7 +260,7 @@ jobs:
 
           for f in language/real/tests/v08-invalid-*.real; do
             if "$V08" "$f"; then exit 1; fi
-            if swipl -q -s "$P08" -- "$f"; then exit 1; fi
+            if swipl -q -s "$P08" -g "run('$f'),halt" -t "halt(1)"; then exit 1; fi
           done
 
           echo REAL_LANGUAGE_V08_RUST_PROLOG_CONCORDANCE=PASS

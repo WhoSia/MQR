@@ -40,7 +40,7 @@ jobs:
           cat /tmp/r
 
           echo CHECKPOINT=PROLOG_NONMATROID
-          if ! swipl -q -s "$P" -- "$N" > /tmp/p 2>/tmp/p.err; then
+          if ! swipl -q -s "$P" -g "run('$N'),halt" -t "halt(1)" > /tmp/p 2>/tmp/p.err; then
             cat /tmp/p || true
             cat /tmp/p.err || true
             exit 1
@@ -86,7 +86,7 @@ jobs:
               echo "Rust unexpectedly accepted $x" >&2
               exit 1
             fi
-            if swipl -q -s "$P" -- "$x"; then
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then
               echo "Prolog unexpectedly accepted $x" >&2
               exit 1
             fi
