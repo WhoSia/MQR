@@ -18,125 +18,19 @@ jobs:
           fetch-depth: 0
       - name: Promote MQR-4.34 doctrine without rewriting prior doctrine
         shell: bash
+        env:
+          SECTION_B64: IyMjIyBNUVItNC4zNCByZWxhdGlvbmFsIHN1cHBvcnQgZ2VvbWV0cnkgcmVzdWx0CgpNUVItNC4zNCByZXNwb25kcyB0byB0aGUgZXhhY3QgTVFSLTQuMzMgc3VwcG9ydC1wcm9maWxlIGNvbGxpc2lvbiBieSBjaGFuZ2luZyB0aGUgZXhwbGFuYW5kdW0gcHJvc3BlY3RpdmVseSByYXRoZXIgdGhhbiByZXBhaXJpbmcgdGhlIGZhaWxlZCBCb29sZWFuIGNsYXNzaWZpZXIuCgpUaGUgcHJpbWFyeSBzdXBwb3J0IG9iamVjdCBpcyBub3cgcmVsYXRpb25hbDoKCmBgYHRleHQKTVUoQiAtPiBEKSA9IHsKICBET01BSU5fUkVMQVRJT04sCiAgU0VNQU5USUNfTUFQLAogIENPTVBPTkVOVF9SRUxBVElPTiwKICBRVU9USUVOVF9SRUxBVElPTiwKICBTVEFURV9SRUxBVElPTiwKICBFTkRQT0lOVF9DT05UUkFDVAp9CmBgYAoKRnJvemVuIHJlbGF0aW9uIHR5cGVzOgotIFIwIFNBTUVfR0VORVJBVE9SX0hPTERPVVQ7Ci0gUjEgU1RSSUNUX0RPTUFJTl9FWFRFTlNJT047Ci0gUjIgU1VDQ0VTU09SX1JFRklORU1FTlQ7Ci0gUjMgQ09OU1RJVFVUSVZFX0NPTVBPTkVOVF9TSElGVDsKLSBSNCBPVkVSTEFQX05PTk5FU1RFRDsKLSBSNSBVTlJFU09MVkVELgoKVGhlc2UgbWFwIHByb3NwZWN0aXZlbHkgdG8gYXV0aG9yaXR5IHN0YXRlcyBBMOKAk0E1LiBUaGUgbWFwIGRvZXMgbm90IHByZWRpY3QgcmF3IGRpcmVjdCBQQVNTL0ZBSUwuIEl0IGRldGVybWluZXMgd2hhdCBhZGphY2VudCBldmlkZW5jZSBpcyBlbnRpdGxlZCB0byBzdXBwb3J0IGJlZm9yZSBkaXJlY3QgcmV2ZWFsLgoKVGhlIHJlbGF0aW9uIGdyYW1tYXIgd2FzIGZyb3plbiBiZWZvcmUgaW5oZXJpdGVkIFRLTi9UT01MIHJlbWFwcGluZyBhbmQgYmVmb3JlIGZyZXNoIGV4dGVybmFsIGJlaGF2aW9yYWwgcmV2ZWFsLgoKWmVyby1jcmVkaXQgaW5oZXJpdGVkIGNhbGlicmF0aW9uIHNlcGFyYXRlZCB0aGUgTVFSLTQuMzMgY29sbGlzaW9uOgoKYGBgdGV4dApUS04tMDAxICAtPiBSMCBTQU1FX0dFTkVSQVRPUl9IT0xET1VUIC0+IEEwIEhPTERPVVRfU1VQUE9SVF9BRE1JU1NJQkxFClRPTUwtRDEgLT4gUjEgU1RSSUNUX0RPTUFJTl9FWFRFTlNJT04gLT4gQTEgRVhURU5TSU9OX1JFUVVJUkVTX0ZSRVNIX0NPTlRBQ1QKYGBgCgpObyBydWxlIHdhcyBhZGRlZCBhZnRlciB0aGlzIG1hcHBpbmcuCgpUaHJlZSBmcmVzaCBFTkdJTkVFUklOR19ERVZFTE9QTUVOVCB3b3JsZHMgdGhlbiBzdXBwbGllZCB0aHJlZSBkaWZmZXJlbnQgcHJvc3BlY3RpdmUgYXV0aG9yaXR5IHBhdHRlcm5zLgoKU0pTT04tMDAxOgoKYGBgdGV4dApSMCBTQU1FX0dFTkVSQVRPUl9IT0xET1VUCmFkamFjZW50IGJyaWRnZSBQQVNTL1BBU1MKbWVkaWF0ZWQgZGlyZWN0IFBBU1MgcHJlZGljdGlvbiBzZWFsZWQgYmVmb3JlIGRpcmVjdCByZXZlYWwKZGlyZWN0IEEtPkMgUEFTUwpwcmVkaWN0aW9uIGNvbmZpcm1lZApgYGAKClJFR0VYLTAwMToKCmBgYHRleHQKUjEgU1RSSUNUX0RPTUFJTl9FWFRFTlNJT04KYWRqYWNlbnQgYnJpZGdlIFBBU1MvUEFTUwptZWRpYXRlZCBkaXJlY3QgcHJlZGljdGlvbiBOT1QgTElDRU5TRUQKZnJlc2ggZGlyZWN0IGNvbnRhY3QgcmVxdWlyZWQKZGlyZWN0IEEtPkMgUEFTUwpgYGAKClRoZSBsYXRlciBkaXJlY3QgUEFTUyBkb2VzIG5vdCByZXRyb2FjdGl2ZWx5IGNvbnZlcnQgUjEgaW50byBSMC4gVGhlIGV2aWRlbnRpYWwgYnVyZGVuIGV4aXN0ZWQgYmVmb3JlIHRoZSBvdXRjb21lIHdhcyBrbm93bi4KClVOT1JNLTAwMToKCmBgYHRleHQKUjIgU1VDQ0VTU09SX1JFRklORU1FTlQKY29hcnNlIGJyaWRnZSBQQVNTL1BBU1MKc3VjY2Vzc29yLW9ubHkgZGlyZWN0IHByZWRpY3Rpb24gTk9UIExJQ0VOU0VECmZyZXNoIHN1Y2Nlc3NvciBkaXJlY3QgQS0+QyA9IERJVkVSR0VOQ0UKYGBgCgpUaGlzIGlzIHRoZSBzaGFycGVzdCBmcmVzaCByZXN1bHQuIEEgcHJlc2VydmVkIGNvYXJzZSBxdW90aWVudCBjYW4gY29leGlzdCB3aXRoIGRpdmVyZ2VuY2Ugb24gc3VjY2Vzc29yLW9ubHkgZGlzdGluY3Rpb25zLiBUaGVyZWZvcmUgY29hcnNlIHN1cHBvcnQgY2Fubm90IGF1dG9tYXRpY2FsbHkgbGljZW5zZSBhdXRob3JpdHkgb3ZlciBhIHJlZmluZWQgZGlyZWN0IGRvbWFpbi4KClRoZSBpbnRlZ3JhdGVkIGNsb3N1cmUgcGFzc2VkIGZvcmNpbmcgd29ybGRzLCBSdXN0L0MrKyBjb25jb3JkYW5jZSwgZGVjb3kgaW52YXJpYW5jZSwgcmVsYXRpb24tY2hhbmdpbmcgaW50ZXJ2ZW50aW9uIHNlbnNpdGl2aXR5LCBpbmhlcml0ZWQgemVyby1jcmVkaXQgc2VwYXJhdGlvbiwgZnJvemVuIGZyZXNoIHJlbGF0aW9uIHJlY2VpcHRzIGFuZCBleGFjdCByZXBsYXkgb2YgYWxsIHRocmVlIGV4dGVybmFsIHdvcmxkcy4KCkNhbm9uaWNhbCBjbG9zdXJlOgoKYGBgdGV4dApydW4gPSAzNjEzODgyMDUzNQpoZWFkID0gMjVjN2RlNTcyYWYwYzY1ZDIxMzc1NzRhM2IxZGVjMTRhOWIyZjk1ZgpgYGAKClRoZSBleGFjdCBwcmVzZWFsZWQgZXh0ZXJuYWwtaWRlbnRpZmljYXRpb24gcnVsZSB3YXMgbm90IHNhdGlzZmllZDoKLSBmcmVzaCBleHRlcm5hbCBOID0gMyA8IDY7Ci0gbGluZWFnZSBraW5kcyA9IDEgPCAyOwotIFJFU0VBUkNIX0xBQiBOID0gMCA8IDI7Ci0gZnJlc2ggUjAgTiA9IDEgPCAyLgoKVGhlcmVmb3JlOgoKYGBgdGV4dApSRUxBVElPTkFMX1NVUFBPUlRfR0VPTUVUUllfRVhURVJOQUxfSURFTlRJRklDQVRJT04gPSBIT0xEClNUUk9OR0VTVF9FQVJORURfUkVTVUxUID0gUkVMQVRJT05BTF9TVVBQT1JUX0FVVEhPUklUWV9JU19ET01BSU5fTUFQX0lOREVYRUQKYGBgCgpUaGUgZG9jdHJpbmFsIHVwZGF0ZSBpczoKCj4gQWRqYWNlbnQgdHJhbnNwb3J0IGV2aWRlbmNlIGhhcyBubyBjb250ZXh0LWZyZWUgc3VwcG9ydCBhdXRob3JpdHkuIEl0cyBhZG1pc3NpYmxlIHJlYWNoIGlzIGluZGV4ZWQgYnkgdGhlIHByb3NwZWN0aXZlbHkgZGVjbGFyZWQgbWFwIGZyb20gYnJpZGdlIHN1cHBvcnQgdG8gZGlyZWN0IGNsYWltIGRvbWFpbi4KClRoaXMgcmVtYWlucyBuYXJyb3dlciB0aGFuIGEgdW5pdmVyc2FsIHN1cHBvcnQgbGF3LiBUaGUgZnVsbCBNVSByZXByZXNlbnRhdGlvbiBtYXkgaXRzZWxmIGJlIGRlZmVhdGVkIGJ5IGEgZnV0dXJlIGZyZXNoIGF1dGhvcml0eS1zdGF0ZSBjb2xsaXNpb24uCgpMaXRlcmF0dXJlIGNvbnN0cmFpbnRzIHVzZWQgaW4gaW50ZXJwcmV0YXRpb24sIHdpdGggemVybyBjYXNlIGNyZWRpdDoKLSBQZWFybCAmIEJhcmVpbmJvaW0gMjAxMTogZXhwbGljaXQgc291cmNlL3RhcmdldCBkaWZmZXJlbmNlIHN0cnVjdHVyZSBmb3IgdHJhbnNwb3J0YWJpbGl0eTsKLSBUYWwgMjAxNzogbW9kZWwtbWVkaWF0ZWQgY2FsaWJyYXRpb24gYW5kIG1lYXN1cmVtZW50IGF1dGhvcml0eTsKLSBDb3Vzb3QgJiBDb3Vzb3QgMTk3NzogY29hcnNlIGFic3RyYWN0aW9uL3JlZmluZW1lbnQgZGlzY2lwbGluZTsKLSBVbmljb2RlIFVBWCAjMTU6IHZlcnNpb24tY29uZGl0aW9uZWQgbm9ybWFsaXphdGlvbiBzdGFiaWxpdHkgYW5kIHN1Y2Nlc3Nvci1vbmx5IG5vcm1hbGl6YXRpb24gZGlzdGluY3Rpb25zLgoKTVFSIGRvZXMgbm90IGNsYWltIHRoYXQgTVUgaXMgYSBjYXVzYWwgc2VsZWN0aW9uIGRpYWdyYW0sIGEgbWV0cm9sb2dpY2FsIGNhbGlicmF0aW9uIHRoZW9yZW0sIG9yIGEgR2Fsb2lzIGNvbm5lY3Rpb24uCgo=
         run: |
           set -euo pipefail
           python - <<'PY'
+          import base64, os
           from pathlib import Path
           p=Path('doctrine/CURRENT.md')
           s=p.read_text(encoding='utf-8')
           s=s.replace('Status: live through **MQR-4.33**.','Status: live through **MQR-4.34**.',1)
+          section=base64.b64decode(os.environ['SECTION_B64']).decode('utf-8')
           heading='#### MQR-4.34 relational support geometry result'
           if heading not in s:
-              section=r'''#### MQR-4.34 relational support geometry result
-
-MQR-4.34 responds to the exact MQR-4.33 support-profile collision by changing the explanandum prospectively rather than repairing the failed Boolean classifier.
-
-The primary support object is now relational:
-
-```text
-MU(B -> D) = {
-  DOMAIN_RELATION,
-  SEMANTIC_MAP,
-  COMPONENT_RELATION,
-  QUOTIENT_RELATION,
-  STATE_RELATION,
-  ENDPOINT_CONTRACT
-}
-```
-
-Frozen relation types:
-- R0 SAME_GENERATOR_HOLDOUT;
-- R1 STRICT_DOMAIN_EXTENSION;
-- R2 SUCCESSOR_REFINEMENT;
-- R3 CONSTITUTIVE_COMPONENT_SHIFT;
-- R4 OVERLAP_NONNESTED;
-- R5 UNRESOLVED.
-
-These map prospectively to authority states A0–A5. The map does not predict raw direct PASS/FAIL. It determines what adjacent evidence is entitled to support before direct reveal.
-
-The relation grammar was frozen before inherited TKN/TOML remapping and before fresh external behavioral reveal.
-
-Zero-credit inherited calibration separated the MQR-4.33 collision:
-
-```text
-TKN-001  -> R0 SAME_GENERATOR_HOLDOUT -> A0 HOLDOUT_SUPPORT_ADMISSIBLE
-TOML-D1 -> R1 STRICT_DOMAIN_EXTENSION -> A1 EXTENSION_REQUIRES_FRESH_CONTACT
-```
-
-No rule was added after this mapping.
-
-Three fresh ENGINEERING_DEVELOPMENT worlds then supplied three different prospective authority patterns.
-
-SJSON-001:
-
-```text
-R0 SAME_GENERATOR_HOLDOUT
-adjacent bridge PASS/PASS
-mediated direct PASS prediction sealed before direct reveal
-direct A->C PASS
-prediction confirmed
-```
-
-REGEX-001:
-
-```text
-R1 STRICT_DOMAIN_EXTENSION
-adjacent bridge PASS/PASS
-mediated direct prediction NOT LICENSED
-fresh direct contact required
-direct A->C PASS
-```
-
-The later direct PASS does not retroactively convert R1 into R0. The evidential burden existed before the outcome was known.
-
-UNORM-001:
-
-```text
-R2 SUCCESSOR_REFINEMENT
-coarse bridge PASS/PASS
-successor-only direct prediction NOT LICENSED
-fresh successor direct A->C = DIVERGENCE
-```
-
-This is the sharpest fresh result. A preserved coarse quotient can coexist with divergence on successor-only distinctions. Therefore coarse support cannot automatically license authority over a refined direct domain.
-
-The integrated closure passed forcing worlds, Rust/C++ concordance, decoy invariance, relation-changing intervention sensitivity, inherited zero-credit separation, frozen fresh relation receipts and exact replay of all three external worlds.
-
-Canonical closure:
-
-```text
-run = 36138820535
-head = 25c7de572af0c65d2137574a3b1dec14a9b2f95f
-```
-
-The exact presealed external-identification rule was not satisfied:
-- fresh external N = 3 < 6;
-- lineage kinds = 1 < 2;
-- RESEARCH_LAB N = 0 < 2;
-- fresh R0 N = 1 < 2.
-
-Therefore:
-
-```text
-RELATIONAL_SUPPORT_GEOMETRY_EXTERNAL_IDENTIFICATION = HOLD
-STRONGEST_EARNED_RESULT = RELATIONAL_SUPPORT_AUTHORITY_IS_DOMAIN_MAP_INDEXED
-```
-
-The doctrinal update is:
-
-> Adjacent transport evidence has no context-free support authority. Its admissible reach is indexed by the prospectively declared map from bridge support to direct claim domain.
-
-This remains narrower than a universal support law. The full MU representation may itself be defeated by a future fresh authority-state collision.
-
-Literature constraints used in interpretation, with zero case credit:
-- Pearl & Bareinboim 2011: explicit source/target difference structure for transportability;
-- Tal 2017: model-mediated calibration and measurement authority;
-- Cousot & Cousot 1977: coarse abstraction/refinement discipline;
-- Unicode UAX #15: version-conditioned normalization stability and successor-only normalization distinctions.
-
-MQR does not claim that MU is a causal selection diagram, a metrological calibration theorem, or a Galois connection.
-
-'''
               marker='## Current compression'
               if marker in s:
                   s=s.replace(marker,section+marker,1)
