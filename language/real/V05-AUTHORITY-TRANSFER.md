@@ -120,3 +120,26 @@ The compiler must not force all scientific claims to use Lean.
 For non-formal claims, FORMAL_CUSTODY may be NOT_APPLICABLE while world-facing scientific authority remains evaluable by the existing MQR gates.
 
 The proof assistant is a conditional inference-custody instrument, not a universal scientific-authority primitive.
+
+
+## MQR-4.38 executable promotion
+
+Status: EXECUTABLE / NON-AMPLIFYING / FORMALIZATION OPTIONAL.
+
+The v0.5 transfer lane is now implemented by the canonical Rust compiler `language/real/src/transfer_v05.rs` (`real-v05-transfer`) and an independent Haskell evaluator at `language/real/haskell/TransferV05.hs`.
+
+The live coordinates are semantic correspondence, scope admissibility, ancestry preservation, defeat reachability, noncircular warrant, and formal custody when applicable. Their states remain PASS / HOLD / FAIL / NOT_APPLICABLE; no numeric aggregation is defined. HOLD is preserved rather than collapsed into FAIL.
+
+`TRANSFER=PASS` now means only **STRUCTURAL_ADMISSIBILITY_NONAMPLIFYING**. It does not create or increase world authority. The Lean theorem `MQR.transferMeetCannotRaiseWorldAuthority` mechanizes the no-amplification rule.
+
+Semantic correspondence remains world-facing: the compiler checks the witness identity, state, declared world/formal predicates, and noncircular warrant, but does not manufacture the correctness of that interpretation. A SELF-certified witness fails the bridge-bootstrap guard.
+
+Scope is split into WORLD_SCOPE / STATEMENT_SCOPE / CLAIM_SCOPE. A formally mediated scientific claim must lie inside both declared world support and formal statement scope. The theorem may be broader than the evidence; the scientific claim may not inherit the excess scope.
+
+Every LOAD_BEARING ancestor must remain preserved; auxiliary details need not. Defeatability requires an operational REACHABLE path to re-adjudication rather than a nominal reopenable label.
+
+A NONFORMAL positive control is first-class: WORLD_AUTHORITY may be PASS while FORMAL_CUSTODY and TRANSFER are NOT_APPLICABLE. Formal proof is therefore a conditional inference-custody instrument, not a universal prerequisite for scientific authority.
+
+Rust/Haskell concordance counts as implementation-diversity evidence only. It does not establish semantic or world independence.
+
+Canonical ceiling: TRANSFER CONTRACT != TRUTH ORACLE; TRANSFER PASS != AUTHORITY CREATION; TARGET AUTHORITY <= SOURCE WORLD AUTHORITY; FINAL_TRUTH_DISTANCE = UNIDENTIFIED.
