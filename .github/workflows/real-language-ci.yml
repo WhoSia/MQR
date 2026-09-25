@@ -24,6 +24,51 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
+            if grep -q '^REALPACKET 0.4
+            diff -u /tmp/python.out /tmp/rust.out
+            ./language/real/target/release/real --diagnostic-scalar "$f" > /tmp/rust.scalar
+            python language/real/reference.py --diagnostic-scalar "$f" > /tmp/python.scalar
+            diff -u /tmp/python.scalar /tmp/rust.scalar
+          done
+          echo REAL_LANGUAGE_PACKET_CONCORDANCE=PASS
+      - name: Real-Packet v0.3 typed-transport guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          EX=language/real/examples/mqr-4.31-hwpx-transport.real
+          ./language/real/target/release/real "$EX" > /tmp/v03.out
+          grep -F 'lineage.kind=ENGINEERING_DEVELOPMENT' /tmp/v03.out
+          grep -F 'legacy.profile.T=DEPRECATED' /tmp/v03.out
+          grep -F 'transport.mode=TYPED_RELATION_MAP' /tmp/v03.out
+          grep -F 'transport.claim_state=PARTIAL_WITH_HOLDS' /tmp/v03.out
+          ./language/real/target/release/real --diagnostic-scalar "$EX" > /tmp/v03.scalar
+          grep -F 'display.scalar.status=UNAVAILABLE_V0_3_TYPED_TRANSPORT' /tmp/v03.scalar
+          if ./language/real/target/release/real language/real/tests/v03-invalid-legacy-t.real; then
+            echo 'Rust unexpectedly accepted legacy T in v0.3' >&2
+            exit 1
+          fi
+          if python language/real/reference.py language/real/tests/v03-invalid-legacy-t.real; then
+            echo 'Python unexpectedly accepted legacy T in v0.3' >&2
+            exit 1
+          fi
+          echo REAL_LANGUAGE_V03_TYPED_TRANSPORT_GUARDS=PASS
+      - name: Calibration scorer persistent smoke
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          head="lane\tid\tw_success\tw_total\tw_repeat_decoy\tn_lineages\tn_replicate_decoy\ti_invariant\ti_total\ti_rival_count_decoy\tt_success\tt_total\tt_train_decoy\td_covered\td_total\td_challenge_decoy"
+          row="exact\tsmoke\t2\t4\t99\t2\t88\t2\t4\t77\t2\t4\t66\t2\t4\t55"
+          Path("/tmp/cal.tsv").write_text(head+"\n"+row+"\n",encoding="utf-8")
+          PY
+          ./language/real/target/release/real-calibrate /tmp/cal.tsv > /tmp/rust.cal
+          python language/real/calibration_reference.py /tmp/cal.tsv > /tmp/python.cal
+          diff -u /tmp/python.cal /tmp/rust.cal
+          grep -F $'smoke\t0.500000\t0.500000\t0.500000\t0.500000\t0.500000' /tmp/rust.cal
+          echo REAL_LANGUAGE_CALIBRATION_SCORER_SMOKE=PASS
+ "$f"; then
+              continue
+            fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
             python language/real/reference.py "$f" > /tmp/python.out
             diff -u /tmp/python.out /tmp/rust.out
@@ -67,3 +112,24 @@ jobs:
           diff -u /tmp/python.cal /tmp/rust.cal
           grep -F $'smoke\t0.500000\t0.500000\t0.500000\t0.500000\t0.500000' /tmp/rust.cal
           echo REAL_LANGUAGE_CALIBRATION_SCORER_SMOKE=PASS
+
+      - name: Real-Packet v0.4 formal-empirical boundary guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          V04=./language/real/target/release/real-v04
+          POS=language/real/examples/mqr-4.36-proof-boundary.real
+          NEG=language/real/tests/v04-invalid-axiom-laundering.real
+          "$V04" "$POS" > /tmp/v04.out
+          grep -F 'proof.world_laundering_guard=PASS' /tmp/v04.out
+          grep -F 'formal_validity_is_not_empirical_truth=true' /tmp/v04.out
+          grep -F 'empirical_entitlement_ceiling=HOLD' /tmp/v04.out
+          grep -F 'authorized=HOLD' /tmp/v04.out
+          grep -F 'internal_residue=ZERO_INTERNAL' /tmp/v04.out
+          grep -F 'open_world_residue=true' /tmp/v04.out
+          if "$V04" "$NEG"; then
+            echo 'v0.4 unexpectedly allowed empirical HOLD to be promoted by formal CHECKED proof' >&2
+            exit 1
+          fi
+          echo REAL_LANGUAGE_V04_AXIOM_LAUNDERING_GUARD=PASS
+          echo REAL_LANGUAGE_V04_INTERNAL_VS_OPEN_WORLD_RESIDUE=PASS
