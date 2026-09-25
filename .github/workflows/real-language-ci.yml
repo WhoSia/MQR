@@ -33,7 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -537,6 +537,61 @@ jobs:
           echo MQR444_ESCAPE_RECONSTITUTION=PASS
           echo MQR444_WORLD_OBLIGATION_COMPLETE=NO
           echo MQR444_GUIDANCE_MODE=CONTRACT_RELATIVE_CONSTITUTIONAL
+
+
+      - name: Real-Language v0.12 burden-revision guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V12=./language/real/target/release/real-v12-revise
+          P12=language/real/prolog/revision_v12.pl
+          CORE='^revision\.(source_burden_count|target_burden_count|map_count|exact_count|refine_count|merge_count|overlap_count|unmapped_source_count|unmapped_sources|target_novel_burden_count|target_novel_burdens|same_label_drift|different_label_exact_alias|debt_source_count|debt_transport_complete|debt_accounting_mode|refinement_multiplicity|debt_double_count_detected|debt_collapse_detected|merge_provenance_preserved|comparable_source_burden_count|comparability_mode|conflict_count|arbitration_required|conflict_scalar_default|direct_composed_conflict|reopen_required|reopen_on_path_conflict|world_burden_identity_inferred|future_revision_closed|newer_ontology_truth_oracle|provenance_truth_oracle|guidance_mode|state)='
+
+          for f in language/real/examples/mqr-4.45-*.real; do
+            "$V12" "$f" > /tmp/v12.rust
+            swipl -q -s "$P12" -g "run('$f'),halt" -t "halt(1)" > /tmp/v12.prolog
+            grep -E "$CORE" /tmp/v12.rust > /tmp/v12.rust.core
+            grep -E "$CORE" /tmp/v12.prolog > /tmp/v12.prolog.core
+            diff -u /tmp/v12.rust.core /tmp/v12.prolog.core
+          done
+
+          "$V12" language/real/examples/mqr-4.45-same-label-drift.real > /tmp/v12-drift
+          "$V12" language/real/examples/mqr-4.45-exact-alias.real > /tmp/v12-alias
+          "$V12" language/real/examples/mqr-4.45-refine-under.real > /tmp/v12-ref-under
+          "$V12" language/real/examples/mqr-4.45-refine-full.real > /tmp/v12-ref-full
+          "$V12" language/real/examples/mqr-4.45-refine-doublecount.real > /tmp/v12-ref-double
+          "$V12" language/real/examples/mqr-4.45-merge-launder.real > /tmp/v12-merge-bad
+          "$V12" language/real/examples/mqr-4.45-merge-preserve.real > /tmp/v12-merge-good
+          "$V12" language/real/examples/mqr-4.45-noncommuting-diamond.real > /tmp/v12-diamond
+          "$V12" language/real/examples/mqr-4.45-obligation-conflict.real > /tmp/v12-conflict
+
+          grep -F 'revision.same_label_drift=YES' /tmp/v12-drift
+          grep -F 'revision.different_label_exact_alias=YES' /tmp/v12-alias
+          grep -F 'revision.target_novel_burden_count=1' /tmp/v12-alias
+          grep -F 'revision.debt_transport_complete=NO' /tmp/v12-ref-under
+          grep -F 'revision.debt_transport_complete=YES' /tmp/v12-ref-full
+          grep -F 'revision.debt_double_count_detected=YES' /tmp/v12-ref-double
+          grep -F 'revision.debt_collapse_detected=YES' /tmp/v12-merge-bad
+          grep -F 'revision.merge_provenance_preserved=YES' /tmp/v12-merge-good
+          grep -F 'revision.direct_composed_conflict=YES' /tmp/v12-diamond
+          grep -F 'revision.arbitration_required=YES' /tmp/v12-conflict
+          grep -F 'revision.comparability_mode=MAPPED_SUBSPACE_ONLY' /tmp/v12-alias
+          grep -F 'revision.world_burden_identity_inferred=NO' /tmp/v12-alias
+          grep -F 'revision.future_revision_closed=NO' /tmp/v12-alias
+
+          for x in language/real/tests/v12-invalid-*.real; do
+            if "$V12" "$x"; then exit 1; fi
+            if swipl -q -s "$P12" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V12_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR445_REFINEMENT_DEBT_CONTINUITY=PASS
+          echo MQR445_MERGE_DEBT_ANCESTRY=PASS
+          echo MQR445_NONCOMMUTING_REVISION_DIAMOND=PASS
+          echo MQR445_CONFLICT_LOCALIZATION=PASS
+          echo MQR445_WORLD_BURDEN_IDENTITY=NO
+          echo MQR445_FUTURE_REVISION_CLOSED=NO
 
 
       - name: Publish externally readable workflow receipt
