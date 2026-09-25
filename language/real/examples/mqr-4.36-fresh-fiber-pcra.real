@@ -1,0 +1,43 @@
+REALPACKET 0.4
+id "mqr-4.36-fresh-fiber-pcra"
+epoch "2026-09-25"
+claim CONSTRAINT "The preregistered MQR-4.36 finite execution class has zero unresolved internal residue, while open-world adequacy remains unestablished"
+scope "MQR-4.36 frozen 132-row execution class and no broader"
+lineage METHODOLOGY_DEVELOPMENT
+
+gate C PASS
+gate E PASS
+gate P PASS
+gate R PASS
+
+axis W 0.75 "fresh package behavior supplied direct world-facing resistance"
+axis N 0.50 "four engineering worlds span two domain families but one lineage kind"
+axis I 0.75 "the finite execution claim is identified; universal world adequacy is not"
+axis D 1.00 "fresh same-NU3 collision defeated the inherited representation"
+
+premise PDEF DEFINITION PASS "internal residue means every declared decision-relevant execution obligation is discharged"
+premise PEXEC EMPIRICAL PASS "canonical run 36143991326 completed all 132 preregistered atomic execution rows with zero unresolved rows"
+premise PWORLD MODEL HOLD "adequacy of the finite probe algebra for unrestricted future world-separating interventions is not established"
+premise PNU3 EMPIRICAL FAIL "fresh F-R1 same-NU3 worlds JSCHEMA-001 and OASV-001 have opposite empirical reach labels"
+
+obligation OINT WORLD_DEPENDENT "zero internal residue holds for the frozen MQR-4.36 execution class"
+depends OINT PDEF PEXEC
+proof OINT CHECKED "lean:MQR.zeroInternalResidueOfComplete; proof-run:36146576232; nanoda:PASS"
+authorize OINT PASS
+
+obligation OOPEN WORLD_DEPENDENT "the frozen MQR-4.36 probe class exhausts open-world residue"
+depends OOPEN PDEF PEXEC PWORLD
+proof OOPEN UNCHECKED "no theorem or world-adequacy receipt licenses open-world closure"
+authorize OOPEN HOLD
+
+obligation ONU3 WORLD_DEPENDENT "NU3 is sufficient for exact empirical reach on the fresh admitted 4.36 corpus"
+depends ONU3 PNU3
+proof ONU3 NOT_APPLICABLE "empirically defeated by fresh same-fiber collision"
+authorize ONU3 FAIL
+
+probe_class P436 FINITE 132 "the preregistered MQR-4.36 version-indexed atomic execution obligations"
+probe_residue P436 ZERO_INTERNAL "run 36143991326; artifact 10868447613; raw TSV sha256 a04fab623a7302f55e41e9a08d685047c3232b77a2b008888b3feba7254b342e"
+
+source "experiments/mqr-4.36/FRESH-RECEIPT.md"
+source "language/real/V04-PROOF-RECEIPT.md"
+END
