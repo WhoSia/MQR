@@ -96,6 +96,7 @@ constitution.partition_audit_surface=DECLARED_BURDEN_UNION
 constitution.external_source_truth_oracle=NO
 constitution.endogenous_source_truth_oracle=NO
 constitution.world_obligation_complete=NO
+constitution.burden_atom_ontology_complete=NO
 constitution.omitted_burden_inferred=NO
 constitution.open_world_receipt=REQUIRED
 constitution.guidance_mode=CONTRACT_RELATIVE_CONSTITUTIONAL
