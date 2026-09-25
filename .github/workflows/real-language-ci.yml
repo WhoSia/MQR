@@ -449,7 +449,7 @@ jobs:
           command -v swipl >/dev/null
           V11=./language/real/target/release/real-v11-constitute
           P11=language/real/prolog/constitution_v11.pl
-          CORE='^constitution\.(obligation_count|mandatory_obligation_count|burden_count|covered_burden_count|burden_union|uncovered_declared_burdens|agenda_source_count|agenda_ancestry_count|agenda_common_mode|endogenous_only|external_source_present|challenge_route|successor_claim_count|invalid_successor_claim_count|successor_coverage_complete|explicit_withdrawal_count|debt_transfer_required_count|debt_transfer_missing_count|debt_transfer_items|burden_laundering_detected|partition_count_authority|partition_audit_surface|external_source_truth_oracle|endogenous_source_truth_oracle|escape_detected|escape_reconstitution_required|reopen_on_escape|world_obligation_complete|omitted_burden_inferred|open_world_receipt|guidance_mode|admissible_envelope|state)='
+          CORE='^constitution\.(obligation_count|mandatory_obligation_count|burden_count|covered_burden_count|burden_union|uncovered_declared_burdens|agenda_source_count|agenda_ancestry_count|agenda_common_mode|endogenous_only|external_source_present|challenge_route|successor_claim_count|invalid_successor_claim_count|successor_coverage_complete|explicit_withdrawal_count|debt_transfer_required_count|debt_transfer_missing_count|debt_transfer_items|burden_laundering_detected|partition_count_authority|partition_audit_surface|external_source_truth_oracle|endogenous_source_truth_oracle|escape_detected|escape_reconstitution_required|reopen_on_escape|world_obligation_complete|burden_atom_ontology_complete|omitted_burden_inferred|open_world_receipt|guidance_mode|admissible_envelope|state)='
 
           for f in \
             language/real/examples/mqr-4.44-gerrymander-merged.real \
@@ -520,6 +520,7 @@ jobs:
           grep -F 'witness.omitted_burden=NONE' /tmp/ota
           grep -F 'witness.omitted_burden=Z' /tmp/otb
           grep -F 'constitution.world_obligation_complete=NO' /tmp/ota
+          grep -F 'constitution.burden_atom_ontology_complete=NO' /tmp/ota
           grep -F 'constitution.omitted_burden_inferred=NO' /tmp/otb
 
           for x in language/real/tests/v11-invalid-*.real; do
