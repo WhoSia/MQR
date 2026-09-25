@@ -396,3 +396,48 @@ rank.evaluation_contract_authority_inferred=false
 ```
 
 These are deliberate scientific boundaries: the finite optimizer operates after a separation relation has been constituted; it does not certify the upstream operation that constituted it.
+
+
+## v0.9 — open rival-frontier governance
+
+MQR-4.42 adds `REALFRONTIER 0.9`.
+
+Canonical Rust: `src/frontier_v09.rs` / `real-v09-frontier`.
+Independent relational evaluator: `prolog/frontier_v09.pl`.
+Lean boundary: `lean/MQR/Frontier.lean`.
+Constitution: `V09-FRONTIER.md`.
+
+v0.9 treats the live rival frontier as a generated, query-relative and admission-governed object rather than a supplied complete set. It records generator ancestry, query families, discovery history, finite grammar state, frontier escapes and the before/after FCR surface.
+
+No packet can earn world-frontier completeness. Repeated no-discovery supports only generator-relative saturation. Current-rival separation does not imply query-language closure. Multiple generators do not imply independent search when ancestry collapses. Stable FCR can coexist with important discovery, while rank increase is not a scalar discovery-value measure.
+
+The positive operating rule is:
+
+```text
+OPEN FRONTIER RECEIPT
++ LIVE FRONTIER REOPENING RESERVE
++ AUDITABLE CURRENT-RIVAL DISCRIMINATION
++ EXPLICIT GENERATOR / QUERY / ADMISSION PROVENANCE
+----------------------------------------------------
+=> CONDITIONAL LOCAL USE OF FCR
+
+NOT
+=> FRONTIER COMPLETENESS
+=> SCIENTIFIC STOPPING RULE
+=> FINAL TRUTH
+```
+
+Canonical guards:
+
+```text
+frontier.world_complete=NO
+frontier.discovery_value_scalar=OFF
+frontier.fcr_guidance_scope=CONDITIONAL
+frontier.open_frontier_receipt=REQUIRED
+frontier.reopening_reserve=REQUIRED
+frontier.reopen_on_escape=YES
+frontier.completeness_claim=FORBIDDEN
+frontier.discovery_impact_mode=VECTOR
+```
+
+The live doctrine is **reopening competence rather than completeness certification**.
