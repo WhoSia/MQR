@@ -326,6 +326,11 @@ fn analyze(p: &Packet) -> BTreeMap<String, String> {
     a.insert("frontier.query_language_complete_inferred".into(), "NO".into());
     a.insert("frontier.admission_rule_complete_inferred".into(), "NO".into());
     a.insert("frontier.search_count_implies_completeness".into(), "NO".into());
+    a.insert("frontier.open_frontier_receipt".into(), "REQUIRED".into());
+    a.insert("frontier.reopening_reserve".into(), "REQUIRED".into());
+    a.insert("frontier.reopen_on_escape".into(), "YES".into());
+    a.insert("frontier.completeness_claim".into(), "FORBIDDEN".into());
+    a.insert("frontier.discovery_impact_mode".into(), "VECTOR".into());
     a
 }
 
@@ -373,6 +378,11 @@ fn emit(p: &Packet, a: &BTreeMap<String, String>) -> String {
         "frontier.query_language_complete_inferred",
         "frontier.admission_rule_complete_inferred",
         "frontier.search_count_implies_completeness",
+        "frontier.open_frontier_receipt",
+        "frontier.reopening_reserve",
+        "frontier.reopen_on_escape",
+        "frontier.completeness_claim",
+        "frontier.discovery_impact_mode",
     ] {
         s.push_str(&format!("{k}={}\n", a[k]));
     }
