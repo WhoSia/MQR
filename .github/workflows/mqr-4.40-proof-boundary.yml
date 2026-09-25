@@ -44,3 +44,51 @@ jobs:
             grep -F "'$theorem' does not depend on any axioms" /tmp/s.log
           done
           echo MQR440_SUBSTITUTION_AXIOM_ANCESTRY=EMPTY
+
+
+      - name: Build pinned independent checker stack
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          git clone https://github.com/leanprover/lean4export.git _lean4export
+          git -C _lean4export checkout 076e8e57707e813375e8f9da8bf989799ace9680
+          cp lean-toolchain _lean4export/lean-toolchain
+          (cd _lean4export && lake build lean4export)
+          git clone https://github.com/robsimmons/nanoda_lib.git _nanoda_lib
+          git -C _nanoda_lib checkout 68d5ca9db226849b41a6fff59d796ff19d0a8840
+          cargo build --release --manifest-path _nanoda_lib/Cargo.toml
+          echo MQR440_INDEPENDENT_STACK=BUILT
+
+      - name: Independent nanoda substitution replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env _lean4export/.lake/build/bin/lean4export MQR -- \
+            MQR.definitionalEndpointCarriesNoIndependentBooleanDegree \
+            MQR.internalCoherenceDoesNotCreateExternalWorldAnchor \
+            MQR.agreementOnCheckedBasisDoesNotEntailGlobalAgreement \
+            MQR.pathAgreementDoesNotEntailIndependentWorldContact \
+            MQR.endpointAgreementNeedNotBeCongruentUnderExtension \
+            MQR.checkedFaceDoesNotEntailHigherCoherence \
+            MQR.compositionCannotRefreshRootFreshness \
+            MQR.cyclicJustificationDoesNotEntailExteriority \
+            MQR.directConflictEstablishesDisagreementNotDirectInfallibility \
+            MQR.exactInternalDeterminacyStillRequiresAnExternalPremise \
+            > /tmp/mqr440.export
+          cat > /tmp/mqr440.json <<'JSON'
+          {
+            "export_file_path": "/tmp/mqr440.export",
+            "use_stdin": false,
+            "permitted_axioms": [],
+            "unpermitted_axiom_hard_error": true,
+            "nat_extension": true,
+            "string_extension": true,
+            "print_success_message": true
+          }
+          JSON
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr440.json | tee /tmp/mqr440-nanoda.log
+          echo MQR440_NANODA_INDEPENDENT_CHECKER=PASS
+          echo MQR440_SUBSTITUTION_COUNTERMODELS_REPLAY=PASS
+          echo INTERNAL_COHERENCE_IS_NOT_WORLD_CONTACT=TRUE
