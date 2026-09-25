@@ -35,6 +35,18 @@ theorem noSingleTwinWorldActionCapturesBothEscapes :
       ¬ (escapeCaptured .worldA .b = true ∧ escapeCaptured .worldB .b = true) := by
   decide
 
+theorem noSingleActionCanCaptureBothTwinWorldEscapes (action : SearchLane) :
+    ¬ (escapeCaptured .worldA action = true ∧
+       escapeCaptured .worldB action = true) := by
+  cases action <;> decide
+
+theorem noDeterministicPolicyOverVisibleSignatureCapturesBoth
+    (policy : Nat → SearchLane) :
+    ¬ (escapeCaptured .worldA (policy (visibleHistorySignature .worldA)) = true ∧
+       escapeCaptured .worldB (policy (visibleHistorySignature .worldB)) = true) := by
+  simpa [visibleHistorySignature] using
+    noSingleActionCanCaptureBothTwinWorldEscapes (policy 43)
+
 structure ReserveWitness where
   reserveUnits : Nat
   activationCost : Nat
@@ -92,6 +104,28 @@ theorem finiteDeclaredAntiStarvationCanBeCertified :
       antiStarvationWitness.laneBActivatedByDue = true ∧
       antiStarvationWitness.finiteDeclaredPortfolio = true := by
   decide
+
+def cyclicLane (laneCount step : Nat) : Nat :=
+  step % laneCount
+
+theorem roundRobinVisitsEveryDeclaredLaneWithinOneCycle
+    (laneCount lane : Nat)
+    (hLane : lane < laneCount) :
+    ∃ step, step < laneCount ∧ cyclicLane laneCount step = lane := by
+  refine ⟨lane, hLane, ?_⟩
+  simpa [cyclicLane] using Nat.mod_eq_of_lt hLane
+
+theorem finiteRoundRobinPreventsUnitActivationStarvation
+    (laneCount budget lane : Nat)
+    (hBudget : laneCount ≤ budget)
+    (hLane : lane < laneCount) :
+    ∃ step,
+      step < laneCount ∧
+      step < budget ∧
+      cyclicLane laneCount step = lane := by
+  refine ⟨lane, hLane, ?_, ?_⟩
+  · exact lt_of_lt_of_le hLane hBudget
+  · simpa [cyclicLane] using Nat.mod_eq_of_lt hLane
 
 theorem proceduralCoverageDoesNotImplyWorldFrontierCompleteness :
     antiStarvationWitness.laneAActivatedByDue = true ∧
@@ -169,10 +203,14 @@ theorem randomizedCoverageIsNotAnEpistemicOracle :
 
 #print axioms MQR.observationallyEquivalentWorldsCanRequireOppositeEscapeActions
 #print axioms MQR.noSingleTwinWorldActionCapturesBothEscapes
+#print axioms MQR.noSingleActionCanCaptureBothTwinWorldEscapes
+#print axioms MQR.noDeterministicPolicyOverVisibleSignatureCapturesBoth
 #print axioms MQR.nominalReserveDoesNotImplyActivationCapability
 #print axioms MQR.activationThresholdCanCertifyNarrowReserveCompetence
 #print axioms MQR.equalScalarDebtCountDoesNotIdentifyDebtGeometry
 #print axioms MQR.finiteDeclaredAntiStarvationCanBeCertified
+#print axioms MQR.roundRobinVisitsEveryDeclaredLaneWithinOneCycle
+#print axioms MQR.finiteRoundRobinPreventsUnitActivationStarvation
 #print axioms MQR.proceduralCoverageDoesNotImplyWorldFrontierCompleteness
 #print axioms MQR.localExploitationGainDoesNotLicenseExplorationRetirement
 #print axioms MQR.setValuedAdmissibilityDoesNotIdentifyUniqueWorldOptimum
