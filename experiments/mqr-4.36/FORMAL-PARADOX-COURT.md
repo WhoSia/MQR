@@ -308,3 +308,182 @@ Promotion requires:
 - independent checker receipt;
 - fresh MQR-4.36 naturalistic outcome;
 - re-Court.
+
+## Re-Court after fresh world contact
+
+The fresh MQR-4.36 receipt defeats NU3 exact empirical-reach sufficiency in fiber F-R1 while leaving the coarser D36_CORE action homogeneous. This forces a second attack on the formal architecture.
+
+## Court P11 — Decision-Compression Sanctuary
+
+### Temptation
+
+If a representation gives the same action under the current decision rule, call it sufficient.
+
+### Attack
+
+F-R1 contains:
+
+```text
+JSCHEMA-001 -> E1_QUOTIENT_ONLY
+OASV-001    -> E0_FULL
+```
+
+so exact empirical reach differs.
+
+Yet the frozen coarse decision maps both to:
+
+```text
+D36_CORE -> ALLOW_CORE_REUSE
+```
+
+Therefore action agreement can arise because the decision ignores a real distinction.
+
+### Surviving principle
+
+```text
+DECISION_SUFFICIENCY
+!=
+REPRESENTATIONAL_SUFFICIENCY
+```
+
+Decision-relative sufficiency is legitimate only when its action/loss family is explicit and frozen.
+
+It cannot be promoted into a claim that the representation captures all scientifically relevant distinctions.
+
+## Court P12 — Finite Exhaustion / Adequacy Gap
+
+### Temptation
+
+If every element of a finite preregistered probe class has been executed, residue has been eliminated.
+
+### Attack
+
+The fresh court exhaustively executed all 132 declared atomic rows with zero unresolved execution.
+
+Therefore:
+
+```text
+INTERNAL_RESIDUE_WITHIN_DECLARED_PROBE_CLASS = ZERO
+```
+
+is earned.
+
+But the proof class itself was designed before unknown future instruments, observables, standards and intervention vocabularies.
+
+### Surviving principle
+
+```text
+FINITE EXHAUSTION OF P
+!=
+ADEQUACY OF P FOR THE WORLD
+```
+
+The finite theorem is real because its quantifier is real and bounded.
+The open-world residue remains because the adequacy map from world distinctions into P is not proved by enumerating P.
+
+## Court P13 — Checker-Plurality Independence Problem
+
+### Temptation
+
+Lean kernel + nanoda independent recheck means the theorem has independent scientific confirmation.
+
+### Attack
+
+The two checkers materially diversify software/proof custody, but both consume a formal theorem environment derived from the same encoded statement.
+
+They do not provide independent measurement ancestry.
+
+### Surviving principle
+
+```text
+INDEPENDENT PROOF RECHECK
+!=
+INDEPENDENT WORLD CONTACT
+```
+
+Checker plurality strengthens formal-custody authority.
+It does not multiply empirical lineages.
+
+## Court P14 — Premise-Granularity Collapse
+
+### Temptation
+
+Explicit theorem dependency ancestry solves the empirical/formal boundary problem.
+
+### Attack
+
+One formal premise identity can summarize many heterogeneous world-contact operations.
+
+If those are collapsed into one proposition, the proof graph may be exact while the empirical ancestry graph remains under-resolved.
+
+### Surviving principle
+
+Proof ancestry and world-contact ancestry are distinct graphs.
+
+PCRA must eventually support a many-to-one binding:
+
+```text
+WORLD RECEIPTS*
+ -> TYPED EMPIRICAL PREMISE
+ -> FORMAL DEPENDENCY GRAPH
+```
+
+with the aggregation rule itself auditable.
+
+## Court P15 — Boundary-Migration Problem
+
+### Temptation
+
+Move more of the scientific pipeline into Lean until the uncertain region becomes negligible.
+
+### Attack
+
+Formalizing detector arithmetic, calibration transforms, normalization and inference moves the kernel/world frontier.
+
+It does not eliminate the frontier.
+
+The remaining empirical/model premises become fewer but more load-bearing.
+
+### Surviving principle
+
+```text
+FORMALIZATION CAN MOVE EPISTEMIC DEBT
+BUT CANNOT ERASE WORLD-CONTACT DEBT
+```
+
+The correct design goal is not maximal theoremization.
+
+It is maximal auditability of where formal certainty ends and empirical entitlement begins.
+
+## Re-Court compression
+
+After fresh world contact and proof-backend execution:
+
+```text
+NU3 exact reach sufficiency = FAIL
+D36_CORE decision sufficiency = NOT_DEFEATED
+internal finite residue = ZERO
+open-world residue = NOT_ELIMINATED
+Lean kernel = PASS
+independent nanoda recheck = PASS
+empirical truth laundering = FORBIDDEN
+```
+
+The resulting architecture remains:
+
+```text
+WORLD
+ -> bounded measurement / intervention receipt
+ -> typed premise with authority ceiling
+ -> Real-Language
+ -> Lean proof
+ -> independent proof custody
+ -> scoped consequence
+```
+
+and never:
+
+```text
+FORMAL PROOF
+ -> retrospective empirical PASS
+```
