@@ -36,6 +36,6 @@ check_expected(Min,U,X):- (expected_rank(E)->term_to_atom(Min,A),(A=E->true;fail
 basis_atom(B,A):-atomic_list_concat(B,'+',A).
 print_bases([]):-writeln('rank.minimum_bases=').
 print_bases(B):-maplist(basis_atom,B,A),atomic_list_concat(A,';',J),format('rank.minimum_bases=~w~n',[J]).
-run(File):-load_packet(File),analysis(M,C,U,X,Cmin,Cmax,B),(check_expected(M,U,X)->true;halt(1)),(M='UNCOVERED'->Cov='FAIL';Cov='PASS'),format('rank.coverage_complete=~w~n',[Cov]),format('rank.minimum=~w~n',[M]),format('rank.basis_count=~w~n',[C]),format('rank.unique=~w~n',[U]),format('rank.exchange_property=~w~n',[X]),format('rank.minimum_basis_cost_min=~w~n',[Cmin]),format('rank.minimum_basis_cost_max=~w~n',[Cmax]),print_bases(B).
+run(File):-load_packet(File),analysis(M,C,U,X,Cmin,Cmax,B),(M='UNCOVERED'->Cov='FAIL';Cov='PASS'),format('rank.coverage_complete=~w~n',[Cov]),format('rank.minimum=~w~n',[M]),format('rank.basis_count=~w~n',[C]),format('rank.unique=~w~n',[U]),format('rank.exchange_property=~w~n',[X]),format('rank.minimum_basis_cost_min=~w~n',[Cmin]),format('rank.minimum_basis_cost_max=~w~n',[Cmax]),print_bases(B),(check_expected(M,U,X)->true;(format(user_error,'PROLOG_EXPECTATION_MISMATCH rank=~w unique=~w exchange=~w~n',[M,U,X]),fail)).
 main:-current_prolog_flag(argv,Argv),(Argv=[File|_]->(run(File)->halt(0);halt(1));halt(2)).
 :- initialization(main, main).
