@@ -2,7 +2,7 @@
 :- dynamic root/4, obligation/1, separates/2, expected_rank/1, expected_unique/1, expected_exchange/1.
 reset_db :- retractall(root(_,_,_,_)),retractall(obligation(_)),retractall(separates(_,_)),retractall(expected_rank(_)),retractall(expected_unique(_)),retractall(expected_exchange(_)).
 atomize(S,A):-atom_string(A,S).
-parse_line(Line):-split_string(Line," \t"," \t",T),(parse_tokens(T)->true;(format(user_error,'PROLOG_PARSE_FAIL tokens=~q line=~s~n',[T,Line]),fail)).
+parse_line(Line):-normalize_space(string(N),Line),(N=""->true;(sub_string(N,0,1,_,"#")->true;(split_string(N," \t"," \t",T),(parse_tokens(T)->true;(format(user_error,'PROLOG_PARSE_FAIL tokens=~q line=~s~n',[T,Line]),fail))))).
 parse_tokens([]).
 parse_tokens(["REALCONTACTRANK","0.8"]).
 parse_tokens(["id"|_]).
