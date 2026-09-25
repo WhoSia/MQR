@@ -154,12 +154,19 @@ derive p = do
          ("defeat","NOT_APPLICABLE"),("noncircular","NOT_APPLICABLE"),
          ("formal_custody","NOT_APPLICABLE"),("transfer","NOT_APPLICABLE")]
     Just FormalMediated -> do
-      let sem=if not (null (witnesses p)) && all (\(s,w)->s==Pass && w=="EXTERNAL") (witnesses p) then "PASS" else "FAIL"
+      let sem | null (witnesses p) = "HOLD"
+              | any ((==Fail).fst) (witnesses p) = "FAIL"
+              | any ((==Hold).fst) (witnesses p) = "HOLD"
+              | otherwise = "PASS"
           sc=if reachable (scopeEdges p) (worldScope p) (claimScope p)
                 && reachable (scopeEdges p) (statementScope p) (claimScope p) then "PASS" else "FAIL"
           anc=if all (\(a,_)->S.member a (preserved p)) load then "PASS" else "FAIL"
-          def=if "REACHABLE" `elem` defeatStates p then "PASS" else "FAIL"
-          nonc=if not (null (witnesses p)) && all ((/="SELF").snd) (witnesses p) then "PASS" else "FAIL"
+          def | "REACHABLE" `elem` defeatStates p = "PASS"
+              | any (`elem` ["DEAD","FORBIDDEN"]) (defeatStates p) = "FAIL"
+              | otherwise = "HOLD"
+          nonc | any ((=="SELF").snd) (witnesses p) = "FAIL"
+               | null (witnesses p) || any ((=="UNTESTED").snd) (witnesses p) = "HOLD"
+               | otherwise = "PASS"
           cust=case formalCustody p of
                  "PASS"->"PASS"; "HOLD"->"HOLD"; "FAIL"->"FAIL"; _->"FAIL"
           coords=[sem,sc,anc,def,nonc,cust]
@@ -180,6 +187,8 @@ emit p d = do
   putStrLn ("id="++pid p)
   mapM_ (\k->putStrLn ("coordinate."++k++"="++M.findWithDefault "MISSING" k d))
     ["semantic","scope","ancestry","defeat","noncircular","formal_custody","transfer"]
+  putStrLn "transfer.meaning=STRUCTURAL_ADMISSIBILITY_NONAMPLIFYING"
+  putStrLn "transfer.does_not_raise_world_authority=true"
   putStrLn "implementation_diversity_is_not_semantic_independence=true"
 
 minimality :: IO ()
