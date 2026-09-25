@@ -189,7 +189,15 @@ fn derived(p:&Packet)->Result<BTreeMap<&'static str,String>,String>{
         return Ok(out);
     }
 
-    let semantic = if !p.witnesses.is_empty() && p.witnesses.iter().all(|w|w.status==Status::Pass && w.warrant=="EXTERNAL") {"PASS"} else {"FAIL"};
+    let semantic = if p.witnesses.is_empty() {
+        "HOLD"
+    } else if p.witnesses.iter().any(|w| w.status == Status::Fail) {
+        "FAIL"
+    } else if p.witnesses.iter().any(|w| w.status == Status::Hold) {
+        "HOLD"
+    } else {
+        "PASS"
+    };
     out.insert("semantic",semantic.into());
 
     let scope = if reachable(&p.scope_edges,&p.world_scope,&p.claim_scope)
@@ -199,10 +207,22 @@ fn derived(p:&Packet)->Result<BTreeMap<&'static str,String>,String>{
     let ancestry = if load.iter().all(|a|p.preserved.contains(&a.id)) {"PASS"} else {"FAIL"};
     out.insert("ancestry",ancestry.into());
 
-    let defeat = if p.defeat_paths.iter().any(|d|d.state=="REACHABLE") {"PASS"} else {"FAIL"};
+    let defeat = if p.defeat_paths.iter().any(|d| d.state == "REACHABLE") {
+        "PASS"
+    } else if p.defeat_paths.iter().any(|d| d.state == "DEAD" || d.state == "FORBIDDEN") {
+        "FAIL"
+    } else {
+        "HOLD"
+    };
     out.insert("defeat",defeat.into());
 
-    let noncircular = if !p.witnesses.is_empty() && p.witnesses.iter().all(|w|w.warrant!="SELF") {"PASS"} else {"FAIL"};
+    let noncircular = if p.witnesses.iter().any(|w| w.warrant == "SELF") {
+        "FAIL"
+    } else if p.witnesses.is_empty() || p.witnesses.iter().any(|w| w.warrant == "UNTESTED") {
+        "HOLD"
+    } else {
+        "PASS"
+    };
     out.insert("noncircular",noncircular.into());
 
     let custody = match p.formal_custody.as_str() {
@@ -270,6 +290,8 @@ fn canonical(p:&Packet,d:&BTreeMap<&'static str,String>)->String{
         o.push(format!("defeat_path.{i}.receipt={}",esc(&x.receipt)));
     }
     o.push(format!("formal_custody.receipt={}",esc(&p.formal_receipt)));
+    o.push("transfer.meaning=STRUCTURAL_ADMISSIBILITY_NONAMPLIFYING".into());
+    o.push("transfer.does_not_raise_world_authority=true".into());
     o.push("cross_language_agreement_is_not_world_correspondence=true".into());
     o.push("final_truth_distance=UNIDENTIFIED".into());
     o.join("\n")+"\n"
