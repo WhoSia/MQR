@@ -82,10 +82,20 @@ emit p d=do
  putStrLn"adjacent_pass_does_not_imply_direct_pass=true"
  putStrLn"algebraic_composability_is_not_epistemic_composability=true"
 
-main=do
- as<-getArgs
- if null as then putStrLn"usage: runghc ComposeV06.hs PACKET..." >> exitFailure else mapM_ run as
- where
-  run f=do s<-readFile f;case parsePacket s of
-   Left e->putStrLn e>>exitFailure
-   Right p->let d=derive p;req=maybe Fail id(requested p);got=d M.!"composition" in if req>got then putStrLn("COMPOSITION_LAUNDERING: requested "++txt req++" above derived "++txt got)>>exitFailure else emit p d
+main = do
+  as <- getArgs
+  if null as
+    then putStrLn "usage: runghc ComposeV06.hs PACKET..." >> exitFailure
+    else mapM_ run as
+  where
+    run f = do
+      s <- readFile f
+      case parsePacket s of
+        Left e -> putStrLn e >> exitFailure
+        Right p ->
+          let d = derive p
+              req = maybe Fail id (requested p)
+              got = d M.! "composition"
+          in if req > got
+             then putStrLn ("COMPOSITION_LAUNDERING: requested " ++ txt req ++ " above derived " ++ txt got) >> exitFailure
+             else emit p d
