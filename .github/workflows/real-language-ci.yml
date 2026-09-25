@@ -580,6 +580,18 @@ jobs:
           grep -F 'revision.world_burden_identity_inferred=NO' /tmp/v12-alias
           grep -F 'revision.future_revision_closed=NO' /tmp/v12-alias
 
+          "$V12" language/real/examples/mqr-4.45-unmapped-debt.real > /tmp/v12-unmapped
+          "$V12" language/real/examples/mqr-4.45-equal-count-exact.real > /tmp/v12-eq-exact
+          "$V12" language/real/examples/mqr-4.45-equal-count-overlap.real > /tmp/v12-eq-overlap
+          grep -F 'revision.unmapped_source_count=1' /tmp/v12-unmapped
+          grep -F 'revision.debt_transport_complete=NO' /tmp/v12-unmapped
+          grep -F 'revision.source_burden_count=1' /tmp/v12-eq-exact
+          grep -F 'revision.target_burden_count=1' /tmp/v12-eq-exact
+          grep -F 'revision.exact_count=1' /tmp/v12-eq-exact
+          grep -F 'revision.source_burden_count=1' /tmp/v12-eq-overlap
+          grep -F 'revision.target_burden_count=1' /tmp/v12-eq-overlap
+          grep -F 'revision.overlap_count=1' /tmp/v12-eq-overlap
+
           for x in language/real/tests/v12-invalid-*.real; do
             if "$V12" "$x"; then exit 1; fi
             if swipl -q -s "$P12" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
