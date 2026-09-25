@@ -1,0 +1,6 @@
+name = "mqr-real-proof-boundary"
+version = "0.1.0"
+defaultTargets = ["MQR"]
+
+[[lean_lib]]
+name = "MQR"
