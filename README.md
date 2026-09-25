@@ -4,7 +4,7 @@ This repository is the **living formal substrate** of MQR.
 
 - `main` carries the current live doctrine and executable/auditable protocol surfaces.
 - Historical notebooks, retired stages, and superseded drafts are archived outside this repository (canonical archival storage: Drive / Research OS).
-- Do not create a branch for every research stage. Branches are reserved for genuinely live divergent work that cannot yet share one current state.
+- **Branch policy is MAIN_ONLY.** Temporary branch creation is forbidden unless the user explicitly authorizes an exception.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
@@ -15,9 +15,9 @@ This repository is the **living formal substrate** of MQR.
 - `language/real/src/main.rs` — canonical Rust compiler; `language/real/reference.py` — independent Python reference
 - `language/real/examples/` — historical and current Real-Packets
 - `protocols/challenge-admission.md` — challenge-admission governance protocol
-- `experiments/mqr-4.31/` — current live research stage
+- `experiments/mqr-4.37/` — current live adversarial court; MQR-4.37 decomposes monolithic PCRA authority semantics into formal custody, world-facing authority, and an explicit transfer contract
 
-Real-Language v0.3 represents **world-constrained evidential profile + typed transport map + residue**. MQR-4.31 deprecates the legacy scalar/ordinal T coordinate and separates transport target, evaluability, and survival. W and I remain externally calibrated ordinal indices; N and D retain their previous HOLD ceilings. Scalar projection remains OFF and truth-distance semantics remain UNIDENTIFIED.
+Real-Language v0.3 remains the transport-compatible historical lane; v0.4 is the live proof-boundary lane; MQR-4.37 opens the v0.5 authority-transfer boundary. Formal custody must not be collapsed into world-facing scientific authority. Scalar projection remains OFF and truth-distance semantics remain UNIDENTIFIED.
 
 Lineage typing is explicit in v0.3. In particular, **ChatGPT-Web-HWPX-MCP is ENGINEERING_DEVELOPMENT, not a research Lab**. Engineering/development lineages may be used as valuable external cases without being redescribed as scientific programmes.
 
