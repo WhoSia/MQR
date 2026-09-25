@@ -59,9 +59,8 @@ def preNot (f : Bool → Bool) : Bool → Bool := fun x => f (!x)
 theorem endpointAgreementNeedNotBeCongruentUnderExtension :
     observedEq basisPathA basisPathB ∧
       ¬ observedEq (preNot basisPathA) (preNot basisPathB) := by
-  constructor
-  · decide
-  · decide
+  constructor <;>
+    simp [observedEq, preNot, basisPathA, basisPathB]
 
 structure FaceCertificate where
   checkedFace : Bool
