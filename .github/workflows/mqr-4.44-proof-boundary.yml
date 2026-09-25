@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  statuses: write
 
 jobs:
   proof-boundary:
@@ -100,3 +101,22 @@ jobs:
           _nanoda_lib/target/release/nanoda_bin /tmp/mqr-444-nanoda.json
           echo REAL_LANGUAGE_NANODA_INDEPENDENT_CHECKER=PASS
           echo MQR444_NANODA_CONSTITUTION_REPLAY=PASS
+
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.44/Lean+nanoda"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" \
+            -f context="$context" \
+            -f description="$description" \
+            -f target_url="$target"
