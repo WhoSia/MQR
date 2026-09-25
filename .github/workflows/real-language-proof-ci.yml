@@ -1,4 +1,4 @@
-name: Real-Language v0.4/v0.5 Lean Proof Boundary
+name: Real-Language v0.4/v0.5/v0.6 Lean Proof Boundary
 # canonical-proof-trigger: pinned-lean4export-plus-nanoda
 
 on:
@@ -8,6 +8,7 @@ on:
       - 'language/real/lean/**'
       - 'language/real/V04-PRESEAL.md'
       - 'language/real/V05-AUTHORITY-TRANSFER.md'
+      - 'language/real/V06-COMPOSITION.md'
       - '.github/workflows/real-language-proof-ci.yml'
   workflow_dispatch:
 
@@ -38,19 +39,43 @@ jobs:
           lake env lean MQR/Residue.lean | tee /tmp/lean-residue.log
           lake env lean MQR/Authority.lean | tee /tmp/lean-authority.log
           lake env lean MQR/Transfer.lean | tee /tmp/lean-transfer.log
-          cat /tmp/lean-residue.log /tmp/lean-authority.log /tmp/lean-transfer.log > /tmp/lean-proof-boundary.log
+          lake env lean MQR/Composition.lean | tee /tmp/lean-composition.log
+          cat /tmp/lean-residue.log /tmp/lean-authority.log /tmp/lean-transfer.log /tmp/lean-composition.log > /tmp/lean-proof-boundary.log
           if grep -F 'sorryAx' /tmp/lean-proof-boundary.log; then
             echo 'Finished proof unexpectedly depends on sorryAx' >&2
             exit 1
           fi
-          for theorem in             MQR.zeroInternalResidueOfComplete             MQR.extensionContainsUncoveredProbe             MQR.checkedProofCannotRaiseHoldToPass             MQR.smallClosedLargeOpen             MQR.receiptCompressionLosesLoadBearingDistinction             MQR.formalExpansionDoesNotEstablishWorldAdequacy             MQR.checkerPluralityDoesNotEntailAuthorityTransfer             MQR.formalCustodyDoesNotIdentifyTruthOrder             MQR.sameFormalStatementCanAliasDifferentWorldPredicates             MQR.formalScopeCanStrictlyExceedWorldSupport             MQR.coarseCompilationCanEraseAuthorityChangingAncestor             MQR.nominalReopenabilityDoesNotEntailDefeatReachability             MQR.bridgeSelfCertificationAddsNoIndependentConstraint             MQR.scientificAuthorityNeedNotRequireFormalCustody \
+          theorems=(
+            MQR.zeroInternalResidueOfComplete
+            MQR.extensionContainsUncoveredProbe
+            MQR.checkedProofCannotRaiseHoldToPass
+            MQR.smallClosedLargeOpen
+            MQR.receiptCompressionLosesLoadBearingDistinction
+            MQR.formalExpansionDoesNotEstablishWorldAdequacy
+            MQR.checkerPluralityDoesNotEntailAuthorityTransfer
+            MQR.formalCustodyDoesNotIdentifyTruthOrder
+            MQR.sameFormalStatementCanAliasDifferentWorldPredicates
+            MQR.formalScopeCanStrictlyExceedWorldSupport
+            MQR.coarseCompilationCanEraseAuthorityChangingAncestor
+            MQR.nominalReopenabilityDoesNotEntailDefeatReachability
+            MQR.bridgeSelfCertificationAddsNoIndependentConstraint
+            MQR.scientificAuthorityNeedNotRequireFormalCustody
             MQR.transferMeetCannotRaiseWorldAuthority
-          do
+            MQR.authorityMeetAssociative
+            MQR.authorityMeetPassIdentity
+            MQR.noLaunderTransitive
+            MQR.adjacentPassDoesNotEntailDirectPass
+            MQR.authorityBaselineResetCanHideInflation
+            MQR.localAssumptionsCanBeSeparatelySatisfiableButJointlyInconsistent
+            MQR.localDefeatReachabilityDoesNotEntailGlobalDefeatReachability
+            MQR.localScopePassDoesNotEntailCompositeScopeAdmissibility
+          )
+          for theorem in "${theorems[@]}"; do
             grep -F "'$theorem' does not depend on any axioms" /tmp/lean-proof-boundary.log
           done
           echo REAL_LANGUAGE_LEAN_KERNEL=PASS
           echo REAL_LANGUAGE_AXIOM_ANCESTRY=EMPTY
-          echo MQR438_TRANSFER_COUNTERMODELS=PASS
+          echo MQR439_COMPOSITION_ALGEBRA_AND_COUNTERMODELS=PASS
 
       - name: Build pinned independent checker stack
         shell: bash
@@ -74,7 +99,7 @@ jobs:
         run: |
           set -euo pipefail
           cd language/real/lean
-          lake env _lean4export/.lake/build/bin/lean4export MQR --             MQR.zeroInternalResidueOfComplete             MQR.extensionContainsUncoveredProbe             MQR.checkedProofCannotRaiseHoldToPass             MQR.smallClosedLargeOpen             MQR.receiptCompressionLosesLoadBearingDistinction             MQR.formalExpansionDoesNotEstablishWorldAdequacy             MQR.checkerPluralityDoesNotEntailAuthorityTransfer             MQR.formalCustodyDoesNotIdentifyTruthOrder             MQR.sameFormalStatementCanAliasDifferentWorldPredicates             MQR.formalScopeCanStrictlyExceedWorldSupport             MQR.coarseCompilationCanEraseAuthorityChangingAncestor             MQR.nominalReopenabilityDoesNotEntailDefeatReachability             MQR.bridgeSelfCertificationAddsNoIndependentConstraint             MQR.scientificAuthorityNeedNotRequireFormalCustody             MQR.transferMeetCannotRaiseWorldAuthority             > /tmp/mqr-real.export
+          lake env _lean4export/.lake/build/bin/lean4export MQR --             MQR.zeroInternalResidueOfComplete             MQR.extensionContainsUncoveredProbe             MQR.checkedProofCannotRaiseHoldToPass             MQR.smallClosedLargeOpen             MQR.receiptCompressionLosesLoadBearingDistinction             MQR.formalExpansionDoesNotEstablishWorldAdequacy             MQR.checkerPluralityDoesNotEntailAuthorityTransfer             MQR.formalCustodyDoesNotIdentifyTruthOrder             MQR.sameFormalStatementCanAliasDifferentWorldPredicates             MQR.formalScopeCanStrictlyExceedWorldSupport             MQR.coarseCompilationCanEraseAuthorityChangingAncestor             MQR.nominalReopenabilityDoesNotEntailDefeatReachability             MQR.bridgeSelfCertificationAddsNoIndependentConstraint             MQR.scientificAuthorityNeedNotRequireFormalCustody             MQR.transferMeetCannotRaiseWorldAuthority             MQR.authorityMeetAssociative             MQR.authorityMeetPassIdentity             MQR.noLaunderTransitive             MQR.adjacentPassDoesNotEntailDirectPass             MQR.authorityBaselineResetCanHideInflation             MQR.localAssumptionsCanBeSeparatelySatisfiableButJointlyInconsistent             MQR.localDefeatReachabilityDoesNotEntailGlobalDefeatReachability             MQR.localScopePassDoesNotEntailCompositeScopeAdmissibility             > /tmp/mqr-real.export
           cat > /tmp/mqr-real-nanoda.json <<'JSON'
           {
             "export_file_path": "/tmp/mqr-real.export",
@@ -88,5 +113,5 @@ jobs:
           JSON
           _nanoda_lib/target/release/nanoda_bin /tmp/mqr-real-nanoda.json | tee /tmp/nanoda-real.log
           echo REAL_LANGUAGE_NANODA_INDEPENDENT_CHECKER=PASS
-          echo CHECKER_PLURALITY_IS_NOT_STATEMENT_OR_WORLD_INDEPENDENCE=TRUE
-          echo MQR438_NANODA_TRANSFER_COUNTERMODELS=PASS
+          echo MQR439_NANODA_COMPOSITION_REPLAY=PASS
+          echo ALGEBRAIC_COMPOSABILITY_IS_NOT_EPISTEMIC_COMPOSABILITY=TRUE
