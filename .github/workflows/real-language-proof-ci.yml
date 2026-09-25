@@ -1,0 +1,47 @@
+name: Real-Language v0.4 Lean Proof Boundary
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'language/real/lean/**'
+      - 'language/real/V04-PRESEAL.md'
+      - '.github/workflows/real-language-proof-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-proof-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lean build plus independent checker
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: true
+          nanoda-allow-sorry: false
+          use-github-cache: false
+
+      - name: Inspect theorem axiom ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/Residue.lean | tee /tmp/lean-proof-boundary.log
+          if grep -F 'sorryAx' /tmp/lean-proof-boundary.log; then
+            echo 'Finished proof unexpectedly depends on sorryAx' >&2
+            exit 1
+          fi
+          grep -F 'MQR.zeroInternalResidueOfComplete' /tmp/lean-proof-boundary.log
+          grep -F 'MQR.extensionContainsUncoveredProbe' /tmp/lean-proof-boundary.log
+          grep -F 'MQR.checkedProofCannotRaiseHoldToPass' /tmp/lean-proof-boundary.log
+          echo REAL_LANGUAGE_V04_LEAN_KERNEL=PASS
+          echo REAL_LANGUAGE_V04_NANODA_INDEPENDENT_CHECKER=PASS
+          echo LEAN_PROOF_IS_NOT_WORLD_VERIFICATION=TRUE
