@@ -67,12 +67,16 @@ jobs:
         run: |
           set -euo pipefail
           cd language/real/lean
-          lake env _lean4export/.lake/build/bin/lean4export MQR > /tmp/mqr-v04.export
+          lake env _lean4export/.lake/build/bin/lean4export MQR -- \
+            MQR.zeroInternalResidueOfComplete \
+            MQR.extensionContainsUncoveredProbe \
+            MQR.checkedProofCannotRaiseHoldToPass \
+            > /tmp/mqr-v04.export
           cat > /tmp/mqr-v04-nanoda.json <<'JSON'
           {
             "export_file_path": "/tmp/mqr-v04.export",
             "use_stdin": false,
-            "permitted_axioms": ["propext", "Classical.choice", "Quot.sound", "Lean.trustCompiler"],
+            "permitted_axioms": [],
             "unpermitted_axiom_hard_error": true,
             "nat_extension": true,
             "string_extension": true,
