@@ -1,0 +1,114 @@
+name: MQR-4.44 Exploration-Obligation Constitution Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.44/**'
+      - 'language/real/src/constitution_v11.rs'
+      - 'language/real/prolog/constitution_v11.pl'
+      - 'language/real/examples/mqr-4.44-*.real'
+      - 'language/real/tests/v11-invalid-*.real'
+      - 'language/real/V11-OBLIGATION-CONSTITUTION.md'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.44-obligation-constitution-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  constitution-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.11 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v11-constitute
+
+      - name: Execute constitution attacks and Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v11-constitute
+          P=language/real/prolog/constitution_v11.pl
+          CORE='^constitution\.(obligation_count|mandatory_obligation_count|burden_count|covered_burden_count|burden_union|uncovered_declared_burdens|agenda_source_count|agenda_ancestry_count|agenda_common_mode|endogenous_only|external_source_present|challenge_route|successor_claim_count|invalid_successor_claim_count|successor_coverage_complete|explicit_withdrawal_count|debt_transfer_required_count|debt_transfer_missing_count|debt_transfer_items|burden_laundering_detected|partition_count_authority|partition_audit_surface|external_source_truth_oracle|endogenous_source_truth_oracle|escape_detected|escape_reconstitution_required|reopen_on_escape|world_obligation_complete|omitted_burden_inferred|open_world_receipt|guidance_mode|admissible_envelope|state)='
+
+          for f in language/real/examples/mqr-4.44-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep -E "$CORE" /tmp/rust > /tmp/rust.core
+            grep -E "$CORE" /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.44-gerrymander-merged.real > /tmp/merged
+          "$V" language/real/examples/mqr-4.44-gerrymander-split.real > /tmp/split
+          grep -F 'constitution.obligation_count=1' /tmp/merged
+          grep -F 'constitution.obligation_count=2' /tmp/split
+          grep -F 'constitution.burden_union=A+B' /tmp/merged
+          grep -F 'constitution.burden_union=A+B' /tmp/split
+          grep -F 'constitution.partition_count_authority=REJECT' /tmp/merged
+
+          "$V" language/real/examples/mqr-4.44-common-mode-agenda.real > /tmp/common
+          grep -F 'constitution.agenda_source_count=2' /tmp/common
+          grep -F 'constitution.agenda_ancestry_count=1' /tmp/common
+          grep -F 'constitution.agenda_common_mode=YES' /tmp/common
+
+          "$V" language/real/examples/mqr-4.44-successor-invalid.real > /tmp/invalid_succ
+          "$V" language/real/examples/mqr-4.44-successor-valid.real > /tmp/valid_succ
+          grep -F 'constitution.successor_coverage_complete=NO' /tmp/invalid_succ
+          grep -F 'constitution.successor_coverage_complete=YES' /tmp/valid_succ
+
+          "$V" language/real/examples/mqr-4.44-debt-rename-launder.real > /tmp/rename
+          "$V" language/real/examples/mqr-4.44-debt-transfer-preserved.real > /tmp/transfer
+          "$V" language/real/examples/mqr-4.44-debt-delete-launder.real > /tmp/delete
+          grep -F 'constitution.successor_coverage_complete=YES' /tmp/rename
+          grep -F 'constitution.burden_laundering_detected=YES' /tmp/rename
+          grep -F 'constitution.burden_laundering_detected=NO' /tmp/transfer
+          grep -F 'constitution.burden_laundering_detected=YES' /tmp/delete
+
+          "$V" language/real/examples/mqr-4.44-endogenous-marked.real > /tmp/endogenous
+          grep -F 'constitution.endogenous_only=YES' /tmp/endogenous
+          grep -F 'constitution.endogenous_source_truth_oracle=NO' /tmp/endogenous
+          grep -F 'constitution.admissible_envelope=YES' /tmp/endogenous
+
+          "$V" language/real/examples/mqr-4.44-escape-reconstitution.real > /tmp/escape
+          grep -F 'constitution.escape_reconstitution_required=YES' /tmp/escape
+          grep -F 'constitution.state=REOPEN_REQUIRED' /tmp/escape
+
+          "$V" language/real/examples/mqr-4.44-omission-twin-a.real > /tmp/twin_a
+          "$V" language/real/examples/mqr-4.44-omission-twin-b.real > /tmp/twin_b
+          grep -E "$CORE" /tmp/twin_a > /tmp/twin_a.core
+          grep -E "$CORE" /tmp/twin_b > /tmp/twin_b.core
+          diff -u /tmp/twin_a.core /tmp/twin_b.core
+          grep -F 'witness.omitted_burden=NONE' /tmp/twin_a
+          grep -F 'witness.omitted_burden=Z' /tmp/twin_b
+          grep -F 'constitution.world_obligation_complete=NO' /tmp/twin_a
+
+          for x in language/real/tests/v11-invalid-*.real; do
+            if "$V" "$x"; then
+              echo "Rust unexpectedly accepted $x" >&2
+              exit 1
+            fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then
+              echo "Prolog unexpectedly accepted $x" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V11_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR444_SEARCH_CLASS_GERRYMANDER_WITNESS=PASS
+          echo MQR444_AGENDA_ANCESTRY_COMMON_MODE=PASS
+          echo MQR444_SUCCESSOR_COVERAGE_GUARD=PASS
+          echo MQR444_DEBT_CONTINUITY_GUARD=PASS
+          echo MQR444_ENDOGENOUS_AGENDA_MARKED=PASS
+          echo MQR444_ESCAPE_RECONSTITUTION=PASS
+          echo MQR444_WORLD_OBLIGATION_COMPLETE=NO
+          echo MQR444_GUIDANCE_MODE=CONTRACT_RELATIVE_CONSTITUTIONAL
