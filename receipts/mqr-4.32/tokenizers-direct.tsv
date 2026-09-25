@@ -1,7 +1,0 @@
-field	value
-trigger_sha	56d8ba62471fbd1d62c541183ef91c90c2fa0462
-mediated_seal_commit	b03c31531d8eca42f5b567d6ffbe94164fad5371
-predicted_direct_A_TO_C	TRANSPORT_PASS
-observed_direct_A_TO_C	TRANSPORT_PASS
-path_class	COMMUTES_AT_CLAIM_QUOTIENT
-composition_state	COMPOSITION_PASS

@@ -1,8 +1,0 @@
-[package]
-name = "mqr432-tokenizers-probe"
-version = "0.1.0"
-edition = "2024"
-publish = false
-
-[dependencies]
-tokenizers = { version = "=__TOKENIZERS_VERSION__", default-features = false, features = ["fancy-regex"] }
