@@ -1,6 +1,6 @@
 # MQR-4.42 — Rival-Frontier Adequacy Court
 
-Status: CLOSURE_CANDIDATE / B+C+D+E+G / CONDITIONAL-F FAILURE MODE / OPEN-FRONTIER GUIDANCE / MAIN-ONLY
+Status: CLOSED / B+C+D+E+G / CONDITIONAL-F FAILURE MODE / OPEN-FRONTIER GUIDANCE / REOPENING-COMPETENCE / MAIN-ONLY
 
 ## Formal stage name
 
@@ -24,7 +24,7 @@ MQR-4.41 established an exact minimum external discrimination cover relative to 
 WHAT IF THE FRONTIER ITSELF IS THE FAILURE?
 ```
 
-## Core result candidate
+## Core result
 
 The court rejects representation-independent scientific-frontier completeness certification.
 
@@ -115,7 +115,7 @@ frontier.world_complete=NO
 
 Thus exhaustive enumeration of a declared grammar is not scientific-frontier closure.
 
-## Positive result candidate — conditional guidance survives
+## Positive result — conditional guidance survives
 
 A frontier-relative rank can remain locally useful when:
 - generator/query/admission provenance is explicit;
@@ -238,7 +238,7 @@ F. RANK-MISLEADING = SUPPORTED AS A FAILURE MODE
 
 G. DISCOVERY-VECTOR = SUPPORTED.
 
-CANONICAL CANDIDATE = B + C + D + E + G
+CANONICAL SYNTHESIS = B + C + D + E + G
 with conditional-F as diagnosed failure mode.
 ```
 
@@ -254,11 +254,62 @@ PLUS LIVE REOPENING CAPACITY.
 
 A complete frontier is not required for science to move. A frontier that cannot be reopened is not entitled to pretend it is complete.
 
-## Closure pending
+## Closure receipts before final seal
 
-- integrated v0.9 full CI;
-- pinned independent proof replay;
-- final-head stage replay;
-- canonical Notion seal.
+Integrated v0.9 full CI:
 
-No CLOSED status is claimed until these succeed.
+```text
+36191607828 = SUCCESS
+REAL_LANGUAGE_V09_RUST_PROLOG_CONCORDANCE=PASS
+MQR442_QUERY_CLOSURE_FROM_CURRENT_RIVALS=REJECT
+MQR442_GENERATOR_DIVERSITY_AS_INDEPENDENCE=REJECT
+MQR442_GENERATOR_RELATIVE_SATURATION=PASS
+MQR442_STABLE_RANK_DISCOVERY=PASS
+MQR442_RANK_DELTA_AS_DISCOVERY_VALUE=REJECT
+MQR442_FINITE_GRAMMAR_AS_SCIENTIFIC_CLOSURE=REJECT
+MQR442_CONDITIONAL_FRONTIER_GUIDANCE=PASS
+MQR442_WORLD_FRONTIER_COMPLETE=NO
+```
+
+Pinned Lean/export/nanoda replay:
+
+```text
+36191531897 = SUCCESS
+all ten MQR-4.42 target theorems = AXIOM-EMPTY
+REAL_LANGUAGE_NANODA_INDEPENDENT_CHECKER=PASS
+MQR442_NANODA_FRONTIER_REPLAY=PASS
+```
+
+OFR/FRR stage court:
+
+```text
+36191569036 = SUCCESS
+REAL_LANGUAGE_V09_RUST_PROLOG_CONCORDANCE=PASS
+MQR442_OPEN_FRONTIER_RECEIPT=PASS
+MQR442_REOPENING_RESERVE_REQUIRED=PASS
+MQR442_CONDITIONAL_FRONTIER_GUIDANCE=PASS
+MQR442_WORLD_FRONTIER_COMPLETE=NO
+```
+
+A final same-head seal replay is required after the living doctrine/README closure commit. Its run IDs are recorded in the canonical Notion receipt rather than predicted here.
+
+## Final verdict
+
+```text
+FRONTIER_COMPLETENESS_CERTIFICATE=REJECT
+GENERATOR_RELATIVITY=PASS
+QUERY_LANGUAGE_CLOSURE_FROM_CURRENT_RIVALS=REJECT
+GENERATOR_COUNT_AS_INDEPENDENCE=REJECT
+GENERATOR_RELATIVE_SATURATION=PASS
+FINITE_GRAMMAR_AS_SCIENTIFIC_CLOSURE=REJECT
+ESCAPE_SENSITIVITY=PASS
+STABLE_FCR_CAN_HIDE_DISCOVERY=PASS
+DELTA_FCR_AS_DISCOVERY_VALUE=REJECT
+OPEN_FRONTIER_RECEIPT=ADOPT
+FRONTIER_REOPENING_RESERVE=ADOPT
+CONDITIONAL_FCR_GUIDANCE=PASS
+WORLD_FRONTIER_COMPLETE=NO
+DISCOVERY_VALUE_SCALAR=OFF
+FINAL_TRUTH_DISTANCE=UNIDENTIFIED
+OUTCOME=B+C+D+E+G
+```
