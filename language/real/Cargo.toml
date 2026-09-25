@@ -38,3 +38,7 @@ path = "src/frontier_v09.rs"
 [[bin]]
 name = "real-v10-allocate"
 path = "src/allocation_v10.rs"
+
+[[bin]]
+name = "real-v11-constitute"
+path = "src/constitution_v11.rs"
