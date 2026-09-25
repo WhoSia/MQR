@@ -40,10 +40,10 @@ jobs:
             MQR.instrumentExpansionCanDecreaseContactRank \
             MQR.incidenceRenamingPreservesRankWitness \
             MQR.sameMinimumRankDoesNotIdentifyFrontierOntology \
-            MQR.declaredDegreeCountCanChangeWithoutAWorldWitness
-            MQR.coverMinimalityDoesNotEstablishCalibrationAuthority
-            MQR.sameMeasurementMaterialCanHaveDifferentRankUnderDifferentSeparationContracts
-            MQR.realizedMinimumDoesNotEstablishSelectionHistorySufficiency
+            MQR.declaredDegreeCountCanChangeWithoutAWorldWitness \
+            MQR.coverMinimalityDoesNotEstablishCalibrationAuthority \
+            MQR.sameMeasurementMaterialCanHaveDifferentRankUnderDifferentSeparationContracts \
+            MQR.realizedMinimumDoesNotEstablishSelectionHistorySufficiency \
             MQR.contactRankDoesNotDetermineDecisionWarrant
           do
             grep -F "'$theorem' does not depend on any axioms" /tmp/rank.log
