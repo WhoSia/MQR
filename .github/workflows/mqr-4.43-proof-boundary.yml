@@ -1,0 +1,50 @@
+name: MQR-4.43 Allocation Lean Boundary
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'language/real/lean/MQR/Allocation.lean'
+      - 'language/real/lean/MQR.lean'
+      - '.github/workflows/mqr-4.43-proof-boundary.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Allocation axiom ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/Allocation.lean | tee /tmp/allocation.log
+          if grep -F 'sorryAx' /tmp/allocation.log; then exit 1; fi
+          for theorem in \
+            MQR.observationallyEquivalentWorldsCanRequireOppositeEscapeActions \
+            MQR.noSingleTwinWorldActionCapturesBothEscapes \
+            MQR.nominalReserveDoesNotImplyActivationCapability \
+            MQR.activationThresholdCanCertifyNarrowReserveCompetence \
+            MQR.equalScalarDebtCountDoesNotIdentifyDebtGeometry \
+            MQR.finiteDeclaredAntiStarvationCanBeCertified \
+            MQR.proceduralCoverageDoesNotImplyWorldFrontierCompleteness \
+            MQR.localExploitationGainDoesNotLicenseExplorationRetirement \
+            MQR.setValuedAdmissibilityDoesNotIdentifyUniqueWorldOptimum \
+            MQR.frontierEscapeCanMandateAllocationReopening \
+            MQR.randomizedCoverageIsNotAnEpistemicOracle
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/allocation.log
+          done
+          echo MQR443_ALLOCATION_AXIOM_ANCESTRY=EMPTY
