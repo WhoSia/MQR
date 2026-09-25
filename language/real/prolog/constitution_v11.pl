@@ -250,4 +250,6 @@ run(File) :-
     writeln('constitution.guidance_mode=CONTRACT_RELATIVE_CONSTITUTIONAL'),
     format('constitution.admissible_envelope=~w~n',[Admissible]),
     format('constitution.state=~w~n',[State]),
+    witness_omitted_burden(Witness),
+    format('witness.omitted_burden=~w~n',[Witness]),
     check_expected(Laundering,SuccessorCoverage,Common,Reopen,Admissible).
