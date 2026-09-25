@@ -1,0 +1,9 @@
+[package]
+name = "mqr-4-34-relational-support"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[[bin]]
+name = "mqr434"
+path = "src/main.rs"
