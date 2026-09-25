@@ -1,0 +1,168 @@
+name: MQR 4.34 SJSON Fresh Relation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.34/external/sjson/**'
+      - 'experiments/mqr-4.34/fresh-relations.tsv'
+      - '.github/workflows/mqr-4.34-sjson.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bridge:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - regime: A
+            version: '1.0.140'
+          - regime: B
+            version: '1.0.145'
+          - regime: C
+            version: '1.0.151'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt
+      - name: Materialize exact dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed 's/__SJSON_VERSION__/${{ matrix.version }}/g' experiments/mqr-4.34/external/sjson/Cargo.template.toml > experiments/mqr-4.34/external/sjson/Cargo.toml
+      - name: Format gate
+        run: cargo fmt --manifest-path experiments/mqr-4.34/external/sjson/Cargo.toml -- --check
+      - name: Generate lockfile
+        run: cargo generate-lockfile --manifest-path experiments/mqr-4.34/external/sjson/Cargo.toml
+      - name: Locked build
+        run: cargo build --locked --manifest-path experiments/mqr-4.34/external/sjson/Cargo.toml
+      - name: Execute bridge only
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=experiments/mqr-4.34/external/sjson/target/debug/mqr434-sjson-probe
+          "$BIN" bridge > "sjson-bridge-${{ matrix.regime }}.tsv"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sjson-bridge-${{ matrix.regime }}
+          path: sjson-bridge-${{ matrix.regime }}.tsv
+          retention-days: 30
+
+  bridge_adjudicate:
+    needs: bridge
+    runs-on: ubuntu-24.04
+    outputs:
+      candidate: ${{ steps.adj.outputs.candidate }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: sjson-bridge-*
+          path: results
+          merge-multiple: true
+      - id: adj
+        name: Seal adjacent result and mediated prediction before direct reveal
+        shell: bash
+        run: |
+          set -euo pipefail
+          AB=TRANSPORT_FAIL
+          BC=TRANSPORT_FAIL
+          if cmp -s results/sjson-bridge-A.tsv results/sjson-bridge-B.tsv; then AB=TRANSPORT_PASS; fi
+          if cmp -s results/sjson-bridge-B.tsv results/sjson-bridge-C.tsv; then BC=TRANSPORT_PASS; fi
+          CANDIDATE=no
+          MEDIATED=NOT_LICENSED
+          if [[ "$AB" == TRANSPORT_PASS && "$BC" == TRANSPORT_PASS ]]; then
+            CANDIDATE=yes
+            MEDIATED=TRANSPORT_PASS
+          fi
+          grep -F $'SJSON-001\tENGINEERING_DEVELOPMENT\tSAME_GENERATOR' experiments/mqr-4.34/fresh-relations.tsv
+          echo "A_TO_B=$AB"
+          echo "B_TO_C=$BC"
+          echo 'RELATION=R0_SAME_GENERATOR_HOLDOUT'
+          echo 'AUTHORITY=A0_HOLDOUT_SUPPORT_ADMISSIBLE'
+          echo "MEDIATED_DIRECT_PREDICTION=$MEDIATED"
+          echo "candidate=$CANDIDATE" >> "$GITHUB_OUTPUT"
+          {
+            echo "A_TO_B=$AB"
+            echo "B_TO_C=$BC"
+            echo 'RELATION=R0_SAME_GENERATOR_HOLDOUT'
+            echo 'AUTHORITY=A0_HOLDOUT_SUPPORT_ADMISSIBLE'
+            echo "MEDIATED_DIRECT_PREDICTION=$MEDIATED"
+            echo "CANDIDATE=$CANDIDATE"
+          } > sjson-bridge-seal.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sjson-bridge-seal
+          path: sjson-bridge-seal.txt
+          retention-days: 30
+
+  direct:
+    needs: bridge_adjudicate
+    if: needs.bridge_adjudicate.outputs.candidate == 'yes'
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - regime: A
+            version: '1.0.140'
+          - regime: C
+            version: '1.0.151'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+      - name: Materialize exact dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          sed 's/__SJSON_VERSION__/${{ matrix.version }}/g' experiments/mqr-4.34/external/sjson/Cargo.template.toml > experiments/mqr-4.34/external/sjson/Cargo.toml
+      - name: Locked build
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo generate-lockfile --manifest-path experiments/mqr-4.34/external/sjson/Cargo.toml
+          cargo build --locked --manifest-path experiments/mqr-4.34/external/sjson/Cargo.toml
+      - name: Execute independent heldout packet
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=experiments/mqr-4.34/external/sjson/target/debug/mqr434-sjson-probe
+          "$BIN" direct > "sjson-direct-${{ matrix.regime }}.tsv"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sjson-direct-${{ matrix.regime }}
+          path: sjson-direct-${{ matrix.regime }}.tsv
+          retention-days: 30
+
+  direct_adjudicate:
+    needs: direct
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: sjson-direct-*
+          path: results
+          merge-multiple: true
+      - name: Adjudicate heldout prediction without retyping
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIRECT=TRANSPORT_FAIL
+          if cmp -s results/sjson-direct-A.tsv results/sjson-direct-C.tsv; then DIRECT=TRANSPORT_PASS; fi
+          echo "DIRECT_A_TO_C=$DIRECT"
+          if [[ "$DIRECT" == TRANSPORT_PASS ]]; then
+            echo 'MEDIATED_PREDICTION_ADJUDICATION=CONFIRMED'
+          else
+            echo 'MEDIATED_PREDICTION_ADJUDICATION=FALSIFIED'
+          fi
+          echo 'RELATION_RETYPE=FORBIDDEN'
+          echo 'AUTHORITY_REMAINS=A0_HOLDOUT_SUPPORT_ADMISSIBLE'
+          echo 'SJSON_001_FRESH_RELATION_STRESS=PASS'
