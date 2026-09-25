@@ -30,3 +30,7 @@ path = "src/substitute_v07.rs"
 [[bin]]
 name = "real-v08-rank"
 path = "src/contact_rank_v08.rs"
+
+[[bin]]
+name = "real-v09-frontier"
+path = "src/frontier_v09.rs"
