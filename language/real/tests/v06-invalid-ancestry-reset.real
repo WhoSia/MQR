@@ -1,0 +1,20 @@
+REALCOMPOSE 0.6
+id invalid-ancestry-reset
+source_authority PASS
+final_authority PASS
+bridge T1 A B PASS PASS
+bridge T2 B C PASS PASS
+semantic T1 PASS EXTERNAL
+semantic T2 PASS EXTERNAL
+semantic_comp PASS EXTERNAL
+scope_source a
+scope_map T1 a x
+scope_map T2 x z
+final_claim z
+ancestor MEAS PASS
+preserve T1 MEAS
+defeat T1 A B REACHABLE
+defeat T2 B C REACHABLE
+direct_receipt PASS
+authorize PASS
+END
