@@ -170,4 +170,9 @@ run(File) :-
     writeln('frontier.query_language_complete_inferred=NO'),
     writeln('frontier.admission_rule_complete_inferred=NO'),
     writeln('frontier.search_count_implies_completeness=NO'),
+    writeln('frontier.open_frontier_receipt=REQUIRED'),
+    writeln('frontier.reopening_reserve=REQUIRED'),
+    writeln('frontier.reopen_on_escape=YES'),
+    writeln('frontier.completeness_claim=FORBIDDEN'),
+    writeln('frontier.discovery_impact_mode=VECTOR'),
     check_expected(Escape,OffQ,Common,SatMirage,Before,After).
