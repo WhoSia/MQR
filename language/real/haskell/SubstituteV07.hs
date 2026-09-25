@@ -1,71 +1,410 @@
 module Main where
-import Data.Char(toUpper)
-import Data.List(tails)
+
+import Data.Char (toUpper)
+import Data.List (tails)
 import qualified Data.Map.Strict as M
 import qualified Data.Set as S
-import System.Environment(getArgs)
-import System.Exit(exitFailure)
-data St=F|H|P deriving(Eq,Ord,Show)
-data Root=Root String String St String deriving Show
-data Bridge=Bridge String St deriving Show
-data Nat=Nat String St String String deriving Show
-data Pw=Pw String String String St deriving Show
-data Packet=Packet{ident::String,kind::String,sa::Maybe St,fa::Maybe St,roots::[Root],degrees::S.Set String,covers::[(String,String)],qroots::[(String,String)],gens::[(String,String,String)],endpoint::String,bridges::[Bridge],nats::[Nat],paths::[Pw],peq::M.Map(String,String)St,exts::M.Map String St,coh::Maybe(St,String),anc::[(String,St)],pres::S.Set(String,String),defs::[String],target::String,just::[(String,String)],direct::String,req::Maybe St}deriving Show
-empty=Packet"" "" Nothing Nothing[]S.empty[][][]""[][][]M.empty M.empty Nothing[]S.empty[]""[]""Nothing
-up=map toUpper
-ps x=case up x of{"FAIL"->Right F;"HOLD"->Right H;"PASS"->Right P;_->Left"bad status"}
-tx F="FAIL";tx H="HOLD";tx P="PASS";mt=min
-rs(Root _ _ s f)=mt s(case f of{"LIVE"->P;"STALE"->H;"EXPIRED"->F;_->F})
-pair a b=if a<=b then(a,b)else(b,a)
-parse s=go empty False False(lines s)where
- go p st en []|not st=Left"missing header"|not en=Left"missing END"|otherwise=Right p
- go p st en(r:xs)|en=go p st en xs|null w||head w=="#"=go p st en xs|head w=="REALSUBSTITUTE"=if w==["REALSUBSTITUTE","0.7"]then go p True en xs else Left"bad header"|not st=Left"no header"|head w=="END"=go p st True xs|otherwise=step p w>>= \q->go q st en xs where w=words r
- step p w=case w of
-  ["id",x]->Right p{ident=x}
-  ["claim_kind",x]->Right p{kind=up x}
-  ["source_authority",x]->do s'<-ps x;Right p{sa=Just s'}
-  ["final_authority",x]->do s'<-ps x;Right p{fa=Just s'}
-  ["root",i,k,s',f]->do z<-ps s';Right p{roots=roots p++[Root i(up k)z(up f)]}
-  ["degree",d]->Right p{degrees=S.insert d(degrees p)}
-  ["cover",d,r]->Right p{covers=covers p++[(d,r)]}
-  ["query_root",q,r]->Right p{qroots=qroots p++[(q,r)]}
-  ["generate",b,a,z]->Right p{gens=gens p++[(b,a,z)]}
-  ["endpoint_query",q]->Right p{endpoint=q}
-  ["bridge",i,_,_,s']->do z<-ps s';Right p{bridges=bridges p++[Bridge i z]}
-  ["naturality",b,s',m,r]->do z<-ps s';Right p{nats=nats p++[Nat b z(up m)r]}
-  ["path",i,a,z,s']->do q<-ps s';Right p{paths=paths p++[Pw i a z q]}
-  ["path_equal",a,b,s']->do q<-ps s';Right p{peq=M.insert(pair a b)q(peq p)}
-  ["extension",a,s']->do q<-ps s';Right p{exts=M.insert(up a)q(exts p)}
-  ["coherence",s',m]->do q<-ps s';Right p{coh=Just(q,up m)}
-  ["ancestor",a,s']->do q<-ps s';Right p{anc=anc p++[(a,q)]}
-  ["preserve",b,a]->Right p{pres=S.insert(b,a)(pres p)}
-  ["assumption",_,_,_]->Right p
-  ["defeat",d]->Right p{defs=defs p++[up d]}
-  ["justification_target",x]->Right p{target=x}
-  ["justify",a,b]->Right p{just=just p++[(a,b)]}
-  ["direct_receipt",x]->Right p{direct=up x}
-  ["authorize",x]->do q<-ps x;Right p{req=Just q}
-  _->Left("bad line "++unwords w)
-rm p=M.fromList[(i,r)|r@(Root i _ _ _)<-roots p]
-used p=S.fromList([r|(_,r)<-covers p]++[r|(_,r)<-qroots p]++[r|Nat _ _ m r<-nats p,m=="EMPIRICAL",r/="NONE"])
-cext p=if S.null u then F else foldl mt P[case M.lookup x m of{Just r@(Root _ "EXTERNAL" _ _)->rs r;_->F}|x<-S.toList u]where u=used p;m=rm p
-cbasis p=if S.null(degrees p)then H else foldl mt P[one d|d<-S.toList(degrees p)]where m=rm p;one d=let ss=[rs r|(dd,x)<-covers p,dd==d,Just r@(Root _ "EXTERNAL" _ _)<-[M.lookup x m]]in if null ss then F else maximum ss
-cquery p=if S.member(endpoint p)final then P else F where m=rm p;start=S.fromList[q|(q,x)<-qroots p,Just r@(Root _ "EXTERNAL" _ _)<-[M.lookup x m],rs r/=F];final=foldl step start(bridges p);step fr(Bridge b _)=S.fromList[z|(bb,a,z)<-gens p,bb==b,S.member a fr]
-cnat p=foldl mt P[one b|Bridge b _<-bridges p]where m=rm p;one b=case[n|n@(Nat x _ _ _)<-nats p,x==b]of{[]->H;(Nat _ _ "SELF" _:_)->F;(Nat _ _ "UNTESTED" _:_)->H;(Nat _ s "EMPIRICAL" r:_)->case M.lookup r m of{Just rr@(Root _ "EXTERNAL" _ _)->mt s(rs rr);_->F};(Nat _ s _ _:_) -> s}
-cpath p|null(paths p)=H|length(paths p)==1=let(Pw _ _ _ s)=head(paths p)in s|otherwise=foldl mt P(states++eqs)where ps'=paths p;Pw _ a z _=head ps';states=[s|Pw _ x y s<-ps',x==a,y==z]++[F|any(\(Pw _ x y _)->x/=a||y/=z)ps'];prs=[(u,v)|(u:rest)<-tails ps',v<-rest];eqs=[M.findWithDefault H(pair i j)(peq p)|(Pw i _ _ _,Pw j _ _ _)<-prs]
-ccong p=if length(paths p)<=1 then P else mt(M.findWithDefault H"PRE"(exts p))(M.findWithDefault H"POST"(exts p))
-ccoh p=case coh p of{Just(s,"CLOSED")->s;Just(F,_)->F;_->H}
-canc p=if null(anc p)then H else if all(\(a,_)->all(\(Bridge b _)->S.member(b,a)(pres p))(bridges p))(anc p)then foldl mt P(map snd(anc p))else F
-cnew p=if kind p=="NEW_EMPIRICAL"then F else P
-cdef p=if null(defs p)then H else if all(=="REACHABLE")(defs p)then P else F
-nodes n es=go S.empty[n]where go s[] =s;go s(x:xs)|S.member x s=go s xs|otherwise=go(S.insert x s)(xs++[b|(a,b)<-es,a==x])
-cex p=if S.null ex then F else if all(\n->not(S.null(S.intersection ex(nodes n(just p)))))(S.toList(nodes(target p)(just p)))then P else F where ex=S.fromList[i|Root i "EXTERNAL" _ _<-roots p]
-cbridge p=foldl mt P[s|Bridge _ s<-bridges p]
-cglobal p=let m=rm p;rootst=[rs r|x<-S.toList(used p),Just r<-[M.lookup x m]];ceil=foldl mt(maybe F id(sa p))(map snd(anc p)++rootst)in if maybe F id(fa p)>ceil then F else P
-cdirect p=case direct p of{"ABSENT"->P;"PASS"->P;"HOLD"->H;"FAIL"->H;_->F}
-derive p=M.fromList(base++[("substitution",foldl mt P(map snd base))])where base=[("external_root",cext p),("world_contact_basis",cbasis p),("query_basis",cquery p),("naturality",cnat p),("path_independence",cpath p),("congruence",ccong p),("higher_coherence",ccoh p),("ancestry",canc p),("no_new_empirical_degree",cnew p),("defeat_to_world",cdef p),("exteriority",cex p),("bridge_state",cbridge p),("global_nonamplification",cglobal p),("direct_conflict",cdirect p)]
-power[]=[[]];power(x:xs)=let r=power xs in r++map(x:)r
-mins p=let rr=[i|r@(Root i "EXTERNAL" _ _)<-roots p,rs r==P];good ss=all(\d->any(\(dd,r)->dd==d&&elem r ss)(covers p))(S.toList(degrees p));g=filter good(power rr)in if null g then[]else let k=minimum(map length g)in filter((==k).length)g
-emit p d=do putStrLn"HASKELL-REAL-SUBSTITUTION=0.7";mapM_(\k->putStrLn("coordinate."++k++"="++tx(d M.!k)))["external_root","world_contact_basis","query_basis","naturality","path_independence","congruence","higher_coherence","ancestry","no_new_empirical_degree","defeat_to_world","exteriority","bridge_state","global_nonamplification","direct_conflict","substitution"];let mm=mins p;putStrLn("wcb.minimum_declared_roots="++if null mm then"UNAVAILABLE"else show(length(head mm)))
-run mini f=do s<-readFile f;case parse s of{Left e->putStrLn e>>exitFailure;Right p->if mini then let mm=mins p in putStrLn("DECLARED_WCB_MIN_ROOTS="++if null mm then"UNAVAILABLE"else show(length(head mm)))>>putStrLn"WCB_MINIMALITY_IS_RELATIVE_TO_DECLARED_DEGREES_AND_COVERS=TRUE" else let d=derive p;g=d M.!"substitution";r=maybe F id(req p)in if r>g then putStrLn"SUBSTITUTION_LAUNDERING">>exitFailure else emit p d}
-main=do a<-getArgs;case a of{["--basis-minimality",f]->run True f;[]->exitFailure;fs->mapM_(run False)fs}
+import System.Environment (getArgs)
+import System.Exit (exitFailure)
+
+data Status = Fail | Hold | Pass deriving (Eq, Ord, Show)
+data Root = Root String String Status String deriving Show
+data Bridge = Bridge String Status deriving Show
+data Naturality = Naturality String Status String String deriving Show
+data PathW = PathW String String String Status deriving Show
+data Assumption = Assumption String String Status deriving Show
+
+data Packet = Packet
+  { ident :: String
+  , claimKind :: String
+  , sourceAuth :: Maybe Status
+  , finalAuth :: Maybe Status
+  , roots :: [Root]
+  , degrees :: S.Set String
+  , covers :: [(String,String)]
+  , queryRoots :: [(String,String)]
+  , generates :: [(String,String,String)]
+  , endpoint :: String
+  , bridges :: [Bridge]
+  , naturalities :: [Naturality]
+  , paths :: [PathW]
+  , pathEq :: M.Map (String,String) Status
+  , extensions :: M.Map String Status
+  , coherenceSpec :: Maybe (Status,String)
+  , ancestors :: [(String,Status)]
+  , preserved :: S.Set (String,String)
+  , assumptions :: [Assumption]
+  , defeats :: [String]
+  , justificationTarget :: String
+  , justifies :: [(String,String)]
+  , directReceipt :: String
+  , requested :: Maybe Status
+  } deriving Show
+
+emptyPacket :: Packet
+emptyPacket = Packet "" "" Nothing Nothing [] S.empty [] [] [] "" [] [] []
+  M.empty M.empty Nothing [] S.empty [] [] "" [] "" Nothing
+
+upper :: String -> String
+upper = map toUpper
+
+parseStatus :: String -> Either String Status
+parseStatus x = case upper x of
+  "FAIL" -> Right Fail
+  "HOLD" -> Right Hold
+  "PASS" -> Right Pass
+  _ -> Left ("invalid status " ++ x)
+
+statusText :: Status -> String
+statusText Fail = "FAIL"
+statusText Hold = "HOLD"
+statusText Pass = "PASS"
+
+meet :: Status -> Status -> Status
+meet = min
+
+rootId :: Root -> String
+rootId (Root i _ _ _) = i
+
+rootKind :: Root -> String
+rootKind (Root _ k _ _) = k
+
+rootState :: Root -> Status
+rootState (Root _ _ s f) =
+  meet s $ case f of
+    "LIVE" -> Pass
+    "STALE" -> Hold
+    "EXPIRED" -> Fail
+    _ -> Fail
+
+bridgeId :: Bridge -> String
+bridgeId (Bridge i _) = i
+
+bridgeStatus :: Bridge -> Status
+bridgeStatus (Bridge _ s) = s
+
+canonPair :: String -> String -> (String,String)
+canonPair a b = if a <= b then (a,b) else (b,a)
+
+parsePacket :: String -> Either String Packet
+parsePacket input = go emptyPacket False False (lines input)
+  where
+    go p started ended []
+      | not started = Left "missing REALSUBSTITUTE 0.7"
+      | not ended = Left "missing END"
+      | otherwise = validate p
+    go p started ended (raw:xs)
+      | ended = go p started ended xs
+      | null ws || head ws == "#" = go p started ended xs
+      | head ws == "REALSUBSTITUTE" =
+          if ws == ["REALSUBSTITUTE","0.7"]
+            then go p True ended xs
+            else Left "expected REALSUBSTITUTE 0.7"
+      | not started = Left "packet must begin REALSUBSTITUTE 0.7"
+      | head ws == "END" = go p started True xs
+      | otherwise = step p ws >>= \p' -> go p' started ended xs
+      where
+        ws = words raw
+
+    step p ws = case ws of
+      ["id",x] -> Right p{ident=x}
+      ["claim_kind",x] -> Right p{claimKind=upper x}
+      ["source_authority",x] -> do
+        s <- parseStatus x
+        Right p{sourceAuth=Just s}
+      ["final_authority",x] -> do
+        s <- parseStatus x
+        Right p{finalAuth=Just s}
+      ["root",i,k,s,f] -> do
+        st <- parseStatus s
+        Right p{roots=roots p ++ [Root i (upper k) st (upper f)]}
+      ["degree",d] -> Right p{degrees=S.insert d (degrees p)}
+      ["cover",d,r] -> Right p{covers=covers p ++ [(d,r)]}
+      ["query_root",q,r] -> Right p{queryRoots=queryRoots p ++ [(q,r)]}
+      ["generate",b,a,z] -> Right p{generates=generates p ++ [(b,a,z)]}
+      ["endpoint_query",q] -> Right p{endpoint=q}
+      ["bridge",i,_,_,s] -> do
+        st <- parseStatus s
+        Right p{bridges=bridges p ++ [Bridge i st]}
+      ["naturality",b,s,m,r] -> do
+        st <- parseStatus s
+        Right p{naturalities=naturalities p ++ [Naturality b st (upper m) r]}
+      ["path",i,a,z,s] -> do
+        st <- parseStatus s
+        Right p{paths=paths p ++ [PathW i a z st]}
+      ["path_equal",a,b,s] -> do
+        st <- parseStatus s
+        Right p{pathEq=M.insert (canonPair a b) st (pathEq p)}
+      ["extension",side,s] -> do
+        st <- parseStatus s
+        Right p{extensions=M.insert (upper side) st (extensions p)}
+      ["coherence",s,m] -> do
+        st <- parseStatus s
+        Right p{coherenceSpec=Just(st,upper m)}
+      ["ancestor",a,s] -> do
+        st <- parseStatus s
+        Right p{ancestors=ancestors p ++ [(a,st)]}
+      ["preserve",b,a] ->
+        Right p{preserved=S.insert (b,a) (preserved p)}
+      ["assumption",k,v,s] -> do
+        st <- parseStatus s
+        Right p{assumptions=assumptions p ++ [Assumption k (upper v) st]}
+      ["defeat",d] ->
+        Right p{defeats=defeats p ++ [upper d]}
+      ["justification_target",x] ->
+        Right p{justificationTarget=x}
+      ["justify",a,b] ->
+        Right p{justifies=justifies p ++ [(a,b)]}
+      ["direct_receipt",x] ->
+        Right p{directReceipt=upper x}
+      ["authorize",x] -> do
+        st <- parseStatus x
+        Right p{requested=Just st}
+      _ -> Left ("malformed command: " ++ unwords ws)
+
+    validate p
+      | null (ident p) || null (claimKind p) || sourceAuth p == Nothing
+        || finalAuth p == Nothing || null (roots p) || null (bridges p)
+        || null (endpoint p) || null (justificationTarget p)
+        || null (directReceipt p) || requested p == Nothing
+          = Left "missing required v0.7 field"
+      | otherwise = Right p
+
+rootMap :: Packet -> M.Map String Root
+rootMap p = M.fromList [(rootId r,r) | r <- roots p]
+
+usedRoots :: Packet -> S.Set String
+usedRoots p = S.fromList $
+  [r | (_,r) <- covers p] ++
+  [r | (_,r) <- queryRoots p] ++
+  [r | Naturality _ _ m r <- naturalities p, m == "EMPIRICAL", r /= "NONE"]
+
+externalRoot :: Packet -> Status
+externalRoot p
+  | S.null u = Fail
+  | otherwise = foldl meet Pass [one x | x <- S.toList u]
+  where
+    u = usedRoots p
+    rm = rootMap p
+    one x = case M.lookup x rm of
+      Just r | rootKind r == "EXTERNAL" -> rootState r
+      _ -> Fail
+
+worldContactBasis :: Packet -> Status
+worldContactBasis p
+  | S.null (degrees p) = Hold
+  | otherwise = foldl meet Pass [one d | d <- S.toList (degrees p)]
+  where
+    rm = rootMap p
+    one d =
+      let ss = [rootState r | (dd,x) <- covers p, dd == d,
+                              Just r <- [M.lookup x rm], rootKind r == "EXTERNAL"]
+      in if null ss then Fail else maximum ss
+
+queryBasis :: Packet -> Status
+queryBasis p
+  | S.null start = Fail
+  | S.member (endpoint p) final = Pass
+  | otherwise = Fail
+  where
+    rm = rootMap p
+    start = S.fromList
+      [q | (q,x) <- queryRoots p, Just r <- [M.lookup x rm],
+           rootKind r == "EXTERNAL", rootState r /= Fail]
+    final = foldl step start (bridges p)
+    step fr b =
+      S.fromList [z | (bb,a,z) <- generates p, bb == bridgeId b, S.member a fr]
+
+naturalityC :: Packet -> Status
+naturalityC p = foldl meet Pass [one b | b <- bridges p]
+  where
+    rm = rootMap p
+    one b = case [n | n@(Naturality bb _ _ _) <- naturalities p, bb == bridgeId b] of
+      [] -> Hold
+      (Naturality _ _ "SELF" _:_) -> Fail
+      (Naturality _ _ "UNTESTED" _:_) -> Hold
+      (Naturality _ s "EMPIRICAL" r:_) ->
+        case M.lookup r rm of
+          Just rr | rootKind rr == "EXTERNAL" -> meet s (rootState rr)
+          _ -> Fail
+      (Naturality _ s _ _:_) -> s
+
+pathIndependence :: Packet -> Status
+pathIndependence p
+  | null ps = Hold
+  | length ps == 1 = let PathW _ _ _ s = head ps in s
+  | any wrongEndpoint ps = Fail
+  | otherwise = foldl meet Pass (statuses ++ equalities)
+  where
+    ps = paths p
+    PathW _ src0 dst0 _ = head ps
+    wrongEndpoint (PathW _ s d _) = s /= src0 || d /= dst0
+    statuses = [s | PathW _ _ _ s <- ps]
+    pairs = [(a,b) | (a:rest) <- tails ps, b <- rest]
+    equalities =
+      [M.findWithDefault Hold (canonPair i j) (pathEq p)
+      | (PathW i _ _ _,PathW j _ _ _) <- pairs]
+
+congruenceC :: Packet -> Status
+congruenceC p
+  | length (paths p) <= 1 = Pass
+  | otherwise =
+      meet (M.findWithDefault Hold "PRE" (extensions p))
+           (M.findWithDefault Hold "POST" (extensions p))
+
+coherenceC :: Packet -> Status
+coherenceC p = case coherenceSpec p of
+  Nothing -> Hold
+  Just(Fail,_) -> Fail
+  Just(s,"CLOSED") -> s
+  _ -> Hold
+
+ancestryC :: Packet -> Status
+ancestryC p
+  | null (ancestors p) = Hold
+  | all preservedEvery (ancestors p) =
+      foldl meet Pass (map snd (ancestors p))
+  | otherwise = Fail
+  where
+    preservedEvery (a,_) =
+      all (\b -> S.member (bridgeId b,a) (preserved p)) (bridges p)
+
+assumptionC :: Packet -> Status
+assumptionC p
+  | any ((>1) . S.size . S.fromList) (M.elems grouped) = Fail
+  | otherwise = foldl meet Pass [s | Assumption _ _ s <- assumptions p]
+  where
+    grouped = M.fromListWith (++) [(k,[v]) | Assumption k v _ <- assumptions p]
+
+noNewEmpirical :: Packet -> Status
+noNewEmpirical p
+  | claimKind p == "NEW_EMPIRICAL" = Fail
+  | otherwise = Pass
+
+defeatToWorld :: Packet -> Status
+defeatToWorld p
+  | null (defeats p) = Hold
+  | all (=="REACHABLE") (defeats p) = Pass
+  | otherwise = Fail
+
+reachableNodes :: String -> [(String,String)] -> S.Set String
+reachableNodes start es = go S.empty [start]
+  where
+    go seen [] = seen
+    go seen (x:xs)
+      | S.member x seen = go seen xs
+      | otherwise = go (S.insert x seen) (xs ++ [b | (a,b) <- es, a == x])
+
+exteriorityC :: Packet -> Status
+exteriorityC p
+  | S.null external = Fail
+  | all reaches (S.toList nodes) = Pass
+  | otherwise = Fail
+  where
+    external = S.fromList [rootId r | r <- roots p, rootKind r == "EXTERNAL"]
+    nodes = reachableNodes (justificationTarget p) (justifies p)
+    reaches n =
+      not . S.null $ S.intersection external (reachableNodes n (justifies p))
+
+bridgeState :: Packet -> Status
+bridgeState p = foldl meet Pass (map bridgeStatus (bridges p))
+
+globalNonamp :: Packet -> Status
+globalNonamp p =
+  if maybe Fail id (finalAuth p) > ceiling then Fail else Pass
+  where
+    rm = rootMap p
+    rootStates =
+      [rootState r | x <- S.toList (usedRoots p), Just r <- [M.lookup x rm]]
+    assumptionStates = [s | Assumption _ _ s <- assumptions p]
+    ceiling = foldl meet (maybe Fail id (sourceAuth p))
+      (map snd (ancestors p) ++ assumptionStates ++ rootStates)
+
+directConflict :: Packet -> Status
+directConflict p = case directReceipt p of
+  "ABSENT" -> Pass
+  "PASS" -> Pass
+  "HOLD" -> Hold
+  "FAIL" -> Hold
+  _ -> Fail
+
+derive :: Packet -> M.Map String Status
+derive p = M.fromList (base ++ [("substitution", foldl meet Pass (map snd base))])
+  where
+    base =
+      [ ("external_root", externalRoot p)
+      , ("world_contact_basis", worldContactBasis p)
+      , ("query_basis", queryBasis p)
+      , ("naturality", naturalityC p)
+      , ("path_independence", pathIndependence p)
+      , ("congruence", congruenceC p)
+      , ("higher_coherence", coherenceC p)
+      , ("ancestry", ancestryC p)
+      , ("assumption", assumptionC p)
+      , ("no_new_empirical_degree", noNewEmpirical p)
+      , ("defeat_to_world", defeatToWorld p)
+      , ("exteriority", exteriorityC p)
+      , ("bridge_state", bridgeState p)
+      , ("global_nonamplification", globalNonamp p)
+      , ("direct_conflict", directConflict p)
+      ]
+
+power :: [a] -> [[a]]
+power [] = [[]]
+power (x:xs) = let r=power xs in r ++ map (x:) r
+
+minimalCovers :: Packet -> [[String]]
+minimalCovers p =
+  let rs=[rootId r | r<-roots p, rootKind r=="EXTERNAL", rootState r==Pass]
+      good ss=all (\d -> any (\(dd,r)->dd==d && elem r ss) (covers p))
+                  (S.toList (degrees p))
+      gs=filter good (power rs)
+  in if S.null (degrees p) || null gs then []
+     else let m=minimum (map length gs) in filter ((==m).length) gs
+
+coordOrder :: [String]
+coordOrder =
+  ["external_root","world_contact_basis","query_basis","naturality",
+   "path_independence","congruence","higher_coherence","ancestry","assumption",
+   "no_new_empirical_degree","defeat_to_world","exteriority","bridge_state",
+   "global_nonamplification","direct_conflict","substitution"]
+
+emit :: Packet -> M.Map String Status -> IO ()
+emit p d = do
+  putStrLn "HASKELL-REAL-SUBSTITUTION=0.7"
+  mapM_ (\k -> putStrLn ("coordinate."++k++"="++statusText(d M.! k))) coordOrder
+  let ms=minimalCovers p
+  putStrLn ("wcb.minimum_declared_roots=" ++
+    if null ms then "UNAVAILABLE" else show (length (head ms)))
+
+emitMinimality :: Packet -> IO ()
+emitMinimality p = do
+  let ms=minimalCovers p
+  putStrLn ("DECLARED_WCB_MIN_ROOTS=" ++
+    if null ms then "UNAVAILABLE" else show (length (head ms)))
+  putStrLn "WCB_MINIMALITY_IS_RELATIVE_TO_DECLARED_DEGREES_AND_COVERS=TRUE"
+
+runOne :: Bool -> FilePath -> IO ()
+runOne minimalityMode f = do
+  input <- readFile f
+  case parsePacket input of
+    Left e -> putStrLn e >> exitFailure
+    Right p ->
+      if minimalityMode
+      then emitMinimality p
+      else do
+        let d=derive p
+            got=d M.! "substitution"
+            want=maybe Fail id (requested p)
+        if want > got
+        then putStrLn ("SUBSTITUTION_LAUNDERING: requested "++
+                       statusText want++" above derived "++statusText got) >> exitFailure
+        else emit p d
+
+main :: IO ()
+main = do
+  args <- getArgs
+  case args of
+    ["--basis-minimality",f] -> runOne True f
+    [] -> exitFailure
+    fs -> mapM_ (runOne False) fs
