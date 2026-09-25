@@ -382,3 +382,17 @@ OPTIMIZER COMPLETENESS != FRONTIER COMPLETENESS
 FINITE MINIMUM != FINAL OPEN-WORLD MINIMUM
 FINAL_TRUTH_DISTANCE = UNIDENTIFIED
 ```
+
+
+### v0.8 cross-axis non-inferences
+
+Calibration authority, selection-history sufficiency, decision warrant, and evaluation-contract authority are not inferred by contact-rank minimization.
+
+```text
+rank.calibration_authority_inferred=false
+rank.selection_history_sufficiency_inferred=false
+rank.decision_warrant_inferred=false
+rank.evaluation_contract_authority_inferred=false
+```
+
+These are deliberate scientific boundaries: the finite optimizer operates after a separation relation has been constituted; it does not certify the upstream operation that constituted it.

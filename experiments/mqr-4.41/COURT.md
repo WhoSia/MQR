@@ -530,3 +530,29 @@ FINAL-TRUTH-DISTANCE=UNIDENTIFIED
 OUTCOME=C+E+F+G
 GENERATION-IV-CONTINUES
 ```
+
+
+## Research OS cross-axis formal receipt
+
+After the sidecar adjudication, four additional non-inference witnesses were added:
+
+- `coverMinimalityDoesNotEstablishCalibrationAuthority`
+- `sameMeasurementMaterialCanHaveDifferentRankUnderDifferentSeparationContracts`
+- `realizedMinimumDoesNotEstablishSelectionHistorySufficiency`
+- `contactRankDoesNotDetermineDecisionWarrant`
+
+Canonical run:
+
+```text
+36186863287 = SUCCESS
+all 12 MQR-4.41 target theorems = AXIOM-EMPTY
+pinned lean4export + nanoda replay = PASS
+```
+
+Full Real-Language replay after the cross-axis extension:
+
+```text
+36186830054 = SUCCESS
+```
+
+This extension does not change the canonical C+E+F+G outcome. It narrows the interpretation of FCR by making four upstream/non-inference boundaries explicit.
