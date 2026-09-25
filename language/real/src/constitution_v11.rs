@@ -613,6 +613,7 @@ fn emit(p: &Packet, a: &BTreeMap<String, String>) -> String {
         "constitution.escape_reconstitution_required",
         "constitution.reopen_on_escape",
         "constitution.world_obligation_complete",
+        "constitution.burden_atom_ontology_complete",
         "constitution.omitted_burden_inferred",
         "constitution.open_world_receipt",
         "constitution.guidance_mode",
