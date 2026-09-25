@@ -1,0 +1,77 @@
+name: MQR-4.39 Compositional Transfer Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.39/**'
+      - 'language/real/src/compose_v06.rs'
+      - 'language/real/haskell/ComposeV06.hs'
+      - 'language/real/examples/mqr-4.39-*.real'
+      - 'language/real/tests/v06-*.real'
+      - '.github/workflows/mqr-4.39-composition-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  composition-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Build v0.6 composition checker
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v06-compose
+
+      - name: Rust composition court
+        shell: bash
+        run: |
+          set -euo pipefail
+          V06=./language/real/target/release/real-v06-compose
+          "$V06" language/real/examples/mqr-4.39-compose-positive.real > /tmp/positive
+          "$V06" language/real/examples/mqr-4.39-compose-direct-hold.real > /tmp/hold
+          grep -F 'coordinate.composition=PASS' /tmp/positive
+          grep -F 'coordinate.direct=HOLD' /tmp/hold
+          grep -F 'coordinate.composition=HOLD' /tmp/hold
+          grep -F 'local_pass_does_not_imply_composite_pass=true' /tmp/positive
+          grep -F 'adjacent_pass_does_not_imply_direct_pass=true' /tmp/positive
+          grep -F 'algebraic_composability_is_not_epistemic_composability=true' /tmp/positive
+
+          for f in \
+            language/real/tests/v06-invalid-semantic-composition.real \
+            language/real/tests/v06-invalid-scope-union.real \
+            language/real/tests/v06-invalid-ancestry-reset.real \
+            language/real/tests/v06-invalid-defeat-disconnect.real \
+            language/real/tests/v06-invalid-assumption-conflict.real \
+            language/real/tests/v06-invalid-baseline-reset.real \
+            language/real/tests/v06-invalid-adjacent-pass-direct-fail.real
+          do
+            if "$V06" "$f"; then exit 1; fi
+          done
+          echo MQR439_RUST_COMPOSITION_COURT=PASS
+
+      - name: Haskell independent composition evaluator
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ghc
+          H=language/real/haskell/ComposeV06.hs
+          runghc "$H" language/real/examples/mqr-4.39-compose-positive.real > /tmp/h-positive
+          runghc "$H" language/real/examples/mqr-4.39-compose-direct-hold.real > /tmp/h-hold
+          grep -F 'coordinate.composition=PASS' /tmp/h-positive
+          grep -F 'coordinate.composition=HOLD' /tmp/h-hold
+          echo MQR439_HASKELL_COMPOSITION_COURT=PASS
+          echo IMPLEMENTATION_DIVERSITY_NOT_SEMANTIC_INDEPENDENCE=TRUE
+
+      - name: Freeze stage interpretation
+        shell: bash
+        run: |
+          echo MQR439_AUTHORITY_MEET_COMPOSES=PASS
+          echo MQR439_LOCAL_TRANSFER_PASS_COMPOSES_AUTOMATICALLY=FAIL
+          echo MQR439_PATHWISE_PULLBACK_REQUIRED=PASS
+          echo MQR439_DIRECT_RECEIPT_REQUIRED_FOR_FULL_PASS=PASS
+          echo MQR439_STRUCTURE=PARTIAL_WITNESS_INDEXED_COMPOSITION
+          echo MQR439_FINAL_TRUTH_DISTANCE=UNIDENTIFIED
