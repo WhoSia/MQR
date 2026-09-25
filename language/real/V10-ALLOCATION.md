@@ -1,6 +1,6 @@
 # Real-Language v0.10 — Open-Frontier Attention Allocation
 
-Status: EXECUTABLE CANDIDATE / MQR-4.43 / CONTRACT-RELATIVE / SET-VALUED / WORLD OPTIMUM FORBIDDEN
+Status: EXECUTABLE / MQR-4.43 CLOSED / CONTRACT-RELATIVE / SET-VALUED / WORLD OPTIMUM FORBIDDEN
 
 ## Boundary
 
@@ -89,6 +89,17 @@ If both a prior and utility are explicitly declared, v0.10 may acknowledge `allo
 - formal boundary: Lean `lean/MQR/Allocation.lean`.
 
 Rust–Prolog concordance is implementation-diversity evidence only. Lean certifies finite structural countermodels and scheduling facts, not the world truth of future rival distributions.
+
+## Final scope sharpening
+
+The closure court narrows several preseal phrases deliberately.
+
+- **AAE is implemented as a membership/admissibility checker, not an optimizer or exhaustive schedule enumerator.**
+- **ACRR certifies activation capability only.** Generator-ancestry common mode remains a separate coordinate; ACRR does not imply independent search ancestry.
+- The formal anti-starvation result is a **finite, unit-activation, one-cycle scheduling theorem**. It establishes that every declared lane can receive a qualifying slot under sufficient one-cycle budget; it is not a heterogeneous-cost optimal scheduling theorem.
+- Periodic reserve exercise is not inferred from reserve existence. It must be constituted as an explicit obligation/due horizon, otherwise no debt may be manufactured after the fact.
+- Explicit prior + explicit utility may authorize `DECLARED_MODEL_ONLY` optimization. That local authorization never implies a universal next action, world-optimal scientific search, frontier completeness or a stopping rule.
+- The Rust–Prolog agreement is a declared-surface implementation concordance result, not evidence of independent world-contact ancestry.
 
 ## Meaning
 
