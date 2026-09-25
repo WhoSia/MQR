@@ -22,6 +22,8 @@ struct CaseRows {
     rows: Vec<Row>,
 }
 
+type FiberOutcome = (String, String, bool, String, String);
+
 fn parse(path: &Path) -> Result<Vec<Row>, String> {
     let s = fs::read_to_string(path).map_err(|e| e.to_string())?;
     let mut out = Vec::new();
@@ -183,8 +185,7 @@ fn main() -> Result<(), String> {
     }
 
     let expected = ["JSCHEMA-001", "OASV-001", "UCD2-001", "WCWIDTH-001"];
-    let mut reach_by_fiber: BTreeMap<String, Vec<(String, String, bool, String, String)>> =
-        BTreeMap::new();
+    let mut reach_by_fiber: BTreeMap<String, Vec<FiberOutcome>> = BTreeMap::new();
     let mut executed_atoms = 0usize;
     let mut unresolved_atoms = 0usize;
     for case in expected {
