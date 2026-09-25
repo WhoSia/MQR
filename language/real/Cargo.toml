@@ -18,3 +18,7 @@ path = "src/proof_v04.rs"
 [[bin]]
 name = "real-v05-transfer"
 path = "src/transfer_v05.rs"
+
+[[bin]]
+name = "real-v06-compose"
+path = "src/compose_v06.rs"
