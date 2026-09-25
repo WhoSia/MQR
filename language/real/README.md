@@ -321,3 +321,16 @@ TRANSFER=NOT_APPLICABLE
 Therefore formalization is optional and route-relative, not a universal condition for scientific authority.
 
 Rust/Haskell concordance is implementation-diversity evidence only. It does not establish semantic or world independence.
+
+
+## v0.6 — compositional transfer boundary
+
+MQR-4.39 adds `REALCOMPOSE 0.6` and separates algebraic composition from scientific composition.
+
+Canonical Rust: `src/compose_v06.rs` / `real-v06-compose`.
+Independent Haskell: `haskell/ComposeV06.hs`.
+Lean boundary: `lean/MQR/Composition.lean`.
+
+The authority meet is associative and NoLaunder is transitive, but local transfer PASS does not imply composite PASS. The composition lane tracks endpoint compatibility, semantic composition, pathwise scope mapping, original-source ancestry, end-to-end defeat segments, assumption closure, global non-amplification and a direct source-to-target receipt.
+
+A full PASS therefore means **conditional pathwise non-amplification**, not categorical closure of scientific authority. The live structural classification is **partial / witness-indexed composition**. See `V06-COMPOSITION.md`.
