@@ -5,6 +5,7 @@
 :- dynamic witness_escape_lane/1.
 :- dynamic expected_acrr/1, expected_starvation/1, expected_debt/1.
 :- dynamic expected_escape_reallocation/1, expected_common_mode/1.
+:- dynamic seen_header/0, seen_end/0.
 
 reset_db :-
     retractall(lane(_,_,_,_,_,_)), retractall(obligation(_,_,_)),
@@ -16,7 +17,7 @@ reset_db :-
     retractall(witness_escape_lane(_)),
     retractall(expected_acrr(_)), retractall(expected_starvation(_)),
     retractall(expected_debt(_)), retractall(expected_escape_reallocation(_)),
-    retractall(expected_common_mode(_)).
+    retractall(expected_common_mode(_)), retractall(seen_header), retractall(seen_end).
 
 atomize(S,A) :- atom_string(A,S).
 
@@ -24,11 +25,17 @@ parse_line(Line) :-
     normalize_space(string(N), Line),
     ( N="" -> true
     ; sub_string(N,0,1,_,"#") -> true
+    ; seen_end -> true
     ; split_string(N," \t"," \t",T),
-      (parse_tokens(T) -> true ; format(user_error,'PROLOG_PARSE_FAIL tokens=~q line=~s~n',[T,Line]), fail)
+      ( T=["REALALLOCATE","0.10"] ->
+          (parse_tokens(T) -> true ; format(user_error,'PROLOG_PARSE_FAIL tokens=~q line=~s~n',[T,Line]), fail)
+      ; seen_header ->
+          (parse_tokens(T) -> true ; format(user_error,'PROLOG_PARSE_FAIL tokens=~q line=~s~n',[T,Line]), fail)
+      ; format(user_error,'PROLOG_HEADER_REQUIRED line=~s~n',[Line]), fail
+      )
     ).
 
-parse_tokens(["REALALLOCATE","0.10"]).
+parse_tokens(["REALALLOCATE","0.10"]) :- assertz(seen_header).
 parse_tokens(["id",S]) :- atomize(S,A), assertz(packet_id(A)).
 parse_tokens(["claim_scope",S]) :- atomize(S,A), assertz(claim_scope(A)).
 parse_tokens(["budget",S]) :- number_string(N,S), N>=0, assertz(budget(N)).
@@ -61,13 +68,14 @@ parse_tokens(["authorize_starvation",S]) :- atomize(S,A), assertz(expected_starv
 parse_tokens(["authorize_debt",S]) :- atomize(S,A), assertz(expected_debt(A)).
 parse_tokens(["authorize_escape_reallocation",S]) :- atomize(S,A), assertz(expected_escape_reallocation(A)).
 parse_tokens(["authorize_common_mode",S]) :- atomize(S,A), assertz(expected_common_mode(A)).
-parse_tokens(["END"]).
+parse_tokens(["END"]) :- assertz(seen_end).
 
 load_packet(File) :-
     reset_db,
     read_file_to_string(File,S,[]),
     split_string(S,"\n","\r",Lines),
     maplist(parse_line,Lines),
+    seen_header, seen_end,
     packet_id(_), claim_scope(_), budget(_), horizon(_), reserve(_), lane(_,_,_,_,_,_),
     normative_prior(_), normative_utility(_), history_signature(_), policy(_), witness_escape_lane(W),
     \+ (obligation(_,L,_), \+ lane(L,_,_,'MANDATORY',_,_)),
