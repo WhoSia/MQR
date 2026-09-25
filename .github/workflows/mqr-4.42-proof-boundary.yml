@@ -1,3 +1,23 @@
 name: MQR-4.42 Frontier Lean Boundary
-on: workflow_dispatch
-jobs: {}
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'language/real/lean/MQR/Frontier.lean'
+      - '.github/workflows/mqr-4.42-proof-boundary.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
