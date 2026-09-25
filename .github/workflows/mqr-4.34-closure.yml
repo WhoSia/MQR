@@ -1,0 +1,159 @@
+name: MQR 4.34 Relational Support Closure
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.34/**'
+      - '.github/workflows/mqr-4.34-closure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  closure:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt, clippy
+
+      - name: Core quality gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo fmt --manifest-path experiments/mqr-4.34/rust/Cargo.toml -- --check
+          cargo clippy --manifest-path experiments/mqr-4.34/rust/Cargo.toml --all-targets -- -D warnings
+          cargo test --manifest-path experiments/mqr-4.34/rust/Cargo.toml
+          cargo build --manifest-path experiments/mqr-4.34/rust/Cargo.toml --release
+
+      - name: Frozen relation grammar and inherited zero-credit separation
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=./experiments/mqr-4.34/rust/target/release/mqr434
+          "$BIN" experiments/mqr-4.34/forcing-worlds.tsv > /tmp/forcing.out
+          grep -F 'RELATION_EXPECTATION_MISMATCHES=0' /tmp/forcing.out
+          grep -F 'RELATION=F0' /tmp/forcing.out | grep -F 'R0_SAME_GENERATOR_HOLDOUT'
+          grep -F 'RELATION=F1' /tmp/forcing.out | grep -F 'R1_STRICT_DOMAIN_EXTENSION'
+          grep -F 'RELATION=F2' /tmp/forcing.out | grep -F 'R2_SUCCESSOR_REFINEMENT'
+          grep -F 'RELATION=F3' /tmp/forcing.out | grep -F 'R3_CONSTITUTIVE_COMPONENT_SHIFT'
+          grep -F 'RELATION=F4' /tmp/forcing.out | grep -F 'R4_OVERLAP_NONNESTED'
+          grep -F 'RELATION=F5' /tmp/forcing.out | grep -F 'R5_UNRESOLVED'
+          "$BIN" experiments/mqr-4.34/calibration/inherited-collision.tsv > /tmp/inherited.out
+          grep -F 'TKN-001-CAL' /tmp/inherited.out | grep -F 'R0_SAME_GENERATOR_HOLDOUT'
+          grep -F 'TOML-D1-CAL' /tmp/inherited.out | grep -F 'R1_STRICT_DOMAIN_EXTENSION'
+          echo 'MQR434_INHERITED_COLLISION_SEPARATION=PASS_ZERO_CREDIT'
+
+      - name: Frozen fresh relation receipts
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=./experiments/mqr-4.34/rust/target/release/mqr434
+          "$BIN" experiments/mqr-4.34/fresh-relations.tsv > /tmp/fresh.out
+          grep -F 'RELATION_EXPECTATION_MISMATCHES=0' /tmp/fresh.out
+          grep -F 'REGEX-001' /tmp/fresh.out | grep -F 'R1_STRICT_DOMAIN_EXTENSION' | grep -F 'A1_EXTENSION_REQUIRES_FRESH_CONTACT'
+          grep -F 'SJSON-001' /tmp/fresh.out | grep -F 'R0_SAME_GENERATOR_HOLDOUT' | grep -F 'A0_HOLDOUT_SUPPORT_ADMISSIBLE'
+          grep -F 'UNORM-001' /tmp/fresh.out | grep -F 'R2_SUCCESSOR_REFINEMENT' | grep -F 'A2_REFINEMENT_SUPPORT_IS_QUOTIENT_INDEXED'
+          echo 'MQR434_FRESH_RELATION_RETYPE=ZERO'
+
+      - name: Replay REGEX R1 strict-extension world
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR=experiments/mqr-4.34/external/regex
+          run_one() {
+            local version="$1" mode="$2" out="$3"
+            sed "s/__REGEX_VERSION__/${version}/g" "$DIR/Cargo.template.toml" > "$DIR/Cargo.toml"
+            cargo generate-lockfile --manifest-path "$DIR/Cargo.toml" >/dev/null
+            cargo build --locked --manifest-path "$DIR/Cargo.toml" >/dev/null
+            "$DIR/target/debug/mqr434-regex-probe" "$mode" > "$out"
+          }
+          run_one 1.9.6 bridge /tmp/regex-a-bridge
+          run_one 1.10.6 bridge /tmp/regex-b-bridge
+          run_one 1.12.3 bridge /tmp/regex-c-bridge
+          cmp -s /tmp/regex-a-bridge /tmp/regex-b-bridge
+          cmp -s /tmp/regex-b-bridge /tmp/regex-c-bridge
+          run_one 1.9.6 direct /tmp/regex-a-direct
+          run_one 1.12.3 direct /tmp/regex-c-direct
+          cmp -s /tmp/regex-a-direct /tmp/regex-c-direct
+          echo 'MQR434_REGEX_R1_BRIDGE=PASS'
+          echo 'MQR434_REGEX_R1_FRESH_DIRECT_REPLAY=PASS'
+          echo 'MQR434_REGEX_R1_AUTHORITY=A1_EXTENSION_REQUIRES_FRESH_CONTACT'
+
+      - name: Replay SJSON R0 same-generator holdout world
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR=experiments/mqr-4.34/external/sjson
+          run_one() {
+            local version="$1" mode="$2" out="$3"
+            sed "s/__SJSON_VERSION__/${version}/g" "$DIR/Cargo.template.toml" > "$DIR/Cargo.toml"
+            cargo generate-lockfile --manifest-path "$DIR/Cargo.toml" >/dev/null
+            cargo build --locked --manifest-path "$DIR/Cargo.toml" >/dev/null
+            "$DIR/target/debug/mqr434-sjson-probe" "$mode" > "$out"
+          }
+          run_one 1.0.140 bridge /tmp/sjson-a-bridge
+          run_one 1.0.145 bridge /tmp/sjson-b-bridge
+          run_one 1.0.151 bridge /tmp/sjson-c-bridge
+          cmp -s /tmp/sjson-a-bridge /tmp/sjson-b-bridge
+          cmp -s /tmp/sjson-b-bridge /tmp/sjson-c-bridge
+          run_one 1.0.140 direct /tmp/sjson-a-direct
+          run_one 1.0.151 direct /tmp/sjson-c-direct
+          cmp -s /tmp/sjson-a-direct /tmp/sjson-c-direct
+          echo 'MQR434_SJSON_R0_BRIDGE=PASS'
+          echo 'MQR434_SJSON_R0_MEDIATED_DIRECT_PREDICTION=CONFIRMED'
+          echo 'MQR434_SJSON_R0_AUTHORITY=A0_HOLDOUT_SUPPORT_ADMISSIBLE'
+
+      - name: Replay UNORM R2 successor-refinement world
+        shell: bash
+        run: |
+          set -euo pipefail
+          DIR=experiments/mqr-4.34/external/unorm
+          run_one() {
+            local version="$1" mode="$2" out="$3"
+            sed "s/__UNORM_VERSION__/${version}/g" "$DIR/Cargo.template.toml" > "$DIR/Cargo.toml"
+            cargo generate-lockfile --manifest-path "$DIR/Cargo.toml" >/dev/null
+            cargo build --locked --manifest-path "$DIR/Cargo.toml" >/dev/null
+            "$DIR/target/debug/mqr434-unorm-probe" "$mode" > "$out"
+          }
+          run_one 0.1.22 bridge /tmp/unorm-a-bridge
+          run_one 0.1.23 bridge /tmp/unorm-b-bridge
+          run_one 0.1.24 bridge /tmp/unorm-c-bridge
+          cmp -s /tmp/unorm-a-bridge /tmp/unorm-b-bridge
+          cmp -s /tmp/unorm-b-bridge /tmp/unorm-c-bridge
+          run_one 0.1.22 direct /tmp/unorm-a-direct
+          run_one 0.1.24 direct /tmp/unorm-c-direct
+          if cmp -s /tmp/unorm-a-direct /tmp/unorm-c-direct; then
+            echo 'expected successor divergence disappeared' >&2
+            exit 1
+          fi
+          echo 'MQR434_UNORM_R2_COARSE_BRIDGE=PASS'
+          echo 'MQR434_UNORM_R2_SUCCESSOR_DIRECT=DIVERGENCE'
+          echo 'MQR434_UNORM_R2_AUTHORITY=A2_REFINEMENT_SUPPORT_IS_QUOTIENT_INDEXED'
+
+      - name: Promotion ceiling and receipt consistency
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -F 'at least 6 fresh external cases' experiments/mqr-4.34/PRESEAL.md
+          grep -F 'at least 2 independently admitted RESEARCH_LAB cases' experiments/mqr-4.34/PRESEAL.md
+          grep -F 'EXTERNAL_RELATIONAL_SUPPORT_IDENTIFIED=HOLD' experiments/mqr-4.34/FRESH_WORLD_CONTACT_RECEIPT.md
+          grep -F 'R2_QUOTIENT_INDEXING = FRESHLY_VINDICATED_BY_SUCCESSOR_DIVERGENCE' experiments/mqr-4.34/FRESH_WORLD_CONTACT_RECEIPT.md
+          echo 'MQR434_POST_REVEAL_RELATION_REPAIR=FORBIDDEN'
+          echo 'MQR434_EXTERNAL_RELATIONAL_SUPPORT_IDENTIFIED=HOLD'
+
+      - name: Closure summary
+        shell: bash
+        run: |
+          echo 'MQR434_RELATIONAL_SUPPORT_GEOMETRY_OPERATIONALIZED=PASS'
+          echo 'MQR434_THREE_FRESH_RELATION_TYPES_WORLD_CONTACT=PASS'
+          echo 'MQR434_R0_MEDIATED_PREDICTION=CONFIRMED_ONCE'
+          echo 'MQR434_R1_FRESH_CONTACT_BURDEN=VINDICATED_BY_PROCEDURE'
+          echo 'MQR434_R2_QUOTIENT_INDEXING=VINDICATED_BY_SUCCESSOR_DIVERGENCE'
+          echo 'MQR434_INHERITED_COLLISION_SEPARATION=PASS_ZERO_CREDIT'
+          echo 'MQR434_EXTERNAL_RELATIONAL_SUPPORT_IDENTIFIED=HOLD'
+          echo 'MQR434_STRONGEST_EARNED_RESULT=RELATIONAL_SUPPORT_AUTHORITY_IS_DOMAIN_MAP_INDEXED'
