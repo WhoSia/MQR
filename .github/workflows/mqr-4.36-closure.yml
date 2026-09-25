@@ -1,4 +1,5 @@
 name: MQR 4.36 Integrated Closure
+# canonical-replay-after-rustfmt
 
 on:
   push:
