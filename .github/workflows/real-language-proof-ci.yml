@@ -1,4 +1,4 @@
-name: Real-Language v0.4 Lean Proof Boundary
+name: Real-Language v0.4/v0.5 Lean Proof Boundary
 # canonical-proof-trigger: pinned-lean4export-plus-nanoda
 
 on:
@@ -7,6 +7,7 @@ on:
     paths:
       - 'language/real/lean/**'
       - 'language/real/V04-PRESEAL.md'
+      - 'language/real/V05-AUTHORITY-TRANSFER.md'
       - '.github/workflows/real-language-proof-ci.yml'
   workflow_dispatch:
 
@@ -34,16 +35,19 @@ jobs:
         run: |
           set -euo pipefail
           cd language/real/lean
-          lake env lean MQR/Residue.lean | tee /tmp/lean-proof-boundary.log
+          lake env lean MQR/Residue.lean | tee /tmp/lean-residue.log
+          lake env lean MQR/Authority.lean | tee /tmp/lean-authority.log
+          cat /tmp/lean-residue.log /tmp/lean-authority.log > /tmp/lean-proof-boundary.log
           if grep -F 'sorryAx' /tmp/lean-proof-boundary.log; then
             echo 'Finished proof unexpectedly depends on sorryAx' >&2
             exit 1
           fi
-          grep -F "'MQR.zeroInternalResidueOfComplete' does not depend on any axioms" /tmp/lean-proof-boundary.log
-          grep -F "'MQR.extensionContainsUncoveredProbe' does not depend on any axioms" /tmp/lean-proof-boundary.log
-          grep -F "'MQR.checkedProofCannotRaiseHoldToPass' does not depend on any axioms" /tmp/lean-proof-boundary.log
-          echo REAL_LANGUAGE_V04_LEAN_KERNEL=PASS
-          echo REAL_LANGUAGE_V04_AXIOM_ANCESTRY=EMPTY
+          for theorem in             MQR.zeroInternalResidueOfComplete             MQR.extensionContainsUncoveredProbe             MQR.checkedProofCannotRaiseHoldToPass             MQR.smallClosedLargeOpen             MQR.receiptCompressionLosesLoadBearingDistinction             MQR.formalExpansionDoesNotEstablishWorldAdequacy             MQR.checkerPluralityDoesNotEntailAuthorityTransfer             MQR.formalCustodyDoesNotIdentifyTruthOrder
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/lean-proof-boundary.log
+          done
+          echo REAL_LANGUAGE_LEAN_KERNEL=PASS
+          echo REAL_LANGUAGE_AXIOM_ANCESTRY=EMPTY
 
       - name: Build pinned independent checker stack
         shell: bash
@@ -60,21 +64,17 @@ jobs:
           git clone https://github.com/robsimmons/nanoda_lib.git _nanoda_lib
           git -C _nanoda_lib checkout 68d5ca9db226849b41a6fff59d796ff19d0a8840
           cargo build --release --manifest-path _nanoda_lib/Cargo.toml
-          echo REAL_LANGUAGE_V04_INDEPENDENT_STACK=BUILT
+          echo REAL_LANGUAGE_INDEPENDENT_STACK=BUILT
 
       - name: Independent nanoda replay
         shell: bash
         run: |
           set -euo pipefail
           cd language/real/lean
-          lake env _lean4export/.lake/build/bin/lean4export MQR -- \
-            MQR.zeroInternalResidueOfComplete \
-            MQR.extensionContainsUncoveredProbe \
-            MQR.checkedProofCannotRaiseHoldToPass \
-            > /tmp/mqr-v04.export
-          cat > /tmp/mqr-v04-nanoda.json <<'JSON'
+          lake env _lean4export/.lake/build/bin/lean4export MQR --             MQR.zeroInternalResidueOfComplete             MQR.extensionContainsUncoveredProbe             MQR.checkedProofCannotRaiseHoldToPass             MQR.smallClosedLargeOpen             MQR.receiptCompressionLosesLoadBearingDistinction             MQR.formalExpansionDoesNotEstablishWorldAdequacy             MQR.checkerPluralityDoesNotEntailAuthorityTransfer             MQR.formalCustodyDoesNotIdentifyTruthOrder             > /tmp/mqr-real.export
+          cat > /tmp/mqr-real-nanoda.json <<'JSON'
           {
-            "export_file_path": "/tmp/mqr-v04.export",
+            "export_file_path": "/tmp/mqr-real.export",
             "use_stdin": false,
             "permitted_axioms": [],
             "unpermitted_axiom_hard_error": true,
@@ -83,6 +83,6 @@ jobs:
             "print_success_message": true
           }
           JSON
-          _nanoda_lib/target/release/nanoda_bin /tmp/mqr-v04-nanoda.json | tee /tmp/nanoda-v04.log
-          echo REAL_LANGUAGE_V04_NANODA_INDEPENDENT_CHECKER=PASS
-          echo LEAN_PROOF_IS_NOT_WORLD_VERIFICATION=TRUE
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr-real-nanoda.json | tee /tmp/nanoda-real.log
+          echo REAL_LANGUAGE_NANODA_INDEPENDENT_CHECKER=PASS
+          echo CHECKER_PLURALITY_IS_NOT_STATEMENT_OR_WORLD_INDEPENDENCE=TRUE
