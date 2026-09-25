@@ -269,3 +269,70 @@ jobs:
           echo MQR441_MINIMUM_BASIS_UNIQUENESS=REJECT
           echo MQR441_GENERIC_MATROID_EXCHANGE=REJECT
           echo MQR441_RANK_FRONTIER_AND_INSTRUMENT_RELATIVE=PASS
+
+
+      - name: Real-Language v0.9 frontier guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V09=./language/real/target/release/real-v09-frontier
+          P09=language/real/prolog/frontier_v09.pl
+          CORE='^frontier\.(baseline_rival_count|discovered_rival_count|admitted_rival_count|admitted_rivals|generator_count|generator_ancestry_count|generator_common_mode_detected|query_separates_current|escape_detected|off_query_escape|saturation_mirage|generator_relative_saturation|grammar_closed|fcr_before|fcr_after|stable_rank_escape|rank_increasing_escape|world_complete|discovery_value_scalar|fcr_guidance_scope|generator_independence_inferred|query_language_complete_inferred|admission_rule_complete_inferred|search_count_implies_completeness|open_frontier_receipt|reopening_reserve|reopen_on_escape|completeness_claim|discovery_impact_mode)='
+
+          for f in \
+            language/real/examples/mqr-4.42-stable-rank-escape.real \
+            language/real/examples/mqr-4.42-rank-increasing-escape.real \
+            language/real/examples/mqr-4.42-generator-common-mode.real \
+            language/real/examples/mqr-4.42-portfolio-a.real \
+            language/real/examples/mqr-4.42-portfolio-b.real
+          do
+            "$V09" "$f" > /tmp/v09.rust
+            swipl -q -s "$P09" -g "run('$f'),halt" -t "halt(1)" > /tmp/v09.prolog
+            grep -E "$CORE" /tmp/v09.rust > /tmp/v09.rust.core
+            grep -E "$CORE" /tmp/v09.prolog > /tmp/v09.prolog.core
+            diff -u /tmp/v09.rust.core /tmp/v09.prolog.core
+          done
+
+          "$V09" language/real/examples/mqr-4.42-stable-rank-escape.real > /tmp/v09.stable
+          grep -F 'frontier.query_separates_current=YES' /tmp/v09.stable
+          grep -F 'frontier.off_query_escape=YES' /tmp/v09.stable
+          grep -F 'frontier.stable_rank_escape=YES' /tmp/v09.stable
+          grep -F 'frontier.world_complete=NO' /tmp/v09.stable
+          grep -F 'frontier.open_frontier_receipt=REQUIRED' /tmp/v09.stable
+          grep -F 'frontier.reopening_reserve=REQUIRED' /tmp/v09.stable
+          grep -F 'frontier.completeness_claim=FORBIDDEN' /tmp/v09.stable
+          grep -F 'frontier.discovery_impact_mode=VECTOR' /tmp/v09.stable
+
+          "$V09" language/real/examples/mqr-4.42-rank-increasing-escape.real > /tmp/v09.inc
+          grep -F 'frontier.fcr_before=1' /tmp/v09.inc
+          grep -F 'frontier.fcr_after=2' /tmp/v09.inc
+          grep -F 'frontier.rank_increasing_escape=YES' /tmp/v09.inc
+
+          "$V09" language/real/examples/mqr-4.42-generator-common-mode.real > /tmp/v09.cm
+          grep -F 'frontier.generator_count=2' /tmp/v09.cm
+          grep -F 'frontier.generator_ancestry_count=1' /tmp/v09.cm
+          grep -F 'frontier.generator_common_mode_detected=YES' /tmp/v09.cm
+          grep -F 'frontier.generator_relative_saturation=YES' /tmp/v09.cm
+          grep -F 'frontier.grammar_closed=YES' /tmp/v09.cm
+          grep -F 'frontier.world_complete=NO' /tmp/v09.cm
+
+          "$V09" language/real/examples/mqr-4.42-portfolio-a.real > /tmp/v09.pa
+          "$V09" language/real/examples/mqr-4.42-portfolio-b.real > /tmp/v09.pb
+          grep -F 'frontier.admitted_rivals=r0+ra' /tmp/v09.pa
+          grep -F 'frontier.admitted_rivals=r0+rb' /tmp/v09.pb
+
+          for x in language/real/tests/v09-invalid-*.real; do
+            if "$V09" "$x"; then exit 1; fi
+            if swipl -q -s "$P09" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V09_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR442_QUERY_CLOSURE_FROM_CURRENT_RIVALS=REJECT
+          echo MQR442_GENERATOR_DIVERSITY_AS_INDEPENDENCE=REJECT
+          echo MQR442_GENERATOR_RELATIVE_SATURATION=PASS
+          echo MQR442_STABLE_RANK_DISCOVERY=PASS
+          echo MQR442_RANK_DELTA_AS_DISCOVERY_VALUE=REJECT
+          echo MQR442_FINITE_GRAMMAR_AS_SCIENTIFIC_CLOSURE=REJECT
+          echo MQR442_CONDITIONAL_FRONTIER_GUIDANCE=PASS
+          echo MQR442_WORLD_FRONTIER_COMPLETE=NO
