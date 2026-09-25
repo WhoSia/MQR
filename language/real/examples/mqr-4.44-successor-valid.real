@@ -1,0 +1,19 @@
+REALCONSTITUTE 0.11
+id successor-valid
+claim_scope frontier-search
+agenda_source S1 anc1 EXTERNAL
+burden A QUERY
+burden B REPRESENTATION
+obligation OA S1 MANDATORY A
+obligation OB S1 MANDATORY B
+predecessor OLD A+B CLEAR
+successor OLD OA+OB
+challenge_route LIVE
+escape_burden NONE
+witness_omitted_burden NONE
+authorize_laundering NO
+authorize_successor_coverage YES
+authorize_common_mode NO
+authorize_reopen NO
+authorize_admissible YES
+END
