@@ -7,3 +7,4 @@ import MQR.ContactRank
 import MQR.Frontier
 import MQR.Allocation
 import MQR.Constitution
+import MQR.Revision
