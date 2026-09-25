@@ -5,10 +5,10 @@ Status: CLOSED / FRESH NU3 NATURALISTIC SUFFICIENCY FAIL / FINITE INTERNAL RESID
 ## Canonical integrated closure
 
 Run:
-`36149965204`
+`36150107696`
 
 Evidence head:
-`e912e95e0bd039828487381df8a5374970fc4945`
+`36ae9040fb8df2e1db6a74b68cd1bd75f62c702b`
 
 All integrated gates passed:
 - MQR-4.36 Rust formatting, Clippy and release build;
@@ -154,3 +154,20 @@ REAL-LANGUAGE-V0.4-PROOF-BOUNDARY=LIVE /
 PCRA=WORKING-ARCHITECTURE /
 KERNEL-VERIFIED-NEQ-WORLD-VERIFIED /
 GENERATION-IV-CONTINUES.
+
+
+## Repository closure
+
+Doctrine promotion through MQR-4.36:
+`9a4fba3682a837110485ea4b66089b7c6831d2eb`
+
+Superseded 4.33–4.35 active experiment surfaces retired from the live tree:
+`4a9c89b0223bd01f6ddc18d9e3f72712ab18b35c`
+
+Integrated closure frozen as manual read-only replay:
+`713bde3fe4d4ef20914853d9adeb07703869d14e`
+
+Current live experiment surface:
+`experiments/mqr-4.36`
+
+Real-Language remains a persistent methodology/compiler surface with live Rust CI and pinned Lean proof-boundary CI.
