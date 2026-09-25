@@ -34,7 +34,7 @@ jobs:
           set -euo pipefail
           V=./language/real/target/release/real-v09-frontier
           P=language/real/prolog/frontier_v09.pl
-          CORE='^frontier\.(baseline_rival_count|discovered_rival_count|admitted_rival_count|admitted_rivals|generator_count|generator_ancestry_count|generator_common_mode_detected|query_separates_current|escape_detected|off_query_escape|saturation_mirage|generator_relative_saturation|grammar_closed|fcr_before|fcr_after|stable_rank_escape|rank_increasing_escape|world_complete|discovery_value_scalar|fcr_guidance_scope|generator_independence_inferred|query_language_complete_inferred|admission_rule_complete_inferred|search_count_implies_completeness)='
+          CORE='^frontier\.(baseline_rival_count|discovered_rival_count|admitted_rival_count|admitted_rivals|generator_count|generator_ancestry_count|generator_common_mode_detected|query_separates_current|escape_detected|off_query_escape|saturation_mirage|generator_relative_saturation|grammar_closed|fcr_before|fcr_after|stable_rank_escape|rank_increasing_escape|world_complete|discovery_value_scalar|fcr_guidance_scope|generator_independence_inferred|query_language_complete_inferred|admission_rule_complete_inferred|search_count_implies_completeness|open_frontier_receipt|reopening_reserve|reopen_on_escape|completeness_claim|discovery_impact_mode)='
 
           for f in             language/real/examples/mqr-4.42-stable-rank-escape.real             language/real/examples/mqr-4.42-rank-increasing-escape.real             language/real/examples/mqr-4.42-generator-common-mode.real
           do
@@ -54,6 +54,11 @@ jobs:
           grep -F 'frontier.stable_rank_escape=YES' /tmp/stable
           grep -F 'frontier.world_complete=NO' /tmp/stable
           grep -F 'frontier.discovery_value_scalar=OFF' /tmp/stable
+          grep -F 'frontier.open_frontier_receipt=REQUIRED' /tmp/stable
+          grep -F 'frontier.reopening_reserve=REQUIRED' /tmp/stable
+          grep -F 'frontier.reopen_on_escape=YES' /tmp/stable
+          grep -F 'frontier.completeness_claim=FORBIDDEN' /tmp/stable
+          grep -F 'frontier.discovery_impact_mode=VECTOR' /tmp/stable
 
           "$V" language/real/examples/mqr-4.42-rank-increasing-escape.real > /tmp/inc
           grep -F 'frontier.fcr_before=1' /tmp/inc
@@ -92,3 +97,6 @@ jobs:
           echo MQR442_RANK_INCREASING_ESCAPE=PASS
           echo MQR442_DISCOVERY_VALUE_SCALAR=OFF
           echo MQR442_WORLD_FRONTIER_COMPLETE=NO
+          echo MQR442_OPEN_FRONTIER_RECEIPT=PASS
+          echo MQR442_REOPENING_RESERVE_REQUIRED=PASS
+          echo MQR442_CONDITIONAL_FRONTIER_GUIDANCE=PASS
