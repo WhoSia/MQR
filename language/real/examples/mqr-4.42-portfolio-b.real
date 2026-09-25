@@ -1,3 +1,24 @@
 REALFRONTIER 0.9
-id shell-b
+id portfolio-b
+claim_scope C
+query q0 BASE
+generator g0 THEORY A0
+generator gb REPRESENTATION B1
+rival r0 BASELINE g0
+rival rb DISCOVERED gb
+admit r0 PASS
+admit rb PASS
+root w0 EXTERNAL LIVE
+obligation o0 BASELINE
+obligation ob DISCOVERED
+separates w0 o0
+separates w0 ob
+search gb 1 NEW
+grammar OPEN
+authorize_escape YES
+authorize_off_query_escape NO
+authorize_common_mode NO
+authorize_saturation_mirage NO
+authorize_rank_before 1
+authorize_rank_after 1
 END
