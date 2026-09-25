@@ -88,7 +88,7 @@ theorem equalBurdenCountsDoNotIdentifyCrossVersionRelation :
 inductive PathStrength where
   | full
   | partial
-  | none
+  | absent
   deriving DecidableEq, Repr
 
 def directRevisionStrength : PathStrength := .partial
