@@ -1,0 +1,32 @@
+REALFRONTIER 0.9
+id stable-rank-escape
+claim_scope C
+query q0 BASE
+query q1 EXTENSION
+generator g0 THEORY A0
+generator g1 RESIDUAL A1
+rival r0 BASELINE g0
+rival r1 BASELINE g0
+rival r2 DISCOVERED g1
+admit r0 PASS
+admit r1 PASS
+admit r2 PASS
+distinguish q0 r0 r1
+alias q0 r2 r0
+alias q0 r2 r1
+distinguish q1 r2 r0
+root w0 EXTERNAL LIVE
+obligation o0 BASELINE
+obligation o1 DISCOVERED
+separates w0 o0
+separates w0 o1
+search g0 20 NO_NEW
+search g1 1 NEW
+grammar CLOSED
+authorize_escape YES
+authorize_off_query_escape YES
+authorize_common_mode NO
+authorize_saturation_mirage YES
+authorize_rank_before 1
+authorize_rank_after 1
+END
