@@ -534,3 +534,29 @@ constitution.guidance_mode=CONTRACT_RELATIVE_CONSTITUTIONAL
 ```
 
 The live doctrine is **provisional obligation constitution with burden continuity and open-world reopening**, not a complete theory of what science ought to search.
+
+
+## v0.12 — burden-ontology revision transport
+
+MQR-4.45 adds `REALREVISE 0.12`.
+
+Canonical Rust: `src/revision_v12.rs` / `real-v12-revise`.
+Independent relational evaluator: `prolog/revision_v12.pl`.
+Lean boundary: `lean/MQR/Revision.lean`.
+Constitution: `V12-BURDEN-REVISION.md`.
+
+v0.12 moves the obligation-governance problem across changing burden ontologies. Labels and version succession are neither necessary nor sufficient for cross-version burden identity. Transport is typed as `EXACT / REFINE / MERGE / OVERLAP / DISJOINT / UNMAPPED`.
+
+Historical exploration debt is keyed to source ancestry rather than target-carrier cardinality. A refinement may create several target carriers without multiplying one historical debt; a merge may create one target carrier without erasing several independently inherited debts. Full refinement coverage and provenance-preserving merge can carry debt locally, while partial overlap, unmapped disappearance and ancestry collapse require reopening.
+
+Cross-constitution comparison is deliberately partial:
+
+```text
+COMPARABILITY = MAPPED_SUBSPACE_ONLY
+CONFLICT LOCALIZATION != TRUE WINNER
+DIRECT/COMPOSED REVISION DISAGREEMENT -> REOPEN
+WORLD BURDEN IDENTITY = NOT INFERRED
+FUTURE REVISION CLOSURE = NO
+```
+
+The live doctrine is **versioned, loss-aware burden transport without ontology-identity laundering**.
