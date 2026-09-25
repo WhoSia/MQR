@@ -95,6 +95,14 @@ jobs:
           grep -F 'allocation.escape_reallocation_required=YES' /tmp/esc
           grep -F 'allocation.reopen_on_escape=YES' /tmp/esc
 
+          "$V" language/real/examples/mqr-4.43-declared-model-local.real > /tmp/model
+          grep -F 'allocation.normative_prior=DECLARED' /tmp/model
+          grep -F 'allocation.normative_utility=DECLARED' /tmp/model
+          grep -F 'allocation.local_optimizer_scope=DECLARED_MODEL_ONLY' /tmp/model
+          grep -F 'allocation.unique_optimum_authorized=NO' /tmp/model
+          grep -F 'allocation.world_optimum_identified=NO' /tmp/model
+          grep -F 'allocation.world_frontier_complete=NO' /tmp/model
+
           for x in language/real/tests/v10-invalid-*.real; do
             if "$V" "$x"; then
               echo "Rust unexpectedly accepted $x" >&2
