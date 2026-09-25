@@ -89,7 +89,10 @@ theorem visibleConstitutionDoesNotDetermineOmittedBurden
          hiddenOmittedBurdenExists .noOmittedBurden ∧
        decision (visibleConstitutionSignature .omittedBurden) =
          hiddenOmittedBurdenExists .omittedBurden) := by
-  simp [visibleConstitutionSignature, hiddenOmittedBurdenExists]
+  change ¬ (decision 44 = false ∧ decision 44 = true)
+  intro h
+  have hFalseTrue : false = true := h.1.symm.trans h.2
+  cases hFalseTrue
 
 def constitutionReopenRequired (escapeDetected : Bool) : Bool :=
   escapeDetected
