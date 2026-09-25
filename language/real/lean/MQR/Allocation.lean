@@ -63,15 +63,15 @@ inductive DebtClass where
 
 structure DebtGeometry where
   count : Nat
-  class : DebtClass
+  kind : DebtClass
   deriving DecidableEq, Repr
 
-def queryDebt : DebtGeometry := { count := 1, class := .query }
-def representationDebt : DebtGeometry := { count := 1, class := .representation }
+def queryDebt : DebtGeometry := { count := 1, kind := .query }
+def representationDebt : DebtGeometry := { count := 1, kind := .representation }
 
 theorem equalScalarDebtCountDoesNotIdentifyDebtGeometry :
     queryDebt.count = representationDebt.count ∧
-      queryDebt.class ≠ representationDebt.class := by
+      queryDebt.kind ≠ representationDebt.kind := by
   decide
 
 structure AntiStarvationWitness where
