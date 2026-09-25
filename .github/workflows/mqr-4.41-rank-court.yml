@@ -34,8 +34,19 @@ jobs:
           V=./language/real/target/release/real-v08-rank
           P=language/real/prolog/contact_rank_v08.pl
           N=language/real/examples/mqr-4.41-rank-nonmatroid.real
+
+          echo CHECKPOINT=RUST_NONMATROID
           "$V" "$N" > /tmp/r
-          swipl -q -s "$P" -- "$N" > /tmp/p
+          cat /tmp/r
+
+          echo CHECKPOINT=PROLOG_NONMATROID
+          if ! swipl -q -s "$P" -- "$N" > /tmp/p 2>/tmp/p.err; then
+            cat /tmp/p || true
+            cat /tmp/p.err || true
+            exit 1
+          fi
+          cat /tmp/p
+
           grep -E '^rank\.(coverage_complete|minimum|basis_count|unique|exchange_property|minimum_basis_cost_min|minimum_basis_cost_max|minimum_bases)=' /tmp/r > /tmp/rc
           grep -E '^rank\.(coverage_complete|minimum|basis_count|unique|exchange_property|minimum_basis_cost_min|minimum_basis_cost_max|minimum_bases)=' /tmp/p > /tmp/pc
           diff -u /tmp/rc /tmp/pc
@@ -45,28 +56,40 @@ jobs:
           grep -F 'rank.minimum_basis_cost_min=2' /tmp/r
           grep -F 'rank.minimum_basis_cost_max=200' /tmp/r
 
-          "$V" language/real/examples/mqr-4.41-rank-frontier-base.real > /tmp/fb
-          "$V" language/real/examples/mqr-4.41-rank-frontier-expanded.real > /tmp/fe
-          "$V" language/real/examples/mqr-4.41-rank-drift-before.real > /tmp/db
-          "$V" language/real/examples/mqr-4.41-rank-drift-after.real > /tmp/da
-          "$V" language/real/examples/mqr-4.41-rank-instrument-before.real > /tmp/ib
-          "$V" language/real/examples/mqr-4.41-rank-instrument-after.real > /tmp/ia
-          grep -F 'rank.minimum=1' /tmp/fb
-          grep -F 'rank.minimum=2' /tmp/fe
-          grep -F 'rank.minimum=1' /tmp/db
-          grep -F 'rank.minimum=2' /tmp/da
-          grep -F 'rank.minimum=2' /tmp/ib
-          grep -F 'rank.minimum=1' /tmp/ia
+          echo CHECKPOINT=TRANSITIONS
+          for spec in \
+            "mqr-4.41-rank-frontier-base.real 1" \
+            "mqr-4.41-rank-frontier-expanded.real 2" \
+            "mqr-4.41-rank-drift-before.real 1" \
+            "mqr-4.41-rank-drift-after.real 2" \
+            "mqr-4.41-rank-instrument-before.real 2" \
+            "mqr-4.41-rank-instrument-after.real 1"
+          do
+            set -- $spec
+            "$V" "language/real/examples/$1" > /tmp/check
+            grep -F "rank.minimum=$2" /tmp/check
+          done
 
+          echo CHECKPOINT=LEGACY_DEGREE_ATTACK
           V07=./language/real/target/release/real-v07-substitute
           "$V07" experiments/mqr-4.41/legacy-degree-single.real > /tmp/legacy-single
           "$V07" experiments/mqr-4.41/legacy-degree-split.real > /tmp/legacy-split
+          cat /tmp/legacy-single
+          cat /tmp/legacy-split
           grep -F 'wcb.minimum_declared_roots=1' /tmp/legacy-single
           grep -F 'wcb.minimum_declared_roots=2' /tmp/legacy-split
 
-          for f in language/real/tests/v08-invalid-*.real; do
-            if "$V" "$f"; then exit 1; fi
-            if swipl -q -s "$P" -- "$f"; then exit 1; fi
+          echo CHECKPOINT=INVALID_FIXTURES
+          for x in language/real/tests/v08-invalid-*.real; do
+            echo INVALID=$x
+            if "$V" "$x"; then
+              echo "Rust unexpectedly accepted $x" >&2
+              exit 1
+            fi
+            if swipl -q -s "$P" -- "$x"; then
+              echo "Prolog unexpectedly accepted $x" >&2
+              exit 1
+            fi
           done
 
           echo MQR441_RUST_PROLOG_CONCORDANCE=PASS
