@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.33**.
+Status: live through **MQR-4.34**.
 
 ## Generation-IV authority kernel
 
@@ -475,6 +475,115 @@ The doctrinal update is not “composition support is unknowable.”
 It is:
 
 > the first natural support quotient is too coarse, and successor support representations must be prospectively refined rather than retrospectively fitted to the collision.
+
+#### MQR-4.34 relational support geometry result
+
+MQR-4.34 responds to the exact MQR-4.33 support-profile collision by changing the explanandum prospectively rather than repairing the failed Boolean classifier.
+
+The primary support object is now relational:
+
+```text
+MU(B -> D) = {
+  DOMAIN_RELATION,
+  SEMANTIC_MAP,
+  COMPONENT_RELATION,
+  QUOTIENT_RELATION,
+  STATE_RELATION,
+  ENDPOINT_CONTRACT
+}
+```
+
+Frozen relation types:
+- R0 SAME_GENERATOR_HOLDOUT;
+- R1 STRICT_DOMAIN_EXTENSION;
+- R2 SUCCESSOR_REFINEMENT;
+- R3 CONSTITUTIVE_COMPONENT_SHIFT;
+- R4 OVERLAP_NONNESTED;
+- R5 UNRESOLVED.
+
+These map prospectively to authority states A0–A5. The map does not predict raw direct PASS/FAIL. It determines what adjacent evidence is entitled to support before direct reveal.
+
+The relation grammar was frozen before inherited TKN/TOML remapping and before fresh external behavioral reveal.
+
+Zero-credit inherited calibration separated the MQR-4.33 collision:
+
+```text
+TKN-001  -> R0 SAME_GENERATOR_HOLDOUT -> A0 HOLDOUT_SUPPORT_ADMISSIBLE
+TOML-D1 -> R1 STRICT_DOMAIN_EXTENSION -> A1 EXTENSION_REQUIRES_FRESH_CONTACT
+```
+
+No rule was added after this mapping.
+
+Three fresh ENGINEERING_DEVELOPMENT worlds then supplied three different prospective authority patterns.
+
+SJSON-001:
+
+```text
+R0 SAME_GENERATOR_HOLDOUT
+adjacent bridge PASS/PASS
+mediated direct PASS prediction sealed before direct reveal
+direct A->C PASS
+prediction confirmed
+```
+
+REGEX-001:
+
+```text
+R1 STRICT_DOMAIN_EXTENSION
+adjacent bridge PASS/PASS
+mediated direct prediction NOT LICENSED
+fresh direct contact required
+direct A->C PASS
+```
+
+The later direct PASS does not retroactively convert R1 into R0. The evidential burden existed before the outcome was known.
+
+UNORM-001:
+
+```text
+R2 SUCCESSOR_REFINEMENT
+coarse bridge PASS/PASS
+successor-only direct prediction NOT LICENSED
+fresh successor direct A->C = DIVERGENCE
+```
+
+This is the sharpest fresh result. A preserved coarse quotient can coexist with divergence on successor-only distinctions. Therefore coarse support cannot automatically license authority over a refined direct domain.
+
+The integrated closure passed forcing worlds, Rust/C++ concordance, decoy invariance, relation-changing intervention sensitivity, inherited zero-credit separation, frozen fresh relation receipts and exact replay of all three external worlds.
+
+Canonical closure:
+
+```text
+run = 36138820535
+head = 25c7de572af0c65d2137574a3b1dec14a9b2f95f
+```
+
+The exact presealed external-identification rule was not satisfied:
+- fresh external N = 3 < 6;
+- lineage kinds = 1 < 2;
+- RESEARCH_LAB N = 0 < 2;
+- fresh R0 N = 1 < 2.
+
+Therefore:
+
+```text
+RELATIONAL_SUPPORT_GEOMETRY_EXTERNAL_IDENTIFICATION = HOLD
+STRONGEST_EARNED_RESULT = RELATIONAL_SUPPORT_AUTHORITY_IS_DOMAIN_MAP_INDEXED
+```
+
+The doctrinal update is:
+
+> Adjacent transport evidence has no context-free support authority. Its admissible reach is indexed by the prospectively declared map from bridge support to direct claim domain.
+
+This remains narrower than a universal support law. The full MU representation may itself be defeated by a future fresh authority-state collision.
+
+Literature constraints used in interpretation, with zero case credit:
+- Pearl & Bareinboim 2011: explicit source/target difference structure for transportability;
+- Tal 2017: model-mediated calibration and measurement authority;
+- Cousot & Cousot 1977: coarse abstraction/refinement discipline;
+- Unicode UAX #15: version-conditioned normalization stability and successor-only normalization distinctions.
+
+MQR does not claim that MU is a causal selection diagram, a metrological calibration theorem, or a Galois connection.
 
 ## Current compression
 
