@@ -1,0 +1,25 @@
+REALALLOCATE 0.10
+id anti-starvation
+claim_scope frontier-search
+budget 3
+horizon 2
+lane A ancA 1 MANDATORY REOPENING GENERATOR
+lane B ancB 1 MANDATORY REOPENING REPRESENTATION
+obligation OA A 1
+obligation OB B 2
+allocate 1 A 1
+allocate 2 B 1
+outcome 1 A NO_NEW
+outcome 2 B NO_NEW
+reserve 1
+normative_prior NONE
+normative_utility NONE
+history_signature H-AS
+policy ANTI_STARVATION
+witness_escape_lane NONE
+authorize_acrr YES
+authorize_starvation NO
+authorize_debt 0
+authorize_escape_reallocation NO
+authorize_common_mode NO
+END
