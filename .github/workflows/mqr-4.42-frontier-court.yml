@@ -1,0 +1,94 @@
+name: MQR-4.42 Rival-Frontier Adequacy Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.42/**'
+      - 'language/real/src/frontier_v09.rs'
+      - 'language/real/prolog/frontier_v09.pl'
+      - 'language/real/examples/mqr-4.42-*.real'
+      - 'language/real/tests/v09-invalid-*.real'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.42-frontier-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build v0.9
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v09-frontier
+      - name: Install Prolog
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+      - name: Frontier court
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v09-frontier
+          P=language/real/prolog/frontier_v09.pl
+          CORE='^frontier\.(baseline_rival_count|discovered_rival_count|admitted_rival_count|admitted_rivals|generator_count|generator_ancestry_count|generator_common_mode_detected|query_separates_current|escape_detected|off_query_escape|saturation_mirage|generator_relative_saturation|grammar_closed|fcr_before|fcr_after|stable_rank_escape|rank_increasing_escape|world_complete|discovery_value_scalar|fcr_guidance_scope|generator_independence_inferred|query_language_complete_inferred|admission_rule_complete_inferred|search_count_implies_completeness)='
+
+          for f in             language/real/examples/mqr-4.42-stable-rank-escape.real             language/real/examples/mqr-4.42-rank-increasing-escape.real             language/real/examples/mqr-4.42-generator-common-mode.real
+          do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep -E "$CORE" /tmp/rust > /tmp/rust.core
+            grep -E "$CORE" /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.42-stable-rank-escape.real > /tmp/stable
+          grep -F 'frontier.escape_detected=YES' /tmp/stable
+          grep -F 'frontier.off_query_escape=YES' /tmp/stable
+          grep -F 'frontier.saturation_mirage=YES' /tmp/stable
+          grep -F 'frontier.fcr_before=1' /tmp/stable
+          grep -F 'frontier.fcr_after=1' /tmp/stable
+          grep -F 'frontier.stable_rank_escape=YES' /tmp/stable
+          grep -F 'frontier.world_complete=NO' /tmp/stable
+          grep -F 'frontier.discovery_value_scalar=OFF' /tmp/stable
+
+          "$V" language/real/examples/mqr-4.42-rank-increasing-escape.real > /tmp/inc
+          grep -F 'frontier.fcr_before=1' /tmp/inc
+          grep -F 'frontier.fcr_after=2' /tmp/inc
+          grep -F 'frontier.rank_increasing_escape=YES' /tmp/inc
+
+          "$V" language/real/examples/mqr-4.42-generator-common-mode.real > /tmp/cm
+          grep -F 'frontier.generator_count=2' /tmp/cm
+          grep -F 'frontier.generator_ancestry_count=1' /tmp/cm
+          grep -F 'frontier.generator_common_mode_detected=YES' /tmp/cm
+          grep -F 'frontier.generator_relative_saturation=YES' /tmp/cm
+          grep -F 'frontier.world_complete=NO' /tmp/cm
+
+          "$V" language/real/examples/mqr-4.42-portfolio-a.real > /tmp/pa
+          "$V" language/real/examples/mqr-4.42-portfolio-b.real > /tmp/pb
+          grep -F 'frontier.admitted_rivals=r0+ra' /tmp/pa
+          grep -F 'frontier.admitted_rivals=r0+rb' /tmp/pb
+
+          for x in language/real/tests/v09-invalid-*.real; do
+            if "$V" "$x"; then
+              echo "Rust unexpectedly accepted $x" >&2
+              exit 1
+            fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then
+              echo "Prolog unexpectedly accepted $x" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V09_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR442_CURRENT_RIVAL_SEPARATION_NOT_QUERY_CLOSURE=PASS
+          echo MQR442_GENERATOR_PORTFOLIO_DEPENDENCE=PASS
+          echo MQR442_GENERATOR_COMMON_MODE=PASS
+          echo MQR442_SATURATION_MIRAGE=PASS
+          echo MQR442_STABLE_RANK_ESCAPE=PASS
+          echo MQR442_RANK_INCREASING_ESCAPE=PASS
+          echo MQR442_DISCOVERY_VALUE_SCALAR=OFF
+          echo MQR442_WORLD_FRONTIER_COMPLETE=NO
