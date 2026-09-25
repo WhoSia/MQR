@@ -421,7 +421,7 @@ fn main() {
         match parse(Path::new(&a)) {
             Ok(p) => {
                 if !first {
-                    print!("---\n")
+                    println!("---")
                 }
                 print!("{}", canonical(&p, scalar));
                 first = false;
