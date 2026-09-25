@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.32**.
+Status: live through **MQR-4.33**.
 
 ## Generation-IV authority kernel
 
@@ -353,6 +353,129 @@ G5 does not excuse weak G0–G4 engineering.
 
 Rust remains the default canonical language for newly touched authority-bearing adjudication when practical. Python remains suitable for independent reference implementations, exploratory statistics and non-authority-bearing glue.
 
+#### MQR-4.33 composition-support boundary result
+
+MQR-4.33 attacks the MQR-4.32 composition result counterexample-first.
+
+The frozen support representation was:
+
+```text
+P(x) = (
+  component_identity,
+  direct_independent,
+  domain_covered,
+  information_preserved,
+  state_reset,
+  adapter_commutative
+)
+```
+
+and the prospective support classes were:
+- S0 STRICT_SUPPORT;
+- S1 GENERALIZATION_RISK;
+- S2 PATH_RISK;
+- S3 UNRESOLVED.
+
+Known-outcome forcing worlds validated the executable algebra:
+
+```text
+F0 -> COMPOSITION_PASS
+F1 -> NONTRANSITIVITY_WITNESS
+F2 -> PATH_DIVERGENT_PASS
+F3 -> COMPOSITION_SPLIT_REQUIRED
+```
+
+The only uncontaminated fresh engineering case, TOML-001, failed earlier than composition.
+
+Under the frozen method-level parser surface:
+
+```text
+A -> B = TRANSPORT_FAIL
+B -> C = TRANSPORT_PASS
+COMPOSITION_CANDIDATE = NO
+```
+
+Therefore its fresh verdict is:
+
+```text
+COMPONENT_IDENTITY_ASSUMPTION_DEFEATED
+```
+
+not a fresh NONTRANSITIVITY_WITNESS.
+
+A post-failure common-adapter diagnostic later recovered the common bridge surface and produced an A/C boundary mismatch on the predeclared TOML-1.1 family. The frozen lexical minimizer reduced that diagnostic mismatch to the single fixture H04, local time with omitted seconds.
+
+Because the adapter was selected after the fresh failure, this has zero promotion credit.
+
+Inherited TKN-001 then falsified deterministic use of S1:
+
+```text
+TKN-001 -> S1_GENERALIZATION_RISK
+historical outcome -> COMPOSITION_PASS
+prediction_match -> false
+```
+
+The stronger MQR-4.33 result is representational.
+
+TKN-001 and TOML-D1 have the same frozen support profile:
+
+```text
+P(TKN-001) = P(TOML-D1) = (1,1,0,1,1,1)
+```
+
+but different observed outcomes:
+
+```text
+Y(TKN-001) = COMPOSITION_PASS
+Y(TOML-D1) = NONTRANSITIVITY_WITNESS
+```
+
+Define:
+
+```text
+x ~P y  iff  P(x) = P(y)
+```
+
+If composition outcome Y were identified by the frozen support quotient, there would exist a deterministic map g such that:
+
+```text
+Y = g o P
+```
+
+on the observed cases.
+
+The profile collision makes this impossible.
+
+Therefore:
+
+```text
+SUPPORT_PROFILE_IDENTIFIABILITY = FAIL
+OUTCOME_FACTORIZATION_THROUGH_FROZEN_PROFILE = FAIL
+FROZEN_SUPPORT_QUOTIENT_SUFFICIENCY = FAIL
+```
+
+Equivalently, the observed composition-outcome map does not descend to the frozen support quotient.
+
+This is an exact two-point representation-sufficiency failure. It does not identify the missing coordinate and does not establish that no richer support domain exists.
+
+The CODATA research-measurement diagnostic independently recomputed 12 frozen rolling triangles under the naive z<=1 agreement relation. Two triangles were composition candidates and both directly passed; zero CODATA nontransitivity witnesses occurred. This lane has zero RESEARCH_LAB promotion credit and does not establish general transitivity.
+
+Fresh RESEARCH_LAB confirmatory N was frozen at maximum zero before fresh direct reveal because EPISTEME eligibility screening exposed outcome-bearing commit metadata. No replacement lab was permitted.
+
+Therefore:
+
+```text
+SUPPORT_DOMAIN_DISCOVERY = HOLD
+POST_REVEAL_RESCUE = FORBIDDEN
+STRONGEST_EARNED_RESULT = SUPPORT_REPRESENTATION_INSUFFICIENT
+```
+
+The doctrinal update is not “composition support is unknowable.”
+
+It is:
+
+> the first natural support quotient is too coarse, and successor support representations must be prospectively refined rather than retrospectively fitted to the collision.
+
 ## Current compression
 
 1. **Authority is earned by reachable defeat, not by agreement count.**
@@ -435,6 +558,11 @@ Rust remains the default canonical language for newly touched authority-bearing 
 78. **Formal diamond closure ≠ authority diamond closure.** Endpoint identity must be separated from equality of world-facing defeat routes.
 79. **Path-dependent evidence ≠ path-dependent reality.** A common endpoint replay can test whether sequence dependence persists when the same challenge family is restored.
 80. **Raw receipt custody is composition infrastructure.** Preserving sufficiently rich native evidence can convert apparent ontology noncommutation into auditable evidence transport.
+81. **Adjacent transport survival ≠ composition support.** Pairwise PASS establishes at most a composition candidate until the direct path is independently adjudicated.
+82. **Support-risk indicator ≠ identifying support coordinate.** A variable may locate pressure without deterministically separating PASS from failure.
+83. **Same support profile ≠ same composition outcome.** If two cases collide under a frozen support quotient but differ in outcome, the outcome map cannot factor through that quotient.
+84. **Component identity is an admission claim, not a free premise.** A triangle can fail before composition because the supposedly common executable component does not survive regime change.
+85. **Post-failure diagnostic counterexample ≠ fresh confirmatory counterexample.** Repair can localize a boundary without retroactively earning prospective promotion credit.
 
 ## Live governance objects
 
