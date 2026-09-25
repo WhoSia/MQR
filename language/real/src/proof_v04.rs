@@ -1,5 +1,5 @@
 use std::{
-    collections::{BTreeMap, BTreeSet},
+    collections::BTreeMap,
     env, fs,
     path::Path,
 };
@@ -546,7 +546,7 @@ fn main() {
         match parse(Path::new(&a)) {
             Ok(p) => {
                 if !first {
-                    print!("---\n")
+                    println!("---")
                 }
                 print!("{}", canonical(&p));
                 first = false;
