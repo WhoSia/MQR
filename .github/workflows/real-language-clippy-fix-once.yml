@@ -1,0 +1,41 @@
+name: Real-Language One-Shot Clippy Fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/real-language-clippy-fix-once.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt, clippy
+      - name: Apply machine-applicable Clippy fixes only
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo clippy --fix --manifest-path language/real/Cargo.toml --all-targets --allow-dirty --allow-staged -- -D warnings || true
+          cargo fmt --manifest-path language/real/Cargo.toml
+          cargo clippy --manifest-path language/real/Cargo.toml --all-targets -- -D warnings
+      - name: Commit lint-only repair
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add language/real/src
+          if git diff --cached --quiet; then
+            echo 'No lint diff.'
+          else
+            git commit -m 'Real-Language v0.4: apply machine clippy fixes only [skip ci]'
+            git push
+          fi
