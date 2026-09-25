@@ -245,6 +245,7 @@ run(File) :-
     format('constitution.escape_reconstitution_required=~w~n',[Reopen]),
     writeln('constitution.reopen_on_escape=YES'),
     writeln('constitution.world_obligation_complete=NO'),
+    writeln('constitution.burden_atom_ontology_complete=NO'),
     writeln('constitution.omitted_burden_inferred=NO'),
     writeln('constitution.open_world_receipt=REQUIRED'),
     writeln('constitution.guidance_mode=CONTRACT_RELATIVE_CONSTITUTIONAL'),
