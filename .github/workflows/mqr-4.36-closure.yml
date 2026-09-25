@@ -1,0 +1,98 @@
+name: MQR 4.36 Integrated Closure
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.36/**'
+      - 'language/real/**'
+      - '.github/workflows/mqr-4.36-closure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  closure:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt, clippy
+      - name: MQR 4.36 Rust quality
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo fmt --manifest-path experiments/mqr-4.36/rust/Cargo.toml -- --check
+          cargo clippy --manifest-path experiments/mqr-4.36/rust/Cargo.toml -- -D warnings
+          cargo build --release --manifest-path experiments/mqr-4.36/rust/Cargo.toml
+      - name: Bind fresh naturalistic receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          R=experiments/mqr-4.36/FRESH-RECEIPT.md
+          grep -F 'NU3_NATURALISTIC_SUFFICIENCY = FAIL' "$R"
+          grep -F 'NU3_NATURALISTIC_IDENTIFICATION = HOLD' "$R"
+          grep -F 'D36_CORE_COLLISION_FIBERS=0' "$R"
+          grep -F 'EXECUTED_ATOMIC_ROWS=132' "$R"
+          grep -F 'UNRESOLVED_ATOMIC_ROWS=0' "$R"
+          grep -F 'INTERNAL_RESIDUE_WITHIN_DECLARED_PROBE_CLASS=ZERO' "$R"
+          grep -F 'OPEN_WORLD_RESIDUE=NOT_ELIMINATED' "$R"
+          echo MQR436_FRESH_RECEIPT=PASS
+      - name: Build and exercise Real-Language v0.4 guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo fmt --manifest-path language/real/Cargo.toml -- --check
+          cargo clippy --manifest-path language/real/Cargo.toml --all-targets -- -D warnings
+          cargo build --manifest-path language/real/Cargo.toml --release --bins
+          V04=./language/real/target/release/real-v04
+          "$V04" language/real/examples/mqr-4.36-proof-boundary.real > /tmp/v04.out
+          grep -F 'proof.world_laundering_guard=PASS' /tmp/v04.out
+          grep -F 'formal_validity_is_not_empirical_truth=true' /tmp/v04.out
+          grep -F 'empirical_entitlement_ceiling=HOLD' /tmp/v04.out
+          grep -F 'internal_residue=ZERO_INTERNAL' /tmp/v04.out
+          grep -F 'open_world_residue=true' /tmp/v04.out
+          if "$V04" language/real/tests/v04-invalid-axiom-laundering.real; then
+            echo 'axiom laundering negative fixture unexpectedly passed' >&2
+            exit 1
+          fi
+          echo REAL_LANGUAGE_V04_GUARDS=PASS
+      - name: Pinned Lean kernel replay
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Verify target theorem ancestry and independent receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/Residue.lean | tee /tmp/lean.log
+          grep -F "'MQR.zeroInternalResidueOfComplete' does not depend on any axioms" /tmp/lean.log
+          grep -F "'MQR.extensionContainsUncoveredProbe' does not depend on any axioms" /tmp/lean.log
+          grep -F "'MQR.checkedProofCannotRaiseHoldToPass' does not depend on any axioms" /tmp/lean.log
+          cd ../../..
+          grep -F '36146576232' language/real/V04-PROOF-RECEIPT.md
+          grep -F 'REAL_LANGUAGE_V04_NANODA_INDEPENDENT_CHECKER=PASS' language/real/V04-PROOF-RECEIPT.md
+          echo MQR436_FORMAL_BOUNDARY=PASS
+      - name: Closure theorem and court guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          C=experiments/mqr-4.36/CLOSURE.md
+          P=experiments/mqr-4.36/FORMAL-PARADOX-COURT.md
+          grep -F 'FINITE-INTERNAL-RESIDUE=ZERO' "$C"
+          grep -F 'OPEN-WORLD-RESIDUE=NOT-ELIMINATED' "$C"
+          grep -F 'KERNEL-VERIFIED-NEQ-WORLD-VERIFIED' "$C"
+          grep -F '## Court P15 — Boundary-Migration Problem' "$P"
+          echo MQR436_INTEGRATED_CLOSURE=PASS
