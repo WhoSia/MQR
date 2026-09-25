@@ -15,9 +15,9 @@ This repository is the **living formal substrate** of MQR.
 - `language/real/src/main.rs` — canonical Rust compiler; `language/real/reference.py` — independent Python reference
 - `language/real/examples/` — historical and current Real-Packets
 - `protocols/challenge-admission.md` — challenge-admission governance protocol
-- `experiments/mqr-4.38/` — current live adversarial court; MQR-4.38 reconstitutes the transfer contract as an indexed, non-amplifying relation and rejects formalization as a universal authority prerequisite
+- `experiments/mqr-4.39/` — current live adversarial court; MQR-4.39 tests composition and retains only partial, witness-indexed, pathwise non-amplifying transfer
 
-Real-Language v0.3 remains the transport-compatible historical lane; v0.4 is the proof-boundary lane; v0.5 is now an executable authority-transfer lane. MQR-4.38 establishes that TRANSFER PASS means non-amplifying structural admissibility conditional on world-facing semantic warrants; it cannot raise world authority. Formalization remains route-relative and optional. Scalar projection remains OFF and truth-distance semantics remain UNIDENTIFIED.
+Real-Language v0.3 remains the transport-compatible historical lane; v0.4 is the proof-boundary lane; v0.5 is the executable authority-transfer lane; v0.6 adds executable composition semantics. MQR-4.39 establishes that authority algebra composes, while scientific transfer composes only under explicit pathwise semantic/scope/ancestry/defeat/assumption/direct-receipt obligations. Formalization remains route-relative and optional. Scalar projection remains OFF and truth-distance semantics remain UNIDENTIFIED.
 
 Lineage typing is explicit in v0.3. In particular, **ChatGPT-Web-HWPX-MCP is ENGINEERING_DEVELOPMENT, not a research Lab**. Engineering/development lineages may be used as valuable external cases without being redescribed as scientific programmes.
 
