@@ -1,0 +1,115 @@
+name: MQR 4.36 Fresh Naturalistic Fiber Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.36/**'
+      - '.github/workflows/mqr-4.36-fresh.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fresh-court:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.1'
+          components: rustfmt, clippy
+
+      - name: Preseal and manifest integrity
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -F 'NU3 FROZEN' experiments/mqr-4.36/PRESEAL.md
+          grep -F 'POST_REVEAL_RESCUE = FORBIDDEN' experiments/mqr-4.36/CANDIDATE_MANIFEST.md
+          grep -F 'N = 4' experiments/mqr-4.36/CANDIDATE_MANIFEST.md
+          grep -F 'U15_0_01  U+0CF3' experiments/mqr-4.36/PROBES.md
+          grep -F 'U15_1_01  U+2FFC' experiments/mqr-4.36/PROBES.md
+          grep -F 'U16_0_01  U+0897' experiments/mqr-4.36/PROBES.md
+
+      - name: Harness quality gates before provider execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile experiments/mqr-4.36/probe.py
+          cargo fmt --manifest-path experiments/mqr-4.36/rust/Cargo.toml -- --check
+          cargo clippy --manifest-path experiments/mqr-4.36/rust/Cargo.toml -- -D warnings
+          cargo build --release --manifest-path experiments/mqr-4.36/rust/Cargo.toml
+
+      - name: Execute frozen isolated provider packets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/mqr436-results /tmp/mqr436-venvs
+
+          run_packet() {
+            case_id="$1"
+            package="$2"
+            version="$3"
+            key="$(echo "$case_id-$version" | tr '/.' '__')"
+            envdir="/tmp/mqr436-venvs/$key"
+            python -m venv "$envdir"
+            set +e
+            "$envdir/bin/python" -m pip install --disable-pip-version-check --no-input "$package==$version" >"/tmp/install-$key.log" 2>&1
+            install_rc=$?
+            set -e
+            if [ "$install_rc" -ne 0 ]; then
+              rm -rf "$envdir"
+              python -m venv "$envdir"
+              echo "INSTALL_STATUS=$case_id/$version/FAIL"
+            else
+              echo "INSTALL_STATUS=$case_id/$version/PASS"
+            fi
+            "$envdir/bin/python" experiments/mqr-4.36/probe.py               --case "$case_id" --version "$version"               >"/tmp/mqr436-results/$case_id-$version.tsv"
+          }
+
+          run_packet JSCHEMA-001 jsonschema 3.2.0
+          run_packet JSCHEMA-001 jsonschema 4.17.3
+          run_packet JSCHEMA-001 jsonschema 4.25.1
+
+          run_packet OASV-001 openapi-spec-validator 0.5.6
+          run_packet OASV-001 openapi-spec-validator 0.6.0
+          run_packet OASV-001 openapi-spec-validator 0.7.2
+
+          run_packet UCD2-001 unicodedata2 14.0.0
+          run_packet UCD2-001 unicodedata2 15.1.0
+          run_packet UCD2-001 unicodedata2 16.0.0
+
+          run_packet WCWIDTH-001 wcwidth 0.2.5
+          run_packet WCWIDTH-001 wcwidth 0.2.10
+          run_packet WCWIDTH-001 wcwidth 0.2.14
+
+          test "$(find /tmp/mqr436-results -type f -name '*.tsv' | wc -l)" -eq 12
+
+      - name: Canonical Rust adjudication
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=./experiments/mqr-4.36/rust/target/release/mqr436-adjudicate
+          mapfile -t FILES < <(find /tmp/mqr436-results -type f -name '*.tsv' | sort)
+          "$BIN" "${FILES[@]}" | tee /tmp/mqr436-adjudication.txt
+          grep -F 'FRESH_CASES=4' /tmp/mqr436-adjudication.txt
+          grep -F 'FRESH_LINEAGE_KINDS=1' /tmp/mqr436-adjudication.txt
+          grep -F 'FRESH_RESEARCH_LAB_N=0' /tmp/mqr436-adjudication.txt
+          grep -F 'NU3_NATURALISTIC_IDENTIFICATION=HOLD' /tmp/mqr436-adjudication.txt
+          grep -F 'POST_REVEAL_RESCUE=FORBIDDEN' /tmp/mqr436-adjudication.txt
+          grep -F 'OPEN_WORLD_RESIDUE=NOT_ELIMINATED' /tmp/mqr436-adjudication.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.36-fresh-naturalistic-receipt
+          path: |
+            /tmp/mqr436-results/*.tsv
+            /tmp/mqr436-adjudication.txt
+            /tmp/install-*.log
+          retention-days: 30
