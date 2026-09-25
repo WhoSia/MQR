@@ -1,0 +1,28 @@
+REALALLOCATE 0.10
+id greedy-starvation
+claim_scope frontier-search
+budget 4
+horizon 4
+lane X ancX 1 OPTIONAL EXPLOITATION QUERY
+lane R ancR 2 MANDATORY REOPENING REPRESENTATION
+obligation OR R 4
+allocate 1 X 1
+allocate 2 X 1
+allocate 3 X 1
+allocate 4 X 1
+outcome 1 X NEW
+outcome 2 X NEW
+outcome 3 X NEW
+outcome 4 X NEW
+reserve 0
+normative_prior NONE
+normative_utility NONE
+history_signature H-GREEDY
+policy GREEDY_YIELD
+witness_escape_lane R
+authorize_acrr NO
+authorize_starvation YES
+authorize_debt 1
+authorize_escape_reallocation NO
+authorize_common_mode NO
+END
