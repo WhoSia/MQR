@@ -93,6 +93,18 @@ jobs:
           grep -F 'revision.provenance_truth_oracle=NO' /tmp/alias
           grep -F 'revision.guidance_mode=VERSIONED_LOSS_AWARE_TRANSPORT' /tmp/alias
 
+          "$V" language/real/examples/mqr-4.45-unmapped-debt.real > /tmp/v12-unmapped
+          "$V" language/real/examples/mqr-4.45-equal-count-exact.real > /tmp/v12-eq-exact
+          "$V" language/real/examples/mqr-4.45-equal-count-overlap.real > /tmp/v12-eq-overlap
+          grep -F 'revision.unmapped_source_count=1' /tmp/v12-unmapped
+          grep -F 'revision.debt_transport_complete=NO' /tmp/v12-unmapped
+          grep -F 'revision.source_burden_count=1' /tmp/v12-eq-exact
+          grep -F 'revision.target_burden_count=1' /tmp/v12-eq-exact
+          grep -F 'revision.exact_count=1' /tmp/v12-eq-exact
+          grep -F 'revision.source_burden_count=1' /tmp/v12-eq-overlap
+          grep -F 'revision.target_burden_count=1' /tmp/v12-eq-overlap
+          grep -F 'revision.overlap_count=1' /tmp/v12-eq-overlap
+
           for x in language/real/tests/v12-invalid-*.real; do
             if "$V" "$x"; then
               echo "Rust unexpectedly accepted $x" >&2
