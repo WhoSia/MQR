@@ -5,3 +5,4 @@ import MQR.Composition
 import MQR.Substitution
 import MQR.ContactRank
 import MQR.Frontier
+import MQR.Allocation
