@@ -53,8 +53,10 @@ jobs:
           "$V" language/real/examples/mqr-4.41-rank-instrument-after.real | grep -F 'rank.minimum=1'
 
           V07=./language/real/target/release/real-v07-substitute
-          "$V07" experiments/mqr-4.41/legacy-degree-single.real | grep -F 'wcb.minimum_declared_roots=1'
-          "$V07" experiments/mqr-4.41/legacy-degree-split.real | grep -F 'wcb.minimum_declared_roots=2'
+          "$V07" experiments/mqr-4.41/legacy-degree-single.real > /tmp/legacy-single
+          "$V07" experiments/mqr-4.41/legacy-degree-split.real > /tmp/legacy-split
+          grep -F 'wcb.minimum_declared_roots=1' /tmp/legacy-single
+          grep -F 'wcb.minimum_declared_roots=2' /tmp/legacy-split
 
           for f in language/real/tests/v08-invalid-*.real; do
             if "$V" "$f"; then exit 1; fi

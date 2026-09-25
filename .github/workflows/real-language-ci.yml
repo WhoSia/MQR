@@ -232,12 +232,18 @@ jobs:
           "$V08" language/real/examples/mqr-4.41-rank-repr-b.real | grep -E '^rank\.(minimum|basis_count|unique|exchange_property)=' > /tmp/repr-b
           diff -u /tmp/repr-a /tmp/repr-b
 
-          "$V08" language/real/examples/mqr-4.41-rank-frontier-base.real | grep -F 'rank.minimum=1'
-          "$V08" language/real/examples/mqr-4.41-rank-frontier-expanded.real | grep -F 'rank.minimum=2'
-          "$V08" language/real/examples/mqr-4.41-rank-drift-before.real | grep -F 'rank.minimum=1'
-          "$V08" language/real/examples/mqr-4.41-rank-drift-after.real | grep -F 'rank.minimum=2'
-          "$V08" language/real/examples/mqr-4.41-rank-instrument-before.real | grep -F 'rank.minimum=2'
-          "$V08" language/real/examples/mqr-4.41-rank-instrument-after.real | grep -F 'rank.minimum=1'
+          "$V08" language/real/examples/mqr-4.41-rank-frontier-base.real > /tmp/fb
+          "$V08" language/real/examples/mqr-4.41-rank-frontier-expanded.real > /tmp/fe
+          "$V08" language/real/examples/mqr-4.41-rank-drift-before.real > /tmp/db
+          "$V08" language/real/examples/mqr-4.41-rank-drift-after.real > /tmp/da
+          "$V08" language/real/examples/mqr-4.41-rank-instrument-before.real > /tmp/ib
+          "$V08" language/real/examples/mqr-4.41-rank-instrument-after.real > /tmp/ia
+          grep -F 'rank.minimum=1' /tmp/fb
+          grep -F 'rank.minimum=2' /tmp/fe
+          grep -F 'rank.minimum=1' /tmp/db
+          grep -F 'rank.minimum=2' /tmp/da
+          grep -F 'rank.minimum=2' /tmp/ib
+          grep -F 'rank.minimum=1' /tmp/ia
 
           "$V08" language/real/examples/mqr-4.41-rank-ontology-a.real > /tmp/oa
           "$V08" language/real/examples/mqr-4.41-rank-ontology-b.real > /tmp/ob
@@ -247,8 +253,10 @@ jobs:
           grep -F 'rank.obligation_count=3' /tmp/ob
 
           V07=./language/real/target/release/real-v07-substitute
-          "$V07" experiments/mqr-4.41/legacy-degree-single.real | grep -F 'wcb.minimum_declared_roots=1'
-          "$V07" experiments/mqr-4.41/legacy-degree-split.real | grep -F 'wcb.minimum_declared_roots=2'
+          "$V07" experiments/mqr-4.41/legacy-degree-single.real > /tmp/legacy-single
+          "$V07" experiments/mqr-4.41/legacy-degree-split.real > /tmp/legacy-split
+          grep -F 'wcb.minimum_declared_roots=1' /tmp/legacy-single
+          grep -F 'wcb.minimum_declared_roots=2' /tmp/legacy-split
 
           for f in language/real/tests/v08-invalid-*.real; do
             if "$V08" "$f"; then exit 1; fi
