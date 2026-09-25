@@ -11,9 +11,15 @@ def sep4 : Root4 → Obl4 → Bool
 def allObl4 : List Obl4 := [.o1,.o2,.o3,.o4]
 theorem twoMinimumCoverWitnesses :
   covers sep4 [.r1,.r2] allObl4 = true ∧ covers sep4 [.r3,.r4] allObl4 = true ∧
-  singleCoverExists sep4 [.r1,.r2,.r3,.r4] allObl4 = false := by decide
+  singleCoverExists sep4 [.r1,.r2,.r3,.r4] allObl4 = false := by
+  constructor
+  · rfl
+  · constructor
+    · rfl
+    · rfl
 theorem minimumWorldContactBasesNeedNotSatisfyExchange :
-  covers sep4 [.r2,.r3] allObl4 = false ∧ covers sep4 [.r2,.r4] allObl4 = false := by decide
+  covers sep4 [.r2,.r3] allObl4 = false ∧ covers sep4 [.r2,.r4] allObl4 = false := by
+  constructor <;> rfl
 
 inductive Root2 | a | b deriving DecidableEq, Repr
 inductive Obl3 | x | y | z deriving DecidableEq, Repr
@@ -21,14 +27,20 @@ def sepFrontier : Root2 → Obl3 → Bool | .a,.x=>true | .a,.y=>true | .b,.z=>t
 theorem frontierExpansionCanIncreaseContactRank :
   singleCoverExists sepFrontier [.a,.b] [.x,.y] = true ∧
   singleCoverExists sepFrontier [.a,.b] [.x,.y,.z] = false ∧
-  covers sepFrontier [.a,.b] [.x,.y,.z] = true := by decide
+  covers sepFrontier [.a,.b] [.x,.y,.z] = true := by
+  constructor
+  · rfl
+  · constructor <;> rfl
 
 def sepBeforeDrift : Root2 → Obl3 → Bool | .a,.x=>true | .a,.y=>true | .b,.y=>true | _,_=>false
 def sepAfterDrift : Root2 → Obl3 → Bool | .a,.x=>true | .b,.y=>true | _,_=>false
 theorem rootDriftCanIncreaseContactRank :
   singleCoverExists sepBeforeDrift [.a,.b] [.x,.y] = true ∧
   singleCoverExists sepAfterDrift [.a,.b] [.x,.y] = false ∧
-  covers sepAfterDrift [.a,.b] [.x,.y] = true := by decide
+  covers sepAfterDrift [.a,.b] [.x,.y] = true := by
+  constructor
+  · rfl
+  · constructor <;> rfl
 
 inductive Root3 | p | q | joint deriving DecidableEq, Repr
 inductive Obl2 | u | v deriving DecidableEq, Repr
@@ -36,7 +48,10 @@ def sepInstrument : Root3 → Obl2 → Bool | .p,.u=>true | .q,.v=>true | .joint
 theorem instrumentExpansionCanDecreaseContactRank :
   singleCoverExists sepInstrument [.p,.q] [.u,.v] = false ∧
   covers sepInstrument [.p,.q] [.u,.v] = true ∧
-  singleCoverExists sepInstrument [.p,.q,.joint] [.u,.v] = true := by decide
+  singleCoverExists sepInstrument [.p,.q,.joint] [.u,.v] = true := by
+  constructor
+  · rfl
+  · constructor <;> rfl
 
 inductive RenRootA | ar1 | ar2 deriving DecidableEq, Repr
 inductive RenOblA | ao1 | ao2 deriving DecidableEq, Repr
@@ -46,7 +61,12 @@ def sepA : RenRootA → RenOblA → Bool | .ar1,.ao1=>true | .ar2,.ao2=>true | _
 def sepB : RenRootB → RenOblB → Bool | .brX,.boP=>true | .brY,.boQ=>true | _,_=>false
 theorem incidenceRenamingPreservesRankWitness :
   singleCoverExists sepA [.ar1,.ar2] [.ao1,.ao2] = false ∧ covers sepA [.ar1,.ar2] [.ao1,.ao2] = true ∧
-  singleCoverExists sepB [.brX,.brY] [.boP,.boQ] = false ∧ covers sepB [.brX,.brY] [.boP,.boQ] = true := by decide
+  singleCoverExists sepB [.brX,.brY] [.boP,.boQ] = false ∧ covers sepB [.brX,.brY] [.boP,.boQ] = true := by
+  constructor
+  · rfl
+  · constructor
+    · rfl
+    · constructor <;> rfl
 
 inductive OntRoot | only deriving DecidableEq, Repr
 inductive OntObl | one | two | three deriving DecidableEq, Repr
