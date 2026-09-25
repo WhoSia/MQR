@@ -8,6 +8,7 @@ on:
       - 'experiments/mqr-4.34/reference/**'
       - 'experiments/mqr-4.34/forcing-worlds*.tsv'
       - 'experiments/mqr-4.34/relation-intervention.tsv'
+      - 'experiments/mqr-4.34/calibration/**'
       - '.github/workflows/mqr-4.34-core.yml'
   workflow_dispatch:
 
@@ -79,6 +80,19 @@ jobs:
             exit 1
           fi
           echo 'RELATION_CHANGING_INTERVENTION=PASS'
+
+      - name: Zero-credit inherited collision separation
+        shell: bash
+        run: |
+          set -euo pipefail
+          RUST=./experiments/mqr-4.34/rust/target/release/mqr434
+          "$RUST" experiments/mqr-4.34/calibration/inherited-collision.tsv | tee /tmp/inherited-rust.out
+          /tmp/mqr434-cpp experiments/mqr-4.34/calibration/inherited-collision.tsv | tee /tmp/inherited-cpp.out
+          diff -u /tmp/inherited-rust.out /tmp/inherited-cpp.out
+          grep -F 'RELATION=TKN-001-CAL' /tmp/inherited-rust.out | grep -F 'relation=R0_SAME_GENERATOR_HOLDOUT' | grep -F 'authority=A0_HOLDOUT_SUPPORT_ADMISSIBLE'
+          grep -F 'RELATION=TOML-D1-CAL' /tmp/inherited-rust.out | grep -F 'relation=R1_STRICT_DOMAIN_EXTENSION' | grep -F 'authority=A1_EXTENSION_REQUIRES_FRESH_CONTACT'
+          echo 'DIAGNOSTIC_INHERITED_SEPARATION=PASS'
+          echo 'FRESH_PROMOTION_CREDIT=ZERO'
 
       - name: Core summary
         run: |
