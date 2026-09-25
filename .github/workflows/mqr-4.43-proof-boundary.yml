@@ -35,10 +35,14 @@ jobs:
           for theorem in \
             MQR.observationallyEquivalentWorldsCanRequireOppositeEscapeActions \
             MQR.noSingleTwinWorldActionCapturesBothEscapes \
+            MQR.noSingleActionCanCaptureBothTwinWorldEscapes \
+            MQR.noDeterministicPolicyOverVisibleSignatureCapturesBoth \
             MQR.nominalReserveDoesNotImplyActivationCapability \
             MQR.activationThresholdCanCertifyNarrowReserveCompetence \
             MQR.equalScalarDebtCountDoesNotIdentifyDebtGeometry \
             MQR.finiteDeclaredAntiStarvationCanBeCertified \
+            MQR.roundRobinVisitsEveryDeclaredLaneWithinOneCycle \
+            MQR.finiteRoundRobinPreventsUnitActivationStarvation \
             MQR.proceduralCoverageDoesNotImplyWorldFrontierCompleteness \
             MQR.localExploitationGainDoesNotLicenseExplorationRetirement \
             MQR.setValuedAdmissibilityDoesNotIdentifyUniqueWorldOptimum \
