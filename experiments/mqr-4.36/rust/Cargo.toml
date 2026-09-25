@@ -1,0 +1,8 @@
+[package]
+name = "mqr436"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "mqr436-adjudicate"
+path = "src/main.rs"
