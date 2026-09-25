@@ -1,0 +1,16 @@
+REALTRANSFER 0.5
+id "v05-invalid-world-authority-laundering"
+mode FORMAL_MEDIATED
+claim_scope CLAIM
+world_scope WORLD
+statement_scope STMT
+world_authority PASS
+scope_contains WORLD CLAIM
+scope_contains STMT CLAIM
+semantic_witness SW PASS EXTERNAL "world predicate" "formal predicate" "external witness"
+ancestor A LOAD_BEARING HOLD
+preserve A
+defeat_path D REACHABLE "reopen"
+formal_custody PASS "checked"
+authorize PASS
+END
