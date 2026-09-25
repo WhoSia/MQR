@@ -21,3 +21,25 @@ jobs:
           lint: false
           nanoda: false
           use-github-cache: false
+      - name: Frontier axiom ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/Frontier.lean | tee /tmp/frontier.log
+          if grep -F 'sorryAx' /tmp/frontier.log; then exit 1; fi
+          for theorem in \
+            MQR.currentRivalSeparationDoesNotImplyQueryLanguageClosure \
+            MQR.repeatedNoDiscoveryDoesNotImplyFrontierCompleteness \
+            MQR.stableFcrCanAccompanyFrontierDiscovery \
+            MQR.rankIncreaseAloneDoesNotEstablishDiscoveryValue \
+            MQR.multipleGeneratorsDoNotImplyIndependentRivalSearch \
+            MQR.finiteGrammarClosureDoesNotImplyScientificFrontierClosure \
+            MQR.plausibleGeneratorPortfoliosCanYieldNonnestedFrontiers \
+            MQR.queryExtensionCanRevealPreviouslyHiddenRival \
+            MQR.conditionalFrontierGuidanceDoesNotRequireWorldCompleteness \
+            MQR.reopeningReserveDoesNotEstablishFrontierCompleteness
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/frontier.log
+          done
+          echo MQR442_FRONTIER_AXIOM_ANCESTRY=EMPTY
