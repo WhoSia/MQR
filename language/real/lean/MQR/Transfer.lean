@@ -19,12 +19,9 @@ def worldSupported : Fin 2 → Bool
 def formalStatementCovers (_ : Fin 2) : Bool := true
 
 theorem formalScopeCanStrictlyExceedWorldSupport :
-    (∀ p : Fin 2, formalStatementCovers p = true) ∧
-      (∃ p : Fin 2, worldSupported p = false) := by
-  constructor
-  · intro p
-    rfl
-  · exact ⟨⟨1, by decide⟩, by decide⟩
+    formalStatementCovers ⟨1, by decide⟩ = true ∧
+      worldSupported ⟨1, by decide⟩ = false := by
+  decide
 
 structure FineAncestry where
   surfacePass : Bool
