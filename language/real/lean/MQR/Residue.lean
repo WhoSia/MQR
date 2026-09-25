@@ -43,17 +43,25 @@ def AuthorityStatus.rank : AuthorityStatus → Nat
   | .hold => 1
   | .pass => 2
 
-def NoLaunder (premise conclusion : AuthorityStatus) : Prop :=
-  conclusion.rank ≤ premise.rank
+def NoLaunder : AuthorityStatus → AuthorityStatus → Prop
+  | .fail, .fail => True
+  | .fail, .hold => False
+  | .fail, .pass => False
+  | .hold, .fail => True
+  | .hold, .hold => True
+  | .hold, .pass => False
+  | .pass, .fail => True
+  | .pass, .hold => True
+  | .pass, .pass => True
 
-theorem holdMayStayHold : NoLaunder .hold .hold := by
-  decide
+theorem holdMayStayHold : NoLaunder .hold .hold :=
+  True.intro
 
-theorem checkedProofCannotRaiseHoldToPass : ¬ NoLaunder .hold .pass := by
-  decide
+theorem checkedProofCannotRaiseHoldToPass : ¬ NoLaunder .hold .pass :=
+  fun h => h
 
-theorem failedPremiseCannotAuthorizeHold : ¬ NoLaunder .fail .hold := by
-  decide
+theorem failedPremiseCannotAuthorizeHold : ¬ NoLaunder .fail .hold :=
+  fun h => h
 
 #print axioms MQR.zeroInternalResidueOfComplete
 #print axioms MQR.extensionContainsUncoveredProbe
