@@ -281,3 +281,43 @@ It is not allowed to manufacture:
 - final ontology,
 - universal cross-domain numeric units,
 - transport authority for an untested component.
+
+
+## v0.5 — executable world–statement transfer lane
+
+MQR-4.38 makes the MQR-4.37 transfer boundary executable without turning it into a truth oracle.
+
+Canonical implementation:
+- Rust: `src/transfer_v05.rs` / binary `real-v05-transfer`;
+- independent evaluator: `haskell/TransferV05.hs`;
+- formal countermodels: `lean/MQR/Transfer.lean`.
+
+The live transfer coordinates are:
+- semantic correspondence;
+- scope admissibility;
+- authority-relevant ancestry preservation;
+- defeat reachability;
+- noncircular warrant;
+- formal custody when applicable.
+
+Each coordinate uses `PASS / HOLD / FAIL / NOT_APPLICABLE`. No numeric transfer score exists. HOLD is not collapsed into FAIL.
+
+For a formally mediated route, `TRANSFER=PASS` means only:
+
+```text
+STRUCTURAL_ADMISSIBILITY_NONAMPLIFYING
+```
+
+The transfer contract cannot raise the source world-authority ceiling. A semantic-correspondence receipt remains a defeasible world-facing warrant rather than something the compiler can certify into existence.
+
+A nonformal route is a first-class positive control:
+
+```text
+WORLD_AUTHORITY=PASS
+FORMAL_CUSTODY=NOT_APPLICABLE
+TRANSFER=NOT_APPLICABLE
+```
+
+Therefore formalization is optional and route-relative, not a universal condition for scientific authority.
+
+Rust/Haskell concordance is implementation-diversity evidence only. It does not establish semantic or world independence.
