@@ -139,12 +139,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          grep -F 'at least 6 fresh external cases' experiments/mqr-4.34/PRESEAL.md
-          grep -F 'at least 2 independently admitted RESEARCH_LAB cases' experiments/mqr-4.34/PRESEAL.md
-          grep -F 'EXTERNAL_RELATIONAL_SUPPORT_IDENTIFIED=HOLD' experiments/mqr-4.34/FRESH_WORLD_CONTACT_RECEIPT.md
+          grep -F '3. at least 6 fresh admitted external cases;' experiments/mqr-4.34/PRESEAL.md
+          grep -F '4. at least 2 lineage kinds;' experiments/mqr-4.34/PRESEAL.md
+          grep -F '5. at least 3 ENGINEERING_DEVELOPMENT cases;' experiments/mqr-4.34/PRESEAL.md
+          grep -F '6. at least 2 independently admitted RESEARCH_LAB cases;' experiments/mqr-4.34/PRESEAL.md
+          grep -F '7. at least 2 fresh R0 SAME_GENERATOR_HOLDOUT cases;' experiments/mqr-4.34/PRESEAL.md
+          grep -F 'RELATIONAL_SUPPORT_GEOMETRY_EXTERNAL_IDENTIFICATION = HOLD' experiments/mqr-4.34/FRESH_WORLD_CONTACT_RECEIPT.md
           grep -F 'R2_QUOTIENT_INDEXING = FRESHLY_VINDICATED_BY_SUCCESSOR_DIVERGENCE' experiments/mqr-4.34/FRESH_WORLD_CONTACT_RECEIPT.md
           echo 'MQR434_POST_REVEAL_RELATION_REPAIR=FORBIDDEN'
-          echo 'MQR434_EXTERNAL_RELATIONAL_SUPPORT_IDENTIFIED=HOLD'
+          echo 'MQR434_RELATIONAL_SUPPORT_GEOMETRY_EXTERNAL_IDENTIFICATION=HOLD'
 
       - name: Closure summary
         shell: bash
@@ -155,5 +158,5 @@ jobs:
           echo 'MQR434_R1_FRESH_CONTACT_BURDEN=VINDICATED_BY_PROCEDURE'
           echo 'MQR434_R2_QUOTIENT_INDEXING=VINDICATED_BY_SUCCESSOR_DIVERGENCE'
           echo 'MQR434_INHERITED_COLLISION_SEPARATION=PASS_ZERO_CREDIT'
-          echo 'MQR434_EXTERNAL_RELATIONAL_SUPPORT_IDENTIFIED=HOLD'
+          echo 'MQR434_RELATIONAL_SUPPORT_GEOMETRY_EXTERNAL_IDENTIFICATION=HOLD'
           echo 'MQR434_STRONGEST_EARNED_RESULT=RELATIONAL_SUPPORT_AUTHORITY_IS_DOMAIN_MAP_INDEXED'
