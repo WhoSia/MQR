@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.44**.
+Status: live through **MQR-4.45**.
 
 ## Generation-IV authority kernel
 
@@ -943,7 +943,30 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 167. **Frontier escape reopens obligation constitution.** An admitted burden outside the live obligation map reopens the EOCR/OBM and every downstream allocation receipt that depended on it.
 168. **Finite constitutional audit ≠ world-complete obligation ontology.** Passing provenance, partition, successor and debt-continuity checks licenses only provisional contract-relative governance.
 
+169. **Same burden label ≠ cross-version burden identity.** A burden identifier may persist while its declared challenge/coverage semantics drift.
+170. **Different burden label ≠ cross-version burden nonidentity.** A renamed burden may receive local EXACT transport only through an explicit declared witness surface; the mapping remains receipt-relative rather than metaphysical identity.
+171. **Ontology revision is typed and loss-aware.** EXACT, REFINE, MERGE, OVERLAP, DISJOINT and UNMAPPED are not interchangeable transport states.
+172. **Refinement cardinality ≠ historical debt multiplicity.** Splitting one debt-bearing source burden into several target carriers does not manufacture several independent historical debts; source ancestry remains the accounting key.
+173. **Merge cardinality ≠ historical debt collapse.** Compressing several debt-bearing source burdens into one target carrier cannot erase their separate inherited ancestry.
+174. **Partial overlap ≠ debt discharge.** A source debt is preserved through refinement only when the full declared source burden is covered and the relevant source-to-target debt ancestry remains traceable, absent explicit withdrawal.
+175. **Unmapped disappearance ≠ retirement.** A debt-bearing source burden that lacks a qualifying transport or explicit withdrawal remains unresolved and reopens the revision receipt.
+176. **Target novelty ≠ retroactive source debt.** A target-only burden creates new constitutional load but is not rewritten into predecessor debt without an explicit inheritance rule.
+177. **Cross-constitution comparability is mapped-subspace only.** Local burden transport does not authorize whole-ontology commensurability or a global ranking of constitutions.
+178. **Conflict localization ≠ true-winner identification.** A revision court may expose mandate, withdrawal, merge or unmapped conflicts while leaving arbitration to an explicit higher-order constitutional rule.
+179. **Direct/composed revision disagreement is a reopening event.** A noncommuting revision diamond defeats path-independent transport authority but does not promote the direct path to an infallible oracle.
+180. **Current revision transport ≠ future revision closure.** Finite successful BORR/BTR mappings do not establish a final burden ontology or guarantee lossless future translation.
+181. **Newer ontology or stronger provenance ≠ epistemic superiority.** Recency, externality and provenance status remain audit coordinates rather than automatic arbitration rules.
+
 ## Live governance objects
+
+- Burden-Ontology Revision Receipt (BORR)
+- Burden Transport Relation (BTR; EXACT / REFINE / MERGE / OVERLAP / DISJOINT / UNMAPPED)
+- Burden-Identity Witness surface (BIW)
+- Debt-Transport Ledger (DTL; source-ancestry keyed)
+- Revision Loss Vector (RLV)
+- Cross-Constitution Comparability Envelope (CCE; mapped-subspace only)
+- Obligation Conflict Receipt (OCR)
+- Revision Diamond Receipt (RDR)
 
 - Exploration-Obligation Constitution Receipt (EOCR)
 - Search-Burden Atom (SBA; declaration-relative)
