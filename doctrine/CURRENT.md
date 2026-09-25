@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.34**.
+Status: live through **MQR-4.36**.
 
 ## Generation-IV authority kernel
 
@@ -585,6 +585,191 @@ Literature constraints used in interpretation, with zero case credit:
 
 MQR does not claim that MU is a causal selection diagram, a metrological calibration theorem, or a Galois connection.
 
+
+#### MQR-4.35 relational-receipt collision result
+
+MQR-4.35 attacks the MQR-4.34 relational receipt itself rather than protecting it by definition.
+
+For a frozen probe algebra P, let q_R map a world/case to its support receipt and let E_P be independently adjudicated empirical support reach. Finite-court sufficiency requires a factorization:
+
+```text
+E_P = g o q_R
+```
+
+Equivalently:
+
+```text
+q_R(x) = q_R(y) -> E_P(x) = E_P(y)
+```
+
+A same-receipt opposite-reach pair is therefore a direct representation-sufficiency counterexample.
+
+The predeclared refinement ladder was:
+
+```text
+NU0 = MU
+NU1 = MU + MAP_ALGEBRA
+NU2 = NU1 + INTERVENTION_ALIGNMENT
+NU3 = NU2 + SENSITIVITY_SCOPE
+```
+
+The forcing court produced the exact preregistered collision vector:
+
+```text
+NU0_COLLISIONS = 3
+NU1_COLLISIONS = 2
+NU2_COLLISIONS = 1
+NU3_COLLISIONS = 0
+```
+
+Therefore:
+
+```text
+MU_UNIVERSAL_SUFFICIENCY = FAIL
+COARSEST_PREDECLARED_FORCING_SEPARATOR = NU3
+NU3_NATURALISTIC_IDENTIFICATION = HOLD
+RELATIONALITY = RETAINED_BUT_WEAKENED
+```
+
+The update is not that relational support geometry is useless. It is that taxonomic relation type alone is not sufficient: compositional authority is probe-relative and mechanism-sensitive.
+
+MQR-4.35 separates:
+1. usefulness;
+2. observed-corpus separation;
+3. sufficiency relative to a frozen probe/decision family;
+4. universal sufficiency across open-ended future inquiry.
+
+Only the first three can be prospectively earned on bounded evidence. The fourth retains open-world residue.
+
+#### MQR-4.36 fresh naturalistic fiber and proof-boundary result
+
+MQR-4.36 freezes NU3 unchanged and subjects it to fresh naturalistic contact.
+
+The fresh corpus was fixed before behavioral reveal at:
+- four external engineering cases;
+- two domain families;
+- one lineage kind;
+- zero RESEARCH_LAB cases.
+
+Therefore positive naturalistic identification was structurally HOLD before execution.
+
+The strict-extension fiber F-R1 assigned exactly the same NU3 receipt to JSCHEMA-001 and OASV-001.
+
+Fresh world contact returned:
+
+```text
+JSCHEMA-001 -> E1_QUOTIENT_ONLY
+OASV-001    -> E0_FULL
+```
+
+Thus:
+
+```text
+NU3_NATURALISTIC_SUFFICIENCY = FAIL
+NU3_NATURALISTIC_IDENTIFICATION = HOLD
+POST_REVEAL_RESCUE = FORBIDDEN
+```
+
+This is stronger than the MQR-4.35 forcing defeat because the same-NU3 opposite-reach collision occurred under preregistered fresh package behavior.
+
+Decision-relative sufficiency is separately typed.
+
+The fine D36 action map distinguishes E0/E1 and therefore also collides.
+
+The frozen coarser D36_CORE decision maps both E0_FULL and E1_QUOTIENT_ONLY to ALLOW_CORE_REUSE. Hence:
+
+```text
+NU3 exact empirical-reach sufficiency = FAIL
+NU3 fine-decision sufficiency = FAIL
+NU3 D36_CORE decision-relative sufficiency = NOT_DEFEATED
+```
+
+This does not make NU3 representationally sufficient. It shows that an explicitly frozen decision may legitimately ignore a real distinction.
+
+The preregistered probe class contained 132 atomic execution rows. All completed with zero unresolved rows.
+
+Therefore:
+
+```text
+INTERNAL_RESIDUE_WITHIN_DECLARED_PROBE_CLASS = ZERO
+OPEN_WORLD_RESIDUE = NOT_ELIMINATED
+```
+
+This is a genuine finite closure result whose quantifier is restricted to the declared probe class. It cannot be promoted into completeness of future interventions, instruments, observables, successor distinctions or ontology.
+
+Real-Language v0.4 introduces a proof-assistant boundary rather than a truth oracle.
+
+The live architecture is:
+
+```text
+WORLD
+ -> instrument / intervention / provider
+ -> native evidence
+ -> typed empirical receipt
+ -> Real-Language premise + authority state
+ -> Lean proof term
+ -> kernel / independent proof checker
+ -> scoped consequence
+```
+
+Pinned Lean 4.34.0 verifies the target theorem closure with empty axiom ancestry, and a pinned nanoda stack independently rechecks the exported target closure.
+
+The formal targets include:
+- complete coverage of a declared Fin n probe class implies zero internal residue inside that class;
+- a strict syntactic extension can contain a probe uncovered by the old tested predicate;
+- checked formal proof cannot raise empirical HOLD to PASS under the no-laundering relation.
+
+Therefore:
+
+```text
+KERNEL_VERIFIED != WORLD_VERIFIED
+FORMAL_CERTAINTY_CANNOT_LAUNDER_EMPIRICAL_UNCERTAINTY
+```
+
+Independent proof checking strengthens proof/software custody. It does not create an independent world-contact lineage.
+
+The working architecture is Proof-Carrying Realist Authority (PCRA):
+
+```text
+PCRA =
+  WORLD_RECEIPT
+  + TYPED_PREMISE_AUTHORITY
+  + FORMAL_DEPENDENCY_GRAPH
+  + KERNEL_CHECK
+  + INDEPENDENT_RECHECK_WHEN_AVAILABLE
+  + OPEN_WORLD_RESIDUE
+```
+
+PCRA is a design architecture, not a new metaphysical primitive.
+
+Rubenstein et al. (2017) supplies a positive formal control. Exact SEM transformations can compose when state transformations are paired with surjective order-preserving intervention maps and exact interventional-distribution correspondence. This blocks the opposite overreaction that composition is never warranted.
+
+MQR distinguishes:
+
+```text
+FORMAL COMPOSITION THEOREM
+from
+EMPIRICAL ENTITLEMENT TO THE THEOREM'S PREMISES
+```
+
+Thus proof assistants may certify composition conditional on explicit premises while world-facing inquiry remains responsible for whether those premises apply.
+
+The MQR UV-Vis origin is retained in sharpened form:
+
+```text
+sample
+ -> physical coupling
+ -> detector
+ -> digitization
+ -> calibrated representation
+ -> typed premise
+ -> Real-Language
+ -> Lean
+ -> scoped scientific consequence
+```
+
+Formalization can move the kernel/world frontier downstream or upstream. It cannot abolish the frontier.
+
 ## Current compression
 
 1. **Authority is earned by reachable defeat, not by agreement count.**
@@ -672,6 +857,13 @@ MQR does not claim that MU is a causal selection diagram, a metrological calibra
 83. **Same support profile ≠ same composition outcome.** If two cases collide under a frozen support quotient but differ in outcome, the outcome map cannot factor through that quotient.
 84. **Component identity is an admission claim, not a free premise.** A triangle can fail before composition because the supposedly common executable component does not survive regime change.
 85. **Post-failure diagnostic counterexample ≠ fresh confirmatory counterexample.** Repair can localize a boundary without retroactively earning prospective promotion credit.
+86. **Forcing separation ≠ naturalistic sufficiency.** A representation that separates constructed adversarial worlds can still collide under fresh world contact.
+87. **Decision sufficiency ≠ representational sufficiency.** A frozen coarse action map may legitimately ignore an empirical distinction without making the representation complete.
+88. **Finite internal residue zero ≠ open-world residue zero.** Exhaustive closure is only as broad as the declared probe class and its admission map.
+89. **Kernel verified ≠ world verified.** Formal derivability cannot raise the authority of empirical or model premises on which the theorem depends.
+90. **Independent proof checker ≠ independent world-contact lineage.** Checker plurality diversifies formal custody, not measurement ancestry.
+91. **Formal composition theorem ≠ empirical composition warrant.** Explicit exact-transformation conditions can license composition formally; whether a scientific bridge satisfies them remains world-facing.
+92. **Formalization moves epistemic debt; it does not erase world-contact debt.** Moving more transformations into a proof assistant changes the frontier but does not turn the kernel into a physical oracle.
 
 ## Live governance objects
 
