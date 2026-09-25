@@ -441,3 +441,33 @@ frontier.discovery_impact_mode=VECTOR
 ```
 
 The live doctrine is **reopening competence rather than completeness certification**.
+
+
+## v0.10 — open-frontier attention allocation
+
+MQR-4.43 adds `REALALLOCATE 0.10`.
+
+Canonical Rust: `src/allocation_v10.rs` / `real-v10-allocate`.
+Independent relational evaluator: `prolog/allocation_v10.pl`.
+Lean boundary: `lean/MQR/Allocation.lean`.
+Constitution: `V10-ALLOCATION.md`.
+
+v0.10 treats finite scientific attention as a declared budget over typed search lanes with activation costs, ancestry, obligations, due horizons, reopening/exploitation roles and a witness-level exploration-debt ledger.
+
+The positive object is an **Allocation Admissibility Envelope (AAE)**, not a unique optimizer. The 4.42 Frontier Reopening Reserve is strengthened operationally to an **Activation-Capable Reopening Reserve (ACRR)**: nominal reserve must be large enough to exercise at least one declared reopening lane.
+
+Twin-world fixtures hold the visible RSAR surface fixed while reversing the witness-only next escape route. The evaluator therefore refuses to infer a universally correct next action from observationally identical open-frontier histories.
+
+```text
+ADMISSIBLE != OPTIMAL
+NOMINAL RESERVE != ACTIVATION-CAPABLE RESERVE
+EXPLORATION DEBT = TYPED LEDGER
+OPPORTUNITY COST = VECTOR
+UNIVERSAL NEXT ACTION = UNIDENTIFIED
+WORLD FRONTIER COMPLETE = NO
+STOPPING RULE = FORBIDDEN
+```
+
+Declared priors/utilities may authorize optimization only inside that declared model. They do not become a probability distribution or utility function over unconceived rivals.
+
+The live doctrine is **finite attention governance without pricing the unknown**.
