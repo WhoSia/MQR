@@ -1,0 +1,34 @@
+REALPACKET 0.4
+id "mqr-4.36-proof-boundary-positive"
+epoch "2026-09-25"
+claim CONSTRAINT "Formal proof validity and empirical entitlement remain distinct"
+scope "finite declared probe class only"
+lineage METHODOLOGY_DEVELOPMENT
+
+gate C PASS
+gate E HOLD
+gate P PASS
+gate R PASS
+
+axis W 0.25 "world premise remains held"
+axis N 0.50 "formal checker and empirical receipt have different ancestry"
+axis I 0.75 "proof boundary is explicit"
+axis D 1.00 "negative laundering fixture can defeat invalid promotion"
+
+premise PDEF DEFINITION PASS "internal residue means every declared relevant probe is tested"
+premise PWORLD EMPIRICAL HOLD "world adequacy of the declared probe class remains unestablished"
+
+obligation OINT FORMAL_ONLY "complete declared coverage implies zero internal residue"
+depends OINT PDEF
+proof OINT CHECKED "lean:MQR.zeroInternalResidueOfComplete"
+
+obligation OWORLD WORLD_DEPENDENT "declared probe class is adequate for the world-facing claim"
+depends OWORLD PDEF PWORLD
+proof OWORLD CHECKED "lean:formal consequence conditional on PWORLD"
+authorize OWORLD HOLD
+
+probe_class P36 FINITE 9 "the pre-registered atomic MQR-4.36 refinement set"
+probe_residue P36 ZERO_INTERNAL "all nine declared atoms enumerated in the bounded fixture"
+
+source "language/real/lean/MQR/Residue.lean"
+END
