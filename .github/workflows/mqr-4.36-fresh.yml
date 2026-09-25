@@ -1,12 +1,7 @@
-name: MQR 4.36 Fresh Naturalistic Fiber Court
+name: MQR 4.36 Fresh Naturalistic Fiber Court Replay
 # canonical-world-contact-trigger: post-rustfmt
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'experiments/mqr-4.36/**'
-      - '.github/workflows/mqr-4.36-fresh.yml'
   workflow_dispatch:
 
 permissions:
