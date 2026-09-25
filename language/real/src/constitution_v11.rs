@@ -531,6 +531,10 @@ fn analyze(p: &Packet) -> BTreeMap<String, String> {
         "NO".into(),
     );
     a.insert(
+        "constitution.burden_atom_ontology_complete".into(),
+        "NO".into(),
+    );
+    a.insert(
         "constitution.omitted_burden_inferred".into(),
         "NO".into(),
     );
