@@ -42,3 +42,7 @@ path = "src/allocation_v10.rs"
 [[bin]]
 name = "real-v11-constitute"
 path = "src/constitution_v11.rs"
+
+[[bin]]
+name = "real-v12-revise"
+path = "src/revision_v12.rs"
