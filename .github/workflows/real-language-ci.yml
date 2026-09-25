@@ -32,7 +32,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -439,3 +439,99 @@ jobs:
           echo MQR443_ESCAPE_TRIGGERED_REALLOCATION=PASS
           echo MQR443_UNIQUE_WORLD_OPTIMUM=NO
           echo MQR443_WORLD_FRONTIER_COMPLETE=NO
+
+
+      - name: Real-Language v0.11 obligation-constitution guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V11=./language/real/target/release/real-v11-constitute
+          P11=language/real/prolog/constitution_v11.pl
+          CORE='^constitution\.(obligation_count|mandatory_obligation_count|burden_count|covered_burden_count|burden_union|uncovered_declared_burdens|agenda_source_count|agenda_ancestry_count|agenda_common_mode|endogenous_only|external_source_present|challenge_route|successor_claim_count|invalid_successor_claim_count|successor_coverage_complete|explicit_withdrawal_count|debt_transfer_required_count|debt_transfer_missing_count|debt_transfer_items|burden_laundering_detected|partition_count_authority|partition_audit_surface|external_source_truth_oracle|endogenous_source_truth_oracle|escape_detected|escape_reconstitution_required|reopen_on_escape|world_obligation_complete|omitted_burden_inferred|open_world_receipt|guidance_mode|admissible_envelope|state)='
+
+          for f in \
+            language/real/examples/mqr-4.44-gerrymander-merged.real \
+            language/real/examples/mqr-4.44-gerrymander-split.real \
+            language/real/examples/mqr-4.44-common-mode-agenda.real \
+            language/real/examples/mqr-4.44-successor-invalid.real \
+            language/real/examples/mqr-4.44-successor-valid.real \
+            language/real/examples/mqr-4.44-debt-rename-launder.real \
+            language/real/examples/mqr-4.44-debt-transfer-preserved.real \
+            language/real/examples/mqr-4.44-debt-delete-launder.real \
+            language/real/examples/mqr-4.44-endogenous-marked.real \
+            language/real/examples/mqr-4.44-escape-reconstitution.real \
+            language/real/examples/mqr-4.44-omission-twin-a.real \
+            language/real/examples/mqr-4.44-omission-twin-b.real
+          do
+            "$V11" "$f" > /tmp/v11.rust
+            swipl -q -s "$P11" -g "run('$f'),halt" -t "halt(1)" > /tmp/v11.prolog
+            grep -E "$CORE" /tmp/v11.rust > /tmp/v11.rust.core
+            grep -E "$CORE" /tmp/v11.prolog > /tmp/v11.prolog.core
+            diff -u /tmp/v11.rust.core /tmp/v11.prolog.core
+          done
+
+          "$V11" language/real/examples/mqr-4.44-gerrymander-merged.real > /tmp/gm
+          "$V11" language/real/examples/mqr-4.44-gerrymander-split.real > /tmp/gs44
+          grep -F 'constitution.obligation_count=1' /tmp/gm
+          grep -F 'constitution.obligation_count=2' /tmp/gs44
+          grep -F 'constitution.burden_union=A+B' /tmp/gm
+          grep -F 'constitution.burden_union=A+B' /tmp/gs44
+          grep -F 'constitution.partition_count_authority=REJECT' /tmp/gm
+
+          "$V11" language/real/examples/mqr-4.44-common-mode-agenda.real > /tmp/cm44
+          grep -F 'constitution.agenda_source_count=2' /tmp/cm44
+          grep -F 'constitution.agenda_ancestry_count=1' /tmp/cm44
+          grep -F 'constitution.agenda_common_mode=YES' /tmp/cm44
+
+          "$V11" language/real/examples/mqr-4.44-successor-invalid.real > /tmp/si44
+          "$V11" language/real/examples/mqr-4.44-successor-valid.real > /tmp/sv44
+          grep -F 'constitution.successor_coverage_complete=NO' /tmp/si44
+          grep -F 'constitution.admissible_envelope=NO' /tmp/si44
+          grep -F 'constitution.successor_coverage_complete=YES' /tmp/sv44
+          grep -F 'constitution.admissible_envelope=YES' /tmp/sv44
+
+          "$V11" language/real/examples/mqr-4.44-debt-rename-launder.real > /tmp/dr44
+          "$V11" language/real/examples/mqr-4.44-debt-transfer-preserved.real > /tmp/dt44
+          "$V11" language/real/examples/mqr-4.44-debt-delete-launder.real > /tmp/dd44
+          grep -F 'constitution.successor_coverage_complete=YES' /tmp/dr44
+          grep -F 'constitution.burden_laundering_detected=YES' /tmp/dr44
+          grep -F 'constitution.admissible_envelope=NO' /tmp/dr44
+          grep -F 'constitution.burden_laundering_detected=NO' /tmp/dt44
+          grep -F 'constitution.admissible_envelope=YES' /tmp/dt44
+          grep -F 'constitution.burden_laundering_detected=YES' /tmp/dd44
+
+          "$V11" language/real/examples/mqr-4.44-endogenous-marked.real > /tmp/em44
+          grep -F 'constitution.endogenous_only=YES' /tmp/em44
+          grep -F 'constitution.endogenous_source_truth_oracle=NO' /tmp/em44
+          grep -F 'constitution.admissible_envelope=YES' /tmp/em44
+
+          "$V11" language/real/examples/mqr-4.44-escape-reconstitution.real > /tmp/er44
+          grep -F 'constitution.escape_reconstitution_required=YES' /tmp/er44
+          grep -F 'constitution.state=REOPEN_REQUIRED' /tmp/er44
+          grep -F 'constitution.admissible_envelope=NO' /tmp/er44
+
+          "$V11" language/real/examples/mqr-4.44-omission-twin-a.real > /tmp/ota
+          "$V11" language/real/examples/mqr-4.44-omission-twin-b.real > /tmp/otb
+          grep -E "$CORE" /tmp/ota > /tmp/ota.core
+          grep -E "$CORE" /tmp/otb > /tmp/otb.core
+          diff -u /tmp/ota.core /tmp/otb.core
+          grep -F 'witness.omitted_burden=NONE' /tmp/ota
+          grep -F 'witness.omitted_burden=Z' /tmp/otb
+          grep -F 'constitution.world_obligation_complete=NO' /tmp/ota
+          grep -F 'constitution.omitted_burden_inferred=NO' /tmp/otb
+
+          for x in language/real/tests/v11-invalid-*.real; do
+            if "$V11" "$x"; then exit 1; fi
+            if swipl -q -s "$P11" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V11_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR444_SEARCH_CLASS_GERRYMANDER_WITNESS=PASS
+          echo MQR444_AGENDA_ANCESTRY_COMMON_MODE=PASS
+          echo MQR444_SUCCESSOR_COVERAGE_GUARD=PASS
+          echo MQR444_DEBT_CONTINUITY_GUARD=PASS
+          echo MQR444_ENDOGENOUS_AGENDA_MARKED=PASS
+          echo MQR444_ESCAPE_RECONSTITUTION=PASS
+          echo MQR444_WORLD_OBLIGATION_COMPLETE=NO
+          echo MQR444_GUIDANCE_MODE=CONTRACT_RELATIVE_CONSTITUTIONAL
