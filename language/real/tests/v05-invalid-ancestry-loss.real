@@ -1,0 +1,17 @@
+REALTRANSFER 0.5
+id "v05-invalid-ancestry-loss"
+mode FORMAL_MEDIATED
+claim_scope CLAIM
+world_scope WORLD
+statement_scope STMT
+world_authority PASS
+scope_contains WORLD CLAIM
+scope_contains STMT CLAIM
+semantic_witness SW PASS EXTERNAL "world predicate" "formal predicate" "external witness"
+ancestor MEAS LOAD_BEARING PASS
+ancestor CAL LOAD_BEARING PASS
+preserve MEAS
+defeat_path D REACHABLE "reopen"
+formal_custody PASS "checked"
+authorize PASS
+END
