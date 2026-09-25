@@ -1,0 +1,70 @@
+name: MQR-4.41 World-Contact Basis Rank Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.41/**'
+      - 'language/real/src/contact_rank_v08.rs'
+      - 'language/real/prolog/contact_rank_v08.pl'
+      - 'language/real/examples/mqr-4.41-rank-*.real'
+      - 'language/real/tests/v08-*.real'
+      - '.github/workflows/mqr-4.41-rank-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rank-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v08-rank --bin real-v07-substitute
+      - name: Install Prolog
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+      - name: Exact rank court
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v08-rank
+          P=language/real/prolog/contact_rank_v08.pl
+          N=language/real/examples/mqr-4.41-rank-nonmatroid.real
+          "$V" "$N" > /tmp/r
+          swipl -q -s "$P" -- "$N" > /tmp/p
+          grep -E '^rank\.(coverage_complete|minimum|basis_count|unique|exchange_property|minimum_basis_cost_min|minimum_basis_cost_max|minimum_bases)=' /tmp/r > /tmp/rc
+          grep -E '^rank\.(coverage_complete|minimum|basis_count|unique|exchange_property|minimum_basis_cost_min|minimum_basis_cost_max|minimum_bases)=' /tmp/p > /tmp/pc
+          diff -u /tmp/rc /tmp/pc
+          grep -F 'rank.minimum=2' /tmp/r
+          grep -F 'rank.basis_count=2' /tmp/r
+          grep -F 'rank.exchange_property=FAIL' /tmp/r
+          grep -F 'rank.minimum_basis_cost_min=2' /tmp/r
+          grep -F 'rank.minimum_basis_cost_max=200' /tmp/r
+
+          "$V" language/real/examples/mqr-4.41-rank-frontier-base.real | grep -F 'rank.minimum=1'
+          "$V" language/real/examples/mqr-4.41-rank-frontier-expanded.real | grep -F 'rank.minimum=2'
+          "$V" language/real/examples/mqr-4.41-rank-drift-before.real | grep -F 'rank.minimum=1'
+          "$V" language/real/examples/mqr-4.41-rank-drift-after.real | grep -F 'rank.minimum=2'
+          "$V" language/real/examples/mqr-4.41-rank-instrument-before.real | grep -F 'rank.minimum=2'
+          "$V" language/real/examples/mqr-4.41-rank-instrument-after.real | grep -F 'rank.minimum=1'
+
+          V07=./language/real/target/release/real-v07-substitute
+          "$V07" experiments/mqr-4.41/legacy-degree-single.real | grep -F 'wcb.minimum_declared_roots=1'
+          "$V07" experiments/mqr-4.41/legacy-degree-split.real | grep -F 'wcb.minimum_declared_roots=2'
+
+          for f in language/real/tests/v08-invalid-*.real; do
+            if "$V" "$f"; then exit 1; fi
+            if swipl -q -s "$P" -- "$f"; then exit 1; fi
+          done
+
+          echo MQR441_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR441_DEGREE_ONTOLOGY_AS_PRIMITIVE=REJECT
+          echo MQR441_SEPARATION_RELATIVE_RANK=PASS
+          echo MQR441_ROOT_SET_NONUNIQUENESS=PASS
+          echo MQR441_GENERIC_BASIS_EXCHANGE=FAIL
+          echo MQR441_DRIFT_TRIGGERED_BASIS_EXPANSION=PASS
+          echo MQR441_OPEN_WORLD_FINAL_MINIMUM=UNIDENTIFIED

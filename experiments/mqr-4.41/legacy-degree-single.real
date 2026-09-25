@@ -1,0 +1,25 @@
+REALSUBSTITUTE 0.7
+id mqr-4.41-legacy-degree-single
+claim_kind BASIS_GENERATED
+source_authority PASS
+final_authority PASS
+root R1 EXTERNAL PASS LIVE
+root R2 EXTERNAL PASS LIVE
+degree D
+cover D R1
+query_root q0 R1
+bridge T A B PASS
+generate T q0 q1
+endpoint_query q1
+naturality T PASS FORMAL_EXACT NONE
+path P A B PASS
+coherence PASS CLOSED
+ancestor MEAS PASS
+preserve T MEAS
+defeat REACHABLE
+justification_target BCLAIM
+justify BCLAIM T
+justify T R1
+direct_receipt ABSENT
+authorize PASS
+END

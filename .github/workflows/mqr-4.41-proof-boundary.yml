@@ -1,0 +1,88 @@
+name: MQR-4.41 Contact-Rank Lean Boundary
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'language/real/lean/MQR/ContactRank.lean'
+      - 'language/real/lean/MQR.lean'
+      - '.github/workflows/mqr-4.41-proof-boundary.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Axiom ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/ContactRank.lean | tee /tmp/rank.log
+          if grep -F 'sorryAx' /tmp/rank.log; then exit 1; fi
+          for theorem in \
+            MQR.twoMinimumCoverWitnesses \
+            MQR.minimumWorldContactBasesNeedNotSatisfyExchange \
+            MQR.frontierExpansionCanIncreaseContactRank \
+            MQR.rootDriftCanIncreaseContactRank \
+            MQR.instrumentExpansionCanDecreaseContactRank \
+            MQR.incidenceRenamingPreservesRankWitness \
+            MQR.sameMinimumRankDoesNotIdentifyFrontierOntology \
+            MQR.declaredDegreeCountCanChangeWithoutAWorldWitness
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/rank.log
+          done
+          echo MQR441_CONTACT_RANK_AXIOM_ANCESTRY=EMPTY
+      - name: Build pinned independent checker stack
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          git clone https://github.com/leanprover/lean4export.git _lean4export
+          git -C _lean4export checkout 076e8e57707e813375e8f9da8bf989799ace9680
+          cp lean-toolchain _lean4export/lean-toolchain
+          (cd _lean4export && lake build lean4export)
+          git clone https://github.com/robsimmons/nanoda_lib.git _nanoda_lib
+          git -C _nanoda_lib checkout 68d5ca9db226849b41a6fff59d796ff19d0a8840
+          cargo build --release --manifest-path _nanoda_lib/Cargo.toml
+      - name: Independent nanoda replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env _lean4export/.lake/build/bin/lean4export MQR -- \
+            MQR.twoMinimumCoverWitnesses \
+            MQR.minimumWorldContactBasesNeedNotSatisfyExchange \
+            MQR.frontierExpansionCanIncreaseContactRank \
+            MQR.rootDriftCanIncreaseContactRank \
+            MQR.instrumentExpansionCanDecreaseContactRank \
+            MQR.incidenceRenamingPreservesRankWitness \
+            MQR.sameMinimumRankDoesNotIdentifyFrontierOntology \
+            MQR.declaredDegreeCountCanChangeWithoutAWorldWitness \
+            > /tmp/mqr441.export
+          cat > /tmp/mqr441.json <<'JSON'
+          {
+            "export_file_path": "/tmp/mqr441.export",
+            "use_stdin": false,
+            "permitted_axioms": [],
+            "unpermitted_axiom_hard_error": true,
+            "nat_extension": true,
+            "string_extension": true,
+            "print_success_message": true
+          }
+          JSON
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr441.json
+          echo MQR441_NANODA_INDEPENDENT_CHECKER=PASS
+          echo MQR441_CONTACT_RANK_COUNTERMODELS_REPLAY=PASS
