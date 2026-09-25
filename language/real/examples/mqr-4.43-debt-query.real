@@ -1,0 +1,20 @@
+REALALLOCATE 0.10
+id debt-query
+claim_scope frontier-search
+budget 2
+horizon 1
+lane Q ancQ 1 MANDATORY REOPENING QUERY
+lane R ancR 1 OPTIONAL REOPENING REPRESENTATION
+obligation OQ Q 1
+reserve 1
+normative_prior NONE
+normative_utility NONE
+history_signature H-DQ
+policy CONTRACT
+witness_escape_lane NONE
+authorize_acrr YES
+authorize_starvation YES
+authorize_debt 1
+authorize_escape_reallocation NO
+authorize_common_mode NO
+END
