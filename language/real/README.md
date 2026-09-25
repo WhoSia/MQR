@@ -334,3 +334,28 @@ Lean boundary: `lean/MQR/Composition.lean`.
 The authority meet is associative and NoLaunder is transitive, but local transfer PASS does not imply composite PASS. The composition lane tracks endpoint compatibility, semantic composition, pathwise scope mapping, original-source ancestry, end-to-end defeat segments, assumption closure, global non-amplification and a direct source-to-target receipt.
 
 A full PASS therefore means **conditional pathwise non-amplification**, not categorical closure of scientific authority. The live structural classification is **partial / witness-indexed composition**. See `V06-COMPOSITION.md`.
+
+
+## v0.7 — world-contact substitution boundary
+
+MQR-4.40 adds `REALSUBSTITUTE 0.7`.
+
+Canonical Rust: `src/substitute_v07.rs` / `real-v07-substitute`.
+Independent Haskell: `haskell/SubstituteV07.hs`.
+Lean boundary: `lean/MQR/Substitution.lean`.
+Constitution: `V07-SUBSTITUTION.md`.
+
+v0.7 removes the universal requirement that every composed endpoint receive a fresh direct receipt. A TRANSPORT_ONLY or BASIS_GENERATED endpoint may receive substitution PASS with `direct_receipt ABSENT` when a live external World-Contact Basis covers every declared load-bearing empirical degree, the endpoint query is generated from the anchored basis, naturality/path/coherence obligations survive, ancestry and defeatability remain live, and global authority remains non-amplifying.
+
+A NEW_EMPIRICAL endpoint is not substitution-eligible without new world-facing support.
+
+The External Root Cut prevents closed transfer/justification loops from grounding themselves. Path agreement does not count as independent evidence; derived receipts do not refresh stale roots. Later direct disagreement reopens the substituted claim rather than acting as an infallible oracle.
+
+The checker can report a minimum external-root cover only **relative to the declared empirical-degree/coverage graph**. It does not identify a complete or uniquely correct ontology of empirical degrees.
+
+```text
+FRESH DIRECT ENDPOINT CONTACT != UNIVERSAL PREREQUISITE
+INTERNAL COHERENCE != WORLD CONTACT
+WORLD-CONTACT BURDEN TRACKS UNCOVERED EMPIRICAL BURDEN, NOT ENDPOINT COUNT
+FINAL_TRUTH_DISTANCE = UNIDENTIFIED
+```

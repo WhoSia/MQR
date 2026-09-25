@@ -880,8 +880,22 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 106. **Intermediate representation ≠ new epistemic origin.** Load-bearing ancestry and assumptions must pull back to the original world-facing source across the whole path.
 107. **Separately admissible assumptions ≠ jointly admissible assumptions.** Composition must expose accumulated assumptions, weakest-state ceilings and contradictions.
 108. **Authority algebra composes more readily than scientific authority.** Meet associativity and NoLaunder transitivity license an algebraic skeleton; scientific composition remains partial, witness-indexed and defeasible.
+109. **Fresh direct endpoint adjudication ≠ universal prerequisite.** Transport-only and basis-generated claims may inherit already earned world-facing authority when no uncovered load-bearing empirical degree is introduced and a valid world-contact substitution certificate survives.
+110. **Internal coherence ≠ world contact.** Naturality, commuting diagrams, formal exactness and path agreement can constrain transport but cannot create an external empirical root.
+111. **Path independence ≠ evidence independence.** Multiple agreeing paths sharing measurement, interpretation or assumption ancestry do not earn independent world-contact credit.
+112. **Checked query basis ≠ unbounded naturality.** Substitution authority extends only through the declared/generated query and intervention class; agreement on a finite basis does not license off-basis claims without a closure warrant.
+113. **Endpoint agreement ≠ congruence under extension.** A path-equivalence receipt must survive the declared admissible pre/post context when that context is load-bearing.
+114. **Derived receipt ≠ renewed world-contact freshness.** Composition and recursive substitution may preserve or lower root freshness but may not reset a stale empirical anchor to LIVE.
+115. **Cyclic justification ≠ external anchoring.** Every load-bearing reachable justification region must cross an External Root Cut; an internally coherent SCC cannot ground its own scientific authority.
+116. **World-contact burden tracks uncovered empirical burden, not endpoint count.** Fresh contact is required when an endpoint adds an uncovered load-bearing empirical degree or invalidates its root, not merely because representation or formal route changed.
+117. **Direct/composed disagreement is a reopening event, not a direct-oracle theorem.** Fresh direct evidence can defeat and reopen substituted authority, but directness alone does not make the direct conclusion infallible.
+118. **WCB minimality is declaration-relative.** A minimum world-contact basis is a set-cover result over the declared empirical-degree/coverage graph; it does not prove that the degree ontology is complete, independent or uniquely minimal in the world.
 
 ## Live governance objects
+
+- World-Contact Substitution Certificate (WCSC)
+- World-Contact Basis (WCB)
+- External Root Cut (ERC)
 
 - Evidence-Family Common-Cause Graph (EFCG)
 - Evidence-Reuse Ledger / Reserve-Decomposition Ledger
