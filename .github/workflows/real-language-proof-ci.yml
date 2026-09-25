@@ -1,4 +1,5 @@
 name: Real-Language v0.4 Lean Proof Boundary
+# canonical-proof-trigger: lake-manifest-materialized
 
 on:
   push:
