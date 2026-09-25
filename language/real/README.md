@@ -470,4 +470,11 @@ STOPPING RULE = FORBIDDEN
 
 Declared priors/utilities may authorize optimization only inside that declared model. They do not become a probability distribution or utility function over unconceived rivals.
 
+Final MQR-4.43 scope:
+- AAE is an admissibility-membership surface, not a universal optimizer;
+- ACRR is activation capability, while ancestry/common-mode exposure remains separate;
+- Lean proves the twin-world deterministic-policy boundary and a narrow finite unit-activation anti-starvation theorem with empty axiom ancestry;
+- explicit obligation/debt semantics, not reserve existence alone, govern periodic exercise;
+- declared-model optimization never lifts `allocation.world_optimum_identified` or `allocation.world_frontier_complete`.
+
 The live doctrine is **finite attention governance without pricing the unknown**.
