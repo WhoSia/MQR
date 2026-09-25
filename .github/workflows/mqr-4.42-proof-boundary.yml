@@ -1,0 +1,3 @@
+name: MQR-4.42 Frontier Lean Boundary
+on: workflow_dispatch
+jobs: {}
