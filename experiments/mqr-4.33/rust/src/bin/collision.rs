@@ -83,8 +83,17 @@ fn main() {
 
     println!("PROFILE_COUNT={}", profiles.len());
     println!("PROFILE_COLLISION_COUNT={collisions}");
+    let identifiable = collisions == 0;
     println!(
         "SUPPORT_PROFILE_IDENTIFIABILITY={}",
-        if collisions == 0 { "PASS" } else { "FAIL" }
+        if identifiable { "PASS" } else { "FAIL" }
+    );
+    println!(
+        "OUTCOME_FACTORIZATION_THROUGH_FROZEN_PROFILE={}",
+        if identifiable { "NOT_DEFEATED" } else { "FAIL" }
+    );
+    println!(
+        "FROZEN_SUPPORT_QUOTIENT_SUFFICIENCY={}",
+        if identifiable { "NOT_DEFEATED" } else { "FAIL" }
     );
 }
