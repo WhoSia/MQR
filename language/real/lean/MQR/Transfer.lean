@@ -1,4 +1,5 @@
 import Std
+import MQR.Residue
 
 namespace MQR
 
@@ -84,6 +85,19 @@ theorem scientificAuthorityNeedNotRequireFormalCustody :
       directMeasurementClaim.formalCustody = .notApplicable := by
   decide
 
+def AuthorityStatus.meet : AuthorityStatus → AuthorityStatus → AuthorityStatus
+  | .fail, _ => .fail
+  | .hold, .fail => .fail
+  | .hold, .hold => .hold
+  | .hold, .pass => .hold
+  | .pass, x => x
+
+theorem transferMeetCannotRaiseWorldAuthority
+    (world bridge : AuthorityStatus) :
+    NoLaunder world (AuthorityStatus.meet world bridge) := by
+  cases world <;> cases bridge <;> trivial
+
+#print axioms MQR.transferMeetCannotRaiseWorldAuthority
 #print axioms MQR.sameFormalStatementCanAliasDifferentWorldPredicates
 #print axioms MQR.formalScopeCanStrictlyExceedWorldSupport
 #print axioms MQR.coarseCompilationCanEraseAuthorityChangingAncestor
