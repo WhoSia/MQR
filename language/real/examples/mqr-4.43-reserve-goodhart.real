@@ -1,0 +1,19 @@
+REALALLOCATE 0.10
+id reserve-goodhart
+claim_scope frontier-search
+budget 4
+horizon 2
+lane R1 ancR 3 OPTIONAL REOPENING REPRESENTATION
+lane X ancX 1 OPTIONAL EXPLOITATION QUERY
+reserve 2
+normative_prior NONE
+normative_utility NONE
+history_signature H-RSV
+policy CONTRACT
+witness_escape_lane NONE
+authorize_acrr NO
+authorize_starvation NO
+authorize_debt 0
+authorize_escape_reallocation NO
+authorize_common_mode NO
+END
