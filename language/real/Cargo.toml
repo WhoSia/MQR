@@ -14,3 +14,7 @@ path = "src/calibrate.rs"
 [[bin]]
 name = "real-v04"
 path = "src/proof_v04.rs"
+
+[[bin]]
+name = "real-v05-transfer"
+path = "src/transfer_v05.rs"
