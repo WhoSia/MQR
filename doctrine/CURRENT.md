@@ -890,8 +890,25 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 116. **World-contact burden tracks uncovered empirical burden, not endpoint count.** Fresh contact is required when an endpoint adds an uncovered load-bearing empirical degree or invalidates its root, not merely because representation or formal route changed.
 117. **Direct/composed disagreement is a reopening event, not a direct-oracle theorem.** Fresh direct evidence can defeat and reopen substituted authority, but directness alone does not make the direct conclusion infallible.
 118. **WCB minimality is declaration-relative.** A minimum world-contact basis is a set-cover result over the declared empirical-degree/coverage graph; it does not prove that the degree ontology is complete, independent or uniquely minimal in the world.
+119. **Declared empirical degree ≠ primitive world dimension.** A decomposition chosen by the analyst may change a declared-degree minimum without any new world witness; WCB minimality should therefore be indexed to claim-relevant discrimination obligations rather than treated as ontic dimensionality.
+120. **Contact rank is frontier-relative.** Frontier-Relative Contact Rank (FCR) is the minimum live external-root cover of the frozen rival-separation obligations induced by a claim, rival frontier and query/intervention class.
+121. **Incidence invariance ≠ ontic invariance.** Incidence-isomorphic frozen World-Contact Separation Hypergraphs preserve FCR, but this licenses only representation invariance for that scientific discrimination surface.
+122. **Minimum rank ≠ unique scientific basis.** All minimum bases or their explicit equivalence family must remain visible; an optimizer may not silently canonize one minimizing root set.
+123. **Minimum WCB family ≠ matroid basis family in general.** Basis exchange requires extra proved structure; arbitrary external-root cover families may fail one-for-one exchange.
+124. **Contact cardinality ≠ best experiment design.** Cost, freshness, robustness, adverse intervention burden, common-cause exposure and replication independence remain separate objectives from root count.
+125. **FCR is instrument-relative.** A new external discriminator can lower the minimum contact rank without reducing target-system complexity; loss or drift of a separation edge can raise it.
+126. **Rival/query expansion reopens contact rank.** When the load-bearing frontier or query/intervention class expands under fixed old incidence, additional discrimination obligations may increase the required external contact.
+127. **Low FCR ≠ independent evidence.** One external root may cover many rival-separation obligations through one common failure mode; EFCG/UCCR/common-cause discipline remains live.
+128. **Finite frontier minimum ≠ final open-world minimum.** The optimizer proves minimality only over the frozen rival/query/root incidence supplied to it; successor rivals can invalidate the receipt.
+129. **Same FCR ≠ same ontology.** Distinct rival-obligation structures may have the same minimum root count, so rank equality cannot identify empirical ontology.
+130. **Optimizer completeness ≠ frontier completeness.** Exact enumeration of every minimum cover does not establish that the supplied rival frontier is scientifically complete.
 
 ## Live governance objects
+
+- Rival-Separation Obligation (RSO)
+- World-Contact Separation Hypergraph (WCSH)
+- Frontier-Relative Contact Rank (FCR)
+- Minimum Contact-Basis Family (B_min)
 
 - World-Contact Substitution Certificate (WCSC)
 - World-Contact Basis (WCB)

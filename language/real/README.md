@@ -359,3 +359,26 @@ INTERNAL COHERENCE != WORLD CONTACT
 WORLD-CONTACT BURDEN TRACKS UNCOVERED EMPIRICAL BURDEN, NOT ENDPOINT COUNT
 FINAL_TRUTH_DISTANCE = UNIDENTIFIED
 ```
+
+
+## v0.8 — frontier-relative contact rank
+
+MQR-4.41 adds `REALCONTACTRANK 0.8`.
+
+Canonical Rust: `src/contact_rank_v08.rs` / `real-v08-rank`.
+Independent relational evaluator: `prolog/contact_rank_v08.pl`.
+Lean boundary: `lean/MQR/ContactRank.lean`.
+Constitution: `V08-CONTACT-RANK.md`.
+
+v0.8 retires analyst-declared empirical degrees as a primitive basis for contact minimality. It instead takes a frozen set of claim-relative Rival-Separation Obligations and a versioned external-root separation incidence, then enumerates the exact minimum external discrimination covers for that finite court.
+
+The result is **frontier-relative and instrument-relative**. It is not world dimensionality. Minimum bases may be nonunique and need not satisfy matroid basis exchange. Root cost is reported separately from cardinality. Rival/query expansion or root drift may raise rank; improved instrumentation may lower it.
+
+```text
+MINIMUM COVER != WORLD DIMENSION
+SAME RANK != SAME ONTOLOGY
+LOW RANK != INDEPENDENT EVIDENCE
+OPTIMIZER COMPLETENESS != FRONTIER COMPLETENESS
+FINITE MINIMUM != FINAL OPEN-WORLD MINIMUM
+FINAL_TRUTH_DISTANCE = UNIDENTIFIED
+```
