@@ -1,0 +1,14 @@
+REALCONTACTRANK 0.8
+id ontology-a
+claim_scope C
+frontier FA
+query_class Q
+root R EXTERNAL LIVE
+obligation O1
+obligation O2
+separates R O1
+separates R O2
+authorize_rank 1
+authorize_unique YES
+authorize_exchange VACUOUS
+END

@@ -1,0 +1,15 @@
+REALCONTACTRANK 0.8
+id instrument-before
+claim_scope C
+frontier F
+query_class Q
+root R1 EXTERNAL LIVE
+root R2 EXTERNAL LIVE
+obligation O1
+obligation O2
+separates R1 O1
+separates R2 O2
+authorize_rank 2
+authorize_unique YES
+authorize_exchange VACUOUS
+END

@@ -26,3 +26,7 @@ path = "src/compose_v06.rs"
 [[bin]]
 name = "real-v07-substitute"
 path = "src/substitute_v07.rs"
+
+[[bin]]
+name = "real-v08-rank"
+path = "src/contact_rank_v08.rs"

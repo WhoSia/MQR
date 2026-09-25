@@ -1,0 +1,18 @@
+REALCONTACTRANK 0.8
+id frontier-base
+claim_scope C
+frontier F0
+query_class Q
+root R1 EXTERNAL LIVE
+root R2 EXTERNAL LIVE
+root R3 EXTERNAL LIVE
+obligation O1
+obligation O2
+separates R1 O1
+separates R1 O2
+separates R2 O2
+separates R3 O1
+authorize_rank 1
+authorize_unique YES
+authorize_exchange VACUOUS
+END
