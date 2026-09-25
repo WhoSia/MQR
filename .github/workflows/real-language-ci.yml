@@ -29,7 +29,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -q '^REALPACKET 0.4$' "$f" || grep -q '^REALTRANSFER 0.5$' "$f" || grep -q '^REALCOMPOSE 0.6$' "$f"; then
+            if grep -q '^REALPACKET 0.4$' "$f" || grep -q '^REALTRANSFER 0.5$' "$f" || grep -q '^REALCOMPOSE 0.6$' "$f" || grep -q '^REALSUBSTITUTE 0.7$' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -170,3 +170,37 @@ jobs:
           echo MQR439_PATHWISE_NONAMPLIFICATION=PASS
           echo MQR439_ADJACENT_PASS_NOT_DIRECT_PASS=PASS
           echo ALGEBRAIC_COMPOSABILITY_IS_NOT_EPISTEMIC_COMPOSABILITY=TRUE
+
+      - name: Real-Language v0.7 substitution guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          V07=./language/real/target/release/real-v07-substitute
+          T=language/real/examples/mqr-4.40-substitution-transport-only.real
+          B=language/real/examples/mqr-4.40-substitution-basis.real
+          H=language/real/examples/mqr-4.40-substitution-direct-hold.real
+          "$V07" "$T" > /tmp/t.r
+          grep '^coordinate\.' /tmp/t.r > /tmp/t.rc
+          grep -F 'direct_receipt=ABSENT' /tmp/t.r
+          grep -F 'coordinate.substitution=PASS' /tmp/t.r
+          "$V07" "$B" > /tmp/b.r
+          grep -F 'coordinate.substitution=PASS' /tmp/b.r
+          grep -F 'wcb.minimum_declared_roots=1' /tmp/b.r
+          "$V07" "$H" > /tmp/h.r
+          grep -F 'coordinate.substitution=HOLD' /tmp/h.r
+          runghc language/real/haskell/SubstituteV07.hs "$T" > /tmp/t.h
+          grep '^coordinate\.' /tmp/t.h > /tmp/t.hc
+          diff -u /tmp/t.rc /tmp/t.hc
+          runghc language/real/haskell/SubstituteV07.hs "$B" > /tmp/b.h
+          grep -F 'coordinate.substitution=PASS' /tmp/b.h
+          runghc language/real/haskell/SubstituteV07.hs --basis-minimality "$B" > /tmp/min
+          grep -F 'DECLARED_WCB_MIN_ROOTS=1' /tmp/min
+          for f in language/real/tests/v07-invalid-*.real; do
+            if "$V07" "$f"; then exit 1; fi
+            if runghc language/real/haskell/SubstituteV07.hs "$f"; then exit 1; fi
+          done
+          echo REAL_LANGUAGE_V07_SUBSTITUTION_GUARDS=PASS
+          echo REAL_LANGUAGE_V07_RUST_HASKELL_CONCORDANCE=PASS
+          echo MQR440_DIRECT_ALWAYS_REQUIRED=REJECT
+          echo MQR440_WORLD_CONTACT_BASIS_SUBSTITUTION=PASS
+          echo INTERNAL_COHERENCE_IS_NOT_WORLD_CONTACT=TRUE

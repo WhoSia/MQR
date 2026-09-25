@@ -1,0 +1,26 @@
+REALSUBSTITUTE 0.7
+id mqr-4.40-basis-generated
+claim_kind BASIS_GENERATED
+source_authority PASS
+final_authority PASS
+root LAB EXTERNAL PASS LIVE
+degree D_TEMP
+degree D_PRESSURE
+cover D_TEMP LAB
+cover D_PRESSURE LAB
+query_root thermo_basis LAB
+bridge MAP MICRO MACRO PASS
+generate MAP thermo_basis macro_query
+endpoint_query macro_query
+naturality MAP PASS EMPIRICAL LAB
+path P_MAIN MICRO MACRO PASS
+coherence PASS CLOSED
+ancestor SENSOR PASS
+preserve MAP SENSOR
+defeat REACHABLE
+justification_target MACROCLAIM
+justify MACROCLAIM MAP
+justify MAP LAB
+direct_receipt ABSENT
+authorize PASS
+END
