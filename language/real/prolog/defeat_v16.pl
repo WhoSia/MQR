@@ -104,11 +104,11 @@ split_count(N):-findall(1,(content_map(Ss,'REFINE',Ts),length(Ss,1),length(Ts,TN
 merge_count(N):-findall(1,(content_map(Ss,'MERGE',Ts),length(Ss,SN),SN>1,length(Ts,1)),Xs),length(Xs,N).
 
 manifestation_multiplication:-
-  (source_content(A,M,V1,_,_),source_content(B,M,V2,_,_);target_content(A,M,V1,_,_),target_content(B,M,V2,_,_)),
-  A\=B,V1\=V2,!.
+  (source_content(_,M,V1,_,_),source_content(_,M,V2,_,_);target_content(_,M,V1,_,_),target_content(_,M,V2,_,_);source_content(_,M,V1,_,_),target_content(_,M,V2,_,_)),
+  V1\=V2,!.
 mechanism_aliasing:-
-  (source_content(A,M1,V,_,_),source_content(B,M2,V,_,_);target_content(A,M1,V,_,_),target_content(B,M2,V,_,_)),
-  A\=B,M1\=M2,!.
+  (source_content(_,M1,V,_,_),source_content(_,M2,V,_,_);target_content(_,M1,V,_,_),target_content(_,M2,V,_,_);source_content(_,M1,V,_,_),target_content(_,M2,V,_,_)),
+  M1\=M2,!.
 
 common_cause_compression:-
   source_count(C),source_ancestry_count(A),C>1,C>A,!.
