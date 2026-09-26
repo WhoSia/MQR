@@ -644,3 +644,31 @@ GUIDANCE = VERSIONED_DEFEAT_CONTENT_COVERAGE
 A content-preserving refinement or merge may carry local coverage authority. Undertransport, coverage collapse, ancestry entanglement, hidden-route discovery or noncommuting revision paths yield HOLD/REOPEN rather than silent inheritance.
 
 The live doctrine is **versioned defeat-content coverage without a final taxonomy of ways to fail**.
+
+
+## v0.16 — defeat-content constitution
+
+MQR-4.49 adds `REALDEFEAT 0.16`.
+
+Canonical Rust: `src/defeat_v16.rs` / `real-v16-defeat`.
+Independent relational evaluator: `prolog/defeat_v16.pl`.
+Lean boundary: `lean/MQR/DefeatContent.lean`.
+Constitution: `V16-DEFEAT-CONTENT.md`.
+
+v0.16 moves one level upstream from v0.15's defeat-content ledger. A content name, mechanism, manifestation or representation cell is no longer treated as an identity primitive. The live object is a claim-relative Counterfactual Defeat Profile (CDP) over a declared challenge family.
+
+Canonical guards:
+
+~~~text
+DEFEAT LABEL != DEFEAT IDENTITY
+MECHANISM != MANIFESTATION != DEFEAT ROLE
+CONTENT COUNT != INDEPENDENT FAILURE DIMENSIONS
+CURRENT CDP EQUIVALENCE != FUTURE/WORLD IDENTITY
+CURRENT DEFEAT ATOMS COMPLETE = NO
+FUTURE DEFEAT SPACE CLOSED = NO
+GUIDANCE = REOPENABLE_COUNTERFACTUAL_DEFEAT_QUOTIENT
+~~~
+
+A counterfactually identical split earns no new distinction. A prospectively separated refinement may earn local authority. A fully witnessed scope quotient may merge defeat roles without asserting metaphysical identity. Common cause compresses independence rather than automatically collapsing content. Challenge expansion, hidden-content genesis, representation collapse or revision-path conflict yields HOLD/REOPEN.
+
+The live doctrine is **route identity through reopenable, claim-relative defeat-role equivalence without final error atoms**.
