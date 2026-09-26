@@ -67,7 +67,7 @@ parse_tokens(["authorize_mechanism_aliasing",S]):-atomize(S,A0),upcase_atom(A0,A
 parse_tokens(["authorize_common_cause",S]):-atomize(S,A0),upcase_atom(A0,A),assertz(expected_common_cause(A)).
 parse_tokens(["authorize_expansion_break",S]):-atomize(S,A0),upcase_atom(A0,A),assertz(expected_expansion_break(A)).
 parse_tokens(["authorize_hidden_novel",S]):-atomize(S,A0),upcase_atom(A0,A),assertz(expected_hidden_novel(A)).
-parse_tokens(["authorize_path_conflict",S]):-atomize(S,A0),upcase_atom(S0,A),assertz(expected_path_conflict(A)).
+parse_tokens(["authorize_path_conflict",S]):-atomize(S,A0),upcase_atom(A0,A),assertz(expected_path_conflict(A)).
 parse_tokens(["END"]):-assertz(seen_end).
 
 all_challenges(Qs):-findall(Q,challenge(Q),Q0),sort(Q0,Qs).
@@ -135,15 +135,17 @@ hidden_novel:-hidden_content(_,K,_),member(K,['NOVEL_COUNTERFACTUAL_DISTINCTION'
 hidden_revision:-hidden_content(_,_,_),!.
 expansion_break:-expansion(_,_,_,'DISTINGUISHES'),!.
 path_conflict:-findall(S,path_state(_,S),Xs),sort(Xs,Ys),length(Ys,N),N>1.
+role_drift:-content_map([S],'EXACT',[T]),source_content(S,_,_,_,SP),target_content(T,_,_,_,TP),SP\=TP,!.
 
 yes(true,'YES'):-!.
 yes(_,'NO').
 
-authority(HN,EB,PC,HR,SplitDup,MergeN,Transport,Collapse,Refine,MergeAuth,LocalEq,A):-
+authority(HN,EB,PC,HR,RoleDrift,SplitDup,MergeN,Transport,Collapse,Refine,MergeAuth,LocalEq,A):-
   (HN=true->A='REOPEN_HIDDEN_NOVEL_DISTINCTION'
   ;EB=true->A='REOPEN_EXPANSION_BREAK'
   ;PC=true->A='REOPEN_REVISION_PATH_CONFLICT'
   ;HR=true->A='REOPEN_HIDDEN_CONTENT_REVISION'
+  ;RoleDrift=true->A='HOLD_ROLE_DRIFT'
   ;SplitDup=true->A='HOLD_SPLIT_WITHOUT_NEW_DISTINCTION'
   ;MergeN>0,Transport=false->A='HOLD_MERGE_DISTINCTION_LAUNDERING'
   ;Collapse=true->A='HOLD_REPRESENTATION_COLLAPSE'
@@ -177,6 +179,7 @@ run(File):-
   (common_cause_compression->CCB=true;CCB=false),yes(CCB,CC),
   (role_transport_complete->TB=true;TB=false),yes(TB,Transport),
   (local_counterfactual_equivalence->LEB=true;LEB=false),yes(LEB,LE),
+  (role_drift->RDB=true;RDB=false),yes(RDB,RD),
   (SplitN>0,TC>SC,TPC=<SPC->SDB=true;SDB=false),yes(SDB,SD),
   source_union(SU),target_union(TU),(ord_subset(SU,TU)->CollapseB=false;CollapseB=true),yes(CollapseB,Collapse),
   (expansion_break->EBB=true;EBB=false),yes(EBB,EB),
@@ -187,7 +190,7 @@ run(File):-
   ((EBB=true;HRB=true;PCB=true)->ReopenB=true;ReopenB=false),yes(ReopenB,Reopen),
   (SplitN>0,TB=true,TPC>SPC->RefineB=true;RefineB=false),
   (MergeN>0,TB=true,CollapseB=false->MergeAuthB=true;MergeAuthB=false),
-  authority(HNB,EBB,PCB,HRB,SDB,MergeN,TB,CollapseB,RefineB,MergeAuthB,LEB,Authority),
+  authority(HNB,EBB,PCB,HRB,RDB,SDB,MergeN,TB,CollapseB,RefineB,MergeAuthB,LEB,Authority),
   format('defeat.source_content_count=~w~n',[SC]),
   format('defeat.target_content_count=~w~n',[TC]),
   format('defeat.source_mechanism_count=~w~n',[SMC]),
@@ -205,6 +208,7 @@ run(File):-
   format('defeat.common_cause_compression=~w~n',[CC]),
   format('defeat.role_transport_complete=~w~n',[Transport]),
   format('defeat.local_counterfactual_equivalence=~w~n',[LE]),
+  format('defeat.role_drift=~w~n',[RD]),
   format('defeat.split_without_new_distinction=~w~n',[SD]),
   format('defeat.representation_collapse=~w~n',[Collapse]),
   format('defeat.expansion_breaks_equivalence=~w~n',[EB]),
