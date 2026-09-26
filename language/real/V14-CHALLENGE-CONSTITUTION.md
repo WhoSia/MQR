@@ -1,6 +1,6 @@
 # Real-Language v0.14 — Translation-Challenge Constitution
 
-Status: EXECUTABLE CANDIDATE / MQR-4.47 / ROUTE-COVERAGE / ANCESTRY-AWARE / CAPTURE-SENSITIVE / EXPANSION-REOPENABLE
+Status: EXECUTABLE / MQR-4.47 CLOSED / ROUTE-COVERAGE / ANCESTRY-AWARE / CAPTURE-SENSITIVE / EXPANSION-REOPENABLE
 
 ## Boundary
 
@@ -136,3 +136,27 @@ Rust–Prolog concordance is evidence about the declared receipt semantics only.
 v0.14 does not re-claim challenge-generator exteriority, challenge admission, resource allocation, severe testing, triangulation, independent evidence, researcher degrees of freedom, multiverse analysis, adaptive holdout validity, or test-suite adequacy.
 
 Its narrow target is the constitutional authority of the separator packet that directly narrows a translation CAS.
+
+
+## Final closure boundary
+
+MQR-4.47 closes only the declared separator-family authority problem.
+
+~~~text
+WORLD-FACING != SELECTION-AUTHORIZED
+REGISTERED FAMILY != SELECTED PACKET
+PROBE COUNT != DEFEAT-ROUTE COVERAGE
+PROBE COUNT != ANCESTRY INDEPENDENCE
+DECLARED COVERAGE COMPLETE != CHALLENGE-SPACE COMPLETE
+POST-OUTCOME SELECTION -> HOLD
+CANDIDATE-DERIVED RELEVANCE/SCORE -> CAPTURE HOLD
+OMITTED REGISTERED COUNTERPROBE -> REOPEN
+CHALLENGE EXPANSION CONFLICT -> REOPEN
+REPEATED FINITE STABILITY != FUTURE CLOSURE
+CURRENT FAMILY COMPLETE = NO
+FUTURE CHALLENGE SPACE CLOSED = NO
+~~~
+
+The exact final same-head commit and workflow receipts are recorded in the external Research OS closure receipt so writing those identifiers does not mutate the sealed Git head.
+
+<!-- mqr-4.47-final-same-head-seal -->
