@@ -1,0 +1,21 @@
+REALROUTE 0.15
+id refinement-preserve
+claim_scope defeat-route-ontology
+source_ontology O1
+target_ontology O2
+content x
+content y
+source_route r root x+y COVERED
+target_route rx ax x
+target_route ry ay y
+map r REFINE rx+ry
+coverage_witness r rx x
+coverage_witness r ry y
+authorize_coverage_authority AUTHORIZED_CONTENT_PRESERVING_TRANSPORT
+authorize_coverage_equivalence YES
+authorize_duplication NO
+authorize_collapse NO
+authorize_hidden_novel NO
+authorize_ancestry_entanglement NO
+authorize_path_conflict NO
+END
