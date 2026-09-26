@@ -713,6 +713,56 @@ jobs:
           echo MQR447_FUTURE_CHALLENGE_SPACE_CLOSED=NO
 
 
+      - name: Real-Language v0.15 defeat-route ontology guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V15=./language/real/target/release/real-v15-route
+          P15=language/real/prolog/route_v15.pl
+          CORE='^route\.(source_route_count|target_route_count|source_content_count|target_content_count|source_covered_content_count|target_witnessed_content_count|source_ancestry_count|target_ancestry_count|split_count|merge_count|source_coverage_complete|target_coverage_complete|coverage_transport_complete|content_surface_equivalent|coverage_duplication_detected|coverage_collapse_detected|coverage_equivalence|hidden_route_count|hidden_novel_content|ancestry_entanglement|path_conflict|reopen_required|coverage_authority|current_route_ontology_complete|future_defeat_space_closed|route_count_truth_oracle|route_label_identity_oracle|coverage_fraction_truth_oracle|revision_path_truth_oracle|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.48-*.real; do
+            "$V15" "$f" > /tmp/v15.rust
+            swipl -q -s "$P15" -g "run('$f'),halt" -t "halt(1)" > /tmp/v15.prolog
+            grep -E "$CORE" /tmp/v15.rust > /tmp/v15.rust.core
+            grep -E "$CORE" /tmp/v15.prolog > /tmp/v15.prolog.core
+            diff -u /tmp/v15.rust.core /tmp/v15.prolog.core
+          done
+
+          "$V15" language/real/examples/mqr-4.48-split-inflation.real > /tmp/v15-split
+          "$V15" language/real/examples/mqr-4.48-merge-launder.real > /tmp/v15-merge
+          "$V15" language/real/examples/mqr-4.48-refinement-preserve.real > /tmp/v15-refine
+          "$V15" language/real/examples/mqr-4.48-hidden-novel.real > /tmp/v15-hidden
+          "$V15" language/real/examples/mqr-4.48-path-conflict.real > /tmp/v15-path
+          "$V15" language/real/examples/mqr-4.48-stable-revisions.real > /tmp/v15-stable
+
+          grep -F 'route.coverage_duplication_detected=YES' /tmp/v15-split
+          grep -F 'route.ancestry_entanglement=YES' /tmp/v15-split
+          grep -F 'route.coverage_collapse_detected=YES' /tmp/v15-merge
+          grep -F 'route.coverage_equivalence=YES' /tmp/v15-refine
+          grep -F 'route.coverage_authority=AUTHORIZED_CONTENT_PRESERVING_TRANSPORT' /tmp/v15-refine
+          grep -F 'route.hidden_novel_content=YES' /tmp/v15-hidden
+          grep -F 'route.reopen_required=YES' /tmp/v15-hidden
+          grep -F 'route.path_conflict=YES' /tmp/v15-path
+          grep -F 'route.future_defeat_space_closed=NO' /tmp/v15-stable
+          grep -F 'route.current_route_ontology_complete=NO' /tmp/v15-stable
+
+          for x in language/real/tests/v15-invalid-*.real; do
+            if "$V15" "$x"; then exit 1; fi
+            if swipl -q -s "$P15" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V15_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR448_ROUTE_LABEL_IDENTITY_GUARD=PASS
+          echo MQR448_SPLIT_MERGE_COVERAGE_TRANSPORT=PASS
+          echo MQR448_COVERAGE_EQUIVALENCE_FAILURE=PASS
+          echo MQR448_ROUTE_ANCESTRY_ENTANGLEMENT=PASS
+          echo MQR448_HIDDEN_ROUTE_REOPENING=PASS
+          echo MQR448_REVISION_PATH_CONFLICT=PASS
+          echo MQR448_FUTURE_DEFEAT_SPACE_CLOSED=NO
+
+
       - name: Publish externally readable workflow receipt
         if: ${{ always() }}
         shell: bash
