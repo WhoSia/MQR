@@ -1,0 +1,19 @@
+REALCHALLENGE 0.14
+id incumbent-relevance
+claim_scope translation-challenge
+candidate_relations EXACT+OVERLAP
+selector S sel0
+selection_timing PRESEALED
+selection_rule R incumbent INCUMBENT_DEFINED
+route d1
+probe q1 a1 SELECTED WORLD_FACING EXACT
+covers q1 d1
+score_source q1 INDEPENDENT
+relevance_source q1 CANDIDATE_DERIVED
+authorize_selection_authority HOLD_DISCRIMINATOR_CAPTURE
+authorize_narrowed YES
+authorize_declared_route_coverage_complete YES
+authorize_common_ancestry NO
+authorize_discriminator_capture YES
+authorize_expansion_reopen NO
+END
