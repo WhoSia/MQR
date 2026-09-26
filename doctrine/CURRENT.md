@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.45**.
+Status: live through **MQR-4.46**.
 
 ## Generation-IV authority kernel
 
@@ -957,7 +957,30 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 180. **Current revision transport ≠ future revision closure.** Finite successful BORR/BTR mappings do not establish a final burden ontology or guarantee lossless future translation.
 181. **Newer ontology or stronger provenance ≠ epistemic superiority.** Recency, externality and provenance status remain audit coordinates rather than automatic arbitration rules.
 
+182. **Declared transport relation ≠ translation authority.** A syntactically valid EXACT/REFINE/MERGE/OVERLAP edge gains no scientific authority merely from declaration.
+183. **Adjudicator count ≠ adjudicator-ancestry independence.** Several named judges may share one load-bearing source; plurality and independence remain separate coordinates.
+184. **Self-certification ≠ independent mapping witness.** A proposer may contribute evidence for its own translation, but proposer-adjudicator ancestry overlap earns no independent-confirmation credit.
+185. **Standardization ≠ truth.** A standard can coordinate practice without becoming a correspondence oracle; recency, prestige and externality remain audit attributes rather than truth rules.
+186. **Post-outcome standard revision is capture-risk.** A decisive translation standard changed after outcome exposure cannot count as prospectively independent validation without a new receipt.
+187. **Correspondence authority may remain set-valued.** When several relation classes survive the declared evidence, retain the Correspondence Admissible Set rather than forcing a singleton.
+188. **Forced singleton correspondence is a reopening event.** Collapsing a non-singleton admissible set without additional discriminating evidence is authority inflation.
+189. **World-facing separation may narrow without closing correspondence.** A frozen external challenge can reduce the admissible mapping set while leaving unique world correspondence and future translation closure unidentified.
+190. **Direct/meta mapping disagreement reopens authority.** Disjoint direct and meta-level witness support defeats the current mapping receipt without promoting either layer to an oracle.
+191. **Meta-cycle ≠ independent foundation.** Circular support among relation claims and validating standards creates no new epistemic root.
+192. **Finite unresolved meta-debt is admissible as an explicit HOLD.** Operational governance may stop at a declared unanchored terminal rather than inventing either an infinite completed regress or a final meta-standard.
+193. **Current translation-authority PASS ≠ future translation closure.** A successful TAR is scoped to the declared witness, standard, ancestry and challenge surfaces and remains reopenable.
+
 ## Live governance objects
+
+- Translation-Authority Receipt (TAR)
+- Mapping-Witness Graph (MWG)
+- Adjudicator Independence Envelope (AIE)
+- Standard Capture Receipt (SCR)
+- Correspondence Admissible Set (CAS)
+- Mapping-Conflict Receipt (MCR)
+- Translation Challenge Packet (TCP)
+- Meta-Translation Dependency Graph (MTDG)
+- Meta-Regress Boundary (MRB)
 
 - Burden-Ontology Revision Receipt (BORR)
 - Burden Transport Relation (BTR; EXACT / REFINE / MERGE / OVERLAP / DISJOINT / UNMAPPED)
