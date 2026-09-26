@@ -173,7 +173,7 @@ run(File):-
   (ancestry_entanglement->EntB=true;EntB=false),yes(EntB,Ent),
   (path_conflict->PCB=true;PCB=false),yes(PCB,PC),
   (hidden_revision->HRB=true;HRB=false),
-  (HRB=true;PCB=true->ReopenB=true;ReopenB=false),yes(ReopenB,Reopen),
+  ((HRB=true;PCB=true)->ReopenB=true;ReopenB=false),yes(ReopenB,Reopen),
   authority_state(HNB,PCB,HRB,CollapseB,SourceCompleteB,TransportCompleteB,SurfaceEqB,TargetCompleteB,EntB,EqB,Authority),
   format('route.source_route_count=~w~n',[SRN]),
   format('route.target_route_count=~w~n',[TRN]),
