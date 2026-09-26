@@ -185,3 +185,32 @@ authority.guidance_mode=CONTESTABLE_SET_VALUED_TRANSLATION_AUTHORITY
 - formal boundary: Lean `lean/MQR/MapAuthority.lean`
 
 Rust–Prolog concordance is implementation-diversity evidence over the declared receipt surface only.
+
+
+## Post-preseal novelty boundary
+
+MQR-4.46 explicitly inherits and does not re-claim:
+- MQR-3.171 translation-loss and residual-disagreement preservation;
+- MQR-3.172 alignment-set audit and the rule that one admissible map is not the unique correct map;
+- theoretical-equivalence pluralism;
+- ontology-matching uncertainty;
+- scientific expert dependence and disagreement;
+- standardization, calibration networks and boundary-object coordination.
+
+The live v0.13 contribution candidate is narrower:
+
+```text
+WHO MAY AUTHORIZE MEMBERSHIP IN THE ADMISSIBLE MAP SET?
+```
+
+Accordingly v0.13 audits:
+- proposer/adjudicator ancestry;
+- common-mode adjudication;
+- standard timing and proposer dependence;
+- set-valued correspondence;
+- world-facing narrowing;
+- direct/meta disagreement;
+- meta-dependency cycles;
+- finite unresolved meta-debt.
+
+This is a governance layer over mapping claims, not a new ontology matcher and not a final theory of semantic correspondence.
