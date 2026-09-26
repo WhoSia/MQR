@@ -61,3 +61,8 @@ path = "src/challenge_v14.rs"
 [[bin]]
 name = "real-v15-route"
 path = "src/route_v15.rs"
+
+
+[[bin]]
+name = "real-v16-defeat"
+path = "src/defeat_v16.rs"
