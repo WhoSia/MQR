@@ -66,3 +66,8 @@ path = "src/route_v15.rs"
 [[bin]]
 name = "real-v16-defeat"
 path = "src/defeat_v16.rs"
+
+
+[[bin]]
+name = "real-v17-regress"
+path = "src/regress_v17.rs"
