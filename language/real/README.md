@@ -672,3 +672,44 @@ GUIDANCE = REOPENABLE_COUNTERFACTUAL_DEFEAT_QUOTIENT
 A counterfactually identical split earns no new distinction. A prospectively separated refinement may earn local authority. A fully witnessed scope quotient may merge defeat roles without asserting metaphysical identity. Common cause compresses independence rather than automatically collapsing content. Challenge expansion, hidden-content genesis, representation collapse or revision-path conflict yields HOLD/REOPEN.
 
 The live doctrine is **route identity through reopenable, claim-relative defeat-role equivalence without final error atoms**.
+
+
+## v0.17 — constitutional regress boundary
+
+MQR-4.50 adds `REALREGRESS 0.17`.
+
+Canonical Rust: `src/regress_v17.rs` / `real-v17-regress`.
+Independent relational evaluator: `prolog/regress_v17.pl`.
+Lean boundary: `lean/MQR/RegressBoundary.lean`.
+Constitution: `V17-REGRESS-BOUNDARY.md`.
+
+v0.17 does not search for a final foundation. It asks when recursive critique of the current scientific-authority constitution may stop *operationally* at a declared claim/use surface. The live receipt freezes claim scope, challenge and world-contact families, decision contract, registered refinements and materiality criteria; requires replay of every admitted refinement; carries unresolved debt explicitly; separates descriptive from action authority; and preserves activation-capable reopening.
+
+Canonical guards:
+
+~~~text
+METAPHYSICAL TERMINATION != OPERATIONAL TERMINATION
+CURRENT FIXED POINT != GLOBAL FIXED POINT
+REGISTERED STABILITY != FUTURE REFINEMENT-SPACE COMPLETENESS
+DESCRIPTIVE SUFFICIENCY != UNIVERSAL ACTION WARRANT
+OPERATIONAL STOP != OPEN-WORLD SEARCH RETIREMENT
+
+FINAL ONTOLOGY = NO
+FUTURE REFINEMENT SPACE CLOSED = NO
+STOP-RULE TRUTH ORACLE = NO
+OPERATIONAL STOP PERMANENT = NO
+REOPENING RESERVE = ACTIVE
+GUIDANCE = REOPENABLE_OPERATIONAL_FIXED_POINT
+~~~
+
+Input-admissibility firewall:
+
+~~~text
+CRBR CONSUMES CONSTITUTIONALLY ADMITTED S/Q/W/R/K.
+CRBR DOES NOT SELF-AUTHORIZE A THIN SURFACE.
+UPSTREAM HOLD/REOPEN CANNOT BE LAUNDERED INTO PASS BY v0.17.
+~~~
+
+A nonvacuous, replay-complete, debt-free, criterion-invariant current surface may earn `AUTHORIZED_CRITERION_ROBUST_OPERATIONAL_STOP`. An explicit decision contract with action invariance may additionally earn `AUTHORIZED_ACTION_UNDER_DECLARED_CONTRACT`. Material refinements, live debt, post-outcome scope/criterion capture, criterion disagreement, meta-cycles, path conflict, new distinguishing world contact, criterion-envelope break or decision-contract change yield HOLD/REOPEN.
+
+The live doctrine is **reopenable operational sufficiency without a final ontology, global stopping rule, or retirement of open-world inquiry**.
