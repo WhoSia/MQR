@@ -33,7 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -658,6 +658,59 @@ jobs:
           echo MQR446_META_REGRESS_BOUNDARY=PASS
           echo MQR446_UNIQUE_WORLD_CORRESPONDENCE=NO
           echo MQR446_FUTURE_TRANSLATION_CLOSED=NO
+
+
+      - name: Real-Language v0.14 translation-challenge guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V14=./language/real/target/release/real-v14-challenge
+          P14=language/real/prolog/challenge_v14.pl
+          CORE='^challenge\.(registered_probe_count|selected_probe_count|selected_world_probe_count|selected_ancestry_count|route_count|covered_route_count|uncovered_route_count|declared_route_coverage_complete|probe_route_multiplicity|common_ancestry|post_outcome_selection|incumbent_relevance|discriminator_capture|omitted_counterprobe|correspondence_before|correspondence_after|narrowed|expansion_count|expansion_instability|expansion_reopen_required|expansion_state|current_family_complete|future_challenge_space_closed|probe_count_truth_oracle|externality_truth_oracle|cost_truth_oracle|selection_rule_truth_oracle|selection_authority|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.47-*.real; do
+            "$V14" "$f" > /tmp/v14.rust
+            swipl -q -s "$P14" -g "run('$f'),halt" -t "halt(1)" > /tmp/v14.prolog
+            grep -E "$CORE" /tmp/v14.rust > /tmp/v14.rust.core
+            grep -E "$CORE" /tmp/v14.prolog > /tmp/v14.prolog.core
+            diff -u /tmp/v14.rust.core /tmp/v14.prolog.core
+          done
+
+          "$V14" language/real/examples/mqr-4.47-cherry-pick-exact.real > /tmp/v14-cpe
+          "$V14" language/real/examples/mqr-4.47-cherry-pick-overlap.real > /tmp/v14-cpo
+          "$V14" language/real/examples/mqr-4.47-route-hole.real > /tmp/v14-hole
+          "$V14" language/real/examples/mqr-4.47-common-ancestry.real > /tmp/v14-common
+          "$V14" language/real/examples/mqr-4.47-probe-split-gerrymander.real > /tmp/v14-split
+          "$V14" language/real/examples/mqr-4.47-candidate-score-capture.real > /tmp/v14-cap
+          "$V14" language/real/examples/mqr-4.47-clean-narrowing.real > /tmp/v14-clean
+          "$V14" language/real/examples/mqr-4.47-expansion-reopen.real > /tmp/v14-reopen
+          "$V14" language/real/examples/mqr-4.47-stable-expansion.real > /tmp/v14-stable
+
+          grep -F 'challenge.correspondence_after=EXACT' /tmp/v14-cpe
+          grep -F 'challenge.correspondence_after=OVERLAP' /tmp/v14-cpo
+          grep -F 'challenge.omitted_counterprobe=YES' /tmp/v14-cpe
+          grep -F 'challenge.uncovered_route_count=1' /tmp/v14-hole
+          grep -F 'challenge.common_ancestry=YES' /tmp/v14-common
+          grep -F 'challenge.probe_route_multiplicity=YES' /tmp/v14-split
+          grep -F 'challenge.discriminator_capture=YES' /tmp/v14-cap
+          grep -F 'challenge.selection_authority=AUTHORIZED_PROVISIONAL_NARROWING' /tmp/v14-clean
+          grep -F 'challenge.expansion_reopen_required=YES' /tmp/v14-reopen
+          grep -F 'challenge.expansion_state=STABLE' /tmp/v14-stable
+          grep -F 'challenge.future_challenge_space_closed=NO' /tmp/v14-stable
+
+          for x in language/real/tests/v14-invalid-*.real; do
+            if "$V14" "$x"; then exit 1; fi
+            if swipl -q -s "$P14" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V14_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR447_SEPARATOR_CHERRYPICK_WITNESS=PASS
+          echo MQR447_ROUTE_COVERAGE_GUARD=PASS
+          echo MQR447_PROBE_ANCESTRY_GUARD=PASS
+          echo MQR447_DISCRIMINATOR_CAPTURE_GUARD=PASS
+          echo MQR447_EXPANSION_REOPENING=PASS
+          echo MQR447_FUTURE_CHALLENGE_SPACE_CLOSED=NO
 
 
       - name: Publish externally readable workflow receipt
