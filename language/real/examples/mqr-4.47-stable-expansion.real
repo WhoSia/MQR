@@ -1,0 +1,22 @@
+REALCHALLENGE 0.14
+id stable-expansion
+claim_scope translation-challenge
+candidate_relations EXACT+OVERLAP
+selector S sel0
+selection_timing PRESEALED
+selection_rule R rule0 INDEPENDENT
+route d1
+probe q1 a1 SELECTED WORLD_FACING OVERLAP
+covers q1 d1
+score_source q1 INDEPENDENT
+relevance_source q1 INDEPENDENT
+expansion x1 OVERLAP
+expansion x2 OVERLAP
+expansion x3 OVERLAP
+authorize_selection_authority AUTHORIZED_PROVISIONAL_NARROWING
+authorize_narrowed YES
+authorize_declared_route_coverage_complete YES
+authorize_common_ancestry NO
+authorize_discriminator_capture NO
+authorize_expansion_reopen NO
+END
