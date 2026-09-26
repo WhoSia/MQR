@@ -1,6 +1,6 @@
 # Real-Language v0.15 — Defeat-Route Ontology Constitution
 
-Status: EXECUTABLE CANDIDATE / MQR-4.48 / CONTENT-SENSITIVE / SPLIT-MERGE-AWARE / ANCESTRY-AWARE / HIDDEN-ROUTE-REOPENABLE
+Status: EXECUTABLE / MQR-4.48 CLOSED / CONTENT-SENSITIVE / SPLIT-MERGE-AWARE / ANCESTRY-AWARE / HIDDEN-ROUTE-REOPENABLE
 
 ## Boundary
 
@@ -171,3 +171,27 @@ Rust–Prolog concordance is evidence about the declared receipt semantics only.
 v0.15 does not re-claim fault models, fault-class hierarchies, mutation subsumption, test adequacy, defeater taxonomy, ontology evolution, classification non-neutrality, challenge-generator exteriority, or generic route-vocabulary incompleteness.
 
 Its narrow target is **coverage authority across contestable, versioned defeat-route ontologies**.
+
+
+## Final closure boundary
+
+MQR-4.48 closes only the declared defeat-route ontology constitution problem.
+
+~~~text
+ROUTE LABEL != ROUTE IDENTITY
+ROUTE COUNT != DEFEAT-CONTENT COUNT
+ROUTE SPLIT != NEW DEFEAT CAPACITY
+ROUTE MERGE != COVERAGE DISCHARGE
+EQUAL COVERAGE FRACTIONS != COVERAGE EQUIVALENCE
+ROUTE PLURALITY != ANCESTRY INDEPENDENCE
+CONTENT-PRESERVING REVISION MAY TRANSPORT COVERAGE
+HIDDEN NOVEL ROUTE -> LOCAL REOPEN
+HIDDEN REFINEMENT / ANCESTRY REVISION -> REOPEN
+DIRECT / COMPOSED ROUTE REVISION CONFLICT -> REOPEN
+CURRENT ROUTE ONTOLOGY COMPLETE = NO
+FUTURE DEFEAT SPACE CLOSED = NO
+~~~
+
+The exact final same-head commit and workflow receipts are recorded in the external Research OS closure receipt so writing those identifiers does not mutate the sealed Git head.
+
+<!-- mqr-4.48-final-same-head-seal -->
