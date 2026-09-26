@@ -1,0 +1,40 @@
+REALCHALLENGE 0.14
+id probe-split-gerrymander
+claim_scope translation-challenge
+candidate_relations EXACT+OVERLAP
+selector S sel0
+selection_timing PRESEALED
+selection_rule R rule0 INDEPENDENT
+route d1
+route d2
+probe q1 shared SELECTED WORLD_FACING OVERLAP
+probe q2 shared SELECTED WORLD_FACING OVERLAP
+probe q3 shared SELECTED WORLD_FACING OVERLAP
+probe q4 shared SELECTED WORLD_FACING OVERLAP
+probe q5 shared SELECTED WORLD_FACING OVERLAP
+probe q6 other SELECTED WORLD_FACING OVERLAP
+covers q1 d1
+covers q2 d1
+covers q3 d1
+covers q4 d1
+covers q5 d1
+covers q6 d2
+score_source q1 INDEPENDENT
+score_source q2 INDEPENDENT
+score_source q3 INDEPENDENT
+score_source q4 INDEPENDENT
+score_source q5 INDEPENDENT
+score_source q6 INDEPENDENT
+relevance_source q1 INDEPENDENT
+relevance_source q2 INDEPENDENT
+relevance_source q3 INDEPENDENT
+relevance_source q4 INDEPENDENT
+relevance_source q5 INDEPENDENT
+relevance_source q6 INDEPENDENT
+authorize_selection_authority HOLD_COMMON_ANCESTRY
+authorize_narrowed YES
+authorize_declared_route_coverage_complete YES
+authorize_common_ancestry YES
+authorize_discriminator_capture NO
+authorize_expansion_reopen NO
+END
