@@ -81,7 +81,8 @@ support_disagreement:-
 
 path(X,Y,Visited):-meta_dep(X,Y),\+member(Y,Visited).
 path(X,Y,Visited):-meta_dep(X,Z),\+member(Z,Visited),path(Z,Y,[Z|Visited]).
-meta_cycle:-meta_dep(A,B),path(B,A,[B]),!.
+meta_cycle:-meta_dep(A,A),!.
+meta_cycle:-meta_dep(A,B),A\=B,path(B,A,[B]),!.
 
 terminal_node(N):- (meta_dep(N,_);meta_dep(_,N)), \+meta_dep(N,_).
 unanchored_terminal(N):-terminal_node(N),\+meta_anchor(N,_).
@@ -95,10 +96,10 @@ yes(true,'YES'):-!.
 yes(_,'NO').
 
 authority_state(CAS,Singleton,Forced,MetaCycle,DM,Capture,Self,Common,MetaDebt,Candidate,Authority):-
-    (CAS=[]->Authority='CONTESTED_NO_COMMON_RELATION'
-    ;Forced=true,Singleton=false->Authority='REOPEN_FORCED_SINGLETON'
+    (Forced=true,Singleton=false->Authority='REOPEN_FORCED_SINGLETON'
     ;MetaCycle=true->Authority='REOPEN_META_CYCLE'
     ;DM=true->Authority='REOPEN_DIRECT_META_CONFLICT'
+    ;CAS=[]->Authority='CONTESTED_NO_COMMON_RELATION'
     ;Capture=true->Authority='HOLD_STANDARD_CAPTURE'
     ;Self=true->Authority='HOLD_SELF_CERTIFIED'
     ;Common=true->Authority='HOLD_COMMON_ANCESTRY'
