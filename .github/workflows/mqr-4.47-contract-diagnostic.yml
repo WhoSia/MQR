@@ -1,0 +1,35 @@
+name: MQR-4.47 v0.14 Contract Diagnostic
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.47-contract-diagnostic.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install Prolog
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+      - name: Build
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v14-challenge
+      - name: Rust clean fixture valid
+        run: ./language/real/target/release/real-v14-challenge language/real/examples/mqr-4.47-clean-narrowing.real
+      - name: Prolog clean fixture valid
+        if: always()
+        run: swipl -q -s language/real/prolog/challenge_v14.pl -g "run('language/real/examples/mqr-4.47-clean-narrowing.real'),halt" -t "halt(1)"
+      - name: Rust cherry fixture valid
+        if: always()
+        run: ./language/real/target/release/real-v14-challenge language/real/examples/mqr-4.47-cherry-pick-exact.real
+      - name: Prolog cherry fixture valid
+        if: always()
+        run: swipl -q -s language/real/prolog/challenge_v14.pl -g "run('language/real/examples/mqr-4.47-cherry-pick-exact.real'),halt" -t "halt(1)"
