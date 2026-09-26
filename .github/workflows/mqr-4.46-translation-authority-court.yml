@@ -1,0 +1,150 @@
+name: MQR-4.46 Burden-Translation Authority Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.46/**'
+      - 'language/real/src/map_authority_v13.rs'
+      - 'language/real/prolog/map_authority_v13.pl'
+      - 'language/real/examples/mqr-4.46-*.real'
+      - 'language/real/tests/v13-invalid-*.real'
+      - 'language/real/V13-TRANSLATION-AUTHORITY.md'
+      - 'language/real/lean/MQR/MapAuthority.lean'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.46-translation-authority-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  authority-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.13 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v13-map-authority
+
+      - name: Execute translation-authority attacks and Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v13-map-authority
+          P=language/real/prolog/map_authority_v13.pl
+          CORE='^authority\.(candidate_relation|adjudicator_count|adjudicator_ancestry_count|independence_state|self_certified|common_ancestry|standard_count|capture_risk|correspondence_set|correspondence_set_size|correspondence_singleton|forced_singleton_overclaim|conflict_count|direct_meta_conflict|world_facing_separator_present|meta_cycle|meta_debt_count|mapping_authority|unique_world_correspondence_inferred|future_translation_closed|consensus_truth_oracle|standard_truth_oracle|externality_truth_oracle|meta_cycle_authority|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.46-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep -E "$CORE" /tmp/rust > /tmp/rust.core
+            grep -E "$CORE" /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.46-self-certified.real > /tmp/self
+          grep -F 'authority.self_certified=YES' /tmp/self
+          grep -F 'authority.mapping_authority=HOLD_SELF_CERTIFIED' /tmp/self
+
+          "$V" language/real/examples/mqr-4.46-common-ancestry-majority.real > /tmp/common
+          grep -F 'authority.adjudicator_count=3' /tmp/common
+          grep -F 'authority.adjudicator_ancestry_count=1' /tmp/common
+          grep -F 'authority.common_ancestry=YES' /tmp/common
+          grep -F 'authority.mapping_authority=HOLD_COMMON_ANCESTRY' /tmp/common
+
+          "$V" language/real/examples/mqr-4.46-independent-exact.real > /tmp/independent
+          grep -F 'authority.independence_state=ANCESTRY_SEPARATED' /tmp/independent
+          grep -F 'authority.mapping_authority=EARNED_PROVISIONAL' /tmp/independent
+
+          "$V" language/real/examples/mqr-4.46-competing-standards.real > /tmp/standards
+          grep -F 'authority.correspondence_set=NONE' /tmp/standards
+          grep -F 'authority.conflict_count=1' /tmp/standards
+          grep -F 'authority.mapping_authority=CONTESTED_NO_COMMON_RELATION' /tmp/standards
+
+          "$V" language/real/examples/mqr-4.46-set-valued.real > /tmp/set
+          grep -F 'authority.correspondence_set=OVERLAP+REFINE' /tmp/set
+          grep -F 'authority.correspondence_set_size=2' /tmp/set
+          grep -F 'authority.correspondence_singleton=NO' /tmp/set
+          grep -F 'authority.mapping_authority=SET_VALUED_PROVISIONAL' /tmp/set
+
+          "$V" language/real/examples/mqr-4.46-forced-singleton.real > /tmp/forced
+          grep -F 'authority.forced_singleton_overclaim=YES' /tmp/forced
+          grep -F 'authority.mapping_authority=REOPEN_FORCED_SINGLETON' /tmp/forced
+
+          "$V" language/real/examples/mqr-4.46-standard-capture.real > /tmp/capture
+          grep -F 'authority.capture_risk=YES' /tmp/capture
+          grep -F 'authority.mapping_authority=HOLD_STANDARD_CAPTURE' /tmp/capture
+
+          "$V" language/real/examples/mqr-4.46-world-separator.real > /tmp/world
+          grep -F 'authority.world_facing_separator_present=YES' /tmp/world
+          grep -F 'authority.correspondence_set=OVERLAP' /tmp/world
+          grep -F 'authority.mapping_authority=EARNED_PROVISIONAL' /tmp/world
+
+          "$V" language/real/examples/mqr-4.46-meta-cycle.real > /tmp/cycle
+          grep -F 'authority.meta_cycle=YES' /tmp/cycle
+          grep -F 'authority.meta_cycle_authority=NO' /tmp/cycle
+          grep -F 'authority.mapping_authority=REOPEN_META_CYCLE' /tmp/cycle
+
+          "$V" language/real/examples/mqr-4.46-finite-meta-debt.real > /tmp/debt
+          grep -F 'authority.meta_debt_count=1' /tmp/debt
+          grep -F 'authority.mapping_authority=HOLD_META_DEBT' /tmp/debt
+
+          "$V" language/real/examples/mqr-4.46-direct-meta-conflict.real > /tmp/dm
+          grep -F 'authority.direct_meta_conflict=YES' /tmp/dm
+          grep -F 'authority.mapping_authority=REOPEN_DIRECT_META_CONFLICT' /tmp/dm
+
+          grep -F 'authority.unique_world_correspondence_inferred=NO' /tmp/independent
+          grep -F 'authority.future_translation_closed=NO' /tmp/independent
+          grep -F 'authority.consensus_truth_oracle=NO' /tmp/independent
+          grep -F 'authority.standard_truth_oracle=NO' /tmp/independent
+          grep -F 'authority.externality_truth_oracle=NO' /tmp/independent
+          grep -F 'authority.guidance_mode=CONTESTABLE_SET_VALUED_TRANSLATION_AUTHORITY' /tmp/independent
+
+          for x in language/real/tests/v13-invalid-*.real; do
+            if "$V" "$x"; then
+              echo "Rust unexpectedly accepted $x" >&2
+              exit 1
+            fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then
+              echo "Prolog unexpectedly accepted $x" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V13_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR446_SELF_CERTIFICATION_GUARD=PASS
+          echo MQR446_ADJUDICATOR_ANCESTRY_GUARD=PASS
+          echo MQR446_SET_VALUED_CORRESPONDENCE=PASS
+          echo MQR446_STANDARD_CAPTURE_GUARD=PASS
+          echo MQR446_WORLD_FACING_SEPARATOR=PASS
+          echo MQR446_META_CYCLE_REOPENING=PASS
+          echo MQR446_FINITE_META_DEBT=PASS
+          echo MQR446_DIRECT_META_CONFLICT=PASS
+          echo MQR446_UNIQUE_WORLD_CORRESPONDENCE=NO
+          echo MQR446_FUTURE_TRANSLATION_CLOSED=NO
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.46/Court"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" \
+            -f context="$context" \
+            -f description="$description" \
+            -f target_url="$target"
