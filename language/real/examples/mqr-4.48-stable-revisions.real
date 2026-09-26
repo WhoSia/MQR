@@ -1,0 +1,21 @@
+REALROUTE 0.15
+id stable-revisions
+claim_scope defeat-route-ontology
+source_ontology O1
+target_ontology O4
+content x
+source_route old a1 x COVERED
+target_route new a2 x
+map old EXACT new
+coverage_witness old new x
+path p1 PASS
+path p2 PASS
+path p3 PASS
+authorize_coverage_authority AUTHORIZED_CONTENT_PRESERVING_TRANSPORT
+authorize_coverage_equivalence YES
+authorize_duplication NO
+authorize_collapse NO
+authorize_hidden_novel NO
+authorize_ancestry_entanglement NO
+authorize_path_conflict NO
+END
