@@ -1,0 +1,10 @@
+REALDEFEAT 0.16
+id bad
+claim_scope x
+source_representation R1
+target_representation R2
+challenge q
+source_content s m v a q
+target_content t m v a q
+map s EXACT missing
+END
