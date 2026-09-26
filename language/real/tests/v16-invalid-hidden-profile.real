@@ -1,0 +1,12 @@
+REALDEFEAT 0.16
+id bad
+claim_scope x
+source_representation R1
+target_representation R2
+challenge q1
+source_content s m v a q1
+target_content t m v a q1
+map s EXACT t
+role_witness s t q1
+hidden_content h NOVEL_COUNTERFACTUAL_DISTINCTION q2
+END
