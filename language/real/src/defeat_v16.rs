@@ -216,6 +216,10 @@ fn analyze(p:&Packet)->BTreeMap<String,String>{
     let common_cause=(p.source.len()>1&&source_anc<p.source.len())||(p.target.len()>1&&target_anc<p.target.len());
     let transport=role_transport_complete(p);
     let local_eq=local_equivalence(p);
+    let role_drift=p.maps.iter().any(|m|{
+        m.kind=="EXACT"&&m.sources.len()==1&&m.targets.len()==1&&
+        p.source.get(&m.sources[0]).zip(p.target.get(&m.targets[0])).map(|(s,t)|s.profile!=t.profile).unwrap_or(false)
+    });
     let expansion_break=p.expansions.iter().any(|(_,_,_,s)|s=="DISTINGUISHES");
     let hidden_count=p.hidden.len();
     let hidden_novel=p.hidden.iter().any(|h|h.kind=="NOVEL_COUNTERFACTUAL_DISTINCTION"||h.kind=="PREVIOUSLY_UNMAPPED");
@@ -232,6 +236,7 @@ fn analyze(p:&Packet)->BTreeMap<String,String>{
         else if expansion_break{"REOPEN_EXPANSION_BREAK"}
         else if path_conflict{"REOPEN_REVISION_PATH_CONFLICT"}
         else if hidden_revision{"REOPEN_HIDDEN_CONTENT_REVISION"}
+        else if role_drift{"HOLD_ROLE_DRIFT"}
         else if split_duplication{"HOLD_SPLIT_WITHOUT_NEW_DISTINCTION"}
         else if merge_launder{"HOLD_MERGE_DISTINCTION_LAUNDERING"}
         else if representation_collapse{"HOLD_REPRESENTATION_COLLAPSE"}
@@ -259,6 +264,7 @@ fn analyze(p:&Packet)->BTreeMap<String,String>{
     a.insert("defeat.common_cause_compression".into(),yes(common_cause).into());
     a.insert("defeat.role_transport_complete".into(),yes(transport).into());
     a.insert("defeat.local_counterfactual_equivalence".into(),yes(local_eq).into());
+    a.insert("defeat.role_drift".into(),yes(role_drift).into());
     a.insert("defeat.split_without_new_distinction".into(),yes(split_duplication).into());
     a.insert("defeat.representation_collapse".into(),yes(representation_collapse).into());
     a.insert("defeat.expansion_breaks_equivalence".into(),yes(expansion_break).into());
@@ -304,7 +310,7 @@ fn emit(p:&Packet,a:&BTreeMap<String,String>)->String{
         "defeat.counterfactual_profile_count_source","defeat.counterfactual_profile_count_target",
         "defeat.split_count","defeat.merge_count",
         "defeat.manifestation_multiplication","defeat.mechanism_aliasing","defeat.common_cause_compression",
-        "defeat.role_transport_complete","defeat.local_counterfactual_equivalence",
+        "defeat.role_transport_complete","defeat.local_counterfactual_equivalence","defeat.role_drift",
         "defeat.split_without_new_distinction","defeat.representation_collapse",
         "defeat.expansion_breaks_equivalence","defeat.hidden_content_count","defeat.hidden_novel_distinction",
         "defeat.path_conflict","defeat.reopen_required","defeat.identity_authority",
