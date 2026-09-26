@@ -19,6 +19,7 @@ on:
       - 'language/real/V14-CHALLENGE-CONSTITUTION.md'
       - 'language/real/V15-ROUTE-ONTOLOGY.md'
       - 'language/real/V16-DEFEAT-CONTENT.md'
+      - 'language/real/V17-REGRESS-BOUNDARY.md'
       - '.github/workflows/real-language-proof-ci.yml'
   workflow_dispatch:
 
