@@ -615,3 +615,32 @@ GUIDANCE = CONSTITUTED_REOPENABLE_SEPARATOR_AUTHORITY
 A clean ancestry-separated, route-covering, prospectively selected packet may earn `AUTHORIZED_PROVISIONAL_NARROWING`. A post-outcome selection, captured discriminator, omitted counterprobe, coverage hole, common ancestry, or expansion conflict yields HOLD/REOPEN rather than silent promotion.
 
 The live doctrine is **constituted and reopenable separator authority without a final challenge space**.
+
+
+## v0.15 — defeat-route ontology constitution
+
+MQR-4.48 adds `REALROUTE 0.15`.
+
+Canonical Rust: `src/route_v15.rs` / `real-v15-route`.
+Independent relational evaluator: `prolog/route_v15.pl`.
+Lean boundary: `lean/MQR/RouteOntology.lean`.
+Constitution: `V15-ROUTE-ONTOLOGY.md`.
+
+v0.15 moves one level upstream from v0.14's defeat-route coverage matrix. Route labels and route counts are no longer treated as stable coverage primitives. The live receipt tracks declaration-relative defeat content, route ancestry, EXACT/REFINE/MERGE/OVERLAP/DISJOINT/UNMAPPED route transport, content-level coverage witnesses, hidden-route discoveries and revision-path disagreement.
+
+Canonical guards:
+
+~~~text
+ROUTE LABEL != ROUTE IDENTITY
+ROUTE COUNT != DEFEAT-CONTENT COUNT
+ROUTE SPLIT != NEW DEFEAT CAPACITY
+ROUTE MERGE != COVERAGE DISCHARGE
+EQUAL COVERAGE FRACTIONS != COVERAGE EQUIVALENCE
+CURRENT ROUTE ONTOLOGY COMPLETE = NO
+FUTURE DEFEAT SPACE CLOSED = NO
+GUIDANCE = VERSIONED_DEFEAT_CONTENT_COVERAGE
+~~~
+
+A content-preserving refinement or merge may carry local coverage authority. Undertransport, coverage collapse, ancestry entanglement, hidden-route discovery or noncommuting revision paths yield HOLD/REOPEN rather than silent inheritance.
+
+The live doctrine is **versioned defeat-content coverage without a final taxonomy of ways to fail**.
