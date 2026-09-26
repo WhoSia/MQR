@@ -1,0 +1,21 @@
+REALMAPAUTH 0.13
+id direct-meta-conflict
+claim_scope translation-authority
+source_ontology V1
+target_ontology V2
+candidate_relation EXACT
+proposer P rootP
+adjudicator A1 anc1 EXTERNAL
+adjudicator A2 anc2 EXTERNAL
+standard K1 std1 PRESEALED
+standard K2 std2 PRESEALED
+witness W1 K1 A1 DIRECT EXACT
+witness W2 K2 A2 META OVERLAP
+force_singleton NO
+authorize_mapping_authority REOPEN_DIRECT_META_CONFLICT
+authorize_correspondence_singleton NO
+authorize_self_certified NO
+authorize_capture_risk NO
+authorize_meta_cycle NO
+authorize_world_separator NO
+END
