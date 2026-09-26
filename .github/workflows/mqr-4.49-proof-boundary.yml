@@ -104,18 +104,18 @@ jobs:
           echo MQR449_NANODA_DEFEAT_CONTENT_REPLAY=PASS
 
       - name: Publish externally readable workflow receipt
-        if: \${{ always() }}
+        if: ${{ always() }}
         shell: bash
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           state=success
-          if [ "\${{ job.status }}" != "success" ]; then state=failure; fi
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
           context="MQR-4.49/Lean+nanoda"
-          description="run \${GITHUB_RUN_ID}: \${{ job.status }}"
-          target="\${GITHUB_SERVER_URL}/\${GITHUB_REPOSITORY}/actions/runs/\${GITHUB_RUN_ID}"
-          gh api --method POST "repos/\${GITHUB_REPOSITORY}/statuses/\${GITHUB_SHA}" \
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
             -f state="$state" \
             -f context="$context" \
             -f description="$description" \
