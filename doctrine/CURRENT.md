@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.47**.
+Status: live through **MQR-4.48**.
 
 ## Generation-IV authority kernel
 
@@ -983,7 +983,31 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 204. **Separator admissibility ≠ universal separator ranking.** SAE is a membership surface over declared packet conditions, not an optimizer over all conceivable scientific tests.
 205. **Current challenge constitution PASS ≠ final test constitution.** TCCR authority remains conditional on declared family, route, ancestry, capture and expansion surfaces.
 
+206. **Route label ≠ route identity.** A defeat-route name cannot establish cross-version identity without declared defeat-content and ancestry witnesses.
+207. **Route count ≠ defeat-content count.** Splitting one defeat content into several route names does not manufacture new independent ways to fail.
+208. **Route split ≠ new defeat diversity.** Refinement changes carrier cardinality; coverage duplicates only when the preserved defeat content is independently witnessed on every successor carrier.
+209. **Route merge ≠ coverage discharge.** Merging several routes into one target label cannot erase uncovered predecessor defeat content or inherited coverage debt.
+210. **Equal coverage fractions ≠ coverage equivalence.** Route-count or percentage equality does not establish preservation of the same defeat distinctions.
+211. **Route independence is ancestry-relative.** Named route plurality may collapse under shared load-bearing measurement, data, representation, intervention or generator ancestry.
+212. **Coverage authority transports through defeat content, not labels.** A predecessor coverage receipt survives revision only on the declared content surface preserved by explicit coverage witnesses.
+213. **Complete coverage in one route ontology ≠ complete coverage in a successor ontology.** Cross-version adequacy requires content-preserving transport rather than silent carry-forward.
+214. **Hidden-route discovery reopens affected adequacy locally.** Novel or previously unmapped defeat content reopens the implicated coverage claim without automatically negating every historical scoped result.
+215. **Hidden route revision without novel content can still reopen constitution.** Refinement, merge correction or ancestry revelation may change the meaning of route independence or coverage even when the extensional content set is stable.
+216. **Direct/composed route-revision disagreement is a reopening event.** Noncommuting coverage transport defeats path-independent authority but does not identify a metaphysically correct route ontology.
+217. **Finite route stability ≠ final defeat ontology.** Repeated content-preserving revisions may earn version-relative robustness only; current route ontology completeness and future defeat-space closure remain forbidden inferences.
+
 ## Live governance objects
+
+- Defeat-Route Ontology Constitution Receipt (DROCR)
+- Route-Identity Witness (RIW)
+- Defeat-Content Ledger (DCL)
+- Route-Ancestry Graph (RAG)
+- Route Split/Merge Receipt (RSMR)
+- Coverage-Transport Ledger (CTL)
+- Coverage-Equivalence Envelope (CEE)
+- Hidden-Route Discovery Receipt (HDR)
+- Route Residue Ledger (RRL)
+- Route-Constitution Admissibility Envelope (RCAE)
 
 - Translation-Challenge Constitution Receipt (TCCR)
 - Separator Family Registry (SFR)
