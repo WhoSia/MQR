@@ -560,3 +560,31 @@ FUTURE REVISION CLOSURE = NO
 ```
 
 The live doctrine is **versioned, loss-aware burden transport without ontology-identity laundering**.
+
+
+## v0.13 — contestable burden-translation authority
+
+MQR-4.46 adds REALMAPAUTH 0.13.
+
+Canonical Rust: src/map_authority_v13.rs / real-v13-map-authority.
+Independent relational evaluator: prolog/map_authority_v13.pl.
+Lean boundary: lean/MQR/MapAuthority.lean.
+Constitution: V13-TRANSLATION-AUTHORITY.md.
+
+v0.13 moves one level upstream from v0.12: a typed burden-transport relation is no longer treated as authoritative merely because it is declared. The live receipt tracks proposer/adjudicator/standard ancestry, self-certification, common-mode adjudication, capture risk, competing standards, set-valued correspondence, world-facing narrowing, direct/meta conflict and meta-dependency.
+
+Correspondence may remain non-singleton. A forced singleton is a reopening event. A world-facing separator may narrow the surviving relation set but never creates a unique world-correspondence oracle. Cyclic meta-validation creates no independent root; finite unanchored meta-dependency is carried as explicit meta-debt.
+
+Canonical guards:
+
+~~~text
+UNIQUE WORLD CORRESPONDENCE = NO
+FUTURE TRANSLATION CLOSURE = NO
+CONSENSUS TRUTH ORACLE = NO
+STANDARD TRUTH ORACLE = NO
+EXTERNALITY TRUTH ORACLE = NO
+META-CYCLE AUTHORITY = NO
+GUIDANCE = CONTESTABLE_SET_VALUED_TRANSLATION_AUTHORITY
+~~~
+
+The live doctrine is **provisional translation authority without a final dictionary or meta-standard**.
