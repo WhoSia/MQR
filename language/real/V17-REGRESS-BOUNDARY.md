@@ -1,6 +1,6 @@
 # Real-Language v0.17 — Constitutional Regress Boundary
 
-Status: EXECUTABLE / MQR-4.50 ACTIVE / OPERATIONAL-FIXED-POINT / SCOPE-PROVENANCED / CRITERION-SENSITIVE / DECISION-CONTRACT-INDEXED / REOPENABLE
+Status: EXECUTABLE / MQR-4.50 CLOSED / OPERATIONAL-FIXED-POINT / UPSTREAM-ADMISSIBILITY-PRESERVING / SCOPE-PROVENANCED / CRITERION-SENSITIVE / DECISION-CONTRACT-INDEXED / REOPENABLE
 
 ## Boundary
 
@@ -40,6 +40,29 @@ DESCRIPTIVE SUFFICIENCY
 !=
 UNIVERSAL ACTION WARRANT
 ```
+
+## Input-admissibility firewall
+
+v0.17 is a **consumer of constitutionally admitted surfaces**, not a generator of their admissibility.
+
+```text
+CRBR CONSUMES ADMITTED S/Q/W/D/R/K
+!=
+CRBR CREATES THEIR ADMISSIBILITY
+
+UPSTREAM HOLD/REOPEN
+CANNOT BE OVERRIDDEN BY A v0.17 PASS
+
+NONEMPTY REGISTRY
+!=
+ADEQUATE REGISTRY
+
+OPERATIONAL STOP
+!=
+OPEN-WORLD SEARCH RETIREMENT
+```
+
+MQR-4.41–4.49 continue to govern frontier adequacy, exploration obligations, burden constitution, translation authority, challenge admission, route ontology and defeat-content constitution. Any live upstream HOLD/REOPEN or activated material obligation remains load-bearing. v0.17 closes only the current regress over the admitted live surface.
 
 ## Operational-quotient sufficiency
 
@@ -153,3 +176,24 @@ These are governance states, not truth values.
 - formal finite boundary: Lean `lean/MQR/RegressBoundary.lean`
 
 Rust–Prolog agreement checks the declared receipt semantics only. Lean proves finite countermodels only and is not an empirical or metaphysical oracle.
+
+
+## Closure verdict
+
+MQR-4.50 closes with branches **C+D+E+F+G+H** retained and **A+B+I+J+K** rejected.
+
+The executable positive state is a reopenable operational fixed point:
+
+```text
+AUTHORIZED_CRITERION_ROBUST_OPERATIONAL_STOP
++
+FUTURE_REFINEMENT_SPACE_CLOSED=NO
++
+METAPHYSICAL_TERMINATION=NO
++
+OPERATIONAL_STOP_PERMANENT=NO
++
+REOPENING_RESERVE=ACTIVE
+```
+
+An explicit decision contract may additionally support `AUTHORIZED_ACTION_UNDER_DECLARED_CONTRACT`. Neither state retires the open-world discovery machinery or promotes the current quotient to a final ontology.
