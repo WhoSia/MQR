@@ -1,6 +1,6 @@
 # Real-Language v0.13 — Contestable Burden-Translation Authority
 
-Status: EXECUTABLE CANDIDATE / MQR-4.46 / SET-VALUED / ANCESTRY-AWARE / STANDARD-AUDITED / OPEN-WORLD
+Status: EXECUTABLE / MQR-4.46 CLOSED / SET-VALUED / ANCESTRY-AWARE / STANDARD-AUDITED / OPEN-META
 
 ## Boundary
 
@@ -214,3 +214,27 @@ Accordingly v0.13 audits:
 - finite unresolved meta-debt.
 
 This is a governance layer over mapping claims, not a new ontology matcher and not a final theory of semantic correspondence.
+
+
+## Final closure boundary
+
+MQR-4.46 closes only the declared mapping-authority problem.
+
+~~~text
+DECLARED BTR EDGE != EARNED TRANSLATION AUTHORITY
+ADJUDICATOR COUNT != ANCESTRY INDEPENDENCE
+SELF-CERTIFICATION != INDEPENDENT WITNESS
+STANDARDIZED != TRUE
+NON-SINGLETON CAS MUST REMAIN NON-SINGLETON
+FORCED SINGLETON -> REOPEN
+WORLD-FACING CHALLENGE MAY NARROW CAS, NOT CLOSE CORRESPONDENCE
+DIRECT / META CONFLICT -> REOPEN
+META CYCLE != INDEPENDENT ROOT
+FINITE UNRESOLVED META-DEPENDENCY -> EXPLICIT META-DEBT
+UNIQUE WORLD CORRESPONDENCE = NOT INFERRED
+FUTURE TRANSLATION CLOSURE = NO
+~~~
+
+The exact final same-head commit and workflow receipts are kept in the external Research OS closure receipt so recording those identifiers does not mutate the sealed Git head.
+
+<!-- mqr-4.46-final-same-head-seal -->
