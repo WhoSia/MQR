@@ -33,7 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -761,6 +761,68 @@ jobs:
           echo MQR448_HIDDEN_ROUTE_REOPENING=PASS
           echo MQR448_REVISION_PATH_CONFLICT=PASS
           echo MQR448_FUTURE_DEFEAT_SPACE_CLOSED=NO
+
+
+      - name: Real-Language v0.16 defeat-content constitution guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V16=./language/real/target/release/real-v16-defeat
+          P16=language/real/prolog/defeat_v16.pl
+          CORE='^defeat\.(source_content_count|target_content_count|source_mechanism_count|target_mechanism_count|source_manifestation_count|target_manifestation_count|source_ancestry_count|target_ancestry_count|counterfactual_profile_count_source|counterfactual_profile_count_target|split_count|merge_count|manifestation_multiplication|mechanism_aliasing|common_cause_compression|role_transport_complete|local_counterfactual_equivalence|role_drift|split_without_new_distinction|representation_collapse|expansion_breaks_equivalence|hidden_content_count|hidden_novel_distinction|path_conflict|reopen_required|identity_authority|current_defeat_atoms_complete|future_defeat_space_closed|label_identity_oracle|mechanism_identity_oracle|manifestation_identity_oracle|counterfactual_equivalence_truth_oracle|representation_truth_oracle|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.49-*.real; do
+            "$V16" "$f" > /tmp/v16.rust
+            swipl -q -s "$P16" -g "run('$f'),halt" -t "halt(1)" > /tmp/v16.prolog
+            grep -E "$CORE" /tmp/v16.rust > /tmp/v16.rust.core
+            grep -E "$CORE" /tmp/v16.prolog > /tmp/v16.prolog.core
+            diff -u /tmp/v16.rust.core /tmp/v16.prolog.core
+          done
+
+          "$V16" language/real/examples/mqr-4.49-same-label-drift.real > /tmp/v16-drift
+          "$V16" language/real/examples/mqr-4.49-split-duplicate.real > /tmp/v16-split
+          "$V16" language/real/examples/mqr-4.49-refinement-genuine.real > /tmp/v16-refine
+          "$V16" language/real/examples/mqr-4.49-merge-launder.real > /tmp/v16-merge
+          "$V16" language/real/examples/mqr-4.49-merge-quotient.real > /tmp/v16-quotient
+          "$V16" language/real/examples/mqr-4.49-common-cause.real > /tmp/v16-common
+          "$V16" language/real/examples/mqr-4.49-expansion-break.real > /tmp/v16-expansion
+          "$V16" language/real/examples/mqr-4.49-representation-collapse.real > /tmp/v16-collapse
+          "$V16" language/real/examples/mqr-4.49-hidden-novel.real > /tmp/v16-hidden
+          "$V16" language/real/examples/mqr-4.49-stable-finite.real > /tmp/v16-stable
+
+          grep -F 'defeat.identity_authority=HOLD_ROLE_DRIFT' /tmp/v16-drift
+          grep -F 'defeat.split_without_new_distinction=YES' /tmp/v16-split
+          grep -F 'defeat.identity_authority=HOLD_SPLIT_WITHOUT_NEW_DISTINCTION' /tmp/v16-split
+          grep -F 'defeat.identity_authority=AUTHORIZED_COUNTERFACTUAL_REFINEMENT' /tmp/v16-refine
+          grep -F 'defeat.identity_authority=HOLD_MERGE_DISTINCTION_LAUNDERING' /tmp/v16-merge
+          grep -F 'defeat.identity_authority=AUTHORIZED_SCOPE_QUOTIENT_MERGE' /tmp/v16-quotient
+          grep -F 'defeat.common_cause_compression=YES' /tmp/v16-common
+          grep -F 'defeat.identity_authority=REOPEN_EXPANSION_BREAK' /tmp/v16-expansion
+          grep -F 'defeat.identity_authority=HOLD_REPRESENTATION_COLLAPSE' /tmp/v16-collapse
+          grep -F 'defeat.identity_authority=REOPEN_HIDDEN_NOVEL_DISTINCTION' /tmp/v16-hidden
+          grep -F 'defeat.current_defeat_atoms_complete=NO' /tmp/v16-stable
+          grep -F 'defeat.future_defeat_space_closed=NO' /tmp/v16-stable
+          grep -F 'defeat.counterfactual_equivalence_truth_oracle=NO' /tmp/v16-stable
+          grep -F 'defeat.guidance_mode=REOPENABLE_COUNTERFACTUAL_DEFEAT_QUOTIENT' /tmp/v16-stable
+
+          for x in language/real/tests/v16-invalid-*.real; do
+            if "$V16" "$x"; then exit 1; fi
+            if swipl -q -s "$P16" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V16_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR449_DEFEAT_LABEL_IDENTITY_GUARD=PASS
+          echo MQR449_MECHANISM_MANIFESTATION_SEPARATION=PASS
+          echo MQR449_COUNTERFACTUAL_SPLIT_GUARD=PASS
+          echo MQR449_GENUINE_REFINEMENT_POSITIVE_CONTROL=PASS
+          echo MQR449_MERGE_DISTINCTION_LAUNDERING=PASS
+          echo MQR449_SCOPE_QUOTIENT_MERGE=PASS
+          echo MQR449_COMMON_CAUSE_COMPRESSION=PASS
+          echo MQR449_EXPANSION_BREAK_REOPENING=PASS
+          echo MQR449_CROSS_REPRESENTATION_DEFEAT_TRANSPORT=PASS
+          echo MQR449_HIDDEN_CONTENT_REOPENING=PASS
+          echo MQR449_FINAL_DEFEAT_ATOMS_COMPLETE=NO
 
 
       - name: Publish externally readable workflow receipt
