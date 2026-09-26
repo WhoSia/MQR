@@ -588,3 +588,30 @@ GUIDANCE = CONTESTABLE_SET_VALUED_TRANSLATION_AUTHORITY
 ~~~
 
 The live doctrine is **provisional translation authority without a final dictionary or meta-standard**.
+
+
+## v0.14 — translation-challenge constitution
+
+MQR-4.47 adds `REALCHALLENGE 0.14`.
+
+Canonical Rust: `src/challenge_v14.rs` / `real-v14-challenge`.
+Independent relational evaluator: `prolog/challenge_v14.pl`.
+Lean boundary: `lean/MQR/Challenge.lean`.
+Constitution: `V14-CHALLENGE-CONSTITUTION.md`.
+
+v0.14 moves one level upstream from v0.13's world-facing separator: a probe does not gain narrowing authority merely because it is world-facing. The live receipt distinguishes the registered family, selected packet, selection rule and timing; computes declared defeat-route coverage; audits probe ancestry and candidate-derived relevance/scoring; retains omitted counterprobes; and reopens under challenge expansion.
+
+Canonical guards:
+
+~~~text
+WORLD_FACING != SELECTION_AUTHORIZED
+PROBE COUNT != ROUTE COVERAGE
+PROBE COUNT != ANCESTRY INDEPENDENCE
+CURRENT FAMILY COMPLETE = NO
+FUTURE CHALLENGE SPACE CLOSED = NO
+GUIDANCE = CONSTITUTED_REOPENABLE_SEPARATOR_AUTHORITY
+~~~
+
+A clean ancestry-separated, route-covering, prospectively selected packet may earn `AUTHORIZED_PROVISIONAL_NARROWING`. A post-outcome selection, captured discriminator, omitted counterprobe, coverage hole, common ancestry, or expansion conflict yields HOLD/REOPEN rather than silent promotion.
+
+The live doctrine is **constituted and reopenable separator authority without a final challenge space**.
