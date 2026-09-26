@@ -51,7 +51,7 @@ jobs:
             MQR.hiddenDefeatContentCanReopenLocallyWithoutGlobalNegation
             MQR.repeatedFiniteDefeatStabilityDoesNotImplyFinalDefeatAtoms
           )
-          for theorem in "\${theorems[@]}"; do
+          for theorem in "${theorems[@]}"; do
             grep -F "'$theorem' does not depend on any axioms" /tmp/defeat-content.log
           done
           echo MQR449_DEFEAT_CONTENT_AXIOM_ANCESTRY=EMPTY
