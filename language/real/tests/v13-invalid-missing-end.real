@@ -1,0 +1,11 @@
+REALMAPAUTH 0.13
+id bad
+claim_scope x
+source_ontology V1
+target_ontology V2
+candidate_relation EXACT
+proposer P root
+adjudicator A anc EXTERNAL
+standard K std PRESEALED
+witness W K A DIRECT EXACT
+force_singleton NO
