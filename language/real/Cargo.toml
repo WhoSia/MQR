@@ -46,3 +46,8 @@ path = "src/constitution_v11.rs"
 [[bin]]
 name = "real-v12-revise"
 path = "src/revision_v12.rs"
+
+
+[[bin]]
+name = "real-v13-map-authority"
+path = "src/map_authority_v13.rs"
