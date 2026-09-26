@@ -11,3 +11,4 @@ import MQR.Revision
 import MQR.MapAuthority
 import MQR.Challenge
 import MQR.RouteOntology
+import MQR.DefeatContent
