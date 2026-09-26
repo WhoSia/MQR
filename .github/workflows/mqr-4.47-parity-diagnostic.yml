@@ -1,0 +1,75 @@
+name: MQR-4.47 v0.14 Parity Diagnostic
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.47-parity-diagnostic.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install Prolog
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+      - name: Build v0.14
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v14-challenge
+
+      - name: parity cherry-pick-exact
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-cherry-pick-exact.real
+      - name: parity cherry-pick-overlap
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-cherry-pick-overlap.real
+      - name: parity post-outcome
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-post-outcome.real
+      - name: parity route-hole
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-route-hole.real
+      - name: parity common-ancestry
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-common-ancestry.real
+      - name: parity probe-split-gerrymander
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-probe-split-gerrymander.real
+      - name: parity candidate-score-capture
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-candidate-score-capture.real
+      - name: parity incumbent-relevance
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-incumbent-relevance.real
+      - name: parity clean-narrowing
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-clean-narrowing.real
+      - name: parity expansion-reopen
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-expansion-reopen.real
+      - name: parity stable-expansion
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-stable-expansion.real
+      - name: parity nondiscriminating
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-nondiscriminating.real
+      - name: parity internal-only
+        if: always()
+        run: bash .github/scripts/mqr447-parity-one.sh language/real/examples/mqr-4.47-internal-only.real
+      - name: invalid fixtures
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v14-challenge
+          P=language/real/prolog/challenge_v14.pl
+          for x in language/real/tests/v14-invalid-*.real; do
+            if "$V" "$x"; then echo "Rust accepted $x"; exit 1; fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then echo "Prolog accepted $x"; exit 1; fi
+          done
