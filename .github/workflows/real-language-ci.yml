@@ -33,7 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -823,6 +823,52 @@ jobs:
           echo MQR449_CROSS_REPRESENTATION_DEFEAT_TRANSPORT=PASS
           echo MQR449_HIDDEN_CONTENT_REOPENING=PASS
           echo MQR449_FINAL_DEFEAT_ATOMS_COMPLETE=NO
+
+
+      - name: Real-Language v0.17 constitutional-regress boundary guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V17=./language/real/target/release/real-v17-regress
+          P17=language/real/prolog/regress_v17.pl
+          for f in language/real/examples/mqr-4.50-*.real; do
+            "$V17" "$f" > /tmp/v17.rust
+            swipl -q -s "$P17" -g "run('$f'),halt" -t "halt(1)" > /tmp/v17.prolog
+            grep -E '^regress\.' /tmp/v17.rust > /tmp/v17.rust.core
+            grep -E '^regress\.' /tmp/v17.prolog > /tmp/v17.prolog.core
+            diff -u /tmp/v17.rust.core /tmp/v17.prolog.core
+          done
+
+          "$V17" language/real/examples/mqr-4.50-inert-stop.real > /tmp/v17-stop
+          "$V17" language/real/examples/mqr-4.50-material-refinement.real > /tmp/v17-material
+          "$V17" language/real/examples/mqr-4.50-scope-capture.real > /tmp/v17-scope
+          "$V17" language/real/examples/mqr-4.50-criterion-disagreement.real > /tmp/v17-criterion
+          "$V17" language/real/examples/mqr-4.50-world-contact-reopen.real > /tmp/v17-world
+          "$V17" language/real/examples/mqr-4.50-action-invariant.real > /tmp/v17-action
+          "$V17" language/real/examples/mqr-4.50-finite-stability.real > /tmp/v17-stable
+
+          grep -F 'regress.authority_state=AUTHORIZED_CRITERION_ROBUST_OPERATIONAL_STOP' /tmp/v17-stop
+          grep -F 'regress.authority_state=HOLD_PREMATURE_TERMINATION' /tmp/v17-material
+          grep -F 'regress.authority_state=HOLD_SCOPE_CAPTURE' /tmp/v17-scope
+          grep -F 'regress.authority_state=HOLD_META_CRITERION_NONINVARIANCE' /tmp/v17-criterion
+          grep -F 'regress.authority_state=REOPEN_NEW_WORLD_CONTACT' /tmp/v17-world
+          grep -F 'regress.action_authority=AUTHORIZED_ACTION_UNDER_DECLARED_CONTRACT' /tmp/v17-action
+          grep -F 'regress.future_refinement_space_closed=NO' /tmp/v17-stable
+          grep -F 'regress.metaphysical_termination=NO' /tmp/v17-stable
+          grep -F 'regress.reopening_reserve=ACTIVE' /tmp/v17-stable
+
+          for x in language/real/tests/v17-invalid-*.real; do
+            if "$V17" "$x"; then exit 1; fi
+            if swipl -q -s "$P17" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V17_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR450_OPERATIONAL_FIXED_POINT_GUARDS=PASS
+          echo MQR450_SCOPE_CRITERION_CAPTURE_GUARDS=PASS
+          echo MQR450_WORLD_CONTACT_REOPENING=PASS
+          echo MQR450_ACTION_CONTRACT_SEPARATION=PASS
+          echo MQR450_METAPHYSICAL_TERMINATION=NO
 
 
       - name: Publish externally readable workflow receipt
