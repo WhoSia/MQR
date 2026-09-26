@@ -145,17 +145,17 @@ theorem hiddenDefeatContentCanReopenLocallyWithoutGlobalNegation :
     hiddenWitness.finalAtomsComplete = false := by
   decide
 
-structure StabilityWitness where
+structure DefeatStabilityWitness where
   finiteStableFamilies : Nat
   finalAtomsComplete : Bool
   deriving DecidableEq, Repr
 
-def stabilityWitness : StabilityWitness :=
+def defeatStabilityWitness : DefeatStabilityWitness :=
   { finiteStableFamilies := 7, finalAtomsComplete := false }
 
 theorem repeatedFiniteDefeatStabilityDoesNotImplyFinalDefeatAtoms :
-    stabilityWitness.finiteStableFamilies = 7 ∧
-    stabilityWitness.finalAtomsComplete = false := by
+    defeatStabilityWitness.finiteStableFamilies = 7 ∧
+    defeatStabilityWitness.finalAtomsComplete = false := by
   decide
 
 #print axioms MQR.equalContentCountsDoNotImplyEqualCounterfactualDefeatGeometry
