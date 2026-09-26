@@ -69,6 +69,44 @@ Novelty killed:
 - practical consequences can alter evidential/acceptance thresholds;
 - decision/use contracts are not an MQR invention.
 
+### End-of-inquiry / zetetic stopping
+
+Recent work directly attacks the idea that inquiry has a single context-free stopping rule.
+
+Hubacher Haerle (2026) argues for an epistemic limit on rational inquiry: there can be cases in which suspension remains rational while further inquiry is not. González de Prado (2026) argues that higher-order uncertainty can persist at the end of inquiry rather than forcing indefinite redeliberation. Douven & Wagner (2025) compare acceptance/stopping rules by simulation and find context-sensitive speed–accuracy trade-offs rather than one universally correct termination rule. Carolan (2026), in qualitative methodology, explicitly reframes saturation as a problem of epistemic sufficiency: inquiry can be rendered sufficiently complete to stop while further data and interpretations remain available.
+
+Novelty killed:
+- the generic claim that inquiry can rationally stop short of certainty or exhaustive closure;
+- the generic claim that residual uncertainty need not force endless inquiry;
+- the generic claim that stopping conditions can be purpose/context sensitive;
+- the generic contrast between exhaustiveness and sufficiency.
+
+DOIs:
+- 10.1093/mind/fzaf057
+- 10.1017/epi.2025.10096
+- 10.1007/s13194-025-00688-8
+- 10.1111/soin.70061
+
+### MQR-specific pressure from these results
+
+These papers sharpen rather than solve the MQR-4.50 problem. A context-sensitive stopping rule can itself be gamed if the agent defines an impoverished context after seeing the result. Therefore v0.17 must not treat a merely nonempty S/Q/W/R/K surface as self-authorizing.
+
+The constitutional firewall is:
+
+```text
+UPSTREAM HOLD OR REOPEN
+CANNOT BE OVERRIDDEN BY CRBR PASS.
+
+CRBR CONSUMES ADMITTED SURFACES;
+IT DOES NOT CREATE THEIR ADMISSIBILITY.
+
+OPERATIONAL STOP
+!=
+RETIREMENT OF OPEN-WORLD SEARCH OBLIGATIONS.
+```
+
+Accordingly, 4.50 closes only the current constitutional regress over already admitted live obligations. Rival/frontier/challenge/world-contact reopening machinery from MQR-4.41–4.49 remains active.
+
 ## Surviving candidate contribution
 
 The literature pressure leaves only a conjunction-level constitutional candidate:
@@ -103,3 +141,11 @@ Web-verified but not located in the current Drive search:
 - Douglas, *Inductive Risk and Values in Science*.
 
 These are DOI/intake candidates rather than hidden assumptions.
+
+Additional web-verified DOI/intake candidates introduced by the final regress-boundary novelty kill:
+- Hubacher Haerle (2026), *Rational Uncertainty and the Success Norm for Inquiry* — 10.1093/mind/fzaf057.
+- González de Prado (2026), *Higher-Order Uncertainty at the End of Inquiry* — 10.1017/epi.2025.10096.
+- Douven & Wagner (2025), *Acceptance in the Context of Inquiry* — 10.1007/s13194-025-00688-8.
+- Carolan (2026), *Saturation or Sufficiency? Epistemic Closure and the Problem of “Enough” in Qualitative Research* — 10.1111/soin.70061.
+
+They are novelty-pressure sources, not premises required for the executable verdict.
