@@ -1,0 +1,13 @@
+REALCHALLENGE 0.14
+id bad
+claim_scope x
+candidate_relations EXACT
+selector S a
+selection_timing PRESEALED
+selection_rule R a INDEPENDENT
+route d1
+probe q1 a SELECTED WORLD_FACING EXACT
+covers q1 d1
+score_source q1 MAGIC
+relevance_source q1 INDEPENDENT
+END
