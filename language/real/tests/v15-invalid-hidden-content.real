@@ -1,0 +1,12 @@
+REALROUTE 0.15
+id bad
+claim_scope x
+source_ontology O1
+target_ontology O2
+content x
+source_route s a x COVERED
+target_route t b x
+map s EXACT t
+coverage_witness s t x
+hidden_route h NOVEL_ROUTE z
+END
