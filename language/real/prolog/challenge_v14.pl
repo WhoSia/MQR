@@ -53,14 +53,19 @@ parse_tokens(["authorize_discriminator_capture",S]):-atomize(S,A0),upcase_atom(A
 parse_tokens(["authorize_expansion_reopen",S]):-atomize(S,A0),upcase_atom(A0,A),assertz(expected_expansion_reopen(A)).
 parse_tokens(["END"]):-assertz(seen_end).
 
+valid_cover_probe_refs :- forall(covers(P,_), probe(P,_,_,_,_)).
+valid_cover_route_refs :- forall(covers(_,R), route(R)).
+valid_score_refs :- forall(probe(P,_,_,_,_), score_source(P,_)).
+valid_relevance_refs :- forall(probe(P,_,_,_,_), relevance_source(P,_)).
+
 load_packet(File):-
   reset_db,read_file_to_string(File,S,[]),split_string(S,"\n","\r",Ls),maplist(parse_line,Ls),
   seen_header,seen_end,packet_id(_),claim_scope(_),candidate_relations(_),selector(_,_),
   selection_timing(_),selection_rule(_,_,_),route(_),probe(_,_,_,_,_),
-  \+(covers(P,_),\+probe(P,_,_,_,_)),
-  \+(covers(_,R),\+route(R)),
-  \+(probe(P,_,_,_,_),\+score_source(P,_)),
-  \+(probe(P,_,_,_,_),\+relevance_source(P,_)).
+  valid_cover_probe_refs,
+  valid_cover_route_refs,
+  valid_score_refs,
+  valid_relevance_refs.
 
 selected_world(P,A,R):-probe(P,A,'SELECTED','WORLD_FACING',R).
 selected_any(P):-probe(P,_,'SELECTED',_,_).
