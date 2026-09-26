@@ -44,20 +44,40 @@ jobs:
             writeln(REQUIRED_OK),
             halt" -t "halt(1)"
 
-      - name: Reference validation clean fixture
+      - name: Coverage probe references
         shell: bash
         run: |
           swipl -q -s language/real/prolog/challenge_v14.pl -g "
-            reset_db,
-            read_file_to_string('language/real/examples/mqr-4.47-clean-narrowing.real',S,[]),
-            split_string(S,'\n','\r',Ls),
-            maplist(parse_line,Ls),
-            \+(covers(P,_),\+probe(P,_,_,_,_)),
-            \+(covers(_,R),\+route(R)),
-            \+(probe(P2,_,_,_,_),\+score_source(P2,_)),
-            \+(probe(P3,_,_,_,_),\+relevance_source(P3,_)),
-            writeln(REFERENCES_OK),
-            halt" -t "halt(1)"
+            reset_db,read_file_to_string('language/real/examples/mqr-4.47-clean-narrowing.real',S,[]),
+            split_string(S,'\n','\r',Ls),maplist(parse_line,Ls),
+            \+(covers(P,_),\+probe(P,_,_,_,_)),writeln(COVER_PROBE_OK),halt" -t "halt(1)"
+
+      - name: Coverage route references
+        if: always()
+        shell: bash
+        run: |
+          swipl -q -s language/real/prolog/challenge_v14.pl -g "
+            reset_db,read_file_to_string('language/real/examples/mqr-4.47-clean-narrowing.real',S,[]),
+            split_string(S,'\n','\r',Ls),maplist(parse_line,Ls),
+            \+(covers(_,R),\+route(R)),writeln(COVER_ROUTE_OK),halt" -t "halt(1)"
+
+      - name: Score references
+        if: always()
+        shell: bash
+        run: |
+          swipl -q -s language/real/prolog/challenge_v14.pl -g "
+            reset_db,read_file_to_string('language/real/examples/mqr-4.47-clean-narrowing.real',S,[]),
+            split_string(S,'\n','\r',Ls),maplist(parse_line,Ls),
+            \+(probe(P,_,_,_,_),\+score_source(P,_)),writeln(SCORE_OK),halt" -t "halt(1)"
+
+      - name: Relevance references
+        if: always()
+        shell: bash
+        run: |
+          swipl -q -s language/real/prolog/challenge_v14.pl -g "
+            reset_db,read_file_to_string('language/real/examples/mqr-4.47-clean-narrowing.real',S,[]),
+            split_string(S,'\n','\r',Ls),maplist(parse_line,Ls),
+            \+(probe(P,_,_,_,_),\+relevance_source(P,_)),writeln(RELEVANCE_OK),halt" -t "halt(1)"
 
       - name: load_packet clean fixture
         run: |
