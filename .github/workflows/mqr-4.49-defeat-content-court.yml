@@ -1,0 +1,183 @@
+name: MQR-4.49 Defeat-Content Constitution Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.49/**'
+      - 'language/real/src/defeat_v16.rs'
+      - 'language/real/prolog/defeat_v16.pl'
+      - 'language/real/examples/mqr-4.49-*.real'
+      - 'language/real/tests/v16-invalid-*.real'
+      - 'language/real/V16-DEFEAT-CONTENT.md'
+      - 'language/real/lean/MQR/DefeatContent.lean'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.49-defeat-content-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  defeat-content-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.16 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v16-defeat
+
+      - name: Execute defeat-content attacks and Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v16-defeat
+          P=language/real/prolog/defeat_v16.pl
+          CORE='^defeat\.(source_content_count|target_content_count|source_mechanism_count|target_mechanism_count|source_manifestation_count|target_manifestation_count|source_ancestry_count|target_ancestry_count|counterfactual_profile_count_source|counterfactual_profile_count_target|split_count|merge_count|manifestation_multiplication|mechanism_aliasing|common_cause_compression|role_transport_complete|local_counterfactual_equivalence|role_drift|split_without_new_distinction|representation_collapse|expansion_breaks_equivalence|hidden_content_count|hidden_novel_distinction|path_conflict|reopen_required|identity_authority|current_defeat_atoms_complete|future_defeat_space_closed|label_identity_oracle|mechanism_identity_oracle|manifestation_identity_oracle|counterfactual_equivalence_truth_oracle|representation_truth_oracle|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.49-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep -E "$CORE" /tmp/rust > /tmp/rust.core
+            grep -E "$CORE" /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.49-same-label-drift.real > /tmp/drift
+          grep -F 'defeat.role_drift=YES' /tmp/drift
+          grep -F 'defeat.identity_authority=HOLD_ROLE_DRIFT' /tmp/drift
+
+          "$V" language/real/examples/mqr-4.49-different-label-alias.real > /tmp/alias
+          grep -F 'defeat.local_counterfactual_equivalence=YES' /tmp/alias
+          grep -F 'defeat.identity_authority=AUTHORIZED_LOCAL_COUNTERFACTUAL_QUOTIENT' /tmp/alias
+
+          "$V" language/real/examples/mqr-4.49-manifestation-multiplication.real > /tmp/mm
+          grep -F 'defeat.manifestation_multiplication=YES' /tmp/mm
+          grep -F 'defeat.counterfactual_profile_count_source=2' /tmp/mm
+
+          "$V" language/real/examples/mqr-4.49-mechanism-aliasing.real > /tmp/ma
+          grep -F 'defeat.mechanism_aliasing=YES' /tmp/ma
+
+          "$V" language/real/examples/mqr-4.49-split-duplicate.real > /tmp/sd
+          grep -F 'defeat.source_content_count=1' /tmp/sd
+          grep -F 'defeat.target_content_count=3' /tmp/sd
+          grep -F 'defeat.counterfactual_profile_count_source=1' /tmp/sd
+          grep -F 'defeat.counterfactual_profile_count_target=1' /tmp/sd
+          grep -F 'defeat.split_without_new_distinction=YES' /tmp/sd
+          grep -F 'defeat.identity_authority=HOLD_SPLIT_WITHOUT_NEW_DISTINCTION' /tmp/sd
+
+          "$V" language/real/examples/mqr-4.49-refinement-genuine.real > /tmp/refine
+          grep -F 'defeat.counterfactual_profile_count_source=1' /tmp/refine
+          grep -F 'defeat.counterfactual_profile_count_target=2' /tmp/refine
+          grep -F 'defeat.role_transport_complete=YES' /tmp/refine
+          grep -F 'defeat.identity_authority=AUTHORIZED_COUNTERFACTUAL_REFINEMENT' /tmp/refine
+
+          "$V" language/real/examples/mqr-4.49-merge-launder.real > /tmp/ml
+          grep -F 'defeat.merge_count=1' /tmp/ml
+          grep -F 'defeat.role_transport_complete=NO' /tmp/ml
+          grep -F 'defeat.identity_authority=HOLD_MERGE_DISTINCTION_LAUNDERING' /tmp/ml
+
+          "$V" language/real/examples/mqr-4.49-merge-quotient.real > /tmp/mq
+          grep -F 'defeat.merge_count=1' /tmp/mq
+          grep -F 'defeat.role_transport_complete=YES' /tmp/mq
+          grep -F 'defeat.identity_authority=AUTHORIZED_SCOPE_QUOTIENT_MERGE' /tmp/mq
+
+          "$V" language/real/examples/mqr-4.49-common-cause.real > /tmp/cc
+          grep -F 'defeat.common_cause_compression=YES' /tmp/cc
+          grep -F 'defeat.counterfactual_profile_count_source=2' /tmp/cc
+
+          "$V" language/real/examples/mqr-4.49-expansion-break.real > /tmp/exp
+          grep -F 'defeat.local_counterfactual_equivalence=YES' /tmp/exp
+          grep -F 'defeat.expansion_breaks_equivalence=YES' /tmp/exp
+          grep -F 'defeat.identity_authority=REOPEN_EXPANSION_BREAK' /tmp/exp
+
+          "$V" language/real/examples/mqr-4.49-cross-representation-transport.real > /tmp/cr
+          grep -F 'defeat.local_counterfactual_equivalence=YES' /tmp/cr
+          grep -F 'defeat.identity_authority=AUTHORIZED_LOCAL_COUNTERFACTUAL_QUOTIENT' /tmp/cr
+
+          "$V" language/real/examples/mqr-4.49-representation-collapse.real > /tmp/collapse
+          grep -F 'defeat.representation_collapse=YES' /tmp/collapse
+          grep -F 'defeat.identity_authority=HOLD_REPRESENTATION_COLLAPSE' /tmp/collapse
+
+          "$V" language/real/examples/mqr-4.49-hidden-novel.real > /tmp/hn
+          grep -F 'defeat.hidden_novel_distinction=YES' /tmp/hn
+          grep -F 'defeat.reopen_required=YES' /tmp/hn
+          grep -F 'defeat.identity_authority=REOPEN_HIDDEN_NOVEL_DISTINCTION' /tmp/hn
+
+          "$V" language/real/examples/mqr-4.49-hidden-refinement.real > /tmp/hr
+          grep -F 'defeat.hidden_novel_distinction=NO' /tmp/hr
+          grep -F 'defeat.identity_authority=REOPEN_HIDDEN_CONTENT_REVISION' /tmp/hr
+
+          "$V" language/real/examples/mqr-4.49-mechanism-reassignment.real > /tmp/mr
+          grep -F 'defeat.mechanism_aliasing=YES' /tmp/mr
+          grep -F 'defeat.identity_authority=AUTHORIZED_LOCAL_COUNTERFACTUAL_QUOTIENT' /tmp/mr
+
+          "$V" language/real/examples/mqr-4.49-manifestation-reassignment.real > /tmp/vr
+          grep -F 'defeat.manifestation_multiplication=YES' /tmp/vr
+          grep -F 'defeat.identity_authority=AUTHORIZED_LOCAL_COUNTERFACTUAL_QUOTIENT' /tmp/vr
+
+          "$V" language/real/examples/mqr-4.49-path-conflict.real > /tmp/path
+          grep -F 'defeat.path_conflict=YES' /tmp/path
+          grep -F 'defeat.identity_authority=REOPEN_REVISION_PATH_CONFLICT' /tmp/path
+
+          "$V" language/real/examples/mqr-4.49-stable-finite.real > /tmp/stable
+          grep -F 'defeat.path_conflict=NO' /tmp/stable
+          grep -F 'defeat.current_defeat_atoms_complete=NO' /tmp/stable
+          grep -F 'defeat.future_defeat_space_closed=NO' /tmp/stable
+
+          grep -F 'defeat.label_identity_oracle=NO' /tmp/stable
+          grep -F 'defeat.mechanism_identity_oracle=NO' /tmp/stable
+          grep -F 'defeat.manifestation_identity_oracle=NO' /tmp/stable
+          grep -F 'defeat.counterfactual_equivalence_truth_oracle=NO' /tmp/stable
+          grep -F 'defeat.representation_truth_oracle=NO' /tmp/stable
+          grep -F 'defeat.guidance_mode=REOPENABLE_COUNTERFACTUAL_DEFEAT_QUOTIENT' /tmp/stable
+
+          for x in language/real/tests/v16-invalid-*.real; do
+            if "$V" "$x"; then
+              echo "Rust unexpectedly accepted $x" >&2
+              exit 1
+            fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then
+              echo "Prolog unexpectedly accepted $x" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V16_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR449_DEFEAT_LABEL_IDENTITY_GUARD=PASS
+          echo MQR449_MECHANISM_MANIFESTATION_SEPARATION=PASS
+          echo MQR449_COUNTERFACTUAL_SPLIT_GUARD=PASS
+          echo MQR449_GENUINE_REFINEMENT_POSITIVE_CONTROL=PASS
+          echo MQR449_MERGE_DISTINCTION_LAUNDERING=PASS
+          echo MQR449_SCOPE_QUOTIENT_MERGE=PASS
+          echo MQR449_COMMON_CAUSE_COMPRESSION=PASS
+          echo MQR449_EXPANSION_BREAK_REOPENING=PASS
+          echo MQR449_CROSS_REPRESENTATION_DEFEAT_TRANSPORT=PASS
+          echo MQR449_HIDDEN_CONTENT_REOPENING=PASS
+          echo MQR449_REVISION_PATH_CONFLICT=PASS
+          echo MQR449_FINAL_DEFEAT_ATOMS_COMPLETE=NO
+
+      - name: Publish externally readable workflow receipt
+        if: \${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: \${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "\${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.49/Court"
+          description="run \${GITHUB_RUN_ID}: \${{ job.status }}"
+          target="\${GITHUB_SERVER_URL}/\${GITHUB_REPOSITORY}/actions/runs/\${GITHUB_RUN_ID}"
+          gh api --method POST "repos/\${GITHUB_REPOSITORY}/statuses/\${GITHUB_SHA}" \
+            -f state="$state" \
+            -f context="$context" \
+            -f description="$description" \
+            -f target_url="$target"
