@@ -1,0 +1,23 @@
+REALROUTE 0.15
+id ancestry-entangled
+claim_scope defeat-route-ontology
+source_ontology O1
+target_ontology O2
+content x
+content y
+source_route sx shared x COVERED
+source_route sy shared y COVERED
+target_route tx shared x
+target_route ty shared y
+map sx EXACT tx
+map sy EXACT ty
+coverage_witness sx tx x
+coverage_witness sy ty y
+authorize_coverage_authority HOLD_ROUTE_ANCESTRY_ENTANGLEMENT
+authorize_coverage_equivalence YES
+authorize_duplication NO
+authorize_collapse NO
+authorize_hidden_novel NO
+authorize_ancestry_entanglement YES
+authorize_path_conflict NO
+END
