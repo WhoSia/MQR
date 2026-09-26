@@ -262,10 +262,10 @@ fn analyze(p:&Packet)->BTreeMap<String,String>{
         else if adjudicator_ancestry_count>=2{"ANCESTRY_SEPARATED"}
         else{"UNRESOLVED"};
 
-    let authority=if cas.is_empty(){"CONTESTED_NO_COMMON_RELATION"}
-        else if forced_overclaim{"REOPEN_FORCED_SINGLETON"}
+    let authority=if forced_overclaim{"REOPEN_FORCED_SINGLETON"}
         else if meta_cycle{"REOPEN_META_CYCLE"}
         else if direct_meta_conflict{"REOPEN_DIRECT_META_CONFLICT"}
+        else if cas.is_empty(){"CONTESTED_NO_COMMON_RELATION"}
         else if capture_risk{"HOLD_STANDARD_CAPTURE"}
         else if self_certified{"HOLD_SELF_CERTIFIED"}
         else if common_ancestry && adj_count>1{"HOLD_COMMON_ANCESTRY"}
