@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.48**.
+Status: live through **MQR-4.49**.
 
 ## Generation-IV authority kernel
 
@@ -996,7 +996,33 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 216. **Direct/composed route-revision disagreement is a reopening event.** Noncommuting coverage transport defeats path-independent authority but does not identify a metaphysically correct route ontology.
 217. **Finite route stability ≠ final defeat ontology.** Repeated content-preserving revisions may earn version-relative robustness only; current route ontology completeness and future defeat-space closure remain forbidden inferences.
 
+218. **Defeat label ≠ defeat identity.** A declared way of being wrong is not a world-fundamental error atom merely because it has a stable name.
+219. **Mechanism ≠ manifestation ≠ defeat role.** Causal/failure mechanism, observable manifestation and claim-relative authority-loss role are separate audit coordinates.
+220. **Content count ≠ independent failure dimensions.** Nominal defeat-content multiplicity cannot substitute for distinct counterfactual defeat profiles or noncommon ancestry.
+221. **Counterfactually identical split ≠ new defeat distinction.** Splitting one content into several carriers without a new challenge-conditioned distinction cannot manufacture new ways to be wrong.
+222. **Prospective separator may justify content refinement.** A split can earn local authority when a prospectively admissible challenge produces distinct defeat roles and predecessor role coverage is preserved.
+223. **Content merge requires role preservation.** Merging contents cannot erase predecessor defeat distinctions; a scope-local quotient merge is admissible only where all load-bearing defeat consequences remain witnessed.
+224. **Common cause compresses independence, not necessarily identity.** Shared ancestry can defeat independence claims while contents remain counterfactually distinct downstream.
+225. **Local counterfactual equivalence ≠ world identity.** Equality of CDP under a declared challenge family and claim scope licenses at most a local quotient.
+226. **Challenge expansion can break a defeat quotient.** A new admissible challenge that separates previously equivalent contents is a reopening event.
+227. **Cross-representation role preservation may support local identity transport.** Label, mechanism, manifestation or granularity change need not destroy a defeat role when explicit witnesses preserve its authority-changing consequences.
+228. **Representation collapse is an authority loss.** A coarse representation that drops a predecessor defeat consequence cannot inherit the predecessor route/content identity at the expanded scope.
+229. **Hidden defeat content reopens locally, not globally.** Novel distinctions or content revisions reopen affected authority without automatically negating all prior scoped results.
+230. **Finite defeat stability ≠ final defeat atoms.** Repeated stability across finite challenge families never licenses current defeat-atom completeness or future defeat-space closure.
+
 ## Live governance objects
+
+- Defeat-Content Constitution Receipt (DCCR)
+- Defeat-Identity Witness (DIW)
+- Mechanism–Manifestation Matrix (MMM)
+- Counterfactual Defeat Profile (CDP)
+- Counterfactual Defeat Equivalence Envelope (CDEE)
+- Content Split/Merge Receipt (CSMR)
+- Common-Cause Compression Graph (CCCG)
+- Cross-Representation Defeat Transport (CRDT)
+- Hidden-Content Genesis Receipt (HCGR)
+- Defeat-Content Residue Ledger (DCRL)
+- Defeat-Content Admissibility Envelope (DCAE)
 
 - Defeat-Route Ontology Constitution Receipt (DROCR)
 - Route-Identity Witness (RIW)
