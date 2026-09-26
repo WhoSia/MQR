@@ -33,7 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -604,6 +604,60 @@ jobs:
           echo MQR445_CONFLICT_LOCALIZATION=PASS
           echo MQR445_WORLD_BURDEN_IDENTITY=NO
           echo MQR445_FUTURE_REVISION_CLOSED=NO
+
+
+      - name: Real-Language v0.13 translation-authority guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V13=./language/real/target/release/real-v13-map-authority
+          P13=language/real/prolog/map_authority_v13.pl
+          CORE='^authority\.(candidate_relation|adjudicator_count|adjudicator_ancestry_count|independence_state|self_certified|common_ancestry|standard_count|capture_risk|correspondence_set|correspondence_set_size|correspondence_singleton|forced_singleton_overclaim|conflict_count|direct_meta_conflict|world_facing_separator_present|meta_cycle|meta_debt_count|mapping_authority|unique_world_correspondence_inferred|future_translation_closed|consensus_truth_oracle|standard_truth_oracle|externality_truth_oracle|meta_cycle_authority|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.46-*.real; do
+            "$V13" "$f" > /tmp/v13.rust
+            swipl -q -s "$P13" -g "run('$f'),halt" -t "halt(1)" > /tmp/v13.prolog
+            grep -E "$CORE" /tmp/v13.rust > /tmp/v13.rust.core
+            grep -E "$CORE" /tmp/v13.prolog > /tmp/v13.prolog.core
+            diff -u /tmp/v13.rust.core /tmp/v13.prolog.core
+          done
+
+          "$V13" language/real/examples/mqr-4.46-self-certified.real > /tmp/v13-self
+          "$V13" language/real/examples/mqr-4.46-common-ancestry-majority.real > /tmp/v13-common
+          "$V13" language/real/examples/mqr-4.46-set-valued.real > /tmp/v13-set
+          "$V13" language/real/examples/mqr-4.46-forced-singleton.real > /tmp/v13-force
+          "$V13" language/real/examples/mqr-4.46-standard-capture.real > /tmp/v13-capture
+          "$V13" language/real/examples/mqr-4.46-world-separator.real > /tmp/v13-world
+          "$V13" language/real/examples/mqr-4.46-meta-cycle.real > /tmp/v13-cycle
+          "$V13" language/real/examples/mqr-4.46-finite-meta-debt.real > /tmp/v13-debt
+          "$V13" language/real/examples/mqr-4.46-direct-meta-conflict.real > /tmp/v13-dm
+
+          grep -F 'authority.mapping_authority=HOLD_SELF_CERTIFIED' /tmp/v13-self
+          grep -F 'authority.adjudicator_count=3' /tmp/v13-common
+          grep -F 'authority.adjudicator_ancestry_count=1' /tmp/v13-common
+          grep -F 'authority.mapping_authority=SET_VALUED_PROVISIONAL' /tmp/v13-set
+          grep -F 'authority.forced_singleton_overclaim=YES' /tmp/v13-force
+          grep -F 'authority.capture_risk=YES' /tmp/v13-capture
+          grep -F 'authority.world_facing_separator_present=YES' /tmp/v13-world
+          grep -F 'authority.meta_cycle=YES' /tmp/v13-cycle
+          grep -F 'authority.meta_debt_count=1' /tmp/v13-debt
+          grep -F 'authority.direct_meta_conflict=YES' /tmp/v13-dm
+          grep -F 'authority.unique_world_correspondence_inferred=NO' /tmp/v13-world
+          grep -F 'authority.future_translation_closed=NO' /tmp/v13-world
+
+          for x in language/real/tests/v13-invalid-*.real; do
+            if "$V13" "$x"; then exit 1; fi
+            if swipl -q -s "$P13" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V13_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR446_MAPPING_WITNESS_AUTHORITY=PASS
+          echo MQR446_SET_VALUED_CORRESPONDENCE=PASS
+          echo MQR446_STANDARD_CAPTURE_GUARD=PASS
+          echo MQR446_META_REGRESS_BOUNDARY=PASS
+          echo MQR446_UNIQUE_WORLD_CORRESPONDENCE=NO
+          echo MQR446_FUTURE_TRANSLATION_CLOSED=NO
 
 
       - name: Publish externally readable workflow receipt
