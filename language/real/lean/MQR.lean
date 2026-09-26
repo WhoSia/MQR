@@ -9,3 +9,4 @@ import MQR.Allocation
 import MQR.Constitution
 import MQR.Revision
 import MQR.MapAuthority
+import MQR.Challenge
