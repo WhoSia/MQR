@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.49**.
+Status: live through **MQR-4.50**.
 
 ## Generation-IV authority kernel
 
@@ -1010,7 +1010,34 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 229. **Hidden defeat content reopens locally, not globally.** Novel distinctions or content revisions reopen affected authority without automatically negating all prior scoped results.
 230. **Finite defeat stability ≠ final defeat atoms.** Repeated stability across finite challenge families never licenses current defeat-atom completeness or future defeat-space closure.
 
+
+231. **Metaphysical termination ≠ operational termination.** Scientific use may close a current constitutional regress without asserting that no deeper distinction, criterion or ontology exists.
+232. **A Constitutional Regress Boundary Receipt consumes admissible surfaces; it does not manufacture their admissibility.** MQR-4.50 cannot override an upstream HOLD/REOPEN from the frontier, obligation, translation, challenge, route or defeat-content constitutions merely by declaring a smaller S/Q/W/R/K.
+233. **Operational stop ≠ retirement of open-world search.** A local regress stop licenses the current claim/use only; activation-capable rival, challenge and world-contact reopening obligations remain live under their upstream constitutions.
+234. **Registered-refinement invariance can earn scoped sufficiency only when material live debt is empty.** Every already admitted material refinement must be replayed or remain an explicit HOLD; omission is not termination.
+235. **Nonempty refinement families are not completeness certificates.** The relevant family is the constitutionally admitted live surface, not an arbitrary nonempty subset chosen by the incumbent.
+236. **Claim-scope provenance is load-bearing.** Post-outcome scope shrinkage that erases a known distinction is capture; a prospective scope revision requires a fresh local receipt and replay.
+237. **Criterion agreement over a registered envelope ≠ criterion completeness.** Agreement can support criterion-robust local stopping but cannot establish a universal materiality standard.
+238. **Criterion disagreement is a HOLD, not a demand for infinite meta-recursion.** Unresolved admissible disagreement remains explicit debt unless new independent grounds resolve it.
+239. **Meta-cycle ≠ foundation.** Cyclic mutual support among stop criteria adds no independent world-facing warrant.
+240. **World-facing inert refinement may be quotiented locally.** Finer structure that changes neither declared defeat/discrimination nor decision-relevant consequences need not block the current claim/use.
+241. **A new world-contact separator breaks the operational fixed point.** Reopening is revision of a scoped receipt, not contradiction of a claim to finality that was never made.
+242. **Descriptive sufficiency ≠ universal action warrant.** Action authority is indexed by an explicit decision/use contract; contract change reopens the receipt.
+243. **Repeated finite stability ≠ future refinement-space closure.** Stability rounds may strengthen current robustness only; final ontology, global fixed point and future-space closure remain forbidden inferences.
+244. **Reopenability ≠ permanent suspension.** When the admitted surface is nonvacuous, every live material obligation is discharged, criteria are invariant on the registered envelope, and no reopening trigger is active, scoped operational authorization may be positive rather than merely HOLD.
+
 ## Live governance objects
+
+- Constitutional Regress Boundary Receipt (CRBR)
+- Operational Quotient Sufficiency Certificate (OQSC)
+- Claim-Scope Provenance Receipt (CSPR)
+- Scope-Endogeneity / Capture Sentinel (SECS)
+- Meta-Criterion Recursion Receipt (MCRR)
+- Criterion-Sensitivity Envelope (CSE)
+- World-Contact Termination Receipt (WCTR)
+- Reopening Fixed-Point State (RFPS)
+- Refinement Debt Ledger (RDL)
+- Reopening Activation Receipt (RAR)
 
 - Defeat-Content Constitution Receipt (DCCR)
 - Defeat-Identity Witness (DIW)
