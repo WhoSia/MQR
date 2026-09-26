@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.46**.
+Status: live through **MQR-4.47**.
 
 ## Generation-IV authority kernel
 
@@ -970,7 +970,30 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 192. **Finite unresolved meta-debt is admissible as an explicit HOLD.** Operational governance may stop at a declared unanchored terminal rather than inventing either an infinite completed regress or a final meta-standard.
 193. **Current translation-authority PASS ≠ future translation closure.** A successful TAR is scoped to the declared witness, standard, ancestry and challenge surfaces and remains reopenable.
 
+194. **World-facing probe ≠ separator-selection authority.** Contact with the world does not by itself justify why that probe family, packet or relevance rule was selected.
+195. **Registered family ≠ selected packet.** Candidate challenge registration and actual separator use require separate provenance and timing receipts.
+196. **Probe count ≠ defeat-route coverage.** Raw multiplicity cannot substitute for declared coverage of distinct load-bearing defeat routes.
+197. **Probe count ≠ probe-ancestry independence.** Surface-distinct probes sharing one load-bearing data, instrument, transformation, representation or selector ancestry remain common-mode.
+198. **Complete declared route coverage ≠ challenge-space completeness.** Coverage is relative to the declared defeat-route ontology and never closes unknown future separators.
+199. **Post-outcome packet selection defeats prospective separator authority.** Prospective registration does not launder retrospective choice of the favorable packet.
+200. **Incumbent-defined relevance or candidate-derived scoring is discriminator capture.** A test that imports the preferred mapping into relevance or score construction cannot provide independent narrowing.
+201. **Omitted registered counterprobe reopens narrowing.** If an unselected world-facing registered probe was compatible with the pre-challenge CAS but defeats the selected result, the current separator receipt must reopen.
+202. **Challenge expansion may reopen mapping authority.** Admissible successor probes can weaken, alter or empty the currently narrowed relation set.
+203. **Repeated finite challenge stability ≠ future closure.** Survival across several finite expansions can earn family-relative robustness only.
+204. **Separator admissibility ≠ universal separator ranking.** SAE is a membership surface over declared packet conditions, not an optimizer over all conceivable scientific tests.
+205. **Current challenge constitution PASS ≠ final test constitution.** TCCR authority remains conditional on declared family, route, ancestry, capture and expansion surfaces.
+
 ## Live governance objects
+
+- Translation-Challenge Constitution Receipt (TCCR)
+- Separator Family Registry (SFR)
+- Defeat-Route Coverage Matrix (DRCM)
+- Probe-Ancestry Graph (PAG)
+- Separator-Selection Receipt (SSR)
+- Discriminator Capture Receipt (DCR)
+- Challenge Expansion Receipt (CER)
+- Challenge Residue Ledger (CRL)
+- Separator Admissibility Envelope (SAE)
 
 - Translation-Authority Receipt (TAR)
 - Mapping-Witness Graph (MWG)
