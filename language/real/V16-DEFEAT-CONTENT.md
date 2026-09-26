@@ -1,6 +1,6 @@
 # Real-Language v0.16 — Defeat-Content Constitution
 
-Status: EXECUTABLE CANDIDATE / MQR-4.49 / ROLE-RELATIONAL / MECHANISM-MANIFESTATION-SEPARATED / COUNTERFACTUAL-QUOTIENT / EXPANSION-REOPENABLE
+Status: EXECUTABLE / MQR-4.49 CLOSED / ROLE-RELATIONAL / MECHANISM-MANIFESTATION-SEPARATED / COUNTERFACTUAL-QUOTIENT / EXPANSION-REOPENABLE
 
 ## Boundary
 
@@ -201,3 +201,28 @@ Rust–Prolog concordance is evidence about the declared receipt semantics only.
 v0.16 does not re-claim causal mechanism individuation, interventionism, causal abstraction, exact transformation, compositional abstraction, causal representation learning, multiple realization, ontology split/merge, common-cause dependence, partition granularity or fault taxonomy.
 
 Its narrow target is **route identity through reopenable, claim-relative defeat-role equivalence across changing content representations**.
+
+
+## Final closure boundary
+
+MQR-4.49 closes only the declared defeat-content constitution problem.
+
+~~~text
+DEFEAT LABEL != DEFEAT IDENTITY
+MECHANISM != MANIFESTATION != DEFEAT ROLE
+CONTENT COUNT != INDEPENDENT FAILURE DIMENSIONS
+COUNTERFACTUALLY IDENTICAL SPLIT != NEW DEFEAT DISTINCTION
+ROLE-PRESERVING REFINEMENT MAY EARN LOCAL AUTHORITY
+MERGE REQUIRES PREDECESSOR ROLE PRESERVATION
+COMMON CAUSE != CONTENT IDENTITY
+LOCAL CDP EQUIVALENCE != WORLD IDENTITY
+CHALLENGE EXPANSION MAY BREAK THE QUOTIENT
+CROSS-REPRESENTATION ROLE TRANSPORT MAY PRESERVE LOCAL IDENTITY
+HIDDEN CONTENT -> LOCAL REOPEN
+CURRENT DEFEAT ATOMS COMPLETE = NO
+FUTURE DEFEAT SPACE CLOSED = NO
+~~~
+
+The exact final same-head commit and workflow receipts are recorded in the external Research OS closure receipt so writing those identifiers does not mutate the sealed Git head.
+
+<!-- mqr-4.49-final-same-head-seal -->
