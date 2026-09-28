@@ -81,3 +81,8 @@ path = "src/stop_v18.rs"
 [[bin]]
 name = "real-v19-trace"
 path = "src/trace_v19.rs"
+
+
+[[bin]]
+name = "real-v20-progress"
+path = "src/progress_v20.rs"
