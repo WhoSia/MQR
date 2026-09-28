@@ -277,6 +277,8 @@ jobs:
             MQR.inertCheckpointDuplicationCanChangeEventCountWithoutWorldChange
             MQR.sameBurdenCanHaveDifferentObligationCarrierCounts
             MQR.equalDescriptiveInformationNeedNotImplyEqualInterventionReach
+            MQR.equalInterventionReachNeedNotImplyEqualDescriptiveDiscrimination
+            MQR.calibrationInterventionOrderCanBeMaterial
             MQR.positiveRawPathLengthCanBeNetProgressNull
             MQR.correctiveProgressCanLowerClaimAuthority
             MQR.independentAxisRescalingCanReverseWeightedScalarOrder
@@ -286,6 +288,7 @@ jobs:
             MQR.structuralCrossDomainTransportDoesNotImplyMagnitudeTransport
             MQR.globalMetaRulesCanCoexistWithPluralLocalGeometries
             MQR.admissibleProgressStateAloneNeedNotLicenseStop
+            MQR.scalarAndNonScalarStopRulesCanDisagree
           )
           for theorem in "${theorems[@]}"; do
             grep -F "'$theorem' does not depend on any axioms" /tmp/lean-progress-geometry.log
@@ -295,6 +298,8 @@ jobs:
             MQR.inertCheckpointDuplicationCanChangeEventCountWithoutWorldChange \
             MQR.sameBurdenCanHaveDifferentObligationCarrierCounts \
             MQR.equalDescriptiveInformationNeedNotImplyEqualInterventionReach \
+            MQR.equalInterventionReachNeedNotImplyEqualDescriptiveDiscrimination \
+            MQR.calibrationInterventionOrderCanBeMaterial \
             MQR.positiveRawPathLengthCanBeNetProgressNull \
             MQR.correctiveProgressCanLowerClaimAuthority \
             MQR.independentAxisRescalingCanReverseWeightedScalarOrder \
@@ -304,6 +309,7 @@ jobs:
             MQR.structuralCrossDomainTransportDoesNotImplyMagnitudeTransport \
             MQR.globalMetaRulesCanCoexistWithPluralLocalGeometries \
             MQR.admissibleProgressStateAloneNeedNotLicenseStop \
+            MQR.scalarAndNonScalarStopRulesCanDisagree \
             > /tmp/mqr-453-integrated.export
           cat > /tmp/mqr-453-integrated-nanoda.json <<'JSON'
           {
