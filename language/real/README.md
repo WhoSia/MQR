@@ -713,3 +713,60 @@ UPSTREAM HOLD/REOPEN CANNOT BE LAUNDERED INTO PASS BY v0.17.
 A nonvacuous, replay-complete, debt-free, criterion-invariant current surface may earn `AUTHORIZED_CRITERION_ROBUST_OPERATIONAL_STOP`. An explicit decision contract with action invariance may additionally earn `AUTHORIZED_ACTION_UNDER_DECLARED_CONTRACT`. Material refinements, live debt, post-outcome scope/criterion capture, criterion disagreement, meta-cycles, path conflict, new distinguishing world contact, criterion-envelope break or decision-contract change yield HOLD/REOPEN.
 
 The live doctrine is **reopenable operational sufficiency without a final ontology, global stopping rule, or retirement of open-world inquiry**.
+
+
+## v0.18 — stopping-rule calibration
+
+MQR-4.51 adds `REALSTOP 0.18`.
+
+Canonical local evaluator: Rust `src/stop_v18.rs` / `real-v18-stop`.
+Independent relational evaluator: `prolog/stop_v18.pl`.
+Prospective calibration harness: `experiments/mqr-4.51/benchmark.py`.
+Finite Lean boundary: `lean/MQR/StoppingCalibration.lean`.
+Constitution: `V18-STOPPING-CALIBRATION.md`.
+
+v0.18 separates **constitutional stop eligibility** from **calibrated stop timing**.
+
+The first prospective court materialized 468 generated traces across three independently coded domains and twelve forcing families, with 108 discovery / 144 calibration / 216 untouched holdout traces.
+
+Raw immediate OQSC stopping failed C1 in every domain:
+
+~~~text
+RAW OQSC HOLDOUT
+PSE_live = 51
+AE_live = 51
+OIW = 38.5
+VERDICT = FAIL
+~~~
+
+The calibration split selected one additional eligible transition, `lambda=1`, from the frozen `{0,1,2,3}` family. Without holdout tuning, that successor passed C1–C5 in FAULT, MEASUREMENT and SEARCH:
+
+~~~text
+CALIBRATED OQSC-LAG-1 HOLDOUT
+PSE_live = 0
+AE_live = 0
+OIW = 338.5
+RL_max = 0
+MISSED_REOPEN = 0
+VERDICT = PASS
+~~~
+
+The increase in OIW is retained as a load-bearing trade-off; no scalar score erases it.
+
+Canonical guards:
+
+~~~text
+OQSC ELIGIBLE != CALIBRATED STOP NOW
+LIVE-OBLIGATION PREMATURE ERROR != FUTURE REOPENING
+PRIMARY SCALAR SCORE = OFF
+HIDDEN GOLD ACCESS = NO
+FUTURE ORACLE = NO
+POST-HOLDOUT POLICY REPAIR = FORBIDDEN
+EXTERNAL CALIBRATION = HOLD
+UNIVERSAL OPTIMALITY = FORBIDDEN
+GUIDANCE = CALIBRATED_REOPENABLE_STOP
+~~~
+
+The benchmark-specific `lambda=1` result is **not** a universal real-world stopping constant. v0.18 makes the calibration coordinate explicit while preserving v0.17's reopening reserve and upstream-admissibility firewall.
+
+The live doctrine is **internally calibrated, reopenable stop timing on the declared benchmark family, with external scientific calibration still on HOLD**.
