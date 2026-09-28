@@ -7,6 +7,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'experiments/mqr-4.52/FINAL-SEAL.md'
       - 'language/real/**'
       - '.github/workflows/real-language-ci.yml'
   workflow_dispatch:
