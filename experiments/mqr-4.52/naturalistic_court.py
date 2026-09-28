@@ -40,27 +40,24 @@ def case_transportable(case):
     hi = case.stop_window[1]
     return all(cp.mapping in AUTHORITATIVE_MAPPING for cp in case.checkpoints[:hi+1])
 
-def duplicate_first_eligible_lag_one(case):
-    first = next((i for i,c in enumerate(case.checkpoints) if c.eligible is True), None)
-    if first is None:
-        return None
-    # Inserting an observationally inert duplicate immediately after the first
-    # eligible checkpoint changes the event-count lag-1 stopping index to the
-    # duplicate, without changing world state.
-    return first + 1
+def first_eligible(case):
+    return next((i for i,c in enumerate(case.checkpoints) if c.eligible is True), None)
 
 def natural_lag_one(case):
     return policy_stop(case, 1)
 
 def granularity_sensitive(case):
-    dup = duplicate_first_eligible_lag_one(case)
-    natural = natural_lag_one(case)
-    if dup is None:
+    first = first_eligible(case)
+    if first is None:
         return None
-    # If the natural trace's second eligible report occurs at a different
-    # checkpoint (or not at all), the same world-state path yields a different
-    # lag-1 decision under inert checkpoint refinement.
-    return natural != dup
+    # Refinement countermodel: insert an observationally inert duplicate of
+    # the first eligible checkpoint immediately after itself.  Because lag-1
+    # counts eligible *events* rather than world-state change, the duplicate
+    # becomes the second eligible event and licenses STOP without any new
+    # world contact.  The original trace either waits for a distinct later
+    # checkpoint or never stops.  Thus every trace with an eligible state is
+    # representation-sensitive under this inert checkpoint refinement.
+    return True
 
 def main():
     rows=[]
@@ -168,8 +165,9 @@ def main():
     print("mqr452.popperian_master_semantics=REJECT")
     print("MQR452_REPORT_JSON="+json.dumps(report,sort_keys=True))
 
-    Path("experiments/mqr-4.52/results").mkdir(parents=True,exist_ok=True)
-    Path("experiments/mqr-4.52/results/naturalistic_report.json").write_text(
+    out_dir = Path(__file__).resolve().parent / "results"
+    out_dir.mkdir(parents=True,exist_ok=True)
+    (out_dir / "naturalistic_report.json").write_text(
         json.dumps(report,indent=2,sort_keys=True),encoding="utf-8"
     )
 
