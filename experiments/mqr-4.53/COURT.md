@@ -1,6 +1,6 @@
 # MQR-4.53 — World-Contact Progress Measure Court
 
-Status: PRE-CLOSURE / SCIENTIFIC-SURFACE-FROZEN-PENDING-FIRST-SUCCESSFUL-CI / GLOBAL-SCALAR-REJECT-CANDIDATE / LOCAL-GEOMETRIES-ADMIT-CANDIDATE / REALPROGRESS-0.20-CANDIDATE / MAIN-ONLY
+Status: PRE-CLOSURE / AMENDMENT-A-PRE-REVEAL-COVERAGE-SEALED / FIRST-AUTHORITATIVE-REVEAL-PENDING / GLOBAL-SCALAR-REJECT-CANDIDATE / LOCAL-GEOMETRIES-ADMIT-CANDIDATE / REALPROGRESS-0.20-CANDIDATE / CHART-CONSTITUTION-AUTHORITY-HOLD / MAIN-ONLY
 
 ## Formal stage name
 
@@ -11,6 +11,40 @@ Status: PRE-CLOSURE / SCIENTIFIC-SURFACE-FROZEN-PENDING-FIRST-SUCCESSFUL-CI / GL
 `4b400cc8ec238d8bd75875a168433c319bae52ca`
 
 The candidate measure family and invariance transformations were frozen before new substantive literature contact.
+
+## Pre-reveal Amendment A
+
+Before any MQR-4.53 Court run completed, a closure-coverage audit found that the initial executable surface did not yet instantiate every transformation and stop-rival attack already frozen in the PRESEAL.
+
+Amendment:
+`experiments/mqr-4.53/AMENDMENT-A-PRE-REVEAL-COVERAGE.md`
+
+Commit:
+`0e3bf194ee8ad38ee23049fdef621278e55277d1`
+
+The amended executable court adds:
+- T2/T7 evidence batching / sufficient-state recoding;
+- T3 nonlinear monotone time reparameterization;
+- T4 pure cost-unit scaling;
+- T9 binary authority-mode factorization;
+- T10 material `CALIBRATE ; INTERVENE` vs `INTERVENE ; CALIBRATE` noncommutativity;
+- equal intervention/use reach with unequal descriptive discrimination;
+- direct scalar-threshold / obligation-only / WCQP+CVE stop rivalry.
+
+The qualifying Court workflow now requires:
+
+~~~text
+mqr453.pre_reveal_coverage_complete=TRUE
+mqr453.material_path_noncommutativity=PASS
+mqr453.equal_intervention_different_information=PASS
+mqr453.scalar_false_stop=PASS
+mqr453.obligation_only_false_stop=PASS
+mqr453.wcqp_cve_positive_stop=PASS
+~~~
+
+Any Court run from a head before commit
+`632e748367b7793bc1a5d85b766e2c1018f3c3dc`
+is nonauthoritative for the scientific reveal even if mechanically green.
 
 ## Court question
 
@@ -249,3 +283,31 @@ Not earned before first successful Court:
 - universal progress ontology;
 - final atlas completeness;
 - external calibration of every local chart.
+
+## Unresolved constitutional remainder
+
+Even if the amended court promotes WCPA, MQR-4.53 does **not** establish who has authority to choose:
+- the chart target;
+- which transformations are scientifically inert;
+- which local structure counts as progress-bearing;
+- which cross-chart morphisms are admissible;
+- which constitution may override another under conflict.
+
+Thus:
+
+~~~text
+INVARIANCE UNDER G_inert
+DOES NOT SELF-AUTHORIZE G_inert.
+~~~
+
+The Progress-Constitution Receipt (PCR) is therefore a live successor obligation, not an authority already earned by v0.20.
+
+This prevents the atlas from hiding a global progress standard inside the apparently neutral choice of chart boundaries or invariance classes.
+
+## Pre-closure status
+
+Substantive theory/literature result is mature enough for a first reveal.
+
+Formal scientific promotion remains **HOLD** until a qualifying post-Amendment-A Court run succeeds.
+
+No doctrine promotion to MQR-4.53 occurs before that reveal.
