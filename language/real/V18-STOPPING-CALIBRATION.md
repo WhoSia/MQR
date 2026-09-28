@@ -1,6 +1,6 @@
 # Real-Language v0.18 — Stopping-Rule Calibration Boundary
 
-Status: CANDIDATE / MQR-4.51 ACTIVE / OUTCOME-SEQUESTERED / CALIBRATION-ONLY CONFIRMATION / REOPENABLE / EXTERNAL-CALIBRATION-HOLD
+Status: EXECUTABLE / MQR-4.51 CLOSED / RAW-OQSC-CALIBRATION-FAIL / LAG-1-INTERNAL-CROSS-DOMAIN-PASS / OUTCOME-SEQUESTERED / REOPENABLE / EXTERNAL-CALIBRATION-HOLD
 
 ## Boundary
 
@@ -167,4 +167,143 @@ UNIVERSALLY OPTIMAL STOPPING RULE
 EXTERNAL SCIENTIFIC CALIBRATION
 METAPHYSICAL TERMINATION
 FUTURE-REFINEMENT COMPLETENESS
+~~~
+
+
+## First prospective calibration result
+
+The frozen benchmark materialized:
+
+~~~text
+3 domains
+12 forcing families
+108 discovery traces
+144 calibration traces
+216 untouched holdout traces
+468 total traces
+~~~
+
+The calibration split selected:
+
+~~~text
+confirmation_required = 1
+~~~
+
+from the predeclared `{0,1,2,3}` family.
+
+Untouched holdout:
+
+~~~text
+RAW OQSC
+PSE_live = 51
+PD_live = 51
+AE_live = 51
+OIW = 38.5
+RL_max = 0
+MISSED_REOPEN = 0
+BER = 18
+VERDICT = FAIL
+
+CALIBRATED OQSC-LAG-1
+PSE_live = 0
+PD_live = 0
+AE_live = 0
+OIW = 338.5
+RL_max = 0
+MISSED_REOPEN = 0
+BER = 18
+VERDICT = PASS
+~~~
+
+The calibrated successor passed C1–C5 separately in FAULT, MEASUREMENT and SEARCH with the same policy kernel and no domain-specific threshold.
+
+The cost increase is load-bearing. The result is not scalarized.
+
+## Constitutional consequence
+
+~~~text
+OQSC PASS
+->
+STOP ELIGIBLE FOR CALIBRATION
+
+NOT
+
+OQSC PASS
+->
+FIRST ELIGIBLE INSTANT
+IS CALIBRATED
+~~~
+
+v0.17 remains the constitutional admissibility layer.
+
+v0.18 adds explicit stopping-time calibration.
+
+The first benchmark supports one extra eligible transition only on the declared generated family.
+
+## Counterfactual replay result
+
+~~~text
+RAW OQSC
+material_continue = 51
+
+CALIBRATED OQSC-LAG-1
+material_continue = 0
+~~~
+
+The 51 raw errors are therefore tied to episodes where additional already-live inquiry would still have yielded material information.
+
+Genuinely novel post-stop world contact is scored through reopening latency and is not retroactively charged as premature stop.
+
+## Closure guards
+
+~~~text
+RAW_OQSC_CALIBRATED = NO
+CALIBRATED_LAG1_INTERNAL_CROSS_DOMAIN = YES
+EXTERNAL_SCIENTIFIC_CALIBRATION = HOLD
+UNIVERSAL_LAMBDA_1 = FORBIDDEN
+UNIVERSAL_STOPPING_OPTIMALITY = FORBIDDEN
+PRIMARY_SCALAR_SCORE = OFF
+FUTURE_ORACLE = FORBIDDEN
+POST_HOLDOUT_POLICY_REPAIR = FORBIDDEN
+REOPENING_RESERVE = ACTIVE
+~~~
+
+## Literature ceiling
+
+Post-preseal literature already contains:
+- epistemic norms permitting the end of inquiry under unresolved uncertainty;
+- higher-order uncertainty at the end of inquiry;
+- context-sensitive speed–accuracy trade-offs between stopping rules;
+- sufficiency/closure without exhaustive data;
+- value-of-information stopping;
+- resource-bounded metareasoning;
+- active sensing/data selection;
+- prioritized scientific search;
+- robust/adaptive decision under deep uncertainty.
+
+MQR-4.51 therefore claims no invention of those ideas.
+
+The surviving candidate contribution is the executable, outcome-sequestered calibration constitution applied specifically to MQR's reopenable scientific-authority stop receipt.
+
+## Final claim ceiling
+
+Earned:
+
+~~~text
+PROSPECTIVELY CALIBRATED
+INTERNAL CROSS-DOMAIN STOPPING COMPETENCE
+FOR P-OQSC-LAG-1
+ON THE DECLARED MQR-4.51 BENCHMARK FAMILY
+~~~
+
+Not earned:
+
+~~~text
+RAW OQSC STOP-TIMING CALIBRATION
+EXTERNAL SCIENTIFIC CALIBRATION
+REAL-WORLD EFFECTIVENESS
+UNIVERSAL CONFIRMATION LAG
+UNIVERSAL STOPPING OPTIMALITY
+FINAL ONTOLOGY
+FUTURE-REFINEMENT CLOSURE
 ~~~
