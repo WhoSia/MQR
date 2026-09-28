@@ -770,3 +770,92 @@ GUIDANCE = CALIBRATED_REOPENABLE_STOP
 The benchmark-specific `lambda=1` result is **not** a universal real-world stopping constant. v0.18 makes the calibration coordinate explicit while preserving v0.17's reopening reserve and upstream-admissibility firewall.
 
 The live doctrine is **internally calibrated, reopenable stop timing on the declared benchmark family, with external scientific calibration still on HOLD**.
+
+
+## v0.19 — naturalistic trace / authority-mode boundary
+
+MQR-4.52 adds `REALTRACE 0.19`.
+
+Canonical evaluator: Rust `src/trace_v19.rs` / `real-v19-trace`.
+Independent relational evaluator: `prolog/trace_v19.pl`.
+Naturalistic reconstruction/scorer: `experiments/mqr-4.52/naturalistic_cases.py` + `naturalistic_court.py`.
+Finite proof boundary: `lean/MQR/NaturalisticTrace.lean`.
+Constitution: `V19-NATURALISTIC-TRACE.md`.
+
+v0.19 is a **representation revision** forced by the first naturalistic transport attack on v0.18.
+
+The frozen MQR-4.52 corpus admitted 7 PRIMARY episodes across seven instrument/science regimes, retained 1 ozone-hole episode as SENSITIVITY, and rejected the currently unresolved Hubble-tension programme from primary scoring.
+
+Five PRIMARY episodes admit source-supported claim-freeze windows. On those windows:
+
+~~~text
+RAW OQSC:
+  definite N-PSE = 0
+  definite N-OIW = 0
+  within window = 5
+
+OQSC-LAG-1:
+  definite N-PSE = 0
+  definite N-OIW = 0
+  within window = 5
+~~~
+
+This is **partial naturalistic compatibility**, not prospective external validation.
+
+Two stronger results defeat direct transport of the v0.18 ontology:
+
+~~~text
+6 / 7 PRIMARY EPISODES = MULTI-MODE AUTHORITY
+
+6 / 6 EPISODES WITH AN ELIGIBLE STATE
+= FIXED EVENT-COUNT LAG
+  SENSITIVE TO INERT CHECKPOINT REFINEMENT
+~~~
+
+A claim can freeze while probing continues. A treatment can be provisionally usable while mechanism remains open. An investigation can be handed off or archived without a truth declaration. A novel post-closure world contact can reopen one coordinate without globally reversing every prior result.
+
+Therefore v0.19 tracks:
+
+~~~text
+CLAIM
+PROBE
+USE
+LIVE OBLIGATION
+CRITERION
+BREAK / REOPENING
+SOURCE-TEMPORAL MAPPING
+PARTIAL STOP WINDOW
+AUTHORITY-MODE PROJECTION
+TRACE GRANULARITY
+~~~
+
+Canonical non-inferences:
+
+~~~text
+CLAIM FREEZE != PROBE STOP
+PROVISIONAL USE != UNIVERSAL MECHANISTIC CLOSURE
+ARCHIVE != TRUTH
+HISTORICAL ACTION != GOLD
+ONE EVENT != ONE UNIT OF WORLD CONTACT
+LAG-1 GENERATED CALIBRATION != NATURALISTIC UNIVERSAL CONSTANT
+NATURALISTIC COMPATIBILITY != PROSPECTIVE EXTERNAL VALIDATION
+WORLD CONTACT != FALSIFICATION ONLY
+~~~
+
+Canonical guards:
+
+~~~text
+trace.unique_stop_time_inferred=NO
+trace.historical_action_truth_oracle=NO
+trace.naturalistic_retuning_lambda=NO
+trace.prospective_external_validation=NO
+trace.popperian_master_semantics=REJECT
+trace.world_contact_negative_only=NO
+trace.guidance_mode=MODE_RELATIVE_REOPENABLE_AUTHORITY
+~~~
+
+The live MQR-4.52 thesis is intentionally broader than a falsification-centred picture but does not claim originality for being “post-Popperian.” Exploratory experimentation, active/pragmatic realism, perspectival realism, local realism and conditional robustness are prior-art constraints.
+
+The candidate MQR excess is narrower: **an executable, source-temporal, partially identified and reopenable authority state over claims, probes, uses, obligations and resource transitions**.
+
+v0.19 does not infer that these coordinates are final or that one universal ontological principle governs all sciences.
