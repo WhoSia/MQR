@@ -33,7 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -869,6 +869,41 @@ jobs:
           echo MQR450_WORLD_CONTACT_REOPENING=PASS
           echo MQR450_ACTION_CONTRACT_SEPARATION=PASS
           echo MQR450_METAPHYSICAL_TERMINATION=NO
+
+
+      - name: Real-Language v0.18 stopping-calibration guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V18=./language/real/target/release/real-v18-stop
+          P18=language/real/prolog/stop_v18.pl
+
+          for f in language/real/examples/mqr-4.51-stop-*.real; do
+            "$V18" "$f" > /tmp/v18.rust
+            swipl -q -s "$P18" -g "run('$f'),halt" -t "halt(1)" > /tmp/v18.prolog
+            grep '^stop\.' /tmp/v18.rust > /tmp/v18.rust.core
+            grep '^stop\.' /tmp/v18.prolog > /tmp/v18.prolog.core
+            diff -u /tmp/v18.rust.core /tmp/v18.prolog.core
+          done
+
+          for x in language/real/tests/v18-invalid-*.real; do
+            if "$V18" "$x"; then exit 1; fi
+            if swipl -q -s "$P18" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          python experiments/mqr-4.51/benchmark.py > /tmp/mqr451.integrated
+          grep -F 'mqr451.calibration.lag_lambda=1' /tmp/mqr451.integrated
+          grep -F 'mqr451.raw_oqsc_verdict=FAIL' /tmp/mqr451.integrated
+          grep -F 'mqr451.calibrated_successor_verdict=PASS' /tmp/mqr451.integrated
+          grep -F 'mqr451.external_calibration=HOLD' /tmp/mqr451.integrated
+          grep -F 'mqr451.primary_scalar_score=OFF' /tmp/mqr451.integrated
+          grep -F 'mqr451.future_oracle=FORBIDDEN' /tmp/mqr451.integrated
+
+          echo REAL_LANGUAGE_V18_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR451_RAW_OQSC_CALIBRATION=FAIL
+          echo MQR451_CALIBRATED_LAG1_INTERNAL_CROSS_DOMAIN=PASS
+          echo MQR451_EXTERNAL_CALIBRATION=HOLD
 
 
       - name: Publish externally readable workflow receipt
