@@ -33,7 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -904,6 +904,45 @@ jobs:
           echo MQR451_RAW_OQSC_CALIBRATION=FAIL
           echo MQR451_CALIBRATED_LAG1_INTERNAL_CROSS_DOMAIN=PASS
           echo MQR451_EXTERNAL_CALIBRATION=HOLD
+
+
+      - name: Real-Language v0.19 naturalistic-trace guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V19=./language/real/target/release/real-v19-trace
+          P19=language/real/prolog/trace_v19.pl
+
+          for f in language/real/examples/mqr-4.52-*.real; do
+            "$V19" "$f" > /tmp/v19.rust
+            swipl -q -s "$P19" -g "run('$f'),halt" -t "halt(1)" > /tmp/v19.prolog
+            grep '^trace\.' /tmp/v19.rust > /tmp/v19.rust.core
+            grep '^trace\.' /tmp/v19.prolog > /tmp/v19.prolog.core
+            diff -u /tmp/v19.rust.core /tmp/v19.prolog.core
+          done
+
+          for x in language/real/tests/v19-invalid-*.real; do
+            if "$V19" "$x"; then exit 1; fi
+            if swipl -q -s "$P19" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          (
+            cd experiments/mqr-4.52
+            python naturalistic_court.py
+          ) > /tmp/mqr452.integrated
+          grep -F 'mqr452.primary_cases=7' /tmp/mqr452.integrated
+          grep -F 'mqr452.transportable_primary_cases=5' /tmp/mqr452.integrated
+          grep -F 'mqr452.multi_mode_cases=6' /tmp/mqr452.integrated
+          grep -F 'mqr452.granularity.sensitive_cases=6' /tmp/mqr452.integrated
+          grep -F 'mqr452.v18_binary_naturalistic_ontology=FAIL' /tmp/mqr452.integrated
+          grep -F 'mqr452.lag1_external_calibration=NOT_ESTABLISHED' /tmp/mqr452.integrated
+          grep -F 'mqr452.realtrace_v019_revision=EARNED' /tmp/mqr452.integrated
+
+          echo REAL_LANGUAGE_V19_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR452_BINARY_NATURALISTIC_STOP_ONTOLOGY=FAIL
+          echo MQR452_FIXED_EVENT_LAG_TRANSPORT=REJECT
+          echo MQR452_MODE_RELATIVE_REOPENABLE_AUTHORITY=PASS
 
 
       - name: Publish externally readable workflow receipt
