@@ -47,6 +47,46 @@ theorem equalDescriptiveInformationNeedNotImplyEqualInterventionReach :
       infoInterventionWitness.activeInterventionReach := by
   decide
 
+structure ReverseInfoInterventionWitness where
+  equalInterventionReach : Bool
+  equalUseAuthority : Bool
+  blackBoxResidualRivals : Nat
+  discriminatingResidualRivals : Nat
+  deriving DecidableEq, Repr
+
+def reverseInfoInterventionWitness : ReverseInfoInterventionWitness :=
+  { equalInterventionReach := true,
+    equalUseAuthority := true,
+    blackBoxResidualRivals := 3,
+    discriminatingResidualRivals := 1 }
+
+theorem equalInterventionReachNeedNotImplyEqualDescriptiveDiscrimination :
+    reverseInfoInterventionWitness.equalInterventionReach = true ∧
+    reverseInfoInterventionWitness.equalUseAuthority = true ∧
+    reverseInfoInterventionWitness.blackBoxResidualRivals ≠
+      reverseInfoInterventionWitness.discriminatingResidualRivals := by
+  decide
+
+structure NoncommutingPathWitness where
+  bothEndCalibrated : Bool
+  calibrateThenInterveneValid : Bool
+  interveneThenCalibrateCarriesInvalidReceipt : Bool
+  sameAuthorityPath : Bool
+  deriving DecidableEq, Repr
+
+def noncommutingPathWitness : NoncommutingPathWitness :=
+  { bothEndCalibrated := true,
+    calibrateThenInterveneValid := true,
+    interveneThenCalibrateCarriesInvalidReceipt := true,
+    sameAuthorityPath := false }
+
+theorem calibrationInterventionOrderCanBeMaterial :
+    noncommutingPathWitness.bothEndCalibrated = true ∧
+    noncommutingPathWitness.calibrateThenInterveneValid = true ∧
+    noncommutingPathWitness.interveneThenCalibrateCarriesInvalidReceipt = true ∧
+    noncommutingPathWitness.sameAuthorityPath = false := by
+  decide
+
 structure PathLoopWitness where
   sameInitialFinalQuotientState : Bool
   positiveRawPathLength : Bool
@@ -186,6 +226,23 @@ theorem globalMetaRulesCanCoexistWithPluralLocalGeometries :
     atlasWitness.oneGlobalScalarRequired = false := by
   decide
 
+structure StopRivalWitness where
+  scalarThresholdStopsWithLiveBurden : Bool
+  obligationOnlyStopsWithPositiveContinuationValue : Bool
+  wcqpCveStopsWhenBurdenEmptyAndContinuationLow : Bool
+  deriving DecidableEq, Repr
+
+def stopRivalWitness : StopRivalWitness :=
+  { scalarThresholdStopsWithLiveBurden := true,
+    obligationOnlyStopsWithPositiveContinuationValue := true,
+    wcqpCveStopsWhenBurdenEmptyAndContinuationLow := true }
+
+theorem scalarAndNonScalarStopRulesCanDisagree :
+    stopRivalWitness.scalarThresholdStopsWithLiveBurden = true ∧
+    stopRivalWitness.obligationOnlyStopsWithPositiveContinuationValue = true ∧
+    stopRivalWitness.wcqpCveStopsWhenBurdenEmptyAndContinuationLow = true := by
+  decide
+
 structure StopRegionWitness where
   progressStateAdmissible : Bool
   continuationValuePositive : Bool
@@ -206,6 +263,8 @@ theorem admissibleProgressStateAloneNeedNotLicenseStop :
 #print axioms MQR.inertCheckpointDuplicationCanChangeEventCountWithoutWorldChange
 #print axioms MQR.sameBurdenCanHaveDifferentObligationCarrierCounts
 #print axioms MQR.equalDescriptiveInformationNeedNotImplyEqualInterventionReach
+#print axioms MQR.equalInterventionReachNeedNotImplyEqualDescriptiveDiscrimination
+#print axioms MQR.calibrationInterventionOrderCanBeMaterial
 #print axioms MQR.positiveRawPathLengthCanBeNetProgressNull
 #print axioms MQR.correctiveProgressCanLowerClaimAuthority
 #print axioms MQR.independentAxisRescalingCanReverseWeightedScalarOrder
@@ -215,5 +274,6 @@ theorem admissibleProgressStateAloneNeedNotLicenseStop :
 #print axioms MQR.structuralCrossDomainTransportDoesNotImplyMagnitudeTransport
 #print axioms MQR.globalMetaRulesCanCoexistWithPluralLocalGeometries
 #print axioms MQR.admissibleProgressStateAloneNeedNotLicenseStop
+#print axioms MQR.scalarAndNonScalarStopRulesCanDisagree
 
 end MQR
