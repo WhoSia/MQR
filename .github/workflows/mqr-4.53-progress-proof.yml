@@ -40,6 +40,8 @@ jobs:
             MQR.inertCheckpointDuplicationCanChangeEventCountWithoutWorldChange
             MQR.sameBurdenCanHaveDifferentObligationCarrierCounts
             MQR.equalDescriptiveInformationNeedNotImplyEqualInterventionReach
+            MQR.equalInterventionReachNeedNotImplyEqualDescriptiveDiscrimination
+            MQR.calibrationInterventionOrderCanBeMaterial
             MQR.positiveRawPathLengthCanBeNetProgressNull
             MQR.correctiveProgressCanLowerClaimAuthority
             MQR.independentAxisRescalingCanReverseWeightedScalarOrder
@@ -49,6 +51,7 @@ jobs:
             MQR.structuralCrossDomainTransportDoesNotImplyMagnitudeTransport
             MQR.globalMetaRulesCanCoexistWithPluralLocalGeometries
             MQR.admissibleProgressStateAloneNeedNotLicenseStop
+            MQR.scalarAndNonScalarStopRulesCanDisagree
           )
           for theorem in "${theorems[@]}"; do
             grep -F "'$theorem' does not depend on any axioms" /tmp/progress.log
@@ -73,7 +76,7 @@ jobs:
         run: |
           set -euo pipefail
           cd language/real/lean
-          lake env _lean4export/.lake/build/bin/lean4export MQR --             MQR.inertCheckpointDuplicationCanChangeEventCountWithoutWorldChange             MQR.sameBurdenCanHaveDifferentObligationCarrierCounts             MQR.equalDescriptiveInformationNeedNotImplyEqualInterventionReach             MQR.positiveRawPathLengthCanBeNetProgressNull             MQR.correctiveProgressCanLowerClaimAuthority             MQR.independentAxisRescalingCanReverseWeightedScalarOrder             MQR.crossingProfilesCanRemainParetoIncomparable             MQR.sameAchievedProgressCanRequireOppositeContinueActions             MQR.localInvariantGeometryDoesNotImplyGlobalProgressMetric             MQR.structuralCrossDomainTransportDoesNotImplyMagnitudeTransport             MQR.globalMetaRulesCanCoexistWithPluralLocalGeometries             MQR.admissibleProgressStateAloneNeedNotLicenseStop             > /tmp/mqr-453.export
+          lake env _lean4export/.lake/build/bin/lean4export MQR --             MQR.inertCheckpointDuplicationCanChangeEventCountWithoutWorldChange             MQR.sameBurdenCanHaveDifferentObligationCarrierCounts             MQR.equalDescriptiveInformationNeedNotImplyEqualInterventionReach             MQR.equalInterventionReachNeedNotImplyEqualDescriptiveDiscrimination             MQR.calibrationInterventionOrderCanBeMaterial             MQR.positiveRawPathLengthCanBeNetProgressNull             MQR.correctiveProgressCanLowerClaimAuthority             MQR.independentAxisRescalingCanReverseWeightedScalarOrder             MQR.crossingProfilesCanRemainParetoIncomparable             MQR.sameAchievedProgressCanRequireOppositeContinueActions             MQR.localInvariantGeometryDoesNotImplyGlobalProgressMetric             MQR.structuralCrossDomainTransportDoesNotImplyMagnitudeTransport             MQR.globalMetaRulesCanCoexistWithPluralLocalGeometries             MQR.admissibleProgressStateAloneNeedNotLicenseStop             MQR.scalarAndNonScalarStopRulesCanDisagree             > /tmp/mqr-453.export
           cat > /tmp/mqr-453-nanoda.json <<'JSON'
           {
             "export_file_path": "/tmp/mqr-453.export",
