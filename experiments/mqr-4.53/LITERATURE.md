@@ -388,3 +388,71 @@ WORLD-CONTACT PROGRESS ATLAS
 ~~~
 
 The hypothesis is that science may admit **globally governed local progress structures** without a global progress ruler.
+
+
+## F. Additional progress-constitution radar
+
+### C12 — Darrell Rowbottom (2023), *Scientific Progress*
+
+DOI:
+`10.1017/9781108625753`
+
+Priority: **CRITICAL META-NORMATIVE**
+
+Role:
+surveys the contemporary progress debate and asks where the normative standards for scientific progress come from if science lacks a single overarching aim.
+
+4.53 pressure:
+a progress atlas must expose who/what constitutes its admissible progress relation rather than assuming that invariance alone creates normativity.
+
+### C13 — Yafeng Shan (2019), *A New Functional Approach to Scientific Progress*
+
+DOI:
+`10.1086/704980`
+
+Priority: **HIGH**
+
+Role:
+defines scientific progress through usefulness in problem-defining and problem-solving rather than reducing progress to truthlikeness or knowledge.
+
+4.53 pressure:
+problem constitution can itself change; “solved problem count” is not automatically invariant under problem split/merge.
+
+### C14 — Darrell Rowbottom (2015), *Scientific Progress without Increasing Verisimilitude*
+
+DOI:
+`10.1016/j.shpsa.2015.01.003`
+
+Priority: **HIGH**
+
+Role:
+argues that progress may occur without increasing theoretical verisimilitude and that verisimilitude is not the unique central dimension.
+
+4.53 pressure:
+truthlikeness cannot be silently promoted to the atlas-wide ruler.
+
+### C15 — Cei Maslen (2024), *Does Philosophy Make Less Progress than Other Academic Fields?*
+
+DOI:
+`10.1007/s11406-024-00780-y`
+
+Priority: **HIGH CROSS-FIELD-MEASUREMENT**
+
+Role:
+argues that there is currently no objective measure suitable for comparing whole-field progress across disciplines.
+
+4.53 pressure:
+cross-domain magnitude claims need an independently constituted common scale; absence of one should yield incomparability rather than forced ranking.
+
+### C16 — Dellsén (2025), *Scientific progress: normative, but aimless*
+
+DOI:
+`10.1007/s44204-025-00264-0`
+
+Priority: **HIGH META-NORMATIVE**
+
+Role:
+argues that scientific progress can remain normative even if science has no single aim.
+
+4.53 pressure:
+global meta-normativity need not be encoded as one global objective function.
