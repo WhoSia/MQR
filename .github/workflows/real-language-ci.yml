@@ -34,7 +34,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19|PROGRESS 0.20)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -945,6 +945,50 @@ jobs:
           echo MQR452_FIXED_EVENT_LAG_TRANSPORT=REJECT
           echo MQR452_MODE_RELATIVE_REOPENABLE_AUTHORITY=PASS
 
+
+      - name: Real-Language v0.20 progress-atlas guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V20=./language/real/target/release/real-v20-progress
+          P20=language/real/prolog/progress_v20.pl
+
+          for f in language/real/examples/mqr-4.53-*.real; do
+            "$V20" "$f" > /tmp/v20.rust
+            swipl -q -s "$P20" -g "run('$f'),halt" -t "halt(1)" > /tmp/v20.prolog
+            grep '^progress\.' /tmp/v20.rust > /tmp/v20.rust.core
+            grep '^progress\.' /tmp/v20.prolog > /tmp/v20.prolog.core
+            diff -u /tmp/v20.rust.core /tmp/v20.prolog.core
+          done
+
+          for x in language/real/tests/v20-invalid-*.real; do
+            if "$V20" "$x"; then exit 1; fi
+            if swipl -q -s "$P20" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          python experiments/mqr-4.53/progress_court.py > /tmp/mqr453.integrated
+          grep -F 'mqr453.candidate_count=13' /tmp/mqr453.integrated
+          grep -F 'mqr453.universal_scalar_survivors=0' /tmp/mqr453.integrated
+          grep -F 'mqr453.event_count_invariant=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.obligation_count_invariant=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.equal_information_different_intervention=PASS' /tmp/mqr453.integrated
+          grep -F 'mqr453.fisher_reparameterization_invariant=TRUE' /tmp/mqr453.integrated
+          grep -F 'mqr453.blackwell_incomparability_exists=TRUE' /tmp/mqr453.integrated
+          grep -F 'mqr453.authority_path_length_is_progress=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.authority_level_monotone_progress=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.scalar_rank_reversal=TRUE' /tmp/mqr453.integrated
+          grep -F 'mqr453.state_only_stop_rule_sufficient=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.cross_domain_structure_transports=TRUE' /tmp/mqr453.integrated
+          grep -F 'mqr453.universal_representation_invariant_scalar_progress=REJECT' /tmp/mqr453.integrated
+          grep -F 'mqr453.local_representation_invariant_progress_structures=ADMIT' /tmp/mqr453.integrated
+          grep -F 'mqr453.global_meta_constitution_local_geometry=SUPPORTED_BY_COURT' /tmp/mqr453.integrated
+          grep -F 'mqr453.realprogress_v020=EARNED_CANDIDATE' /tmp/mqr453.integrated
+
+          echo REAL_LANGUAGE_V20_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR453_GLOBAL_PROGRESS_RULER=REJECT
+          echo MQR453_LOCAL_INVARIANT_GEOMETRIES=ADMIT
+          echo MQR453_WORLD_CONTACT_PROGRESS_ATLAS=PASS
 
       - name: Publish externally readable workflow receipt
         if: ${{ always() }}
