@@ -1,0 +1,15 @@
+REALTRACE 0.19
+id opera_claim_freeze
+source_cutoff 2012-12-06
+mapping EXACT
+claim FROZEN
+probe ARCHIVED
+use NONE
+live_obligation CLEAR
+criterion AGREE
+break NONE
+projection UNIQUE
+granularity IRREGULAR
+stop_window INTERVAL
+historical_action CLAIM_FREEZE
+END
