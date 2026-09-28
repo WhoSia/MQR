@@ -1,0 +1,10 @@
+REALSTOP 0.18
+id invalid_lag
+upstream PASS
+oqsc YES
+live_debt NO
+criterion_invariant YES
+break NONE
+confirmation_required 4
+eligible_streak 5
+END
