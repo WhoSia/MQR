@@ -1,6 +1,6 @@
 # Real-Language v0.19 — Naturalistic Trace / Authority-Mode Boundary
 
-Status: EXECUTABLE-CANDIDATE / MQR-4.52 / NATURALISTIC-TRACE / PARTIAL-IDENTIFICATION / MODE-RELATIVE / REALSTOP-0.18-REVISION
+Status: EXECUTABLE / MQR-4.52 CLOSED / NATURALISTIC-TRACE / PARTIAL-IDENTIFICATION / MODE-RELATIVE / REALSTOP-0.18-REVISION / SOURCE-TEMPORAL / REOPENABLE
 
 ## Why v0.19 exists
 
@@ -161,3 +161,29 @@ AND RESOURCE FLOWS.
 ~~~
 
 This is not yet a universal theory of science. It is the representation that survived the first naturalistic attack better than a binary STOP ontology.
+
+
+## Closure verdict
+
+MQR-4.52 closes v0.19 with the following bounded result:
+
+~~~text
+NATURALISTIC PRIMARY EPISODES = 7
+SENSITIVITY = 1
+REJECTED = 1
+
+SOURCE-SUPPORTED CLAIM-FREEZE WINDOWS = 5
+RAW OQSC WITHIN IDENTIFIED WINDOWS = 5 / 5
+LAG-1 WITHIN IDENTIFIED WINDOWS = 5 / 5
+
+MULTI-MODE AUTHORITY = 6 / 7
+FIXED EVENT-LAG GRANULARITY SENSITIVE = 6 / 6 ELIGIBLE EPISODES
+
+BINARY NATURALISTIC STOP ONTOLOGY = REJECT
+FIXED EVENT-COUNT LAG TRANSPORT = REJECT
+PROSPECTIVE EXTERNAL VALIDATION = HOLD
+~~~
+
+The naturalistic record does not defeat every local use of v0.18. It defeats promotion of its binary/event-count representation into a naturalistic universal.
+
+REALTRACE 0.19 is therefore the live representation boundary for successor work.
