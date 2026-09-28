@@ -477,3 +477,257 @@ OF LOCAL STRUCTURES
 ~~~
 
 No conclusion is final until the executable countermodel court is run.
+
+
+## 19. The atlas is categorical before it is metric
+
+The transformation object should not be idealized as a single group acting on one homogeneous state space.
+
+Scientific representations admit different types of maps:
+
+- bijective coordinate recodings;
+- sufficient-statistic maps that may be many-to-one in raw sample space while preserving a declared statistical target;
+- Blackwell garblings that deliberately lose experiment informativeness;
+- causal abstraction / transport maps;
+- obligation split/merge maps preserving burden ancestry;
+- authority-mode refinements.
+
+Therefore the more faithful mathematical object is a **typed category of inquiry representations and world-contact morphisms**.
+
+A local quotient equivalence may be generated only by morphisms certified to preserve the declared load-bearing target in both relevant directions.
+
+One-way lossy morphisms should induce an order, not an equivalence.
+
+This yields:
+
+~~~text
+EQUIVALENCE / QUOTIENT
+for target-preserving null transformations
+
+PREORDER / PARTIAL ORDER
+for one-way information or authority loss/gain
+
+NONCOMMUTING PATH STRUCTURE
+for materially order-sensitive interventions
+~~~
+
+A single metric cannot represent these three relations without additional constitution.
+
+## 20. Blackwell and Fisher occupy different atlas roles
+
+Blackwell and Fisher are not two implementations of the same quantity.
+
+### Fisher-type geometry
+
+Within a statistical-model chart, it supplies local differential distinguishability and can be canonical under the relevant sufficient-statistic invariance conditions.
+
+Role:
+**LOCAL METRIC GEOMETRY.**
+
+### Blackwell comparison
+
+Across experiments with the same state/decision substrate, it supplies a garbling / decision-dominance order.
+
+Role:
+**LOCAL EXPERIMENT PARTIAL ORDER.**
+
+A pair of experiments can be Blackwell-incomparable while each possesses rich Fisher geometry internally.
+
+Therefore:
+
+~~~text
+METRIC GEOMETRY
+and
+EXPERIMENT ORDER
+ARE ORTHOGONAL STRUCTURES.
+~~~
+
+This is further evidence against searching for one master progress coordinate.
+
+## 21. Constitutive progress theories become rival chart semantics
+
+The philosophy-of-progress literature should not be collapsed into a list of opinions.
+
+It defines rival semantics for what the local order is supposed to preserve.
+
+### Epistemic chart
+Bird-style increase in scientific knowledge.
+
+### Noetic chart
+Dellsén-style increase in publicly available resources for scientific understanding.
+
+### Semantic/verisimilitude chart
+Niiniluoto/Kuipers-style relation to truthlikeness or empirical progress.
+
+### Functional/problem-solving chart
+Laudan/Shan-style improvement in defining and solving scientific problems.
+
+### Practice/measurement chart
+Chang/Steinle/Beauchemin–Staley-style improvement in measurement, exploration, operational coherence or usefulness.
+
+MQR-4.53 does not choose one by fiat.
+
+It asks a higher-order question:
+
+> under what transformations would each alleged progress relation remain meaningful, and which cross-chart maps preserve enough structure to justify comparison?
+
+That converts the philosophical dispute from “pick the right definition” into a testable **transport and invariance programme**.
+
+## 22. Meta-normativity is now load-bearing
+
+Rowbottom's progress debate and Brousalis's localism/globalism pressure expose a problem that invariance alone cannot solve.
+
+A transformation can be mathematically invariant while the choice of what must be preserved remains normatively contestable.
+
+Thus every WCPA chart needs a **Progress-Constitution Receipt**:
+
+~~~text
+PCR = (
+  target topic / explanandum,
+  progress-bearing relation,
+  permissible transformations,
+  decision/use contract if any,
+  constituency / authority for constitution,
+  challenge rights,
+  reopening conditions
+)
+~~~
+
+The constitution cannot derive its own authority merely from mathematical elegance.
+
+This inherits MQR's earlier anti-self-certification doctrine.
+
+## 23. Correction-sensitive progress requires defeat receipts
+
+OPERA-style correction reveals a deeper problem for monotone state orders.
+
+Suppose state A grants a claim high authority.
+
+Later world contact defeats the claim and state B withdraws it.
+
+If progress were simply componentwise authority growth, B would look worse.
+
+The repair is not to invent a hidden truth-distance.
+
+Instead distinguish:
+
+~~~text
+AUTHORITY LEVEL
+from
+DEFEAT-RESPONSIVE WARRANTEDNESS.
+~~~
+
+A corrective transition is provisionally progressive when:
+- the predecessor authority is defeated by an admissible world-contact receipt;
+- the successor state withdraws or localizes the defeated authority;
+- the successor preserves the defeat receipt and relevant ancestry;
+- no post-hoc scope manipulation hides the loss.
+
+Thus **corrigibility can constitute local progress without a truth oracle**.
+
+This is a central bridge from MQR's defeat/reopening lineage to the progress atlas.
+
+## 24. “Progress enough to stop” likely has no standalone measure
+
+The title asks whether inquiry has a representation-invariant notion of “progress enough to stop.”
+
+The emerging answer is split.
+
+### Progress
+
+Local representation-invariant progress structures can exist.
+
+### Enough
+
+“Enough” is not naturally a level on those structures.
+
+It is indexed by:
+- current claim/use contract;
+- material live obligation debt;
+- available next inquiry actions;
+- expected marginal value of those actions;
+- opportunity costs;
+- reopening reserve.
+
+Hence:
+
+~~~text
+PROGRESS CAN BE CONSTITUTIVE.
+
+ENOUGH IS RELATIONAL.
+
+STOPPING IS PROSPECTIVE.
+~~~
+
+A Fisher distance travelled, number of problems solved, amount of understanding gained or number of obligations discharged can all be large while a decisive cheap probe remains available.
+
+Conversely a modestly progressed inquiry can rationally stop under a narrow use contract when no currently registered continuation has sufficient marginal value.
+
+Therefore MQR-4.53's strongest possible answer may be:
+
+~~~text
+REPRESENTATION-INVARIANT
+LOCAL PROGRESS: YES, SOMETIMES.
+
+REPRESENTATION-INVARIANT
+GLOBAL “PROGRESS ENOUGH” THRESHOLD:
+NO.
+
+CONTRACT-RELATIVE
+STOP ADMISSIBILITY REGION:
+POSSIBLY YES.
+~~~
+
+## 25. Revised positive object
+
+The WCPA should be understood as four coupled layers:
+
+### Layer 1 — PCR
+Progress-Constitution Receipt.
+
+Defines what counts as preserved/mutated for this chart.
+
+### Layer 2 — WCQ
+World-Contact Quotient.
+
+Removes certified representational null motion.
+
+### Layer 3 — WCP
+World-Contact Progress Structure.
+
+A metric, partial order, preorder, reachability relation or admissible region only where locally earned.
+
+### Layer 4 — CVE
+Continuation-Value Envelope.
+
+Prospective value of currently registered next inquiry actions.
+
+Stopping consults Layer 3 and Layer 4 plus live debt/reopening state.
+
+No layer is permitted to impersonate the others.
+
+## 26. Sharpened 4.53 thesis
+
+~~~text
+SCIENCE DOES NOT NEED
+ONE REPRESENTATION-INVARIANT
+PROGRESS RULER
+
+TO HAVE
+REPRESENTATION-INVARIANT
+LOCAL PROGRESS STRUCTURES.
+
+AND EVEN WHERE SUCH
+STRUCTURES EXIST,
+
+“ENOUGH TO STOP”
+IS NOT THEIR MAGNITUDE.
+
+IT IS A CONTRACT-RELATIVE
+RELATION BETWEEN
+CURRENT WORLD-CONTACT STATE,
+LIVE DEBT,
+AVAILABLE NEXT ACTIONS,
+OPPORTUNITY COST,
+AND REOPENING CAPACITY.
+~~~
