@@ -1,0 +1,15 @@
+REALTRACE 0.19
+id hpylori_contract
+source_cutoff 1988-12-01
+mapping PROXY
+claim RESTRICTED
+probe ACTIVE
+use PROVISIONAL
+live_obligation BOUNDED
+criterion AGREE
+break NONE
+projection MULTI_MODE
+granularity IRREGULAR
+stop_window NONIDENTIFIABLE
+historical_action PROVISIONAL_USE
+END
