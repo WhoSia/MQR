@@ -15,3 +15,4 @@ import MQR.DefeatContent
 import MQR.RegressBoundary
 
 import MQR.StoppingCalibration
+import MQR.NaturalisticTrace
