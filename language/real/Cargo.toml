@@ -76,3 +76,8 @@ path = "src/regress_v17.rs"
 [[bin]]
 name = "real-v18-stop"
 path = "src/stop_v18.rs"
+
+
+[[bin]]
+name = "real-v19-trace"
+path = "src/trace_v19.rs"
