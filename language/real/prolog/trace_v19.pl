@@ -18,27 +18,27 @@ parse_line(Line):-normalize_space(string(N),Line),
   (\+seen_header->(T=["REALTRACE","0.19"]->assertz(seen_header);fail);parse_tokens(T))).
 
 parse_tokens(["END"]):-assertz(seen_end),!.
-parse_tokens(["id",X]):-\+rid(_),assertz(rid(X)),!.
-parse_tokens(["source_cutoff",X]):-\+source_cutoff(_),assertz(source_cutoff(X)),!.
-parse_tokens(["mapping",X]):-\+mapping(_),member(X,["EXACT","BOUNDED","PROXY","UNKNOWN"]),assertz(mapping(X)),!.
-parse_tokens(["claim",X]):-\+claim(_),member(X,["OPEN","RESTRICTED","FROZEN"]),assertz(claim(X)),!.
-parse_tokens(["probe",X]):-\+probe(_),member(X,["ACTIVE","PAUSED","HANDOFF","ARCHIVED"]),assertz(probe(X)),!.
-parse_tokens(["use",X]):-\+use_mode(_),member(X,["NONE","PROVISIONAL","AUTHORIZED"]),assertz(use_mode(X)),!.
-parse_tokens(["live_obligation",X]):-\+live_obligation(_),member(X,["CLEAR","LIVE","BOUNDED","UNKNOWN"]),assertz(live_obligation(X)),!.
-parse_tokens(["criterion",X]):-\+criterion(_),member(X,["AGREE","DISAGREE","UNKNOWN"]),assertz(criterion(X)),!.
-parse_tokens(["break",X]):-\+break_kind(_),member(X,["NONE","WORLD_CONTACT","DECISION_CONTRACT","PATH_CONFLICT"]),assertz(break_kind(X)),!.
-parse_tokens(["projection",X]):-\+projection(_),member(X,["UNIQUE","MULTI_MODE","NONE"]),assertz(projection(X)),!.
-parse_tokens(["granularity",X]):-\+granularity(_),member(X,["REGULAR","IRREGULAR","UNKNOWN"]),assertz(granularity(X)),!.
-parse_tokens(["stop_window",X]):-\+stop_window(_),member(X,["IDENTIFIED","INTERVAL","LEFT_CENSORED","RIGHT_CENSORED","NONIDENTIFIABLE"]),assertz(stop_window(X)),!.
-parse_tokens(["historical_action",X]):-\+historical_action(_),member(X,["CONTINUE_PROBING","CLAIM_FREEZE","PROVISIONAL_USE","ARCHIVE","HANDOFF","REOPEN"]),assertz(historical_action(X)),!.
+parse_tokens(["id",X]):- \+ rid(_),assertz(rid(X)),!.
+parse_tokens(["source_cutoff",X]):- \+ source_cutoff(_),assertz(source_cutoff(X)),!.
+parse_tokens(["mapping",X]):- \+ mapping(_),member(X,["EXACT","BOUNDED","PROXY","UNKNOWN"]),assertz(mapping(X)),!.
+parse_tokens(["claim",X]):- \+ claim(_),member(X,["OPEN","RESTRICTED","FROZEN"]),assertz(claim(X)),!.
+parse_tokens(["probe",X]):- \+ probe(_),member(X,["ACTIVE","PAUSED","HANDOFF","ARCHIVED"]),assertz(probe(X)),!.
+parse_tokens(["use",X]):- \+ use_mode(_),member(X,["NONE","PROVISIONAL","AUTHORIZED"]),assertz(use_mode(X)),!.
+parse_tokens(["live_obligation",X]):- \+ live_obligation(_),member(X,["CLEAR","LIVE","BOUNDED","UNKNOWN"]),assertz(live_obligation(X)),!.
+parse_tokens(["criterion",X]):- \+ criterion(_),member(X,["AGREE","DISAGREE","UNKNOWN"]),assertz(criterion(X)),!.
+parse_tokens(["break",X]):- \+ break_kind(_),member(X,["NONE","WORLD_CONTACT","DECISION_CONTRACT","PATH_CONFLICT"]),assertz(break_kind(X)),!.
+parse_tokens(["projection",X]):- \+ projection(_),member(X,["UNIQUE","MULTI_MODE","NONE"]),assertz(projection(X)),!.
+parse_tokens(["granularity",X]):- \+ granularity(_),member(X,["REGULAR","IRREGULAR","UNKNOWN"]),assertz(granularity(X)),!.
+parse_tokens(["stop_window",X]):- \+ stop_window(_),member(X,["IDENTIFIED","INTERVAL","LEFT_CENSORED","RIGHT_CENSORED","NONIDENTIFIABLE"]),assertz(stop_window(X)),!.
+parse_tokens(["historical_action",X]):- \+ historical_action(_),member(X,["CONTINUE_PROBING","CLAIM_FREEZE","PROVISIONAL_USE","ARCHIVE","HANDOFF","REOPEN"]),assertz(historical_action(X)),!.
 parse_tokens(_):-fail.
 
 validate:-seen_header,seen_end,rid(_),source_cutoff(_),mapping(_),claim(_),probe(_),use_mode(_),
  live_obligation(_),criterion(_),break_kind(_),projection(_),granularity(_),stop_window(_),historical_action(_).
 
-admission:-mapping(M),member(M,["EXACT","BOUNDED"]),live_obligation(L),L\="UNKNOWN",criterion(C),C\="UNKNOWN".
-projection_loss:-projection(P),P\="UNIQUE".
-reopen_required:-break_kind(B),B\="NONE".
+admission:-mapping(M),member(M,["EXACT","BOUNDED"]),live_obligation(L),L \= "UNKNOWN",criterion(C),C \= "UNKNOWN".
+projection_loss:-projection(P),P \= "UNIQUE".
+reopen_required:-break_kind(B),B \= "NONE".
 point_window:-stop_window("IDENTIFIED").
 yn(G,"YES"):-call(G),!. yn(_,"NO").
 
