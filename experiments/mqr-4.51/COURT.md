@@ -1,6 +1,6 @@
 # MQR-4.51 — Prospective Stopping-Rule Calibration Court
 
-Status: **CLOSED-CANDIDATE / RAW-OQSC CALIBRATION FAIL / CALIBRATION-ONLY LAG-1 SUCCESSOR PASS / INTERNAL CROSS-DOMAIN CALIBRATION / EXTERNAL CALIBRATION HOLD / SRCR+IBAR+PSOIL+CCSR+RLR+HITC+CDTT+SPAR+SEL+BEC / REALSTOP-0.18 / MAIN-ONLY**
+Status: **CLOSED / RAW-OQSC CALIBRATION FAIL / CALIBRATION-ONLY LAG-1 SUCCESSOR PASS / INTERNAL CROSS-DOMAIN CALIBRATION / EXTERNAL CALIBRATION HOLD / SRCR+IBAR+PSOIL+CCSR+RLR+HITC+CDTT+SPAR+SEL+BEC / REALSTOP-0.18 / MAIN-ONLY**
 
 ## Formal stage name
 
@@ -248,3 +248,20 @@ calibrated_lag_1 = PASS
 ~~~
 
 Final closure requires integrated Real-Language and Lean same-head replay plus final main-only branch audit.
+
+
+## Implementation incident
+
+One aggregate integration failure occurred after the dedicated v0.18 court and the first authoritative holdout had already succeeded.
+
+At commit `e4a5b260db2219114e47ed3fb477935ae199b28e`, the Real-Language README promoted v0.18 before the legacy packet-dispatch loop had been taught to exclude `REALSTOP 0.18`. The aggregate CI therefore sent `mqr-4.51-stop-immediate.real` to the legacy `REALPACKET` parser and failed with:
+
+~~~text
+packet must begin with REALPACKET
+~~~
+
+No benchmark generator, policy, scorer, holdout seed, calibration selection, theorem statement, or scientific result changed.
+
+Commit `bd46caa75f7fc4cc32769e069049ebe0b011ec8a` added the v0.18 dispatch boundary and integrated calibration replay. The full Real-Language CI then succeeded.
+
+This incident is classified as **integration dispatch only**, not a scientific or formal failure.
