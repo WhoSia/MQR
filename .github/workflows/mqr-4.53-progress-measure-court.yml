@@ -1,0 +1,129 @@
+name: MQR-4.53 World-Contact Progress Measure Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.53/**'
+      - 'language/real/src/progress_v20.rs'
+      - 'language/real/prolog/progress_v20.pl'
+      - 'language/real/examples/mqr-4.53-*.real'
+      - 'language/real/tests/v20-invalid-*.real'
+      - 'language/real/V20-PROGRESS-ATLAS.md'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.53-progress-measure-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  progress-measure-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.20 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v20-progress
+
+      - name: Execute Rust-Prolog v0.20 concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v20-progress
+          P=language/real/prolog/progress_v20.pl
+
+          for f in language/real/examples/mqr-4.53-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep '^progress\.' /tmp/rust > /tmp/rust.core
+            grep '^progress\.' /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.53-fisher-local.real > /tmp/fisher
+          grep -F 'progress.local_structure=METRIC' /tmp/fisher
+          grep -F 'progress.atlas_admissible=YES' /tmp/fisher
+          grep -F 'progress.cross_domain_magnitude_default=NO' /tmp/fisher
+
+          "$V" language/real/examples/mqr-4.53-blackwell-local.real > /tmp/blackwell
+          grep -F 'progress.local_structure=PARTIAL_ORDER' /tmp/blackwell
+          grep -F 'progress.global_scalar=REJECT' /tmp/blackwell
+
+          "$V" language/real/examples/mqr-4.53-obligation-preorder.real > /tmp/obl
+          grep -F 'progress.local_structure=PREORDER' /tmp/obl
+          grep -F 'progress.noncommuting_path_preserved=YES' /tmp/obl
+
+          "$V" language/real/examples/mqr-4.53-progress-atlas.real > /tmp/atlas
+          grep -F 'progress.guidance_mode=GLOBAL_META_LOCAL_GEOMETRY' /tmp/atlas
+          grep -F 'progress.progress_equals_promotion=NO' /tmp/atlas
+          grep -F 'progress.scalar_threshold_stop=REJECT' /tmp/atlas
+
+          "$V" language/real/examples/mqr-4.53-collapsed-promotion.real > /tmp/collapsed
+          grep -F 'progress.atlas_admissible=NO' /tmp/collapsed
+          grep -F 'progress.scalar_threshold_stop=INVALID_COLLAPSE' /tmp/collapsed
+
+          for x in language/real/tests/v20-invalid-*.real; do
+            if "$V" "$x"; then exit 1; fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V20_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR453_LOCAL_GEOMETRY_ADMISSION=PASS
+          echo MQR453_GLOBAL_SCALAR_PROGRESS=REJECT
+          echo MQR453_PROGRESS_EQUALS_PROMOTION=NO
+
+      - name: Execute frozen progress countermodel court
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.53/progress_court.py | tee /tmp/mqr453.log
+
+          grep -F 'mqr453.candidate_count=13' /tmp/mqr453.log
+          grep -F 'mqr453.universal_scalar_survivors=0' /tmp/mqr453.log
+          grep -F 'mqr453.event_count_invariant=FALSE' /tmp/mqr453.log
+          grep -F 'mqr453.obligation_count_invariant=FALSE' /tmp/mqr453.log
+          grep -F 'mqr453.equal_information_different_intervention=PASS' /tmp/mqr453.log
+          grep -F 'mqr453.fisher_reparameterization_invariant=TRUE' /tmp/mqr453.log
+          grep -F 'mqr453.blackwell_incomparability_exists=TRUE' /tmp/mqr453.log
+          grep -F 'mqr453.authority_path_length_is_progress=FALSE' /tmp/mqr453.log
+          grep -F 'mqr453.authority_level_monotone_progress=FALSE' /tmp/mqr453.log
+          grep -F 'mqr453.scalar_rank_reversal=TRUE' /tmp/mqr453.log
+          grep -F 'mqr453.state_only_stop_rule_sufficient=FALSE' /tmp/mqr453.log
+          grep -F 'mqr453.cross_domain_structure_transports=TRUE' /tmp/mqr453.log
+          grep -F 'mqr453.universal_representation_invariant_scalar_progress=REJECT' /tmp/mqr453.log
+          grep -F 'mqr453.local_representation_invariant_progress_structures=ADMIT' /tmp/mqr453.log
+          grep -F 'mqr453.global_meta_constitution_local_geometry=SUPPORTED_BY_COURT' /tmp/mqr453.log
+          grep -F 'mqr453.realprogress_v020=EARNED_CANDIDATE' /tmp/mqr453.log
+
+      - name: Upload progress court report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.53-progress-report-${{ github.sha }}
+          path: experiments/mqr-4.53/results/progress_report.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.53/Court"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="$context" -f description="$description" -f target_url="$target"
