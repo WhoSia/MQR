@@ -102,6 +102,12 @@ jobs:
           grep -F 'mqr453.scalar_rank_reversal=TRUE' /tmp/mqr453.log
           grep -F 'mqr453.state_only_stop_rule_sufficient=FALSE' /tmp/mqr453.log
           grep -F 'mqr453.cross_domain_structure_transports=TRUE' /tmp/mqr453.log
+          grep -F 'mqr453.pre_reveal_coverage_complete=TRUE' /tmp/mqr453.log
+          grep -F 'mqr453.material_path_noncommutativity=PASS' /tmp/mqr453.log
+          grep -F 'mqr453.equal_intervention_different_information=PASS' /tmp/mqr453.log
+          grep -F 'mqr453.scalar_false_stop=PASS' /tmp/mqr453.log
+          grep -F 'mqr453.obligation_only_false_stop=PASS' /tmp/mqr453.log
+          grep -F 'mqr453.wcqp_cve_positive_stop=PASS' /tmp/mqr453.log
           grep -F 'mqr453.universal_representation_invariant_scalar_progress=REJECT' /tmp/mqr453.log
           grep -F 'mqr453.local_representation_invariant_progress_structures=ADMIT' /tmp/mqr453.log
           grep -F 'mqr453.global_meta_constitution_local_geometry=SUPPORTED_BY_COURT' /tmp/mqr453.log
