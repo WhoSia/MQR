@@ -1,7 +1,7 @@
 # mqr-4.43-final-same-head-seal
 # mqr-4.42-final-doctrine-seal-proof
 # mqr-4.42-final-same-head-seal
-name: Real-Language v0.4–v0.19 Lean Proof Boundary
+name: Real-Language v0.4–v0.20 Lean Proof Boundary
 # canonical-proof-trigger: pinned-lean4export-plus-nanoda
 
 on:
@@ -23,6 +23,7 @@ on:
       - 'language/real/V17-REGRESS-BOUNDARY.md'
       - 'language/real/V18-STOPPING-CALIBRATION.md'
       - 'language/real/V19-NATURALISTIC-TRACE.md'
+      - 'language/real/V20-PROGRESS-ATLAS.md'
       - '.github/workflows/real-language-proof-ci.yml'
   workflow_dispatch:
 
@@ -264,6 +265,60 @@ jobs:
           echo MQR452_NANODA_NATURALISTIC_TRACE_REPLAY=PASS
           echo ALGEBRAIC_COMPOSABILITY_IS_NOT_EPISTEMIC_COMPOSABILITY=TRUE
 
+
+      - name: Integrated v0.20 ProgressGeometry proof replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/ProgressGeometry.lean | tee /tmp/lean-progress-geometry.log
+          if grep -F 'sorryAx' /tmp/lean-progress-geometry.log; then exit 1; fi
+          theorems=(
+            MQR.inertCheckpointDuplicationCanChangeEventCountWithoutWorldChange
+            MQR.sameBurdenCanHaveDifferentObligationCarrierCounts
+            MQR.equalDescriptiveInformationNeedNotImplyEqualInterventionReach
+            MQR.positiveRawPathLengthCanBeNetProgressNull
+            MQR.correctiveProgressCanLowerClaimAuthority
+            MQR.independentAxisRescalingCanReverseWeightedScalarOrder
+            MQR.crossingProfilesCanRemainParetoIncomparable
+            MQR.sameAchievedProgressCanRequireOppositeContinueActions
+            MQR.localInvariantGeometryDoesNotImplyGlobalProgressMetric
+            MQR.structuralCrossDomainTransportDoesNotImplyMagnitudeTransport
+            MQR.globalMetaRulesCanCoexistWithPluralLocalGeometries
+            MQR.admissibleProgressStateAloneNeedNotLicenseStop
+          )
+          for theorem in "${theorems[@]}"; do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/lean-progress-geometry.log
+          done
+
+          lake env _lean4export/.lake/build/bin/lean4export MQR -- \
+            MQR.inertCheckpointDuplicationCanChangeEventCountWithoutWorldChange \
+            MQR.sameBurdenCanHaveDifferentObligationCarrierCounts \
+            MQR.equalDescriptiveInformationNeedNotImplyEqualInterventionReach \
+            MQR.positiveRawPathLengthCanBeNetProgressNull \
+            MQR.correctiveProgressCanLowerClaimAuthority \
+            MQR.independentAxisRescalingCanReverseWeightedScalarOrder \
+            MQR.crossingProfilesCanRemainParetoIncomparable \
+            MQR.sameAchievedProgressCanRequireOppositeContinueActions \
+            MQR.localInvariantGeometryDoesNotImplyGlobalProgressMetric \
+            MQR.structuralCrossDomainTransportDoesNotImplyMagnitudeTransport \
+            MQR.globalMetaRulesCanCoexistWithPluralLocalGeometries \
+            MQR.admissibleProgressStateAloneNeedNotLicenseStop \
+            > /tmp/mqr-453-integrated.export
+          cat > /tmp/mqr-453-integrated-nanoda.json <<'JSON'
+          {
+            "export_file_path": "/tmp/mqr-453-integrated.export",
+            "use_stdin": false,
+            "permitted_axioms": [],
+            "unpermitted_axiom_hard_error": true,
+            "nat_extension": true,
+            "string_extension": true,
+            "print_success_message": true
+          }
+          JSON
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr-453-integrated-nanoda.json
+          echo MQR453_INTEGRATED_PROGRESS_GEOMETRY_AXIOM_ANCESTRY=EMPTY
+          echo MQR453_INTEGRATED_NANODA_PROGRESS_GEOMETRY_REPLAY=PASS
 
       - name: Publish externally readable workflow receipt
         if: ${{ always() }}
