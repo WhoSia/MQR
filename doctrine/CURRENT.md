@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.51**.
+Status: live through **MQR-4.52**.
 
 ## Generation-IV authority kernel
 
@@ -1042,7 +1042,39 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 257. **No universal lambda follows from MQR-4.51.** The value one is a result of this calibration family and cost/error geometry; other claims, domains or decision contracts may require a different timing policy.
 258. **Stopping calibration does not retire open-world inquiry.** v0.18 calibrates when to stop the current admitted episode while preserving the v0.17 reopening reserve and all upstream frontier/challenge obligations.
 
+259. **Naturalistic compatibility ≠ prospective external calibration.** Historical source-temporal reconstruction can show that a policy is compatible with independently arising inquiry episodes, but it cannot recreate prospective blindness or establish future-domain calibration.
+260. **Claim freeze ≠ probe stop.** A claim may earn scoped closure while data acquisition, replication, characterization or successor search remains active.
+261. **Action/use authority ≠ universal mechanistic closure.** A treatment, intervention or engineering use may become warranted under a declared decision contract while broader causal/mechanistic inquiry remains open.
+262. **Archive ≠ truth declaration.** Ending active resource allocation can reflect opportunity cost, handoff or programme priority without asserting that the target ontology is complete.
+263. **Handoff is an epistemic transition.** Transferring unresolved obligations to independent laboratories, instruments or collaborations changes ancestry and search capacity; it is not equivalent to either STOP or CONTINUE by the original actor.
+264. **Positive convergence is world contact.** Independent concordant measurements can support local claim closure even when no privileged falsifier is present; world contact is not intrinsically negative.
+265. **World contact has no fixed evidential sign.** Calibration failure, intervention success, representation change, discordance, replication, positive convergence and novel phenomenon construction may all alter authority.
+266. **One recorded event ≠ one invariant unit of inquiry.** Publication, instrument check, replication, review, trial and multi-year evidence accumulation are heterogeneous carriers; raw event count cannot be presumed to measure equal scientific progress.
+267. **Fixed event-count confirmation lag is representation-dependent.** An observationally inert duplicate checkpoint can satisfy a lag-one rule without any new world contact; MQR-4.51's `lambda=1` therefore does not transport as a domain-invariant naturalistic constant.
+268. **Naturalistic stop timing is generally partially identified.** When the source record warrants only an interval, left/right censoring or contract-dependent boundary, MQR retains that set instead of fabricating a unique `tau*`.
+269. **Historical scientist action ≠ gold authority label.** What investigators actually did is evidence about practice and constraints, not an oracle that defines what they should have done.
+270. **Binary STOP projection may destroy authority structure.** CLAIM_FREEZE, CONTINUE_PROBING, PROVISIONAL_USE, ARCHIVE, HANDOFF and REOPEN are distinct coordinates when they have different downstream consequences.
+271. **Local ontological policy ≠ universal ontological principle.** A realism rule earns authority only on the domains/questions/use contracts where its world-contact consequences are demonstrated; MQR does not infer one global ontology merely from a successful local receipt.
+272. **Realist authority is at least partly a world-coupled control state, not merely a surviving proposition.** The live state tracks what claims may be asserted, what probes remain owed, what uses are licensed, what failures remain live, where resources flow and what can trigger reopening.
+273. **Control does not mean domination or completeness.** “World-coupled control” means reproducible capacity to act, discriminate, intervene, calibrate and be corrected under resistance from the target system; it does not imply that nature is exhaustively modeled.
+274. **Post-Popperian breadth is prior art, not MQR's novelty claim.** Exploratory experimentation, pragmatic/active realism, perspectivalism and local realism already reject a simple falsification-centred picture. MQR's candidate excess is the joint executable governance of their load-bearing constraints.
+275. **REALTRACE-0.19 is a representation revision, not a retroactive rescue of REALSTOP-0.18.** v0.18 remains valid on its generated calibration family; v0.19 records why binary/event-count transport to naturalistic science is not licensed.
+276. **Naturalistic source granularity is itself an intervention on the evaluator.** A policy whose verdict changes under evidentially inert serialization refinement fails representation invariance even if its original historical prediction happened to lie inside a defensible stop window.
+277. **Five identified naturalistic windows do not identify one stopping law.** Raw OQSC and lag-one both fell inside the five source-supported claim-freeze windows in the first 4.52 corpus, while two further cases remained contract-dependent/right-censored; the result is compatibility plus representational defeat, not a policy winner.
+278. **No final authority-mode basis is inferred.** Claim/probe/use/obligation/criterion/reopening coordinates are the current minimum representation forced by the first naturalistic attack and remain open to successor refinement.
+
 ## Live governance objects
+
+- Naturalistic Stopping-Trace Admission (NSTA)
+- Ex-Ante Inquiry-State Reconstruction (EISR)
+- Temporal Source Receipt (TSR)
+- Admissible Stop Window (ASW)
+- Authority-Mode Projection (AMP)
+- Partial-Identification Map (PIM)
+- Naturalistic Reopening-Latency Receipt (RLR-N)
+- Cross-Investigation Calibration Transport (CTT)
+- Missingness / Sensitivity Ledger (MSL)
+- Decision-Contract Reconstruction (DCR)
 
 - Stopping-Rule Calibration Receipt (SRCR)
 - Inquiry-Budget Allocation Receipt (IBAR)
