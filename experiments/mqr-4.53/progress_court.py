@@ -247,6 +247,177 @@ def progress_vs_promotion_twin_world() -> Dict[str, object]:
     }
 
 
+def pre_reveal_coverage_fixtures() -> Dict[str, object]:
+    # T2 / T7: evidence batching and sufficient-state recoding.
+    unbatched = {
+        "packets": ["r1", "r2"],
+        "sufficient_state": ("mean=0.5", "n=2"),
+    }
+    batched = {
+        "packets": ["batch(r1,r2)"],
+        "sufficient_state": ("mean=0.5", "n=2"),
+    }
+    evidence_batching_invariant = (
+        len(unbatched["packets"]) != len(batched["packets"])
+        and unbatched["sufficient_state"] == batched["sufficient_state"]
+    )
+
+    # T3: strictly monotone nonlinear time recoding preserves ordering but
+    # changes numerical elapsed coordinates.
+    t = [0.0, 1.0, 3.0]
+    f = [x ** 3 + 7.0 for x in t]
+    time_order_preserved = all(
+        (t[i] < t[j]) == (f[i] < f[j])
+        for i in range(len(t)) for j in range(len(t))
+    )
+    time_magnitude_changed = (t[-1] - t[0]) != (f[-1] - f[0])
+
+    # T4: positive unit rescaling changes raw magnitude, not cost ordering.
+    cost_units_a = (1.0, 4.0)
+    cost_units_b = tuple(100.0 * x for x in cost_units_a)
+    cost_order_preserved = (cost_units_a[0] < cost_units_a[1]) == (cost_units_b[0] < cost_units_b[1])
+    cost_magnitude_changed = cost_units_a != cost_units_b
+
+    # T9: one binary STOP label aliases distinct authority-mode states.
+    claim_freeze_probe_active = ("CLAIM_FROZEN", "PROBE_ACTIVE", "NOT_ARCHIVED")
+    claim_freeze_archived = ("CLAIM_FROZEN", "PROBE_ARCHIVED", "ARCHIVED")
+    binary_stop_alias = (
+        claim_freeze_probe_active != claim_freeze_archived
+        and "STOP" == "STOP"
+    )
+
+    # T10: material path order.  Intervening before calibration leaves an
+    # invalid-precalibration receipt that later calibration cannot erase.
+    def run_path(ops: Tuple[str, ...]) -> Dict[str, bool]:
+        calibrated = False
+        valid_intervention = False
+        invalid_precalibration = False
+        for op in ops:
+            if op == "CALIBRATE":
+                calibrated = True
+            elif op == "INTERVENE":
+                if calibrated:
+                    valid_intervention = True
+                else:
+                    invalid_precalibration = True
+            else:
+                raise ValueError(op)
+        return {
+            "calibrated": calibrated,
+            "valid_intervention": valid_intervention,
+            "invalid_precalibration": invalid_precalibration,
+        }
+
+    calibrate_then_intervene = run_path(("CALIBRATE", "INTERVENE"))
+    intervene_then_calibrate = run_path(("INTERVENE", "CALIBRATE"))
+    material_path_noncommutativity = calibrate_then_intervene != intervene_then_calibrate
+
+    # Reverse I↔intervention countermodel: same intervention/use reach,
+    # different descriptive discrimination.
+    black_box_control = {
+        "intervention_reach": 1,
+        "use_authority": 1,
+        "residual_rivals": 3,
+        "descriptive_information_bits": 0.2,
+    }
+    discriminating_control = {
+        "intervention_reach": 1,
+        "use_authority": 1,
+        "residual_rivals": 1,
+        "descriptive_information_bits": 1.0,
+    }
+    equal_intervention_unequal_information = (
+        black_box_control["intervention_reach"] == discriminating_control["intervention_reach"]
+        and black_box_control["use_authority"] == discriminating_control["use_authority"]
+        and (
+            black_box_control["residual_rivals"] != discriminating_control["residual_rivals"]
+            or black_box_control["descriptive_information_bits"] != discriminating_control["descriptive_information_bits"]
+        )
+    )
+
+    # Direct stop rivalry required by the PRESEAL.
+    scalar_high_live_burden = {
+        "scalar_progress": 10.0,
+        "threshold": 5.0,
+        "live_material_burdens": 1,
+        "continuation_value": 0.0,
+        "opportunity_cost": 1.0,
+        "reopening_active": True,
+    }
+    scalar_stop = scalar_high_live_burden["scalar_progress"] >= scalar_high_live_burden["threshold"]
+    obligation_stop = scalar_high_live_burden["live_material_burdens"] == 0
+    scalar_false_stop = scalar_stop and not obligation_stop
+
+    obligation_closed_high_cve = {
+        "live_material_burdens": 0,
+        "continuation_value": 2.0,
+        "opportunity_cost": 1.0,
+        "reopening_active": True,
+    }
+    obligation_only_stop = obligation_closed_high_cve["live_material_burdens"] == 0
+    cve_stop = (
+        obligation_closed_high_cve["live_material_burdens"] == 0
+        and obligation_closed_high_cve["continuation_value"] <= obligation_closed_high_cve["opportunity_cost"]
+        and obligation_closed_high_cve["reopening_active"]
+    )
+    obligation_only_false_stop = obligation_only_stop and not cve_stop
+
+    wcqp_cve_positive = {
+        "live_material_burdens": 0,
+        "continuation_value": 0.2,
+        "opportunity_cost": 1.0,
+        "reopening_active": True,
+        "in_progress_admissible_region": True,
+    }
+    wcqp_cve_positive_stop = (
+        wcqp_cve_positive["live_material_burdens"] == 0
+        and wcqp_cve_positive["continuation_value"] <= wcqp_cve_positive["opportunity_cost"]
+        and wcqp_cve_positive["reopening_active"]
+        and wcqp_cve_positive["in_progress_admissible_region"]
+    )
+
+    return {
+        "evidence_batching": {
+            "unbatched": unbatched,
+            "batched": batched,
+            "invariant_target_state": evidence_batching_invariant,
+        },
+        "time_reparameterization": {
+            "original": t,
+            "reparameterized": f,
+            "order_preserved": time_order_preserved,
+            "magnitude_changed": time_magnitude_changed,
+        },
+        "cost_unit_rescaling": {
+            "original": cost_units_a,
+            "rescaled": cost_units_b,
+            "order_preserved": cost_order_preserved,
+            "magnitude_changed": cost_magnitude_changed,
+        },
+        "authority_mode_factorization": {
+            "first": claim_freeze_probe_active,
+            "second": claim_freeze_archived,
+            "binary_stop_aliases_distinct_modes": binary_stop_alias,
+        },
+        "path_order": {
+            "calibrate_then_intervene": calibrate_then_intervene,
+            "intervene_then_calibrate": intervene_then_calibrate,
+            "material_noncommutativity": material_path_noncommutativity,
+        },
+        "reverse_information_intervention": {
+            "black_box_control": black_box_control,
+            "discriminating_control": discriminating_control,
+            "equal_intervention_unequal_information": equal_intervention_unequal_information,
+        },
+        "stop_rivals": {
+            "scalar_false_stop": scalar_false_stop,
+            "obligation_only_false_stop": obligation_only_false_stop,
+            "wcqp_cve_positive_stop": wcqp_cve_positive_stop,
+            "non_scalar_alternatives_compared": 2,
+        },
+    }
+
+
 def cross_domain_morphism_fixture() -> Dict[str, object]:
     # Same abstract burden-preservation morphism; radically different local
     # magnitudes. Structure transports, magnitude does not.
@@ -382,6 +553,7 @@ def main() -> None:
         "blackwell": blackwell_fixture(),
         "progress_vs_promotion": progress_vs_promotion_twin_world(),
         "cross_domain": cross_domain_morphism_fixture(),
+        "pre_reveal_coverage": pre_reveal_coverage_fixtures(),
     }
     candidates = evaluate_candidates(fixtures)
 
@@ -410,6 +582,20 @@ def main() -> None:
             "cross_domain_structure_transports": fixtures["cross_domain"]["same_structural_order"],
             "cross_domain_information_magnitude_transports": fixtures["cross_domain"]["same_information_magnitude"],
             "cross_domain_cost_magnitude_transports": fixtures["cross_domain"]["same_cost_magnitude"],
+            "pre_reveal_coverage_complete": all([
+                fixtures["pre_reveal_coverage"]["evidence_batching"]["invariant_target_state"],
+                fixtures["pre_reveal_coverage"]["time_reparameterization"]["order_preserved"],
+                fixtures["pre_reveal_coverage"]["time_reparameterization"]["magnitude_changed"],
+                fixtures["pre_reveal_coverage"]["cost_unit_rescaling"]["order_preserved"],
+                fixtures["pre_reveal_coverage"]["cost_unit_rescaling"]["magnitude_changed"],
+                fixtures["pre_reveal_coverage"]["authority_mode_factorization"]["binary_stop_aliases_distinct_modes"],
+                fixtures["pre_reveal_coverage"]["path_order"]["material_noncommutativity"],
+                fixtures["pre_reveal_coverage"]["reverse_information_intervention"]["equal_intervention_unequal_information"],
+                fixtures["pre_reveal_coverage"]["stop_rivals"]["scalar_false_stop"],
+                fixtures["pre_reveal_coverage"]["stop_rivals"]["obligation_only_false_stop"],
+                fixtures["pre_reveal_coverage"]["stop_rivals"]["wcqp_cve_positive_stop"],
+                fixtures["pre_reveal_coverage"]["stop_rivals"]["non_scalar_alternatives_compared"] >= 2,
+            ]),
         },
         "verdict": {
             "universal_representation_invariant_scalar_progress": "REJECT",
@@ -445,6 +631,12 @@ def main() -> None:
     assert s["cross_domain_structure_transports"] is True
     assert s["cross_domain_information_magnitude_transports"] is False
     assert s["cross_domain_cost_magnitude_transports"] is False
+    assert s["pre_reveal_coverage_complete"] is True
+    assert fixtures["pre_reveal_coverage"]["path_order"]["material_noncommutativity"] is True
+    assert fixtures["pre_reveal_coverage"]["reverse_information_intervention"]["equal_intervention_unequal_information"] is True
+    assert fixtures["pre_reveal_coverage"]["stop_rivals"]["scalar_false_stop"] is True
+    assert fixtures["pre_reveal_coverage"]["stop_rivals"]["obligation_only_false_stop"] is True
+    assert fixtures["pre_reveal_coverage"]["stop_rivals"]["wcqp_cve_positive_stop"] is True
 
     print(f"mqr453.candidate_count={s['candidate_count']}")
     print("mqr453.universal_scalar_survivors=0")
@@ -458,6 +650,12 @@ def main() -> None:
     print(f"mqr453.scalar_rank_reversal={str(s['scalar_rank_reversal_under_independent_rescaling']).upper()}")
     print(f"mqr453.state_only_stop_rule_sufficient={str(s['state_only_stop_rule_sufficient']).upper()}")
     print(f"mqr453.cross_domain_structure_transports={str(s['cross_domain_structure_transports']).upper()}")
+    print(f"mqr453.pre_reveal_coverage_complete={str(s['pre_reveal_coverage_complete']).upper()}")
+    print("mqr453.material_path_noncommutativity=PASS")
+    print("mqr453.equal_intervention_different_information=PASS")
+    print("mqr453.scalar_false_stop=PASS")
+    print("mqr453.obligation_only_false_stop=PASS")
+    print("mqr453.wcqp_cve_positive_stop=PASS")
     print("mqr453.universal_representation_invariant_scalar_progress=REJECT")
     print("mqr453.local_representation_invariant_progress_structures=ADMIT")
     print("mqr453.global_meta_constitution_local_geometry=SUPPORTED_BY_COURT")
