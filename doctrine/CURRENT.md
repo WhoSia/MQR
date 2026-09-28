@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.50**.
+Status: live through **MQR-4.51**.
 
 ## Generation-IV authority kernel
 
@@ -1026,7 +1026,34 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 243. **Repeated finite stability ≠ future refinement-space closure.** Stability rounds may strengthen current robustness only; final ontology, global fixed point and future-space closure remain forbidden inferences.
 244. **Reopenability ≠ permanent suspension.** When the admitted surface is nonvacuous, every live material obligation is discharged, criteria are invariant on the registered envelope, and no reopening trigger is active, scoped operational authorization may be positive rather than merely HOLD.
 
+
+245. **Operational-stop eligibility ≠ calibrated stopping time.** An OQSC PASS licenses stopping as constitutionally admissible; it does not establish that the first eligible instant is behaviorally calibrated.
+246. **Raw immediate OQSC stopping failed the first prospective calibration court.** On the frozen MQR-4.51 holdout, raw OQSC produced 51 live-obligation premature stops and 51 action errors across all three domains; immediate-stop calibration is therefore rejected on that benchmark.
+247. **Calibration may add timing structure without converting eligibility into truth.** A confirmation lag is a stopping-policy coordinate, not a metaphysical depth or evidential truth threshold.
+248. **The MQR-4.51 calibration split selected one additional eligible transition.** The frozen global family selected lambda=1 before holdout scoring; this value is benchmark-relative and carries no universal real-world authority.
+249. **Calibration gain has an inquiry-cost price.** The lambda=1 successor reduced holdout PSE/AE from 51/51 to 0/0 while increasing OIW from 38.5 to 338.5; MQR retains the vector rather than collapsing the trade-off into one score.
+250. **Always-stop and always-continue are both inadequate controls.** Aggressive stopping produced large premature/action error; never stopping eliminated those errors only by incurring much larger inquiry waste and universal budget exhaustion.
+251. **Calibration-only baseline tuning is distinct from holdout repair.** Fixed-k, patience-h and OQSC-lag parameters may be selected on the calibration split only; post-holdout scientific policy repair is forbidden within the closed court.
+252. **Live-obligation premature error ≠ future reopening.** Missing an obligation already live/reachable at stop time is charged as premature stopping; genuinely new post-stop world contact starts a reopening-latency clock instead of retroactively invalidating the local stop.
+253. **Reopening competence is independently scored.** A policy can be initially well calibrated yet fail by reopening too slowly; MQR-4.51 therefore tracks RL and MISSED_REOPEN separately from PSE.
+254. **Counterfactual continuation can audit a stop without becoming a human-causal model.** Frozen-trace STOP/CONTINUE replay asks whether additional already-live inquiry would have changed the authority/action projection; it does not infer causal laws about scientists.
+255. **Same-kernel cross-domain success earns only internal transport.** The lambda=1 successor passed the declared FAULT, MEASUREMENT and SEARCH adapters without domain-specific thresholds, but this is generated-benchmark transport, not external calibration.
+256. **Internal benchmark calibration ≠ external scientific calibration.** Real-world stop timing remains HOLD until prospectively evaluated on independently arising inquiry traces.
+257. **No universal lambda follows from MQR-4.51.** The value one is a result of this calibration family and cost/error geometry; other claims, domains or decision contracts may require a different timing policy.
+258. **Stopping calibration does not retire open-world inquiry.** v0.18 calibrates when to stop the current admitted episode while preserving the v0.17 reopening reserve and all upstream frontier/challenge obligations.
+
 ## Live governance objects
+
+- Stopping-Rule Calibration Receipt (SRCR)
+- Inquiry-Budget Allocation Receipt (IBAR)
+- Premature-Stop / Over-Inquiry Ledger (PSOIL)
+- Counterfactual Continue/Stop Replay (CCSR)
+- Reopening-Latency Receipt (RLR)
+- Holdout Integrity & Timing Certificate (HITC)
+- Cross-Domain Termination Transport (CDTT)
+- Stopping-Policy Admissibility Receipt (SPAR)
+- Stop-Error Ledger (SEL)
+- Budget-Exhaustion Certificate (BEC)
 
 - Constitutional Regress Boundary Receipt (CRBR)
 - Operational Quotient Sufficiency Certificate (OQSC)
