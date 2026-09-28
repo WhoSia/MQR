@@ -1,0 +1,15 @@
+REALTRACE 0.19
+id invalid_projection
+source_cutoff 2012-07-31
+mapping EXACT
+claim FROZEN
+probe ACTIVE
+use NONE
+live_obligation CLEAR
+criterion AGREE
+break NONE
+projection BINARY
+granularity IRREGULAR
+stop_window INTERVAL
+historical_action CLAIM_FREEZE
+END
