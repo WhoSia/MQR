@@ -1,6 +1,6 @@
 # Real-Language v0.21 — World-Contact Invariance Constitution
 
-Status: **EXECUTABLE-CANDIDATE / MQR-4.54 / PRESEALED / NOT-YET-PROMOTED**
+Status: **PROMOTED-LIVE / MQR-4.54 / QUALIFYING-COURT+PROOF+INTEGRATED-CI-PASS / FINAL-SAME-HEAD-SEAL-PENDING**
 
 ## Purpose
 
@@ -97,7 +97,7 @@ This is deliberate. One successful global-scope receipt does not establish that 
 
 ## WCICR
 
-The executable candidate is the **World-Contact Invariance Constitution Receipt (WCICR)**.
+The live executable object is the **World-Contact Invariance Constitution Receipt (WCICR)**.
 
 A successful packet earns only a local/scoped candidate receipt:
 
@@ -105,7 +105,7 @@ A successful packet earns only a local/scoped candidate receipt:
 invariance.wcicr=EARNED_LOCAL_CANDIDATE
 ~~~
 
-Promotion of WCICR into live doctrine requires the qualifying MQR-4.54 court and proof boundary. v0.21 is not promoted merely by existing in the repository.
+WCICR has passed the qualifying MQR-4.54 Court, dedicated Lean+nanoda boundary, integrated Real-Language CI and integrated Lean+nanoda replay. Final stage closure still requires the same-head final seal.
 
 ## Reopening
 
