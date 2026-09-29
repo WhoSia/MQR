@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'experiments/mqr-4.55/FINAL-SEAL.md'
       - 'language/real/lean/MQR/ConsequenceFamily.lean'
       - 'language/real/lean/MQR.lean'
       - 'language/real/V22-CONSEQUENCE-FAMILY.md'
