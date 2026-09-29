@@ -1,6 +1,6 @@
 # Real-Language v0.22 — World-Contact Consequence-Family Constitution
 
-Status: **EXECUTABLE-CANDIDATE / MQR-4.55 / PRESEALED / NOT-YET-PROMOTED**
+Status: **PROMOTED-LIVE / MQR-4.55 / QUALIFYING-COURT+PROOF+INTEGRATED-CI-PASS / FINAL-SAME-HEAD-SEAL-PENDING**
 
 ## Purpose
 
@@ -99,7 +99,7 @@ These are receipt diagnostics, not a total theory of scientific discovery.
 
 ## WCCFR
 
-The executable candidate is **WCCFR — World-Contact Consequence-Family Receipt**.
+The live executable object is **WCCFR — World-Contact Consequence-Family Receipt**.
 
 A successful packet may emit:
 
@@ -137,4 +137,4 @@ REALCONSEQUENCE 0.22 does not establish:
 - completeness merely from formal proof;
 - unique optimal rigor/intuition balance.
 
-Promotion requires the qualifying MQR-4.55 Court and proof boundary.
+WCCFR has passed the qualifying MQR-4.55 Court, dedicated Lean+nanoda boundary, integrated Real-Language CI and integrated Lean+nanoda replay. Final stage closure still requires the same-head final seal.
