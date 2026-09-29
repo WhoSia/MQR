@@ -1,0 +1,15 @@
+REALINVARIANCE 0.21
+id dup
+target PROGRESS
+grammar GROUP
+grammar GROUPOID
+scope SUBSYSTEM
+probe_preservation PASS
+intervention_preservation PASS
+composition_status PASS
+defeat_preservation PASS
+embedding_status LOCAL_ONLY
+morphism_integrity PASS
+preseal_provenance SEALED
+reopening ACTIVE
+END
