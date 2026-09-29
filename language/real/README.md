@@ -1,4 +1,4 @@
-# Real-Language / Real-Packet v0.3–v0.21
+# Real-Language / Real-Packet v0.3–v0.22
 
 Real-Language is MQR's active event-to-realist-authority language.
 
@@ -998,3 +998,57 @@ SCIENTIFIC-AUTHORITY ORDER
 A globally scoped successful receipt may earn transport within its declared scope without establishing a unique global invariance constitution.
 
 The live receipt is **WCICR — World-Contact Invariance Constitution Receipt**. It is reopenable and explicitly does not certify completeness of the consequence families used to audit it.
+
+
+## v0.22 — world-contact consequence-family constitution
+
+MQR-4.55 adds `REALCONSEQUENCE 0.22`.
+
+Canonical implementation:
+- Rust: `src/consequence_v22.rs` / `real-v22-consequence`;
+- independent evaluator: `prolog/consequence_v22.pl`;
+- formal boundary: `lean/MQR/ConsequenceFamily.lean`;
+- executable constitution: `V22-CONSEQUENCE-FAMILY.md`.
+
+The live consequence-family constitution is:
+
+```text
+F = P ⊔ A ⊔ M ⊔ D ⊔ S
+Ψ = (T, F, Γ_F, Π, E, H, R)
+```
+
+where the receipt audits current consequence contents, generation grammar, ancestry/common-mode structure, exterior expansion, heuristic/tacit proposal ecology and reopening.
+
+The key authority boundaries are:
+
+```text
+MORE TESTS
+!= MORE INDEPENDENCE
+!= MORE ADEQUACY
+!= MORE AUTHORITY
+
+FORMAL COMPLETENESS(L)
+!= WORLD CONSEQUENCE COMPLETENESS
+
+HEURISTIC GENERATION
+!= CLAIM AUTHORITY
+```
+
+v0.22 therefore permits diagrams, analogy, model manipulation, trained recognition and tacit competence to **generate** candidate consequences without letting those channels self-authorize their products.
+
+The live methodological asymmetry is:
+
+```text
+GENERATION:
+BROAD / PLURAL / PRE-FORMAL-ADMISSIBLE
+
+ADJUDICATION:
+STRICT / SCOPED / PROSPECTIVE /
+WORLD-CONTACTED / DEFEAT-RESPONSIVE
+```
+
+Rigor remains load-bearing: when a compressed/tacit/high-level move becomes defeat-sensitive, enough of it should be made explicit to audit failure. But ex-ante formalizability is not a universal admission requirement for scientific search.
+
+The live receipt is **WCCFR — World-Contact Consequence-Family Receipt**. It can earn local family adequacy only while emitting `world_family_complete=NO`.
+
+REALCONSEQUENCE 0.22 is not a universal discovery algorithm and does not define one homogeneous faculty of intuition.
