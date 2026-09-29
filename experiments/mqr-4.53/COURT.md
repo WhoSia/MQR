@@ -1,6 +1,6 @@
 # MQR-4.53 — World-Contact Progress Measure Court
 
-Status: PRE-CLOSURE / AMENDMENT-A-PRE-REVEAL-COVERAGE-SEALED / FIRST-AUTHORITATIVE-REVEAL-PENDING / GLOBAL-SCALAR-REJECT-CANDIDATE / LOCAL-GEOMETRIES-ADMIT-CANDIDATE / REALPROGRESS-0.20-CANDIDATE / CHART-CONSTITUTION-AUTHORITY-HOLD / MAIN-ONLY
+Status: **CLOSED / AMENDMENT-A-PRE-REVEAL-COVERAGE-SEALED / GLOBAL-UNLICENSED-SCALAR-REJECT / LOCAL-INVARIANT-STRUCTURES-ADMIT / PROGRESS≠PROMOTION / INFORMATION≠INTERVENTION / STRUCTURE-TRANSPORT≠MAGNITUDE-TRANSPORT / WCPA+WCQP+CVE+PAR / REALPROGRESS-0.20 PROMOTED / CHART-CONSTITUTION-AUTHORITY-HOLD / MAIN-ONLY**
 
 ## Formal stage name
 
@@ -129,7 +129,15 @@ PARETO_VECTOR = PASS_PARTIAL_ONLY
 WORLD_CONTACT_PROGRESS_ATLAS = PROMOTE_CANDIDATE
 ~~~
 
-The result is not authoritative until the first successful dedicated 4.53 Court run.
+The result became authoritative at the first qualifying post-Amendment-A Court reveal:
+
+~~~text
+head = 632e748367b7793bc1a5d85b766e2c1018f3c3dc
+run  = 36389215348
+result = SUCCESS
+~~~
+
+This reveal satisfied the complete presealed coverage assertions. No candidate family, countermodel, stop rival, transformation class or scoring rule was scientifically altered after this reveal.
 
 ## Theoretical synthesis
 
@@ -268,7 +276,7 @@ REPRESENTATION-INVARIANCE CONSTITUTION
 WORLD-CONTACT PROGRESS ATLAS
 ~~~
 
-## Claim ceiling before reveal
+## Claim ceiling after authoritative reveal
 
 Candidate:
 - universal unlicensed scalar progress ruler: REJECT;
@@ -278,7 +286,7 @@ Candidate:
 - universal scalar stopping threshold: REJECT;
 - REALPROGRESS 0.20: candidate promotion.
 
-Not earned before first successful Court:
+Not earned:
 - final 4.53 closure;
 - universal progress ontology;
 - final atlas completeness;
@@ -304,10 +312,62 @@ The Progress-Constitution Receipt (PCR) is therefore a live successor obligation
 
 This prevents the atlas from hiding a global progress standard inside the apparently neutral choice of chart boundaries or invariance classes.
 
-## Pre-closure status
+## Post-reveal formal verification
 
-Substantive theory/literature result is mature enough for a first reveal.
+The first dedicated Court reveal succeeded before the later proof integration repair.
 
-Formal scientific promotion remains **HOLD** until a qualifying post-Amendment-A Court run succeeds.
+A subsequent aggregate Lean build exposed a namespace collision only:
+`MQR.ObligationPartitionWitness` was defined in both the older Constitution module and the new ProgressGeometry module.
 
-No doctrine promotion to MQR-4.53 occurs before that reveal.
+Repair:
+`740011008f81d5b766894e8123b69028e11add96`
+
+The ProgressGeometry witness was renamed to `ProgressObligationPartitionWitness`. The theorem statement, countermodel and scientific result were unchanged.
+
+Post-repair receipts:
+- `36526995228` — MQR-4.53 Progress Geometry Lean Boundary — SUCCESS.
+- `36526995262` — integrated Real-Language Lean + nanoda through v0.20 — SUCCESS.
+- `36526995269` — integrated Real-Language CI through v0.20 — SUCCESS.
+
+## Closure verdict
+
+The 4.53 Court closes with:
+
+~~~text
+13 CANDIDATE FAMILIES ATTACKED
+UNIVERSAL SCALAR SURVIVORS = 0
+
+EVENT COUNT = REJECT
+OBLIGATION COUNT = REJECT
+ELAPSED TIME = POLICY INPUT, NOT PROGRESS
+RESOURCE COST = POLICY INPUT, NOT PROGRESS
+
+SHANNON/KL = LOCAL ONLY
+VOI = CONTRACT-LOCAL
+FISHER-RAO = LOCAL METRIC ADMITTED
+BLACKWELL = LOCAL PARTIAL ORDER ADMITTED
+BURDEN DISCHARGE = LOCAL PREORDER ADMITTED
+PARETO/VECTOR = PARTIAL ONLY
+
+AUTHORITY PATH LENGTH = REJECT
+NET AUTHORITY LEVEL = REJECT
+
+WORLD-CONTACT PROGRESS ATLAS = PROMOTED
+PROGRESS STATE = CONTINUATION VALUE = REJECT
+SCALAR PROGRESS THRESHOLD -> STOP = REJECT
+~~~
+
+The strongest live thesis is not that science has no geometry. It is:
+
+~~~text
+SCIENCE MAY HAVE
+GLOBALLY GOVERNED,
+LOCALLY EARNED
+PROGRESS GEOMETRIES
+
+WITHOUT HAVING
+A SINGLE GLOBAL
+PROGRESS RULER.
+~~~
+
+The authority to constitute `G_inert`, chart targets and admissible cross-chart morphisms remains an explicit successor HOLD.
