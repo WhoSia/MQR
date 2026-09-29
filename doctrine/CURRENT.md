@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.54**.
+Status: live through **MQR-4.55**.
 
 ## Generation-IV authority kernel
 
@@ -1094,7 +1094,30 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 305. **WCICR is scoped, defeat-responsive and reopenable.** The World-Contact Invariance Constitution Receipt records target, domain, typed transformation grammar, closure obligations, probe/intervention families, morphism grammar, defeat preservation, embedding scope, preseal provenance and reopening route.
 306. **World-contacted invariance constitution ≠ consequence-family completeness.** Passing WCICR does not establish that the current probe, intervention, morphism, defeat or scope families are complete or uniquely privileged; that open-world residue remains active.
 
+
+307. **A current consequence family does not self-certify its completeness.** Passing every admitted probe/intervention/morphism/defeat/scope consequence establishes only survival relative to the constituted family.
+308. **More tests ≠ more independence ≠ more adequacy ≠ more authority.** Nominal consequence count and raw coverage fractions cannot substitute for ancestry, generator diversity and escape capacity.
+309. **Consequence channels are typed.** Observational saturation does not automatically establish intervention adequacy; intervention saturation does not automatically establish morphism/transport adequacy; omitted load-bearing channels require explicit receipts.
+310. **Finite generator-grammar closure ≠ world consequence closure.** A family-generation grammar can be internally closed while a material off-grammar consequence remains unconceived or inexpressible.
+311. **Formal completeness within a constituted language ≠ scientific primitive completeness.** A formal system may be complete for its declared syntax/semantics while the world-facing distinction later requires a primitive outside that language.
+312. **Generation authority ≠ claim authority.** Heuristics, diagrams, analogy, model manipulation, trained recognition, aesthetic/fluency signals and tacit skill may propose consequences without self-authorizing their scientific verdicts.
+313. **Generation–Adjudication Asymmetry is live.** Candidate generation may be broad, plural and partly pre-formal; claim promotion must remain scoped, prospective, world-contacted, defeat-responsive and provenance-bearing.
+314. **Rigor is load-bearing but not a universal ex-ante search gate.** When a tacit/high-level move becomes authority-bearing or defeat-sensitive, enough of it should be exposed to make failure auditable; complete prior formalization of every generative act is not required.
+315. **Protocol custody ≠ discriminating competence custody.** Tacit dependence is a capability obligation that may be trained, reconstructed, substituted and held-out tested; it is neither invisible pedigree authority nor automatically ineffable.
+316. **Current family contents do not determine future corrigibility.** Two programmes with the same current consequence set may differ in generator ancestry, exterior expansion, holdout routes and reopening capacity.
+317. **WCCFR is local and explicitly open.** The World-Contact Consequence-Family Receipt may license scoped family adequacy only while retaining off-grammar challenge, adversarial expansion, ancestry audit and reopening, and while refusing a world-completeness claim.
+
 ## Live governance objects
+
+- World-Contact Consequence-Family Receipt (WCCFR)
+- Consequence-Family Constitution Ψ = (T, F, Γ_F, Π, E, H, R)
+- Consequence-Generator Grammar (Γ_F)
+- Consequence Ancestry / Common-Mode Graph (Π)
+- Exterior / Off-Grammar Expansion Route (E)
+- Heuristic / Intuitive Proposal Ecology (H; generation-only authority)
+- Serialization Quotient Audit
+- Tacit-Competence Reconstruction Obligation
+- Consequence-Family Reopening Law (R)
 
 - World-Contact Invariance Constitution Receipt (WCICR)
 - Typed Transformation Grammar (Γ; GROUP / GROUPOID / PSEUDOGROUP / MONOID / PARTIAL_FAMILY)
