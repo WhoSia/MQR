@@ -7,6 +7,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'experiments/mqr-4.54/FINAL-SEAL.md'
       - 'experiments/mqr-4.53/FINAL-SEAL.md'
       - 'experiments/mqr-4.52/FINAL-SEAL.md'
       - 'language/real/**'
@@ -35,7 +36,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19|PROGRESS 0.20)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19|PROGRESS 0.20|INVARIANCE 0.21)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -996,6 +997,63 @@ jobs:
           echo MQR453_GLOBAL_PROGRESS_RULER=REJECT
           echo MQR453_LOCAL_INVARIANT_GEOMETRIES=ADMIT
           echo MQR453_WORLD_CONTACT_PROGRESS_ATLAS=PASS
+
+      - name: Integrated v0.21 invariance-constitution guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V21=./language/real/target/release/real-v21-invariance
+          P21=language/real/prolog/invariance_v21.pl
+
+          for f in language/real/examples/mqr-4.54-*.real; do
+            "$V21" "$f" > /tmp/v21.rust
+            swipl -q -s "$P21" -g "run('$f'),halt" -t "halt(1)" > /tmp/v21.prolog
+            grep '^invariance\.' /tmp/v21.rust > /tmp/v21.rust.core
+            grep '^invariance\.' /tmp/v21.prolog > /tmp/v21.prolog.core
+            diff -u /tmp/v21.rust.core /tmp/v21.prolog.core
+          done
+
+          "$V21" language/real/examples/mqr-4.54-local-groupoid.real > /tmp/v21.local
+          grep -F 'invariance.constitution_admissible=YES' /tmp/v21.local
+          grep -F 'invariance.global_transport=NO' /tmp/v21.local
+
+          "$V21" language/real/examples/mqr-4.54-over-quotient.real > /tmp/v21.over
+          grep -F 'invariance.diagnosis=OVER_QUOTIENT' /tmp/v21.over
+
+          "$V21" language/real/examples/mqr-4.54-posthoc-capture.real > /tmp/v21.capture
+          grep -F 'invariance.diagnosis=CONSTITUTION_CAPTURE' /tmp/v21.capture
+
+          "$V21" language/real/examples/mqr-4.54-global-receipt.real > /tmp/v21.global
+          grep -F 'invariance.global_transport=YES_WITHIN_DECLARED_SCOPE' /tmp/v21.global
+          grep -F 'invariance.unique_global_constitution=NOT_EARNED' /tmp/v21.global
+
+          "$V21" language/real/examples/mqr-4.54-partial-family.real > /tmp/v21.partial
+          grep -F 'invariance.grammar_closure_adequate=YES' /tmp/v21.partial
+
+          for x in language/real/tests/v21-invalid-*.real; do
+            if "$V21" "$x"; then exit 1; fi
+            if swipl -q -s "$P21" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          python experiments/mqr-4.54/constitution_court.py | tee /tmp/mqr454.integrated
+          grep -F 'mqr454.subsystem_inert_relationally_active=PASS' /tmp/mqr454.integrated
+          grep -F 'mqr454.generator_certification_not_closure=PASS' /tmp/mqr454.integrated
+          grep -F 'mqr454.over_quotient_intervention_split=PASS' /tmp/mqr454.integrated
+          grep -F 'mqr454.under_quotient_redundancy=PASS' /tmp/mqr454.integrated
+          grep -F 'mqr454.target_capture_detected=PASS' /tmp/mqr454.integrated
+          grep -F 'mqr454.morphism_exclusion_capture_detected=PASS' /tmp/mqr454.integrated
+          grep -F 'mqr454.rival_constitutions_fresh_split=PASS' /tmp/mqr454.integrated
+          grep -F 'mqr454.meta_invariance_not_terminal=PASS' /tmp/mqr454.integrated
+          grep -F 'mqr454.legitimate_local_quotient=ADMIT' /tmp/mqr454.integrated
+          grep -F 'mqr454.partial_transformation_grammar=ADMIT' /tmp/mqr454.integrated
+          grep -F 'mqr454.reopenable_refinement=ADMIT' /tmp/mqr454.integrated
+          grep -F 'mqr454.self_authorizing_invariance=REJECT' /tmp/mqr454.integrated
+          grep -F 'mqr454.unique_global_invariance_constitution=NOT_EARNED' /tmp/mqr454.integrated
+          grep -F 'mqr454.wcicr=CANDIDATE' /tmp/mqr454.integrated
+
+          echo REAL_LANGUAGE_V21_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR454_INTEGRATED_INVARIANCE_CONSTITUTION=PASS
 
       - name: Publish externally readable workflow receipt
         if: ${{ always() }}
