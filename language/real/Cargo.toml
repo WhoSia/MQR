@@ -86,3 +86,8 @@ path = "src/trace_v19.rs"
 [[bin]]
 name = "real-v20-progress"
 path = "src/progress_v20.rs"
+
+
+[[bin]]
+name = "real-v21-invariance"
+path = "src/invariance_v21.rs"
