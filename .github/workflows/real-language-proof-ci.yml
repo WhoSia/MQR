@@ -8,6 +8,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'experiments/mqr-4.53/FINAL-SEAL.md'
       - 'experiments/mqr-4.52/FINAL-SEAL.md'
       - 'language/real/lean/**'
       - 'language/real/V04-PRESEAL.md'
