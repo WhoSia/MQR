@@ -1,4 +1,4 @@
-# Real-Language / Real-Packet v0.4 proof boundary + v0.3 transport compatibility
+# Real-Language / Real-Packet v0.3–v0.21
 
 Real-Language is MQR's active event-to-realist-authority language.
 
@@ -961,3 +961,40 @@ THE CHOICE OF G_inert.
 ~~~
 
 The chart target, inert-transformation class and cross-chart morphism authority remain open to successor attack.
+
+
+## v0.21 — world-contact invariance constitution
+
+MQR-4.54 adds `REALINVARIANCE 0.21`.
+
+Canonical implementation:
+- Rust: `src/invariance_v21.rs` / `real-v21-invariance`;
+- independent evaluator: `prolog/invariance_v21.pl`;
+- formal boundary: `lean/MQR/InvarianceConstitution.lean`;
+- executable constitution: `V21-INVARIANCE-CONSTITUTION.md`.
+
+The live constitution object is:
+
+```text
+C = (T, X, Γ, P, A, M, D, S)
+```
+
+The transformation surface is typed rather than presumed globally group-valued:
+
+```text
+GROUP | GROUPOID | PSEUDOGROUP | MONOID | PARTIAL_FAMILY
+```
+
+v0.21 distinguishes an actual consequence-preserving symmetry from a transformation currently certified inert under the declared probe/intervention/morphism/defeat/scope contract. It detects over-quotienting, under-quotienting, scope-export failure, morphism capture and post-reveal constitution capture.
+
+The key authority boundary is:
+
+```text
+EQUIVALENCE-KERNEL ORDER
+!=
+SCIENTIFIC-AUTHORITY ORDER
+```
+
+A globally scoped successful receipt may earn transport within its declared scope without establishing a unique global invariance constitution.
+
+The live receipt is **WCICR — World-Contact Invariance Constitution Receipt**. It is reopenable and explicitly does not certify completeness of the consequence families used to audit it.
