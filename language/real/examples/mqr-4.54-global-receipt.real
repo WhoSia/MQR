@@ -1,0 +1,14 @@
+REALINVARIANCE 0.21
+id global_receipt
+target MEASUREMENT
+grammar GROUP
+scope GLOBAL
+probe_preservation PASS
+intervention_preservation PASS
+composition_status PASS
+defeat_preservation PASS
+embedding_status PASS
+morphism_integrity PASS
+preseal_provenance SEALED
+reopening ACTIVE
+END
