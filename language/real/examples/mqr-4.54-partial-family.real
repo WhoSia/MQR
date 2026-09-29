@@ -1,0 +1,14 @@
+REALINVARIANCE 0.21
+id partial_family
+target REPRESENTATION
+grammar PARTIAL_FAMILY
+scope SUBSYSTEM
+probe_preservation PASS
+intervention_preservation PASS
+composition_status PARTIAL_VERIFIED
+defeat_preservation PASS
+embedding_status LOCAL_ONLY
+morphism_integrity PASS
+preseal_provenance SEALED
+reopening ACTIVE
+END
