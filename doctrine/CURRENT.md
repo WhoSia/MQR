@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.52**.
+Status: live through **MQR-4.53**.
 
 ## Generation-IV authority kernel
 
@@ -1063,7 +1063,39 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 277. **Five identified naturalistic windows do not identify one stopping law.** Raw OQSC and lag-one both fell inside the five source-supported claim-freeze windows in the first 4.52 corpus, while two further cases remained contract-dependent/right-censored; the result is compatibility plus representational defeat, not a policy winner.
 278. **No final authority-mode basis is inferred.** Claim/probe/use/obligation/criterion/reopening coordinates are the current minimum representation forced by the first naturalistic attack and remain open to successor refinement.
 
+279. **Scientific progress need not be a scalar magnitude.** A scientifically useful progress structure may be a metric, partial order, preorder, reachability relation or admissible region; total numerical comparability is not a default entitlement.
+280. **Event count ≠ world-contact progress.** Inert checkpoint split/merge can change event count while preserving every declared scientific consequence.
+281. **Elapsed time ≠ epistemic progress.** Physical duration may matter causally or operationally in a local domain, but waiting and active probing can occupy equal time while producing different world contact.
+282. **Resource expenditure ≠ epistemic progress.** Cost belongs to allocation and stopping policy unless an explicit domain model ties resource use to scientific consequence; expensive inquiry can be epistemically null.
+283. **Obligation-carrier count ≠ burden discharge.** Split/merge of obligation labels cannot manufacture or erase progress when burden ancestry and discharge state are unchanged.
+284. **Descriptive information ≠ intervention reach ≠ action value.** Equal information gain can coexist with unequal manipulability/use authority, and equal intervention reach can coexist with unequal residual discrimination.
+285. **Local invariant geometry is possible.** Fisher-type statistical geometry, Blackwell/Le Cam experiment comparison, observability/identifiability structure and other domain-local constructions defeat any blanket claim that representation-invariant scientific geometry is impossible.
+286. **Local metric existence ≠ global scientific-progress ruler.** A distance or order earned inside one constituted chart does not transport its magnitude across domains without an additional calibration/transport warrant.
+287. **More claim authority ≠ more scientific progress.** Corrective progress may justifiably reduce the authority of a claim while increasing calibration to the world.
+288. **Authority-mode path length ≠ net progress.** Epistemically inert loops can accumulate path length while returning to the same quotient state.
+289. **Path order may be scientifically material.** A valid quotient must preserve noncommuting world-facing operations when order changes attainable evidence, intervention validity or authority.
+290. **Progress state ≠ continuation value.** What inquiry has achieved and whether another probe is worth doing are distinct objects; identical achieved-progress states may warrant opposite continue/stop actions under different continuation-value envelopes.
+291. **Structural transport ≠ magnitude transport.** Cross-domain preservation of burden/discrimination order can earn a morphism without licensing shared units of information, cost, distance or progress.
+292. **Cross-axis scalarization requires extra calibration.** When load-bearing axes admit independent permissible rescalings, a weighted scalar ranking can reverse on crossing profiles; Pareto incomparability must be retained absent a justified inter-axis calibration.
+293. **World-Contact Progress Atlas is global only at the meta-constitutional layer.** MQR-4.53 globally requires explicit target, inert-transformation class, quotient, decision/use contract, reopening structure and transport rule while permitting different local progress structures.
+294. **Progress-enough-to-stop is region- and continuation-relative, not scalar-threshold-relative.** Local stop eligibility requires an admissible progress region, empty live material debt for the contract, bounded continuation value and active reopening reserve.
+295. **Invariance does not self-authorize its invariance class.** Success under a declared `G_inert` cannot by itself justify the chart target, transformation class or admissible morphisms; this remains a live constitutional debt.
+296. **REALPROGRESS-0.20 is an atlas boundary, not a final theory of progress.** It rejects an unlicensed global ruler while retaining locally earned geometry and explicit successor vulnerability.
+
 ## Live governance objects
+
+- Progress-Constitution Receipt (PCR)
+- World-Contact Progress Atlas (WCPA)
+- World-Contact Quotient / Quotient Preorder (WCQ / WCQP)
+- Representation-Invariance Test (RIT)
+- Obligation-Discharge Geometry (ODG)
+- Information–Intervention Non-Equivalence Receipt (IIN)
+- Authority-Mode Path / Loop Receipt (AMP-L)
+- Cross-Domain Reparameterization Receipt (CDR)
+- Progress Admissible Region (PAR)
+- Continuation-Value Envelope (CVE)
+- Progress Preorder Receipt (PPR)
+- Stop-Invariance Test (SIT)
 
 - Naturalistic Stopping-Trace Admission (NSTA)
 - Ex-Ante Inquiry-State Reconstruction (EISR)
