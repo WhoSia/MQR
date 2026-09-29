@@ -91,3 +91,8 @@ path = "src/progress_v20.rs"
 [[bin]]
 name = "real-v21-invariance"
 path = "src/invariance_v21.rs"
+
+
+[[bin]]
+name = "real-v22-consequence"
+path = "src/consequence_v22.rs"
