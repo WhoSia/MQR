@@ -18,3 +18,4 @@ import MQR.StoppingCalibration
 import MQR.NaturalisticTrace
 import MQR.ProgressGeometry
 import MQR.InvarianceConstitution
+import MQR.ConsequenceFamily
