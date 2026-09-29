@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'experiments/mqr-4.54/FINAL-SEAL.md'
       - 'language/real/lean/MQR/InvarianceConstitution.lean'
       - 'language/real/lean/MQR.lean'
       - 'language/real/V21-INVARIANCE-CONSTITUTION.md'
