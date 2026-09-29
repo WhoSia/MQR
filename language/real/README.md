@@ -859,3 +859,105 @@ The live MQR-4.52 thesis is intentionally broader than a falsification-centred p
 The candidate MQR excess is narrower: **an executable, source-temporal, partially identified and reopenable authority state over claims, probes, uses, obligations and resource transitions**.
 
 v0.19 does not infer that these coordinates are final or that one universal ontological principle governs all sciences.
+
+
+## v0.20 — world-contact progress atlas
+
+MQR-4.53 adds `REALPROGRESS 0.20`.
+
+Canonical evaluator: Rust `src/progress_v20.rs` / `real-v20-progress`.
+Independent relational evaluator: `prolog/progress_v20.pl`.
+Countermodel court: `experiments/mqr-4.53/progress_court.py`.
+Finite proof boundary: `lean/MQR/ProgressGeometry.lean`.
+Constitution: `V20-PROGRESS-ATLAS.md`.
+
+The first qualifying post-Amendment-A Court reveal was:
+
+~~~text
+head = 632e748367b7793bc1a5d85b766e2c1018f3c3dc
+run = 36389215348
+verdict = SUCCESS
+~~~
+
+Thirteen candidate progress families were attacked. No unlicensed universal scalar survived.
+
+~~~text
+EVENT COUNT = REJECT
+ELAPSED TIME = POLICY INPUT ONLY
+RESOURCE COST = POLICY INPUT ONLY
+SHANNON / KL = LOCAL ONLY
+VOI = CONTRACT-LOCAL
+FISHER-RAO = LOCAL METRIC
+BLACKWELL = LOCAL PARTIAL ORDER
+OBLIGATION COUNT = REJECT
+BURDEN DISCHARGE = LOCAL PREORDER
+AUTHORITY PATH LENGTH = REJECT
+NET AUTHORITY LEVEL = REJECT
+PARETO / VECTOR = PARTIAL ONLY
+WCPA = PROMOTED
+~~~
+
+The positive result is not anti-metric.
+
+Fisher geometry, Blackwell/Le Cam comparison, observability/identifiability and other local constructions show that representation-invariant metrics/orders may exist once a target space and admissible transformations are constituted.
+
+The live MQR result is narrower:
+
+~~~text
+LOCAL METRIC / ORDER / PREORDER /
+REACHABILITY STRUCTURE
+MAY BE SCIENTIFICALLY EARNED
+
+WITHOUT A
+GLOBAL SCIENTIFIC-PROGRESS RULER.
+~~~
+
+v0.20 therefore represents a **World-Contact Progress Atlas**:
+
+~~~text
+chart =
+(
+  inquiry-state space,
+  declared inert transformations,
+  quotient,
+  claim/use/decision contract,
+  reopening/world-contact structure,
+  local progress structure
+)
+~~~
+
+Core non-identities:
+
+~~~text
+PROGRESS STATE != CONTINUATION VALUE
+MORE CLAIM AUTHORITY != MORE PROGRESS
+INFORMATION != INTERVENTION REACH != ACTION VALUE
+PATH LENGTH != NET PROGRESS
+STRUCTURAL TRANSPORT != MAGNITUDE TRANSPORT
+LOCAL GEOMETRY != GLOBAL RULER
+~~~
+
+Stop semantics are correspondingly non-scalar:
+
+~~~text
+CURRENT STATE IN PAR
++ LIVE MATERIAL DEBT EMPTY
++ CVE BELOW DECLARED OPPORTUNITY-COST BOUND
++ REOPENING RESERVE ACTIVE
+----------------------------------------------
+=> LOCAL STOP ELIGIBILITY
+~~~
+
+This does not quantify unconceived probes.
+
+Post-reveal proof integration exposed one namespace collision between the old Constitution and new ProgressGeometry witness names. It was repaired at `740011008f81d5b766894e8123b69028e11add96` without changing any theorem statement or scientific result.
+
+The remaining constitutional debt is explicit:
+
+~~~text
+INVARIANCE UNDER G_inert
+DOES NOT SELF-AUTHORIZE
+THE CHOICE OF G_inert.
+~~~
+
+The chart target, inert-transformation class and cross-chart morphism authority remain open to successor attack.
