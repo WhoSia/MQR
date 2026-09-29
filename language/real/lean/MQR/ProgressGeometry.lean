@@ -16,18 +16,18 @@ theorem inertCheckpointDuplicationCanChangeEventCountWithoutWorldChange :
     eventRefinementWitness.originalCount ≠ eventRefinementWitness.refinedCount := by
   decide
 
-structure ObligationPartitionWitness where
+structure ProgressObligationPartitionWitness where
   sameBurdenUnion : Bool
   mergedCount : Nat
   splitCount : Nat
   deriving DecidableEq, Repr
 
-def obligationPartitionWitness : ObligationPartitionWitness :=
+def progressObligationPartitionWitness : ProgressObligationPartitionWitness :=
   { sameBurdenUnion := true, mergedCount := 1, splitCount := 2 }
 
 theorem sameBurdenCanHaveDifferentObligationCarrierCounts :
-    obligationPartitionWitness.sameBurdenUnion = true ∧
-    obligationPartitionWitness.mergedCount ≠ obligationPartitionWitness.splitCount := by
+    progressObligationPartitionWitness.sameBurdenUnion = true ∧
+    progressObligationPartitionWitness.mergedCount ≠ progressObligationPartitionWitness.splitCount := by
   decide
 
 structure InfoInterventionWitness where
