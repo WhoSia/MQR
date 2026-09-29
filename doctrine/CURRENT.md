@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.53**.
+Status: live through **MQR-4.54**.
 
 ## Generation-IV authority kernel
 
@@ -1082,7 +1082,25 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 295. **Invariance does not self-authorize its invariance class.** Success under a declared `G_inert` cannot by itself justify the chart target, transformation class or admissible morphisms; this remains a live constitutional debt.
 296. **REALPROGRESS-0.20 is an atlas boundary, not a final theory of progress.** It rejects an unlicensed global ruler while retaining locally earned geometry and explicit successor vulnerability.
 
+
+297. **Invariance does not self-authorize the constitution of sameness.** A structure surviving transformations in a declared class does not by itself warrant treating that class as scientifically inert.
+298. **Actual consequence-preserving symmetry ≠ current inertness certification.** Certification is indexed to declared probes, interventions, morphisms, defeat distinctions, scope and embedding conditions, and remains reopenable.
+299. **Transformation grammar is typed rather than globally group-valued by default.** GROUP, GROUPOID, PSEUDOGROUP, MONOID and PARTIAL_FAMILY claims carry different closure/inverse/domain obligations; a locally adequate grammar is not automatically a failed global group.
+300. **Over-quotienting and under-quotienting are dual constitutional errors.** A quotient may erase an interventionally material distinction, while an unnecessarily fine representation may manufacture scientific change from certified redundancy.
+301. **Subsystem inertness does not automatically transport to composite inertness.** Embedding scope is load-bearing whenever relational consequences can distinguish internally indistinguishable states.
+302. **Morphism admission is authority-bearing.** Apparent atlas coherence obtained by deleting a dissenting arrow does not self-authorize that deletion; admissible transport arrows require independent provenance and challenge routes.
+303. **Equivalence-kernel order ≠ scientific-authority order.** Refinement and compression compare how many pairs a constitution identifies; neither relation alone orders epistemic authority.
+304. **A globally scoped successful receipt ≠ a unique global invariance constitution.** Global transport can be earned within a declared scope while rival constitutions remain undefeated or presently indistinguishable.
+305. **WCICR is scoped, defeat-responsive and reopenable.** The World-Contact Invariance Constitution Receipt records target, domain, typed transformation grammar, closure obligations, probe/intervention families, morphism grammar, defeat preservation, embedding scope, preseal provenance and reopening route.
+306. **World-contacted invariance constitution ≠ consequence-family completeness.** Passing WCICR does not establish that the current probe, intervention, morphism, defeat or scope families are complete or uniquely privileged; that open-world residue remains active.
+
 ## Live governance objects
+
+- World-Contact Invariance Constitution Receipt (WCICR)
+- Typed Transformation Grammar (Γ; GROUP / GROUPOID / PSEUDOGROUP / MONOID / PARTIAL_FAMILY)
+- Invariance-Constitution Scope / Embedding Receipt
+- Morphism-Admission Integrity Receipt
+- Over-/Under-Quotient Diagnostic Surface
 
 - Progress-Constitution Receipt (PCR)
 - World-Contact Progress Atlas (WCPA)
