@@ -731,3 +731,83 @@ AVAILABLE NEXT ACTIONS,
 OPPORTUNITY COST,
 AND REOPENING CAPACITY.
 ~~~
+
+
+## Control/observability pressure
+
+The preseal listed controllability / observability as a missing rival family. The post-reveal literature audit sharpens the information–intervention split without changing the frozen Court result.
+
+### Kalman: coordinate-free local system properties
+
+Kalman (1963), *Mathematical Description of Linear Dynamical Systems*, DOI `10.1137/0301010`, separates state descriptions from input/output relations and shows that the input/output relation determines the completely observable and controllable part of a linear system. Controllability and observability are preserved under algebraic equivalence / basis change.
+
+MQR consequence:
+
+~~~text
+REPRESENTATION-INVARIANT
+LOCAL SYSTEM STRUCTURE
+CAN EXIST
+
+WITHOUT BECOMING
+A GLOBAL SCIENTIFIC-PROGRESS MAGNITUDE
+~~~
+
+This is a second positive donor, alongside Fisher geometry and Blackwell comparison, against an overstrong anti-geometry thesis.
+
+### Villaverde et al.: observability / identifiability before experiment expenditure
+
+The canonical Commons copy of Villaverde, Barreiro & Papachristodoulou (2016), DOI `10.1371/journal.pcbi.1005153`, treats structural identifiability as a generalized observability problem. A structurally unidentifiable parameter cannot be uniquely determined from the available output structure even with more data of the same constitutive kind.
+
+MQR consequence:
+
+~~~text
+MORE SAMPLES / COST / TIME
+CAN FAIL TO PRODUCE
+THE RELEVANT PROGRESS
+
+WHEN THE INQUIRY MAP
+ITSELF IS UNIDENTIFIABLE
+~~~
+
+Thus observability / identifiability belongs to the local geometry of reachable discrimination, not to raw resource accumulation.
+
+### Le Cam / Torgersen: local numerical distance does not rescue a global ruler
+
+Torgersen's comparison-of-experiments framework develops Blackwell/Le Cam comparison through deficiency. For experiments sharing a declared parameter set, informativeness may be partial-order valued; deficiency can quantify worst-case loss relative to a decision-problem class.
+
+This is stronger than the simple Blackwell donor because it shows:
+
+~~~text
+LOCAL NUMERICAL DISTANCE
+CAN BE WELL-DEFINED
+
+WHILE
+
+WHOLE-SCIENCE
+GLOBAL MAGNITUDE
+REMAINS UNLICENSED
+~~~
+
+The existence of a metric/pseudometric inside one constituted experiment category therefore does not refute the 4.53 no-global-ruler result.
+
+## Refined 4.53 theoretical boundary after control/deficiency audit
+
+The strongest surviving statement is now:
+
+~~~text
+MQR-4.53 DOES NOT CLAIM
+THAT SCIENTIFIC PROGRESS
+IS NON-METRIC.
+
+IT CLAIMS THAT
+METRIC / ORDER / PREORDER /
+REACHABILITY STRUCTURE
+MUST BE EARNED LOCALLY
+
+AND THAT
+CROSS-CHART MAGNITUDE
+REQUIRES AN ADDITIONAL
+TRANSPORT / CALIBRATION WARRANT.
+~~~
+
+This strengthens WCPA as an atlas of typed local structures rather than an anti-mathematical fallback.
