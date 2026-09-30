@@ -110,3 +110,8 @@ REALVALUE 0.23 does not establish:
 - a world-optimal expansion policy.
 
 Promotion requires the qualifying MQR-4.56 Court and proof boundary.
+
+
+## Aggregate integration
+
+The Lean aggregate module `MQR.lean` imports `MQR.ExpansionPolicy`, so pinned lean4export and independent nanoda can replay the v0.23 boundary from the cumulative package rather than from an unmaterialized standalone source file.
