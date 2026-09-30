@@ -104,3 +104,7 @@ path = "src/value_v23.rs"
 [[bin]]
 name = "real-v24-ecology"
 path = "src/strategy_v24.rs"
+
+[[bin]]
+name = "real-v25-reflex"
+path = "src/reflex_v25.rs"
