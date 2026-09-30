@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.56**.
+Status: live through **MQR-4.57**.
 
 ## Generation-IV authority kernel
 
@@ -1119,7 +1119,40 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 327. **The value constitution must itself be challengeable.** A search policy may not constitutionally exempt its own relevance/value machinery from exterior criticism or reopening.
 328. **WCEPR is local, defeasible and non-totalizing.** The World-Contact Expansion-Policy Receipt may license scoped challenge preference only under an explicit target/use contract, typed value profile, value-estimator provenance, drift/decoy audits, opportunity-cost/horizon surface, exterior value challenge and reopening; it does not certify a universal utility or world-optimal research policy.
 
+329. **Local WCEPR pass ≠ incentive-robust search.** A valid challenge-value receipt can remain epistemically misleading when strategic agents shape which challenges, costs, targets and proxies reach the receipt.
+330. **Observed challenge supply is mechanism-relative.** Non-observation under one funding/publication/attention mechanism does not establish that a material challenge is unavailable or unconceived.
+331. **Reported cost ≠ realized cost ≠ social opportunity cost.** Cost inputs become defeasible measurement objects when agents can shade reports or when the mechanism induces proposal, positioning or compliance effort.
+332. **Target revision can be strategic.** Post-reveal target changes require independent ratification and a new receipt when they could erase an adverse result by reframing relevance.
+333. **Proxy plurality can become proxy arbitrage.** When multiple admissible metrics exist, proxy-choice timing and provenance are authority-bearing; post-outcome metric selection cannot silently preserve a preferred ranking.
+334. **Discovery institutions can be performative.** Funding, publication, ranking and attention mechanisms may change future challenge supply, methods, participants, costs and evaluation distributions.
+335. **Strategic equilibrium ≠ epistemic adequacy.** Nash, best-response or performative stability is a behavioral property and cannot self-promote to a certificate that the right scientific questions are being asked.
+336. **Nominal agent count ≠ strategic independence.** Strategic independence requires incentive/ownership/reward ancestry audit; nominal identities may be compressed when materially common-mode.
+337. **Mechanism counterfactuals can be scientific interventions.** Holding the scientific population as fixed as feasible while changing an institutional rule can expose mechanism-induced deformation of the discovery ecology.
+338. **Formal exteriority ≠ incentive exteriority.** An auditor or challenge route can be organizationally external while remaining reward-dependent on the incumbent mechanism.
+339. **Transparent constitutions must remain reopenable under strategic adaptation.** Public admission rules are learnable; systematic adaptation to them is evidence for reconstitution, not a reason to abandon auditability.
+340. **Exterior/randomized reserves are challenge routes, not universal allocation laws.** Randomization may reveal strategically omitted challenges without becoming a default scientific mechanism.
+341. **Mechanism-local incentive compatibility does not imply universal institutional authority.** A locally truthful or efficient mechanism remains conditional on its declared utilities, information structure, costs, horizon and domain.
+342. **WCSER is local, defeasible and non-totalizing.** The World-Contact Strategic-Ecology Receipt may license scoped robustness only when agents, private information, incentives, supply provenance, cost/target/proxy reporting, performative feedback, strategic ancestry, mechanism counterfactuals, exterior challenge and reopening are exposed; it does not certify a universal mechanism or epistemically adequate equilibrium.
+
 ## Live governance objects
+
+- World-Contact Strategic-Ecology Receipt (WCSER)
+- Strategic Discovery-Ecology Constitution Ξ = (A, Θ, M, Ω, Σ, U, Φ, X, R)
+- Agent / Role Map (A)
+- Private-Information Surface (Θ)
+- Institutional Mechanism Map (M)
+- Strategic Action Surface (Σ)
+- Incentive / Payoff Map (U)
+- Performative Feedback Law (Φ)
+- Challenge-Supply Provenance Receipt
+- Reported-vs-Realized Cost Reconciliation
+- Target-Framing / Proxy-Choice Provenance
+- Strategic-Ancestry / Multiplicity-Compression Graph
+- Mechanism Counterfactual Replay
+- Exterior / Randomized Challenge Reserve (X)
+- Equilibrium Authority Ceiling
+- Capture Attribution Receipt
+- Strategic-Ecology Reopening / Reconstitution Law (R)
 
 - World-Contact Expansion-Policy Receipt (WCEPR)
 - Challenge-Value Constitution Ω = (T, C, V, Q, Π_V, A, O, D, R)
