@@ -1,0 +1,91 @@
+name: MQR-4.58 Real-Language Regression
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.58/**'
+      - 'language/real/src/reflex_v25.rs'
+      - 'language/real/prolog/reflex_v25.pl'
+      - 'language/real/examples/mqr-4.58-*.real'
+      - 'language/real/tests/v25-invalid-*.real'
+      - 'language/real/V25-REFLEXIVE-ECOLOGY.md'
+      - '.github/workflows/mqr-4.58-real-language.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  regression-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install SWI-Prolog
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build cumulative Real-Language bins
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bins
+
+      - name: Regress v0.24 WCSER
+        shell: bash
+        run: |
+          set -euo pipefail
+          V24=./language/real/target/release/real-v24-ecology
+          "$V24" language/real/examples/mqr-4.57-local-admissible.real > /tmp/v24
+          grep -F 'strategy.local_strategic_robustness=YES' /tmp/v24
+          grep -F 'strategy.wcser=EARNED_LOCAL_CANDIDATE' /tmp/v24
+          grep -F 'strategy.universal_scientific_mechanism=NOT_EARNED' /tmp/v24
+          echo MQR457_WCSER_REGRESSION_SURVIVES_V25=PASS
+
+      - name: Integrate v0.25 reflexive ecology
+        shell: bash
+        run: |
+          set -euo pipefail
+          V25=./language/real/target/release/real-v25-reflex
+          P25=language/real/prolog/reflex_v25.pl
+
+          "$V25" language/real/examples/mqr-4.58-local-admissible.real > /tmp/v25.rust
+          swipl -q -s "$P25" -g "run('language/real/examples/mqr-4.58-local-admissible.real'),halt" -t "halt(1)" > /tmp/v25.prolog
+          grep '^reflex\.' /tmp/v25.rust > /tmp/v25.rust.core
+          grep '^reflex\.' /tmp/v25.prolog > /tmp/v25.prolog.core
+          diff -u /tmp/v25.rust.core /tmp/v25.prolog.core
+
+          grep -F 'reflex.local_reflexive_robustness=YES' /tmp/v25.rust
+          grep -F 'reflex.truth_distance_scalar=OFF' /tmp/v25.rust
+          grep -F 'reflex.final_fixed_point=NO_CLAIM' /tmp/v25.rust
+          grep -F 'reflex.wcaer=EARNED_LOCAL_CANDIDATE' /tmp/v25.rust
+          grep -F 'reflex.rcsr=EARNED_LOCAL_CANDIDATE' /tmp/v25.rust
+          grep -F 'reflex.isp=EARNED_LOCAL_CANDIDATE' /tmp/v25.rust
+
+          python experiments/mqr-4.58/reflexive_ecology_court.py > /tmp/mqr458
+          grep -F 'mqr458.fixed_actor_ontology=REJECT' /tmp/mqr458
+          grep -F 'mqr458.constitution_self_immunity=REJECT' /tmp/mqr458
+          grep -F 'mqr458.truth_distance_scalar=NOT_EARNED' /tmp/mqr458
+          grep -F 'mqr458.universal_self_reduction_fixed_point=NOT_EARNED' /tmp/mqr458
+          grep -F 'mqr458.wcaer=CANDIDATE' /tmp/mqr458
+          grep -F 'mqr458.rcsr=CANDIDATE' /tmp/mqr458
+          grep -F 'mqr458.isp=CANDIDATE' /tmp/mqr458
+
+          echo MQR458_REAL_LANGUAGE_REGRESSION_INTEGRATION=PASS
+
+      - name: Publish receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.58/Real-Language" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
