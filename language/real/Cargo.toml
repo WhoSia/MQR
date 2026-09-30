@@ -96,3 +96,7 @@ path = "src/invariance_v21.rs"
 [[bin]]
 name = "real-v22-consequence"
 path = "src/consequence_v22.rs"
+
+[[bin]]
+name = "real-v23-value"
+path = "src/value_v23.rs"
