@@ -1,4 +1,4 @@
-# Real-Language / Real-Packet v0.3–v0.23
+# Real-Language / Real-Packet v0.3–v0.24
 
 Real-Language is MQR's active event-to-realist-authority language.
 
@@ -1101,3 +1101,49 @@ WCEPR may license:
 - world-contacted revision of the value constitution.
 
 It does not license a universal scientific utility or a world-optimal expansion policy. Scalar default remains OFF.
+
+
+## v0.24 — world-contact strategic-ecology constitution
+
+MQR-4.57 adds `REALSTRATEGY 0.24`.
+
+Canonical implementation:
+- Rust: `src/strategy_v24.rs` / `real-v24-ecology`;
+- independent evaluator: `prolog/strategy_v24.pl`;
+- formal boundary: `lean/MQR/StrategicEcology.lean`;
+- executable constitution: `V24-STRATEGIC-ECOLOGY.md`.
+
+The live discovery-ecology constitution is:
+
+```text
+Ξ = (A, Θ, M, Ω, Σ, U, Φ, X, R)
+```
+
+Its key authority boundaries are:
+
+```text
+LOCAL WCEPR PASS
+!= INCENTIVE-ROBUST SEARCH
+
+OBSERVED CHALLENGE SUPPLY
+!= EXOGENOUS FRONTIER
+
+REPORTED COST
+!= REALIZED COST
+!= SOCIAL OPPORTUNITY COST
+
+STABLE EQUILIBRIUM
+!= EPISTEMIC ADEQUACY
+
+NOMINAL AGENT COUNT
+!= STRATEGIC INDEPENDENCE
+
+LOCAL MECHANISM SUCCESS
+!= UNIVERSAL SCIENTIFIC MECHANISM
+```
+
+`REALSTRATEGY 0.24` audits agent/role maps, private-information surfaces, incentive maps, challenge-supply provenance, reported-vs-realized cost, target/proxy choice provenance, performative feedback, strategic ancestry, identity multiplicity, mechanism counterfactuals, exterior reserves, equilibrium ceilings, capture attribution and reopening.
+
+The live receipt is **WCSER — World-Contact Strategic-Ecology Receipt**.
+
+WCSER can license scoped strategic-robustness claims only while the institutional mechanism itself remains a defeasible world-contact object. It does not certify truthful revelation, an epistemically adequate equilibrium, or a universal scientific institution.
