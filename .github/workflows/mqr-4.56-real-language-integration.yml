@@ -1,0 +1,86 @@
+name: MQR-4.56 Real-Language Regression Integration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.56/FINAL-SEAL.md'
+      - 'experiments/mqr-4.56/**'
+      - 'language/real/src/value_v23.rs'
+      - 'language/real/prolog/value_v23.pl'
+      - 'language/real/examples/mqr-4.56-*.real'
+      - 'language/real/tests/v23-invalid-*.real'
+      - 'language/real/V23-EXPANSION-POLICY.md'
+      - '.github/workflows/mqr-4.56-real-language-integration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  regression-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install SWI-Prolog
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build existing cumulative Real-Language bins
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bins
+
+      - name: Build standalone v0.23 evaluator
+        run: rustc --edition=2024 -O language/real/src/value_v23.rs -o /tmp/real-v23-value
+
+      - name: Regress v0.22 open-family boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          V22=./language/real/target/release/real-v22-consequence
+          "$V22" language/real/examples/mqr-4.55-open-admissible.real > /tmp/v22
+          grep -F 'consequence.local_adequacy=YES' /tmp/v22
+          grep -F 'consequence.world_family_complete=NO' /tmp/v22
+          python experiments/mqr-4.55/consequence_family_court.py > /tmp/mqr455
+          grep -F 'mqr455.wccfr=CANDIDATE' /tmp/mqr455
+          echo MQR455_REGRESSION_SURVIVES_V23=PASS
+
+      - name: Integrate v0.23 expansion policy
+        shell: bash
+        run: |
+          set -euo pipefail
+          V23=/tmp/real-v23-value
+          P23=language/real/prolog/value_v23.pl
+          "$V23" language/real/examples/mqr-4.56-local-admissible.real > /tmp/v23.rust
+          swipl -q -s "$P23" -g "run('language/real/examples/mqr-4.56-local-admissible.real'),halt" -t "halt(1)" > /tmp/v23.prolog
+          grep '^value\.' /tmp/v23.rust > /tmp/v23.rust.core
+          grep '^value\.' /tmp/v23.prolog > /tmp/v23.prolog.core
+          diff -u /tmp/v23.rust.core /tmp/v23.prolog.core
+          grep -F 'value.local_guidance=YES' /tmp/v23.rust
+          grep -F 'value.universal_scientific_utility=REJECT' /tmp/v23.rust
+          grep -F 'value.world_optimal_policy=NOT_EARNED' /tmp/v23.rust
+
+          python experiments/mqr-4.56/expansion_policy_court.py > /tmp/mqr456
+          grep -F 'mqr456.wcepr=CANDIDATE' /tmp/mqr456
+          grep -F 'mqr456.challenge_value_scalar_default=OFF' /tmp/mqr456
+          echo MQR456_REAL_LANGUAGE_REGRESSION_INTEGRATION=PASS
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.56/Real-Language" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
