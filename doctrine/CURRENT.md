@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.55**.
+Status: live through **MQR-4.56**.
 
 ## Generation-IV authority kernel
 
@@ -1107,7 +1107,31 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 316. **Current family contents do not determine future corrigibility.** Two programmes with the same current consequence set may differ in generator ancestry, exterior expansion, holdout routes and reopening capacity.
 317. **WCCFR is local and explicitly open.** The World-Contact Consequence-Family Receipt may license scoped family adequacy only while retaining off-grammar challenge, adversarial expansion, ancestry audit and reopening, and while refusing a world-completeness claim.
 
+318. **Admissible allocation ≠ good challenge preference.** A schedule may satisfy RSAR/AAE while directing attention toward scientifically weak, irrelevant or proxy-gamed expansion routes.
+319. **Challenge value is typed rather than scalar by default.** Information gain, target relevance, separation power, action value, escape value, option value, cost and opportunity cost are distinct coordinates; scalar projection remains OFF absent an externally declared calibration.
+320. **Universal scientific utility is not licensed.** An open consequence ecology plus finite attention does not identify one domain-general, representation-invariant total utility over conceivable research directions.
+321. **Declared-model optimization is admissible but local.** Explicit prior/utility/cost/horizon models may identify a local optimum; that optimum does not promote itself to world-optimal science.
+322. **Challenge-value proxies require provenance and anti-Goodhart attack.** A proxy sharing ancestry with the incumbent target/model can improve while target-defeating capacity deteriorates.
+323. **Target relevance is temporally and semantically reopenable.** A relevance ordering must be reconstituted when claim, use, decision, scope or consequence ecology changes materially.
+324. **Generator diversity ≠ valuation diversity.** Independent challenge generators may remain common-mode when ranked by one captured value estimator or representation.
+325. **Opportunity-cost structure transports more readily than magnitude.** Foregone-alternative structure may be meaningful across domains while numerical exchange rates require explicit units and calibration.
+326. **Current challenge value ≠ continuation/option value.** A modest immediate challenge may be preferred when it prospectively unlocks a new independent consequence family under a declared horizon.
+327. **The value constitution must itself be challengeable.** A search policy may not constitutionally exempt its own relevance/value machinery from exterior criticism or reopening.
+328. **WCEPR is local, defeasible and non-totalizing.** The World-Contact Expansion-Policy Receipt may license scoped challenge preference only under an explicit target/use contract, typed value profile, value-estimator provenance, drift/decoy audits, opportunity-cost/horizon surface, exterior value challenge and reopening; it does not certify a universal utility or world-optimal research policy.
+
 ## Live governance objects
+
+- World-Contact Expansion-Policy Receipt (WCEPR)
+- Challenge-Value Constitution Ω = (T, C, V, Q, Π_V, A, O, D, R)
+- Typed Challenge-Value Profile (V)
+- Local Comparison Relation / Declared-Model Utility (Q)
+- Value-Estimator Provenance Graph (Π_V)
+- Target-Drift Sentinel
+- Scientific-Search Goodhart / Proxy-Capture Diagnostic
+- Opportunity-Cost / Horizon Surface
+- Option-Value / Continuation-Structure Receipt
+- Exterior Value-Challenge Route
+- Value-Constitution Reopening Law (R)
 
 - World-Contact Consequence-Family Receipt (WCCFR)
 - Consequence-Family Constitution Ψ = (T, F, Γ_F, Π, E, H, R)
