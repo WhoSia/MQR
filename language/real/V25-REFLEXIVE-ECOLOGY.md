@@ -1,6 +1,6 @@
 # Real-Language v0.25 — Reflexive Ecology & Inquiry-Scaffold Constitution
 
-Status: **EXECUTABLE-CANDIDATE / MQR-4.58 / PRESEALED / NOT-YET-PROMOTED**
+Status: **EXECUTABLE-CANDIDATE / MQR-4.58 / PRESEALED / PRELIMINARY-DEDICATED-CI-PASS / COMMON-HEAD-QUALIFYING-REQUESTED**
 
 ## Purpose
 
@@ -182,3 +182,17 @@ REALREFLEX 0.25 does not establish:
 - a universal scalar of scientific usefulness.
 
 Promotion requires the qualifying MQR-4.58 Court, Rust–Prolog concordance, Lean+nanoda boundary and cumulative regression.
+
+
+## Preliminary execution receipt
+
+Before the authoritative common-head replay, the four dedicated surfaces independently passed on successive implementation heads:
+
+- Court — run `36672273241` — SUCCESS
+- Lean+nanoda — run `36672303017` — SUCCESS
+- Real-Language regression — run `36672443018` — SUCCESS
+- Lean regression — run `36672461592` — SUCCESS
+
+These runs establish implementation viability but are not the authoritative same-head reveal.
+
+This documentation mutation intentionally requests one common-head replay across all four dedicated MQR-4.58 contexts.
