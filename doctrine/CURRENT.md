@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.57**.
+Status: live through **MQR-4.58**.
 
 ## Generation-IV authority kernel
 
@@ -1134,7 +1134,41 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 341. **Mechanism-local incentive compatibility does not imply universal institutional authority.** A locally truthful or efficient mechanism remains conditional on its declared utilities, information structure, costs, horizon and domain.
 342. **WCSER is local, defeasible and non-totalizing.** The World-Contact Strategic-Ecology Receipt may license scoped robustness only when agents, private information, incentives, supply provenance, cost/target/proxy reporting, performative feedback, strategic ancestry, mechanism counterfactuals, exterior challenge and reopening are exposed; it does not certify a universal mechanism or epistemically adequate equilibrium.
 
+343. **Current actor ontology is not a fixed scientific ontology.** Actor birth, death, merger, fission, intermediation and evaluator creation can change which authority-bearing entities exist; `A_t` need not equal `A_(t+1)`.
+344. **Actor identity is genealogical and defeasible.** Same name does not imply same authority-bearing actor; different names do not imply independent ancestries; merger/fission cannot silently erase or duplicate unresolved scientific debt.
+345. **Actor extinction ≠ obligation discharge.** Scientific obligations may outlive their current bearer; successor assignment or explicit orphaned-debt state is required.
+346. **Organizational continuity ≠ role continuity ≠ utility continuity.** Material role or utility mutation requires reauthorization rather than automatic authority transport.
+347. **Mechanisms have genealogy and versioned authority.** Amendment, copying, migration, replication and extinction create successor mechanisms; prior empirical authority does not automatically transport to the new version/domain.
+348. **Actor and rule can co-evolve.** Rule changes may create actor classes and incentive surfaces that later modify the rule; both agents and mechanisms are state variables.
+349. **Ontology failure can precede model failure.** When a new actor/role/mechanism category is required to describe an executable distinction, ontology expansion may be admitted with provenance; primitive creation is not licensed by convenience alone.
+350. **No MQR constitution is successor-immune.** WCSER, WCEPR, WCAER, RCSR, ISP, Real-Language and RAVEL itself may become later explananda.
+351. **Stage closure is local discharge, not metaphysical finality.** `CLOSED(stage)` means the frozen obligations of that stage were discharged under its evidence and constitution; later defeat does not retroactively falsify the historical receipt.
+352. **RAVEL self-reduction requires anti-inflation.** More recursive criticism, terminology or receipts do not constitute progress; promotion requires a new executable distinction, new world-contact route, blocked authority laundering, surviving positive witness or real operational repair. Otherwise compress/no-promote.
+353. **Inquiry-scaffold value ≠ world-claim authority.** A representation may strongly decompose ignorance, generate questions, organize measurement, support modal exploration or coordinate inquiry while carrying weak or heterogeneous literal-world authority.
+354. **World-claim authority ≠ inquiry-scaffold value.** Strongly world-confirmed representations may also be poor scaffolds for a particular inquiry; the two axes cross-cut rather than forming a single rank.
+355. **Drake-type representations require typed authority.** Agenda-setting/decomposition value does not authorize uncertain numerical output; uncertain output does not make the representation scientifically empty.
+356. **Exploratory/idealized models require role typing.** Modal, how-possibly, regulative, baseline and error-localization roles do not automatically promote to how-actually authority.
+357. **Scaffold authority is defeasible and retireable.** A once-useful representation may fossilize obsolete categories or distort measurement priorities; ISP requires revision/retirement routes.
+358. **No universal truth-distance or scientific-usefulness scalar is restored.** WCAER/RCSR/ISP are typed receipts, not hidden total scores; scalar projection remains OFF absent separately earned calibration.
+
 ## Live governance objects
+
+- World-Contact Actor-Ecology Receipt (WCAER)
+- Dynamic Discovery-Ecology State Ξ_t = (A_t, Θ_t, M_t, Ω_t, Σ_t, U_t, Φ_t, X_t, R_t, G_t, L_t)
+- Actor / Coalition / Role / Mechanism Genealogy (G_t)
+- Obligation-Transport / Orphaned-Debt Ledger
+- Role / Utility Reauthorization Receipt
+- Mechanism-Version / Reproduction / Extinction Lineage
+- Ontology-Expansion Receipt for emergent actor/role/mechanism categories
+- Reflexive Constitution Self-Reduction Receipt (RCSR)
+- RAVEL Frozen-Stress / Survivor / Defeat Ledger
+- RAVEL Anti-Inflation / No-Op Compression Gate
+- Local-Closure / Successor-Vulnerability Receipt
+- Inquiry-Scaffold Profile (ISP)
+- Representation-Role Ledger (L_t)
+- Drake-Type Scaffold / World-Claim Separation Receipt
+- Exploratory / Modal / Regulative Role Typing
+- Scaffold Retirement / Revision Route
 
 - World-Contact Strategic-Ecology Receipt (WCSER)
 - Strategic Discovery-Ecology Constitution Ξ = (A, Θ, M, Ω, Σ, U, Φ, X, R)
