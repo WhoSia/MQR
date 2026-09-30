@@ -1,4 +1,4 @@
-# Real-Language / Real-Packet v0.3–v0.22
+# Real-Language / Real-Packet v0.3–v0.23
 
 Real-Language is MQR's active event-to-realist-authority language.
 
@@ -1052,3 +1052,52 @@ Rigor remains load-bearing: when a compressed/tacit/high-level move becomes defe
 The live receipt is **WCCFR — World-Contact Consequence-Family Receipt**. It can earn local family adequacy only while emitting `world_family_complete=NO`.
 
 REALCONSEQUENCE 0.22 is not a universal discovery algorithm and does not define one homogeneous faculty of intuition.
+
+
+## v0.23 — world-contact expansion-policy constitution
+
+MQR-4.56 adds `REALVALUE 0.23`.
+
+Canonical implementation:
+- Rust: `src/value_v23.rs` / `real-v23-value`;
+- independent evaluator: `prolog/value_v23.pl`;
+- formal boundary: `lean/MQR/ExpansionPolicy.lean`;
+- executable constitution: `V23-EXPANSION-POLICY.md`.
+
+The live expansion-policy constitution is:
+
+```text
+Ω = (T, C, V, Q, Π_V, A, O, D, R)
+```
+
+The key authority boundaries are:
+
+```text
+ADMISSIBLE ALLOCATION
+!= GOOD CHALLENGE PREFERENCE
+
+INFORMATION GAIN
+!= TARGET RELEVANCE
+!= ACTION VALUE
+!= ESCAPE VALUE
+!= OPTION VALUE
+
+GENERATOR DIVERSITY
+!= VALUATION DIVERSITY
+
+LOCAL OPTIMUM
+!= WORLD-OPTIMAL SCIENCE
+```
+
+Challenge value is typed and target-relative rather than scalar by default. `REALVALUE 0.23` audits target/use contracts, value-estimator provenance, proxy dependence, target drift, adversarial decoys, opportunity-cost semantics, horizon, option value, exterior value challenge and reopening.
+
+The live receipt is **WCEPR — World-Contact Expansion-Policy Receipt**.
+
+WCEPR may license:
+- local dominance;
+- partial-order guidance;
+- declared-model optimization;
+- option-opening preference;
+- world-contacted revision of the value constitution.
+
+It does not license a universal scientific utility or a world-optimal expansion policy. Scalar default remains OFF.
