@@ -1,6 +1,6 @@
 # Real-Language v0.23 — World-Contact Expansion-Policy Constitution
 
-Status: **EXECUTABLE-CANDIDATE / MQR-4.56 / PRESEALED / NOT-YET-PROMOTED**
+Status: **PROMOTED-LIVE / MQR-4.56 / QUALIFYING-COURT+PROOF+REGRESSION-PASS / FINAL-SAME-HEAD-SEAL-PENDING**
 
 ## Purpose
 
@@ -89,7 +89,7 @@ The canonical evaluator may emit:
 
 ## WCEPR
 
-The executable candidate is **WCEPR — World-Contact Expansion-Policy Receipt**.
+The live executable object is **WCEPR — World-Contact Expansion-Policy Receipt**.
 
 A successful packet may emit:
 
@@ -109,7 +109,7 @@ REALVALUE 0.23 does not establish:
 - a universal exchange rate among information, novelty, relevance, actionability, cost and option value;
 - a world-optimal expansion policy.
 
-Promotion requires the qualifying MQR-4.56 Court and proof boundary.
+WCEPR has passed the qualifying MQR-4.56 Court, dedicated Lean+nanoda boundary, Real-Language regression integration, Lean regression integration, and cumulative Real-Language CI. Final stage closure still requires the final same-head seal.
 
 
 ## Aggregate integration
