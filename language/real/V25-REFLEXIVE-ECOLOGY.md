@@ -1,6 +1,6 @@
 # Real-Language v0.25 — Reflexive Ecology & Inquiry-Scaffold Constitution
 
-Status: **EXECUTABLE-CANDIDATE / MQR-4.58 / PRESEALED / PRELIMINARY-DEDICATED-CI-PASS / COMMON-HEAD-QUALIFYING-REQUESTED**
+Status: **PROMOTED-LIVE / MQR-4.58 / QUALIFYING-SAME-HEAD-4_OF_4-PASS / CUMULATIVE-REGRESSION-PASS / FINAL-SAME-HEAD-SEAL-PENDING**
 
 ## Purpose
 
@@ -125,7 +125,7 @@ These roles do not automatically establish how-actually authority.
 ## Positive objects
 
 ### WCAER
-**World-Contact Actor-Ecology Receipt**
+**World-Contact Actor-Ecology Receipt — LIVE**
 
 Tracks:
 - actor birth/death/merge/fission;
@@ -137,7 +137,7 @@ Tracks:
 - transition replay.
 
 ### RCSR
-**Reflexive Constitution Self-Reduction Receipt**
+**Reflexive Constitution Self-Reduction Receipt — LIVE**
 
 Tracks:
 - predecessor constitution;
@@ -148,7 +148,7 @@ Tracks:
 - no retroactive verdict rewrite.
 
 ### ISP
-**Inquiry-Scaffold Profile**
+**Inquiry-Scaffold Profile — LIVE**
 
 Tracks inquiry roles independently of world-claim authority.
 
@@ -181,7 +181,7 @@ REALREFLEX 0.25 does not establish:
 - a universal truth-distance scalar;
 - a universal scalar of scientific usefulness.
 
-Promotion requires the qualifying MQR-4.58 Court, Rust–Prolog concordance, Lean+nanoda boundary and cumulative regression.
+WCAER, RCSR and ISP have passed the qualifying MQR-4.58 Court, Rust–Prolog concordance, Lean+nanoda boundary, v0.24→v0.25 regressions and cumulative Real-Language CI. Final stage closure still requires the final same-head seal.
 
 
 ## Preliminary execution receipt
@@ -196,3 +196,22 @@ Before the authoritative common-head replay, the four dedicated surfaces indepen
 These runs establish implementation viability but are not the authoritative same-head reveal.
 
 This documentation mutation intentionally requests one common-head replay across all four dedicated MQR-4.58 contexts.
+
+
+## Authoritative promotion receipt
+
+Canonical qualifying head:
+
+`aaa580686df49d2bcc2f8b9b82c700ea403a619b`
+
+Same-head dedicated receipts:
+- `36672542784` — MQR-4.58/Court — SUCCESS
+- `36672542883` — MQR-4.58/Lean+nanoda — SUCCESS
+- `36672542833` — MQR-4.58/Real-Language — SUCCESS
+- `36672542899` — MQR-4.58/Lean-Integration — SUCCESS
+
+Cumulative Real-Language CI:
+- `36672542744` — SUCCESS
+
+The live authority boundary remains explicitly non-final:
+`CLOSED(stage) != SUCCESSOR IMMUNITY`.
