@@ -1,4 +1,4 @@
-# Real-Language / Real-Packet v0.3–v0.24
+# Real-Language / Real-Packet v0.3–v0.25
 
 Real-Language is MQR's active event-to-realist-authority language.
 
@@ -1147,3 +1147,68 @@ LOCAL MECHANISM SUCCESS
 The live receipt is **WCSER — World-Contact Strategic-Ecology Receipt**.
 
 WCSER can license scoped strategic-robustness claims only while the institutional mechanism itself remains a defeasible world-contact object. It does not certify truthful revelation, an epistemically adequate equilibrium, or a universal scientific institution.
+
+
+## v0.25 — reflexive ecology & inquiry-scaffold constitution
+
+MQR-4.58 adds `REALREFLEX 0.25`.
+
+Canonical implementation:
+- Rust: cumulative v0.25 reflexive-ecology evaluator;
+- independent Prolog evaluator;
+- formal boundary: `lean/MQR/ReflexiveEcology.lean`;
+- executable constitution: `V25-REFLEXIVE-ECOLOGY.md`.
+
+The live dynamic ecology is:
+
+```text
+Ξ_t --τ_t--> Ξ_(t+1)
+
+Ξ_t =
+(A_t, Θ_t, M_t, Ω_t, Σ_t, U_t, Φ_t, X_t, R_t, G_t, L_t)
+```
+
+where `G_t` is actor/coalition/role/mechanism genealogy and `L_t` is the representation/scaffold-role ledger.
+
+The key authority boundaries are:
+
+```text
+SAME NAME != SAME ACTOR
+SAME LINEAGE != SAME ROLE
+SAME ROLE != SAME UTILITY
+SAME MECHANISM LABEL != SAME RULE SYSTEM
+
+CLOSED(stage) != SUCCESSOR IMMUNITY
+
+INQUIRY-SCAFFOLD VALUE
+!= WORLD-CLAIM AUTHORITY
+
+WORLD-CLAIM AUTHORITY
+!= INQUIRY-SCAFFOLD VALUE
+```
+
+The live receipts are:
+- **WCAER — World-Contact Actor-Ecology Receipt**;
+- **RCSR — Reflexive Constitution Self-Reduction Receipt**;
+- **ISP — Inquiry-Scaffold Profile**.
+
+RCSR makes constitutional self-subjection executable: no MQR constitution, including WCAER/RCSR/ISP/Real-Language/RAVEL itself, is exempt from becoming a later explanandum.
+
+The RAVEL anti-inflation law is live:
+
+```text
+MORE SELF-CRITIQUE
+!= MORE SCIENTIFIC VALUE
+
+NEW EXECUTABLE DISTINCTION
+OR NEW WORLD-CONTACT ROUTE
+OR REAL OPERATIONAL REPAIR
+=> PROMOTION CANDIDATE
+
+OTHERWISE
+=> COMPRESS / NO-PROMOTION
+```
+
+ISP keeps inquiry-scaffold value non-scalar and distinct from world-claim authority. The Drake equation is admitted as a decomposition/question-generation/measurement-agenda scaffold without promoting uncertain numerical output to literal-world authority. Newtonian mechanics remains a positive control showing that high scaffold value and high regime-bounded world authority can coexist.
+
+Truth-distance scalar remains OFF; no final reflective fixed point is claimed.
