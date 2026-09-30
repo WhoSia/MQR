@@ -1,0 +1,132 @@
+name: MQR-4.56 Expansion Policy Lean Boundary
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.56/FINAL-SEAL.md'
+      - 'language/real/lean/MQR/ExpansionPolicy.lean'
+      - 'language/real/V23-EXPANSION-POLICY.md'
+      - '.github/workflows/mqr-4.56-expansion-policy-proof.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  proof-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build with pinned Lean kernel
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+
+      - name: Check v0.23 axiom ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/ExpansionPolicy.lean | tee /tmp/expansion.log
+          if grep -F 'sorryAx' /tmp/expansion.log; then exit 1; fi
+          theorems=(
+            MQR.cheapYieldPerCostNeedNotTrackScientificValue
+            MQR.informationGainNeedNotOrderTargetRelevance
+            MQR.noveltyIncreaseNeedNotIncreaseTargetValue
+            MQR.challengeProxyOptimizationCanGoodhart
+            MQR.targetDriftCanDefeatOldRelevanceOrder
+            MQR.independentHighProxyChallengesNeedNotBeMaterial
+            MQR.generatorDiversityDoesNotImplyValuationDiversity
+            MQR.arbitraryCostRescalingCanReverseBadScalarRanking
+            MQR.challengePreferenceCanDependOnDeclaredHorizon
+            MQR.separationPowerNeedNotOrderActionValue
+            MQR.surpriseNeedNotImplyScientificImportance
+            MQR.historicalYieldNeedNotLicenseFutureLockIn
+            MQR.valueModelCanSelfInsulateAgainstCriticism
+            MQR.equalCurrentValueNeedNotImplyEqualOptionStructure
+            MQR.declaredModelCanHaveUniqueLocalOptimumWithoutWorldOptimum
+            MQR.partialOrderCanGuideWithoutTotalRanking
+            MQR.targetDriftCanMandateValueReconstitution
+            MQR.worldContactCanReviseChallengeValueModel
+            MQR.localGuidanceDoesNotImplyUniversalScientificUtility
+            MQR.localGuidanceDoesNotImplyWorldOptimalExpansionPolicy
+          )
+          for theorem in "${theorems[@]}"; do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/expansion.log
+          done
+          echo MQR456_EXPANSION_POLICY_AXIOM_ANCESTRY=EMPTY
+
+      - name: Build pinned independent checker stack
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          git clone https://github.com/leanprover/lean4export.git _lean4export
+          git -C _lean4export checkout 076e8e57707e813375e8f9da8bf989799ace9680
+          cp lean-toolchain _lean4export/lean-toolchain
+          (cd _lean4export && lake build lean4export)
+          git clone https://github.com/robsimmons/nanoda_lib.git _nanoda_lib
+          git -C _nanoda_lib checkout 68d5ca9db226849b41a6fff59d796ff19d0a8840
+          cargo build --release --manifest-path _nanoda_lib/Cargo.toml
+
+      - name: Independent nanoda replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env _lean4export/.lake/build/bin/lean4export MQR.ExpansionPolicy -- \
+            MQR.cheapYieldPerCostNeedNotTrackScientificValue \
+            MQR.informationGainNeedNotOrderTargetRelevance \
+            MQR.noveltyIncreaseNeedNotIncreaseTargetValue \
+            MQR.challengeProxyOptimizationCanGoodhart \
+            MQR.targetDriftCanDefeatOldRelevanceOrder \
+            MQR.independentHighProxyChallengesNeedNotBeMaterial \
+            MQR.generatorDiversityDoesNotImplyValuationDiversity \
+            MQR.arbitraryCostRescalingCanReverseBadScalarRanking \
+            MQR.challengePreferenceCanDependOnDeclaredHorizon \
+            MQR.separationPowerNeedNotOrderActionValue \
+            MQR.surpriseNeedNotImplyScientificImportance \
+            MQR.historicalYieldNeedNotLicenseFutureLockIn \
+            MQR.valueModelCanSelfInsulateAgainstCriticism \
+            MQR.equalCurrentValueNeedNotImplyEqualOptionStructure \
+            MQR.declaredModelCanHaveUniqueLocalOptimumWithoutWorldOptimum \
+            MQR.partialOrderCanGuideWithoutTotalRanking \
+            MQR.targetDriftCanMandateValueReconstitution \
+            MQR.worldContactCanReviseChallengeValueModel \
+            MQR.localGuidanceDoesNotImplyUniversalScientificUtility \
+            MQR.localGuidanceDoesNotImplyWorldOptimalExpansionPolicy \
+            > /tmp/mqr-456.export
+          cat > /tmp/mqr-456-nanoda.json <<'JSON'
+          {
+            "export_file_path": "/tmp/mqr-456.export",
+            "use_stdin": false,
+            "permitted_axioms": [],
+            "unpermitted_axiom_hard_error": true,
+            "nat_extension": true,
+            "string_extension": true,
+            "print_success_message": true
+          }
+          JSON
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr-456-nanoda.json
+          echo MQR456_NANODA_EXPANSION_POLICY_REPLAY=PASS
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.56/Lean+nanoda" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
