@@ -1,6 +1,6 @@
 # Real-Language v0.24 — World-Contact Strategic-Ecology Constitution
 
-Status: **EXECUTABLE-CANDIDATE / MQR-4.57 / PRESEALED / CUMULATIVE-INTEGRATION-PASS / QUALIFYING-SAME-HEAD-REQUESTED**
+Status: **PROMOTED-LIVE / MQR-4.57 / QUALIFYING-SAME-HEAD-4_OF_4-PASS / CUMULATIVE-REGRESSION-PASS / FINAL-SAME-HEAD-SEAL-PENDING**
 
 ## Purpose
 
@@ -123,7 +123,7 @@ The canonical evaluator may emit:
 
 ## WCSER
 
-The executable candidate is **WCSER — World-Contact Strategic-Ecology Receipt**.
+The live executable object is **WCSER — World-Contact Strategic-Ecology Receipt**.
 
 A successful packet may emit:
 
@@ -150,7 +150,7 @@ REALSTRATEGY 0.24 does not establish:
 - epistemic adequacy from Nash/performative stability alone;
 - a complete causal model of scientific institutions.
 
-Promotion requires the qualifying MQR-4.57 Court, Rust–Prolog concordance, Lean+nanoda proof boundary and cumulative regression.
+WCSER has passed the qualifying MQR-4.57 Court, Rust–Prolog concordance, Lean+nanoda proof boundary, v0.23→v0.24 Real-Language regression, Lean regression and cumulative Real-Language CI. Final stage closure still requires the final same-head seal.
 
 
 ## Cumulative integration
@@ -165,3 +165,19 @@ The v0.24 candidate is integrated into the live substrate without changing the f
 Earlier global-CI failures occurred before the v0.24 packet router was updated and are integration provenance, not scientific verdicts.
 
 This document mutation intentionally requests a common-head qualifying replay across all four MQR-4.57 dedicated contexts.
+
+
+## Qualifying promotion receipt
+
+Canonical qualifying head:
+
+`54c5696a25ed60eacb69e91e781b82def0ba3864`
+
+Same-head dedicated receipts:
+- `36657441393` — MQR-4.57/Court — SUCCESS
+- `36657441326` — MQR-4.57/Lean+nanoda — SUCCESS
+- `36657441427` — MQR-4.57/Real-Language — SUCCESS
+- `36657441274` — MQR-4.57/Lean-Integration — SUCCESS
+
+Cumulative Real-Language CI:
+- `36657441310` — SUCCESS
