@@ -1,0 +1,21 @@
+REALSTRATEGY 0.24
+id equilibrium_overclaim
+agent_map PASS
+private_information PASS
+incentive_map PASS
+supply_provenance PASS
+cost_reconciliation PASS
+target_provenance PASS
+proxy_choice_provenance PASS
+performative_feedback PASS
+strategic_ancestry PASS
+anti_sybil PASS
+mechanism_counterfactual PASS
+exterior_reserve ACTIVE
+equilibrium_ceiling ABSENT
+capture_attribution PASS
+reopening ACTIVE
+mechanism_scope DECLARED_LOCAL
+wcepr_dependency DECLARED
+universal_mechanism NO_CLAIM
+END
