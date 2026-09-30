@@ -1,0 +1,21 @@
+REALREFLEX 0.25
+id closure_overclaim
+actor_genealogy PASS
+transition_provenance PASS
+obligation_transport PASS
+role_reauthorization PASS
+utility_reconstitution PASS
+mechanism_lineage PASS
+mechanism_replay PASS
+ontology_expansion PASS
+self_subjection ACTIVE
+anti_inflation PASS
+closure_ceiling ABSENT
+scaffold_profile PASS
+world_claim_separation PASS
+drake_role_admission PASS
+toy_model_scope PASS
+scaffold_retirement ACTIVE
+truth_distance_scalar OFF
+final_fixed_point NO_CLAIM
+END
