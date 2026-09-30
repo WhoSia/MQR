@@ -100,3 +100,7 @@ path = "src/consequence_v22.rs"
 [[bin]]
 name = "real-v23-value"
 path = "src/value_v23.rs"
+
+[[bin]]
+name = "real-v24-ecology"
+path = "src/strategy_v24.rs"
