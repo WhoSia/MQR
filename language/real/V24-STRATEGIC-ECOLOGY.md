@@ -1,6 +1,6 @@
 # Real-Language v0.24 — World-Contact Strategic-Ecology Constitution
 
-Status: **EXECUTABLE-CANDIDATE / MQR-4.57 / PRESEALED / NOT-YET-PROMOTED**
+Status: **EXECUTABLE-CANDIDATE / MQR-4.57 / PRESEALED / CUMULATIVE-INTEGRATION-PASS / QUALIFYING-SAME-HEAD-REQUESTED**
 
 ## Purpose
 
@@ -151,3 +151,17 @@ REALSTRATEGY 0.24 does not establish:
 - a complete causal model of scientific institutions.
 
 Promotion requires the qualifying MQR-4.57 Court, Rust–Prolog concordance, Lean+nanoda proof boundary and cumulative regression.
+
+
+## Cumulative integration
+
+The v0.24 candidate is integrated into the live substrate without changing the frozen scientific criteria:
+
+- Cargo binary: `real-v24-ecology` from `src/strategy_v24.rs`;
+- Lean aggregate: `MQR.lean` imports `MQR.StrategicEcology`;
+- generic packet router: `REALSTRATEGY 0.24` is excluded from the legacy `REALPACKET` loop;
+- cumulative Real-Language CI after routing integration: run `36657136960` — SUCCESS.
+
+Earlier global-CI failures occurred before the v0.24 packet router was updated and are integration provenance, not scientific verdicts.
+
+This document mutation intentionally requests a common-head qualifying replay across all four MQR-4.57 dedicated contexts.
