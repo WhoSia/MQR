@@ -1,0 +1,27 @@
+name: MQR-4.59 Promotion Core
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.59/**'
+      - '.github/workflows/mqr-4.59-core.yml'
+  workflow_dispatch:
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare inherited and revised relation
+        shell: bash
+        run: |
+          cd experiments/mqr-4.59
+          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('a',compression=True); assert prior_rule(c)=='COMPRESS_NO_PROMOTION'; assert revised_relation(c)=='PROMOTE'"
+          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('b',executable='FORMAL_ONLY'); assert prior_rule(c)=='PROMOTION_CANDIDATE'; assert revised_relation(c)=='COMPRESS'"
+          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('c',contact='DUPLICATE'); assert prior_rule(c)=='PROMOTION_CANDIDATE'; assert revised_relation(c)=='COMPRESS'"
+          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('d',localization=True); assert prior_rule(c)=='COMPRESS_NO_PROMOTION'; assert revised_relation(c)=='PROMOTE'"
+          echo MQR459_CORE_RELATION=PASS
