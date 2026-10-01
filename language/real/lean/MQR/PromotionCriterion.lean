@@ -47,9 +47,38 @@ theorem localCriterionDoesNotImplyScalarScore :
     localCriterionCeiling.locallyUseful = true ∧
     localCriterionCeiling.scalarScoreEarned = false := by decide
 
+
+structure OptionValueWitness where
+  additiveChange : Bool
+  optionValue : Bool
+  localPromotion : Bool
+  deriving DecidableEq, Repr
+
+def optionValueWitness : OptionValueWitness :=
+  { additiveChange := false, optionValue := true, localPromotion := true }
+
+theorem optionValueCanSupportLocalPromotion :
+    optionValueWitness.additiveChange = false ∧
+    optionValueWitness.optionValue = true ∧
+    optionValueWitness.localPromotion = true := by decide
+
+structure CriterionAuditWitness where
+  auditPresent : Bool
+  localPromotion : Bool
+  deriving DecidableEq, Repr
+
+def criterionAuditWitness : CriterionAuditWitness :=
+  { auditPresent := false, localPromotion := false }
+
+theorem missingCriterionAuditBlocksLocalPromotion :
+    criterionAuditWitness.auditPresent = false ∧
+    criterionAuditWitness.localPromotion = false := by decide
+
 #print axioms MQR.additiveChangeNotNecessaryForLocalPromotion
 #print axioms MQR.additiveChangeNotSufficientForLocalPromotion
 #print axioms MQR.localCriterionDoesNotImplyUniversalRule
 #print axioms MQR.localCriterionDoesNotImplyScalarScore
+#print axioms MQR.optionValueCanSupportLocalPromotion
+#print axioms MQR.missingCriterionAuditBlocksLocalPromotion
 
 end MQR
