@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.58**.
+Status: live through **MQR-4.59**.
 
 ## Generation-IV authority kernel
 
@@ -1151,7 +1151,38 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 357. **Scaffold authority is defeasible and retireable.** A once-useful representation may fossilize obsolete categories or distort measurement priorities; ISP requires revision/retirement routes.
 358. **No universal truth-distance or scientific-usefulness scalar is restored.** WCAER/RCSR/ISP are typed receipts, not hidden total scores; scalar projection remains OFF absent separately earned calibration.
 
+359. **Promotion governance ≠ scientific progress.** RPAR governs whether a successor alters the live constitution; it does not define one true scientific-progress quantity or aim.
+360. **Additive novelty is neither necessary nor sufficient for local promotion.** Material executable separation can matter, but consequence-preserving simplification, live-claim narrowing, failure localization, scope correction and option-opening can also justify local promotion; formal-only novelty may be compressed.
+361. **Execution is evidence of maturity, not a universal gate.** Executability strengthens auditability but cannot exclude eliminative, conceptual, compressive or authority-corrective advances by default.
+362. **World-contact novelty requires material independence.** A new route label does not earn new authority when ancestry, intervention surface and defeat profile remain common-mode with an existing route.
+363. **Engineering repair ≠ theory promotion.** Restoring CI, parser, serialization or build behavior may be necessary for closure while remaining a release-level repair rather than a new scientific distinction.
+364. **Epistemically positive subtraction is admissible.** Safe deletion, compression or claim narrowing may reduce false ontology, duplicated debt or overclaimed authority while preserving the relevant warranted consequence surface.
+365. **Failure localization is a first-class promotion reason.** A successor may deserve local promotion by materially sharpening future attribution and reopening even when current predictions are unchanged.
+366. **Option value is typed and horizon-relative.** A successor may open a later independent world-contact route, but option value does not restore a universal expected-progress scalar.
+367. **ARCHIVE ≠ REJECT.** Material can retain historical or conceptual value without changing the live constitution; archival retention must not force museum growth inside the live formal surface.
+368. **Promotion criteria are performative and Goodhart-sensitive.** More courts, receipts, CI or formal objects do not imply more scientific advance; visible audit outputs require a material-leverage audit.
+369. **Meta-criterion substitution requires lineage.** Promotion rules must expose version, preseal, scope, revealed defect and revision provenance; criterion changes cannot silently rescue a preferred successor after reveal.
+370. **Criterion self-authority is rejected.** RPAR/MCL/CDR remain successor-vulnerable; no promotion rule is exempt from later court.
+371. **Promotion is a partial typed relation.** The live decision surface is PROMOTE / COMPRESS / ARCHIVE / REJECT / HOLD rather than a total ranking.
+372. **No universal promotion meta-objective is earned.** Local governance may be rational, explicit and reproducible without collapsing truthlikeness, understanding, problem-solving, usefulness and institutional value into one scalar.
+
 ## Live governance objects
+
+- Reflexive Promotion-Admissibility Receipt (RPAR)
+- Meta-Criterion Lineage (MCL)
+- Compression/Deletion Receipt (CDR)
+- Meta-Scientific Promotion Profile (MSPP)
+- Promotion decision surface: PROMOTE / COMPRESS / ARCHIVE / REJECT / HOLD
+- Material Executable-Separation Receipt
+- Independent World-Contact Novelty Receipt
+- Scientific-vs-Engineering Repair Typing
+- Consequence-Preserving Simplification Receipt
+- Live-Claim Narrowing Receipt
+- Failure-Localization Gain Receipt
+- Authority-Scope Correction Receipt
+- Option-Value / Horizon Receipt
+- Reflexive Artifact-Goodhart Audit
+- Promotion-Criterion Reopening Route
 
 - World-Contact Actor-Ecology Receipt (WCAER)
 - Dynamic Discovery-Ecology State Ξ_t = (A_t, Θ_t, M_t, Ω_t, Σ_t, U_t, Φ_t, X_t, R_t, G_t, L_t)
