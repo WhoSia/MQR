@@ -1,6 +1,6 @@
 # REALPROMOTE 0.26
 
-Status: **CANDIDATE / MQR-4.59 / FULL-STRESS-COVERAGE / QUALIFYING-SAME-HEAD-REQUESTED**
+Status: **PROMOTED-LIVE / MQR-4.59 / FULL-STRESS-QUALIFYING-4_OF_4-PASS / GLOBAL-REGRESSION-PASS / FINAL-SAME-HEAD-SEAL-PENDING**
 
 REALPROMOTE 0.26 records whether a successor should change the live constitution.
 
@@ -60,3 +60,30 @@ The qualifying replay now includes:
 - v0.25 → v0.26 Real-Language and Lean regression.
 
 No scientific criterion changed after reveal; only coverage and implementation defects were repaired.
+
+
+## Authoritative promotion receipt
+
+Canonical qualifying head:
+
+`9117170d34e0c059880010db53333760068d9749`
+
+Same-head dedicated receipts:
+- `36817575130` — MQR-4.59/Court — SUCCESS
+- `36817575240` — MQR-4.59/Lean+nanoda — SUCCESS
+- `36817575182` — MQR-4.59/Real-Language — SUCCESS
+- `36817575122` — MQR-4.59/Lean-Integration — SUCCESS
+
+Cumulative Real-Language CI:
+- `36817575158` — SUCCESS
+
+Full frozen coverage:
+- 20 countermodel cases — PASS
+- 10 positive witnesses — ADMIT
+- old-rule false-negative witness — PASS
+- old-rule false-positive witness — PASS
+- six Lean boundary theorems — axiom-empty / nanoda PASS
+
+RPAR, MCL and CDR are promoted live as local, defeasible governance receipts.
+
+They do not define a universal scientific-progress scalar or a final meta-objective.
