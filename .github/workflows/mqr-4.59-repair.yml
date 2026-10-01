@@ -1,0 +1,24 @@
+name: MQR-4.59 Repair Type
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.59/**'
+      - '.github/workflows/mqr-4.59-repair.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check typed repair
+        run: |
+          cd experiments/mqr-4.59
+          python -c "from admission_core import Case,revised_relation; assert revised_relation(Case('a',repair='ENGINEERING'))=='COMPRESS'"
+          python -c "from admission_core import Case,revised_relation; assert revised_relation(Case('b',repair='SCIENTIFIC'))=='PROMOTE'"
+          echo MQR459_REPAIR_TYPE=PASS
