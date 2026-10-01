@@ -54,6 +54,8 @@ jobs:
           "$V26" language/real/examples/mqr-4.59-material.real | grep -F 'promote.decision=PROMOTE'
           "$V26" language/real/examples/mqr-4.59-formal.real | grep -F 'promote.decision=COMPRESS'
           "$V26" language/real/examples/mqr-4.59-archive.real | grep -F 'promote.decision=ARCHIVE'
+          "$V26" language/real/examples/mqr-4.59-option.real | grep -F 'promote.decision=PROMOTE'
+          "$V26" language/real/examples/mqr-4.59-audit-hold.real | grep -F 'promote.decision=HOLD'
           echo MQR459_REAL_LANGUAGE_INTEGRATION=PASS
       - name: Publish receipt
         if: ${{ always() }}
