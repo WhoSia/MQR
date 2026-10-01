@@ -11,6 +11,8 @@ class Case:
     claim_reduction: bool = False
     localization: bool = False
     authority_correction: bool = False
+    option_value: bool = False
+    criterion_audit: bool = True
     live_consequence: bool = True
     archive_value: bool = False
     provenance: bool = True
@@ -22,7 +24,7 @@ def prior_rule(c: Case) -> str:
     return "COMPRESS_NO_PROMOTION"
 
 def revised_relation(c: Case) -> str:
-    if not (c.provenance and c.presealed):
+    if not (c.provenance and c.presealed and c.criterion_audit):
         return "HOLD"
     material = any((
         c.executable == "MATERIAL",
@@ -33,6 +35,7 @@ def revised_relation(c: Case) -> str:
         c.claim_reduction,
         c.localization,
         c.authority_correction,
+        c.option_value,
     ))
     if c.live_consequence and material:
         return "PROMOTE"
