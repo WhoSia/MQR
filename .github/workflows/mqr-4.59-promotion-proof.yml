@@ -35,7 +35,7 @@ jobs:
           cd language/real/lean
           lake env lean MQR/PromotionCriterion.lean | tee /tmp/mqr459.log
           if grep -F 'sorryAx' /tmp/mqr459.log; then exit 1; fi
-          test "$(grep -c 'does not depend on any axioms' /tmp/mqr459.log)" -ge 4
+          test "$(grep -c 'does not depend on any axioms' /tmp/mqr459.log)" -ge 6
           echo MQR459_AXIOM_ANCESTRY=EMPTY
       - name: Build independent checker
         shell: bash
@@ -54,7 +54,7 @@ jobs:
         run: |
           set -euo pipefail
           cd language/real/lean
-          lake env _lean4export/.lake/build/bin/lean4export MQR.PromotionCriterion --             MQR.additiveChangeNotNecessaryForLocalPromotion             MQR.additiveChangeNotSufficientForLocalPromotion             MQR.localCriterionDoesNotImplyUniversalRule             MQR.localCriterionDoesNotImplyScalarScore             > /tmp/mqr459.export
+          lake env _lean4export/.lake/build/bin/lean4export MQR.PromotionCriterion --             MQR.additiveChangeNotNecessaryForLocalPromotion             MQR.additiveChangeNotSufficientForLocalPromotion             MQR.localCriterionDoesNotImplyUniversalRule             MQR.localCriterionDoesNotImplyScalarScore             MQR.optionValueCanSupportLocalPromotion             MQR.missingCriterionAuditBlocksLocalPromotion             > /tmp/mqr459.export
           cat > /tmp/mqr459.json <<'JSON'
           {
             "export_file_path": "/tmp/mqr459.export",
