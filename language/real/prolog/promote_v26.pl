@@ -17,15 +17,24 @@ run(File) :-
 blank(S) :- string_codes(S, Cs), forall(member(C,Cs), char_type(C, space)).
 
 packet(M) --> ["REALPROMOTE 0.26"], body([], M).
-
 body(A, M) --> ["END"], {dict_create(M, p, A)}.
 body(A0, M) --> [Line], {
     split_string(Line, " ", " ", [K,V]),
-    atom_string(KA,K), atom_string(VA,V)
+    atom_string(KA,K),
+    atom_string(VA,V)
   },
   body([KA-VA|A0], M).
 
 v(M,K,D,V) :- (get_dict(K,M,V0) -> V=V0 ; V=D).
+
+material(Add, Contact, Repair, Simplify, Narrow, Localize, Scope) :-
+    Add='MATERIAL';
+    Contact='INDEPENDENT';
+    Repair='SCIENTIFIC';
+    Simplify='YES';
+    Narrow='YES';
+    Localize='YES';
+    Scope='YES'.
 
 decide(M, D) :-
     v(M,sealed,'PASS',Sealed),
@@ -39,11 +48,14 @@ decide(M, D) :-
     v(M,narrow,'NO',Narrow),
     v(M,localize,'NO',Localize),
     v(M,scope,'NO',Scope),
-    (Sealed \= 'PASS' ; Lineage \= 'PASS') -> D='HOLD' ;
-    (
-      (Add='MATERIAL';Contact='INDEPENDENT';Repair='SCIENTIFIC';Simplify='YES';Narrow='YES';Localize='YES';Scope='YES')
-      -> (Live='YES' -> D='PROMOTE' ; (Archive='YES' -> D='ARCHIVE' ; D='REJECT'))
-      ; (Live='NO',Archive='YES' -> D='ARCHIVE'
-        ; (Add='FORMAL';Contact='DUPLICATE';Repair='ENGINEERING') -> D='COMPRESS'
-        ; D='REJECT')
-    ).
+    decide_values(Sealed, Lineage, Live, Archive, Add, Contact, Repair, Simplify, Narrow, Localize, Scope, D).
+
+decide_values(Sealed, Lineage, _, _, _, _, _, _, _, _, _, 'HOLD') :-
+    (Sealed \= 'PASS'; Lineage \= 'PASS'), !.
+decide_values(_, _, 'YES', _, Add, Contact, Repair, Simplify, Narrow, Localize, Scope, 'PROMOTE') :-
+    material(Add, Contact, Repair, Simplify, Narrow, Localize, Scope), !.
+decide_values(_, _, 'NO', 'YES', _, _, _, _, _, _, _, 'ARCHIVE') :- !.
+decide_values(_, _, _, _, 'FORMAL', _, _, _, _, _, _, 'COMPRESS') :- !.
+decide_values(_, _, _, _, _, 'DUPLICATE', _, _, _, _, _, 'COMPRESS') :- !.
+decide_values(_, _, _, _, _, _, 'ENGINEERING', _, _, _, _, 'COMPRESS') :- !.
+decide_values(_, _, _, _, _, _, _, _, _, _, _, 'REJECT').
