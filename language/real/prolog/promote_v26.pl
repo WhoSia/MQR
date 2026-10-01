@@ -48,14 +48,16 @@ decide(M, D) :-
     v(M,narrow,'NO',Narrow),
     v(M,localize,'NO',Localize),
     v(M,scope,'NO',Scope),
-    decide_values(Sealed, Lineage, Live, Archive, Add, Contact, Repair, Simplify, Narrow, Localize, Scope, D).
+    v(M,option,'NO',Option),
+    v(M,audit,'PASS',Audit),
+    decide_values(Sealed, Lineage, Audit, Live, Archive, Add, Contact, Repair, Simplify, Narrow, Localize, Scope, Option, D).
 
-decide_values(Sealed, Lineage, _, _, _, _, _, _, _, _, _, 'HOLD') :-
-    (Sealed \= 'PASS'; Lineage \= 'PASS'), !.
-decide_values(_, _, 'YES', _, Add, Contact, Repair, Simplify, Narrow, Localize, Scope, 'PROMOTE') :-
-    material(Add, Contact, Repair, Simplify, Narrow, Localize, Scope), !.
-decide_values(_, _, 'NO', 'YES', _, _, _, _, _, _, _, 'ARCHIVE') :- !.
-decide_values(_, _, _, _, 'FORMAL', _, _, _, _, _, _, 'COMPRESS') :- !.
-decide_values(_, _, _, _, _, 'DUPLICATE', _, _, _, _, _, 'COMPRESS') :- !.
-decide_values(_, _, _, _, _, _, 'ENGINEERING', _, _, _, _, 'COMPRESS') :- !.
-decide_values(_, _, _, _, _, _, _, _, _, _, _, 'REJECT').
+decide_values(Sealed, Lineage, Audit, _, _, _, _, _, _, _, _, _, _, 'HOLD') :-
+    (Sealed \= 'PASS'; Lineage \= 'PASS'; Audit \= 'PASS'), !.
+decide_values(_, _, _, 'YES', _, Add, Contact, Repair, Simplify, Narrow, Localize, Scope, Option, 'PROMOTE') :-
+    (material(Add, Contact, Repair, Simplify, Narrow, Localize, Scope); Option='YES'), !.
+decide_values(_, _, _, 'NO', 'YES', _, _, _, _, _, _, _, _, 'ARCHIVE') :- !.
+decide_values(_, _, _, _, _, 'FORMAL', _, _, _, _, _, _, _, 'COMPRESS') :- !.
+decide_values(_, _, _, _, _, _, 'DUPLICATE', _, _, _, _, _, _, 'COMPRESS') :- !.
+decide_values(_, _, _, _, _, _, _, 'ENGINEERING', _, _, _, _, _, 'COMPRESS') :- !.
+decide_values(_, _, _, _, _, _, _, _, _, _, _, _, _, 'REJECT').
