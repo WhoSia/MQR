@@ -22,3 +22,4 @@ import MQR.ConsequenceFamily
 import MQR.ExpansionPolicy
 import MQR.StrategicEcology
 import MQR.ReflexiveEcology
+import MQR.PromotionCriterion
