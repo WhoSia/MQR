@@ -46,24 +46,39 @@ jobs:
           "$V" language/real/examples/mqr-4.59-simplify.real | grep -F 'promote.decision=PROMOTE'
           "$V" language/real/examples/mqr-4.59-formal.real | grep -F 'promote.decision=COMPRESS'
           "$V" language/real/examples/mqr-4.59-archive.real | grep -F 'promote.decision=ARCHIVE'
+          "$V" language/real/examples/mqr-4.59-option.real | grep -F 'promote.decision=PROMOTE'
+          "$V" language/real/examples/mqr-4.59-audit-hold.real | grep -F 'promote.decision=HOLD'
           echo MQR459_V26_CASES=PASS
-      - name: Execute inherited-rule comparison
+      - name: Execute full frozen promotion court
         shell: bash
         run: |
           set -euo pipefail
-          cd experiments/mqr-4.59
-          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('a',compression=True); assert prior_rule(c)=='COMPRESS_NO_PROMOTION'; assert revised_relation(c)=='PROMOTE'"
-          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('b',executable='FORMAL_ONLY'); assert prior_rule(c)=='PROMOTION_CANDIDATE'; assert revised_relation(c)=='COMPRESS'"
-          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('c',contact='DUPLICATE'); assert prior_rule(c)=='PROMOTION_CANDIDATE'; assert revised_relation(c)=='COMPRESS'"
-          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('d',repair='ENGINEERING'); assert revised_relation(c)=='COMPRESS'"
-          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('e',repair='SCIENTIFIC'); assert revised_relation(c)=='PROMOTE'"
-          python -c "from admission_core import Case,prior_rule,revised_relation; c=Case('f',localization=True); assert revised_relation(c)=='PROMOTE'"
-          echo MQR459_PRIOR_RULE_NECESSARY=REJECT
-          echo MQR459_EXECUTION_UNIVERSAL_GATE=REJECT
-          echo MQR459_UNIVERSAL_META_OBJECTIVE=NOT_EARNED
-          echo MQR459_RPAR=CANDIDATE
-          echo MQR459_MCL=CANDIDATE
-          echo MQR459_CDR=CANDIDATE
+          python experiments/mqr-4.59/promotion_court.py | tee /tmp/mqr459.log
+          for n in $(seq -w 1 20); do
+            grep -F "mqr459.c$n=PASS" /tmp/mqr459.log
+          done
+          for n in $(seq -w 1 10); do
+            grep -F "mqr459.p$n=ADMIT" /tmp/mqr459.log
+          done
+          grep -F 'mqr459.old_rule_false_negative=PASS' /tmp/mqr459.log
+          grep -F 'mqr459.old_rule_false_positive=PASS' /tmp/mqr459.log
+          grep -F 'mqr459.prior_rule_necessary=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.execution_universal_gate=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.novelty_default_value=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.recursive_artifact_count_progress=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.criterion_authority_default=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.universal_meta_objective=NOT_EARNED' /tmp/mqr459.log
+          grep -F 'mqr459.rpar=CANDIDATE' /tmp/mqr459.log
+          grep -F 'mqr459.mcl=CANDIDATE' /tmp/mqr459.log
+          grep -F 'mqr459.cdr=CANDIDATE' /tmp/mqr459.log
+
+      - name: Upload promotion report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.59-promotion-report-${{ github.sha }}
+          path: experiments/mqr-4.59/results/promotion_court.json
+          if-no-files-found: error
+          retention-days: 90
       - name: Publish receipt
         if: ${{ always() }}
         shell: bash
