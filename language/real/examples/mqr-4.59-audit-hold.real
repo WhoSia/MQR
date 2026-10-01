@@ -1,0 +1,15 @@
+REALPROMOTE 0.26
+add MATERIAL
+contact NONE
+repair NONE
+simplify NO
+narrow NO
+localize NO
+scope NO
+option NO
+live YES
+archive NO
+sealed PASS
+lineage PASS
+audit FAIL
+END
