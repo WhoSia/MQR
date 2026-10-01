@@ -42,6 +42,8 @@ jobs:
           grep -F "'MQR.additiveChangeNotNecessaryForLocalPromotion' does not depend on any axioms" /tmp/v26.log
           grep -F "'MQR.additiveChangeNotSufficientForLocalPromotion' does not depend on any axioms" /tmp/v26.log
           grep -F "'MQR.localCriterionDoesNotImplyUniversalRule' does not depend on any axioms" /tmp/v26.log
+          grep -F "'MQR.optionValueCanSupportLocalPromotion' does not depend on any axioms" /tmp/v26.log
+          grep -F "'MQR.missingCriterionAuditBlocksLocalPromotion' does not depend on any axioms" /tmp/v26.log
           echo MQR459_LEAN_REGRESSION=PASS
       - name: Publish receipt
         if: ${{ always() }}
