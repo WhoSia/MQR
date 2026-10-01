@@ -1,4 +1,4 @@
-# Real-Language / Real-Packet v0.3–v0.25
+# Real-Language / Real-Packet v0.3–v0.26
 
 Real-Language is MQR's active event-to-realist-authority language.
 
@@ -1212,3 +1212,52 @@ OTHERWISE
 ISP keeps inquiry-scaffold value non-scalar and distinct from world-claim authority. The Drake equation is admitted as a decomposition/question-generation/measurement-agenda scaffold without promoting uncertain numerical output to literal-world authority. Newtonian mechanics remains a positive control showing that high scaffold value and high regime-bounded world authority can coexist.
 
 Truth-distance scalar remains OFF; no final reflective fixed point is claimed.
+
+
+## v0.26 — promotion-admissibility constitution
+
+MQR-4.59 adds `REALPROMOTE 0.26`.
+
+Canonical implementation:
+- Rust: `src/promote_v26.rs` / `real-v26-promote`;
+- independent evaluator: `prolog/promote_v26.pl`;
+- formal boundary: `lean/MQR/PromotionCriterion.lean`;
+- executable constitution: `V26-PROMOTION.md`.
+
+The live decision surface is:
+
+```text
+PROMOTE
+COMPRESS
+ARCHIVE
+REJECT
+HOLD
+```
+
+The key authority boundaries are:
+
+```text
+PROMOTION GOVERNANCE
+!= SCIENTIFIC PROGRESS
+
+ADDITIVE NOVELTY
+!= EPISTEMIC ADVANCE
+
+EXECUTABLE
+!= PROMOTION-WORTHY BY DEFAULT
+
+RESTORED ENGINEERING EXECUTION
+!= NEW THEORY
+
+LOCAL PROMOTION RULE
+!= UNIVERSAL META-OBJECTIVE
+```
+
+The live receipts are:
+- **RPAR — Reflexive Promotion-Admissibility Receipt**;
+- **MCL — Meta-Criterion Lineage**;
+- **CDR — Compression/Deletion Receipt**.
+
+RPAR may locally admit material executable separation, independent world contact, scientific repair, consequence-preserving simplification, live-claim narrowing, failure localization, scope correction or declared option value. It may compress formal-only novelty, duplicate contact routes and engineering-only repair; archive useful material without live constitutional consequence; and hold when criterion governance is missing.
+
+Scalar promotion scoring remains OFF.
