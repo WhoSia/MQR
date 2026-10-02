@@ -206,3 +206,35 @@ Candidate objects:
 - NEDL — Nonmyopic Exploration-Debt Ledger
 
 This remains a candidate until the frozen executable constitution, independent implementation and formal boundary qualify.
+
+## 2026 robustness pressure added after reveal
+
+Two AISTATS 2026 results sharpen the novelty boundary further.
+
+### Misinformation in a statistical experiment
+
+**Callahan & Catanach (2026), On the Misinformation in a Statistical Experiment.**
+
+Pressure:
+- under model/inference misspecification, a design ranked as more informative can amplify bias and yield confident but incorrect inference;
+- classical experiment-comparison axioms can fail under misspecification;
+- robust experimental-design machinery is therefore already moving beyond naive informativeness maximization.
+
+MQR consequence:
+- `MORE INFORMATION != BETTER SCIENCE` is even more clearly prior-art territory.
+- MQR-4.62's surviving distinction must involve open-frontier relation change, option destruction, ancestry and reopening rather than generic misspecification robustness.
+
+### Representative, Informative, and De-Amplifying active learning
+
+**Tang, Sloman & Kaski (2026), Representative, Informative, and De-Amplifying: Requirements for Robust Bayesian Active Learning under Model Misspecification.**
+
+Pressure:
+- active acquisition under misspecification can require representativeness and error-de-amplification in addition to informativeness;
+- acquisition criteria can therefore be explicitly multi-factor even within modern Bayesian active-learning frameworks.
+
+MQR consequence:
+- typed multi-criteria acquisition is not enough for novelty by itself.
+- The remaining MQR burden is to show value in explicitly tracking **unconceived-rival reopening, evidence ancestry/common-mode structure, branchwise option loss, and nonmyopic scientific debt**.
+
+These papers do not alter the frozen MQR-4.62 cases or verdict criteria; they narrow the claim ceiling after the first successful scientific reveal.
+
