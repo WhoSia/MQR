@@ -115,6 +115,4 @@ path = "src/promote_v28.rs"
 name = "real-v29-acquire"
 path = "src/acquire_v29.rs"
 
-[[bin]]
-name = "real-v29-acquire"
-path = "src/acquire_v29.rs"
+
