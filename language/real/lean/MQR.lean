@@ -23,3 +23,6 @@ import MQR.ExpansionPolicy
 import MQR.StrategicEcology
 import MQR.ReflexiveEcology
 import MQR.PromotionCriterion
+import MQR.PromotionConflict
+import MQR.PromotionDynamics
+import MQR.EvidenceAcquisition

@@ -1,0 +1,5 @@
+REALACQUIRE 0.29
+myopic_best YES
+option_loss YES
+unique_future_separator YES
+END

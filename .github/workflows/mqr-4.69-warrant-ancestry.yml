@@ -1,0 +1,232 @@
+name: MQR-4.69 Warrant-Ancestry Nonfungibility Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.69/**'
+      - '.github/workflows/mqr-4.69-warrant-ancestry.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run canonical Python court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.69/warrant_ancestry_court.py             experiments/mqr-4.69/PAIR-FREEZE.tsv             experiments/mqr-4.69/ANCESTRY-FEATURES.tsv | tee /tmp/mqr469-python.log
+          grep -F 'MQR469_PYTHON_COURT=PASS' /tmp/mqr469-python.log
+          grep -F $'EXPECTATION_MISMATCHES\t0' experiments/mqr-4.69/results/python_summary.tsv
+          grep -F $'PRESENT_SURFACE_LEAKAGE\t0' experiments/mqr-4.69/results/python_summary.tsv
+          grep -F $'CAUSAL_SWAP_FAILURES\t0' experiments/mqr-4.69/results/python_summary.tsv
+          grep -F $'MINIMAL_FEATURE_COUNT\t4' experiments/mqr-4.69/results/python_summary.tsv
+          grep -F $'1\t4\tauthorization_state,provenance_state,defeater_state,revision_state'             experiments/mqr-4.69/results/minimal_feature_sets.tsv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.69-canonical-results
+          path: experiments/mqr-4.69/results/
+      - name: Publish canonical receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Canonical-Court"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  independent-concordance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run canonical Python
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.69/warrant_ancestry_court.py             experiments/mqr-4.69/PAIR-FREEZE.tsv             experiments/mqr-4.69/ANCESTRY-FEATURES.tsv
+      - name: Run independent C++
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.69/independent_warrant_ancestry.cpp -o /tmp/mqr469-cpp
+          /tmp/mqr469-cpp             experiments/mqr-4.69/PAIR-FREEZE.tsv             experiments/mqr-4.69/ANCESTRY-FEATURES.tsv | tee /tmp/mqr469-cpp.log
+          grep -F 'MQR469_CPP_COURT=PASS' /tmp/mqr469-cpp.log
+          grep -F 'MQR469_MINIMAL_FEATURE_COUNT=4' /tmp/mqr469-cpp.log
+      - name: Exact concordance
+        run: |
+          set -euo pipefail
+          diff -u experiments/mqr-4.69/results/python_results.tsv                   experiments/mqr-4.69/results/cpp_results.tsv
+          diff -u experiments/mqr-4.69/results/python_summary.tsv                   experiments/mqr-4.69/results/cpp_summary.tsv
+          diff -u experiments/mqr-4.69/results/minimal_feature_sets.tsv                   experiments/mqr-4.69/results/cpp_minimal_feature_sets.tsv
+          echo MQR469_PYTHON_CPP_CONCORDANCE=PASS
+      - name: Publish concordance receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Python-Cpp-Concordance"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify preseal and anti-history-inflation guards
+        run: |
+          set -euo pipefail
+          grep -F 'The stage is defeated if the apparent difference can be explained by a present-state variable' experiments/mqr-4.69/PRESEAL.md
+          grep -F 'full history' experiments/mqr-4.69/PRESEAL.md
+          grep -F 'F11 — Historical overretention' experiments/mqr-4.69/PRESEAL.md
+          grep -F 'BASELINE_WIN' experiments/mqr-4.69/PAIR-FREEZE.tsv
+          grep -F 'FUNGIBLE' experiments/mqr-4.69/PAIR-FREEZE.tsv
+          grep -F 'Predictive-state and causal-state baseline' experiments/mqr-4.69/LITERATURE.md
+          grep -F 'PROVENANCE GRAPH EXISTS' experiments/mqr-4.69/LITERATURE.md
+          test "$(head -n1 experiments/mqr-4.69/ANCESTRY-FEATURES.tsv)" = $'ancestry\tauthorization_state\tprovenance_state\tdefeater_state\trevision_state'
+          echo MQR469_STRUCTURAL_GUARDS=PASS
+      - name: Publish guard receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Structural-Guards"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+
+  predictive-quotient:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Canonical predictive quotient
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.69/predictive_quotient.py             experiments/mqr-4.69/PAIR-FREEZE.tsv             experiments/mqr-4.69/ANCESTRY-FEATURES.tsv | tee /tmp/mqr469-pq.log
+          grep -F 'MQR469_PREDICTIVE_QUOTIENT=PASS' /tmp/mqr469-pq.log
+          grep -F 'MQR469_RAW_ANCESTRY_LABELS=35' /tmp/mqr469-pq.log
+          grep -F 'MQR469_TYPED_FOUR_AXIS_STATES=19' /tmp/mqr469-pq.log
+          grep -F 'MQR469_PREDICTIVE_CLASSES=7' /tmp/mqr469-pq.log
+          grep -F 'MQR469_FOUR_AXIS_OVERRETENTION=YES' /tmp/mqr469-pq.log
+      - name: Independent predictive quotient census
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.69/independent_predictive_quotient.cpp -o /tmp/mqr469-pq-cpp
+          /tmp/mqr469-pq-cpp             experiments/mqr-4.69/PAIR-FREEZE.tsv             experiments/mqr-4.69/ANCESTRY-FEATURES.tsv | tee /tmp/mqr469-pq-cpp.log
+          grep -F 'MQR469_CPP_PREDICTIVE_QUOTIENT=PASS' /tmp/mqr469-pq-cpp.log
+          grep -F 'MQR469_RAW_ANCESTRY_LABELS=35' /tmp/mqr469-pq-cpp.log
+          grep -F 'MQR469_TYPED_FOUR_AXIS_STATES=19' /tmp/mqr469-pq-cpp.log
+          grep -F 'MQR469_PREDICTIVE_CLASSES=7' /tmp/mqr469-pq-cpp.log
+          grep -F 'MQR469_FOUR_AXIS_OVERRETENTION=YES' /tmp/mqr469-pq-cpp.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.69-predictive-quotient
+          path: |
+            experiments/mqr-4.69/results/predictive_quotient.tsv
+            experiments/mqr-4.69/results/predictive_quotient_summary.tsv
+      - name: Publish predictive quotient receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Predictive-Quotient"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+
+  real-warrant-lineage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SWI-Prolog
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y swi-prolog-nox
+      - name: Build REALWARRANT candidate
+        run: |
+          set -euo pipefail
+          cargo build --manifest-path language/real/Cargo.toml --bin real-v30-warrant-lineage
+      - name: Rust-Prolog concordance
+        run: |
+          set -euo pipefail
+          BIN=language/real/target/debug/real-v30-warrant-lineage
+          for packet in             language/real/examples/mqr-4.69-auth.real             language/real/examples/mqr-4.69-provenance.real             language/real/examples/mqr-4.69-null.real
+          do
+            "$BIN" "$packet" > /tmp/rust.out
+            swipl -q -f language/real/prolog/warrant_lineage_v30.pl -- "$packet" > /tmp/prolog.out
+            diff -u /tmp/rust.out /tmp/prolog.out
+          done
+          "$BIN" language/real/examples/mqr-4.69-auth.real | tee /tmp/warrant.log
+          grep -F 'warrant.predictive_class_authority=DERIVED' /tmp/warrant.log
+          grep -F 'warrant.minimality_claim=INTERVENTION_RELATIVE' /tmp/warrant.log
+          grep -F 'warrant.full_lineage_equals_minimal_state=NO' /tmp/warrant.log
+          grep -F 'warrant.typed_ancestry_axes_primitive=NO' /tmp/warrant.log
+          grep -F 'warrant.behavioral_sufficiency_world_validity=NOT_ESTABLISHED' /tmp/warrant.log
+          grep -F 'warrant.world_validity=NOT_ESTABLISHED' /tmp/warrant.log
+          echo MQR469_REALWARRANT=PASS
+      - name: Reject primitive-ontology laundering
+        run: |
+          set -euo pipefail
+          sed 's/primitive_ancestry_ontology OFF/primitive_ancestry_ontology ON/'             language/real/examples/mqr-4.69-auth.real >/tmp/bad.real
+          if language/real/target/debug/real-v30-warrant-lineage /tmp/bad.real >/tmp/bad.out 2>/tmp/bad.err; then
+            echo "primitive ancestry ontology unexpectedly accepted"
+            exit 1
+          fi
+          grep -F 'primitive_ancestry_ontology must be OFF' /tmp/bad.err
+      - name: Publish REALWARRANT receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/REALWARRANT"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Verify predictive-lineage theorem boundary
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/WarrantLineage.lean | tee /tmp/mqr469-lean.log
+          if grep -F 'sorryAx' /tmp/mqr469-lean.log; then exit 1; fi
+          for theorem in             MQR.extensional_state_can_be_equal_while_future_signature_differs             MQR.predictive_equivalence_is_reflexive             MQR.predictive_equivalence_is_symmetric             MQR.predictive_equivalence_is_transitive             MQR.four_axis_identity_implies_predictive_equivalence             MQR.predictive_equivalence_does_not_imply_history_identity             MQR.predictive_equivalence_does_not_imply_four_axis_identity
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr469-lean.log
+          done
+          echo MQR469_LEAN_WARRANT_LINEAGE=PASS
+      - name: Publish Lean receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Lean-Boundary"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  naturalistic-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify naturalistic authority ceiling
+        run: |
+          set -euo pipefail
+          grep -F 'PARTIAL_NATURALISTIC_ANCESTRY_CONTACT' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          grep -F 'PRESPECIFICATION_GOVERNANCE_BASELINE_STRONG' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          grep -F 'WORKFLOW_PROVENANCE_BASELINE_STRONG' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          grep -F 'MQR_SPECIFIC_ANCESTRY_ONTOLOGY_NOT_VALIDATED' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          grep -F 'NO_0_30_PROMOTION' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          echo MQR469_NATURALISTIC_GUARDS=PASS
+      - name: Publish naturalistic receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Naturalistic-Guards"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

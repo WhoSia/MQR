@@ -1,0 +1,130 @@
+name: MQR-4.61 Promotion Conflict Dynamics
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.61/**'
+      - 'language/real/src/promote_v28.rs'
+      - 'language/real/prolog/promote_v28.pl'
+      - 'language/real/examples/mqr-4.61-*.real'
+      - 'language/real/lean/MQR/PromotionDynamics.lean'
+      - 'language/real/lean/MQR.lean'
+      - 'language/real/Cargo.toml'
+      - 'language/real/V28-PROMOTION-DYNAMICS.md'
+      - '.github/workflows/mqr-4.61-promotion-dynamics.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Frozen 24-case dynamics court
+        run: |
+          python experiments/mqr-4.61/promotion_conflict_dynamics_court.py | tee /tmp/mqr461.log
+          grep -F 'mqr461.countermodels=24/24' /tmp/mqr461.log
+          grep -F 'mqr461.positive_witnesses=12/12' /tmp/mqr461.log
+          grep -F 'mqr461.revision_order_commutes_universally=REJECT' /tmp/mqr461.log
+          grep -F 'mqr461.material_hysteresis=ADMIT' /tmp/mqr461.log
+          grep -F 'mqr461.universal_historical_meta_utility=NOT_EARNED' /tmp/mqr461.log
+      - name: Publish Court receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.61/Court" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  real-language:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install Prolog
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq swi-prolog-nox
+      - name: Rust build
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v28-promote
+      - name: Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v28-promote
+          P=language/real/prolog/promote_v28.pl
+          for f in language/real/examples/mqr-4.61-*.real; do
+            "$V" "$f" > /tmp/rust.out
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog.out
+            diff -u /tmp/rust.out /tmp/prolog.out
+          done
+          "$V" language/real/examples/mqr-4.61-reopen.real | grep -F 'promotion.transition=REOPENED'
+          "$V" language/real/examples/mqr-4.61-lost-option.real | grep -F 'promotion.lost_option_debt=ACTIVE'
+          "$V" language/real/examples/mqr-4.61-chronology.real | grep -F 'promotion.transition=HISTORY_IRRELEVANT'
+          "$V" language/real/examples/mqr-4.61-reason-mutation.real | grep -F 'promotion.independent_warrant_created=NO'
+          echo MQR461_RUST_PROLOG_CONCORDANCE=PASS
+      - name: Publish Real-Language receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.61/Real-Language" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Lean package
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Check dynamics theorem ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/PromotionDynamics.lean | tee /tmp/mqr461.log
+          if grep -F 'sorryAx' /tmp/mqr461.log; then exit 1; fi
+          test "$(grep -c 'does not depend on any axioms' /tmp/mqr461.log)" -ge 8
+          echo MQR461_AXIOM_ANCESTRY=EMPTY
+      - name: Publish Lean receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.61/Lean" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  lean-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Aggregate Lean build
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Compile aggregate MQR
+        run: cd language/real/lean && lake env lean MQR.lean
+      - name: Publish integration receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.61/Lean-Integration" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

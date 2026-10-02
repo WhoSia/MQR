@@ -1261,3 +1261,318 @@ The live receipts are:
 RPAR may locally admit material executable separation, independent world contact, scientific repair, consequence-preserving simplification, live-claim narrowing, failure localization, scope correction or declared option value. It may compress formal-only novelty, duplicate contact routes and engineering-only repair; archive useful material without live constitutional consequence; and hold when criterion governance is missing.
 
 Scalar promotion scoring remains OFF.
+
+
+## v0.27 — promotion-reason conflict constitution
+
+MQR-4.60 adds `REALPROMOTE 0.27`.
+
+Canonical implementation:
+- Rust: `src/promote_v27.rs` / `real-v27-promote`;
+- independent evaluator: `prolog/promote_v27.pl`;
+- formal boundary: `lean/MQR/PromotionConflict.lean`;
+- executable constitution: `V27-PROMOTION-CONFLICT.md`;
+- frozen court: `../../experiments/mqr-4.60/reason_conflict_court.py`.
+
+The live conflict relation is typed rather than scalar:
+
+~~~text
+DOMINATES
+VETOES
+INCOMPARABLE
+DEFEATS_UNDER_SCOPE
+~~~
+
+Core non-inferences:
+
+~~~text
+PAIRWISE DOMINANCE != TOTAL ORDER
+PARETO NONDOMINATION != UNIQUE PROMOTION
+LOCAL VETO != UNIVERSAL PRIORITY
+MORE REASONS != MORE WARRANT
+DUPLICATE / COMMON-MODE REASONS != INDEPENDENT WARRANT
+HORIZON CHANGE != CONTRADICTION
+INCOMPARABILITY != IMPLEMENTATION FAILURE
+~~~
+
+The live receipts are:
+- **PRCR — Promotion-Reason Conflict Receipt**;
+- **RAG — Reason-Ancestry Graph**;
+- **HRS — Horizon/Scope Receipt**.
+
+`REALPROMOTE 0.27` admits explicit HOLD when locally valid reasons remain unresolved. Weighted aggregation is not the default, lexicographic priority is not universal, a Pareto frontier is not treated as a selector, and veto power is scoped rather than globally self-authorizing.
+
+First qualifying dedicated head: `e9e259c54fc9006ce5d79ba012b82f5a18874be8`.
+
+First qualifying run `36951219127` passed Court, Rust↔Prolog concordance, the Lean conflict boundary and aggregate Lean integration. Cumulative Real-Language regression also passed after v0.27 registration (`36951150367`).
+
+The resulting guidance is **scope/horizon-indexed partial adjudication with ancestry-aware reopening, not a universal promotion utility**.
+
+## v0.28 — promotion-conflict dynamics constitution
+
+MQR-4.61 adds `REALPROMOTE 0.28`.
+
+Canonical implementation:
+- Rust: `src/promote_v28.rs` / `real-v28-promote`;
+- independent evaluator: `prolog/promote_v28.pl`;
+- formal boundary: `lean/MQR/PromotionDynamics.lean`;
+- executable constitution: `V28-PROMOTION-DYNAMICS.md`;
+- frozen court: `../../experiments/mqr-4.61/promotion_conflict_dynamics_court.py`.
+
+The live transition layer adds:
+- **PRTR — Promotion-Relation Transition Receipt**;
+- **PHL — Promotion History Ledger**;
+- **ODR — Option/Debt Receipt**;
+- **RMR — Reason-Mutation Receipt**.
+
+Core dynamic boundaries:
+
+~~~text
+CURRENT RELATION LABEL != COMPLETE CONSTITUTIONAL STATE
+SAME TERMINAL RELATION != SAME MATERIAL HISTORY
+REVISION ORDER MAY BE NONCOMMUTATIVE
+RESOLUTION != PERMANENT RESOLUTION
+VETO AUTHORITY NEED NOT BE MONOTONE
+MORE EVIDENCE != MONOTONE AUTHORITY
+REASON MUTATION != NEW INDEPENDENT WARRANT
+OLD LABEL != EXACT MATERIAL RESTORATION
+MATERIAL HYSTERESIS = ADMISSIBLE
+CHRONOLOGY / SUNK-COST HYSTERESIS = REJECT
+CONFLICT CYCLE != OBLIGATION TO SCALARIZE
+HISTORY SCALARIZATION = OFF
+UNIVERSAL HISTORICAL META-UTILITY = NOT EARNED
+~~~
+
+History is retained only when it leaves a typed material consequence in current authority, reversibility, option availability, provenance or debt. Mere chronology, sunk effort, prestige, narrative continuity and revision count are erased as authority sources.
+
+The frozen court contained 24 countermodels and 12 positive witnesses. The first fully qualifying implementation head was `7033f6439d2c349048dffc36c864cf3c6f36bddd`: dedicated run `36959165095` passed Court, Rust↔Prolog concordance, Lean boundary and aggregate Lean integration; cumulative Real-Language run `36959165101` also passed.
+
+The initial reveal exposed one Prolog serialization/plumbing failure. It was repaired without changing any frozen scientific case, expected verdict, transition precedence or authority rule.
+
+v0.28 therefore represents **typed, reopenable constitutional history without a utility over histories**.
+
+## v0.29 — prospective evidence-acquisition constitution
+
+MQR-4.62 adds `REALACQUIRE 0.29`.
+
+Canonical implementation:
+- Rust: `src/acquire_v29.rs` / `real-v29-acquire`;
+- independent evaluator: `prolog/acquire_v29.pl`;
+- formal boundary: `lean/MQR/EvidenceAcquisition.lean`;
+- executable constitution: `V29-EVIDENCE-ACQUISITION.md`;
+- frozen constitution: `../../experiments/mqr-4.62/evidence_acquisition_constitution.py`.
+
+The live objects are:
+- **EASR — Evidence-Acquisition Selection Receipt**;
+- **RAER — Relation-Anticipation Envelope Receipt**;
+- **OPR — Option-Preservation Receipt**;
+- **IDR — Identifiability-Delta Receipt**;
+- **ARR — Adaptive Reopening Reserve**;
+- **NEDL — Nonmyopic Exploration-Debt Ledger**.
+
+Core boundaries:
+
+~~~text
+MAX EXPECTED INFORMATION != UNIVERSAL EXPERIMENT SELECTOR
+MYOPIC BEST != SEQUENCE-OPTIMAL
+MORE DATA != MORE INDEPENDENT WARRANT
+IDENTIFIABILITY GAIN != UNIVERSAL SCIENTIFIC VALUE
+FIXED EXPLORATION BONUS != UNIVERSAL
+RANDOMIZATION != ADEQUACY ORACLE
+PARETO FRONTIER != UNIQUE EXPERIMENT
+VALUE/COST RATIO != UNIVERSAL
+CURRENT ACTION GENERATOR != COMPLETE
+LOW MARGINAL GAIN != SATURATION
+
+POLICY CAN CREATE ITS OWN EVIDENCE BLIND SPOT
+OPTION-PRESERVING SEQUENCING = ADMISSIBLE
+ADAPTIVE REOPENING RESERVE = ADMISSIBLE
+NONMYOPIC EXPLORATION DEBT = ADMISSIBLE
+ANCESTRY-AWARE EVIDENCE MULTIPLICITY = REQUIRED
+
+HISTORY SCALARIZATION = OFF
+UNIVERSAL EXPECTED-EPISTEMIC-UTILITY OPTIMIZER = NOT EARNED
+~~~
+
+The action surface is typed rather than totally ranked:
+
+~~~text
+LOCAL_ADMISSIBLE
+OPTION_PRESERVE
+REOPEN_REQUIRED
+DEBT_CARRY
+HOLD_INCOMPARABLE
+BOUNDED_EXTERIOR_PROBE
+FORBIDDEN_BY_DESTRUCTIVE_CONTRACT
+~~~
+
+The frozen constitution contained 28 countermodels and 14 positive witnesses. The first reveal head was `d89426ee1ea05a4b0bf73cafc37c4e03fe08938a`: the frozen constitution and both Lean layers passed immediately; Real-Language failed before concordance because Cargo contained a duplicate binary registration. That plumbing error was repaired without changing any frozen scientific case or selection rule.
+
+The first fully qualifying implementation head was `e3bef0e68aa584aacae0fbbcafefc6d67a3cbe17`: dedicated run `36961289726` passed Constitution, Rust↔Prolog concordance, Lean boundary and aggregate Lean integration; cumulative Real-Language run `36961289667` also passed.
+
+v0.29 therefore constitutes **local prospective acquisition authority under open scientific search without one utility over scientific futures**.
+
+
+
+## 0.30 candidate — typed scientific-authority approximation (UNPROMOTED)
+
+MQR-4.67 opens an executable development surface:
+
+`REALAPPROX 0.30-CANDIDATE`.
+
+This is **not** a promoted Real-Language semantic version. REALACQUIRE 0.29 remains the latest promoted acquisition syntax.
+
+The candidate exists to make approximation losses auditable without turning them into one hidden epistemic utility.
+
+Canonical development implementation:
+- Rust: `src/approx_v30.rs` / `real-v30-approx`
+- independent evaluator: `prolog/approx_v30.pl`
+- formal boundary: `lean/MQR/Approximation.lean`
+
+The typed loss coordinates are:
+- `SEP` — rival/separator capability;
+- `REOPEN` — reopening authority;
+- `PROV` — provenance/common-mode ancestry;
+- `EXT` — exterior/novelty route;
+- `RELEASE` — release/commit eligibility.
+
+Each uses:
+`NONE / BOUNDED / MATERIAL / FATAL`.
+
+The compiler requires per-coordinate budgets and keeps scalar authority OFF:
+
+```text
+approximation.scalar_authority=OFF
+approximation.global_loss_score=FORBIDDEN
+approximation.universal_epistemic_utility=NOT_EARNED
+```
+
+Evidence provenance is first-class:
+`OBSERVED / PROVED / ENUMERATED / SIMULATED / INFERRED / OPEN`.
+
+A SIMULATED packet mechanically emits:
+
+```text
+approximation.world_validity=NOT_ESTABLISHED
+```
+
+This prevents a successful simulator fixture from being mistaken for world validation.
+
+MQR-4.67's frozen scientific Court did **not** find an admissible lossy abstraction among its seven tested candidates under any of its three predeclared budget contracts. The software nevertheless supports positive-control packets such as `ACCEPT_WITH_AUDIT`; those are compiler tests, not scientific findings.
+
+Therefore:
+
+```text
+SOFTWARE REPRESENTABILITY
+!=
+SCIENTIFIC ADMISSIBILITY
+
+SIMULATION SUCCESS
+!=
+WORLD VALIDATION
+
+TYPED VECTOR
+!=
+NOVEL SCIENTIFIC THEORY
+```
+
+Promotion to canonical 0.30 remains blocked by:
+- strong approximate-bisimulation / state-abstraction prior art;
+- partial naturalistic transport (currently strongest for provenance/analysis ancestry only);
+- lack of an admitted lossy quotient in the frozen 4.67 Court;
+- unresolved justification of the full loss ontology and veto priorities.
+
+
+## 0.30 candidate extension — warrant-bearing scientific loss contracts (UNPROMOTED)
+
+MQR-4.68 adds a second development-only 0.30 surface:
+
+`REALLOSS 0.30-CANDIDATE`
+
+Canonical development implementation:
+- Rust: `src/loss_contract_v30.rs` / `real-v30-loss-contract`;
+- independent evaluator: `prolog/loss_contract_v30.pl`;
+- formal boundary: `lean/MQR/LossContract.lean`;
+- frozen Court: `../../experiments/mqr-4.68/COURT-FREEZE.tsv`.
+
+The contract records, without a global score:
+- typed loss and coordinate-local ceiling;
+- context and horizon;
+- warrant kind/source/defeaters;
+- expiry;
+- reopening trigger;
+- cross-domain transport certificate state;
+- revision request, authorization and trigger;
+- merge ancestry.
+
+Mechanical guards include:
+
+```text
+loss_contract.scalar_authority=OFF
+loss_contract.global_loss_score=FORBIDDEN
+loss_contract.cross_domain_severity_equality=NOT_ASSUMED
+loss_contract.authority_reducibility=NOT_ESTABLISHED_BY_REPRESENTATION
+```
+
+SIMULATED packets emit:
+
+```text
+loss_contract.world_validity=NOT_ESTABLISHED
+```
+
+The frozen 4.68 Court deliberately included cases where established decision theory wins. Its tested surface was absorbed by representation-only, hard-constraint, partial-order, preference-revision and utility-recovery baselines.
+
+Therefore the executable contract is useful infrastructure, but not a promoted semantic theory.
+
+```text
+EXECUTABLE WARRANT FIELD != WARRANTED SCIENTIFIC AUTHORITY
+REALLOSS SOFTWARE PASS != MQR-SPECIFIC LOSS ONTOLOGY VALIDATED
+```
+
+REALACQUIRE 0.29 remains the latest promoted Real-Language syntax.
+
+## 0.30 candidate extension — intervention-relative warrant lineage (UNPROMOTED)
+
+MQR-4.69 adds REALWARRANT 0.30-CANDIDATE.
+
+Canonical development implementation:
+- Rust: src/warrant_lineage_v30.rs / real-v30-warrant-lineage;
+- independent evaluator: prolog/warrant_lineage_v30.pl;
+- formal boundary: lean/MQR/WarrantLineage.lean;
+- frozen paired Court: ../../experiments/mqr-4.69/PAIR-FREEZE.tsv.
+
+The candidate separates:
+- full lineage as audit payload;
+- present extensional surface identity;
+- intervention-family identity;
+- derived predictive class;
+- lineage certificate.
+
+~~~text
+warrant.predictive_class_authority=DERIVED
+warrant.minimality_claim=INTERVENTION_RELATIVE
+warrant.full_lineage_equals_minimal_state=NO
+warrant.typed_ancestry_axes_primitive=NO
+warrant.behavioral_sufficiency_world_validity=NOT_ESTABLISHED
+~~~
+
+SIMULATED packets emit:
+
+~~~text
+warrant.world_validity=NOT_ESTABLISHED
+~~~
+
+The frozen MQR-4.69 Court produced:
+- 35 raw ancestry labels;
+- 19 typed four-axis states;
+- 7 predictive equivalence classes.
+
+Therefore the hand-labeled ancestry axes are not promoted as Real-Language ontology. The compiler may carry them as lineage metadata, but authority-relevant compression is intervention-relative.
+
+~~~text
+FULL LINEAGE != MINIMAL AUTHORITY STATE
+PROVENANCE IMPORTANCE != MQR NOVELTY
+PREDICTIVE SUFFICIENCY != WORLD VALIDITY
+~~~
+
+REALACQUIRE 0.29 remains the latest promoted Real-Language syntax.

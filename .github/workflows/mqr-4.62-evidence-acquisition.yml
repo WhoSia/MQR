@@ -1,0 +1,130 @@
+name: MQR-4.62 Prospective Evidence Acquisition
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.62/**'
+      - 'language/real/src/acquire_v29.rs'
+      - 'language/real/prolog/acquire_v29.pl'
+      - 'language/real/examples/mqr-4.62-*.real'
+      - 'language/real/lean/MQR/EvidenceAcquisition.lean'
+      - 'language/real/lean/MQR.lean'
+      - 'language/real/Cargo.toml'
+      - 'language/real/V29-EVIDENCE-ACQUISITION.md'
+      - '.github/workflows/mqr-4.62-evidence-acquisition.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  constitution:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Frozen 28-case acquisition constitution
+        run: |
+          python experiments/mqr-4.62/evidence_acquisition_constitution.py | tee /tmp/mqr462.log
+          grep -F 'mqr462.countermodels=28/28' /tmp/mqr462.log
+          grep -F 'mqr462.positive_witnesses=14/14' /tmp/mqr462.log
+          grep -F 'mqr462.max_expected_information_universal_selector=REJECT' /tmp/mqr462.log
+          grep -F 'mqr462.option_preserving_sequencing=ADMIT' /tmp/mqr462.log
+          grep -F 'mqr462.universal_expected_epistemic_utility_optimizer=NOT_EARNED' /tmp/mqr462.log
+      - name: Publish Constitution receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.62/Constitution" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  real-language:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install Prolog
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq swi-prolog-nox
+      - name: Rust build
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v29-acquire
+      - name: Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v29-acquire
+          P=language/real/prolog/acquire_v29.pl
+          for f in language/real/examples/mqr-4.62-*.real; do
+            "$V" "$f" > /tmp/rust.out
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog.out
+            diff -u /tmp/rust.out /tmp/prolog.out
+          done
+          "$V" language/real/examples/mqr-4.62-option-preserve.real | grep -F 'acquisition.selection_state=OPTION_PRESERVE'
+          "$V" language/real/examples/mqr-4.62-blind-spot.real | grep -F 'acquisition.reopening_required=YES'
+          "$V" language/real/examples/mqr-4.62-random-exterior.real | grep -F 'acquisition.randomization_oracle=NO'
+          "$V" language/real/examples/mqr-4.62-identifiability.real | grep -F 'acquisition.identifiability_local_value=YES'
+          echo MQR462_RUST_PROLOG_CONCORDANCE=PASS
+      - name: Publish Real-Language receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.62/Real-Language" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Lean package
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Check acquisition theorem ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/EvidenceAcquisition.lean | tee /tmp/mqr462.log
+          if grep -F 'sorryAx' /tmp/mqr462.log; then exit 1; fi
+          test "$(grep -c 'does not depend on any axioms' /tmp/mqr462.log)" -ge 8
+          echo MQR462_AXIOM_ANCESTRY=EMPTY
+      - name: Publish Lean receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.62/Lean" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  lean-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Aggregate Lean build
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Compile aggregate MQR
+        run: cd language/real/lean && lake env lean MQR.lean
+      - name: Publish integration receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.62/Lean-Integration" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

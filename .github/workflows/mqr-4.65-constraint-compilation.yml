@@ -1,0 +1,148 @@
+name: MQR-4.65 Constraint Compilation Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.65/**'
+      - 'language/real/lean/MQR/ConstraintCompilation.lean'
+      - '.github/workflows/mqr-4.65-constraint-compilation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  canonical-rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile canonical court
+        run: rustc --edition=2021 -O experiments/mqr-4.65/constraint_compiler.rs -o /tmp/mqr465
+      - name: Run frozen compilation surfaces
+        run: |
+          set -euo pipefail
+          /tmp/mqr465 | tee /tmp/mqr465.log
+          grep -F 'MQR465_CLOSED_C1=PASS' /tmp/mqr465.log
+          grep -F 'MQR465_CLOSED_POLICY_BISIM=PASS' /tmp/mqr465.log
+          grep -F 'MQR465_MEMORY_C1_COLLISIONS=58' /tmp/mqr465.log
+          grep -F 'MQR465_MEMORY_C2=PASS' /tmp/mqr465.log
+          grep -F 'MQR465_FIXED_SCHEMA_MISMATCHES=39312' /tmp/mqr465.log
+          grep -F 'MQR465_C3_FRONTIER=PASS' /tmp/mqr465.log
+          grep -F 'MQR465_C3_GENESIS_TRANSITION=PASS' /tmp/mqr465.log
+          grep -F 'MQR465_MINIMAL_FIXED2_WITNESS=PASS' /tmp/mqr465.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.65-rust-results
+          path: experiments/mqr-4.65/results/
+      - name: Publish canonical receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.65/Canonical-Rust"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  independent-concordance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run canonical Rust
+        run: |
+          rustc --edition=2021 -O experiments/mqr-4.65/constraint_compiler.rs -o /tmp/mqr465
+          /tmp/mqr465
+      - name: Run independent Python
+        run: |
+          python experiments/mqr-4.65/independent_compiler.py | tee /tmp/mqr465-py.log
+          grep -F 'MQR465_PY_INDEPENDENT=PASS' /tmp/mqr465-py.log
+      - name: Compare complete frozen summary
+        run: |
+          diff -u experiments/mqr-4.65/results/rust_summary.tsv experiments/mqr-4.65/results/python_summary.tsv
+          echo MQR465_RUST_PYTHON_CONCORDANCE=PASS
+      - name: Publish concordance receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.65/Independent-Concordance"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  deterministic-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replay canonical court twice
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 -O experiments/mqr-4.65/constraint_compiler.rs -o /tmp/mqr465
+          /tmp/mqr465 >/tmp/run1.log
+          sha256sum experiments/mqr-4.65/results/rust_summary.tsv >/tmp/hash1
+          rm -rf experiments/mqr-4.65/results
+          /tmp/mqr465 >/tmp/run2.log
+          sha256sum experiments/mqr-4.65/results/rust_summary.tsv >/tmp/hash2
+          diff -u /tmp/run1.log /tmp/run2.log
+          diff -u /tmp/hash1 /tmp/hash2
+          echo MQR465_DETERMINISTIC_REPLAY=PASS
+      - name: Publish replay receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.65/Deterministic-Replay"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  lean-c4-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Verify C4 full-history compilation theorem
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/ConstraintCompilation.lean | tee /tmp/mqr465-lean.log
+          if grep -F 'sorryAx' /tmp/mqr465-lean.log; then exit 1; fi
+          for theorem in             MQR.fullHistoryCompilationPreservesFeasibility             MQR.fullHistoryCompilationPreservesReleaseState             MQR.fullHistoryCompilationPreservesScientificLabel             MQR.fullHistoryCompilationPreservesTransition             MQR.fullHistoryIdentityBisimulation             MQR.c4NonrepresentabilityCannotFollowFromHistoryPredicateAlone
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr465-lean.log
+          done
+          echo MQR465_C4_LEAN_BOUNDARY=PASS
+      - name: Publish Lean receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.65/C4-Lean-Boundary"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen court boundaries
+        run: |
+          set -euo pipefail
+          grep -F 'PRESEALED / MAIN-ONLY / PRE-EXECUTABLE-REVEAL' experiments/mqr-4.65/PRESEAL.md
+          grep -F '87,380' experiments/mqr-4.65/COMPILATION-GRAMMAR-FREEZE.md
+          grep -F 'NONREPRESENTABLE_C4' experiments/mqr-4.65/PRESEAL.md
+          grep -F 'History dependence is not by itself non-Markovian irreducibility' experiments/mqr-4.65/LITERATURE.md
+          grep -F 'No post-reveal replacement of C1-FIXED2' experiments/mqr-4.65/COMPILATION-GRAMMAR-FREEZE.md
+          echo MQR465_STRUCTURAL_GUARDS=PASS
+      - name: Publish guard receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.65/Structural-Guards"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

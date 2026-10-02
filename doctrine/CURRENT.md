@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.59**.
+Status: live through **MQR-4.69**.
 
 ## Generation-IV authority kernel
 
@@ -1165,12 +1165,110 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 370. **Criterion self-authority is rejected.** RPAR/MCL/CDR remain successor-vulnerable; no promotion rule is exempt from later court.
 371. **Promotion is a partial typed relation.** The live decision surface is PROMOTE / COMPRESS / ARCHIVE / REJECT / HOLD rather than a total ranking.
 372. **No universal promotion meta-objective is earned.** Local governance may be rational, explicit and reproducible without collapsing truthlikeness, understanding, problem-solving, usefulness and institutional value into one scalar.
+373. **Valid promotion reasons may remain incomparable.** When two typed reasons have no licensed dominance, veto or defeat relation at the declared scope/horizon, HOLD is an admissible epistemic outcome rather than a failed decision procedure.
+374. **Pairwise dominance does not imply a total promotion order.** Local dominance can guide a particular comparison without ranking every constitution or every future reason.
+375. **Pareto non-domination is a candidate-set property, not a unique promotion selector.** Multiple constitutions may remain non-dominated; additional authority is required to choose among them.
+376. **Veto power is local and typed.** A fatal defect may block promotion under an explicit scope/horizon relation, but that does not create a universally highest-priority reason class.
+377. **Reason multiplicity requires ancestry audit.** Duplicated or common-mode reasons cannot acquire extra force merely by being restated under multiple labels; RAG tracks independent warrant rather than nominal count.
+378. **Promotion conflict is horizon- and scope-sensitive.** A locally admissible relation may reverse when the declared horizon or deployment scope changes; such reversal must be receipted rather than hidden inside retuned weights.
+379. **Weighted and lexicographic aggregation are tools, not self-authorizing constitutions.** They may be locally adopted under a separately warranted contract, but neither is the default universal conflict resolver.
+380. **Conflict preservation can be epistemically positive.** PRCR may retain unresolved opposition so that later world contact, debt discharge, scope change or option realization can reopen the decision without reconstructing a false scalar consensus.
+381. **No universal promotion meta-utility is earned by conflict adjudication.** REALPROMOTE 0.27 provides local dominance, scoped veto, incomparability and defeat-under-scope while preserving a non-total promotion relation.
+382. **Current relation label ≠ complete constitutional state.** Relation identity must be supplemented by material option, provenance, reversibility, debt, scope/horizon and ancestry state when those variables remain authority-bearing.
+383. **Same terminal relation ≠ same material history.** Two paths may end at the same visible relation while differing in lost options, irreversible debt or provenance; PRTR/PHL/ODR retain only such typed differences.
+384. **Revision order may be noncommutative.** If an earlier event changes the admissibility, independence, availability or interpretation of a later event, reversing event order may legitimately change the constitutional result.
+385. **Conflict resolution is reopenable.** A prior INCOMPARABLE relation may become locally resolved and later reopen under fresh world contact, expanded scope, changed horizon or newly material debt without contradiction.
+386. **Veto authority is not globally monotone.** A typed veto may activate when its factual basis appears and retire after repair plus adequate independent checking; historical veto status alone has no permanent priority.
+387. **More evidence does not guarantee more promotion authority.** New evidence can weaken authority by defeating independence, expanding the relevant scope or exposing previously hidden debt.
+388. **Reason mutation preserves ancestry by default.** OPTION_VALUE may become INDEPENDENT_WORLD_CONTACT after realization, but the mutation does not manufacture a second independent warrant unless ancestry actually separates.
+389. **Return to an old relation label ≠ exact restoration.** Lost options, irreversible intervention, contamination or provenance loss may prevent material restoration even when the visible pairwise label returns.
+390. **Material hysteresis is admissible; chronology-only hysteresis is rejected.** Path sensitivity requires a typed state-bearing consequence. Elapsed time, sunk effort, prestige, narrative continuity and revision count are not authority sources.
+391. **Persistent conflict cycles do not force scalarization.** Cyclic local relations may remain explicit and reopenable; convergence or a total order is not a constitutional requirement.
+392. **Promotion history is a ledger, not a score.** PHL records relevant transition ancestry and state consequences; revision count and an untyped history value are forbidden as default progress/promotion proxies.
+393. **No universal historical meta-utility is earned.** REALPROMOTE 0.28 supports typed relation transitions and material-history filtering without ranking all constitutional histories by one scalar.
+394. **Evidence acquisition is a typed partial relation, not a universal optimizer.** REALACQUIRE 0.29 may locally authorize, hold, reopen, preserve an option, carry debt, admit a bounded exterior probe or forbid a destructive action without ranking every possible experiment.
+395. **Maximum expected information is not a universal experiment selector.** Information gain can be locally useful under constituted models and targets, but it does not by itself authorize model-family completeness, future separator destruction or cross-purpose scientific value.
+396. **Identifiability gain requires a live scientific contract.** IDR records local changes in identifiability/observability/separation only relative to declared claims, uses, decisions and rivals; parameter identifiability alone does not create universal scientific value.
+397. **Option-preserving lower-yield acquisition is admissible.** A probe with lower immediate information may retain authority when it uniquely preserves a later discriminator, independent intervention or reopening route that a higher-yield action would destroy.
+398. **Evidence-acquisition order may be noncommutative.** Earlier probes/interventions can change later interpretability, independence, baseline availability, intervention semantics or option reachability; sequence order must therefore be receipted when material.
+399. **Acquisition policy can create its own evidence blind spots.** Repeatedly selecting observations or interventions through the current model/frontier may narrow the evidence ecology and suppress exterior rivals; local fit or low marginal gain cannot certify saturation.
+400. **Evidence multiplicity requires ancestry audit.** More observations, experiments or adaptive rounds do not imply more independent warrant when they share an instrument, generator, intervention route, model-dependent selection policy or other common cause.
+401. **Adaptive reopening reserve is capacity, not an exploration score.** ARR protects future challenge/reopening routes without implying that a fixed exploration fraction, bonus or randomization level is universally optimal.
+402. **Nonmyopic exploration debt can be created by locally rational choices.** NEDL carries debt when repeated short-horizon selection skips a unique future separator, exterior-rival route or reopening capacity even though each local action was admissible under a narrower objective.
+403. **Randomization is a bounded exterior probe, not an adequacy oracle.** Random experimental choice may break some policy-induced blind spots but cannot certify that the action space, rival frontier or sampling frame is scientifically complete.
+404. **No universal expected-epistemic-utility optimizer is earned.** EASR/RAER/OPR/IDR/ARR/NEDL preserve typed acquisition consequences and local partial relations while scalarization over all scientific futures remains OFF.
+405. **Diagnostic separability ≠ policy incrementality.** A typed acquisition coordinate may distinguish two scientifically different evidence histories even when no MQR-specific control rule adds performance beyond a strong matched baseline.
+406. **Receipt existence ≠ controller promotion.** OPR, ARR, EAI-class ancestry diagnostics, exterior-recovery receipts and NEDL remain auditable coordinates; their presence does not authorize a dedicated policy intervention without own-ablation evidence under an exposed world.
+407. **Strong-baseline absorption blocks redundant governance promotion.** If representative, disagreement, robust-design, random, causal-identifiability or other domain-appropriate policies already remove the relevant failure under matched conditions, MQR must not redescribe the same behavior as independently earned control authority.
+408. **Negative-control collapse is a calibration requirement.** In reversible/closed worlds where option destruction, reopening debt or contamination are absent by construction, corresponding MQR coordinates should remain inactive and `mqr_full` should not manufacture an advantage.
+409. **Binding conditions are load-bearing.** Option preservation or reopening becomes action-guiding only when the relevant future separator/reopening route is genuinely scarce, destroyable, and not already preserved by the competent baseline policy.
+410. **NEDL currently has local, not cross-domain, action authority.** MQR-4.63 found a nontrivial own-ablation effect for NEDL in the SCOUT-PARK reconstruction only; this does not promote NEDL into a universal or cross-domain acquisition controller.
+411. **Calibration may narrow a live constitution without deleting its diagnostics.** REALACQUIRE 0.29 remains the typed acquisition/diagnostic surface, while MQR-4.63 limits empirical claims about independent policy value for OPR/ARR/EAI/exterior reserve and localizes NEDL.
+412. **No semantic version is earned by calibration alone.** MQR-4.63 creates a reproducible cross-domain benchmark and a negative scientific result; because no acquisition control coordinate survives the frozen cross-domain promotion gate, REALACQUIRE v0.30 is not promoted.
+413. **Binding is relational, not intrinsic to a diagnostic.** A typed coordinate becomes action-guiding only relative to a declared world state, baseline policy, feasible set, horizon and scientific contract; the same coordinate may be diagnostic-only, redundant, absorbed or binding in different regimes.
+414. **Feasible-set restriction alone is insufficient.** Action authority requires that the restriction change a materially declared future scientific reachability set, not merely remove an action label.
+415. **Baseline absorption defeats independent controller authority.** If a matched strong baseline already induces the same admissible/reachable action consequences, a typed MQR constraint is redundant even when its diagnostic remains scientifically meaningful.
+416. **Constraint authority must release when its materiality disappears.** Reversibility, separator substitutability, disappearance of reopening need, or loss of a genuine independent/exterior route can terminate the constraint; permanent hard constraints are not earned by historical activation.
+417. **Minimal binding witnesses are two-choice local objects.** A binding claim should expose the baseline action, the typed-constrained alternative, the live state condition and the future capability that differs; hidden future truth may not be used to activate the constraint.
+418. **Binding can be overconstraining.** A constraint that changes behavior is not automatically epistemically good; overconstraint regions must be reported as part of the authority surface rather than discarded as inconvenient cases.
+419. **Minimum-separator OPR is baseline-absorbed in the MQR-4.64 finite grammar.** The matched constrained baseline absorbs every active OPR case in that study; option preservation therefore does not earn an independent MQR controller merely by excluding destructive actions.
+420. **NEDL has a stronger local coverage witness but no semantic irreducibility result.** When multiple future separators are non-substitutable, NEDL can bind beyond a minimum-one-separator baseline; this is a local reachability result and remains representable as a richer ordinary constrained-planning predicate in the tested grammar.
+421. **Binding ≠ MQR-specific control semantics.** MQR-4.64 earns a diagnostic→constraint promotion boundary, not a new acquisition formalism. REALACQUIRE 0.29 remains current and v0.30 remains unearned until non-representability beyond strong constrained sequential planning is prospectively demonstrated.
+422. **State-sufficiency failure ≠ control-language failure.** MQR-4.65 shows that a current observation or fixed feature vector can be insufficient while an ordinary finite-memory or richer state augmentation exactly restores the source constraint semantics; state omission may not be redescribed as controller novelty.
+423. **Closed 4.64 acquisition constraints are losslessly C1-compilable on their own finite state grammar.** Across 391,680 frozen source-vs-target feasibility checks and 522,240 frozen policy comparisons, OPR / ARR / EAI / EXTERIOR / NEDL have zero compilation mismatch once the complete contemporaneous 4.64 feature tuple is supplied.
+424. **History dependence may create memory nonclosure without semantic nonrepresentability.** In the 4.65 finite-memory surface, current-event state collides with source authority in 58 histories, while a one-bit product-state memory restores all 1,092 action predicates exactly.
+425. **Open-frontier object growth may defeat a fixed slot schema without defeating generic state representation.** The fixed-two-rival compiler has 39,312 mismatches on the frozen 87,380-case frontier surface; a generic finite-set state has zero. Fixed-dimensional overflow is representation-closure debt, not evidence for an MQR-specific control language.
+426. **Endogenous rival genesis is compatible with ordinary compositional transition semantics when newly admitted rivals are represented.** Source replay and generic-set incremental update agree on all 4,681 frozen rival-arrival/removal histories. This does not establish frontier completeness or guarantee rival discovery.
+427. **Full contemporaneous history is a control-expressivity ceiling.** If source feasibility, release, labels and transitions are functions/relations over available finite history, the identity compiler state = history gives a lossless ordinary representation. Under that source contract, NONREPRESENTABLE_C4 cannot be earned merely from scientific vocabulary, history dependence, schema growth or computational cost.
+428. **Scientific-state constitution survives control-layer reduction.** Ordinary constrained planning can act over a supplied state/constraint surface; it does not thereby determine which rivals, separators, ancestry relations, reopening routes, exterior channels or release conditions deserve scientific representation and authority.
+429. **Open-frontier nonclosure and planner representability are compatible.** A planner may represent a rival after admission without any warrant that all scientifically relevant rivals have been generated or admitted. MQR-4.42 frontier incompleteness therefore survives MQR-4.65 compilation.
+430. **MQR acquisition authority currently belongs to the constitutional/governance layer, not a new sequential-control expressivity class.** REALACQUIRE 0.29 remains current; MQR-4.65 earns no v0.30 syntax or controller promotion.
+431. **History compression ≠ scientific-state quotientability.** MQR-4.66 compresses 111,151 frozen bounded histories into 200 reached source states, yet the exact stable authority partition over the full 512-state source machine is the 512-block identity partition. Raw-history redundancy does not license erasing distinctions inside the constituted scientific state.
+432. **Current authority equivalence is not future-authority equivalence.** The frozen Q1 current-authority partition has only 5 blocks and 37,360 merged source-state pairs; a one-event rival-admission continuation already separates states that Q1 merges. Current action silence is not evidence of future authority irrelevance.
+433. **Currently silent provenance can be future-authority material.** In MQR-4.66, states 0 and 128 are identical under the frozen visible-only quotient but an AUDIT event exposes their provenance-root difference and changes authority. This is a finite contract-relative witness, not a universal provenance theorem.
+434. **Currently silent exterior-route state can be novelty material.** In MQR-4.66, states 0 and 256 are merged by the visible-only quotient but a NOVELTY event separates them because only one retains the frozen exterior route. A schema variable may be action-silent now yet required for future reopening/novelty semantics.
+435. **Finite-horizon near-equivalence does not establish exact quotient sufficiency.** The Q3 partition leaves only four merged pairs among 512 states, but Prolog finds a length-4 continuation separating 7 and 135; exact stable preservation refines to all 512 singleton blocks.
+436. **Exact preservation can destroy compression.** Under the frozen 4.66 authority-label/event contract, the coarsest stable label-respecting transition-congruent quotient is identity. This is an ENUMERATED finite negative result and must not be generalized to a universal minimal state for science.
+437. **Generic partition refinement/minimal-state machinery is prior art, not MQR novelty.** Bisimulation/model minimization, state-abstraction hierarchies, predictive-state representations, approximate bisimulation metrics and causal-state minimality predate MQR. Any MQR-specific contribution must lie in the scientific constitution and revision of the preservation contract, not the generic quotient algorithm.
+438. **A preservation contract is itself an authority-bearing object.** Compression depends on which future distinctions are declared scientifically material. Weakening the contract can recover compression, but such weakening requires explicit scientific justification and cannot be inferred from storage or computational convenience alone.
+439. **Exact quotient failure redirects, rather than licenses, approximation.** If future work permits approximate compression, lost rival-separation, provenance, reopening and schema obligations must be typed and bounded explicitly; conventional bisimulation-distance machinery remains a strong comparator.
+440. **MQR-4.66 earns no new Real-Language or REALACQUIRE syntax.** REALACQUIRE 0.29 remains current. The earned result is a negative exact-quotient boundary plus a sharper scientific-state-constitution burden.
+441. **SIMULATED is a distinct evidence kind, not a weak synonym for OBSERVED.** MQR-4.67 requires simulation results to remain explicitly simulator-relative. Robustness across seeds, parameters or independent implementations of the same frozen semantics cannot by itself validate the state ontology, event grammar, loss coordinates or naturalistic prevalence.
+442. **Exact-compression failure does not license approximate compression.** On the frozen 4.67 candidate family and three predeclared budget contracts, every non-identity abstraction carries at least one FATAL authority-loss coordinate; B0/B1/B2 therefore all select FULL. Approximation requires independently justified loss authority, not merely a desire to recover compression.
+443. **Small conventional abstraction error can coexist with fatal typed authority loss under a declared scientific contract.** In the frozen 4.67 court, Q3 merges only four state pairs and has only BOUNDED RELEASE loss, yet those pairs retain FATAL REOPEN and PROV losses. This is finite and contract-relative.
+444. **The 4.67 scalar attack does not defeat scalarization.** FULL has zero typed loss and wins under all 243 tested positive weight vectors for both frozen monotone encodings; all 243 weights reproduce the three budget selections. Four pairwise reversals occur only among lossy compressed candidates. No universal anti-scalar conclusion is earned.
+445. **Typed loss is not novel merely because it is vector-valued or partially ordered.** Multi-objective decision theory, Pareto methods, constrained control and approximate state abstraction are strong prior-art baselines. Any MQR-specific residue must lie in independently warranted scientific-authority semantics of the coordinates and vetoes.
+446. **Sequential-loss accumulation was not cleanly identified in MQR-4.67.** The frozen A3→A4→A3→A5 stress crosses REOPEN/PROV/EXT/RELEASE thresholds at step 1; therefore the court demonstrates re-expansion triggering but not gradual multi-step accumulation dynamics.
+447. **Naturalistic transport is partial, not manufactured from the simulator.** Reproducibility, omics provenance, batch/process metadata and many-analyst cases independently support the proposition that provenance/analysis ancestry can become future scientific-authority material. They do not validate the complete SEP/REOPEN/PROV/EXT/RELEASE ontology, thresholds or veto priorities.
+448. **REALAPPROX 0.30-CANDIDATE is a development surface, not promoted scientific semantics.** Rust/Prolog concordance, Lean boundary checks, scalar-mode rejection and evidence-kind ceilings validate software behavior only. A SIMULATED positive-control packet returning ACCEPT_WITH_AUDIT is not evidence that the scientific court found an admissible lossy quotient.
+449. **Software representability ≠ scientific admissibility.** Real-Language may productively encode typed loss receipts, audit requirements and re-expansion triggers even when the current scientific court rejects all tested approximations. Infrastructure utility does not establish theory novelty or world truth.
+450. **REALACQUIRE 0.29 remains the latest promoted acquisition syntax after MQR-4.67.** No v0.30 promotion is earned. Future promotion requires prior-art survival, prospective/naturalistic transport beyond a simulator-internal ontology, and a reusable authority contract that is not selected after observing desired compression.
 
 ## Live governance objects
+
+- Evidence-Acquisition Selection Receipt (EASR)
+- Relation-Anticipation Envelope Receipt (RAER)
+- Option-Preservation Receipt (OPR)
+- Identifiability-Delta Receipt (IDR)
+- Adaptive Reopening Reserve (ARR)
+- Nonmyopic Exploration-Debt Ledger (NEDL)
+- Acquisition decision surface: LOCAL_ADMISSIBLE / OPTION_PRESERVE / REOPEN_REQUIRED / DEBT_CARRY / HOLD_INCOMPARABLE / BOUNDED_EXTERIOR_PROBE / FORBIDDEN_BY_DESTRUCTIVE_CONTRACT
+- Evidence-Acquisition Materiality Profile: relation-transition / option / ancestry / identifiability / reopening / debt / scope-horizon
+
+- Promotion-Relation Transition Receipt (PRTR)
+- Promotion History Ledger (PHL; typed material ancestry, not a scalar)
+- Option/Debt Receipt (ODR)
+- Reason-Mutation Receipt (RMR)
+- Promotion transition surface: STABLE / RELATION_REVISED / REOPENED / VETO_ACTIVATED / VETO_RETIRED / SCOPE_REVERSED / HORIZON_REVERSED / REASON_MUTATED / CYCLE_ENTERED / CYCLE_EXITED / HISTORY_IRRELEVANT
+- Material-History Filter: option / provenance / reversibility / debt / scope-horizon consequences only
 
 - Reflexive Promotion-Admissibility Receipt (RPAR)
 - Meta-Criterion Lineage (MCL)
 - Compression/Deletion Receipt (CDR)
+- Promotion-Reason Conflict Receipt (PRCR)
+- Reason-Ancestry Graph (RAG; promotion-reason independence/common-mode audit)
+- Horizon/Scope Receipt (HRS)
+- Conflict relation surface: DOMINATES / VETOES / INCOMPARABLE / DEFEATS_UNDER_SCOPE
 - Meta-Scientific Promotion Profile (MSPP)
 - Promotion decision surface: PROMOTE / COMPRESS / ARCHIVE / REJECT / HOLD
 - Material Executable-Separation Receipt
@@ -1470,3 +1568,65 @@ Historical world-contact stress tests must freeze contemporaneous information, s
 ## Repository doctrine
 
 This repository contains only the living formal surface. Historical stages are not mirrored here. Small executable stress tests may be retained when they directly instantiate a live doctrine rule. Superseded formal files should be removed once a successor is live; historical reconstruction belongs to Git history and external archival storage.
+
+
+## MQR-4.68 boundary — loss-budget authority
+
+MQR-4.68 closes the tested loss-budget surface with a negative-but-productive result:
+
+```text
+BASELINE_ABSORBED_ON_TESTED_SURFACE
+WARRANT_PROVENANCE_RESIDUE_OPEN
+NO_0_30_PROMOTION
+```
+
+The following are not MQR novelty by themselves: vector-valued loss; noncompensatory veto; lexicographic or feasibility-first priority; context-indexed tolerability ceilings; adaptive threshold revision; reopening encoded as a hard constraint; or failure of one chosen weighted sum.
+
+The live distinction is:
+
+```text
+REPRESENTATIONAL REDUCIBILITY != AUTHORITY REDUCIBILITY
+EXECUTABLE WARRANT FIELD != WARRANTED SCIENTIFIC AUTHORITY
+```
+
+A scientific loss contract may record coordinate-local loss and ceilings, context/horizon, warrant kind/source/defeaters, expiry, reopening triggers, revision authorization, and cross-domain transport status. Software may enforce that declared contract, but cannot establish that the warrant itself is scientifically adequate.
+
+Cross-domain reuse of a severity label does not establish commensurability. Post-result threshold or analysis-rule rescue is not authority-neutral: a revision must carry an independently authorized trigger or become a new scientific object rather than a silent mutation.
+
+Retrospective clinical-trial governance supplies naturalistic contact for prospective authorization and revision ancestry, but does not validate a universal MQR loss ontology, reopening primitive, or anti-scalar theorem.
+
+The next live question is whether extensionally identical current decision rules with different evidence/authorization ancestry can be prospectively separated by audit or reopening interventions. Until such separation is earned, warrant provenance remains an OPEN residue rather than a promoted primitive.
+
+## MQR-4.69 boundary — warrant ancestry and predictive state
+
+MQR-4.69 closes the warrant-ancestry residue left open by MQR-4.68.
+
+~~~text
+EXTENSIONAL_STATE_INSUFFICIENT_ON_FROZEN_COURT
+PREDICTIVE_STATE_AUGMENTATION_SUFFICIENT
+FOUR_AXIS_HISTORY_MODEL_OVERRETAINS
+BASELINE_ABSORPTION_STRENGTHENED
+PARTIAL_NATURALISTIC_ANCESTRY_CONTACT
+MQR_SPECIFIC_ANCESTRY_ONTOLOGY_NOT_VALIDATED
+NO_0_30_PROMOTION
+~~~
+
+The live distinction is no longer “history matters.” Instead:
+
+~~~text
+PRESENT OUTPUT/RULE SURFACE != ALWAYS SUFFICIENT SCIENTIFIC STATE
+FULL HISTORY != MINIMAL SCIENTIFIC STATE
+ANCESTRY AXIS LABELS != PRIMITIVE ONTOLOGY
+PREDICTIVE EQUIVALENCE = INTERVENTION-RELATIVE
+BEHAVIORAL SUFFICIENCY != WORLD VALIDITY
+~~~
+
+On the frozen 4.69 Court, 35 raw ancestry labels induce 19 typed four-axis states but only 7 future-response equivalence classes under the declared audit/reopening intervention family. The four hand-labeled ancestry axes are therefore sufficient but over-retentive relative to the predictive quotient.
+
+Scientific governance may legitimately retain history-derived state when present extensional surfaces are too coarse. The retained state should be justified by future authority transitions under an explicit intervention family, not by narrative completeness or ancestry labels alone.
+
+Adaptive-trial prespecification, workflow provenance and independent replication provide naturalistic contact for ancestry-sensitive governance, but established prespecification/provenance/replication frameworks absorb the observed donors. MQR therefore does not claim a novel ancestry ontology.
+
+REALWARRANT 0.30-CANDIDATE is development-only. Its predictive class is derived, intervention-relative, and carries no world-validity authority. REALACQUIRE 0.29 remains the latest promoted Real-Language syntax.
+
+The successor must not add ancestry dimensions or promote the current seven classes. The next live pressure is whether the intervention family used to define predictive equivalence can itself be expanded, transported or revised without circularly determining the state quotient it is meant to justify.
