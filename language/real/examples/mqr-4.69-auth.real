@@ -1,0 +1,18 @@
+REALWARRANT 0.30-CANDIDATE
+sealed PASS
+lineage PASS
+audit PASS
+intervention_frozen PASS
+evidence_kind SIMULATED
+current_rule_hash RULE469
+current_surface_hash SURFACE469
+scope LOCAL
+extensional_pair_id A1
+full_lineage_ref LINEAGE_A1
+intervention_family_hash IFAM469
+predictive_class Q_AUTH_RETRO
+lineage_certificate CERT_A1
+predictive_class_authority DERIVED
+primitive_ancestry_ontology OFF
+minimality_claim INTERVENTION_RELATIVE
+END
