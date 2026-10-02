@@ -100,3 +100,40 @@ jobs:
           grep -F $'H000\t0\t0\t0\t0' experiments/mqr-4.70/RESPONSE-MATRIX-FREEZE.tsv
           grep -F $'F_AB\tA,B\tcurrent_coarse' experiments/mqr-4.70/PROBE-FAMILIES-FREEZE.tsv
           echo MQR470_STRUCTURAL_GUARDS=PASS
+
+
+  hypergraph-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Canonical separator-hypergraph census
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.70/separating_hypergraph.py | tee /tmp/mqr470-hypergraph.log
+          grep -F 'MQR470_HYPERGRAPH=PASS' /tmp/mqr470-hypergraph.log
+          grep -F 'MQR470_GF2_RANK=3' /tmp/mqr470-hypergraph.log
+          grep -F 'MQR470_RANK3_BASE_COUNT=24' /tmp/mqr470-hypergraph.log
+          grep -F 'MQR470_FULL_SEPARATING_BASE_COUNT=24' /tmp/mqr470-hypergraph.log
+          grep -F 'MQR470_DUPLICATE_QUOTIENT_BASE_COUNT=16' /tmp/mqr470-hypergraph.log
+          grep -F 'MQR470_LOOP_TESTS=CONST' /tmp/mqr470-hypergraph.log
+          grep -F 'MQR470_PARALLEL_CLASSES=A,R' /tmp/mqr470-hypergraph.log
+      - name: Independent C++ census
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.70/independent_hypergraph.cpp -o /tmp/mqr470-hg-cpp
+          /tmp/mqr470-hg-cpp | tee /tmp/mqr470-hg-cpp.log
+          grep -F 'MQR470_CPP_HYPERGRAPH=PASS' /tmp/mqr470-hg-cpp.log
+          grep -F 'MQR470_CPP_GF2_RANK=3' /tmp/mqr470-hg-cpp.log
+          grep -F 'MQR470_CPP_RANK3_BASE_COUNT=24' /tmp/mqr470-hg-cpp.log
+          grep -F 'MQR470_CPP_DUPLICATE_QUOTIENT_BASE_COUNT=16' /tmp/mqr470-hg-cpp.log
+          grep -F 'MQR470_CPP_PAIR_SEPARATOR_OBLIGATIONS=28' /tmp/mqr470-hg-cpp.log
+          grep -F 'MQR470_CPP_LOOP_CONST=YES' /tmp/mqr470-hg-cpp.log
+          grep -F 'MQR470_CPP_PARALLEL_A_R=YES' /tmp/mqr470-hg-cpp.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.70-hypergraph-results
+          path: |
+            experiments/mqr-4.70/results/hypergraph_summary.tsv
+            experiments/mqr-4.70/results/basis_census.tsv
+            experiments/mqr-4.70/results/separator_hypergraph.tsv
+            experiments/mqr-4.70/results/linear_representation.tsv
