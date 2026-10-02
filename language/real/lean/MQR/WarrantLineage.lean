@@ -9,13 +9,6 @@ inductive AuthorityOutcome where
   | holdReasonReconstitute
   deriving DecidableEq, Repr
 
-inductive AncestryFeature where
-  | authorization
-  | provenance
-  | defeater
-  | revision
-  deriving DecidableEq, Repr
-
 structure FrozenHistory where
   authorization : Nat
   provenance : Nat
@@ -23,10 +16,10 @@ structure FrozenHistory where
   revision : Nat
   deriving DecidableEq, Repr
 
+def ExtensionalState (_h : FrozenHistory) : Nat := 0
+
 def FourAxisState (h : FrozenHistory) : Nat × Nat × Nat × Nat :=
   (h.authorization, h.provenance, h.defeater, h.revision)
-
-def ExtensionalState (h : FrozenHistory) : Nat := 0
 
 def FutureSignature (h : FrozenHistory) : Nat × Nat × Nat × Nat :=
   (h.authorization % 3, h.provenance % 2, h.defeater % 2, h.revision % 3)
@@ -41,9 +34,8 @@ theorem extensional_state_can_be_equal_while_future_signature_differs :
   refine ⟨
     { authorization := 0, provenance := 0, defeater := 0, revision := 0 },
     { authorization := 1, provenance := 0, defeater := 0, revision := 0 },
-    ?_, ?_⟩
-  · rfl
-  · decide
+    rfl, ?_⟩
+  decide
 
 theorem predictive_equivalence_is_reflexive (a : FrozenHistory) :
     PredictivelyEquivalent a a := by
@@ -62,13 +54,21 @@ theorem predictive_equivalence_is_transitive (a b c : FrozenHistory) :
   exact hab.trans hbc
 
 theorem four_axis_identity_implies_predictive_equivalence (a b : FrozenHistory)
-    (h : FourAxisState a = FourAxisState b) :
+    (h : a = b) :
     PredictivelyEquivalent a b := by
-  cases a
-  cases b
-  simp [FourAxisState] at h
-  rcases h with ⟨rfl, rfl, rfl, rfl⟩
+  subst b
   rfl
+
+theorem predictive_equivalence_does_not_imply_history_identity :
+    ∃ a b : FrozenHistory,
+      PredictivelyEquivalent a b ∧
+      a ≠ b := by
+  refine ⟨
+    { authorization := 0, provenance := 0, defeater := 0, revision := 0 },
+    { authorization := 3, provenance := 2, defeater := 2, revision := 3 },
+    ?_, ?_⟩
+  · rfl
+  · decide
 
 theorem predictive_equivalence_does_not_imply_four_axis_identity :
     ∃ a b : FrozenHistory,
@@ -86,6 +86,7 @@ theorem predictive_equivalence_does_not_imply_four_axis_identity :
 #print axioms MQR.predictive_equivalence_is_symmetric
 #print axioms MQR.predictive_equivalence_is_transitive
 #print axioms MQR.four_axis_identity_implies_predictive_equivalence
+#print axioms MQR.predictive_equivalence_does_not_imply_history_identity
 #print axioms MQR.predictive_equivalence_does_not_imply_four_axis_identity
 
 end MQR
