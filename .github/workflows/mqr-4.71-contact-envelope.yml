@@ -147,31 +147,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Exhaustive generative predictive quotient
+      - name: Audit immutable phase-I proxy aliasing
         run: |
           set -euo pipefail
-          python3 experiments/mqr-4.71/generative_predictive_quotient.py | tee /tmp/mqr471-gq.log
-          grep -F 'MQR471_GENERATIVE_QUOTIENT=PASS' /tmp/mqr471-gq.log
-          grep -F 'MQR471_RAW_STATES=6' /tmp/mqr471-gq.log
-          grep -F 'MQR471_PREDICTIVE_CLASSES=5' /tmp/mqr471-gq.log
-          grep -F 'MQR471_MINIMAL_FEATURE_COUNT=4' /tmp/mqr471-gq.log
-          grep -F 'MQR471_MINIMAL_FEATURE_SET=generators,tech_state,budget_state,ethics_state' /tmp/mqr471-gq.log
-          grep -F 'MQR471_CURRENT_ENVELOPE_DROPPED=YES' /tmp/mqr471-gq.log
-          grep -F 'MQR471_REVISION_STATE_DROPPED=YES' /tmp/mqr471-gq.log
-          grep -F 'MQR471_ANCESTRY_DROPPED=YES' /tmp/mqr471-gq.log
-      - name: Independent C++ quotient
+          python3 experiments/mqr-4.71/phase1_proxy_alias_audit.py | tee /tmp/mqr471-gq1.log
+          grep -F 'MQR471_PHASE1_ALIAS_AUDIT=PASS' /tmp/mqr471-gq1.log
+          grep -F 'MQR471_PHASE1_MINIMAL_COUNT=2' /tmp/mqr471-gq1.log
+          grep -F 'MQR471_PHASE1_ANCESTRY_PROXY=YES' /tmp/mqr471-gq1.log
+      - name: Prospective phase-II proxy separation
         run: |
           set -euo pipefail
-          g++ -std=c++20 -O2 experiments/mqr-4.71/independent_generative_quotient.cpp -o /tmp/mqr471-gq-cpp
-          /tmp/mqr471-gq-cpp | tee /tmp/mqr471-gq-cpp.log
-          grep -F 'MQR471_CPP_GENERATIVE_QUOTIENT=PASS' /tmp/mqr471-gq-cpp.log
-          grep -F 'MQR471_CPP_RAW_STATES=6' /tmp/mqr471-gq-cpp.log
-          grep -F 'MQR471_CPP_PREDICTIVE_CLASSES=5' /tmp/mqr471-gq-cpp.log
-          grep -F 'MQR471_CPP_MINIMAL_FEATURE_COUNT=4' /tmp/mqr471-gq-cpp.log
-          grep -F 'MQR471_CPP_MINIMAL_FEATURE_SET=generators,tech_state,budget_state,ethics_state' /tmp/mqr471-gq-cpp.log
+          python3 experiments/mqr-4.71/proxy_separated_quotient.py | tee /tmp/mqr471-gq2.log
+          grep -F 'MQR471_PHASE2_PROXY_SEPARATION=PASS' /tmp/mqr471-gq2.log
+          grep -F 'MQR471_PHASE2_RAW_STATES=8' /tmp/mqr471-gq2.log
+          grep -F 'MQR471_PHASE2_PREDICTIVE_CLASSES=5' /tmp/mqr471-gq2.log
+          grep -F 'MQR471_PHASE2_MINIMAL_FEATURE_COUNT=4' /tmp/mqr471-gq2.log
+          grep -F 'MQR471_PHASE2_MINIMAL_FEATURE_SET=generators,tech_state,budget_state,ethics_state' /tmp/mqr471-gq2.log
+          grep -F 'MQR471_PHASE2_ANCESTRY_PROXY_BROKEN=YES' /tmp/mqr471-gq2.log
+      - name: Independent C++ phase-II quotient
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.71/independent_proxy_separated_quotient.cpp -o /tmp/mqr471-gq2-cpp
+          /tmp/mqr471-gq2-cpp | tee /tmp/mqr471-gq2-cpp.log
+          grep -F 'MQR471_CPP_PHASE2_PROXY_SEPARATION=PASS' /tmp/mqr471-gq2-cpp.log
+          grep -F 'MQR471_CPP_PHASE2_RAW_STATES=8' /tmp/mqr471-gq2-cpp.log
+          grep -F 'MQR471_CPP_PHASE2_PREDICTIVE_CLASSES=5' /tmp/mqr471-gq2-cpp.log
+          grep -F 'MQR471_CPP_PHASE2_MINIMAL_FEATURE_COUNT=4' /tmp/mqr471-gq2-cpp.log
+          grep -F 'MQR471_CPP_PHASE2_MINIMAL_FEATURE_SET=generators,tech_state,budget_state,ethics_state' /tmp/mqr471-gq2-cpp.log
+          grep -F 'MQR471_CPP_PHASE2_ANCESTRY_PROXY_BROKEN=YES' /tmp/mqr471-gq2-cpp.log
       - uses: actions/upload-artifact@v4
         with:
           name: mqr-4.71-generative-quotient
-          path: |
-            experiments/mqr-4.71/results/generative_predictive_quotient.tsv
-            experiments/mqr-4.71/results/generative_state_minimality.tsv
+          path: experiments/mqr-4.71/results/proxy_separated_quotient.tsv
