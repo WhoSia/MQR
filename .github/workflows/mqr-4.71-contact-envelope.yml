@@ -252,3 +252,28 @@ jobs:
         with:
           name: mqr-4.71-three-layer-contact
           path: experiments/mqr-4.71/results/three_layer_contact.tsv
+
+
+  scope-termination:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Canonical relative scope-termination court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.71/scope_termination_court.py | tee /tmp/mqr471-st.log
+          grep -F 'MQR471_SCOPE_TERMINATION=PASS' /tmp/mqr471-st.log
+          grep -F 'MQR471_RELATIVE_CERTIFICATES=2' /tmp/mqr471-st.log
+          grep -F 'MQR471_EXECUTION_ONLY_CERTIFICATES=1' /tmp/mqr471-st.log
+          grep -F 'MQR471_CIRCULAR_HOLDS=1' /tmp/mqr471-st.log
+          grep -F 'MQR471_RELATIVE_NE_OPEN_WORLD=YES' /tmp/mqr471-st.log
+      - name: Independent C++ scope-termination court
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.71/independent_scope_termination.cpp -o /tmp/mqr471-st-cpp
+          /tmp/mqr471-st-cpp | tee /tmp/mqr471-st-cpp.log
+          grep -F 'MQR471_CPP_SCOPE_TERMINATION=PASS' /tmp/mqr471-st-cpp.log
+          grep -F 'MQR471_CPP_RELATIVE_CERTIFICATES=2' /tmp/mqr471-st-cpp.log
+          grep -F 'MQR471_CPP_EXECUTION_ONLY_CERTIFICATES=1' /tmp/mqr471-st-cpp.log
+          grep -F 'MQR471_CPP_CIRCULAR_HOLDS=1' /tmp/mqr471-st-cpp.log
+          grep -F 'MQR471_CPP_RELATIVE_NE_OPEN_WORLD=YES' /tmp/mqr471-st-cpp.log
