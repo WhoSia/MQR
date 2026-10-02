@@ -1307,3 +1307,47 @@ First qualifying dedicated head: `e9e259c54fc9006ce5d79ba012b82f5a18874be8`.
 First qualifying run `36951219127` passed Court, Rust↔Prolog concordance, the Lean conflict boundary and aggregate Lean integration. Cumulative Real-Language regression also passed after v0.27 registration (`36951150367`).
 
 The resulting guidance is **scope/horizon-indexed partial adjudication with ancestry-aware reopening, not a universal promotion utility**.
+
+## v0.28 — promotion-conflict dynamics constitution
+
+MQR-4.61 adds `REALPROMOTE 0.28`.
+
+Canonical implementation:
+- Rust: `src/promote_v28.rs` / `real-v28-promote`;
+- independent evaluator: `prolog/promote_v28.pl`;
+- formal boundary: `lean/MQR/PromotionDynamics.lean`;
+- executable constitution: `V28-PROMOTION-DYNAMICS.md`;
+- frozen court: `../../experiments/mqr-4.61/promotion_conflict_dynamics_court.py`.
+
+The live transition layer adds:
+- **PRTR — Promotion-Relation Transition Receipt**;
+- **PHL — Promotion History Ledger**;
+- **ODR — Option/Debt Receipt**;
+- **RMR — Reason-Mutation Receipt**.
+
+Core dynamic boundaries:
+
+~~~text
+CURRENT RELATION LABEL != COMPLETE CONSTITUTIONAL STATE
+SAME TERMINAL RELATION != SAME MATERIAL HISTORY
+REVISION ORDER MAY BE NONCOMMUTATIVE
+RESOLUTION != PERMANENT RESOLUTION
+VETO AUTHORITY NEED NOT BE MONOTONE
+MORE EVIDENCE != MONOTONE AUTHORITY
+REASON MUTATION != NEW INDEPENDENT WARRANT
+OLD LABEL != EXACT MATERIAL RESTORATION
+MATERIAL HYSTERESIS = ADMISSIBLE
+CHRONOLOGY / SUNK-COST HYSTERESIS = REJECT
+CONFLICT CYCLE != OBLIGATION TO SCALARIZE
+HISTORY SCALARIZATION = OFF
+UNIVERSAL HISTORICAL META-UTILITY = NOT EARNED
+~~~
+
+History is retained only when it leaves a typed material consequence in current authority, reversibility, option availability, provenance or debt. Mere chronology, sunk effort, prestige, narrative continuity and revision count are erased as authority sources.
+
+The frozen court contained 24 countermodels and 12 positive witnesses. The first fully qualifying implementation head was `7033f6439d2c349048dffc36c864cf3c6f36bddd`: dedicated run `36959165095` passed Court, Rust↔Prolog concordance, Lean boundary and aggregate Lean integration; cumulative Real-Language run `36959165101` also passed.
+
+The initial reveal exposed one Prolog serialization/plumbing failure. It was repaired without changing any frozen scientific case, expected verdict, transition precedence or authority rule.
+
+v0.28 therefore represents **typed, reopenable constitutional history without a utility over histories**.
+
