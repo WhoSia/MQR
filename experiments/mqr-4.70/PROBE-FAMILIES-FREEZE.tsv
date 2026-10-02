@@ -1,0 +1,12 @@
+family_id	members	role
+F_EMPTY	-	null
+F_A	A	restriction
+F_AB	A,B	current_coarse
+F_AX	A,X	same_partition_alternative
+F_BX	B,X	same_partition_alternative
+F_ABR	A,B,R	redundant_extension
+F_ABC	A,B,C	full_refinement
+F_AXC	A,X,C	full_refinement_alternative
+F_BXC	B,X,C	full_refinement_alternative
+F_ABK	A,B,K	refinement_variant
+F_ALL	A,B,X,C,R,K,P,CONST	finite_universe_closure_control
