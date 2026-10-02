@@ -1261,3 +1261,49 @@ The live receipts are:
 RPAR may locally admit material executable separation, independent world contact, scientific repair, consequence-preserving simplification, live-claim narrowing, failure localization, scope correction or declared option value. It may compress formal-only novelty, duplicate contact routes and engineering-only repair; archive useful material without live constitutional consequence; and hold when criterion governance is missing.
 
 Scalar promotion scoring remains OFF.
+
+
+## v0.27 — promotion-reason conflict constitution
+
+MQR-4.60 adds `REALPROMOTE 0.27`.
+
+Canonical implementation:
+- Rust: `src/promote_v27.rs` / `real-v27-promote`;
+- independent evaluator: `prolog/promote_v27.pl`;
+- formal boundary: `lean/MQR/PromotionConflict.lean`;
+- executable constitution: `V27-PROMOTION-CONFLICT.md`;
+- frozen court: `../../experiments/mqr-4.60/reason_conflict_court.py`.
+
+The live conflict relation is typed rather than scalar:
+
+~~~text
+DOMINATES
+VETOES
+INCOMPARABLE
+DEFEATS_UNDER_SCOPE
+~~~
+
+Core non-inferences:
+
+~~~text
+PAIRWISE DOMINANCE != TOTAL ORDER
+PARETO NONDOMINATION != UNIQUE PROMOTION
+LOCAL VETO != UNIVERSAL PRIORITY
+MORE REASONS != MORE WARRANT
+DUPLICATE / COMMON-MODE REASONS != INDEPENDENT WARRANT
+HORIZON CHANGE != CONTRADICTION
+INCOMPARABILITY != IMPLEMENTATION FAILURE
+~~~
+
+The live receipts are:
+- **PRCR — Promotion-Reason Conflict Receipt**;
+- **RAG — Reason-Ancestry Graph**;
+- **HRS — Horizon/Scope Receipt**.
+
+`REALPROMOTE 0.27` admits explicit HOLD when locally valid reasons remain unresolved. Weighted aggregation is not the default, lexicographic priority is not universal, a Pareto frontier is not treated as a selector, and veto power is scoped rather than globally self-authorizing.
+
+First qualifying dedicated head: `e9e259c54fc9006ce5d79ba012b82f5a18874be8`.
+
+First qualifying run `36951219127` passed Court, Rust↔Prolog concordance, the Lean conflict boundary and aggregate Lean integration. Cumulative Real-Language regression also passed after v0.27 registration (`36951150367`).
+
+The resulting guidance is **scope/horizon-indexed partial adjudication with ancestry-aware reopening, not a universal promotion utility**.
