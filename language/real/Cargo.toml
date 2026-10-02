@@ -47,51 +47,41 @@ path = "src/constitution_v11.rs"
 name = "real-v12-revise"
 path = "src/revision_v12.rs"
 
-
 [[bin]]
 name = "real-v13-map-authority"
 path = "src/map_authority_v13.rs"
-
 
 [[bin]]
 name = "real-v14-challenge"
 path = "src/challenge_v14.rs"
 
-
 [[bin]]
 name = "real-v15-route"
 path = "src/route_v15.rs"
-
 
 [[bin]]
 name = "real-v16-defeat"
 path = "src/defeat_v16.rs"
 
-
 [[bin]]
 name = "real-v17-regress"
 path = "src/regress_v17.rs"
-
 
 [[bin]]
 name = "real-v18-stop"
 path = "src/stop_v18.rs"
 
-
 [[bin]]
 name = "real-v19-trace"
 path = "src/trace_v19.rs"
-
 
 [[bin]]
 name = "real-v20-progress"
 path = "src/progress_v20.rs"
 
-
 [[bin]]
 name = "real-v21-invariance"
 path = "src/invariance_v21.rs"
-
 
 [[bin]]
 name = "real-v22-consequence"
@@ -116,3 +106,7 @@ path = "src/promote_v26.rs"
 [[bin]]
 name = "real-v27-promote"
 path = "src/promote_v27.rs"
+
+[[bin]]
+name = "real-v28-promote"
+path = "src/promote_v28.rs"
