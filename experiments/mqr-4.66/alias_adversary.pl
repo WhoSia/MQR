@@ -93,7 +93,7 @@ load_q3_lines(In) :-
     ( Line == end_of_file -> true
     ; split_string(Line,"\t","",Parts),
       Parts=[SS,BS],
-      number_string(S,SS), number_string(B,Bs),
+      number_string(S,SS), number_string(B,BS),
       assertz(q3_block(S,B)),
       load_q3_lines(In)
     ).
