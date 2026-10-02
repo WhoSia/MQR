@@ -1351,3 +1351,64 @@ The initial reveal exposed one Prolog serialization/plumbing failure. It was rep
 
 v0.28 therefore represents **typed, reopenable constitutional history without a utility over histories**.
 
+## v0.29 — prospective evidence-acquisition constitution
+
+MQR-4.62 adds `REALACQUIRE 0.29`.
+
+Canonical implementation:
+- Rust: `src/acquire_v29.rs` / `real-v29-acquire`;
+- independent evaluator: `prolog/acquire_v29.pl`;
+- formal boundary: `lean/MQR/EvidenceAcquisition.lean`;
+- executable constitution: `V29-EVIDENCE-ACQUISITION.md`;
+- frozen constitution: `../../experiments/mqr-4.62/evidence_acquisition_constitution.py`.
+
+The live objects are:
+- **EASR — Evidence-Acquisition Selection Receipt**;
+- **RAER — Relation-Anticipation Envelope Receipt**;
+- **OPR — Option-Preservation Receipt**;
+- **IDR — Identifiability-Delta Receipt**;
+- **ARR — Adaptive Reopening Reserve**;
+- **NEDL — Nonmyopic Exploration-Debt Ledger**.
+
+Core boundaries:
+
+~~~text
+MAX EXPECTED INFORMATION != UNIVERSAL EXPERIMENT SELECTOR
+MYOPIC BEST != SEQUENCE-OPTIMAL
+MORE DATA != MORE INDEPENDENT WARRANT
+IDENTIFIABILITY GAIN != UNIVERSAL SCIENTIFIC VALUE
+FIXED EXPLORATION BONUS != UNIVERSAL
+RANDOMIZATION != ADEQUACY ORACLE
+PARETO FRONTIER != UNIQUE EXPERIMENT
+VALUE/COST RATIO != UNIVERSAL
+CURRENT ACTION GENERATOR != COMPLETE
+LOW MARGINAL GAIN != SATURATION
+
+POLICY CAN CREATE ITS OWN EVIDENCE BLIND SPOT
+OPTION-PRESERVING SEQUENCING = ADMISSIBLE
+ADAPTIVE REOPENING RESERVE = ADMISSIBLE
+NONMYOPIC EXPLORATION DEBT = ADMISSIBLE
+ANCESTRY-AWARE EVIDENCE MULTIPLICITY = REQUIRED
+
+HISTORY SCALARIZATION = OFF
+UNIVERSAL EXPECTED-EPISTEMIC-UTILITY OPTIMIZER = NOT EARNED
+~~~
+
+The action surface is typed rather than totally ranked:
+
+~~~text
+LOCAL_ADMISSIBLE
+OPTION_PRESERVE
+REOPEN_REQUIRED
+DEBT_CARRY
+HOLD_INCOMPARABLE
+BOUNDED_EXTERIOR_PROBE
+FORBIDDEN_BY_DESTRUCTIVE_CONTRACT
+~~~
+
+The frozen constitution contained 28 countermodels and 14 positive witnesses. The first reveal head was `d89426ee1ea05a4b0bf73cafc37c4e03fe08938a`: the frozen constitution and both Lean layers passed immediately; Real-Language failed before concordance because Cargo contained a duplicate binary registration. That plumbing error was repaired without changing any frozen scientific case or selection rule.
+
+The first fully qualifying implementation head was `e3bef0e68aa584aacae0fbbcafefc6d67a3cbe17`: dedicated run `36961289726` passed Constitution, Rust↔Prolog concordance, Lean boundary and aggregate Lean integration; cumulative Real-Language run `36961289667` also passed.
+
+v0.29 therefore constitutes **local prospective acquisition authority under open scientific search without one utility over scientific futures**.
+
