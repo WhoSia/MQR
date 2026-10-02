@@ -34,3 +34,7 @@ Candidate receipts:
 - HRS — Horizon/Scope Receipt
 
 A HOLD outcome is allowed when reasons are valid but unresolved.
+
+## Cumulative integration guard
+
+The v0.27 packet family is registered in cumulative Real-Language CI and excluded from the generic v0.2/v0.3 parser lane. Final-seal commits are also explicit cumulative-CI triggers.
