@@ -14,6 +14,17 @@ structure ContactState where
   ancestryLabel : Nat
   deriving DecidableEq, Repr
 
+structure OperationalSnapshot where
+  currentEnvelope : Nat
+  rivalGenerator : Bool
+  instrumentGenerator : Bool
+  externalGenerator : Bool
+  techUnlocked : Bool
+  budgetHigh : Bool
+  ethicsOpen : Bool
+  revisionState : Nat
+  deriving DecidableEq, Repr
+
 def RivalAdmission (s : ContactState) : Bool :=
   s.rivalGenerator
 
@@ -29,10 +40,17 @@ def ExternalEthicsAdmission (s : ContactState) : Bool :=
 def FutureSignature (s : ContactState) : Bool × Bool × Bool × Bool :=
   (RivalAdmission s, InstrumentAdmission s, ExternalBudgetAdmission s, ExternalEthicsAdmission s)
 
-def OperationalState (s : ContactState) :
-    Nat × Bool × Bool × Bool × Bool × Bool × Bool × Nat :=
-  (s.currentEnvelope, s.rivalGenerator, s.instrumentGenerator, s.externalGenerator,
-   s.techUnlocked, s.budgetHigh, s.ethicsOpen, s.revisionState)
+def OperationalState (s : ContactState) : OperationalSnapshot :=
+  {
+    currentEnvelope := s.currentEnvelope
+    rivalGenerator := s.rivalGenerator
+    instrumentGenerator := s.instrumentGenerator
+    externalGenerator := s.externalGenerator
+    techUnlocked := s.techUnlocked
+    budgetHigh := s.budgetHigh
+    ethicsOpen := s.ethicsOpen
+    revisionState := s.revisionState
+  }
 
 theorem same_current_envelope_can_have_different_future_contact :
     ∃ a b : ContactState,
@@ -52,11 +70,20 @@ theorem operational_identity_implies_future_identity
     (a b : ContactState)
     (h : OperationalState a = OperationalState b) :
     FutureSignature a = FutureSignature b := by
-  cases a
-  cases b
-  simp [OperationalState] at h
-  rcases h with ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl, rfl⟩
-  rfl
+  have hr : a.rivalGenerator = b.rivalGenerator :=
+    congrArg OperationalSnapshot.rivalGenerator h
+  have hi : a.instrumentGenerator = b.instrumentGenerator :=
+    congrArg OperationalSnapshot.instrumentGenerator h
+  have he : a.externalGenerator = b.externalGenerator :=
+    congrArg OperationalSnapshot.externalGenerator h
+  have ht : a.techUnlocked = b.techUnlocked :=
+    congrArg OperationalSnapshot.techUnlocked h
+  have hb : a.budgetHigh = b.budgetHigh :=
+    congrArg OperationalSnapshot.budgetHigh h
+  have hh : a.ethicsOpen = b.ethicsOpen :=
+    congrArg OperationalSnapshot.ethicsOpen h
+  unfold FutureSignature RivalAdmission InstrumentAdmission ExternalBudgetAdmission ExternalEthicsAdmission
+  rw [hr, hi, he, ht, hb, hh]
 
 theorem ancestry_label_need_not_change_future :
     ∃ a b : ContactState,
