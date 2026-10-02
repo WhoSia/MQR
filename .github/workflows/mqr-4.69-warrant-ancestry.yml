@@ -130,3 +130,103 @@ jobs:
         run: |
           state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
           gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Predictive-Quotient"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+
+  real-warrant-lineage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SWI-Prolog
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y swi-prolog-nox
+      - name: Build REALWARRANT candidate
+        run: |
+          set -euo pipefail
+          cargo build --manifest-path language/real/Cargo.toml --bin real-v30-warrant-lineage
+      - name: Rust-Prolog concordance
+        run: |
+          set -euo pipefail
+          BIN=language/real/target/debug/real-v30-warrant-lineage
+          for packet in             language/real/examples/mqr-4.69-auth.real             language/real/examples/mqr-4.69-provenance.real             language/real/examples/mqr-4.69-null.real
+          do
+            "$BIN" "$packet" > /tmp/rust.out
+            swipl -q -f language/real/prolog/warrant_lineage_v30.pl -- "$packet" > /tmp/prolog.out
+            diff -u /tmp/rust.out /tmp/prolog.out
+          done
+          "$BIN" language/real/examples/mqr-4.69-auth.real | tee /tmp/warrant.log
+          grep -F 'warrant.predictive_class_authority=DERIVED' /tmp/warrant.log
+          grep -F 'warrant.minimality_claim=INTERVENTION_RELATIVE' /tmp/warrant.log
+          grep -F 'warrant.full_lineage_equals_minimal_state=NO' /tmp/warrant.log
+          grep -F 'warrant.typed_ancestry_axes_primitive=NO' /tmp/warrant.log
+          grep -F 'warrant.behavioral_sufficiency_world_validity=NOT_ESTABLISHED' /tmp/warrant.log
+          grep -F 'warrant.world_validity=NOT_ESTABLISHED' /tmp/warrant.log
+          echo MQR469_REALWARRANT=PASS
+      - name: Reject primitive-ontology laundering
+        run: |
+          set -euo pipefail
+          sed 's/primitive_ancestry_ontology OFF/primitive_ancestry_ontology ON/'             language/real/examples/mqr-4.69-auth.real >/tmp/bad.real
+          if language/real/target/debug/real-v30-warrant-lineage /tmp/bad.real >/tmp/bad.out 2>/tmp/bad.err; then
+            echo "primitive ancestry ontology unexpectedly accepted"
+            exit 1
+          fi
+          grep -F 'primitive_ancestry_ontology must be OFF' /tmp/bad.err
+      - name: Publish REALWARRANT receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/REALWARRANT"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Verify predictive-lineage theorem boundary
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/WarrantLineage.lean | tee /tmp/mqr469-lean.log
+          if grep -F 'sorryAx' /tmp/mqr469-lean.log; then exit 1; fi
+          for theorem in             MQR.extensional_state_can_be_equal_while_future_signature_differs             MQR.predictive_equivalence_is_reflexive             MQR.predictive_equivalence_is_symmetric             MQR.predictive_equivalence_is_transitive             MQR.four_axis_identity_implies_predictive_equivalence             MQR.predictive_equivalence_does_not_imply_history_identity             MQR.predictive_equivalence_does_not_imply_four_axis_identity
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr469-lean.log
+          done
+          echo MQR469_LEAN_WARRANT_LINEAGE=PASS
+      - name: Publish Lean receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Lean-Boundary"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  naturalistic-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify naturalistic authority ceiling
+        run: |
+          set -euo pipefail
+          grep -F 'PARTIAL_NATURALISTIC_ANCESTRY_CONTACT' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          grep -F 'PRESPECIFICATION_GOVERNANCE_BASELINE_STRONG' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          grep -F 'WORKFLOW_PROVENANCE_BASELINE_STRONG' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          grep -F 'MQR_SPECIFIC_ANCESTRY_ONTOLOGY_NOT_VALIDATED' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          grep -F 'NO_0_30_PROMOTION' experiments/mqr-4.69/NATURALISTIC-TRANSPORT.md
+          echo MQR469_NATURALISTIC_GUARDS=PASS
+      - name: Publish naturalistic receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Naturalistic-Guards"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
