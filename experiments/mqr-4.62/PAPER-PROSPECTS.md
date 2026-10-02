@@ -377,3 +377,100 @@ But it becomes serious only if a successor stage can determine whether MQR's sur
 
 Until that representability question is answered, Paper II remains HOLD.
 
+
+
+## 4.65 compilation update — controller novelty route reduced
+
+MQR-4.65 resolves the representability question left open by 4.64.
+
+The frozen compilation court establishes:
+- 391,680 source-vs-C1 feasibility comparisons on the closed 4.64 grammar: **0 mismatches**;
+- 522,240 source-vs-C1 policy comparisons under the frozen baseline objectives: **0 mismatches**;
+- current-event-only history state: **58 collisions**;
+- one-bit C2 product-state recovery over 1,092 action predicates: **0 mismatches**;
+- fixed-two-rival frontier schema: **39,312 mismatches** over 87,380 comparisons;
+- generic-set C3 frontier state: **0 mismatches**;
+- generic-set endogenous rival-genesis transition replay: **0 mismatches** over 4,681 histories;
+- Lean C4 full-history identity compilation boundary: PASS.
+
+### Prospect D — option-preserving controller
+
+**Status after 4.65: CONTROL-EXPRESSIVITY THESIS CLOSED NEGATIVE UNDER THE DECLARED SOURCE CONTRACT.**
+
+The surviving 4.64 typed acquisition authorities do not require a new sequential-control language once the ordinary planner receives the authority-relevant contemporaneous state.
+
+History dependence and open-frontier object growth create real state-representation problems, but the frozen witnesses are repaired respectively by:
+- finite-memory product state;
+- generic set-valued state.
+
+Moreover, if source feasibility/release/labels/transitions are already functions or relations over available finite history, full history itself is an exact ordinary state representation.
+
+Therefore a future paper must **not** claim MQR-specific controller expressivity merely from:
+- scientific vocabulary;
+- non-Markovian-looking history dependence;
+- fixed-dimensional schema overflow;
+- dynamic rival admission;
+- or computational inconvenience.
+
+### Prospect C — diagnostic geometry / scientific-state constitution
+
+**Status after 4.65: REFRAMED AND STRENGTHENED CONCEPTUALLY.**
+
+The most defensible acquisition contribution is no longer a separate controller. It is the prior problem of constituting the state and authority surface supplied to a planner:
+
+- which rivals are live;
+- which separators are non-substitutable;
+- which provenance/ancestry relations count as independent;
+- which reopening routes remain material;
+- which exterior channels deserve representation;
+- when an admitted state schema must split/reopen;
+- when a constraint activates or releases.
+
+This suggests a sharper paper question:
+
+> What scientific distinctions must a sequential experimental-design state preserve so that compression does not erase future rival separation, reopening triggers, provenance independence or release semantics?
+
+This is closer to **state sufficiency / scientific state constitution / quotient faithfulness** than to new optimal-control machinery.
+
+### Paper II working shape after 4.65
+
+The previous working title:
+
+**When Do Scientific-Acquisition Diagnostics Bind? Reachability, Constraint Redundancy and Baseline Absorption in Sequential Experimental Design**
+
+should now be treated as an internal chapter/section question rather than the strongest standalone framing.
+
+A stronger successor candidate is:
+
+**Scientific State Constitution before Sequential Experimental Design: Diagnostic Authority, State Sufficiency, Open-Frontier Reopening and Compilation into Constrained Planning**
+
+Potential contribution:
+1. distinguish scientific-state constitution from planner optimization;
+2. characterize faithful versus lossy state compression;
+3. connect open rival admission to schema reopening rather than frontier completeness;
+4. give realistic scientific cases where conventional compact states alias authority-relevant histories;
+5. show constructive compilation once a sufficient state is supplied.
+
+Publication readiness remains **HOLD** until naturalistic cases and state-abstraction / sufficient-statistic / belief-state / relational-planning prior art are treated deeply.
+
+### Prospect E — executable scientific constitutions
+
+**Status after 4.65: strengthened again as an anti-inflation case.**
+
+The executable constitution did not respond to fixed-schema failures by declaring a new controller. It escalated the comparator:
+C1 → C2 → C3 → C4,
+and accepted the reduction when richer ordinary state recovered the source semantics.
+
+This is valuable evidence that the methodology can distinguish:
+- semantic novelty;
+- representational insufficiency;
+- computational burden;
+- and vocabulary novelty.
+
+It is still not, by itself, a standalone systems-paper novelty result.
+
+### Publication priority
+
+**Paper I — Local Progress Geometry and Partial Scientific Authority remains first priority.**
+
+4.65 further lowers the urgency of a broad acquisition-policy paper and clarifies that future acquisition work should concentrate on **scientific-state constitution and faithful compression**, not controller branding.
