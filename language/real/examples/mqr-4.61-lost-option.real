@@ -1,0 +1,9 @@
+REALPROMOTE 0.28
+prior_relation INCOMPARABLE
+new_relation INCOMPARABLE
+lost_option YES
+irreversible_debt YES
+provenance_changed YES
+material_history YES
+event_order_sensitive YES
+END
