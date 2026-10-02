@@ -1568,3 +1568,31 @@ Historical world-contact stress tests must freeze contemporaneous information, s
 ## Repository doctrine
 
 This repository contains only the living formal surface. Historical stages are not mirrored here. Small executable stress tests may be retained when they directly instantiate a live doctrine rule. Superseded formal files should be removed once a successor is live; historical reconstruction belongs to Git history and external archival storage.
+
+
+## MQR-4.68 boundary — loss-budget authority
+
+MQR-4.68 closes the tested loss-budget surface with a negative-but-productive result:
+
+```text
+BASELINE_ABSORBED_ON_TESTED_SURFACE
+WARRANT_PROVENANCE_RESIDUE_OPEN
+NO_0_30_PROMOTION
+```
+
+The following are not MQR novelty by themselves: vector-valued loss; noncompensatory veto; lexicographic or feasibility-first priority; context-indexed tolerability ceilings; adaptive threshold revision; reopening encoded as a hard constraint; or failure of one chosen weighted sum.
+
+The live distinction is:
+
+```text
+REPRESENTATIONAL REDUCIBILITY != AUTHORITY REDUCIBILITY
+EXECUTABLE WARRANT FIELD != WARRANTED SCIENTIFIC AUTHORITY
+```
+
+A scientific loss contract may record coordinate-local loss and ceilings, context/horizon, warrant kind/source/defeaters, expiry, reopening triggers, revision authorization, and cross-domain transport status. Software may enforce that declared contract, but cannot establish that the warrant itself is scientifically adequate.
+
+Cross-domain reuse of a severity label does not establish commensurability. Post-result threshold or analysis-rule rescue is not authority-neutral: a revision must carry an independently authorized trigger or become a new scientific object rather than a silent mutation.
+
+Retrospective clinical-trial governance supplies naturalistic contact for prospective authorization and revision ancestry, but does not validate a universal MQR loss ontology, reopening primitive, or anti-scalar theorem.
+
+The next live question is whether extensionally identical current decision rules with different evidence/authorization ancestry can be prospectively separated by audit or reopening interventions. Until such separation is earned, warrant provenance remains an OPEN residue rather than a promoted primitive.
