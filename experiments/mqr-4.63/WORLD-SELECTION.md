@@ -160,6 +160,51 @@ Primary metrics:
 - RCR/RL;
 - NED.
 
+
+## W5 — SAMPLE-RESERVE
+
+Family: **destructive sampling / scientific collection stewardship**
+
+Natural source donor:
+- NASA Apollo Next Generation Sample Analysis (ANGSA).
+- A subset of Apollo samples was deliberately kept unopened/pristine for future generations equipped with improved analytical capabilities; ANGSA later opened and analyzed some of those materials with modern methods.
+- Internal MQR-1.39-B had already novelty-killed generic option value, destructive-sampling review and future-generation reserves.
+
+Important boundary:
+This is a stylized scarce-sample allocation world, not a counterfactual historical judgment about individual Apollo decisions.
+
+Reconstruction:
+- finite irreplaceable sample units from several material strata/types;
+- current assays differ in immediate information and destructive consumption;
+- nondestructive imaging preserves the unit but yields coarser current information;
+- destructive assay consumes a unit and can resolve a current hypothesis strongly;
+- a later assay capability is revealed midstream and can operate only on surviving pristine units;
+- some strata have only one remaining sample, creating unique future separators.
+
+Strong baselines:
+- immediate expected information;
+- information per unit cost;
+- fixed preserve fraction;
+- random assay;
+- nondestructive-first heuristic.
+
+MQR layer:
+- OPR tracks unique surviving separator capacity by stratum;
+- ARR protects at least one reopenable pristine route where feasible;
+- BOD records irreversible consumption of the last eligible unit;
+- NEDL records repeated current-value optimization that eliminates future testability.
+
+Primary metrics:
+- current-hypothesis resolution;
+- future-assay resolution;
+- pristine separator retention;
+- BOD;
+- RCR;
+- NED;
+- assay cost.
+
+This supplies a second structurally distinct option-preservation world alongside SCOUT-PARK.
+
 ## Heterogeneity check
 
 | Dimension | CAUSAL-SEP | SENSING-GRID | SCOUT-PARK | THEORY-ECOLOGY |
@@ -172,3 +217,8 @@ Primary metrics:
 | primary MQR objects expected active | IDR | IDR | OPR/ARR/NEDL | ARR/EAI/NEDL |
 
 The pack therefore satisfies the frozen heterogeneity requirement without selecting worlds on observed MQR performance.
+
+
+## Fifth-world extension
+
+SAMPLE-RESERVE is added before any executable pilot. It strengthens the frozen promotion gate for option preservation by requiring the OPR/BOD distinction to appear in two materially different irreversible regimes: digital scientific-event retention and scarce physical-sample consumption.
