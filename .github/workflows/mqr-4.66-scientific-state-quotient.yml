@@ -18,9 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: haskell-actions/setup@v2
-        with:
-          ghc-version: '9.8.4'
+      - name: Ensure GHC
+        run: |
+          set -euo pipefail
+          if ! command -v ghc >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ghc
+          fi
+          ghc --version
       - name: Build and run canonical Haskell court
         run: |
           set -euo pipefail
@@ -44,9 +49,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: haskell-actions/setup@v2
-        with:
-          ghc-version: '9.8.4'
+      - name: Ensure GHC
+        run: |
+          set -euo pipefail
+          if ! command -v ghc >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ghc
+          fi
+          ghc --version
       - name: Run Haskell canonical
         run: |
           set -euo pipefail
@@ -79,9 +89,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: haskell-actions/setup@v2
-        with:
-          ghc-version: '9.8.4'
+      - name: Ensure GHC
+        run: |
+          set -euo pipefail
+          if ! command -v ghc >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ghc
+          fi
+          ghc --version
       - name: Install SWI-Prolog
         run: sudo apt-get update && sudo apt-get install -y swi-prolog-nox
       - name: Materialize frozen Q3 mapping
@@ -142,9 +157,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: haskell-actions/setup@v2
-        with:
-          ghc-version: '9.8.4'
+      - name: Ensure GHC
+        run: |
+          set -euo pipefail
+          if ! command -v ghc >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ghc
+          fi
+          ghc --version
       - name: Replay Haskell result twice
         run: |
           set -euo pipefail
