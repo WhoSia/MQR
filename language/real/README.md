@@ -1412,3 +1412,72 @@ The first fully qualifying implementation head was `e3bef0e68aa584aacae0fbbcafef
 
 v0.29 therefore constitutes **local prospective acquisition authority under open scientific search without one utility over scientific futures**.
 
+
+
+## 0.30 candidate — typed scientific-authority approximation (UNPROMOTED)
+
+MQR-4.67 opens an executable development surface:
+
+`REALAPPROX 0.30-CANDIDATE`.
+
+This is **not** a promoted Real-Language semantic version. REALACQUIRE 0.29 remains the latest promoted acquisition syntax.
+
+The candidate exists to make approximation losses auditable without turning them into one hidden epistemic utility.
+
+Canonical development implementation:
+- Rust: `src/approx_v30.rs` / `real-v30-approx`
+- independent evaluator: `prolog/approx_v30.pl`
+- formal boundary: `lean/MQR/Approximation.lean`
+
+The typed loss coordinates are:
+- `SEP` — rival/separator capability;
+- `REOPEN` — reopening authority;
+- `PROV` — provenance/common-mode ancestry;
+- `EXT` — exterior/novelty route;
+- `RELEASE` — release/commit eligibility.
+
+Each uses:
+`NONE / BOUNDED / MATERIAL / FATAL`.
+
+The compiler requires per-coordinate budgets and keeps scalar authority OFF:
+
+```text
+approximation.scalar_authority=OFF
+approximation.global_loss_score=FORBIDDEN
+approximation.universal_epistemic_utility=NOT_EARNED
+```
+
+Evidence provenance is first-class:
+`OBSERVED / PROVED / ENUMERATED / SIMULATED / INFERRED / OPEN`.
+
+A SIMULATED packet mechanically emits:
+
+```text
+approximation.world_validity=NOT_ESTABLISHED
+```
+
+This prevents a successful simulator fixture from being mistaken for world validation.
+
+MQR-4.67's frozen scientific Court did **not** find an admissible lossy abstraction among its seven tested candidates under any of its three predeclared budget contracts. The software nevertheless supports positive-control packets such as `ACCEPT_WITH_AUDIT`; those are compiler tests, not scientific findings.
+
+Therefore:
+
+```text
+SOFTWARE REPRESENTABILITY
+!=
+SCIENTIFIC ADMISSIBILITY
+
+SIMULATION SUCCESS
+!=
+WORLD VALIDATION
+
+TYPED VECTOR
+!=
+NOVEL SCIENTIFIC THEORY
+```
+
+Promotion to canonical 0.30 remains blocked by:
+- strong approximate-bisimulation / state-abstraction prior art;
+- partial naturalistic transport (currently strongest for provenance/analysis ancestry only);
+- lack of an admitted lossy quotient in the frozen 4.67 Court;
+- unresolved justification of the full loss ontology and veto priorities.
