@@ -1576,3 +1576,23 @@ PREDICTIVE SUFFICIENCY != WORLD VALIDITY
 ~~~
 
 REALACQUIRE 0.29 remains the latest promoted Real-Language syntax.
+
+## MQR-4.70 — no new syntax promotion
+
+MQR-4.70 does not add a new Real-Language surface.
+
+The stage found strong classical absorption for intervention-family comparison and selection, while retaining a governance boundary between local family-relative minimality and stronger closure authority.
+
+Canonical machine boundary:
+
+~~~text
+family_relative_minimality != open_world_minimality
+partition_closure != blackwell_closure
+finite_envelope_closure != world_closure
+closure_certificate_level must be explicit
+naturalistic_world_validity = NOT_ESTABLISHED
+~~~
+
+REALACQUIRE 0.29 remains the latest promoted syntax.
+
+REALWARRANT 0.30-CANDIDATE remains development-only and unpromoted.
