@@ -1,10 +1,10 @@
 # REALPROMOTE 0.28 — Promotion-Conflict Dynamics
 
-Status: **CANDIDATE / PRE-REVEAL**
+Status: **LIVE / MQR-4.61 QUALIFIED**
 
 MQR-4.61 extends REALPROMOTE 0.27 from static promotion-reason conflict to typed relation transitions.
 
-## Live candidate objects
+## Live objects
 
 - **PRTR** — Promotion-Relation Transition Receipt
 - **PHL** — Promotion History Ledger
