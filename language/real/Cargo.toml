@@ -120,3 +120,7 @@ name = "real-v30-approx"
 path = "src/approx_v30.rs"
 
 
+
+[[bin]]
+name = "real-v30-loss-contract"
+path = "src/loss_contract_v30.rs"
