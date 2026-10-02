@@ -474,3 +474,97 @@ It is still not, by itself, a standalone systems-paper novelty result.
 **Paper I — Local Progress Geometry and Partial Scientific Authority remains first priority.**
 
 4.65 further lowers the urgency of a broad acquisition-policy paper and clarifies that future acquisition work should concentrate on **scientific-state constitution and faithful compression**, not controller branding.
+
+
+## 4.66 quotient-sufficiency update — exact compression fails on the frozen authority machine
+
+MQR-4.66 attacks the post-4.65 idea that full history should admit a smaller exact scientific-state quotient.
+
+The finite frozen result is deliberately negative.
+
+### Executable result
+
+On the frozen 512-state, 18-event scientific-authority machine:
+
+- bounded event histories of length 0–4: **111,151**;
+- distinct reached source states: **200**;
+- Q0 unresolved-count blocks: **4**;
+- Q1 current-authority blocks: **5**;
+- Q2 one-step refinement blocks: **319**;
+- Q3 three-round refinement blocks: **508**;
+- Q4 stable authority blocks: **512**;
+- stable refinement rounds: **4**.
+
+Thus raw histories compress heavily into current scientific state, but there is **no further nontrivial exact stable quotient** of the frozen 512-state machine under the declared authority/reopening/provenance/novelty contract.
+
+The result is independently reproduced by canonical Haskell and an independently written C++ census. Prolog supplies:
+- provenance alias: states 0/128, one-step AUDIT;
+- novelty alias: states 0/256, one-step NOVELTY;
+- a shortest Q1 distinguishing witness of length 1;
+- a Q3 merged pair 7/135 separated by a length-4 continuation.
+
+Lean proves only the generic declared boundary: label-respecting transition congruence preserves labels under every finite continuation.
+
+### Prior-art pressure is severe
+
+This result must not be framed as invention of minimal state or partition refinement.
+
+Strong neighbors include:
+- Givan–Dean–Greig on MDP bisimulation and minimal models;
+- Li–Walsh–Littman on preservation-dependent state abstraction;
+- Littman–Sutton–Singh on predictive state representations;
+- Ferns–Panangaden–Precup on bisimulation metrics;
+- Shalizi–Crutchfield on causal-state sufficiency/minimality/uniqueness.
+
+Therefore:
+**minimal quotient construction is not the publication novelty.**
+
+### Paper-II consequence
+
+The post-4.65 working frame
+**Scientific State Constitution before Sequential Experimental Design**
+survives, but 4.66 sharpens it substantially.
+
+The interesting thesis candidate is now:
+
+> Scientific-state compression is relative to a preservation contract. Histories may be redundant while currently silent provenance, exterior routes or rival/separator distinctions remain indispensable because admissible future inquiry can make them authority-relevant.
+
+That statement is still too generic for publication unless MQR can show that its preservation contract is independently motivated by scientific cases rather than engineered to defeat compression.
+
+### Strong publication burden after 4.66
+
+A serious Paper II now needs all of:
+
+1. **naturalistic cases** where two investigation states look equivalent under a conventional compact description but differ under later scientifically legitimate reopening/provenance/world-contact demands;
+2. **prospective reconstruction** so the distinguishing future event was not chosen with outcome hindsight;
+3. **direct comparison** against bisimulation, PSR/causal-state, state-abstraction and approximate-abstraction baselines;
+4. a reason why the additional preservation dimension is scientifically required rather than merely available;
+5. a clear separation between exact and approximate claims.
+
+### Approximate-compression successor
+
+4.66 makes an approximate successor scientifically natural but dangerous.
+
+If exact preservation yields the identity partition, one may ask which distinctions can be sacrificed with bounded damage. But Ferns-style bisimulation metrics and approximate state-abstraction literature make this a mature prior-art field.
+
+An MQR contribution would need a typed loss object such as:
+- lost future rival separator;
+- delayed/erased reopening trigger;
+- provenance/common-mode alias;
+- exterior-route loss;
+- release-state error;
+
+and must show why those losses are not adequately represented by existing value/prediction metrics.
+
+### Paper I priority
+
+**Paper I — Local Progress Geometry and Partial Scientific Authority remains first priority.**
+
+4.66 provides a useful anti-inflation and methodological result for later papers, but it does not yet displace Paper I as the strongest near-term manuscript.
+
+### Executable-constitution prospect
+
+Prospect E gains another strong negative case:
+the Court was opened to find a nontrivial state quotient and instead returned the identity partition after progressively stronger refinements. The project accepted that negative outcome and did not weaken the preservation contract after reveal.
+
+This is good methodological evidence, not standalone novelty.
