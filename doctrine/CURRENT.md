@@ -1174,8 +1174,27 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 379. **Weighted and lexicographic aggregation are tools, not self-authorizing constitutions.** They may be locally adopted under a separately warranted contract, but neither is the default universal conflict resolver.
 380. **Conflict preservation can be epistemically positive.** PRCR may retain unresolved opposition so that later world contact, debt discharge, scope change or option realization can reopen the decision without reconstructing a false scalar consensus.
 381. **No universal promotion meta-utility is earned by conflict adjudication.** REALPROMOTE 0.27 provides local dominance, scoped veto, incomparability and defeat-under-scope while preserving a non-total promotion relation.
+382. **Current relation label ≠ complete constitutional state.** Relation identity must be supplemented by material option, provenance, reversibility, debt, scope/horizon and ancestry state when those variables remain authority-bearing.
+383. **Same terminal relation ≠ same material history.** Two paths may end at the same visible relation while differing in lost options, irreversible debt or provenance; PRTR/PHL/ODR retain only such typed differences.
+384. **Revision order may be noncommutative.** If an earlier event changes the admissibility, independence, availability or interpretation of a later event, reversing event order may legitimately change the constitutional result.
+385. **Conflict resolution is reopenable.** A prior INCOMPARABLE relation may become locally resolved and later reopen under fresh world contact, expanded scope, changed horizon or newly material debt without contradiction.
+386. **Veto authority is not globally monotone.** A typed veto may activate when its factual basis appears and retire after repair plus adequate independent checking; historical veto status alone has no permanent priority.
+387. **More evidence does not guarantee more promotion authority.** New evidence can weaken authority by defeating independence, expanding the relevant scope or exposing previously hidden debt.
+388. **Reason mutation preserves ancestry by default.** OPTION_VALUE may become INDEPENDENT_WORLD_CONTACT after realization, but the mutation does not manufacture a second independent warrant unless ancestry actually separates.
+389. **Return to an old relation label ≠ exact restoration.** Lost options, irreversible intervention, contamination or provenance loss may prevent material restoration even when the visible pairwise label returns.
+390. **Material hysteresis is admissible; chronology-only hysteresis is rejected.** Path sensitivity requires a typed state-bearing consequence. Elapsed time, sunk effort, prestige, narrative continuity and revision count are not authority sources.
+391. **Persistent conflict cycles do not force scalarization.** Cyclic local relations may remain explicit and reopenable; convergence or a total order is not a constitutional requirement.
+392. **Promotion history is a ledger, not a score.** PHL records relevant transition ancestry and state consequences; revision count and an untyped history value are forbidden as default progress/promotion proxies.
+393. **No universal historical meta-utility is earned.** REALPROMOTE 0.28 supports typed relation transitions and material-history filtering without ranking all constitutional histories by one scalar.
 
 ## Live governance objects
+
+- Promotion-Relation Transition Receipt (PRTR)
+- Promotion History Ledger (PHL; typed material ancestry, not a scalar)
+- Option/Debt Receipt (ODR)
+- Reason-Mutation Receipt (RMR)
+- Promotion transition surface: STABLE / RELATION_REVISED / REOPENED / VETO_ACTIVATED / VETO_RETIRED / SCOPE_REVERSED / HORIZON_REVERSED / REASON_MUTATED / CYCLE_ENTERED / CYCLE_EXITED / HISTORY_IRRELEVANT
+- Material-History Filter: option / provenance / reversibility / debt / scope-horizon consequences only
 
 - Reflexive Promotion-Admissibility Receipt (RPAR)
 - Meta-Criterion Lineage (MCL)
