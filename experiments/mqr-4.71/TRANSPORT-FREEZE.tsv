@@ -1,0 +1,5 @@
+transport_id	source_contact	target_contact	label_match	semantic_role_match	feasibility_match	permission_match	expected
+TR_GOOD	SEM_T	SEM_T_B_GOOD	YES	YES	YES	YES	PRESERVE
+TR_SEMANTIC_BREAK	SEM_T	SEM_T_B_BADROLE	YES	NO	YES	YES	HOLD
+TR_FEASIBILITY_BREAK	SEM_T	SEM_T_B_UNREALIZABLE	YES	YES	NO	YES	HOLD
+TR_PERMISSION_BREAK	SEM_T	SEM_T_B_BLOCKED	YES	YES	YES	NO	HOLD
