@@ -137,3 +137,37 @@ jobs:
             experiments/mqr-4.70/results/basis_census.tsv
             experiments/mqr-4.70/results/separator_hypergraph.tsv
             experiments/mqr-4.70/results/linear_representation.tsv
+
+
+  closure-certificate-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Canonical closure certificate court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.70/closure_certificate_court.py | tee /tmp/mqr470-closure.log
+          grep -F 'MQR470_CLOSURE_COURT=PASS' /tmp/mqr470-closure.log
+          grep -F 'MQR470_F_AB_EXTERIOR_SPLITTERS=C,K,P' /tmp/mqr470-closure.log
+          grep -F 'MQR470_F_ABC_C4=TRUE' /tmp/mqr470-closure.log
+          grep -F 'MQR470_MINIMAL_C4_FAMILY_COUNT=24' /tmp/mqr470-closure.log
+          grep -F 'MQR470_MINIMAL_C4_FAMILY_SIZE=3' /tmp/mqr470-closure.log
+          grep -F 'MQR470_C1_C3_COLLAPSE=YES' /tmp/mqr470-closure.log
+          grep -F 'MQR470_C2_C4_COLLAPSE=YES' /tmp/mqr470-closure.log
+      - name: Independent C++ closure court
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.70/independent_closure_certificate.cpp -o /tmp/mqr470-closure-cpp
+          /tmp/mqr470-closure-cpp | tee /tmp/mqr470-closure-cpp.log
+          grep -F 'MQR470_CPP_CLOSURE_COURT=PASS' /tmp/mqr470-closure-cpp.log
+          grep -F 'MQR470_CPP_F_AB_C4=FALSE' /tmp/mqr470-closure-cpp.log
+          grep -F 'MQR470_CPP_F_ABC_C4=TRUE' /tmp/mqr470-closure-cpp.log
+          grep -F 'MQR470_CPP_F_AB_EXTERIOR_SPLITTERS=C,K,P' /tmp/mqr470-closure-cpp.log
+          grep -F 'MQR470_CPP_MINIMAL_C4_FAMILY_COUNT=24' /tmp/mqr470-closure-cpp.log
+          grep -F 'MQR470_CPP_MINIMAL_C4_FAMILY_SIZE=3' /tmp/mqr470-closure-cpp.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.70-closure-certificates
+          path: |
+            experiments/mqr-4.70/results/closure_certificates.tsv
+            experiments/mqr-4.70/results/closure_minimal_families.tsv
