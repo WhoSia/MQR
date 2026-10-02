@@ -7,6 +7,7 @@ on:
       - 'experiments/mqr-4.71/**'
       - 'language/real/lean/MQR/ContactEnvelope.lean'
       - 'language/real/lean/MQR/MetaClosure.lean'
+      - 'language/real/lean/MQR/ContactScope.lean'
       - '.github/workflows/mqr-4.71-contact-envelope.yml'
   workflow_dispatch:
 
@@ -88,6 +89,20 @@ jobs:
             grep -F "'$theorem' does not depend on any axioms" /tmp/mqr471-lean.log
           done
           echo MQR471_LEAN=PASS
+      - name: Verify contact-scope theorem boundary
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/ContactScope.lean | tee /tmp/mqr471-scope-lean.log
+          if grep -F 'sorryAx' /tmp/mqr471-scope-lean.log; then exit 1; fi
+          for theorem in \
+            MQR.scientific_defeater_need_not_be_execution_defeater \
+            MQR.permission_unlock_can_change_execution_defeat_without_changing_scientific_defeat \
+            MQR.execution_defeater_implies_scientific_defeater
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr471-scope-lean.log
+          done
+          echo MQR471_SCOPE_LEAN=PASS
 
   structural-guards:
     runs-on: ubuntu-latest
