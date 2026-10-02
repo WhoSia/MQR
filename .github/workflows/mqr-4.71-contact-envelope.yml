@@ -141,3 +141,37 @@ jobs:
             grep -F "'$theorem' does not depend on any axioms" /tmp/mqr471-meta-lean.log
           done
           echo MQR471_META_LEAN=PASS
+
+
+  generative-quotient:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exhaustive generative predictive quotient
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.71/generative_predictive_quotient.py | tee /tmp/mqr471-gq.log
+          grep -F 'MQR471_GENERATIVE_QUOTIENT=PASS' /tmp/mqr471-gq.log
+          grep -F 'MQR471_RAW_STATES=6' /tmp/mqr471-gq.log
+          grep -F 'MQR471_PREDICTIVE_CLASSES=5' /tmp/mqr471-gq.log
+          grep -F 'MQR471_MINIMAL_FEATURE_COUNT=4' /tmp/mqr471-gq.log
+          grep -F 'MQR471_MINIMAL_FEATURE_SET=generators,tech_state,budget_state,ethics_state' /tmp/mqr471-gq.log
+          grep -F 'MQR471_CURRENT_ENVELOPE_DROPPED=YES' /tmp/mqr471-gq.log
+          grep -F 'MQR471_REVISION_STATE_DROPPED=YES' /tmp/mqr471-gq.log
+          grep -F 'MQR471_ANCESTRY_DROPPED=YES' /tmp/mqr471-gq.log
+      - name: Independent C++ quotient
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.71/independent_generative_quotient.cpp -o /tmp/mqr471-gq-cpp
+          /tmp/mqr471-gq-cpp | tee /tmp/mqr471-gq-cpp.log
+          grep -F 'MQR471_CPP_GENERATIVE_QUOTIENT=PASS' /tmp/mqr471-gq-cpp.log
+          grep -F 'MQR471_CPP_RAW_STATES=6' /tmp/mqr471-gq-cpp.log
+          grep -F 'MQR471_CPP_PREDICTIVE_CLASSES=5' /tmp/mqr471-gq-cpp.log
+          grep -F 'MQR471_CPP_MINIMAL_FEATURE_COUNT=4' /tmp/mqr471-gq-cpp.log
+          grep -F 'MQR471_CPP_MINIMAL_FEATURE_SET=generators,tech_state,budget_state,ethics_state' /tmp/mqr471-gq-cpp.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.71-generative-quotient
+          path: |
+            experiments/mqr-4.71/results/generative_predictive_quotient.tsv
+            experiments/mqr-4.71/results/generative_state_minimality.tsv
