@@ -1,10 +1,10 @@
 # REALACQUIRE 0.29 — Prospective Evidence-Acquisition Constitution
 
-Status: **CANDIDATE / PRE-REVEAL**
+Status: **LIVE / MQR-4.62 QUALIFIED**
 
 MQR-4.62 extends the MQR live surface from dynamic promotion-history receipts to prospective selection among evidence-generating actions.
 
-## Candidate live objects
+## Live objects
 
 - **EASR** — Evidence-Acquisition Selection Receipt
 - **RAER** — Relation-Anticipation Envelope Receipt
