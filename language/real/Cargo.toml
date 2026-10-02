@@ -112,3 +112,7 @@ path = "src/reflex_v25.rs"
 [[bin]]
 name = "real-v26-promote"
 path = "src/promote_v26.rs"
+
+[[bin]]
+name = "real-v27-promote"
+path = "src/promote_v27.rs"
