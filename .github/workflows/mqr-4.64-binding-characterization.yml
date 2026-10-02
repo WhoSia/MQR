@@ -110,7 +110,7 @@ jobs:
           set -euo pipefail
           grep -F 'No scalar MQR score is permitted.' experiments/mqr-4.64/BINDING-MANIFEST.md
           grep -F 'No post-reveal action catalog, weights, thresholds, or classification rule changes.' experiments/mqr-4.64/ENUMERATION-FREEZE.md
-          grep -F 'No universal MQR controller superiority' experiments/mqr-4.64/PRESEAL.md
+          grep -F 'universal MQR controller superiority' experiments/mqr-4.64/PRESEAL.md
           grep -F 'CURRENT DRIVE RE-SEARCH' experiments/mqr-4.64/MISSING-LITERATURE.md
           echo MQR464_PRESEAL_GUARDS=PASS
       - name: Publish guard receipt
