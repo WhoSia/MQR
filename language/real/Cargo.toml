@@ -110,3 +110,7 @@ path = "src/promote_v27.rs"
 [[bin]]
 name = "real-v28-promote"
 path = "src/promote_v28.rs"
+
+[[bin]]
+name = "real-v29-acquire"
+path = "src/acquire_v29.rs"
