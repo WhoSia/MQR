@@ -171,3 +171,28 @@ jobs:
           path: |
             experiments/mqr-4.70/results/closure_certificates.tsv
             experiments/mqr-4.70/results/closure_minimal_families.tsv
+
+
+  stochastic-closure-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Canonical stochastic closure court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.70/stochastic_closure_court.py | tee /tmp/mqr470-stochastic.log
+          grep -F 'MQR470_STOCHASTIC_CLOSURE=PASS' /tmp/mqr470-stochastic.log
+          grep -F 'MQR470_F_KERNEL=-0.30,1.30' /tmp/mqr470-stochastic.log
+          grep -F 'MQR470_G_KERNEL=0.30,0.70' /tmp/mqr470-stochastic.log
+          grep -F 'MQR470_C3_C4_SEPARATION=YES' /tmp/mqr470-stochastic.log
+      - name: Independent C++ stochastic closure court
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.70/independent_stochastic_closure.cpp -o /tmp/mqr470-stochastic-cpp
+          /tmp/mqr470-stochastic-cpp | tee /tmp/mqr470-stochastic-cpp.log
+          grep -F 'MQR470_CPP_STOCHASTIC_CLOSURE=PASS' /tmp/mqr470-stochastic-cpp.log
+          grep -F 'MQR470_CPP_C3_C4_SEPARATION=YES' /tmp/mqr470-stochastic-cpp.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.70-stochastic-closure
+          path: experiments/mqr-4.70/results/stochastic_closure.tsv
