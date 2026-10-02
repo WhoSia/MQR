@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.68**.
+Status: live through **MQR-4.69**.
 
 ## Generation-IV authority kernel
 
@@ -1596,3 +1596,37 @@ Cross-domain reuse of a severity label does not establish commensurability. Post
 Retrospective clinical-trial governance supplies naturalistic contact for prospective authorization and revision ancestry, but does not validate a universal MQR loss ontology, reopening primitive, or anti-scalar theorem.
 
 The next live question is whether extensionally identical current decision rules with different evidence/authorization ancestry can be prospectively separated by audit or reopening interventions. Until such separation is earned, warrant provenance remains an OPEN residue rather than a promoted primitive.
+
+## MQR-4.69 boundary — warrant ancestry and predictive state
+
+MQR-4.69 closes the warrant-ancestry residue left open by MQR-4.68.
+
+~~~text
+EXTENSIONAL_STATE_INSUFFICIENT_ON_FROZEN_COURT
+PREDICTIVE_STATE_AUGMENTATION_SUFFICIENT
+FOUR_AXIS_HISTORY_MODEL_OVERRETAINS
+BASELINE_ABSORPTION_STRENGTHENED
+PARTIAL_NATURALISTIC_ANCESTRY_CONTACT
+MQR_SPECIFIC_ANCESTRY_ONTOLOGY_NOT_VALIDATED
+NO_0_30_PROMOTION
+~~~
+
+The live distinction is no longer “history matters.” Instead:
+
+~~~text
+PRESENT OUTPUT/RULE SURFACE != ALWAYS SUFFICIENT SCIENTIFIC STATE
+FULL HISTORY != MINIMAL SCIENTIFIC STATE
+ANCESTRY AXIS LABELS != PRIMITIVE ONTOLOGY
+PREDICTIVE EQUIVALENCE = INTERVENTION-RELATIVE
+BEHAVIORAL SUFFICIENCY != WORLD VALIDITY
+~~~
+
+On the frozen 4.69 Court, 35 raw ancestry labels induce 19 typed four-axis states but only 7 future-response equivalence classes under the declared audit/reopening intervention family. The four hand-labeled ancestry axes are therefore sufficient but over-retentive relative to the predictive quotient.
+
+Scientific governance may legitimately retain history-derived state when present extensional surfaces are too coarse. The retained state should be justified by future authority transitions under an explicit intervention family, not by narrative completeness or ancestry labels alone.
+
+Adaptive-trial prespecification, workflow provenance and independent replication provide naturalistic contact for ancestry-sensitive governance, but established prespecification/provenance/replication frameworks absorb the observed donors. MQR therefore does not claim a novel ancestry ontology.
+
+REALWARRANT 0.30-CANDIDATE is development-only. Its predictive class is derived, intervention-relative, and carries no world-validity authority. REALACQUIRE 0.29 remains the latest promoted Real-Language syntax.
+
+The successor must not add ancestry dimensions or promote the current seven classes. The next live pressure is whether the intervention family used to define predictive equivalence can itself be expanded, transported or revised without circularly determining the state quotient it is meant to justify.
