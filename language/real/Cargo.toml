@@ -124,3 +124,7 @@ path = "src/approx_v30.rs"
 [[bin]]
 name = "real-v30-loss-contract"
 path = "src/loss_contract_v30.rs"
+
+[[bin]]
+name = "real-v30-warrant-lineage"
+path = "src/warrant_lineage_v30.rs"
