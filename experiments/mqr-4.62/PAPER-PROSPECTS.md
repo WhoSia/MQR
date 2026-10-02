@@ -151,3 +151,51 @@ A plausible long-form architecture is not necessarily one giant MQR paper. It ma
 - later, an executable-constitution methods/system paper.
 
 This ledger is exploratory only. No publication claim is promoted by its existence.
+
+## 2026 pressure update
+
+The paper prospects changed after reading current 2026 work.
+
+### Prospect C pressure increased
+
+The computational paper on **performative evidence ecologies** remains attractive, but the claim cannot be merely:
+- theory-guided experiment selection can bias the evidence ecology;
+- informative acquisition can fail under misspecification;
+- representativeness matters.
+
+Those points now have very direct 2026 neighbors.
+
+The stronger MQR-specific version would need to test whether policies differ on:
+- exterior-rival recovery;
+- evidence-ancestry independence;
+- retained future separator count;
+- branchwise option destruction;
+- reopening latency/capacity;
+- nonmyopic exploration debt;
+
+while conventional metrics such as current predictive fit or expected information look favorable.
+
+This raises novelty risk to **high**, while keeping empirical tractability **very high**.
+
+### Prospect D pressure increased but became sharper
+
+Robust Bayesian experimental design already attacks misspecification directly. Therefore an option-preserving MQR paper needs a theorem or benchmark in which **no robust local informativeness correction alone captures destruction of a future scientific discrimination route**.
+
+A promising formal target is:
+> construct paired acquisition histories with equal/current robust acquisition score but different future rival-separation reachability because one action irreversibly removes a unique separator.
+
+If that can be proved under an explicit open-rival/reopening model, Prospect D remains bold rather than merely terminological.
+
+### Prospect A remains the most mature
+
+The local-progress / non-global-scalar paper is less exposed to the fast-moving autonomous-science literature and already has a long, internally closed theorem/countermodel chain.
+
+### Working publication architecture
+
+Current non-binding architecture:
+1. **Paper I — Local Progress Geometry and Partial Scientific Authority**: theory-first.
+2. **Paper II — Reopenable Evidence Acquisition in Open Rival Frontiers**: computational/formal, dependent on 4.62+.
+3. **Paper III — Executable Scientific Constitutions**: methods/system paper only after the semantics and external cases are stable.
+
+Do not merge these merely for grandeur. The strongest MQR publication may be a small family of papers whose claims can each survive a much narrower novelty court.
+
