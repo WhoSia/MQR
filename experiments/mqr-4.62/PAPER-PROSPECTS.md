@@ -307,3 +307,73 @@ Current non-binding architecture:
 
 The previous broad title **Reopenable Evidence Acquisition in Open Rival Frontiers** should not currently be treated as publication-ready.
 
+## 4.64 binding-characterization update
+
+MQR-4.64 resolves the main uncertainty left by 4.63 more sharply.
+
+The exhaustive finite study classified 522,240 world × baseline × typed-constraint cases with exact Rust/Python concordance.
+
+### Prospect D — option-preserving experimental design
+
+**Status after 4.64: ordinary OPR controller thesis rejected; non-substitutable coverage boundary survives locally.**
+
+The matched minimum-separator CONSTRAINED baseline absorbed every active OPR case in the frozen finite grammar:
+- 7,920 active OPR cases were BASELINE_ABSORBED;
+- 0 were BINDING_LOCAL against that matched baseline.
+
+Therefore the claim that MQR uniquely needs an option-preservation controller because destructive actions exist is not viable.
+
+NEDL is more interesting:
+- against the same constrained baseline, 6,800 cases were absorbed;
+- 1,976 remained BINDING_LOCAL;
+- the strongest minimal witness requires irreversible action plus **non-substitutable future separators**: the baseline preserves one separator while the NEDL constraint preserves both.
+
+This is a real local distinction, but it is still representable as a richer conventional hard reachability constraint. MQR-4.64 therefore does not establish semantic novelty beyond constrained sequential planning.
+
+### Prospect C — diagnostic geometry of evidence acquisition
+
+**Status after 4.64: strengthened conceptually, not yet publication-ready empirically.**
+
+4.64 provides a formal taxonomy that 4.63 lacked:
+- DIAGNOSTIC_ONLY
+- REDUNDANT_CONSTRAINT
+- BASELINE_ABSORBED
+- BINDING_LOCAL
+- OVERCONSTRAINING
+- ORACLE_DEPENDENT
+
+This makes a future diagnostic-geometry paper cleaner: it can ask when a diagnostic is merely descriptive, when it changes scientific reachability, and when an ordinary planner already compiles away the difference.
+
+However the present 4.64 worlds are finite synthetic action systems. A publication claim still needs realistic/natural scientific cases or a genuine non-representability theorem.
+
+### Prospect E — executable scientific constitutions
+
+**Status after 4.64: methodological evidence strengthened again.**
+
+The system did not treat 'binding' as automatic promotion. It exposed:
+- complete baseline absorption of OPR under a matched constraint;
+- local nonabsorption of NEDL;
+- explicit overconstraint regions for ARR/EAI/exterior constraints;
+- release under reversibility/substitutability;
+- no REALACQUIRE v0.30 promotion.
+
+This is a strong anti-inflation case for executable methodology, but it remains a case study rather than a standalone novelty proof.
+
+### Paper I remains first priority
+
+4.64 further reduces the case for rushing into an acquisition-controller paper.
+
+**Paper I — Local Progress Geometry and Partial Scientific Authority** remains the highest-maturity near-term manuscript candidate.
+
+### New possible Paper-II shape
+
+A better future Paper II is now:
+
+**When Do Scientific-Acquisition Diagnostics Bind? Reachability, Constraint Redundancy and Baseline Absorption in Sequential Experimental Design**
+
+But it becomes serious only if a successor stage can determine whether MQR's surviving reachability predicates:
+1. compile losslessly into standard constrained sequential design after appropriate state augmentation; or
+2. have a demonstrable non-representability / open-frontier failure that standard planners cannot absorb without being given the very scientific constitution at issue.
+
+Until that representability question is answered, Paper II remains HOLD.
+
