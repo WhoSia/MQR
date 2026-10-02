@@ -1,0 +1,102 @@
+name: MQR-4.70 Probe-Family Constitution Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.70/**'
+      - 'language/real/lean/MQR/ProbeFamily.lean'
+      - '.github/workflows/mqr-4.70-probe-family.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run canonical finite court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.70/family_partition_court.py | tee /tmp/mqr470-python.log
+          grep -F 'MQR470_COURT=PASS' /tmp/mqr470-python.log
+          grep -F 'MQR470_CURRENT_ALIGNMENT_CHOICE=R' /tmp/mqr470-python.log
+          grep -F 'MQR470_WITHIN_CLASS_CHOICE=C' /tmp/mqr470-python.log
+          grep -F 'MQR470_GOOD_TRANSPORT=PASS' /tmp/mqr470-python.log
+          grep -F 'MQR470_LOSSY_TRANSPORT=BREAK' /tmp/mqr470-python.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.70-canonical-results
+          path: experiments/mqr-4.70/results/
+
+  independent-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run canonical reference
+        run: python3 experiments/mqr-4.70/family_partition_court.py
+      - name: Run independent C++
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.70/independent_family_partition.cpp -o /tmp/mqr470-cpp
+          /tmp/mqr470-cpp | tee /tmp/mqr470-cpp.log
+          grep -F 'MQR470_CPP_COURT=PASS' /tmp/mqr470-cpp.log
+          grep -F 'MQR470_CPP_INCLUSION_FAILURES=0' /tmp/mqr470-cpp.log
+          grep -F 'MQR470_CPP_CURRENT_ALIGNMENT_CHOICE=R' /tmp/mqr470-cpp.log
+          grep -F 'MQR470_CPP_WITHIN_CLASS_CHOICE=C' /tmp/mqr470-cpp.log
+          grep -F 'MQR470_CPP_GOOD_TRANSPORT=PASS' /tmp/mqr470-cpp.log
+          grep -F 'MQR470_CPP_LOSSY_TRANSPORT=BREAK' /tmp/mqr470-cpp.log
+      - name: Cross-check key census values
+        run: |
+          set -euo pipefail
+          py_ab=$(awk -F '\t' '$1=="F_AB_CLASS_COUNT"{print $2}' experiments/mqr-4.70/results/court_summary.tsv)
+          py_abc=$(awk -F '\t' '$1=="F_ABC_CLASS_COUNT"{print $2}' experiments/mqr-4.70/results/court_summary.tsv)
+          py_min=$(awk -F '\t' '$1=="MINIMAL_FAMILY_COUNT_FOR_F_ABC"{print $2}' experiments/mqr-4.70/results/court_summary.tsv)
+          grep -F "MQR470_CPP_CLASSES_F_AB=$py_ab" /tmp/mqr470-cpp.log
+          grep -F "MQR470_CPP_CLASSES_F_ABC=$py_abc" /tmp/mqr470-cpp.log
+          grep -F "MQR470_CPP_MINIMAL_FAMILY_COUNT=$py_min" /tmp/mqr470-cpp.log
+          echo MQR470_PYTHON_CPP_KEY_CONCORDANCE=PASS
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Verify finite family theorems
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/ProbeFamily.lean | tee /tmp/mqr470-lean.log
+          if grep -F 'sorryAx' /tmp/mqr470-lean.log; then exit 1; fi
+          for theorem in             MQR.larger_family_equivalence_implies_smaller             MQR.eqUnder_refl             MQR.eqUnder_symm             MQR.eqUnder_trans             MQR.added_distinguishing_test_refines             MQR.added_equal_test_preserves_equivalence
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr470-lean.log
+          done
+          echo MQR470_LEAN=PASS
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen constitutional boundaries
+        run: |
+          set -euo pipefail
+          grep -F 'U subseteq V' experiments/mqr-4.70/PRESEAL.md
+          grep -F 'F9 Open-world overclaim' experiments/mqr-4.70/PRESEAL.md
+          grep -F 'F12 Naturalistic absence' experiments/mqr-4.70/PRESEAL.md
+          grep -F 'hitting-set' experiments/mqr-4.70/PRESEAL.md
+          grep -F 'MQR-4.62' experiments/mqr-4.70/PRESEAL.md
+          grep -F 'EXTENSIONAL_STATE_INSUFFICIENT_ON_FROZEN_COURT' experiments/mqr-4.70/CUSTODY-PREFLIGHT.md
+          grep -F $'H000\t0\t0\t0\t0' experiments/mqr-4.70/RESPONSE-MATRIX-FREEZE.tsv
+          grep -F $'F_AB\tA,B\tcurrent_coarse' experiments/mqr-4.70/PROBE-FAMILIES-FREEZE.tsv
+          echo MQR470_STRUCTURAL_GUARDS=PASS
