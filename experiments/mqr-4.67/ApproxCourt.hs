@@ -98,7 +98,7 @@ authorityLabel :: State -> (Int,Int,Int)
 authorityLabel s =
   let u=unresolvedCount s
       rel=release s
-      mask=(1 .|. 2 .|. if rel then 4 else 8)
+      mask=(1 .|. 2 .|. (if rel then 4 else 8))
   in (u,mask,if rel then 1 else 0)
 
 states :: [State]
