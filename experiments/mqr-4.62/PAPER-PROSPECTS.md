@@ -568,3 +568,91 @@ Prospect E gains another strong negative case:
 the Court was opened to find a nontrivial state quotient and instead returned the identity partition after progressively stronger refinements. The project accepted that negative outcome and did not weaken the preservation contract after reveal.
 
 This is good methodological evidence, not standalone novelty.
+
+
+## 4.67 approximation update — negative rescue, software/theory separation
+
+MQR-4.67 asked whether approximate scientific-state compression could rescue the exact identity result of 4.66 under an explicitly typed authority-loss contract.
+
+The frozen Court did **not** rescue compression.
+
+### Finite Court result
+
+Seven predeclared abstractions were tested under five frozen loss coordinates:
+
+`SEP / REOPEN / PROV / EXT / RELEASE`.
+
+Every non-identity candidate has at least one FATAL coordinate. All three predeclared budget contracts therefore select **A0 FULL**.
+
+Especially important:
+- Q3_4.66 has 508 blocks and merges only four pairs;
+- its RELEASE loss is only BOUNDED;
+- yet its REOPEN and PROV losses are FATAL under the frozen coordinate semantics.
+
+This is a useful negative result, not evidence that approximate abstraction is generally impossible.
+
+### Scalar attack did not win
+
+The Court explicitly tried two monotone severity encodings and all 243 positive weight vectors.
+
+Because FULL has zero loss on every coordinate:
+- FULL is the unique global scalar winner for every weight;
+- every weight reproduces the B0/B1/B2 selection.
+
+Four weight-dependent pairwise reversals occur among lossy compression candidates, but this does not defeat scalar representation of the whole frozen choice problem.
+
+Therefore Paper II must **not** use 4.67 as evidence for a universal anti-scalar theorem.
+
+### Strong prior-art absorption
+
+Approximate bisimulation metrics, bounded-loss state abstraction, vector objectives, Pareto methods and dynamic aggregation/disaggregation are established prior art.
+
+Accordingly, no paper novelty is available merely from:
+- typed vector loss;
+- approximate quotienting;
+- re-expansion;
+- budget constraints;
+- scalarization sensitivity.
+
+### Real-Language result
+
+`REALAPPROX 0.30-CANDIDATE` is now functioning development infrastructure:
+- Rust canonical candidate;
+- Prolog independent evaluator;
+- Lean componentwise theorem boundary;
+- evidence-kind ceilings;
+- scalar-mode rejection;
+- explicit SIMULATED→world-validity ceiling.
+
+But the candidate remains **unpromoted**.
+
+The software positive-control packet can return ACCEPT_WITH_AUDIT while the actual scientific Court rejects every tested lossy abstraction. This is precisely the distinction a future methods paper should preserve:
+
+```text
+SOFTWARE REPRESENTABILITY != SCIENTIFIC ADMISSIBILITY
+SIMULATION SUCCESS != WORLD VALIDATION
+```
+
+### Naturalistic transport
+
+The strongest external support in this pass is provenance/analysis ancestry:
+- reproducibility work emphasizes retained process/batch/calibration metadata;
+- the Duke omics / forensic-bioinformatics case family shows that missing provenance/data-label/process information can obstruct independent checking in high-stakes downstream use;
+- many-analyst work shows defensible analysis paths can materially alter inference.
+
+This is **partial PROV-family transport**, not validation of the complete five-coordinate ontology.
+
+### Paper consequence
+
+4.67 improves the manuscript program by killing an easy but weak move:
+
+> exact compression failed, therefore define approximate scientific compression and call the vector-loss formalism new.
+
+That route is closed.
+
+The stronger paper direction is now **prospective naturalistic state-constitution**:
+freeze what information is available before a later real audit/reopening event and ask whether a compact contemporaneous representation would have erased the distinction that later became materially relevant.
+
+That would connect the executable MQR constitution machinery to external scientific history without letting the simulator certify itself.
+
+Paper I remains the strongest near-term manuscript. 4.67 is valuable as an anti-inflation / methods-discipline component and as infrastructure for later naturalistic work.
