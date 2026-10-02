@@ -54,10 +54,10 @@ exact(_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,false).
 word(true,'YES'). word(false,'NO').
 
 out(T,O,N,Mat,Order,Lost,Debt,Prov,RB,RA,VB,VA,Reopen,E,Anc) :-
- word(Mat,MW), (Mat=true;Order=true -> P=true ; P=false), word(P,PW),
+ word(Mat,MW), ((Mat=true ; Order=true) -> P=true ; P=false), word(P,PW),
  (Order=true -> C='NO' ; C='YES'),
- (Lost=true;Debt=true;Prov=true -> H='ACTIVE' ; H='INACTIVE'),
- (Lost=true;Debt=true -> L='ACTIVE' ; L='INACTIVE'),
+ ((Lost=true ; Debt=true ; Prov=true) -> H='ACTIVE' ; H='INACTIVE'),
+ ((Lost=true ; Debt=true) -> L='ACTIVE' ; L='INACTIVE'),
  (RB=RA -> M='NONE' ; atomic_list_concat([RB,'TO',RA],'_',M)),
  (VB=false,VA=true -> VT='ACTIVATED' ; VB=true,VA=false -> VT='RETIRED' ; VT='STABLE'),
  word(Reopen,RW), word(E,EW),
