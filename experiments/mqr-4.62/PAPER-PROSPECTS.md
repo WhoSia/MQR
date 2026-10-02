@@ -199,3 +199,111 @@ Current non-binding architecture:
 
 Do not merge these merely for grandeur. The strongest MQR publication may be a small family of papers whose claims can each survive a much narrower novelty court.
 
+## 4.63 calibration update — broad Paper II thesis not supported
+
+MQR-4.63 materially changes the publication landscape.
+
+Five frozen calibration worlds and 3,392 paired runs were completed under strong matched baselines. The first-reveal classification was:
+
+~~~text
+OPR       COLLAPSES_TO_BASELINE
+ARR       COLLAPSES_TO_BASELINE
+EAI       COLLAPSES_TO_BASELINE
+EXTERIOR  COLLAPSES_TO_BASELINE
+NEDL      SURVIVES_LOCAL (SCOUT-PARK only)
+~~~
+
+No typed acquisition object reached the frozen `SURVIVES_CROSS_DOMAIN` gate.
+
+### Prospect B — open rival frontiers
+
+**Status after 4.63: THEORY PROSPECT REMAINS; POLICY CLAIM NARROWED.**
+
+The 4.42 thesis about open frontiers, generator-relative saturation and reopening competence is not defeated by 4.63. What is defeated is the easy move from those diagnostics to a generally independent acquisition controller.
+
+A publishable version should stay closer to:
+- frontier construction;
+- generator dependence;
+- reopening as an authority condition;
+- diagnostic separation;
+
+and avoid claiming that an MQR-specific acquisition policy is broadly superior.
+
+### Prospect C — performative evidence ecology
+
+**Status after 4.63: DIAGNOSTIC VERSION PLAUSIBLE / CONTROL-LAYER VERSION NOT SUPPORTED.**
+
+THEORY-ECOLOGY produced a strong descriptive separation:
+- confirmation and falsification had the same conventional terminal success in the frozen world;
+- yet ERR, RCR, NED and BSI differed sharply.
+
+So the typed coordinates can reveal acquisition differences hidden by one terminal-performance metric.
+
+However, disagreement, representative, random and robust-multifactor baselines already avoided the blind spot. MQR's separate ARR/EAI/NEDL/exterior controls added no independent own-ablation value there.
+
+Therefore a paper about **diagnostic geometry of evidence ecologies** remains plausible; a paper claiming a new generally superior MQR controller does not.
+
+### Prospect D — option-preserving experimental design
+
+**Status after 4.63: HOLD / BINDING-CONDITION CHARACTERIZATION REQUIRED.**
+
+OPR collapsed in both SCOUT-PARK and SAMPLE-RESERVE under the frozen own-ablation test.
+
+This does not show that option preservation is meaningless. It shows that:
+- ordinary competent policies can already preserve the relevant option in some regimes;
+- merely naming a future separator does not make an MQR-specific rule independently action-guiding.
+
+A stronger future theorem would need to characterize the exact **binding conditions** under which:
+1. a future separator is unique;
+2. it is genuinely destroyable;
+3. current strong baselines do not already preserve it;
+4. preserving it changes later scientific reachability;
+5. the condition is not merely standard real-option / constrained planning machinery in new vocabulary.
+
+Until then, Prospect D is not ready.
+
+### Prospect A — local progress geometry
+
+**Relative status after 4.63: strengthened.**
+
+4.63 did not directly validate Prospect A, but it removed the strongest reason to rush into a broad acquisition-policy paper.
+
+The mature 4.49–4.61 chain remains:
+- theoretically coherent;
+- less dependent on fast-moving autonomous-science baselines;
+- already supported by formal/countermodel machinery;
+- naturally compatible with a narrower claim ceiling.
+
+Prospect A is now the clearest candidate for the first serious MQR manuscript.
+
+### Prospect E — executable scientific constitutions
+
+**Relative status: strengthened as a methodology story, but not yet a standalone novelty claim.**
+
+4.63 supplies an important anti-inflation example:
+the executable constitution did not automatically promote its own descendants. Four proposed control coordinates collapsed under strong-baseline calibration, and no `REALACQUIRE 0.30` was created.
+
+That behavior is evidence that the Research OS / executable-constitution machinery can produce substantive negative results rather than only accumulate abstractions.
+
+This is methodologically valuable, but still needs external case depth and prior-art comparison before becoming a standalone systems paper.
+
+## Updated publication architecture
+
+Current non-binding architecture:
+
+1. **Paper I — Local Progress Geometry and Partial Scientific Authority**
+   - highest maturity;
+   - theory-first;
+   - strongest near-term manuscript candidate.
+
+2. **Paper II — Diagnostic Geometry of Scientific Evidence Acquisition**
+   - only if future work strengthens the descriptive separation result;
+   - focus on matched terminal performance with different reopening / blind-spot / ancestry / debt profiles;
+   - do **not** claim a generally superior MQR acquisition controller.
+
+3. **Paper III — Executable Scientific Constitutions as Falsifiable Methodology**
+   - later methods/system paper;
+   - 4.63's no-promotion result becomes an important case study.
+
+The previous broad title **Reopenable Evidence Acquisition in Open Rival Frontiers** should not currently be treated as publication-ready.
+
