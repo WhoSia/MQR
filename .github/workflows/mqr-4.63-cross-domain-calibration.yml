@@ -1,0 +1,118 @@
+name: MQR-4.63 Cross-Domain Evidence-Acquisition Calibration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.63/**'
+      - '.github/workflows/mqr-4.63-cross-domain-calibration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  calibration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run frozen five-world calibration pack
+        run: |
+          python experiments/mqr-4.63/calibration_harness.py | tee /tmp/mqr463-calibration.log
+          grep -F 'MQR463_WORLD_COUNT=5' /tmp/mqr463-calibration.log
+          grep -F 'MQR463_NEGATIVE_CONTROL_INVARIANTS=PASS' /tmp/mqr463-calibration.log
+          grep -F 'MQR463_PAIRED_REPLAY_COMPLETENESS=PASS' /tmp/mqr463-calibration.log
+          grep -F 'MQR463_SCALAR_MQR_SCORE=FORBIDDEN' /tmp/mqr463-calibration.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.63-calibration
+          path: experiments/mqr-4.63/results/
+      - name: Publish calibration receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.63/Calibration"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  independent-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize raw paired pack
+        run: python experiments/mqr-4.63/calibration_harness.py
+      - name: Independent metric recomputation
+        run: |
+          python experiments/mqr-4.63/independent_audit.py | tee /tmp/mqr463-audit.log
+          grep -F 'MQR463_INDEPENDENT_METRIC_RECOMPUTE=PASS' /tmp/mqr463-audit.log
+          grep -F 'MQR463_INDEPENDENT_NEGATIVE_CONTROLS=PASS' /tmp/mqr463-audit.log
+          grep -F 'MQR463_INDEPENDENT_SCALAR_SCORE_GUARD=PASS' /tmp/mqr463-audit.log
+      - name: Publish audit receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.63/Independent-Audit"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize frozen paired pack
+        run: python experiments/mqr-4.63/calibration_harness.py
+      - name: Apply frozen bootstrap analysis
+        run: |
+          python experiments/mqr-4.63/analyze_calibration.py | tee /tmp/mqr463-analysis.log
+          grep -F 'MQR463_ANALYSIS_COMPLETE=PASS' /tmp/mqr463-analysis.log
+          grep -F 'MQR463_SCALAR_MQR_SCORE=FORBIDDEN' /tmp/mqr463-analysis.log
+          grep -F 'MQR463_RESULT_DEPENDENT_THRESHOLD_MUTATION=FORBIDDEN' /tmp/mqr463-analysis.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.63-analysis
+          path: experiments/mqr-4.63/results/
+      - name: Publish analysis receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.63/Analysis"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  deterministic-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Replay exact frozen pack twice
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.63/calibration_harness.py
+          python experiments/mqr-4.63/analyze_calibration.py
+          sha256sum experiments/mqr-4.63/results/raw_runs.jsonl experiments/mqr-4.63/results/analysis.json > /tmp/hash1
+          rm -rf experiments/mqr-4.63/results
+          python experiments/mqr-4.63/calibration_harness.py
+          python experiments/mqr-4.63/analyze_calibration.py
+          sha256sum experiments/mqr-4.63/results/raw_runs.jsonl experiments/mqr-4.63/results/analysis.json > /tmp/hash2
+          diff -u /tmp/hash1 /tmp/hash2
+          echo MQR463_DETERMINISTIC_REPLAY=PASS
+      - name: Publish replay receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.63/Deterministic-Replay"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
