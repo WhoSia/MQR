@@ -1186,8 +1186,28 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 391. **Persistent conflict cycles do not force scalarization.** Cyclic local relations may remain explicit and reopenable; convergence or a total order is not a constitutional requirement.
 392. **Promotion history is a ledger, not a score.** PHL records relevant transition ancestry and state consequences; revision count and an untyped history value are forbidden as default progress/promotion proxies.
 393. **No universal historical meta-utility is earned.** REALPROMOTE 0.28 supports typed relation transitions and material-history filtering without ranking all constitutional histories by one scalar.
+394. **Evidence acquisition is a typed partial relation, not a universal optimizer.** REALACQUIRE 0.29 may locally authorize, hold, reopen, preserve an option, carry debt, admit a bounded exterior probe or forbid a destructive action without ranking every possible experiment.
+395. **Maximum expected information is not a universal experiment selector.** Information gain can be locally useful under constituted models and targets, but it does not by itself authorize model-family completeness, future separator destruction or cross-purpose scientific value.
+396. **Identifiability gain requires a live scientific contract.** IDR records local changes in identifiability/observability/separation only relative to declared claims, uses, decisions and rivals; parameter identifiability alone does not create universal scientific value.
+397. **Option-preserving lower-yield acquisition is admissible.** A probe with lower immediate information may retain authority when it uniquely preserves a later discriminator, independent intervention or reopening route that a higher-yield action would destroy.
+398. **Evidence-acquisition order may be noncommutative.** Earlier probes/interventions can change later interpretability, independence, baseline availability, intervention semantics or option reachability; sequence order must therefore be receipted when material.
+399. **Acquisition policy can create its own evidence blind spots.** Repeatedly selecting observations or interventions through the current model/frontier may narrow the evidence ecology and suppress exterior rivals; local fit or low marginal gain cannot certify saturation.
+400. **Evidence multiplicity requires ancestry audit.** More observations, experiments or adaptive rounds do not imply more independent warrant when they share an instrument, generator, intervention route, model-dependent selection policy or other common cause.
+401. **Adaptive reopening reserve is capacity, not an exploration score.** ARR protects future challenge/reopening routes without implying that a fixed exploration fraction, bonus or randomization level is universally optimal.
+402. **Nonmyopic exploration debt can be created by locally rational choices.** NEDL carries debt when repeated short-horizon selection skips a unique future separator, exterior-rival route or reopening capacity even though each local action was admissible under a narrower objective.
+403. **Randomization is a bounded exterior probe, not an adequacy oracle.** Random experimental choice may break some policy-induced blind spots but cannot certify that the action space, rival frontier or sampling frame is scientifically complete.
+404. **No universal expected-epistemic-utility optimizer is earned.** EASR/RAER/OPR/IDR/ARR/NEDL preserve typed acquisition consequences and local partial relations while scalarization over all scientific futures remains OFF.
 
 ## Live governance objects
+
+- Evidence-Acquisition Selection Receipt (EASR)
+- Relation-Anticipation Envelope Receipt (RAER)
+- Option-Preservation Receipt (OPR)
+- Identifiability-Delta Receipt (IDR)
+- Adaptive Reopening Reserve (ARR)
+- Nonmyopic Exploration-Debt Ledger (NEDL)
+- Acquisition decision surface: LOCAL_ADMISSIBLE / OPTION_PRESERVE / REOPEN_REQUIRED / DEBT_CARRY / HOLD_INCOMPARABLE / BOUNDED_EXTERIOR_PROBE / FORBIDDEN_BY_DESTRUCTIVE_CONTRACT
+- Evidence-Acquisition Materiality Profile: relation-transition / option / ancestry / identifiability / reopening / debt / scope-horizon
 
 - Promotion-Relation Transition Receipt (PRTR)
 - Promotion History Ledger (PHL; typed material ancestry, not a scalar)
