@@ -6,6 +6,7 @@ on:
     paths:
       - 'experiments/mqr-4.71/**'
       - 'language/real/lean/MQR/ContactEnvelope.lean'
+      - 'language/real/lean/MQR/MetaClosure.lean'
       - '.github/workflows/mqr-4.71-contact-envelope.yml'
   workflow_dispatch:
 
@@ -103,3 +104,40 @@ jobs:
           grep -F $'S_THEORY\tBASE_A,BASE_B\tTHEORY' experiments/mqr-4.71/STATE-FREEZE.tsv
           grep -F $'G2\tS_PLURAL\tRIVAL_ENTRY\tRIVAL_X' experiments/mqr-4.71/TRIGGER-FREEZE.tsv
           echo MQR471_STRUCTURAL_GUARDS=PASS
+
+
+  meta-closure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exhaustive visible-view closure court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.71/meta_closure_court.py | tee /tmp/mqr471-meta.log
+          grep -F 'MQR471_META_CLOSURE=PASS' /tmp/mqr471-meta.log
+          grep -F 'MQR471_VISIBLE_VIEWS=1' /tmp/mqr471-meta.log
+          grep -F 'MQR471_COMPATIBLE_WORLDS=2' /tmp/mqr471-meta.log
+          grep -F 'MQR471_VIEW_ONLY_CERTIFIERS=2' /tmp/mqr471-meta.log
+          grep -F 'MQR471_UNIFORMLY_CORRECT_CERTIFIERS=0' /tmp/mqr471-meta.log
+          grep -F 'MQR471_GENERATOR_OUTPUT_COMPLETENESS_UNEARNED=YES' /tmp/mqr471-meta.log
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Verify meta-closure theorem boundary
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/MetaClosure.lean | tee /tmp/mqr471-meta-lean.log
+          if grep -F 'sorryAx' /tmp/mqr471-meta-lean.log; then exit 1; fi
+          for theorem in \
+            MQR.same_visible_view_opposite_true_closure \
+            MQR.visible_only_certifier_cannot_be_correct_on_both
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr471-meta-lean.log
+          done
+          echo MQR471_META_LEAN=PASS
