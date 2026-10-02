@@ -179,3 +179,30 @@ jobs:
         with:
           name: mqr-4.71-generative-quotient
           path: experiments/mqr-4.71/results/proxy_separated_quotient.tsv
+
+
+  closure-defeasibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Canonical dual-scope closure court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.71/closure_defeasibility_court.py | tee /tmp/mqr471-cd.log
+          grep -F 'MQR471_CLOSURE_DEFEASIBILITY=PASS' /tmp/mqr471-cd.log
+          grep -F 'MQR471_CASES=16' /tmp/mqr471-cd.log
+          grep -F 'MQR471_SCOPE_SEPARATION_CASES=3' /tmp/mqr471-cd.log
+          grep -F 'MQR471_EXECUTION_COMPLETE_NE_SCIENTIFIC_COMPLETE=YES' /tmp/mqr471-cd.log
+      - name: Independent C++ dual-scope closure court
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.71/independent_closure_defeasibility.cpp -o /tmp/mqr471-cd-cpp
+          /tmp/mqr471-cd-cpp | tee /tmp/mqr471-cd-cpp.log
+          grep -F 'MQR471_CPP_CLOSURE_DEFEASIBILITY=PASS' /tmp/mqr471-cd-cpp.log
+          grep -F 'MQR471_CPP_CASES=16' /tmp/mqr471-cd-cpp.log
+          grep -F 'MQR471_CPP_SCOPE_SEPARATION_CASES=3' /tmp/mqr471-cd-cpp.log
+          grep -F 'MQR471_CPP_EXECUTION_COMPLETE_NE_SCIENTIFIC_COMPLETE=YES' /tmp/mqr471-cd-cpp.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.71-closure-defeasibility
+          path: experiments/mqr-4.71/results/closure_defeasibility.tsv
