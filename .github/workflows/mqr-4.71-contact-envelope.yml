@@ -221,3 +221,34 @@ jobs:
         with:
           name: mqr-4.71-closure-defeasibility
           path: experiments/mqr-4.71/results/closure_defeasibility.tsv
+
+
+  three-layer-contact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Canonical three-layer contact court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.71/three_layer_contact_court.py | tee /tmp/mqr471-3l.log
+          grep -F 'MQR471_THREE_LAYER_CONTACT=PASS' /tmp/mqr471-3l.log
+          grep -F 'MQR471_CASES=7' /tmp/mqr471-3l.log
+          grep -F 'MQR471_TECH_UNLOCK_X_ONLY=YES' /tmp/mqr471-3l.log
+          grep -F 'MQR471_GENERATOR_NULL_C_ONLY=YES' /tmp/mqr471-3l.log
+          grep -F 'MQR471_RIVAL_C_S_WITHOUT_X=YES' /tmp/mqr471-3l.log
+          grep -F 'MQR471_EXECUTION_NONMONOTONE=YES' /tmp/mqr471-3l.log
+      - name: Independent C++ three-layer contact court
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.71/independent_three_layer_contact.cpp -o /tmp/mqr471-3l-cpp
+          /tmp/mqr471-3l-cpp | tee /tmp/mqr471-3l-cpp.log
+          grep -F 'MQR471_CPP_THREE_LAYER_CONTACT=PASS' /tmp/mqr471-3l-cpp.log
+          grep -F 'MQR471_CPP_CASES=7' /tmp/mqr471-3l-cpp.log
+          grep -F 'MQR471_CPP_TECH_UNLOCK_X_ONLY=YES' /tmp/mqr471-3l-cpp.log
+          grep -F 'MQR471_CPP_GENERATOR_NULL_C_ONLY=YES' /tmp/mqr471-3l-cpp.log
+          grep -F 'MQR471_CPP_RIVAL_C_S_WITHOUT_X=YES' /tmp/mqr471-3l-cpp.log
+          grep -F 'MQR471_CPP_EXECUTION_NONMONOTONE=YES' /tmp/mqr471-3l-cpp.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.71-three-layer-contact
+          path: experiments/mqr-4.71/results/three_layer_contact.tsv
