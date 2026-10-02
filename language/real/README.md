@@ -1530,3 +1530,49 @@ REALLOSS SOFTWARE PASS != MQR-SPECIFIC LOSS ONTOLOGY VALIDATED
 ```
 
 REALACQUIRE 0.29 remains the latest promoted Real-Language syntax.
+
+## 0.30 candidate extension — intervention-relative warrant lineage (UNPROMOTED)
+
+MQR-4.69 adds REALWARRANT 0.30-CANDIDATE.
+
+Canonical development implementation:
+- Rust: src/warrant_lineage_v30.rs / real-v30-warrant-lineage;
+- independent evaluator: prolog/warrant_lineage_v30.pl;
+- formal boundary: lean/MQR/WarrantLineage.lean;
+- frozen paired Court: ../../experiments/mqr-4.69/PAIR-FREEZE.tsv.
+
+The candidate separates:
+- full lineage as audit payload;
+- present extensional surface identity;
+- intervention-family identity;
+- derived predictive class;
+- lineage certificate.
+
+~~~text
+warrant.predictive_class_authority=DERIVED
+warrant.minimality_claim=INTERVENTION_RELATIVE
+warrant.full_lineage_equals_minimal_state=NO
+warrant.typed_ancestry_axes_primitive=NO
+warrant.behavioral_sufficiency_world_validity=NOT_ESTABLISHED
+~~~
+
+SIMULATED packets emit:
+
+~~~text
+warrant.world_validity=NOT_ESTABLISHED
+~~~
+
+The frozen MQR-4.69 Court produced:
+- 35 raw ancestry labels;
+- 19 typed four-axis states;
+- 7 predictive equivalence classes.
+
+Therefore the hand-labeled ancestry axes are not promoted as Real-Language ontology. The compiler may carry them as lineage metadata, but authority-relevant compression is intervention-relative.
+
+~~~text
+FULL LINEAGE != MINIMAL AUTHORITY STATE
+PROVENANCE IMPORTANCE != MQR NOVELTY
+PREDICTIVE SUFFICIENCY != WORLD VALIDITY
+~~~
+
+REALACQUIRE 0.29 remains the latest promoted Real-Language syntax.
