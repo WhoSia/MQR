@@ -1,0 +1,23 @@
+REALAPPROX 0.30-CANDIDATE
+sealed PASS
+lineage PASS
+audit PASS
+evidence_kind SIMULATED
+loss_sep BOUNDED
+loss_reopen NONE
+loss_prov NONE
+loss_ext BOUNDED
+loss_release NONE
+budget_sep MATERIAL
+budget_reopen BOUNDED
+budget_prov BOUNDED
+budget_ext MATERIAL
+budget_release BOUNDED
+debt_sep 1
+debt_reopen 0
+debt_prov 0
+debt_ext 1
+debt_release 0
+merge_ancestry synthetic_local_merge
+scalar_mode OFF
+END
