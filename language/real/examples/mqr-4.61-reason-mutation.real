@@ -1,0 +1,8 @@
+REALPROMOTE 0.28
+prior_relation INCOMPARABLE
+new_relation DOMINATES
+reason_before OPTION_VALUE
+reason_after INDEPENDENT_WORLD_CONTACT
+same_ancestry YES
+material_history YES
+END
