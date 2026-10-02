@@ -1,0 +1,192 @@
+name: MQR-4.66 Scientific-State Quotient Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.66/**'
+      - 'language/real/lean/MQR/ScientificStateQuotient.lean'
+      - '.github/workflows/mqr-4.66-scientific-state-quotient.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  haskell-canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.8.4'
+      - name: Build and run canonical Haskell court
+        run: |
+          set -euo pipefail
+          mkdir -p experiments/mqr-4.66/results
+          ghc -O2 experiments/mqr-4.66/QuotientCourt.hs -o /tmp/mqr466-hs
+          /tmp/mqr466-hs | tee /tmp/mqr466-hs.log
+          grep -F 'MQR466_HASKELL_CANONICAL=PASS' /tmp/mqr466-hs.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.66-haskell-results
+          path: experiments/mqr-4.66/results/
+      - name: Publish canonical receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.66/Haskell-Canonical"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  cpp-concordance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.8.4'
+      - name: Run Haskell canonical
+        run: |
+          set -euo pipefail
+          mkdir -p experiments/mqr-4.66/results
+          ghc -O2 experiments/mqr-4.66/QuotientCourt.hs -o /tmp/mqr466-hs
+          /tmp/mqr466-hs >/tmp/hs.log
+      - name: Run independent C++
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.66/independent_census.cpp -o /tmp/mqr466-cpp
+          /tmp/mqr466-cpp | tee /tmp/cpp.log
+          grep -F 'MQR466_CPP_INDEPENDENT=PASS' /tmp/cpp.log
+      - name: Compare summaries and canonical partitions
+        run: |
+          set -euo pipefail
+          diff -u experiments/mqr-4.66/results/haskell_summary.tsv experiments/mqr-4.66/results/cpp_summary.tsv
+          diff -u experiments/mqr-4.66/results/haskell_q1_mapping.tsv experiments/mqr-4.66/results/cpp_q1_mapping.tsv
+          diff -u experiments/mqr-4.66/results/haskell_q3_mapping.tsv experiments/mqr-4.66/results/cpp_q3_mapping.tsv
+          diff -u experiments/mqr-4.66/results/haskell_q4_mapping.tsv experiments/mqr-4.66/results/cpp_q4_mapping.tsv
+          echo MQR466_HASKELL_CPP_CONCORDANCE=PASS
+      - name: Publish concordance receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.66/Haskell-Cpp-Concordance"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  prolog-adversary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.8.4'
+      - name: Install SWI-Prolog
+        run: sudo apt-get update && sudo apt-get install -y swi-prolog-nox
+      - name: Materialize frozen Q3 mapping
+        run: |
+          set -euo pipefail
+          mkdir -p experiments/mqr-4.66/results
+          ghc -O2 experiments/mqr-4.66/QuotientCourt.hs -o /tmp/mqr466-hs
+          /tmp/mqr466-hs >/tmp/hs.log
+      - name: Run Prolog adversary
+        run: |
+          set -euo pipefail
+          swipl -q -f experiments/mqr-4.66/alias_adversary.pl | tee /tmp/prolog.log
+          grep -F 'MQR466_PROLOG_PROVENANCE_WITNESS=' /tmp/prolog.log
+          grep -F 'MQR466_PROLOG_NOVELTY_WITNESS=' /tmp/prolog.log
+          grep -F 'MQR466_PROLOG_Q1_SHORTEST=' /tmp/prolog.log
+          grep -E 'MQR466_PROLOG_Q3_(STABLE|SEPARATING)=' /tmp/prolog.log
+          grep -F 'MQR466_PROLOG_ADVERSARY=PASS' /tmp/prolog.log
+      - name: Publish Prolog receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.66/Prolog-Adversary"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Verify stable quotient theorem boundary
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/ScientificStateQuotient.lean | tee /tmp/mqr466-lean.log
+          if grep -F 'sorryAx' /tmp/mqr466-lean.log; then exit 1; fi
+          for theorem in             MQR.stableRelationPreservesRun             MQR.stableRelationPreservesFiniteTraceLabels             MQR.distinguishingContinuationRefutesStability
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr466-lean.log
+          done
+          echo MQR466_LEAN_STABLE_QUOTIENT=PASS
+      - name: Publish Lean receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.66/Lean-Boundary"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  deterministic-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: haskell-actions/setup@v2
+        with:
+          ghc-version: '9.8.4'
+      - name: Replay Haskell result twice
+        run: |
+          set -euo pipefail
+          mkdir -p experiments/mqr-4.66/results
+          ghc -O2 experiments/mqr-4.66/QuotientCourt.hs -o /tmp/mqr466-hs
+          /tmp/mqr466-hs >/tmp/run1.log
+          cp experiments/mqr-4.66/results/haskell_summary.tsv /tmp/summary1
+          cp experiments/mqr-4.66/results/haskell_q4_mapping.tsv /tmp/map1
+          rm -rf experiments/mqr-4.66/results
+          mkdir -p experiments/mqr-4.66/results
+          /tmp/mqr466-hs >/tmp/run2.log
+          diff -u /tmp/summary1 experiments/mqr-4.66/results/haskell_summary.tsv
+          diff -u /tmp/map1 experiments/mqr-4.66/results/haskell_q4_mapping.tsv
+          sed '/RUNTIME_SECONDS/d' /tmp/run1.log >/tmp/r1
+          sed '/RUNTIME_SECONDS/d' /tmp/run2.log >/tmp/r2
+          diff -u /tmp/r1 /tmp/r2
+          echo MQR466_DETERMINISTIC_REPLAY=PASS
+      - name: Publish replay receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.66/Deterministic-Replay"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen low-temperature boundaries
+        run: |
+          set -euo pipefail
+          grep -F 'LOW-TEMPERATURE EVIDENCE DISCIPLINE' experiments/mqr-4.66/PRESEAL.md
+          grep -F '111,151' experiments/mqr-4.66/QUOTIENT-GRAMMAR-FREEZE.md
+          grep -F 'No target block count is predeclared' experiments/mqr-4.66/QUOTIENT-GRAMMAR-FREEZE.md
+          grep -F 'Shalizi & Crutchfield (2001)' experiments/mqr-4.66/LITERATURE.md
+          grep -F 'Python and Rust are not qualification-lane defaults for this stage.' experiments/mqr-4.66/PRESEAL.md
+          echo MQR466_STRUCTURAL_GUARDS=PASS
+      - name: Publish guard receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.66/Structural-Guards"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
