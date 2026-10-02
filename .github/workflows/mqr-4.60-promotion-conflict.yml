@@ -31,7 +31,8 @@ jobs:
         run: python experiments/mqr-4.60/reason_conflict_court.py
       - name: Publish Court receipt
         if: ${{ always() }}
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
           gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.60/Court" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
@@ -60,7 +61,8 @@ jobs:
           echo MQR460_RUST_PROLOG_CONCORDANCE=PASS
       - name: Publish Real-Language receipt
         if: ${{ always() }}
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
           gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.60/Real-Language" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
@@ -89,7 +91,8 @@ jobs:
           echo MQR460_AXIOM_ANCESTRY=EMPTY
       - name: Publish Lean receipt
         if: ${{ always() }}
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
           gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.60/Lean" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
@@ -111,7 +114,8 @@ jobs:
         run: cd language/real/lean && lake env lean MQR.lean
       - name: Publish integration receipt
         if: ${{ always() }}
-        env: { GH_TOKEN: ${{ github.token }} }
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
           gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="MQR-4.60/Lean-Integration" -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
