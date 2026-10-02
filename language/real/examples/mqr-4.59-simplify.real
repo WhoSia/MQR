@@ -1,0 +1,13 @@
+REALPROMOTE 0.26
+add NONE
+contact NONE
+repair NONE
+simplify YES
+narrow NO
+localize NO
+scope NO
+live YES
+archive NO
+sealed PASS
+lineage PASS
+END

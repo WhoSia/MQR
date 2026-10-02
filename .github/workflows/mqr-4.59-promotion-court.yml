@@ -1,0 +1,90 @@
+name: MQR-4.59 Promotion Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.59/**'
+      - 'language/real/src/promote_v26.rs'
+      - 'language/real/prolog/promote_v26.pl'
+      - 'language/real/examples/mqr-4.59-*.real'
+      - 'language/real/V26-PROMOTION.md'
+      - '.github/workflows/mqr-4.59-promotion-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  promotion-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Prolog
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+      - name: Build evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v26-promote
+      - name: Execute v0.26 cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v26-promote
+          P=language/real/prolog/promote_v26.pl
+          for f in language/real/examples/mqr-4.59-*.real; do
+            "$V" "$f" > /tmp/r
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/p
+            diff -u /tmp/r /tmp/p
+          done
+          "$V" language/real/examples/mqr-4.59-material.real | grep -F 'promote.decision=PROMOTE'
+          "$V" language/real/examples/mqr-4.59-simplify.real | grep -F 'promote.decision=PROMOTE'
+          "$V" language/real/examples/mqr-4.59-formal.real | grep -F 'promote.decision=COMPRESS'
+          "$V" language/real/examples/mqr-4.59-archive.real | grep -F 'promote.decision=ARCHIVE'
+          "$V" language/real/examples/mqr-4.59-option.real | grep -F 'promote.decision=PROMOTE'
+          "$V" language/real/examples/mqr-4.59-audit-hold.real | grep -F 'promote.decision=HOLD'
+          echo MQR459_V26_CASES=PASS
+      - name: Execute full frozen promotion court
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.59/promotion_court.py | tee /tmp/mqr459.log
+          for n in $(seq -w 1 20); do
+            grep -F "mqr459.c$n=PASS" /tmp/mqr459.log
+          done
+          for n in $(seq -w 1 10); do
+            grep -F "mqr459.p$n=ADMIT" /tmp/mqr459.log
+          done
+          grep -F 'mqr459.old_rule_false_negative=PASS' /tmp/mqr459.log
+          grep -F 'mqr459.old_rule_false_positive=PASS' /tmp/mqr459.log
+          grep -F 'mqr459.prior_rule_necessary=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.execution_universal_gate=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.novelty_default_value=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.recursive_artifact_count_progress=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.criterion_authority_default=REJECT' /tmp/mqr459.log
+          grep -F 'mqr459.universal_meta_objective=NOT_EARNED' /tmp/mqr459.log
+          grep -F 'mqr459.rpar=CANDIDATE' /tmp/mqr459.log
+          grep -F 'mqr459.mcl=CANDIDATE' /tmp/mqr459.log
+          grep -F 'mqr459.cdr=CANDIDATE' /tmp/mqr459.log
+
+      - name: Upload promotion report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.59-promotion-report-${{ github.sha }}
+          path: experiments/mqr-4.59/results/promotion_court.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.59/Court"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

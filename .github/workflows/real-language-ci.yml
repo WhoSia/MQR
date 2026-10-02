@@ -7,6 +7,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'experiments/mqr-4.59/FINAL-SEAL.md'
       - 'experiments/mqr-4.55/FINAL-SEAL.md'
       - 'experiments/mqr-4.54/FINAL-SEAL.md'
       - 'experiments/mqr-4.53/FINAL-SEAL.md'
@@ -37,7 +38,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19|PROGRESS 0.20|INVARIANCE 0.21|CONSEQUENCE 0.22|VALUE 0.23|STRATEGY 0.24|REFLEX 0.25)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19|PROGRESS 0.20|INVARIANCE 0.21|CONSEQUENCE 0.22|VALUE 0.23|STRATEGY 0.24|REFLEX 0.25|PROMOTE 0.26)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out

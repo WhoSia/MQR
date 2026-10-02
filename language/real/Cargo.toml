@@ -108,3 +108,7 @@ path = "src/strategy_v24.rs"
 [[bin]]
 name = "real-v25-reflex"
 path = "src/reflex_v25.rs"
+
+[[bin]]
+name = "real-v26-promote"
+path = "src/promote_v26.rs"
