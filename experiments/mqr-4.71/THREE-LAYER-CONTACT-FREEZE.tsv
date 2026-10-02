@@ -1,0 +1,8 @@
+case_id	candidate	scientific	executable	transition	expected_C	expected_S	expected_X	role
+L0_NULL	YES	NO	NO	NONE	SAME	SAME	SAME	candidate_only
+L1_BLOCKED	YES	YES	NO	NONE	SAME	SAME	SAME	scientific_blocked
+L2_EXEC	YES	YES	YES	NONE	SAME	SAME	SAME	executable_scientific
+T_UNLOCK	YES	YES	NO	TECH_UNLOCK	SAME	SAME	EXPAND	execution_unlock
+E_RESTRICT	YES	YES	YES	ETHICS_RESTRICT	SAME	SAME	CONTRACT	execution_restriction
+R_ARRIVE	NO	NO	NO	RIVAL_ARRIVAL	EXPAND	EXPAND	SAME	rival_scientific_entry
+G_NULL	NO	NO	NO	GENERATOR_NULL_ENTRY	EXPAND	SAME	SAME	candidate_null_entry
