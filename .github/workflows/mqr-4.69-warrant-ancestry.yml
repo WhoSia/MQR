@@ -1,0 +1,94 @@
+name: MQR-4.69 Warrant-Ancestry Nonfungibility Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.69/**'
+      - '.github/workflows/mqr-4.69-warrant-ancestry.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run canonical Python court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.69/warrant_ancestry_court.py             experiments/mqr-4.69/PAIR-FREEZE.tsv             experiments/mqr-4.69/ANCESTRY-FEATURES.tsv | tee /tmp/mqr469-python.log
+          grep -F 'MQR469_PYTHON_COURT=PASS' /tmp/mqr469-python.log
+          grep -F $'EXPECTATION_MISMATCHES\t0' experiments/mqr-4.69/results/python_summary.tsv
+          grep -F $'PRESENT_SURFACE_LEAKAGE\t0' experiments/mqr-4.69/results/python_summary.tsv
+          grep -F $'CAUSAL_SWAP_FAILURES\t0' experiments/mqr-4.69/results/python_summary.tsv
+          grep -F $'MINIMAL_FEATURE_COUNT\t4' experiments/mqr-4.69/results/python_summary.tsv
+          grep -F $'1\t4\tauthorization_state,provenance_state,defeater_state,revision_state'             experiments/mqr-4.69/results/minimal_feature_sets.tsv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.69-canonical-results
+          path: experiments/mqr-4.69/results/
+      - name: Publish canonical receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Canonical-Court"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  independent-concordance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run canonical Python
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.69/warrant_ancestry_court.py             experiments/mqr-4.69/PAIR-FREEZE.tsv             experiments/mqr-4.69/ANCESTRY-FEATURES.tsv
+      - name: Run independent C++
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.69/independent_warrant_ancestry.cpp -o /tmp/mqr469-cpp
+          /tmp/mqr469-cpp             experiments/mqr-4.69/PAIR-FREEZE.tsv             experiments/mqr-4.69/ANCESTRY-FEATURES.tsv | tee /tmp/mqr469-cpp.log
+          grep -F 'MQR469_CPP_COURT=PASS' /tmp/mqr469-cpp.log
+          grep -F 'MQR469_MINIMAL_FEATURE_COUNT=4' /tmp/mqr469-cpp.log
+      - name: Exact concordance
+        run: |
+          set -euo pipefail
+          diff -u experiments/mqr-4.69/results/python_results.tsv                   experiments/mqr-4.69/results/cpp_results.tsv
+          diff -u experiments/mqr-4.69/results/python_summary.tsv                   experiments/mqr-4.69/results/cpp_summary.tsv
+          diff -u experiments/mqr-4.69/results/minimal_feature_sets.tsv                   experiments/mqr-4.69/results/cpp_minimal_feature_sets.tsv
+          echo MQR469_PYTHON_CPP_CONCORDANCE=PASS
+      - name: Publish concordance receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Python-Cpp-Concordance"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify preseal and anti-history-inflation guards
+        run: |
+          set -euo pipefail
+          grep -F 'The stage is defeated if the apparent difference can be explained by a present-state variable' experiments/mqr-4.69/PRESEAL.md
+          grep -F 'full history' experiments/mqr-4.69/PRESEAL.md
+          grep -F 'F11 — Historical overretention' experiments/mqr-4.69/PRESEAL.md
+          grep -F 'BASELINE_WIN' experiments/mqr-4.69/PAIR-FREEZE.tsv
+          grep -F 'FUNGIBLE' experiments/mqr-4.69/PAIR-FREEZE.tsv
+          grep -F 'Predictive-state and causal-state baseline' experiments/mqr-4.69/LITERATURE.md
+          grep -F 'PROVENANCE GRAPH EXISTS' experiments/mqr-4.69/LITERATURE.md
+          test "$(head -n1 experiments/mqr-4.69/ANCESTRY-FEATURES.tsv)" = $'ancestry\tauthorization_state\tprovenance_state\tdefeater_state\trevision_state'
+          echo MQR469_STRUCTURAL_GUARDS=PASS
+      - name: Publish guard receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.69/Structural-Guards"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
