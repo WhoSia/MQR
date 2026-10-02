@@ -1481,3 +1481,52 @@ Promotion to canonical 0.30 remains blocked by:
 - partial naturalistic transport (currently strongest for provenance/analysis ancestry only);
 - lack of an admitted lossy quotient in the frozen 4.67 Court;
 - unresolved justification of the full loss ontology and veto priorities.
+
+
+## 0.30 candidate extension — warrant-bearing scientific loss contracts (UNPROMOTED)
+
+MQR-4.68 adds a second development-only 0.30 surface:
+
+`REALLOSS 0.30-CANDIDATE`
+
+Canonical development implementation:
+- Rust: `src/loss_contract_v30.rs` / `real-v30-loss-contract`;
+- independent evaluator: `prolog/loss_contract_v30.pl`;
+- formal boundary: `lean/MQR/LossContract.lean`;
+- frozen Court: `../../experiments/mqr-4.68/COURT-FREEZE.tsv`.
+
+The contract records, without a global score:
+- typed loss and coordinate-local ceiling;
+- context and horizon;
+- warrant kind/source/defeaters;
+- expiry;
+- reopening trigger;
+- cross-domain transport certificate state;
+- revision request, authorization and trigger;
+- merge ancestry.
+
+Mechanical guards include:
+
+```text
+loss_contract.scalar_authority=OFF
+loss_contract.global_loss_score=FORBIDDEN
+loss_contract.cross_domain_severity_equality=NOT_ASSUMED
+loss_contract.authority_reducibility=NOT_ESTABLISHED_BY_REPRESENTATION
+```
+
+SIMULATED packets emit:
+
+```text
+loss_contract.world_validity=NOT_ESTABLISHED
+```
+
+The frozen 4.68 Court deliberately included cases where established decision theory wins. Its tested surface was absorbed by representation-only, hard-constraint, partial-order, preference-revision and utility-recovery baselines.
+
+Therefore the executable contract is useful infrastructure, but not a promoted semantic theory.
+
+```text
+EXECUTABLE WARRANT FIELD != WARRANTED SCIENTIFIC AUTHORITY
+REALLOSS SOFTWARE PASS != MQR-SPECIFIC LOSS ONTOLOGY VALIDATED
+```
+
+REALACQUIRE 0.29 remains the latest promoted Real-Language syntax.
