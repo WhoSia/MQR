@@ -1165,12 +1165,25 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 370. **Criterion self-authority is rejected.** RPAR/MCL/CDR remain successor-vulnerable; no promotion rule is exempt from later court.
 371. **Promotion is a partial typed relation.** The live decision surface is PROMOTE / COMPRESS / ARCHIVE / REJECT / HOLD rather than a total ranking.
 372. **No universal promotion meta-objective is earned.** Local governance may be rational, explicit and reproducible without collapsing truthlikeness, understanding, problem-solving, usefulness and institutional value into one scalar.
+373. **Valid promotion reasons may remain incomparable.** When two typed reasons have no licensed dominance, veto or defeat relation at the declared scope/horizon, HOLD is an admissible epistemic outcome rather than a failed decision procedure.
+374. **Pairwise dominance does not imply a total promotion order.** Local dominance can guide a particular comparison without ranking every constitution or every future reason.
+375. **Pareto non-domination is a candidate-set property, not a unique promotion selector.** Multiple constitutions may remain non-dominated; additional authority is required to choose among them.
+376. **Veto power is local and typed.** A fatal defect may block promotion under an explicit scope/horizon relation, but that does not create a universally highest-priority reason class.
+377. **Reason multiplicity requires ancestry audit.** Duplicated or common-mode reasons cannot acquire extra force merely by being restated under multiple labels; RAG tracks independent warrant rather than nominal count.
+378. **Promotion conflict is horizon- and scope-sensitive.** A locally admissible relation may reverse when the declared horizon or deployment scope changes; such reversal must be receipted rather than hidden inside retuned weights.
+379. **Weighted and lexicographic aggregation are tools, not self-authorizing constitutions.** They may be locally adopted under a separately warranted contract, but neither is the default universal conflict resolver.
+380. **Conflict preservation can be epistemically positive.** PRCR may retain unresolved opposition so that later world contact, debt discharge, scope change or option realization can reopen the decision without reconstructing a false scalar consensus.
+381. **No universal promotion meta-utility is earned by conflict adjudication.** REALPROMOTE 0.27 provides local dominance, scoped veto, incomparability and defeat-under-scope while preserving a non-total promotion relation.
 
 ## Live governance objects
 
 - Reflexive Promotion-Admissibility Receipt (RPAR)
 - Meta-Criterion Lineage (MCL)
 - Compression/Deletion Receipt (CDR)
+- Promotion-Reason Conflict Receipt (PRCR)
+- Reason-Ancestry Graph (RAG; promotion-reason independence/common-mode audit)
+- Horizon/Scope Receipt (HRS)
+- Conflict relation surface: DOMINATES / VETOES / INCOMPARABLE / DEFEATS_UNDER_SCOPE
 - Meta-Scientific Promotion Profile (MSPP)
 - Promotion decision surface: PROMOTE / COMPRESS / ARCHIVE / REJECT / HOLD
 - Material Executable-Separation Receipt
