@@ -84,12 +84,6 @@ A row is listed only when the current exact-title/author Drive re-search did not
 | Michael T. Hannan & John Freeman (1977), *The Population Ecology of Organizations* | DOI `10.1086/226424` |
 | Diana Hicks, Paul Wouters, Ludo Waltman, Sarah de Rijcke & Ismael Rafols (2015), *Bibliometrics: The Leiden Manifesto for research metrics* | DOI `10.1038/520429a` |
 
-## F. Historical/current reasoning source still missing
-
-| Source | Stable identifier |
-|---|---|
-| Karl Friston, Lancelot Da Costa, Alexander Tschantz, Conor Heins, Christopher L. Buckley, Tim Verbelen & Thomas Parr (2026), *Active Inference and Artificial Reasoning* | DOI `10.1038/s41467-026-77209-5` |
-
 ## G. 4.62–4.63 evidence-acquisition baselines
 
 | Source | Stable identifier |
@@ -115,7 +109,7 @@ A row is listed only when the current exact-title/author Drive re-search did not
 ## Explicitly re-cleared from old debt
 
 The following older debts now have exact or canonical Drive bytes and are **not** requested again:
-Dardashti 2021; Lehtinen 2026; Massimi 2018; Barrett & Halvorson 2016; Khalidi 2010; Schupbach 2018; Sober 1989; Mayo & Spanos 2006; Weatherall 2019; Massimi 2022; OPERA/ICARUS/LVD timing packet; Farman et al. 1985; Stolarski et al. 1986; Smaldino & McElreath 2016; Bornmann & Osório 2026; Shearer et al. 2024 ANGSA.
+Dardashti 2021; Lehtinen 2026; Massimi 2018; Barrett & Halvorson 2016; Khalidi 2010; Schupbach 2018; Sober 1989; Mayo & Spanos 2006; Weatherall 2019; Massimi 2022; OPERA/ICARUS/LVD timing packet; Farman et al. 1985; Stolarski et al. 1986; Smaldino & McElreath 2016; Bornmann & Osório 2026; Shearer et al. 2024 ANGSA; Friston et al. 2026.
 
 ## Boundary
 
