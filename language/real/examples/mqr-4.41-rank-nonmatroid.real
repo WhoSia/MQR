@@ -1,0 +1,29 @@
+REALCONTACTRANK 0.8
+id nonmatroid
+claim_scope C
+frontier F
+query_class Q
+root r1 EXTERNAL LIVE
+root r2 EXTERNAL LIVE
+root r3 EXTERNAL LIVE
+root r4 EXTERNAL LIVE
+cost r1 100
+cost r2 100
+cost r3 1
+cost r4 1
+obligation o1
+obligation o2
+obligation o3
+obligation o4
+separates r1 o1
+separates r1 o2
+separates r2 o3
+separates r2 o4
+separates r3 o1
+separates r3 o3
+separates r4 o2
+separates r4 o4
+authorize_rank 2
+authorize_unique NO
+authorize_exchange FAIL
+END

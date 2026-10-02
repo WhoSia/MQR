@@ -1,0 +1,21 @@
+REALDEFEAT 0.16
+id same-label-drift
+claim_scope route-identity
+source_representation R1
+target_representation R2
+challenge q1
+challenge q2
+source_content d m1 v1 a1 q1
+target_content d m1 v1 a1 q1+q2
+map d EXACT d
+role_witness d d q1
+authorize_identity_authority HOLD_ROLE_DRIFT
+authorize_local_equivalence NO
+authorize_split_duplication NO
+authorize_manifestation_multiplication NO
+authorize_mechanism_aliasing NO
+authorize_common_cause NO
+authorize_expansion_break NO
+authorize_hidden_novel NO
+authorize_path_conflict NO
+END

@@ -1,0 +1,22 @@
+REALMAPAUTH 0.13
+id common-ancestry-majority
+claim_scope translation-authority
+source_ontology V1
+target_ontology V2
+candidate_relation EXACT
+proposer P rootP
+adjudicator A1 shared EXTERNAL
+adjudicator A2 shared EXTERNAL
+adjudicator A3 shared EXTERNAL
+standard K std0 PRESEALED
+witness W1 K A1 DIRECT EXACT
+witness W2 K A2 DIRECT EXACT
+witness W3 K A3 DIRECT EXACT
+force_singleton NO
+authorize_mapping_authority HOLD_COMMON_ANCESTRY
+authorize_correspondence_singleton YES
+authorize_self_certified NO
+authorize_capture_risk NO
+authorize_meta_cycle NO
+authorize_world_separator NO
+END

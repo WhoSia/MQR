@@ -1,0 +1,20 @@
+REALREVISE 0.12
+id merge-preserve
+claim_scope burden-revision
+source_ontology V1
+target_ontology V2
+source_burden A q1 DEBT
+source_burden B q2 DEBT
+target_burden M q1+q2
+map A+B MERGE M MIXED
+target_cover M
+debt_trace A M
+debt_trace B M
+debt_count_mode SOURCE_ANCESTRY
+witness_future_burden NONE
+authorize_debt_complete YES
+authorize_merge_preserved YES
+authorize_path_conflict NO
+authorize_arbitration NO
+authorize_same_label_drift NO
+END

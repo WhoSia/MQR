@@ -1,0 +1,14 @@
+REALPROGRESS 0.20
+id invalid_scientific_semantics_but_parseable
+chart OTHER
+inert_checkpoint QUOTIENT
+evidence_batching QUOTIENT
+parameter_recode QUOTIENT
+obligation_partition QUOTIENT
+path_loop QUOTIENT
+path_order COMMUTATIVE
+local_structure ADMISSIBLE_REGION
+magnitude_transport UNLICENSED
+continuation_value COLLAPSED
+reopening ACTIVE
+END

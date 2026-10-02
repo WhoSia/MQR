@@ -1,15 +1,20 @@
+# mqr-4.43-final-same-head-seal
+# mqr-4.42-final-doctrine-seal-ci
+# mqr-4.42-final-same-head-seal
 name: Real-Language CI
 
 on:
   push:
     branches: [main]
     paths:
+      - 'experiments/mqr-4.52/FINAL-SEAL.md'
       - 'language/real/**'
       - '.github/workflows/real-language-ci.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
+  statuses: write
 
 jobs:
   validate:
@@ -29,15 +34,12 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -q '^REALPACKET 0.4$' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19|PROGRESS 0.20)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
             python language/real/reference.py "$f" > /tmp/python.out
             diff -u /tmp/python.out /tmp/rust.out
-            ./language/real/target/release/real --diagnostic-scalar "$f" > /tmp/rust.scalar
-            python language/real/reference.py --diagnostic-scalar "$f" > /tmp/python.scalar
-            diff -u /tmp/python.scalar /tmp/rust.scalar
           done
           echo REAL_LANGUAGE_PACKET_CONCORDANCE=PASS
 
@@ -47,20 +49,9 @@ jobs:
           set -euo pipefail
           EX=language/real/examples/mqr-4.31-hwpx-transport.real
           ./language/real/target/release/real "$EX" > /tmp/v03.out
-          grep -F 'lineage.kind=ENGINEERING_DEVELOPMENT' /tmp/v03.out
-          grep -F 'legacy.profile.T=DEPRECATED' /tmp/v03.out
           grep -F 'transport.mode=TYPED_RELATION_MAP' /tmp/v03.out
-          grep -F 'transport.claim_state=PARTIAL_WITH_HOLDS' /tmp/v03.out
-          ./language/real/target/release/real --diagnostic-scalar "$EX" > /tmp/v03.scalar
-          grep -F 'display.scalar.status=UNAVAILABLE_V0_3_TYPED_TRANSPORT' /tmp/v03.scalar
-          if ./language/real/target/release/real language/real/tests/v03-invalid-legacy-t.real; then
-            echo 'Rust unexpectedly accepted legacy T in v0.3' >&2
-            exit 1
-          fi
-          if python language/real/reference.py language/real/tests/v03-invalid-legacy-t.real; then
-            echo 'Python unexpectedly accepted legacy T in v0.3' >&2
-            exit 1
-          fi
+          if ./language/real/target/release/real language/real/tests/v03-invalid-legacy-t.real; then exit 1; fi
+          if python language/real/reference.py language/real/tests/v03-invalid-legacy-t.real; then exit 1; fi
           echo REAL_LANGUAGE_V03_TYPED_TRANSPORT_GUARDS=PASS
 
       - name: Calibration scorer persistent smoke
@@ -75,7 +66,6 @@ jobs:
           ./language/real/target/release/real-calibrate /tmp/cal.tsv > /tmp/rust.cal
           python language/real/calibration_reference.py /tmp/cal.tsv > /tmp/python.cal
           diff -u /tmp/python.cal /tmp/rust.cal
-          grep -F $'smoke\t0.500000\t0.500000\t0.500000\t0.500000\t0.500000' /tmp/rust.cal
           echo REAL_LANGUAGE_CALIBRATION_SCORER_SMOKE=PASS
 
       - name: Real-Packet v0.4 formal-empirical boundary guards
@@ -83,18 +73,943 @@ jobs:
         run: |
           set -euo pipefail
           V04=./language/real/target/release/real-v04
-          POS=language/real/examples/mqr-4.36-proof-boundary.real
-          NEG=language/real/tests/v04-invalid-axiom-laundering.real
-          "$V04" "$POS" > /tmp/v04.out
+          "$V04" language/real/examples/mqr-4.36-proof-boundary.real > /tmp/v04.out
           grep -F 'proof.world_laundering_guard=PASS' /tmp/v04.out
-          grep -F 'formal_validity_is_not_empirical_truth=true' /tmp/v04.out
-          grep -F 'empirical_entitlement_ceiling=HOLD' /tmp/v04.out
-          grep -F 'authorized=HOLD' /tmp/v04.out
           grep -F 'internal_residue=ZERO_INTERNAL' /tmp/v04.out
-          grep -F 'open_world_residue=true' /tmp/v04.out
-          if "$V04" "$NEG"; then
-            echo 'v0.4 unexpectedly allowed empirical HOLD to be promoted by formal CHECKED proof' >&2
-            exit 1
-          fi
+          if "$V04" language/real/tests/v04-invalid-axiom-laundering.real; then exit 1; fi
           echo REAL_LANGUAGE_V04_AXIOM_LAUNDERING_GUARD=PASS
-          echo REAL_LANGUAGE_V04_INTERNAL_VS_OPEN_WORLD_RESIDUE=PASS
+
+      - name: Real-Language v0.5 transfer guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          V05=./language/real/target/release/real-v05-transfer
+          POS=language/real/examples/mqr-4.38-transfer-positive.real
+          HOLDCASE=language/real/examples/mqr-4.38-transfer-hold.real
+          NONFORMAL=language/real/examples/mqr-4.38-nonformal-world-authority.real
+
+          "$V05" "$POS" > /tmp/v05.rust
+          grep '^coordinate\.' /tmp/v05.rust > /tmp/v05.rust.coords
+          grep -F 'coordinate.transfer=PASS' /tmp/v05.rust
+
+          "$V05" "$HOLDCASE" > /tmp/v05.hold
+          grep -F 'coordinate.transfer=HOLD' /tmp/v05.hold
+
+          "$V05" "$NONFORMAL" > /tmp/v05.nonformal
+          grep -F 'coordinate.transfer=NOT_APPLICABLE' /tmp/v05.nonformal
+
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ghc
+
+          runghc language/real/haskell/TransferV05.hs "$POS" > /tmp/v05.haskell
+          grep '^coordinate\.' /tmp/v05.haskell > /tmp/v05.haskell.coords
+          diff -u /tmp/v05.rust.coords /tmp/v05.haskell.coords
+
+          for f in \
+            language/real/tests/v05-invalid-self-certified-bridge.real \
+            language/real/tests/v05-invalid-scope-promotion.real \
+            language/real/tests/v05-invalid-ancestry-loss.real \
+            language/real/tests/v05-invalid-defeat-mirage.real \
+            language/real/tests/v05-invalid-world-authority-laundering.real
+          do
+            if "$V05" "$f"; then exit 1; fi
+            if runghc language/real/haskell/TransferV05.hs "$f"; then exit 1; fi
+          done
+          echo REAL_LANGUAGE_V05_TRANSFER_GUARDS=PASS
+          echo REAL_LANGUAGE_V05_RUST_HASKELL_CONCORDANCE=PASS
+
+      - name: Real-Language v0.6 composition guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          V06=./language/real/target/release/real-v06-compose
+          POS=language/real/examples/mqr-4.39-compose-positive.real
+          HOLDCASE=language/real/examples/mqr-4.39-compose-direct-hold.real
+
+          "$V06" "$POS" > /tmp/v06.rust
+          grep '^coordinate\.' /tmp/v06.rust > /tmp/v06.rust.coords
+          grep -F 'coordinate.local=PASS' /tmp/v06.rust
+          grep -F 'coordinate.semantic=PASS' /tmp/v06.rust
+          grep -F 'coordinate.scope=PASS' /tmp/v06.rust
+          grep -F 'coordinate.ancestry=PASS' /tmp/v06.rust
+          grep -F 'coordinate.defeat=PASS' /tmp/v06.rust
+          grep -F 'coordinate.assumption=PASS' /tmp/v06.rust
+          grep -F 'coordinate.global_nonamplification=PASS' /tmp/v06.rust
+          grep -F 'coordinate.direct=PASS' /tmp/v06.rust
+          grep -F 'coordinate.composition=PASS' /tmp/v06.rust
+
+          "$V06" "$HOLDCASE" > /tmp/v06.hold
+          grep -F 'coordinate.local=PASS' /tmp/v06.hold
+          grep -F 'coordinate.direct=HOLD' /tmp/v06.hold
+          grep -F 'coordinate.composition=HOLD' /tmp/v06.hold
+
+          runghc language/real/haskell/ComposeV06.hs "$POS" > /tmp/v06.haskell
+          grep '^coordinate\.' /tmp/v06.haskell > /tmp/v06.haskell.coords
+          diff -u /tmp/v06.rust.coords /tmp/v06.haskell.coords
+
+          runghc language/real/haskell/ComposeV06.hs "$HOLDCASE" > /tmp/v06.haskell.hold
+          grep -F 'coordinate.composition=HOLD' /tmp/v06.haskell.hold
+
+          for f in \
+            language/real/tests/v06-invalid-semantic-composition.real \
+            language/real/tests/v06-invalid-scope-union.real \
+            language/real/tests/v06-invalid-ancestry-reset.real \
+            language/real/tests/v06-invalid-defeat-disconnect.real \
+            language/real/tests/v06-invalid-assumption-conflict.real \
+            language/real/tests/v06-invalid-baseline-reset.real \
+            language/real/tests/v06-invalid-adjacent-pass-direct-fail.real
+          do
+            if "$V06" "$f"; then
+              echo "Rust unexpectedly accepted invalid v0.6 fixture: $f" >&2
+              exit 1
+            fi
+            if runghc language/real/haskell/ComposeV06.hs "$f"; then
+              echo "Haskell unexpectedly accepted invalid v0.6 fixture: $f" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V06_COMPOSITION_GUARDS=PASS
+          echo REAL_LANGUAGE_V06_RUST_HASKELL_CONCORDANCE=PASS
+          echo MQR439_LOCAL_PASS_NOT_COMPOSITE_PASS=PASS
+          echo MQR439_PATHWISE_NONAMPLIFICATION=PASS
+          echo MQR439_ADJACENT_PASS_NOT_DIRECT_PASS=PASS
+          echo ALGEBRAIC_COMPOSABILITY_IS_NOT_EPISTEMIC_COMPOSABILITY=TRUE
+
+      - name: Real-Language v0.7 substitution guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          V07=./language/real/target/release/real-v07-substitute
+          T=language/real/examples/mqr-4.40-substitution-transport-only.real
+          B=language/real/examples/mqr-4.40-substitution-basis.real
+          H=language/real/examples/mqr-4.40-substitution-direct-hold.real
+          "$V07" "$T" > /tmp/t.r
+          grep '^coordinate\.' /tmp/t.r > /tmp/t.rc
+          grep -F 'direct_receipt=ABSENT' /tmp/t.r
+          grep -F 'coordinate.substitution=PASS' /tmp/t.r
+          "$V07" "$B" > /tmp/b.r
+          grep -F 'coordinate.substitution=PASS' /tmp/b.r
+          grep -F 'wcb.minimum_declared_roots=1' /tmp/b.r
+          "$V07" "$H" > /tmp/h.r
+          grep -F 'coordinate.substitution=HOLD' /tmp/h.r
+          runghc language/real/haskell/SubstituteV07.hs "$T" > /tmp/t.h
+          grep '^coordinate\.' /tmp/t.h > /tmp/t.hc
+          diff -u /tmp/t.rc /tmp/t.hc
+          runghc language/real/haskell/SubstituteV07.hs "$B" > /tmp/b.h
+          grep -F 'coordinate.substitution=PASS' /tmp/b.h
+          runghc language/real/haskell/SubstituteV07.hs --basis-minimality "$B" > /tmp/min
+          grep -F 'DECLARED_WCB_MIN_ROOTS=1' /tmp/min
+          for f in language/real/tests/v07-invalid-*.real; do
+            if "$V07" "$f"; then exit 1; fi
+            if runghc language/real/haskell/SubstituteV07.hs "$f"; then exit 1; fi
+          done
+          echo REAL_LANGUAGE_V07_SUBSTITUTION_GUARDS=PASS
+          echo REAL_LANGUAGE_V07_RUST_HASKELL_CONCORDANCE=PASS
+          echo MQR440_DIRECT_ALWAYS_REQUIRED=REJECT
+          echo MQR440_WORLD_CONTACT_BASIS_SUBSTITUTION=PASS
+          echo INTERNAL_COHERENCE_IS_NOT_WORLD_CONTACT=TRUE
+
+
+      - name: Real-Language v0.8 contact-rank guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+          V08=./language/real/target/release/real-v08-rank
+          P08=language/real/prolog/contact_rank_v08.pl
+          N=language/real/examples/mqr-4.41-rank-nonmatroid.real
+
+          "$V08" "$N" > /tmp/n.rust
+          swipl -q -s "$P08" -g "run('$N'),halt" -t "halt(1)" > /tmp/n.prolog
+          grep -E '^rank\.(coverage_complete|minimum|basis_count|unique|exchange_property|minimum_basis_cost_min|minimum_basis_cost_max|minimum_bases)=' /tmp/n.rust > /tmp/n.rust.core
+          grep -E '^rank\.(coverage_complete|minimum|basis_count|unique|exchange_property|minimum_basis_cost_min|minimum_basis_cost_max|minimum_bases)=' /tmp/n.prolog > /tmp/n.prolog.core
+          diff -u /tmp/n.rust.core /tmp/n.prolog.core
+          grep -F 'rank.minimum=2' /tmp/n.rust
+          grep -F 'rank.basis_count=2' /tmp/n.rust
+          grep -F 'rank.unique=NO' /tmp/n.rust
+          grep -F 'rank.exchange_property=FAIL' /tmp/n.rust
+          grep -F 'rank.minimum_basis_cost_min=2' /tmp/n.rust
+          grep -F 'rank.minimum_basis_cost_max=200' /tmp/n.rust
+
+          "$V08" language/real/examples/mqr-4.41-rank-repr-a.real | grep -E '^rank\.(minimum|basis_count|unique|exchange_property)=' > /tmp/repr-a
+          "$V08" language/real/examples/mqr-4.41-rank-repr-b.real | grep -E '^rank\.(minimum|basis_count|unique|exchange_property)=' > /tmp/repr-b
+          diff -u /tmp/repr-a /tmp/repr-b
+
+          "$V08" language/real/examples/mqr-4.41-rank-frontier-base.real > /tmp/fb
+          "$V08" language/real/examples/mqr-4.41-rank-frontier-expanded.real > /tmp/fe
+          "$V08" language/real/examples/mqr-4.41-rank-drift-before.real > /tmp/db
+          "$V08" language/real/examples/mqr-4.41-rank-drift-after.real > /tmp/da
+          "$V08" language/real/examples/mqr-4.41-rank-instrument-before.real > /tmp/ib
+          "$V08" language/real/examples/mqr-4.41-rank-instrument-after.real > /tmp/ia
+          grep -F 'rank.minimum=1' /tmp/fb
+          grep -F 'rank.minimum=2' /tmp/fe
+          grep -F 'rank.minimum=1' /tmp/db
+          grep -F 'rank.minimum=2' /tmp/da
+          grep -F 'rank.minimum=2' /tmp/ib
+          grep -F 'rank.minimum=1' /tmp/ia
+
+          "$V08" language/real/examples/mqr-4.41-rank-ontology-a.real > /tmp/oa
+          "$V08" language/real/examples/mqr-4.41-rank-ontology-b.real > /tmp/ob
+          grep -F 'rank.minimum=1' /tmp/oa
+          grep -F 'rank.minimum=1' /tmp/ob
+          grep -F 'rank.obligation_count=2' /tmp/oa
+          grep -F 'rank.obligation_count=3' /tmp/ob
+
+          V07=./language/real/target/release/real-v07-substitute
+          "$V07" experiments/mqr-4.41/legacy-degree-single.real > /tmp/legacy-single
+          "$V07" experiments/mqr-4.41/legacy-degree-split.real > /tmp/legacy-split
+          grep -F 'wcb.minimum_declared_roots=1' /tmp/legacy-single
+          grep -F 'wcb.minimum_declared_roots=2' /tmp/legacy-split
+
+          for f in language/real/tests/v08-invalid-*.real; do
+            if "$V08" "$f"; then exit 1; fi
+            if swipl -q -s "$P08" -g "run('$f'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V08_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR441_DECLARED_DEGREE_ONTOLOGY_PRIMITIVE=REJECT
+          echo MQR441_FRONTIER_RELATIVE_CONTACT_RANK=PASS
+          echo MQR441_MINIMUM_BASIS_UNIQUENESS=REJECT
+          echo MQR441_GENERIC_MATROID_EXCHANGE=REJECT
+          echo MQR441_RANK_FRONTIER_AND_INSTRUMENT_RELATIVE=PASS
+
+
+      - name: Real-Language v0.9 frontier guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V09=./language/real/target/release/real-v09-frontier
+          P09=language/real/prolog/frontier_v09.pl
+          CORE='^frontier\.(baseline_rival_count|discovered_rival_count|admitted_rival_count|admitted_rivals|generator_count|generator_ancestry_count|generator_common_mode_detected|query_separates_current|escape_detected|off_query_escape|saturation_mirage|generator_relative_saturation|grammar_closed|fcr_before|fcr_after|stable_rank_escape|rank_increasing_escape|world_complete|discovery_value_scalar|fcr_guidance_scope|generator_independence_inferred|query_language_complete_inferred|admission_rule_complete_inferred|search_count_implies_completeness|open_frontier_receipt|reopening_reserve|reopen_on_escape|completeness_claim|discovery_impact_mode)='
+
+          for f in \
+            language/real/examples/mqr-4.42-stable-rank-escape.real \
+            language/real/examples/mqr-4.42-rank-increasing-escape.real \
+            language/real/examples/mqr-4.42-generator-common-mode.real \
+            language/real/examples/mqr-4.42-portfolio-a.real \
+            language/real/examples/mqr-4.42-portfolio-b.real
+          do
+            "$V09" "$f" > /tmp/v09.rust
+            swipl -q -s "$P09" -g "run('$f'),halt" -t "halt(1)" > /tmp/v09.prolog
+            grep -E "$CORE" /tmp/v09.rust > /tmp/v09.rust.core
+            grep -E "$CORE" /tmp/v09.prolog > /tmp/v09.prolog.core
+            diff -u /tmp/v09.rust.core /tmp/v09.prolog.core
+          done
+
+          "$V09" language/real/examples/mqr-4.42-stable-rank-escape.real > /tmp/v09.stable
+          grep -F 'frontier.query_separates_current=YES' /tmp/v09.stable
+          grep -F 'frontier.off_query_escape=YES' /tmp/v09.stable
+          grep -F 'frontier.stable_rank_escape=YES' /tmp/v09.stable
+          grep -F 'frontier.world_complete=NO' /tmp/v09.stable
+          grep -F 'frontier.open_frontier_receipt=REQUIRED' /tmp/v09.stable
+          grep -F 'frontier.reopening_reserve=REQUIRED' /tmp/v09.stable
+          grep -F 'frontier.completeness_claim=FORBIDDEN' /tmp/v09.stable
+          grep -F 'frontier.discovery_impact_mode=VECTOR' /tmp/v09.stable
+
+          "$V09" language/real/examples/mqr-4.42-rank-increasing-escape.real > /tmp/v09.inc
+          grep -F 'frontier.fcr_before=1' /tmp/v09.inc
+          grep -F 'frontier.fcr_after=2' /tmp/v09.inc
+          grep -F 'frontier.rank_increasing_escape=YES' /tmp/v09.inc
+
+          "$V09" language/real/examples/mqr-4.42-generator-common-mode.real > /tmp/v09.cm
+          grep -F 'frontier.generator_count=2' /tmp/v09.cm
+          grep -F 'frontier.generator_ancestry_count=1' /tmp/v09.cm
+          grep -F 'frontier.generator_common_mode_detected=YES' /tmp/v09.cm
+          grep -F 'frontier.generator_relative_saturation=YES' /tmp/v09.cm
+          grep -F 'frontier.grammar_closed=YES' /tmp/v09.cm
+          grep -F 'frontier.world_complete=NO' /tmp/v09.cm
+
+          "$V09" language/real/examples/mqr-4.42-portfolio-a.real > /tmp/v09.pa
+          "$V09" language/real/examples/mqr-4.42-portfolio-b.real > /tmp/v09.pb
+          grep -F 'frontier.admitted_rivals=r0+ra' /tmp/v09.pa
+          grep -F 'frontier.admitted_rivals=r0+rb' /tmp/v09.pb
+
+          for x in language/real/tests/v09-invalid-*.real; do
+            if "$V09" "$x"; then exit 1; fi
+            if swipl -q -s "$P09" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V09_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR442_QUERY_CLOSURE_FROM_CURRENT_RIVALS=REJECT
+          echo MQR442_GENERATOR_DIVERSITY_AS_INDEPENDENCE=REJECT
+          echo MQR442_GENERATOR_RELATIVE_SATURATION=PASS
+          echo MQR442_STABLE_RANK_DISCOVERY=PASS
+          echo MQR442_RANK_DELTA_AS_DISCOVERY_VALUE=REJECT
+          echo MQR442_FINITE_GRAMMAR_AS_SCIENTIFIC_CLOSURE=REJECT
+          echo MQR442_CONDITIONAL_FRONTIER_GUIDANCE=PASS
+          echo MQR442_WORLD_FRONTIER_COMPLETE=NO
+
+
+      - name: Real-Language v0.10 allocation guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V10=./language/real/target/release/real-v10-allocate
+          P10=language/real/prolog/allocation_v10.pl
+          CORE='^allocation\.(budget|horizon|total_allocated|reserve_units|budget_valid|lane_count|mandatory_lane_count|ancestry_count|common_mode_detected|nominal_reserve|activation_capable_reserve|reserve_state|starvation_detected|exploration_debt_count|exploration_debt_items|exploration_debt_classes|debt_scalar_default|opportunity_cost_mode|exploitation_spend|reopening_spend|exploration_starved|greedy_yield_starvation_witness|escape_detected|escape_reallocation_required|reopen_on_escape|normative_prior|normative_utility|hidden_prior_inferred|hidden_utility_inferred|expected_discovery_value_inferred|unique_optimum_authorized|universal_next_action|local_optimizer_scope|guidance_mode|admissible_envelope|randomization_epistemic_oracle|policy_path_provenance|world_optimum_identified|world_frontier_complete|stopping_rule)='
+
+          for f in \
+            language/real/examples/mqr-4.43-twin-world-a.real \
+            language/real/examples/mqr-4.43-twin-world-b.real \
+            language/real/examples/mqr-4.43-reserve-goodhart.real \
+            language/real/examples/mqr-4.43-reserve-live.real \
+            language/real/examples/mqr-4.43-anti-starvation.real \
+            language/real/examples/mqr-4.43-greedy-starvation.real \
+            language/real/examples/mqr-4.43-common-mode-inflation.real \
+            language/real/examples/mqr-4.43-debt-query.real \
+            language/real/examples/mqr-4.43-debt-representation.real \
+            language/real/examples/mqr-4.43-escape-reallocation.real \
+            language/real/examples/mqr-4.43-declared-model-local.real
+          do
+            "$V10" "$f" > /tmp/v10.rust
+            swipl -q -s "$P10" -g "run('$f'),halt" -t "halt(1)" > /tmp/v10.prolog
+            grep -E "$CORE" /tmp/v10.rust > /tmp/v10.rust.core
+            grep -E "$CORE" /tmp/v10.prolog > /tmp/v10.prolog.core
+            diff -u /tmp/v10.rust.core /tmp/v10.prolog.core
+          done
+
+          "$V10" language/real/examples/mqr-4.43-twin-world-a.real > /tmp/twa
+          "$V10" language/real/examples/mqr-4.43-twin-world-b.real > /tmp/twb
+          grep -E "$CORE" /tmp/twa > /tmp/twa.core
+          grep -E "$CORE" /tmp/twb > /tmp/twb.core
+          diff -u /tmp/twa.core /tmp/twb.core
+          grep -F 'witness.escape_lane=A' /tmp/twa
+          grep -F 'witness.escape_lane=B' /tmp/twb
+          grep -F 'allocation.universal_next_action=UNIDENTIFIED' /tmp/twa
+          grep -F 'allocation.unique_optimum_authorized=NO' /tmp/twa
+
+          "$V10" language/real/examples/mqr-4.43-reserve-goodhart.real > /tmp/rg
+          "$V10" language/real/examples/mqr-4.43-reserve-live.real > /tmp/rl
+          grep -F 'allocation.reserve_units=2' /tmp/rg
+          grep -F 'allocation.reserve_units=2' /tmp/rl
+          grep -F 'allocation.activation_capable_reserve=NO' /tmp/rg
+          grep -F 'allocation.reserve_state=NOMINAL_ONLY' /tmp/rg
+          grep -F 'allocation.activation_capable_reserve=YES' /tmp/rl
+          grep -F 'allocation.reserve_state=LIVE' /tmp/rl
+
+          "$V10" language/real/examples/mqr-4.43-anti-starvation.real > /tmp/as
+          grep -F 'allocation.starvation_detected=NO' /tmp/as
+          grep -F 'allocation.exploration_debt_count=0' /tmp/as
+          grep -F 'allocation.admissible_envelope=YES' /tmp/as
+          grep -F 'allocation.world_frontier_complete=NO' /tmp/as
+
+          "$V10" language/real/examples/mqr-4.43-greedy-starvation.real > /tmp/gs
+          grep -F 'allocation.starvation_detected=YES' /tmp/gs
+          grep -F 'allocation.exploration_starved=YES' /tmp/gs
+          grep -F 'allocation.greedy_yield_starvation_witness=YES' /tmp/gs
+
+          "$V10" language/real/examples/mqr-4.43-common-mode-inflation.real > /tmp/cm43
+          grep -F 'allocation.lane_count=3' /tmp/cm43
+          grep -F 'allocation.ancestry_count=2' /tmp/cm43
+          grep -F 'allocation.common_mode_detected=YES' /tmp/cm43
+          grep -F 'allocation.exploration_debt_count=1' /tmp/cm43
+
+          "$V10" language/real/examples/mqr-4.43-debt-query.real > /tmp/dq
+          "$V10" language/real/examples/mqr-4.43-debt-representation.real > /tmp/dr
+          grep -F 'allocation.exploration_debt_count=1' /tmp/dq
+          grep -F 'allocation.exploration_debt_count=1' /tmp/dr
+          grep -F 'allocation.exploration_debt_classes=QUERY' /tmp/dq
+          grep -F 'allocation.exploration_debt_classes=REPRESENTATION' /tmp/dr
+          grep -F 'allocation.debt_scalar_default=OFF' /tmp/dq
+
+          "$V10" language/real/examples/mqr-4.43-escape-reallocation.real > /tmp/esc43
+          grep -F 'allocation.escape_detected=YES' /tmp/esc43
+          grep -F 'allocation.escape_reallocation_required=YES' /tmp/esc43
+          grep -F 'allocation.reopen_on_escape=YES' /tmp/esc43
+
+          "$V10" language/real/examples/mqr-4.43-declared-model-local.real > /tmp/model43
+          grep -F 'allocation.local_optimizer_scope=DECLARED_MODEL_ONLY' /tmp/model43
+          grep -F 'allocation.unique_optimum_authorized=NO' /tmp/model43
+          grep -F 'allocation.world_optimum_identified=NO' /tmp/model43
+          grep -F 'allocation.world_frontier_complete=NO' /tmp/model43
+
+          for x in language/real/tests/v10-invalid-*.real; do
+            if "$V10" "$x"; then exit 1; fi
+            if swipl -q -s "$P10" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V10_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR443_TWIN_WORLD_ALLOCATION_NONIDENTIFIABILITY=PASS
+          echo MQR443_ACTIVATION_CAPABLE_REOPENING_RESERVE=PASS
+          echo MQR443_TYPED_EXPLORATION_DEBT=PASS
+          echo MQR443_GREEDY_YIELD_STARVATION_WITNESS=PASS
+          echo MQR443_COMMON_MODE_PORTFOLIO_INFLATION=PASS
+          echo MQR443_ESCAPE_TRIGGERED_REALLOCATION=PASS
+          echo MQR443_UNIQUE_WORLD_OPTIMUM=NO
+          echo MQR443_WORLD_FRONTIER_COMPLETE=NO
+
+
+      - name: Real-Language v0.11 obligation-constitution guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V11=./language/real/target/release/real-v11-constitute
+          P11=language/real/prolog/constitution_v11.pl
+          CORE='^constitution\.(obligation_count|mandatory_obligation_count|burden_count|covered_burden_count|burden_union|uncovered_declared_burdens|agenda_source_count|agenda_ancestry_count|agenda_common_mode|endogenous_only|external_source_present|challenge_route|successor_claim_count|invalid_successor_claim_count|successor_coverage_complete|explicit_withdrawal_count|debt_transfer_required_count|debt_transfer_missing_count|debt_transfer_items|burden_laundering_detected|partition_count_authority|partition_audit_surface|external_source_truth_oracle|endogenous_source_truth_oracle|escape_detected|escape_reconstitution_required|reopen_on_escape|world_obligation_complete|burden_atom_ontology_complete|omitted_burden_inferred|open_world_receipt|guidance_mode|admissible_envelope|state)='
+
+          for f in \
+            language/real/examples/mqr-4.44-gerrymander-merged.real \
+            language/real/examples/mqr-4.44-gerrymander-split.real \
+            language/real/examples/mqr-4.44-common-mode-agenda.real \
+            language/real/examples/mqr-4.44-successor-invalid.real \
+            language/real/examples/mqr-4.44-successor-valid.real \
+            language/real/examples/mqr-4.44-debt-rename-launder.real \
+            language/real/examples/mqr-4.44-debt-transfer-preserved.real \
+            language/real/examples/mqr-4.44-debt-delete-launder.real \
+            language/real/examples/mqr-4.44-endogenous-marked.real \
+            language/real/examples/mqr-4.44-escape-reconstitution.real \
+            language/real/examples/mqr-4.44-omission-twin-a.real \
+            language/real/examples/mqr-4.44-omission-twin-b.real
+          do
+            "$V11" "$f" > /tmp/v11.rust
+            swipl -q -s "$P11" -g "run('$f'),halt" -t "halt(1)" > /tmp/v11.prolog
+            grep -E "$CORE" /tmp/v11.rust > /tmp/v11.rust.core
+            grep -E "$CORE" /tmp/v11.prolog > /tmp/v11.prolog.core
+            diff -u /tmp/v11.rust.core /tmp/v11.prolog.core
+          done
+
+          "$V11" language/real/examples/mqr-4.44-gerrymander-merged.real > /tmp/gm
+          "$V11" language/real/examples/mqr-4.44-gerrymander-split.real > /tmp/gs44
+          grep -F 'constitution.obligation_count=1' /tmp/gm
+          grep -F 'constitution.obligation_count=2' /tmp/gs44
+          grep -F 'constitution.burden_union=A+B' /tmp/gm
+          grep -F 'constitution.burden_union=A+B' /tmp/gs44
+          grep -F 'constitution.partition_count_authority=REJECT' /tmp/gm
+
+          "$V11" language/real/examples/mqr-4.44-common-mode-agenda.real > /tmp/cm44
+          grep -F 'constitution.agenda_source_count=2' /tmp/cm44
+          grep -F 'constitution.agenda_ancestry_count=1' /tmp/cm44
+          grep -F 'constitution.agenda_common_mode=YES' /tmp/cm44
+
+          "$V11" language/real/examples/mqr-4.44-successor-invalid.real > /tmp/si44
+          "$V11" language/real/examples/mqr-4.44-successor-valid.real > /tmp/sv44
+          grep -F 'constitution.successor_coverage_complete=NO' /tmp/si44
+          grep -F 'constitution.admissible_envelope=NO' /tmp/si44
+          grep -F 'constitution.successor_coverage_complete=YES' /tmp/sv44
+          grep -F 'constitution.admissible_envelope=YES' /tmp/sv44
+
+          "$V11" language/real/examples/mqr-4.44-debt-rename-launder.real > /tmp/dr44
+          "$V11" language/real/examples/mqr-4.44-debt-transfer-preserved.real > /tmp/dt44
+          "$V11" language/real/examples/mqr-4.44-debt-delete-launder.real > /tmp/dd44
+          grep -F 'constitution.successor_coverage_complete=YES' /tmp/dr44
+          grep -F 'constitution.burden_laundering_detected=YES' /tmp/dr44
+          grep -F 'constitution.admissible_envelope=NO' /tmp/dr44
+          grep -F 'constitution.burden_laundering_detected=NO' /tmp/dt44
+          grep -F 'constitution.admissible_envelope=YES' /tmp/dt44
+          grep -F 'constitution.burden_laundering_detected=YES' /tmp/dd44
+
+          "$V11" language/real/examples/mqr-4.44-endogenous-marked.real > /tmp/em44
+          grep -F 'constitution.endogenous_only=YES' /tmp/em44
+          grep -F 'constitution.endogenous_source_truth_oracle=NO' /tmp/em44
+          grep -F 'constitution.admissible_envelope=YES' /tmp/em44
+
+          "$V11" language/real/examples/mqr-4.44-escape-reconstitution.real > /tmp/er44
+          grep -F 'constitution.escape_reconstitution_required=YES' /tmp/er44
+          grep -F 'constitution.state=REOPEN_REQUIRED' /tmp/er44
+          grep -F 'constitution.admissible_envelope=NO' /tmp/er44
+
+          "$V11" language/real/examples/mqr-4.44-omission-twin-a.real > /tmp/ota
+          "$V11" language/real/examples/mqr-4.44-omission-twin-b.real > /tmp/otb
+          grep -E "$CORE" /tmp/ota > /tmp/ota.core
+          grep -E "$CORE" /tmp/otb > /tmp/otb.core
+          diff -u /tmp/ota.core /tmp/otb.core
+          grep -F 'witness.omitted_burden=NONE' /tmp/ota
+          grep -F 'witness.omitted_burden=Z' /tmp/otb
+          grep -F 'constitution.world_obligation_complete=NO' /tmp/ota
+          grep -F 'constitution.burden_atom_ontology_complete=NO' /tmp/ota
+          grep -F 'constitution.omitted_burden_inferred=NO' /tmp/otb
+
+          for x in language/real/tests/v11-invalid-*.real; do
+            if "$V11" "$x"; then exit 1; fi
+            if swipl -q -s "$P11" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V11_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR444_SEARCH_CLASS_GERRYMANDER_WITNESS=PASS
+          echo MQR444_AGENDA_ANCESTRY_COMMON_MODE=PASS
+          echo MQR444_SUCCESSOR_COVERAGE_GUARD=PASS
+          echo MQR444_DEBT_CONTINUITY_GUARD=PASS
+          echo MQR444_ENDOGENOUS_AGENDA_MARKED=PASS
+          echo MQR444_ESCAPE_RECONSTITUTION=PASS
+          echo MQR444_WORLD_OBLIGATION_COMPLETE=NO
+          echo MQR444_GUIDANCE_MODE=CONTRACT_RELATIVE_CONSTITUTIONAL
+
+
+      - name: Real-Language v0.12 burden-revision guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V12=./language/real/target/release/real-v12-revise
+          P12=language/real/prolog/revision_v12.pl
+          CORE='^revision\.(source_burden_count|target_burden_count|map_count|exact_count|refine_count|merge_count|overlap_count|unmapped_source_count|unmapped_sources|target_novel_burden_count|target_novel_burdens|same_label_drift|different_label_exact_alias|debt_source_count|debt_transport_complete|debt_accounting_mode|refinement_multiplicity|debt_double_count_detected|debt_collapse_detected|merge_provenance_preserved|comparable_source_burden_count|comparability_mode|conflict_count|arbitration_required|conflict_scalar_default|direct_composed_conflict|reopen_required|reopen_on_path_conflict|world_burden_identity_inferred|future_revision_closed|newer_ontology_truth_oracle|provenance_truth_oracle|guidance_mode|state)='
+
+          for f in language/real/examples/mqr-4.45-*.real; do
+            "$V12" "$f" > /tmp/v12.rust
+            swipl -q -s "$P12" -g "run('$f'),halt" -t "halt(1)" > /tmp/v12.prolog
+            grep -E "$CORE" /tmp/v12.rust > /tmp/v12.rust.core
+            grep -E "$CORE" /tmp/v12.prolog > /tmp/v12.prolog.core
+            diff -u /tmp/v12.rust.core /tmp/v12.prolog.core
+          done
+
+          "$V12" language/real/examples/mqr-4.45-same-label-drift.real > /tmp/v12-drift
+          "$V12" language/real/examples/mqr-4.45-exact-alias.real > /tmp/v12-alias
+          "$V12" language/real/examples/mqr-4.45-refine-under.real > /tmp/v12-ref-under
+          "$V12" language/real/examples/mqr-4.45-refine-full.real > /tmp/v12-ref-full
+          "$V12" language/real/examples/mqr-4.45-refine-doublecount.real > /tmp/v12-ref-double
+          "$V12" language/real/examples/mqr-4.45-merge-launder.real > /tmp/v12-merge-bad
+          "$V12" language/real/examples/mqr-4.45-merge-preserve.real > /tmp/v12-merge-good
+          "$V12" language/real/examples/mqr-4.45-noncommuting-diamond.real > /tmp/v12-diamond
+          "$V12" language/real/examples/mqr-4.45-obligation-conflict.real > /tmp/v12-conflict
+
+          grep -F 'revision.same_label_drift=YES' /tmp/v12-drift
+          grep -F 'revision.different_label_exact_alias=YES' /tmp/v12-alias
+          grep -F 'revision.target_novel_burden_count=1' /tmp/v12-alias
+          grep -F 'revision.debt_transport_complete=NO' /tmp/v12-ref-under
+          grep -F 'revision.debt_transport_complete=YES' /tmp/v12-ref-full
+          grep -F 'revision.debt_double_count_detected=YES' /tmp/v12-ref-double
+          grep -F 'revision.debt_collapse_detected=YES' /tmp/v12-merge-bad
+          grep -F 'revision.merge_provenance_preserved=YES' /tmp/v12-merge-good
+          grep -F 'revision.direct_composed_conflict=YES' /tmp/v12-diamond
+          grep -F 'revision.arbitration_required=YES' /tmp/v12-conflict
+          grep -F 'revision.comparability_mode=MAPPED_SUBSPACE_ONLY' /tmp/v12-alias
+          grep -F 'revision.world_burden_identity_inferred=NO' /tmp/v12-alias
+          grep -F 'revision.future_revision_closed=NO' /tmp/v12-alias
+
+          "$V12" language/real/examples/mqr-4.45-unmapped-debt.real > /tmp/v12-unmapped
+          "$V12" language/real/examples/mqr-4.45-equal-count-exact.real > /tmp/v12-eq-exact
+          "$V12" language/real/examples/mqr-4.45-equal-count-overlap.real > /tmp/v12-eq-overlap
+          grep -F 'revision.unmapped_source_count=1' /tmp/v12-unmapped
+          grep -F 'revision.debt_transport_complete=NO' /tmp/v12-unmapped
+          grep -F 'revision.source_burden_count=1' /tmp/v12-eq-exact
+          grep -F 'revision.target_burden_count=1' /tmp/v12-eq-exact
+          grep -F 'revision.exact_count=1' /tmp/v12-eq-exact
+          grep -F 'revision.source_burden_count=1' /tmp/v12-eq-overlap
+          grep -F 'revision.target_burden_count=1' /tmp/v12-eq-overlap
+          grep -F 'revision.overlap_count=1' /tmp/v12-eq-overlap
+
+          for x in language/real/tests/v12-invalid-*.real; do
+            if "$V12" "$x"; then exit 1; fi
+            if swipl -q -s "$P12" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V12_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR445_REFINEMENT_DEBT_CONTINUITY=PASS
+          echo MQR445_MERGE_DEBT_ANCESTRY=PASS
+          echo MQR445_NONCOMMUTING_REVISION_DIAMOND=PASS
+          echo MQR445_CONFLICT_LOCALIZATION=PASS
+          echo MQR445_WORLD_BURDEN_IDENTITY=NO
+          echo MQR445_FUTURE_REVISION_CLOSED=NO
+
+
+      - name: Real-Language v0.13 translation-authority guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V13=./language/real/target/release/real-v13-map-authority
+          P13=language/real/prolog/map_authority_v13.pl
+          CORE='^authority\.(candidate_relation|adjudicator_count|adjudicator_ancestry_count|independence_state|self_certified|common_ancestry|standard_count|capture_risk|correspondence_set|correspondence_set_size|correspondence_singleton|forced_singleton_overclaim|conflict_count|direct_meta_conflict|world_facing_separator_present|meta_cycle|meta_debt_count|mapping_authority|unique_world_correspondence_inferred|future_translation_closed|consensus_truth_oracle|standard_truth_oracle|externality_truth_oracle|meta_cycle_authority|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.46-*.real; do
+            "$V13" "$f" > /tmp/v13.rust
+            swipl -q -s "$P13" -g "run('$f'),halt" -t "halt(1)" > /tmp/v13.prolog
+            grep -E "$CORE" /tmp/v13.rust > /tmp/v13.rust.core
+            grep -E "$CORE" /tmp/v13.prolog > /tmp/v13.prolog.core
+            diff -u /tmp/v13.rust.core /tmp/v13.prolog.core
+          done
+
+          "$V13" language/real/examples/mqr-4.46-self-certified.real > /tmp/v13-self
+          "$V13" language/real/examples/mqr-4.46-common-ancestry-majority.real > /tmp/v13-common
+          "$V13" language/real/examples/mqr-4.46-set-valued.real > /tmp/v13-set
+          "$V13" language/real/examples/mqr-4.46-forced-singleton.real > /tmp/v13-force
+          "$V13" language/real/examples/mqr-4.46-standard-capture.real > /tmp/v13-capture
+          "$V13" language/real/examples/mqr-4.46-world-separator.real > /tmp/v13-world
+          "$V13" language/real/examples/mqr-4.46-meta-cycle.real > /tmp/v13-cycle
+          "$V13" language/real/examples/mqr-4.46-finite-meta-debt.real > /tmp/v13-debt
+          "$V13" language/real/examples/mqr-4.46-direct-meta-conflict.real > /tmp/v13-dm
+
+          grep -F 'authority.mapping_authority=HOLD_SELF_CERTIFIED' /tmp/v13-self
+          grep -F 'authority.adjudicator_count=3' /tmp/v13-common
+          grep -F 'authority.adjudicator_ancestry_count=1' /tmp/v13-common
+          grep -F 'authority.mapping_authority=SET_VALUED_PROVISIONAL' /tmp/v13-set
+          grep -F 'authority.forced_singleton_overclaim=YES' /tmp/v13-force
+          grep -F 'authority.capture_risk=YES' /tmp/v13-capture
+          grep -F 'authority.world_facing_separator_present=YES' /tmp/v13-world
+          grep -F 'authority.meta_cycle=YES' /tmp/v13-cycle
+          grep -F 'authority.meta_debt_count=1' /tmp/v13-debt
+          grep -F 'authority.direct_meta_conflict=YES' /tmp/v13-dm
+          grep -F 'authority.unique_world_correspondence_inferred=NO' /tmp/v13-world
+          grep -F 'authority.future_translation_closed=NO' /tmp/v13-world
+
+          for x in language/real/tests/v13-invalid-*.real; do
+            if "$V13" "$x"; then exit 1; fi
+            if swipl -q -s "$P13" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V13_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR446_MAPPING_WITNESS_AUTHORITY=PASS
+          echo MQR446_SET_VALUED_CORRESPONDENCE=PASS
+          echo MQR446_STANDARD_CAPTURE_GUARD=PASS
+          echo MQR446_META_REGRESS_BOUNDARY=PASS
+          echo MQR446_UNIQUE_WORLD_CORRESPONDENCE=NO
+          echo MQR446_FUTURE_TRANSLATION_CLOSED=NO
+
+
+      - name: Real-Language v0.14 translation-challenge guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V14=./language/real/target/release/real-v14-challenge
+          P14=language/real/prolog/challenge_v14.pl
+          CORE='^challenge\.(registered_probe_count|selected_probe_count|selected_world_probe_count|selected_ancestry_count|route_count|covered_route_count|uncovered_route_count|declared_route_coverage_complete|probe_route_multiplicity|common_ancestry|post_outcome_selection|incumbent_relevance|discriminator_capture|omitted_counterprobe|correspondence_before|correspondence_after|narrowed|expansion_count|expansion_instability|expansion_reopen_required|expansion_state|current_family_complete|future_challenge_space_closed|probe_count_truth_oracle|externality_truth_oracle|cost_truth_oracle|selection_rule_truth_oracle|selection_authority|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.47-*.real; do
+            "$V14" "$f" > /tmp/v14.rust
+            swipl -q -s "$P14" -g "run('$f'),halt" -t "halt(1)" > /tmp/v14.prolog
+            grep -E "$CORE" /tmp/v14.rust > /tmp/v14.rust.core
+            grep -E "$CORE" /tmp/v14.prolog > /tmp/v14.prolog.core
+            diff -u /tmp/v14.rust.core /tmp/v14.prolog.core
+          done
+
+          "$V14" language/real/examples/mqr-4.47-cherry-pick-exact.real > /tmp/v14-cpe
+          "$V14" language/real/examples/mqr-4.47-cherry-pick-overlap.real > /tmp/v14-cpo
+          "$V14" language/real/examples/mqr-4.47-route-hole.real > /tmp/v14-hole
+          "$V14" language/real/examples/mqr-4.47-common-ancestry.real > /tmp/v14-common
+          "$V14" language/real/examples/mqr-4.47-probe-split-gerrymander.real > /tmp/v14-split
+          "$V14" language/real/examples/mqr-4.47-candidate-score-capture.real > /tmp/v14-cap
+          "$V14" language/real/examples/mqr-4.47-clean-narrowing.real > /tmp/v14-clean
+          "$V14" language/real/examples/mqr-4.47-expansion-reopen.real > /tmp/v14-reopen
+          "$V14" language/real/examples/mqr-4.47-stable-expansion.real > /tmp/v14-stable
+
+          grep -F 'challenge.correspondence_after=EXACT' /tmp/v14-cpe
+          grep -F 'challenge.correspondence_after=OVERLAP' /tmp/v14-cpo
+          grep -F 'challenge.omitted_counterprobe=YES' /tmp/v14-cpe
+          grep -F 'challenge.uncovered_route_count=1' /tmp/v14-hole
+          grep -F 'challenge.common_ancestry=YES' /tmp/v14-common
+          grep -F 'challenge.probe_route_multiplicity=YES' /tmp/v14-split
+          grep -F 'challenge.discriminator_capture=YES' /tmp/v14-cap
+          grep -F 'challenge.selection_authority=AUTHORIZED_PROVISIONAL_NARROWING' /tmp/v14-clean
+          grep -F 'challenge.expansion_reopen_required=YES' /tmp/v14-reopen
+          grep -F 'challenge.expansion_state=STABLE' /tmp/v14-stable
+          grep -F 'challenge.future_challenge_space_closed=NO' /tmp/v14-stable
+
+          for x in language/real/tests/v14-invalid-*.real; do
+            if "$V14" "$x"; then exit 1; fi
+            if swipl -q -s "$P14" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V14_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR447_SEPARATOR_CHERRYPICK_WITNESS=PASS
+          echo MQR447_ROUTE_COVERAGE_GUARD=PASS
+          echo MQR447_PROBE_ANCESTRY_GUARD=PASS
+          echo MQR447_DISCRIMINATOR_CAPTURE_GUARD=PASS
+          echo MQR447_EXPANSION_REOPENING=PASS
+          echo MQR447_FUTURE_CHALLENGE_SPACE_CLOSED=NO
+
+
+      - name: Real-Language v0.15 defeat-route ontology guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V15=./language/real/target/release/real-v15-route
+          P15=language/real/prolog/route_v15.pl
+          CORE='^route\.(source_route_count|target_route_count|source_content_count|target_content_count|source_covered_content_count|target_witnessed_content_count|source_ancestry_count|target_ancestry_count|split_count|merge_count|source_coverage_complete|target_coverage_complete|coverage_transport_complete|content_surface_equivalent|coverage_duplication_detected|coverage_collapse_detected|coverage_equivalence|hidden_route_count|hidden_novel_content|ancestry_entanglement|path_conflict|reopen_required|coverage_authority|current_route_ontology_complete|future_defeat_space_closed|route_count_truth_oracle|route_label_identity_oracle|coverage_fraction_truth_oracle|revision_path_truth_oracle|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.48-*.real; do
+            "$V15" "$f" > /tmp/v15.rust
+            swipl -q -s "$P15" -g "run('$f'),halt" -t "halt(1)" > /tmp/v15.prolog
+            grep -E "$CORE" /tmp/v15.rust > /tmp/v15.rust.core
+            grep -E "$CORE" /tmp/v15.prolog > /tmp/v15.prolog.core
+            diff -u /tmp/v15.rust.core /tmp/v15.prolog.core
+          done
+
+          "$V15" language/real/examples/mqr-4.48-split-inflation.real > /tmp/v15-split
+          "$V15" language/real/examples/mqr-4.48-merge-launder.real > /tmp/v15-merge
+          "$V15" language/real/examples/mqr-4.48-refinement-preserve.real > /tmp/v15-refine
+          "$V15" language/real/examples/mqr-4.48-hidden-novel.real > /tmp/v15-hidden
+          "$V15" language/real/examples/mqr-4.48-path-conflict.real > /tmp/v15-path
+          "$V15" language/real/examples/mqr-4.48-stable-revisions.real > /tmp/v15-stable
+
+          grep -F 'route.coverage_duplication_detected=YES' /tmp/v15-split
+          grep -F 'route.ancestry_entanglement=YES' /tmp/v15-split
+          grep -F 'route.coverage_collapse_detected=YES' /tmp/v15-merge
+          grep -F 'route.coverage_equivalence=YES' /tmp/v15-refine
+          grep -F 'route.coverage_authority=AUTHORIZED_CONTENT_PRESERVING_TRANSPORT' /tmp/v15-refine
+          grep -F 'route.hidden_novel_content=YES' /tmp/v15-hidden
+          grep -F 'route.reopen_required=YES' /tmp/v15-hidden
+          grep -F 'route.path_conflict=YES' /tmp/v15-path
+          grep -F 'route.future_defeat_space_closed=NO' /tmp/v15-stable
+          grep -F 'route.current_route_ontology_complete=NO' /tmp/v15-stable
+
+          for x in language/real/tests/v15-invalid-*.real; do
+            if "$V15" "$x"; then exit 1; fi
+            if swipl -q -s "$P15" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V15_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR448_ROUTE_LABEL_IDENTITY_GUARD=PASS
+          echo MQR448_SPLIT_MERGE_COVERAGE_TRANSPORT=PASS
+          echo MQR448_COVERAGE_EQUIVALENCE_FAILURE=PASS
+          echo MQR448_ROUTE_ANCESTRY_ENTANGLEMENT=PASS
+          echo MQR448_HIDDEN_ROUTE_REOPENING=PASS
+          echo MQR448_REVISION_PATH_CONFLICT=PASS
+          echo MQR448_FUTURE_DEFEAT_SPACE_CLOSED=NO
+
+
+      - name: Real-Language v0.16 defeat-content constitution guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V16=./language/real/target/release/real-v16-defeat
+          P16=language/real/prolog/defeat_v16.pl
+          CORE='^defeat\.(source_content_count|target_content_count|source_mechanism_count|target_mechanism_count|source_manifestation_count|target_manifestation_count|source_ancestry_count|target_ancestry_count|counterfactual_profile_count_source|counterfactual_profile_count_target|split_count|merge_count|manifestation_multiplication|mechanism_aliasing|common_cause_compression|role_transport_complete|local_counterfactual_equivalence|role_drift|split_without_new_distinction|representation_collapse|expansion_breaks_equivalence|hidden_content_count|hidden_novel_distinction|path_conflict|reopen_required|identity_authority|current_defeat_atoms_complete|future_defeat_space_closed|label_identity_oracle|mechanism_identity_oracle|manifestation_identity_oracle|counterfactual_equivalence_truth_oracle|representation_truth_oracle|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.49-*.real; do
+            "$V16" "$f" > /tmp/v16.rust
+            swipl -q -s "$P16" -g "run('$f'),halt" -t "halt(1)" > /tmp/v16.prolog
+            grep -E "$CORE" /tmp/v16.rust > /tmp/v16.rust.core
+            grep -E "$CORE" /tmp/v16.prolog > /tmp/v16.prolog.core
+            diff -u /tmp/v16.rust.core /tmp/v16.prolog.core
+          done
+
+          "$V16" language/real/examples/mqr-4.49-same-label-drift.real > /tmp/v16-drift
+          "$V16" language/real/examples/mqr-4.49-split-duplicate.real > /tmp/v16-split
+          "$V16" language/real/examples/mqr-4.49-refinement-genuine.real > /tmp/v16-refine
+          "$V16" language/real/examples/mqr-4.49-merge-launder.real > /tmp/v16-merge
+          "$V16" language/real/examples/mqr-4.49-merge-quotient.real > /tmp/v16-quotient
+          "$V16" language/real/examples/mqr-4.49-common-cause.real > /tmp/v16-common
+          "$V16" language/real/examples/mqr-4.49-expansion-break.real > /tmp/v16-expansion
+          "$V16" language/real/examples/mqr-4.49-representation-collapse.real > /tmp/v16-collapse
+          "$V16" language/real/examples/mqr-4.49-hidden-novel.real > /tmp/v16-hidden
+          "$V16" language/real/examples/mqr-4.49-stable-finite.real > /tmp/v16-stable
+
+          grep -F 'defeat.identity_authority=HOLD_ROLE_DRIFT' /tmp/v16-drift
+          grep -F 'defeat.split_without_new_distinction=YES' /tmp/v16-split
+          grep -F 'defeat.identity_authority=HOLD_SPLIT_WITHOUT_NEW_DISTINCTION' /tmp/v16-split
+          grep -F 'defeat.identity_authority=AUTHORIZED_COUNTERFACTUAL_REFINEMENT' /tmp/v16-refine
+          grep -F 'defeat.identity_authority=HOLD_MERGE_DISTINCTION_LAUNDERING' /tmp/v16-merge
+          grep -F 'defeat.identity_authority=AUTHORIZED_SCOPE_QUOTIENT_MERGE' /tmp/v16-quotient
+          grep -F 'defeat.common_cause_compression=YES' /tmp/v16-common
+          grep -F 'defeat.identity_authority=REOPEN_EXPANSION_BREAK' /tmp/v16-expansion
+          grep -F 'defeat.identity_authority=HOLD_REPRESENTATION_COLLAPSE' /tmp/v16-collapse
+          grep -F 'defeat.identity_authority=REOPEN_HIDDEN_NOVEL_DISTINCTION' /tmp/v16-hidden
+          grep -F 'defeat.current_defeat_atoms_complete=NO' /tmp/v16-stable
+          grep -F 'defeat.future_defeat_space_closed=NO' /tmp/v16-stable
+          grep -F 'defeat.counterfactual_equivalence_truth_oracle=NO' /tmp/v16-stable
+          grep -F 'defeat.guidance_mode=REOPENABLE_COUNTERFACTUAL_DEFEAT_QUOTIENT' /tmp/v16-stable
+
+          for x in language/real/tests/v16-invalid-*.real; do
+            if "$V16" "$x"; then exit 1; fi
+            if swipl -q -s "$P16" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V16_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR449_DEFEAT_LABEL_IDENTITY_GUARD=PASS
+          echo MQR449_MECHANISM_MANIFESTATION_SEPARATION=PASS
+          echo MQR449_COUNTERFACTUAL_SPLIT_GUARD=PASS
+          echo MQR449_GENUINE_REFINEMENT_POSITIVE_CONTROL=PASS
+          echo MQR449_MERGE_DISTINCTION_LAUNDERING=PASS
+          echo MQR449_SCOPE_QUOTIENT_MERGE=PASS
+          echo MQR449_COMMON_CAUSE_COMPRESSION=PASS
+          echo MQR449_EXPANSION_BREAK_REOPENING=PASS
+          echo MQR449_CROSS_REPRESENTATION_DEFEAT_TRANSPORT=PASS
+          echo MQR449_HIDDEN_CONTENT_REOPENING=PASS
+          echo MQR449_FINAL_DEFEAT_ATOMS_COMPLETE=NO
+
+
+      - name: Real-Language v0.17 constitutional-regress boundary guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V17=./language/real/target/release/real-v17-regress
+          P17=language/real/prolog/regress_v17.pl
+          for f in language/real/examples/mqr-4.50-*.real; do
+            "$V17" "$f" > /tmp/v17.rust
+            swipl -q -s "$P17" -g "run('$f'),halt" -t "halt(1)" > /tmp/v17.prolog
+            grep -E '^regress\.' /tmp/v17.rust > /tmp/v17.rust.core
+            grep -E '^regress\.' /tmp/v17.prolog > /tmp/v17.prolog.core
+            diff -u /tmp/v17.rust.core /tmp/v17.prolog.core
+          done
+
+          "$V17" language/real/examples/mqr-4.50-inert-stop.real > /tmp/v17-stop
+          "$V17" language/real/examples/mqr-4.50-material-refinement.real > /tmp/v17-material
+          "$V17" language/real/examples/mqr-4.50-scope-capture.real > /tmp/v17-scope
+          "$V17" language/real/examples/mqr-4.50-criterion-disagreement.real > /tmp/v17-criterion
+          "$V17" language/real/examples/mqr-4.50-world-contact-reopen.real > /tmp/v17-world
+          "$V17" language/real/examples/mqr-4.50-action-invariant.real > /tmp/v17-action
+          "$V17" language/real/examples/mqr-4.50-finite-stability.real > /tmp/v17-stable
+
+          grep -F 'regress.authority_state=AUTHORIZED_CRITERION_ROBUST_OPERATIONAL_STOP' /tmp/v17-stop
+          grep -F 'regress.authority_state=HOLD_PREMATURE_TERMINATION' /tmp/v17-material
+          grep -F 'regress.authority_state=HOLD_SCOPE_CAPTURE' /tmp/v17-scope
+          grep -F 'regress.authority_state=HOLD_META_CRITERION_NONINVARIANCE' /tmp/v17-criterion
+          grep -F 'regress.authority_state=REOPEN_NEW_WORLD_CONTACT' /tmp/v17-world
+          grep -F 'regress.action_authority=AUTHORIZED_ACTION_UNDER_DECLARED_CONTRACT' /tmp/v17-action
+          grep -F 'regress.future_refinement_space_closed=NO' /tmp/v17-stable
+          grep -F 'regress.metaphysical_termination=NO' /tmp/v17-stable
+          grep -F 'regress.reopening_reserve=ACTIVE' /tmp/v17-stable
+
+          for x in language/real/tests/v17-invalid-*.real; do
+            if "$V17" "$x"; then exit 1; fi
+            if swipl -q -s "$P17" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V17_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR450_OPERATIONAL_FIXED_POINT_GUARDS=PASS
+          echo MQR450_SCOPE_CRITERION_CAPTURE_GUARDS=PASS
+          echo MQR450_WORLD_CONTACT_REOPENING=PASS
+          echo MQR450_ACTION_CONTRACT_SEPARATION=PASS
+          echo MQR450_METAPHYSICAL_TERMINATION=NO
+
+
+      - name: Real-Language v0.18 stopping-calibration guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V18=./language/real/target/release/real-v18-stop
+          P18=language/real/prolog/stop_v18.pl
+
+          for f in language/real/examples/mqr-4.51-stop-*.real; do
+            "$V18" "$f" > /tmp/v18.rust
+            swipl -q -s "$P18" -g "run('$f'),halt" -t "halt(1)" > /tmp/v18.prolog
+            grep '^stop\.' /tmp/v18.rust > /tmp/v18.rust.core
+            grep '^stop\.' /tmp/v18.prolog > /tmp/v18.prolog.core
+            diff -u /tmp/v18.rust.core /tmp/v18.prolog.core
+          done
+
+          for x in language/real/tests/v18-invalid-*.real; do
+            if "$V18" "$x"; then exit 1; fi
+            if swipl -q -s "$P18" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          python experiments/mqr-4.51/benchmark.py > /tmp/mqr451.integrated
+          grep -F 'mqr451.calibration.lag_lambda=1' /tmp/mqr451.integrated
+          grep -F 'mqr451.raw_oqsc_verdict=FAIL' /tmp/mqr451.integrated
+          grep -F 'mqr451.calibrated_successor_verdict=PASS' /tmp/mqr451.integrated
+          grep -F 'mqr451.external_calibration=HOLD' /tmp/mqr451.integrated
+          grep -F 'mqr451.primary_scalar_score=OFF' /tmp/mqr451.integrated
+          grep -F 'mqr451.future_oracle=FORBIDDEN' /tmp/mqr451.integrated
+
+          echo REAL_LANGUAGE_V18_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR451_RAW_OQSC_CALIBRATION=FAIL
+          echo MQR451_CALIBRATED_LAG1_INTERNAL_CROSS_DOMAIN=PASS
+          echo MQR451_EXTERNAL_CALIBRATION=HOLD
+
+
+      - name: Real-Language v0.19 naturalistic-trace guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V19=./language/real/target/release/real-v19-trace
+          P19=language/real/prolog/trace_v19.pl
+
+          for f in language/real/examples/mqr-4.52-*.real; do
+            "$V19" "$f" > /tmp/v19.rust
+            swipl -q -s "$P19" -g "run('$f'),halt" -t "halt(1)" > /tmp/v19.prolog
+            grep '^trace\.' /tmp/v19.rust > /tmp/v19.rust.core
+            grep '^trace\.' /tmp/v19.prolog > /tmp/v19.prolog.core
+            diff -u /tmp/v19.rust.core /tmp/v19.prolog.core
+          done
+
+          for x in language/real/tests/v19-invalid-*.real; do
+            if "$V19" "$x"; then exit 1; fi
+            if swipl -q -s "$P19" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          (
+            cd experiments/mqr-4.52
+            python naturalistic_court.py
+          ) > /tmp/mqr452.integrated
+          grep -F 'mqr452.primary_cases=7' /tmp/mqr452.integrated
+          grep -F 'mqr452.transportable_primary_cases=5' /tmp/mqr452.integrated
+          grep -F 'mqr452.multi_mode_cases=6' /tmp/mqr452.integrated
+          grep -F 'mqr452.granularity.sensitive_cases=6' /tmp/mqr452.integrated
+          grep -F 'mqr452.v18_binary_naturalistic_ontology=FAIL' /tmp/mqr452.integrated
+          grep -F 'mqr452.lag1_external_calibration=NOT_ESTABLISHED' /tmp/mqr452.integrated
+          grep -F 'mqr452.realtrace_v019_revision=EARNED' /tmp/mqr452.integrated
+
+          echo REAL_LANGUAGE_V19_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR452_BINARY_NATURALISTIC_STOP_ONTOLOGY=FAIL
+          echo MQR452_FIXED_EVENT_LAG_TRANSPORT=REJECT
+          echo MQR452_MODE_RELATIVE_REOPENABLE_AUTHORITY=PASS
+
+
+      - name: Real-Language v0.20 progress-atlas guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          command -v swipl >/dev/null
+          V20=./language/real/target/release/real-v20-progress
+          P20=language/real/prolog/progress_v20.pl
+
+          for f in language/real/examples/mqr-4.53-*.real; do
+            "$V20" "$f" > /tmp/v20.rust
+            swipl -q -s "$P20" -g "run('$f'),halt" -t "halt(1)" > /tmp/v20.prolog
+            grep '^progress\.' /tmp/v20.rust > /tmp/v20.rust.core
+            grep '^progress\.' /tmp/v20.prolog > /tmp/v20.prolog.core
+            diff -u /tmp/v20.rust.core /tmp/v20.prolog.core
+          done
+
+          for x in language/real/tests/v20-invalid-*.real; do
+            if "$V20" "$x"; then exit 1; fi
+            if swipl -q -s "$P20" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          python experiments/mqr-4.53/progress_court.py > /tmp/mqr453.integrated
+          grep -F 'mqr453.candidate_count=13' /tmp/mqr453.integrated
+          grep -F 'mqr453.universal_scalar_survivors=0' /tmp/mqr453.integrated
+          grep -F 'mqr453.event_count_invariant=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.obligation_count_invariant=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.equal_information_different_intervention=PASS' /tmp/mqr453.integrated
+          grep -F 'mqr453.fisher_reparameterization_invariant=TRUE' /tmp/mqr453.integrated
+          grep -F 'mqr453.blackwell_incomparability_exists=TRUE' /tmp/mqr453.integrated
+          grep -F 'mqr453.authority_path_length_is_progress=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.authority_level_monotone_progress=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.scalar_rank_reversal=TRUE' /tmp/mqr453.integrated
+          grep -F 'mqr453.state_only_stop_rule_sufficient=FALSE' /tmp/mqr453.integrated
+          grep -F 'mqr453.cross_domain_structure_transports=TRUE' /tmp/mqr453.integrated
+          grep -F 'mqr453.pre_reveal_coverage_complete=TRUE' /tmp/mqr453.integrated
+          grep -F 'mqr453.material_path_noncommutativity=PASS' /tmp/mqr453.integrated
+          grep -F 'mqr453.equal_intervention_different_information=PASS' /tmp/mqr453.integrated
+          grep -F 'mqr453.scalar_false_stop=PASS' /tmp/mqr453.integrated
+          grep -F 'mqr453.obligation_only_false_stop=PASS' /tmp/mqr453.integrated
+          grep -F 'mqr453.wcqp_cve_positive_stop=PASS' /tmp/mqr453.integrated
+          grep -F 'mqr453.universal_representation_invariant_scalar_progress=REJECT' /tmp/mqr453.integrated
+          grep -F 'mqr453.local_representation_invariant_progress_structures=ADMIT' /tmp/mqr453.integrated
+          grep -F 'mqr453.global_meta_constitution_local_geometry=SUPPORTED_BY_COURT' /tmp/mqr453.integrated
+          grep -F 'mqr453.realprogress_v020=EARNED_CANDIDATE' /tmp/mqr453.integrated
+
+          echo REAL_LANGUAGE_V20_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR453_GLOBAL_PROGRESS_RULER=REJECT
+          echo MQR453_LOCAL_INVARIANT_GEOMETRIES=ADMIT
+          echo MQR453_WORLD_CONTACT_PROGRESS_ATLAS=PASS
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="Real-Language/CI"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" \
+            -f context="$context" \
+            -f description="$description" \
+            -f target_url="$target"

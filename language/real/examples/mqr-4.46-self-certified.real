@@ -1,0 +1,18 @@
+REALMAPAUTH 0.13
+id self-certified
+claim_scope translation-authority
+source_ontology V1
+target_ontology V2
+candidate_relation EXACT
+proposer P rootP
+adjudicator P rootP INTERNAL
+standard K std0 PRESEALED
+witness W K P DIRECT EXACT
+force_singleton NO
+authorize_mapping_authority HOLD_SELF_CERTIFIED
+authorize_correspondence_singleton YES
+authorize_self_certified YES
+authorize_capture_risk NO
+authorize_meta_cycle NO
+authorize_world_separator NO
+END

@@ -1,0 +1,19 @@
+REALREVISE 0.12
+id noncommuting-diamond
+claim_scope burden-revision
+source_ontology A
+target_ontology C
+source_burden X q1+q2 CLEAR
+target_burden Z q1+q2
+map X EXACT Z MIXED
+target_cover Z
+debt_count_mode SOURCE_ANCESTRY
+path direct X DIRECT Z PARTIAL
+path composed X B Z FULL
+witness_future_burden NONE
+authorize_debt_complete YES
+authorize_merge_preserved YES
+authorize_path_conflict YES
+authorize_arbitration NO
+authorize_same_label_drift NO
+END

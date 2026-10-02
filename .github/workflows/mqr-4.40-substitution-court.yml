@@ -1,0 +1,56 @@
+name: MQR-4.40 Direct-vs-Composed Substitution Court
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.40/**'
+      - 'language/real/src/substitute_v07.rs'
+      - 'language/real/haskell/SubstituteV07.hs'
+      - 'language/real/examples/mqr-4.40-*.real'
+      - 'language/real/tests/v07-*.real'
+      - '.github/workflows/mqr-4.40-substitution-court.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v07-substitute
+      - name: Rust court
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v07-substitute
+          "$V" language/real/examples/mqr-4.40-substitution-transport-only.real > /tmp/t
+          "$V" language/real/examples/mqr-4.40-substitution-basis.real > /tmp/b
+          grep -F 'direct_receipt=ABSENT' /tmp/t
+          grep -F 'coordinate.substitution=PASS' /tmp/t
+          grep -F 'coordinate.substitution=PASS' /tmp/b
+          grep -F 'wcb.minimum_declared_roots=1' /tmp/b
+          for f in language/real/tests/v07-invalid-*.real; do if "$V" "$f"; then exit 1; fi; done
+          echo MQR440_RUST_COURT=PASS
+      - name: Haskell independent court
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ghc
+          H=language/real/haskell/SubstituteV07.hs
+          runghc "$H" language/real/examples/mqr-4.40-substitution-transport-only.real > /tmp/t
+          runghc "$H" language/real/examples/mqr-4.40-substitution-basis.real > /tmp/b
+          grep -F 'coordinate.substitution=PASS' /tmp/t
+          grep -F 'coordinate.substitution=PASS' /tmp/b
+          runghc "$H" --basis-minimality language/real/examples/mqr-4.40-substitution-basis.real | grep -F 'DECLARED_WCB_MIN_ROOTS=1'
+          echo MQR440_HASKELL_COURT=PASS
+      - name: Freeze
+        run: |
+          echo MQR440_FRESH_DIRECT_UNIVERSALLY_REQUIRED=REJECT
+          echo MQR440_TRANSPORT_ONLY_SUBSTITUTION=PASS
+          echo MQR440_WORLD_CONTACT_BASIS_SUBSTITUTION=PASS
+          echo MQR440_INTERNAL_COHERENCE_CREATES_WORLD_CONTACT=REJECT
+          echo MQR440_EXTERNAL_ROOT_CUT=PASS
+          echo MQR440_DIRECT_CONFLICT_REOPENS=PASS
+          echo MQR440_FINAL_TRUTH_DISTANCE=UNIDENTIFIED

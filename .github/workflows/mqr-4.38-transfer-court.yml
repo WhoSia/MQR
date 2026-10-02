@@ -1,0 +1,88 @@
+name: MQR-4.38 World-Statement Transfer Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.38/**'
+      - 'language/real/src/transfer_v05.rs'
+      - 'language/real/haskell/TransferV05.hs'
+      - 'language/real/examples/mqr-4.38-*.real'
+      - 'language/real/tests/v05-*.real'
+      - '.github/workflows/mqr-4.38-transfer-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  transfer-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Build canonical transfer compiler
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v05-transfer
+
+      - name: Execute Rust transfer court
+        shell: bash
+        run: |
+          set -euo pipefail
+          V05=./language/real/target/release/real-v05-transfer
+          "$V05" language/real/examples/mqr-4.38-transfer-positive.real > /tmp/positive
+          "$V05" language/real/examples/mqr-4.38-transfer-hold.real > /tmp/hold
+          "$V05" language/real/examples/mqr-4.38-nonformal-world-authority.real > /tmp/nonformal
+          grep -F 'coordinate.transfer=PASS' /tmp/positive
+          grep -F 'transfer.meaning=STRUCTURAL_ADMISSIBILITY_NONAMPLIFYING' /tmp/positive
+          grep -F 'transfer.does_not_raise_world_authority=true' /tmp/positive
+          grep -F 'coordinate.semantic=HOLD' /tmp/hold
+          grep -F 'coordinate.transfer=HOLD' /tmp/hold
+          grep -F 'world_authority=PASS' /tmp/nonformal
+          grep -F 'coordinate.formal_custody=NOT_APPLICABLE' /tmp/nonformal
+          grep -F 'coordinate.transfer=NOT_APPLICABLE' /tmp/nonformal
+
+          invalids=(
+            language/real/tests/v05-invalid-self-certified-bridge.real
+            language/real/tests/v05-invalid-scope-promotion.real
+            language/real/tests/v05-invalid-ancestry-loss.real
+            language/real/tests/v05-invalid-defeat-mirage.real
+            language/real/tests/v05-invalid-world-authority-laundering.real
+          )
+          for f in "${invalids[@]}"; do
+            if "$V05" "$f"; then
+              echo "unexpected Rust acceptance: $f" >&2
+              exit 1
+            fi
+          done
+          echo MQR438_RUST_TRANSFER_COURT=PASS
+
+      - name: Execute independent Haskell evaluator
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ghc
+          H=language/real/haskell/TransferV05.hs
+          runghc "$H" language/real/examples/mqr-4.38-transfer-positive.real > /tmp/h-positive
+          runghc "$H" language/real/examples/mqr-4.38-transfer-hold.real > /tmp/h-hold
+          runghc "$H" language/real/examples/mqr-4.38-nonformal-world-authority.real > /tmp/h-nonformal
+          grep -F 'coordinate.transfer=PASS' /tmp/h-positive
+          grep -F 'transfer.meaning=STRUCTURAL_ADMISSIBILITY_NONAMPLIFYING' /tmp/h-positive
+          grep -F 'coordinate.semantic=HOLD' /tmp/h-hold
+          grep -F 'coordinate.transfer=HOLD' /tmp/h-hold
+          grep -F 'coordinate.transfer=NOT_APPLICABLE' /tmp/h-nonformal
+          runghc "$H" --minimality > /tmp/min
+          grep -F 'MINIMUM_BLOCKING_COORDINATES=6' /tmp/min
+          grep -F 'MINIMALITY_SCOPE=FROZEN_ATTACK_FAMILY_ONLY' /tmp/min
+          echo MQR438_HASKELL_INDEPENDENT_EVALUATOR=PASS
+          echo IMPLEMENTATION_DIVERSITY_NOT_SEMANTIC_INDEPENDENCE=TRUE
+
+      - name: Freeze scientific interpretation
+        shell: bash
+        run: |
+          echo MQR438_TRANSFER_RELATION_INDEXED=PASS
+          echo MQR438_TRANSFER_IS_NONAMPLIFYING=PASS
+          echo MQR438_FORMALIZATION_OPTIONAL=PASS
+          echo MQR438_OUTCOME_B_C_E=PASS
+          echo MQR438_FINAL_TRUTH_DISTANCE=UNIDENTIFIED

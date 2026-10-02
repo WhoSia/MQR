@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.36**.
+Status: live through **MQR-4.52**.
 
 ## Generation-IV authority kernel
 
@@ -32,9 +32,9 @@ A finite rival search never licenses the sentence “all possible rivals have be
 `language/real/` is the active executable representation surface.
 
 Implementation:
-- canonical compiler: Rust;
-- independent reference compiler: Python;
-- canonical CI requires byte-identical receipts across both implementations.
+- canonical authority-bearing executors: Rust;
+- independent references are lane-specific: Python remains the historical packet/profile reference where applicable, while Prolog independently evaluates the relational/contact/frontier/allocation lanes;
+- canonical CI requires explicit lane-level concordance on the declared receipt surface rather than assuming one reference implementation covers every language generation.
 
 A Real-Packet carries:
 - claim + scope;
@@ -864,8 +864,321 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 90. **Independent proof checker ≠ independent world-contact lineage.** Checker plurality diversifies formal custody, not measurement ancestry.
 91. **Formal composition theorem ≠ empirical composition warrant.** Explicit exact-transformation conditions can license composition formally; whether a scientific bridge satisfies them remains world-facing.
 92. **Formalization moves epistemic debt; it does not erase world-contact debt.** Moving more transformations into a proof assistant changes the frontier but does not turn the kernel into a physical oracle.
+93. **Formal custody ≠ scientific authority.** A checked derivation and its independent replay establish properties of the declared formal object; world-facing authority remains bounded by the load-bearing empirical/model ancestry.
+94. **Transfer-contract PASS ≠ authority creation.** A world–statement bridge can preserve or restrict already earned authority but may not raise the source world-authority ceiling.
+95. **Symbol correspondence ≠ semantic correspondence.** A theorem name, shared vocabulary or syntax-preserving translation does not establish that the formal predicate denotes the intended world predicate; a defeasible interpretation witness remains load-bearing.
+96. **Theorem scope ≠ evidence scope.** A formal proposition may quantify beyond the domain supported by world contact; scientific claim scope may not inherit that excess by theoremhood alone.
+97. **Provenance-graph preservation ≠ authority-relevant ancestry preservation.** Compilation must retain every ancestor capable of changing claim authority under admissible successor evidence, not merely coarse graph shape or terminal labels.
+98. **Reopenable metadata ≠ reachable defeat.** Corrigibility requires an operational evidence-to-readjudication path; dead or forbidden edges do not earn defeatability credit.
+99. **Formalization is route-relative, not a universal authority prerequisite.** Directly world-facing scientific claims may have legitimate authority with formal custody and transfer machinery marked NOT_APPLICABLE.
+100. **Implementation diversity ≠ semantic or world independence.** Cross-language agreement can diversify compiler/custody failure modes while leaving the same interpretation, premise and world-contact assumptions untouched.
+101. **Local non-amplification ≠ pathwise non-amplification.** A chain of locally bounded bridges can still inflate apparent authority if an intermediate representation resets the source baseline or forgets load-bearing ancestry.
+102. **Adjacent transfer PASS ≠ composite transfer PASS.** Local bridge survival establishes a composition candidate, not an end-to-end scientific entitlement.
+103. **Semantic-witness PASS ≠ semantic-witness composability.** Two valid local interpretation witnesses require an explicit compatibility/composition warrant before they support an endpoint scientific claim.
+104. **Local scope containment ≠ composite scope containment.** Composite claim scope is bounded by the pathwise mapped/pulled-back support, never by a union of local scopes.
+105. **Local reopenability ≠ end-to-end defeatability.** Defeat paths must compose into a reachable source-evidence-to-final-readjudication route.
+106. **Intermediate representation ≠ new epistemic origin.** Load-bearing ancestry and assumptions must pull back to the original world-facing source across the whole path.
+107. **Separately admissible assumptions ≠ jointly admissible assumptions.** Composition must expose accumulated assumptions, weakest-state ceilings and contradictions.
+108. **Authority algebra composes more readily than scientific authority.** Meet associativity and NoLaunder transitivity license an algebraic skeleton; scientific composition remains partial, witness-indexed and defeasible.
+109. **Fresh direct endpoint adjudication ≠ universal prerequisite.** Transport-only and basis-generated claims may inherit already earned world-facing authority when no uncovered load-bearing empirical degree is introduced and a valid world-contact substitution certificate survives.
+110. **Internal coherence ≠ world contact.** Naturality, commuting diagrams, formal exactness and path agreement can constrain transport but cannot create an external empirical root.
+111. **Path independence ≠ evidence independence.** Multiple agreeing paths sharing measurement, interpretation or assumption ancestry do not earn independent world-contact credit.
+112. **Checked query basis ≠ unbounded naturality.** Substitution authority extends only through the declared/generated query and intervention class; agreement on a finite basis does not license off-basis claims without a closure warrant.
+113. **Endpoint agreement ≠ congruence under extension.** A path-equivalence receipt must survive the declared admissible pre/post context when that context is load-bearing.
+114. **Derived receipt ≠ renewed world-contact freshness.** Composition and recursive substitution may preserve or lower root freshness but may not reset a stale empirical anchor to LIVE.
+115. **Cyclic justification ≠ external anchoring.** Every load-bearing reachable justification region must cross an External Root Cut; an internally coherent SCC cannot ground its own scientific authority.
+116. **World-contact burden tracks uncovered empirical burden, not endpoint count.** Fresh contact is required when an endpoint adds an uncovered load-bearing empirical degree or invalidates its root, not merely because representation or formal route changed.
+117. **Direct/composed disagreement is a reopening event, not a direct-oracle theorem.** Fresh direct evidence can defeat and reopen substituted authority, but directness alone does not make the direct conclusion infallible.
+118. **WCB minimality is declaration-relative.** A minimum world-contact basis is a set-cover result over the declared empirical-degree/coverage graph; it does not prove that the degree ontology is complete, independent or uniquely minimal in the world.
+119. **Declared empirical degree ≠ primitive world dimension.** A decomposition chosen by the analyst may change a declared-degree minimum without any new world witness; WCB minimality should therefore be indexed to claim-relevant discrimination obligations rather than treated as ontic dimensionality.
+120. **Contact rank is frontier-relative.** Frontier-Relative Contact Rank (FCR) is the minimum live external-root cover of the frozen rival-separation obligations induced by a claim, rival frontier and query/intervention class.
+121. **Incidence invariance ≠ ontic invariance.** Incidence-isomorphic frozen World-Contact Separation Hypergraphs preserve FCR, but this licenses only representation invariance for that scientific discrimination surface.
+122. **Minimum rank ≠ unique scientific basis.** All minimum bases or their explicit equivalence family must remain visible; an optimizer may not silently canonize one minimizing root set.
+123. **Minimum WCB family ≠ matroid basis family in general.** Basis exchange requires extra proved structure; arbitrary external-root cover families may fail one-for-one exchange.
+124. **Contact cardinality ≠ best experiment design.** Cost, freshness, robustness, adverse intervention burden, common-cause exposure and replication independence remain separate objectives from root count.
+125. **FCR is instrument-relative.** A new external discriminator can lower the minimum contact rank without reducing target-system complexity; loss or drift of a separation edge can raise it.
+126. **Rival/query expansion reopens contact rank.** When the load-bearing frontier or query/intervention class expands under fixed old incidence, additional discrimination obligations may increase the required external contact.
+127. **Low FCR ≠ independent evidence.** One external root may cover many rival-separation obligations through one common failure mode; EFCG/UCCR/common-cause discipline remains live.
+128. **Finite frontier minimum ≠ final open-world minimum.** The optimizer proves minimality only over the frozen rival/query/root incidence supplied to it; successor rivals can invalidate the receipt.
+129. **Same FCR ≠ same ontology.** Distinct rival-obligation structures may have the same minimum root count, so rank equality cannot identify empirical ontology.
+130. **Optimizer completeness ≠ frontier completeness.** Exact enumeration of every minimum cover does not establish that the supplied rival frontier is scientifically complete.
+131. **Cover minimality ≠ calibration authority.** FCR may optimize only over separation edges whose calibration/comparability warrant is already admissible; rank minimization cannot certify that upstream metrological construction.
+132. **Separation incidence is evaluation-contract relative.** Metrics, thresholds, partitions or equivalence rules that define what counts as rival discrimination are load-bearing provenance; same measurement material may induce different ranks under different separation contracts.
+133. **Realized minimum ≠ selection-history sufficiency.** Data-dependent frontier construction, root pruning or incidence selection can change scientific warrant even when the realized WCSH is minimized exactly.
+134. **Descriptive contact rank ≠ decision warrant.** Robust action may be licensed under an explicit decision contract despite unresolved descriptive rivals, while low FCR alone licenses no action.
+135. **Current-rival separation ≠ query-language closure.** A query family that distinguishes every admitted current rival may still alias a scientifically relevant successor rival revealed only after query extension.
+136. **Generator diversity ≠ generator independence.** Distinct rival generators that share ancestry, representation, data, heuristics or model class do not earn independent frontier-search credit merely by being separately named.
+137. **Generator-relative saturation ≠ frontier completeness.** Repeated no-discovery supports saturation only relative to the declared generator/query/admission/history contract; it never licenses a no-further-rival claim.
+138. **Finite grammar closure ≠ scientific frontier closure.** Exhaustive enumeration inside a declared rival grammar certifies only grammar closure, not exhaustion of scientifically relevant alternatives.
+139. **Stable FCR ≠ zero discovery value.** A newly admitted rival can change frontier knowledge, mechanism attribution, scope or future discriminator targets while the minimum external-root count stays fixed.
+140. **ΔFCR ≠ discovery value.** Rank increase can arise from a weakly motivated or claim-irrelevant construction, while a high-value discovery can leave FCR unchanged; discovery impact remains vector-valued.
+141. **Rival portfolio is path-dependent provenance.** Frontier receipts must expose generator portfolio, generator ancestry, query/intervention class, admission rule and discovery history rather than treating the current rival set as self-authenticating.
+142. **Open Frontier Receipt replaces frontier-completeness certification.** A scientific frontier earns only a scoped operational receipt by making its construction contract explicit while declaring world completeness unavailable.
+143. **Frontier Reopening Reserve is load-bearing.** Conditional use of FCR requires live routes for rival, query, representation and generator escape; an admitted escape reopens every implicated rank and authority receipt.
+144. **Frontier-relative guidance can be useful without frontier completeness.** FCR may guide local experiment allocation or discriminator design inside an explicit Open Frontier Receipt, but it cannot justify stopping rival search or promoting the frontier to a closed world.
+145. **Reopening competence ≠ completeness proof.** Maintaining diverse escape routes is a governance property, not evidence that all relevant rivals are already represented.
+146. **Finite attention ≠ world-optimal search.** An open rival frontier plus a finite budget does not identify a universally correct allocation policy without additional probabilistic, utility, loss or mission structure.
+147. **Visible-history equivalence ≠ universally correct next action.** Two open worlds can expose the same current RSAR surface while placing the next accessible frontier escape behind different lanes.
+148. **Declared-model optimum ≠ scientific world optimum.** Explicit priors, utilities and costs may authorize optimization inside their declared model; that authority does not extend to unconceived rivals or undeclared objectives.
+149. **Admissible allocation ≠ optimal allocation.** MQR-4.43 licenses an Allocation Admissibility Envelope membership judgment under explicit constraints, not a total ordering of scientifically best schedules.
+150. **Nominal reserve ≠ activation-capable reopening.** A positive reserve earns reopening competence only when it can actually activate at least one declared reopening lane.
+151. **Activation capability ≠ ancestry independence.** ACRR and common-mode ancestry are separate coordinates; a live reserve does not by itself establish independent search lineage.
+152. **Current yield or FCR gain ≠ exploration-retirement authority.** Cheap rival production or improved current-frontier discrimination cannot silently starve mandatory frontier-search obligations.
+153. **Generator-count diversification ≠ ancestry diversification.** Funding several named lanes does not establish independent exploration when they share load-bearing ancestry.
+154. **Exploration debt is typed by default.** Debt remains indexed to the missed obligation and search class; scalarization or weighted prioritization requires externally declared weights.
+155. **Anti-starvation or randomization ≠ epistemic oracle.** Bounded access to declared lanes is a scheduling property, not calibrated discovery probability, equal scientific importance or frontier completeness.
+156. **Frontier escape reopens allocation.** An admitted escape invalidates or re-audits every allocation receipt whose obligations, query language, ancestry, contact rank or search surface is implicated.
+157. **More budget or fair declared-lane coverage ≠ frontier closure.** Additional attention can reduce declared debt without converting an open world into a complete rival ontology.
+
+
+158. **Explicit exploration obligation ≠ epistemic warrant.** An obligation being named, mandatory and auditable does not by itself justify the agenda that constituted it.
+159. **Obligation count ≠ scientific search burden.** Split/merge-equivalent obligation partitions must be audited through their declared burden coverage rather than label cardinality.
+160. **Declared burden atom ≠ primitive world dimension.** Burden-union invariance is relative to the frozen obligation–burden map; the burden ontology itself remains defeasible, refinable and open to omitted classes.
+161. **Agenda-source count ≠ agenda-ancestry diversity.** Multiple named sources may share one load-bearing ancestry; source provenance and ancestry must remain separate coordinates.
+162. **Agenda provenance ≠ truth oracle.** Neither external nor endogenous origin automatically establishes that the constituted obligation is scientifically correct.
+163. **Successor label ≠ successor burden coverage.** An obligation may be retired into successors only when declared predecessor burden is preserved or an explicit withdrawal changes the constitution with provenance.
+164. **Successor coverage ≠ predecessor debt discharge.** Unresolved constitutional debt survives relabeling and requires explicit withdrawal or burden-preserving debt transfer.
+165. **Rename/delete ≠ debt retirement.** Removing a debt-bearing obligation from the live label set cannot erase the unresolved burden it carried.
+166. **Endogenous mandate formation is admissible but dependence-marked.** Outcomes from a live research lineage may create successor obligations, but self-generation earns no independent-confirmation credit.
+167. **Frontier escape reopens obligation constitution.** An admitted burden outside the live obligation map reopens the EOCR/OBM and every downstream allocation receipt that depended on it.
+168. **Finite constitutional audit ≠ world-complete obligation ontology.** Passing provenance, partition, successor and debt-continuity checks licenses only provisional contract-relative governance.
+
+169. **Same burden label ≠ cross-version burden identity.** A burden identifier may persist while its declared challenge/coverage semantics drift.
+170. **Different burden label ≠ cross-version burden nonidentity.** A renamed burden may receive local EXACT transport only through an explicit declared witness surface; the mapping remains receipt-relative rather than metaphysical identity.
+171. **Ontology revision is typed and loss-aware.** EXACT, REFINE, MERGE, OVERLAP, DISJOINT and UNMAPPED are not interchangeable transport states.
+172. **Refinement cardinality ≠ historical debt multiplicity.** Splitting one debt-bearing source burden into several target carriers does not manufacture several independent historical debts; source ancestry remains the accounting key.
+173. **Merge cardinality ≠ historical debt collapse.** Compressing several debt-bearing source burdens into one target carrier cannot erase their separate inherited ancestry.
+174. **Partial overlap ≠ debt discharge.** A source debt is preserved through refinement only when the full declared source burden is covered and the relevant source-to-target debt ancestry remains traceable, absent explicit withdrawal.
+175. **Unmapped disappearance ≠ retirement.** A debt-bearing source burden that lacks a qualifying transport or explicit withdrawal remains unresolved and reopens the revision receipt.
+176. **Target novelty ≠ retroactive source debt.** A target-only burden creates new constitutional load but is not rewritten into predecessor debt without an explicit inheritance rule.
+177. **Cross-constitution comparability is mapped-subspace only.** Local burden transport does not authorize whole-ontology commensurability or a global ranking of constitutions.
+178. **Conflict localization ≠ true-winner identification.** A revision court may expose mandate, withdrawal, merge or unmapped conflicts while leaving arbitration to an explicit higher-order constitutional rule.
+179. **Direct/composed revision disagreement is a reopening event.** A noncommuting revision diamond defeats path-independent transport authority but does not promote the direct path to an infallible oracle.
+180. **Current revision transport ≠ future revision closure.** Finite successful BORR/BTR mappings do not establish a final burden ontology or guarantee lossless future translation.
+181. **Newer ontology or stronger provenance ≠ epistemic superiority.** Recency, externality and provenance status remain audit coordinates rather than automatic arbitration rules.
+
+182. **Declared transport relation ≠ translation authority.** A syntactically valid EXACT/REFINE/MERGE/OVERLAP edge gains no scientific authority merely from declaration.
+183. **Adjudicator count ≠ adjudicator-ancestry independence.** Several named judges may share one load-bearing source; plurality and independence remain separate coordinates.
+184. **Self-certification ≠ independent mapping witness.** A proposer may contribute evidence for its own translation, but proposer-adjudicator ancestry overlap earns no independent-confirmation credit.
+185. **Standardization ≠ truth.** A standard can coordinate practice without becoming a correspondence oracle; recency, prestige and externality remain audit attributes rather than truth rules.
+186. **Post-outcome standard revision is capture-risk.** A decisive translation standard changed after outcome exposure cannot count as prospectively independent validation without a new receipt.
+187. **Correspondence authority may remain set-valued.** When several relation classes survive the declared evidence, retain the Correspondence Admissible Set rather than forcing a singleton.
+188. **Forced singleton correspondence is a reopening event.** Collapsing a non-singleton admissible set without additional discriminating evidence is authority inflation.
+189. **World-facing separation may narrow without closing correspondence.** A frozen external challenge can reduce the admissible mapping set while leaving unique world correspondence and future translation closure unidentified.
+190. **Direct/meta mapping disagreement reopens authority.** Disjoint direct and meta-level witness support defeats the current mapping receipt without promoting either layer to an oracle.
+191. **Meta-cycle ≠ independent foundation.** Circular support among relation claims and validating standards creates no new epistemic root.
+192. **Finite unresolved meta-debt is admissible as an explicit HOLD.** Operational governance may stop at a declared unanchored terminal rather than inventing either an infinite completed regress or a final meta-standard.
+193. **Current translation-authority PASS ≠ future translation closure.** A successful TAR is scoped to the declared witness, standard, ancestry and challenge surfaces and remains reopenable.
+
+194. **World-facing probe ≠ separator-selection authority.** Contact with the world does not by itself justify why that probe family, packet or relevance rule was selected.
+195. **Registered family ≠ selected packet.** Candidate challenge registration and actual separator use require separate provenance and timing receipts.
+196. **Probe count ≠ defeat-route coverage.** Raw multiplicity cannot substitute for declared coverage of distinct load-bearing defeat routes.
+197. **Probe count ≠ probe-ancestry independence.** Surface-distinct probes sharing one load-bearing data, instrument, transformation, representation or selector ancestry remain common-mode.
+198. **Complete declared route coverage ≠ challenge-space completeness.** Coverage is relative to the declared defeat-route ontology and never closes unknown future separators.
+199. **Post-outcome packet selection defeats prospective separator authority.** Prospective registration does not launder retrospective choice of the favorable packet.
+200. **Incumbent-defined relevance or candidate-derived scoring is discriminator capture.** A test that imports the preferred mapping into relevance or score construction cannot provide independent narrowing.
+201. **Omitted registered counterprobe reopens narrowing.** If an unselected world-facing registered probe was compatible with the pre-challenge CAS but defeats the selected result, the current separator receipt must reopen.
+202. **Challenge expansion may reopen mapping authority.** Admissible successor probes can weaken, alter or empty the currently narrowed relation set.
+203. **Repeated finite challenge stability ≠ future closure.** Survival across several finite expansions can earn family-relative robustness only.
+204. **Separator admissibility ≠ universal separator ranking.** SAE is a membership surface over declared packet conditions, not an optimizer over all conceivable scientific tests.
+205. **Current challenge constitution PASS ≠ final test constitution.** TCCR authority remains conditional on declared family, route, ancestry, capture and expansion surfaces.
+
+206. **Route label ≠ route identity.** A defeat-route name cannot establish cross-version identity without declared defeat-content and ancestry witnesses.
+207. **Route count ≠ defeat-content count.** Splitting one defeat content into several route names does not manufacture new independent ways to fail.
+208. **Route split ≠ new defeat diversity.** Refinement changes carrier cardinality; coverage duplicates only when the preserved defeat content is independently witnessed on every successor carrier.
+209. **Route merge ≠ coverage discharge.** Merging several routes into one target label cannot erase uncovered predecessor defeat content or inherited coverage debt.
+210. **Equal coverage fractions ≠ coverage equivalence.** Route-count or percentage equality does not establish preservation of the same defeat distinctions.
+211. **Route independence is ancestry-relative.** Named route plurality may collapse under shared load-bearing measurement, data, representation, intervention or generator ancestry.
+212. **Coverage authority transports through defeat content, not labels.** A predecessor coverage receipt survives revision only on the declared content surface preserved by explicit coverage witnesses.
+213. **Complete coverage in one route ontology ≠ complete coverage in a successor ontology.** Cross-version adequacy requires content-preserving transport rather than silent carry-forward.
+214. **Hidden-route discovery reopens affected adequacy locally.** Novel or previously unmapped defeat content reopens the implicated coverage claim without automatically negating every historical scoped result.
+215. **Hidden route revision without novel content can still reopen constitution.** Refinement, merge correction or ancestry revelation may change the meaning of route independence or coverage even when the extensional content set is stable.
+216. **Direct/composed route-revision disagreement is a reopening event.** Noncommuting coverage transport defeats path-independent authority but does not identify a metaphysically correct route ontology.
+217. **Finite route stability ≠ final defeat ontology.** Repeated content-preserving revisions may earn version-relative robustness only; current route ontology completeness and future defeat-space closure remain forbidden inferences.
+
+218. **Defeat label ≠ defeat identity.** A declared way of being wrong is not a world-fundamental error atom merely because it has a stable name.
+219. **Mechanism ≠ manifestation ≠ defeat role.** Causal/failure mechanism, observable manifestation and claim-relative authority-loss role are separate audit coordinates.
+220. **Content count ≠ independent failure dimensions.** Nominal defeat-content multiplicity cannot substitute for distinct counterfactual defeat profiles or noncommon ancestry.
+221. **Counterfactually identical split ≠ new defeat distinction.** Splitting one content into several carriers without a new challenge-conditioned distinction cannot manufacture new ways to be wrong.
+222. **Prospective separator may justify content refinement.** A split can earn local authority when a prospectively admissible challenge produces distinct defeat roles and predecessor role coverage is preserved.
+223. **Content merge requires role preservation.** Merging contents cannot erase predecessor defeat distinctions; a scope-local quotient merge is admissible only where all load-bearing defeat consequences remain witnessed.
+224. **Common cause compresses independence, not necessarily identity.** Shared ancestry can defeat independence claims while contents remain counterfactually distinct downstream.
+225. **Local counterfactual equivalence ≠ world identity.** Equality of CDP under a declared challenge family and claim scope licenses at most a local quotient.
+226. **Challenge expansion can break a defeat quotient.** A new admissible challenge that separates previously equivalent contents is a reopening event.
+227. **Cross-representation role preservation may support local identity transport.** Label, mechanism, manifestation or granularity change need not destroy a defeat role when explicit witnesses preserve its authority-changing consequences.
+228. **Representation collapse is an authority loss.** A coarse representation that drops a predecessor defeat consequence cannot inherit the predecessor route/content identity at the expanded scope.
+229. **Hidden defeat content reopens locally, not globally.** Novel distinctions or content revisions reopen affected authority without automatically negating all prior scoped results.
+230. **Finite defeat stability ≠ final defeat atoms.** Repeated stability across finite challenge families never licenses current defeat-atom completeness or future defeat-space closure.
+
+
+231. **Metaphysical termination ≠ operational termination.** Scientific use may close a current constitutional regress without asserting that no deeper distinction, criterion or ontology exists.
+232. **A Constitutional Regress Boundary Receipt consumes admissible surfaces; it does not manufacture their admissibility.** MQR-4.50 cannot override an upstream HOLD/REOPEN from the frontier, obligation, translation, challenge, route or defeat-content constitutions merely by declaring a smaller S/Q/W/R/K.
+233. **Operational stop ≠ retirement of open-world search.** A local regress stop licenses the current claim/use only; activation-capable rival, challenge and world-contact reopening obligations remain live under their upstream constitutions.
+234. **Registered-refinement invariance can earn scoped sufficiency only when material live debt is empty.** Every already admitted material refinement must be replayed or remain an explicit HOLD; omission is not termination.
+235. **Nonempty refinement families are not completeness certificates.** The relevant family is the constitutionally admitted live surface, not an arbitrary nonempty subset chosen by the incumbent.
+236. **Claim-scope provenance is load-bearing.** Post-outcome scope shrinkage that erases a known distinction is capture; a prospective scope revision requires a fresh local receipt and replay.
+237. **Criterion agreement over a registered envelope ≠ criterion completeness.** Agreement can support criterion-robust local stopping but cannot establish a universal materiality standard.
+238. **Criterion disagreement is a HOLD, not a demand for infinite meta-recursion.** Unresolved admissible disagreement remains explicit debt unless new independent grounds resolve it.
+239. **Meta-cycle ≠ foundation.** Cyclic mutual support among stop criteria adds no independent world-facing warrant.
+240. **World-facing inert refinement may be quotiented locally.** Finer structure that changes neither declared defeat/discrimination nor decision-relevant consequences need not block the current claim/use.
+241. **A new world-contact separator breaks the operational fixed point.** Reopening is revision of a scoped receipt, not contradiction of a claim to finality that was never made.
+242. **Descriptive sufficiency ≠ universal action warrant.** Action authority is indexed by an explicit decision/use contract; contract change reopens the receipt.
+243. **Repeated finite stability ≠ future refinement-space closure.** Stability rounds may strengthen current robustness only; final ontology, global fixed point and future-space closure remain forbidden inferences.
+244. **Reopenability ≠ permanent suspension.** When the admitted surface is nonvacuous, every live material obligation is discharged, criteria are invariant on the registered envelope, and no reopening trigger is active, scoped operational authorization may be positive rather than merely HOLD.
+
+
+245. **Operational-stop eligibility ≠ calibrated stopping time.** An OQSC PASS licenses stopping as constitutionally admissible; it does not establish that the first eligible instant is behaviorally calibrated.
+246. **Raw immediate OQSC stopping failed the first prospective calibration court.** On the frozen MQR-4.51 holdout, raw OQSC produced 51 live-obligation premature stops and 51 action errors across all three domains; immediate-stop calibration is therefore rejected on that benchmark.
+247. **Calibration may add timing structure without converting eligibility into truth.** A confirmation lag is a stopping-policy coordinate, not a metaphysical depth or evidential truth threshold.
+248. **The MQR-4.51 calibration split selected one additional eligible transition.** The frozen global family selected lambda=1 before holdout scoring; this value is benchmark-relative and carries no universal real-world authority.
+249. **Calibration gain has an inquiry-cost price.** The lambda=1 successor reduced holdout PSE/AE from 51/51 to 0/0 while increasing OIW from 38.5 to 338.5; MQR retains the vector rather than collapsing the trade-off into one score.
+250. **Always-stop and always-continue are both inadequate controls.** Aggressive stopping produced large premature/action error; never stopping eliminated those errors only by incurring much larger inquiry waste and universal budget exhaustion.
+251. **Calibration-only baseline tuning is distinct from holdout repair.** Fixed-k, patience-h and OQSC-lag parameters may be selected on the calibration split only; post-holdout scientific policy repair is forbidden within the closed court.
+252. **Live-obligation premature error ≠ future reopening.** Missing an obligation already live/reachable at stop time is charged as premature stopping; genuinely new post-stop world contact starts a reopening-latency clock instead of retroactively invalidating the local stop.
+253. **Reopening competence is independently scored.** A policy can be initially well calibrated yet fail by reopening too slowly; MQR-4.51 therefore tracks RL and MISSED_REOPEN separately from PSE.
+254. **Counterfactual continuation can audit a stop without becoming a human-causal model.** Frozen-trace STOP/CONTINUE replay asks whether additional already-live inquiry would have changed the authority/action projection; it does not infer causal laws about scientists.
+255. **Same-kernel cross-domain success earns only internal transport.** The lambda=1 successor passed the declared FAULT, MEASUREMENT and SEARCH adapters without domain-specific thresholds, but this is generated-benchmark transport, not external calibration.
+256. **Internal benchmark calibration ≠ external scientific calibration.** Real-world stop timing remains HOLD until prospectively evaluated on independently arising inquiry traces.
+257. **No universal lambda follows from MQR-4.51.** The value one is a result of this calibration family and cost/error geometry; other claims, domains or decision contracts may require a different timing policy.
+258. **Stopping calibration does not retire open-world inquiry.** v0.18 calibrates when to stop the current admitted episode while preserving the v0.17 reopening reserve and all upstream frontier/challenge obligations.
+
+259. **Naturalistic compatibility ≠ prospective external calibration.** Historical source-temporal reconstruction can show that a policy is compatible with independently arising inquiry episodes, but it cannot recreate prospective blindness or establish future-domain calibration.
+260. **Claim freeze ≠ probe stop.** A claim may earn scoped closure while data acquisition, replication, characterization or successor search remains active.
+261. **Action/use authority ≠ universal mechanistic closure.** A treatment, intervention or engineering use may become warranted under a declared decision contract while broader causal/mechanistic inquiry remains open.
+262. **Archive ≠ truth declaration.** Ending active resource allocation can reflect opportunity cost, handoff or programme priority without asserting that the target ontology is complete.
+263. **Handoff is an epistemic transition.** Transferring unresolved obligations to independent laboratories, instruments or collaborations changes ancestry and search capacity; it is not equivalent to either STOP or CONTINUE by the original actor.
+264. **Positive convergence is world contact.** Independent concordant measurements can support local claim closure even when no privileged falsifier is present; world contact is not intrinsically negative.
+265. **World contact has no fixed evidential sign.** Calibration failure, intervention success, representation change, discordance, replication, positive convergence and novel phenomenon construction may all alter authority.
+266. **One recorded event ≠ one invariant unit of inquiry.** Publication, instrument check, replication, review, trial and multi-year evidence accumulation are heterogeneous carriers; raw event count cannot be presumed to measure equal scientific progress.
+267. **Fixed event-count confirmation lag is representation-dependent.** An observationally inert duplicate checkpoint can satisfy a lag-one rule without any new world contact; MQR-4.51's `lambda=1` therefore does not transport as a domain-invariant naturalistic constant.
+268. **Naturalistic stop timing is generally partially identified.** When the source record warrants only an interval, left/right censoring or contract-dependent boundary, MQR retains that set instead of fabricating a unique `tau*`.
+269. **Historical scientist action ≠ gold authority label.** What investigators actually did is evidence about practice and constraints, not an oracle that defines what they should have done.
+270. **Binary STOP projection may destroy authority structure.** CLAIM_FREEZE, CONTINUE_PROBING, PROVISIONAL_USE, ARCHIVE, HANDOFF and REOPEN are distinct coordinates when they have different downstream consequences.
+271. **Local ontological policy ≠ universal ontological principle.** A realism rule earns authority only on the domains/questions/use contracts where its world-contact consequences are demonstrated; MQR does not infer one global ontology merely from a successful local receipt.
+272. **Realist authority is at least partly a world-coupled control state, not merely a surviving proposition.** The live state tracks what claims may be asserted, what probes remain owed, what uses are licensed, what failures remain live, where resources flow and what can trigger reopening.
+273. **Control does not mean domination or completeness.** “World-coupled control” means reproducible capacity to act, discriminate, intervene, calibrate and be corrected under resistance from the target system; it does not imply that nature is exhaustively modeled.
+274. **Post-Popperian breadth is prior art, not MQR's novelty claim.** Exploratory experimentation, pragmatic/active realism, perspectivalism and local realism already reject a simple falsification-centred picture. MQR's candidate excess is the joint executable governance of their load-bearing constraints.
+275. **REALTRACE-0.19 is a representation revision, not a retroactive rescue of REALSTOP-0.18.** v0.18 remains valid on its generated calibration family; v0.19 records why binary/event-count transport to naturalistic science is not licensed.
+276. **Naturalistic source granularity is itself an intervention on the evaluator.** A policy whose verdict changes under evidentially inert serialization refinement fails representation invariance even if its original historical prediction happened to lie inside a defensible stop window.
+277. **Five identified naturalistic windows do not identify one stopping law.** Raw OQSC and lag-one both fell inside the five source-supported claim-freeze windows in the first 4.52 corpus, while two further cases remained contract-dependent/right-censored; the result is compatibility plus representational defeat, not a policy winner.
+278. **No final authority-mode basis is inferred.** Claim/probe/use/obligation/criterion/reopening coordinates are the current minimum representation forced by the first naturalistic attack and remain open to successor refinement.
 
 ## Live governance objects
+
+- Naturalistic Stopping-Trace Admission (NSTA)
+- Ex-Ante Inquiry-State Reconstruction (EISR)
+- Temporal Source Receipt (TSR)
+- Admissible Stop Window (ASW)
+- Authority-Mode Projection (AMP)
+- Partial-Identification Map (PIM)
+- Naturalistic Reopening-Latency Receipt (RLR-N)
+- Cross-Investigation Calibration Transport (CTT)
+- Missingness / Sensitivity Ledger (MSL)
+- Decision-Contract Reconstruction (DCR)
+
+- Stopping-Rule Calibration Receipt (SRCR)
+- Inquiry-Budget Allocation Receipt (IBAR)
+- Premature-Stop / Over-Inquiry Ledger (PSOIL)
+- Counterfactual Continue/Stop Replay (CCSR)
+- Reopening-Latency Receipt (RLR)
+- Holdout Integrity & Timing Certificate (HITC)
+- Cross-Domain Termination Transport (CDTT)
+- Stopping-Policy Admissibility Receipt (SPAR)
+- Stop-Error Ledger (SEL)
+- Budget-Exhaustion Certificate (BEC)
+
+- Constitutional Regress Boundary Receipt (CRBR)
+- Operational Quotient Sufficiency Certificate (OQSC)
+- Claim-Scope Provenance Receipt (CSPR)
+- Scope-Endogeneity / Capture Sentinel (SECS)
+- Meta-Criterion Recursion Receipt (MCRR)
+- Criterion-Sensitivity Envelope (CSE)
+- World-Contact Termination Receipt (WCTR)
+- Reopening Fixed-Point State (RFPS)
+- Refinement Debt Ledger (RDL)
+- Reopening Activation Receipt (RAR)
+
+- Defeat-Content Constitution Receipt (DCCR)
+- Defeat-Identity Witness (DIW)
+- Mechanism–Manifestation Matrix (MMM)
+- Counterfactual Defeat Profile (CDP)
+- Counterfactual Defeat Equivalence Envelope (CDEE)
+- Content Split/Merge Receipt (CSMR)
+- Common-Cause Compression Graph (CCCG)
+- Cross-Representation Defeat Transport (CRDT)
+- Hidden-Content Genesis Receipt (HCGR)
+- Defeat-Content Residue Ledger (DCRL)
+- Defeat-Content Admissibility Envelope (DCAE)
+
+- Defeat-Route Ontology Constitution Receipt (DROCR)
+- Route-Identity Witness (RIW)
+- Defeat-Content Ledger (DCL)
+- Route-Ancestry Graph (RAG)
+- Route Split/Merge Receipt (RSMR)
+- Coverage-Transport Ledger (CTL)
+- Coverage-Equivalence Envelope (CEE)
+- Hidden-Route Discovery Receipt (HDR)
+- Route Residue Ledger (RRL)
+- Route-Constitution Admissibility Envelope (RCAE)
+
+- Translation-Challenge Constitution Receipt (TCCR)
+- Separator Family Registry (SFR)
+- Defeat-Route Coverage Matrix (DRCM)
+- Probe-Ancestry Graph (PAG)
+- Separator-Selection Receipt (SSR)
+- Discriminator Capture Receipt (DCR)
+- Challenge Expansion Receipt (CER)
+- Challenge Residue Ledger (CRL)
+- Separator Admissibility Envelope (SAE)
+
+- Translation-Authority Receipt (TAR)
+- Mapping-Witness Graph (MWG)
+- Adjudicator Independence Envelope (AIE)
+- Standard Capture Receipt (SCR)
+- Correspondence Admissible Set (CAS)
+- Mapping-Conflict Receipt (MCR)
+- Translation Challenge Packet (TCP)
+- Meta-Translation Dependency Graph (MTDG)
+- Meta-Regress Boundary (MRB)
+
+- Burden-Ontology Revision Receipt (BORR)
+- Burden Transport Relation (BTR; EXACT / REFINE / MERGE / OVERLAP / DISJOINT / UNMAPPED)
+- Burden-Identity Witness surface (BIW)
+- Debt-Transport Ledger (DTL; source-ancestry keyed)
+- Revision Loss Vector (RLV)
+- Cross-Constitution Comparability Envelope (CCE; mapped-subspace only)
+- Obligation Conflict Receipt (OCR)
+- Revision Diamond Receipt (RDR)
+
+- Exploration-Obligation Constitution Receipt (EOCR)
+- Search-Burden Atom (SBA; declaration-relative)
+- Obligation-Burden Map (OBM)
+- Agenda Provenance Graph (APG)
+- Successor-Coverage Witness (SCW)
+- Obligation Debt Continuity Ledger (ODCL)
+- Constitution Admissibility Envelope (CAE; membership predicate, not agenda oracle)
+- Rival-Search Allocation Receipt (RSAR)
+- Allocation Admissibility Envelope (AAE; membership predicate, not optimizer)
+- Research-Attention Budget (RAB)
+- Activation-Capable Reopening Reserve (ACRR)
+- Exploration Debt Ledger (EDL)
+- Search Opportunity-Cost Vector
+- Open Frontier Receipt (OFR)
+- Frontier Reopening Reserve (FRR)
+- Rival Generator / Rival-Generation Ancestry Graph (RGAG)
+- Frontier Adequacy Surface (FAS)
+- Frontier Escape Witness (FEW)
+- Generator-Relative Saturation
+- Discovery-Impact Vector
+
+- Rival-Separation Obligation (RSO)
+- World-Contact Separation Hypergraph (WCSH)
+- Frontier-Relative Contact Rank (FCR)
+- Minimum Contact-Basis Family (B_min)
+
+- World-Contact Substitution Certificate (WCSC)
+- World-Contact Basis (WCB)
+- External Root Cut (ERC)
 
 - Evidence-Family Common-Cause Graph (EFCG)
 - Evidence-Reuse Ledger / Reserve-Decomposition Ledger

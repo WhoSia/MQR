@@ -1,0 +1,14 @@
+REALPROGRESS 0.20
+id blackwell_local
+chart EXPERIMENT
+inert_checkpoint QUOTIENT
+evidence_batching QUOTIENT
+parameter_recode QUOTIENT
+obligation_partition QUOTIENT
+path_loop QUOTIENT
+path_order COMMUTATIVE
+local_structure PARTIAL_ORDER
+magnitude_transport UNLICENSED
+continuation_value SEPARATE
+reopening ACTIVE
+END

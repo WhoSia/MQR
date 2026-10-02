@@ -1,0 +1,23 @@
+REALROUTE 0.15
+id equal-count-pass
+claim_scope defeat-route-ontology
+source_ontology O1
+target_ontology O2
+content x
+content y
+source_route sx ax x COVERED
+source_route sy ay y COVERED
+target_route tx bx x
+target_route ty by y
+map sx EXACT tx
+map sy EXACT ty
+coverage_witness sx tx x
+coverage_witness sy ty y
+authorize_coverage_authority AUTHORIZED_CONTENT_PRESERVING_TRANSPORT
+authorize_coverage_equivalence YES
+authorize_duplication NO
+authorize_collapse NO
+authorize_hidden_novel NO
+authorize_ancestry_entanglement NO
+authorize_path_conflict NO
+END

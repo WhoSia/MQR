@@ -1,0 +1,20 @@
+REALDEFEAT 0.16
+id cross-representation-transport
+claim_scope route-identity
+source_representation native
+target_representation quotient
+challenge q1
+source_content native_fault mech_native signal_native a1 q1
+target_content quotient_fault mech_abstract signal_abstract a2 q1
+map native_fault EXACT quotient_fault
+role_witness native_fault quotient_fault q1
+authorize_identity_authority AUTHORIZED_LOCAL_COUNTERFACTUAL_QUOTIENT
+authorize_local_equivalence YES
+authorize_split_duplication NO
+authorize_manifestation_multiplication NO
+authorize_mechanism_aliasing NO
+authorize_common_cause NO
+authorize_expansion_break NO
+authorize_hidden_novel NO
+authorize_path_conflict NO
+END

@@ -1,0 +1,13 @@
+REALALLOCATE 0.10
+id invalid-role
+claim_scope frontier-search
+budget 1
+horizon 1
+lane A ancA 1 OPTIONAL ORACLE GENERATOR
+reserve 0
+normative_prior NONE
+normative_utility NONE
+history_signature H-BAD
+policy CONTRACT
+witness_escape_lane NONE
+END

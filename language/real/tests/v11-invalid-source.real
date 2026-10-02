@@ -1,0 +1,10 @@
+REALCONSTITUTE 0.11
+id bad-source
+claim_scope x
+agenda_source S1 a EXTERNAL
+burden A QUERY
+obligation O S2 MANDATORY A
+challenge_route LIVE
+escape_burden NONE
+witness_omitted_burden NONE
+END

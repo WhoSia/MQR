@@ -1,0 +1,19 @@
+REALTRANSFER 0.5
+id "mqr-4.38-transfer-positive"
+mode FORMAL_MEDIATED
+claim_scope CLAIM_SCOPE
+world_scope WORLD_SCOPE
+statement_scope STATEMENT_SCOPE
+world_authority PASS
+scope_contains WORLD_SCOPE CLAIM_SCOPE
+scope_contains STATEMENT_SCOPE CLAIM_SCOPE
+semantic_witness SW1 PASS EXTERNAL "world:registered probe outcomes obey declared relation on admitted domain" "formal:relation holds over encoded admitted domain" "independent interpretation receipt; no bridge self-certification"
+ancestor MEASUREMENT LOAD_BEARING PASS
+ancestor CALIBRATION LOAD_BEARING PASS
+ancestor FORMAT AUXILIARY PASS
+preserve MEASUREMENT
+preserve CALIBRATION
+defeat_path D1 REACHABLE "fresh successor receipt can reopen world authority and transfer adjudication"
+formal_custody PASS "Lean kernel plus pinned independent checker"
+authorize PASS
+END

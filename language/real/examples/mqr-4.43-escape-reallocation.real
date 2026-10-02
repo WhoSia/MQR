@@ -1,0 +1,21 @@
+REALALLOCATE 0.10
+id escape-reallocation
+claim_scope frontier-search
+budget 3
+horizon 2
+lane A ancA 1 MANDATORY REOPENING GENERATOR
+obligation OA A 1
+allocate 1 A 1
+outcome 1 A ESCAPE
+reserve 1
+normative_prior NONE
+normative_utility NONE
+history_signature H-ESC
+policy CONTRACT
+witness_escape_lane A
+authorize_acrr YES
+authorize_starvation NO
+authorize_debt 0
+authorize_escape_reallocation YES
+authorize_common_mode NO
+END

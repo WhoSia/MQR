@@ -1,0 +1,131 @@
+name: MQR-4.50 Constitutional Regress Boundary Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.50/**'
+      - 'language/real/src/regress_v17.rs'
+      - 'language/real/prolog/regress_v17.pl'
+      - 'language/real/examples/mqr-4.50-*.real'
+      - 'language/real/tests/v17-invalid-*.real'
+      - 'language/real/V17-REGRESS-BOUNDARY.md'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.50-regress-boundary-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  regress-boundary-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+      - name: Build canonical v0.17 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v17-regress
+      - name: Execute regress attacks and Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v17-regress
+          P=language/real/prolog/regress_v17.pl
+          CORE='^regress.'
+          for f in language/real/examples/mqr-4.50-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep -E "$CORE" /tmp/rust > /tmp/rust.core
+            grep -E "$CORE" /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.50-inert-stop.real > /tmp/stop
+          grep -F 'regress.operational_stop_authorized=YES' /tmp/stop
+          grep -F 'regress.authority_state=AUTHORIZED_CRITERION_ROBUST_OPERATIONAL_STOP' /tmp/stop
+
+          "$V" language/real/examples/mqr-4.50-material-refinement.real > /tmp/material
+          grep -F 'regress.material_refinement=YES' /tmp/material
+          grep -F 'regress.authority_state=HOLD_PREMATURE_TERMINATION' /tmp/material
+
+          "$V" language/real/examples/mqr-4.50-scope-capture.real > /tmp/scope
+          grep -F 'regress.scope_capture=YES' /tmp/scope
+          grep -F 'regress.authority_state=HOLD_SCOPE_CAPTURE' /tmp/scope
+
+          "$V" language/real/examples/mqr-4.50-criterion-capture.real > /tmp/cc
+          grep -F 'regress.criterion_capture=YES' /tmp/cc
+          grep -F 'regress.authority_state=HOLD_META_CRITERION_CAPTURE' /tmp/cc
+
+          "$V" language/real/examples/mqr-4.50-criterion-disagreement.real > /tmp/cd
+          grep -F 'regress.criterion_noninvariance=YES' /tmp/cd
+          grep -F 'regress.authority_state=HOLD_META_CRITERION_NONINVARIANCE' /tmp/cd
+
+          "$V" language/real/examples/mqr-4.50-meta-cycle.real > /tmp/cycle
+          grep -F 'regress.meta_cycle=YES' /tmp/cycle
+          grep -F 'regress.authority_state=HOLD_META_CYCLE' /tmp/cycle
+
+          "$V" language/real/examples/mqr-4.50-live-debt.real > /tmp/debt
+          grep -F 'regress.live_material_debt=YES' /tmp/debt
+          grep -F 'regress.authority_state=HOLD_LIVE_REFINEMENT_DEBT' /tmp/debt
+
+          "$V" language/real/examples/mqr-4.50-world-contact-reopen.real > /tmp/world
+          grep -F 'regress.new_world_contact_break=YES' /tmp/world
+          grep -F 'regress.authority_state=REOPEN_NEW_WORLD_CONTACT' /tmp/world
+
+          "$V" language/real/examples/mqr-4.50-criterion-break.real > /tmp/kbreak
+          grep -F 'regress.criterion_envelope_break=YES' /tmp/kbreak
+          grep -F 'regress.authority_state=REOPEN_CRITERION_ENVELOPE' /tmp/kbreak
+
+          "$V" language/real/examples/mqr-4.50-path-conflict.real > /tmp/path
+          grep -F 'regress.path_conflict=YES' /tmp/path
+          grep -F 'regress.authority_state=REOPEN_REGRESS_PATH_CONFLICT' /tmp/path
+
+          "$V" language/real/examples/mqr-4.50-action-invariant.real > /tmp/action
+          grep -F 'regress.action_authority=AUTHORIZED_ACTION_UNDER_DECLARED_CONTRACT' /tmp/action
+
+          "$V" language/real/examples/mqr-4.50-decision-drift.real > /tmp/drift
+          grep -F 'regress.decision_contract_change=YES' /tmp/drift
+          grep -F 'regress.action_authority=REOPEN_DECISION_CONTRACT_CHANGE' /tmp/drift
+
+          "$V" language/real/examples/mqr-4.50-finite-stability.real > /tmp/stable
+          grep -F 'regress.stability_rounds=10' /tmp/stable
+          grep -F 'regress.future_refinement_space_closed=NO' /tmp/stable
+          grep -F 'regress.metaphysical_termination=NO' /tmp/stable
+          grep -F 'regress.operational_stop_permanent=NO' /tmp/stable
+          grep -F 'regress.reopening_reserve=ACTIVE' /tmp/stable
+          grep -F 'regress.guidance_mode=REOPENABLE_OPERATIONAL_FIXED_POINT' /tmp/stable
+
+          "$V" language/real/examples/mqr-4.50-vacuous.real > /tmp/vacuous
+          grep -F 'regress.authority_state=HOLD_VACUOUS_TERMINATION' /tmp/vacuous
+
+          for x in language/real/tests/v17-invalid-*.real; do
+            if "$V" "$x"; then echo "Rust unexpectedly accepted $x" >&2; exit 1; fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then echo "Prolog unexpectedly accepted $x" >&2; exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V17_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR450_OPERATIONAL_STOP_POSITIVE_CONTROL=PASS
+          echo MQR450_PREMATURE_TERMINATION_FATAL_CONTROL=PASS
+          echo MQR450_SCOPE_ENDOGENEITY_GUARD=PASS
+          echo MQR450_META_CRITERION_RECURSION_GUARD=PASS
+          echo MQR450_WORLD_CONTACT_REOPENING=PASS
+          echo MQR450_ACTION_CONTRACT_SEPARATION=PASS
+          echo MQR450_FUTURE_REFINEMENT_SPACE_CLOSED=NO
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.50/Court"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="$context" -f description="$description" -f target_url="$target"

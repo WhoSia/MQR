@@ -1,0 +1,12 @@
+REALFRONTIER 0.9
+id invalid-query-conflict
+claim_scope C
+query q0 BASE
+generator g0 THEORY A0
+rival r0 BASELINE g0
+rival r1 BASELINE g0
+admit r0 PASS
+admit r1 PASS
+distinguish q0 r0 r1
+alias q0 r0 r1
+END

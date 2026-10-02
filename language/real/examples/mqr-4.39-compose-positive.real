@@ -1,0 +1,28 @@
+REALCOMPOSE 0.6
+id mqr-4.39-compose-positive
+source_authority PASS
+final_authority PASS
+bridge T1 A B PASS PASS
+bridge T2 B C PASS PASS
+semantic T1 PASS EXTERNAL
+semantic T2 PASS EXTERNAL
+semantic_comp PASS EXTERNAL
+scope_source a b
+scope_map T1 a x
+scope_map T1 b y
+scope_map T2 x z
+scope_map T2 y w
+final_claim z
+ancestor MEAS PASS
+ancestor CAL PASS
+preserve T1 MEAS
+preserve T1 CAL
+preserve T2 MEAS
+preserve T2 CAL
+assumption T1 MODEL_STABLE TRUE PASS
+assumption T2 MODEL_STABLE TRUE PASS
+defeat T1 A B REACHABLE
+defeat T2 B C REACHABLE
+direct_receipt PASS
+authorize PASS
+END

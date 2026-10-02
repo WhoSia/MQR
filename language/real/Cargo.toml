@@ -14,3 +14,75 @@ path = "src/calibrate.rs"
 [[bin]]
 name = "real-v04"
 path = "src/proof_v04.rs"
+
+[[bin]]
+name = "real-v05-transfer"
+path = "src/transfer_v05.rs"
+
+[[bin]]
+name = "real-v06-compose"
+path = "src/compose_v06.rs"
+
+[[bin]]
+name = "real-v07-substitute"
+path = "src/substitute_v07.rs"
+
+[[bin]]
+name = "real-v08-rank"
+path = "src/contact_rank_v08.rs"
+
+[[bin]]
+name = "real-v09-frontier"
+path = "src/frontier_v09.rs"
+
+[[bin]]
+name = "real-v10-allocate"
+path = "src/allocation_v10.rs"
+
+[[bin]]
+name = "real-v11-constitute"
+path = "src/constitution_v11.rs"
+
+[[bin]]
+name = "real-v12-revise"
+path = "src/revision_v12.rs"
+
+
+[[bin]]
+name = "real-v13-map-authority"
+path = "src/map_authority_v13.rs"
+
+
+[[bin]]
+name = "real-v14-challenge"
+path = "src/challenge_v14.rs"
+
+
+[[bin]]
+name = "real-v15-route"
+path = "src/route_v15.rs"
+
+
+[[bin]]
+name = "real-v16-defeat"
+path = "src/defeat_v16.rs"
+
+
+[[bin]]
+name = "real-v17-regress"
+path = "src/regress_v17.rs"
+
+
+[[bin]]
+name = "real-v18-stop"
+path = "src/stop_v18.rs"
+
+
+[[bin]]
+name = "real-v19-trace"
+path = "src/trace_v19.rs"
+
+
+[[bin]]
+name = "real-v20-progress"
+path = "src/progress_v20.rs"

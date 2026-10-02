@@ -1,0 +1,10 @@
+REALREGRESS 0.17
+id bad
+claim_scope x
+scope_timing FROZEN
+scope_nonvacuous YES
+decision_contract NONE
+action_invariant NO
+criterion k1 PROSPECTIVE INDEPENDENT
+criterion_verdict k1 missing INERT
+END

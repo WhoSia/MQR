@@ -1,0 +1,15 @@
+REALCONTACTRANK 0.8
+id repr-a
+claim_scope C
+frontier FA
+query_class Q
+root A EXTERNAL LIVE
+root B EXTERNAL LIVE
+obligation O1
+obligation O2
+separates A O1
+separates B O2
+authorize_rank 2
+authorize_unique YES
+authorize_exchange VACUOUS
+END

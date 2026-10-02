@@ -1,0 +1,10 @@
+REALSTOP 0.18
+id stop_reopen
+upstream PASS
+oqsc YES
+live_debt NO
+criterion_invariant YES
+break WORLD_CONTACT
+confirmation_required 0
+eligible_streak 4
+END

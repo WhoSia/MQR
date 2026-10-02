@@ -268,14 +268,594 @@ WORLD CONTACT
 Lean or another prover may certify derivability inside the formal region.
 It does not certify the truth of empirical premises merely because they are formalized.
 
-The current working architecture is **Proof-Carrying Realist Authority (PCRA)**. PCRA is a methodology/design hypothesis, not a new metaphysical primitive.
+MQR-4.37 retires **PCRA as one monolithic scientific-authority construct** while preserving it as historical workflow architecture. The live decomposition is: **formal custody + world-facing authority + explicit transfer contract**. See `V05-AUTHORITY-TRANSFER.md`.
 
 ## Ceiling
 
 Real-Language is allowed to represent earned authority, transport relations, premise ancestry and proof receipts.
+
+It is not allowed to infer `TRANSFER=PASS` merely from formal-custody PASS.
 
 It is not allowed to manufacture:
 - a truth percentage,
 - final ontology,
 - universal cross-domain numeric units,
 - transport authority for an untested component.
+
+
+## v0.5 — executable world–statement transfer lane
+
+MQR-4.38 makes the MQR-4.37 transfer boundary executable without turning it into a truth oracle.
+
+Canonical implementation:
+- Rust: `src/transfer_v05.rs` / binary `real-v05-transfer`;
+- independent evaluator: `haskell/TransferV05.hs`;
+- formal countermodels: `lean/MQR/Transfer.lean`.
+
+The live transfer coordinates are:
+- semantic correspondence;
+- scope admissibility;
+- authority-relevant ancestry preservation;
+- defeat reachability;
+- noncircular warrant;
+- formal custody when applicable.
+
+Each coordinate uses `PASS / HOLD / FAIL / NOT_APPLICABLE`. No numeric transfer score exists. HOLD is not collapsed into FAIL.
+
+For a formally mediated route, `TRANSFER=PASS` means only:
+
+```text
+STRUCTURAL_ADMISSIBILITY_NONAMPLIFYING
+```
+
+The transfer contract cannot raise the source world-authority ceiling. A semantic-correspondence receipt remains a defeasible world-facing warrant rather than something the compiler can certify into existence.
+
+A nonformal route is a first-class positive control:
+
+```text
+WORLD_AUTHORITY=PASS
+FORMAL_CUSTODY=NOT_APPLICABLE
+TRANSFER=NOT_APPLICABLE
+```
+
+Therefore formalization is optional and route-relative, not a universal condition for scientific authority.
+
+Rust/Haskell concordance is implementation-diversity evidence only. It does not establish semantic or world independence.
+
+
+## v0.6 — compositional transfer boundary
+
+MQR-4.39 adds `REALCOMPOSE 0.6` and separates algebraic composition from scientific composition.
+
+Canonical Rust: `src/compose_v06.rs` / `real-v06-compose`.
+Independent Haskell: `haskell/ComposeV06.hs`.
+Lean boundary: `lean/MQR/Composition.lean`.
+
+The authority meet is associative and NoLaunder is transitive, but local transfer PASS does not imply composite PASS. The composition lane tracks endpoint compatibility, semantic composition, pathwise scope mapping, original-source ancestry, end-to-end defeat segments, assumption closure, global non-amplification and a direct source-to-target receipt.
+
+A full PASS therefore means **conditional pathwise non-amplification**, not categorical closure of scientific authority. The live structural classification is **partial / witness-indexed composition**. See `V06-COMPOSITION.md`.
+
+
+## v0.7 — world-contact substitution boundary
+
+MQR-4.40 adds `REALSUBSTITUTE 0.7`.
+
+Canonical Rust: `src/substitute_v07.rs` / `real-v07-substitute`.
+Independent Haskell: `haskell/SubstituteV07.hs`.
+Lean boundary: `lean/MQR/Substitution.lean`.
+Constitution: `V07-SUBSTITUTION.md`.
+
+v0.7 removes the universal requirement that every composed endpoint receive a fresh direct receipt. A TRANSPORT_ONLY or BASIS_GENERATED endpoint may receive substitution PASS with `direct_receipt ABSENT` when a live external World-Contact Basis covers every declared load-bearing empirical degree, the endpoint query is generated from the anchored basis, naturality/path/coherence obligations survive, ancestry and defeatability remain live, and global authority remains non-amplifying.
+
+A NEW_EMPIRICAL endpoint is not substitution-eligible without new world-facing support.
+
+The External Root Cut prevents closed transfer/justification loops from grounding themselves. Path agreement does not count as independent evidence; derived receipts do not refresh stale roots. Later direct disagreement reopens the substituted claim rather than acting as an infallible oracle.
+
+The checker can report a minimum external-root cover only **relative to the declared empirical-degree/coverage graph**. It does not identify a complete or uniquely correct ontology of empirical degrees.
+
+```text
+FRESH DIRECT ENDPOINT CONTACT != UNIVERSAL PREREQUISITE
+INTERNAL COHERENCE != WORLD CONTACT
+WORLD-CONTACT BURDEN TRACKS UNCOVERED EMPIRICAL BURDEN, NOT ENDPOINT COUNT
+FINAL_TRUTH_DISTANCE = UNIDENTIFIED
+```
+
+
+## v0.8 — frontier-relative contact rank
+
+MQR-4.41 adds `REALCONTACTRANK 0.8`.
+
+Canonical Rust: `src/contact_rank_v08.rs` / `real-v08-rank`.
+Independent relational evaluator: `prolog/contact_rank_v08.pl`.
+Lean boundary: `lean/MQR/ContactRank.lean`.
+Constitution: `V08-CONTACT-RANK.md`.
+
+v0.8 retires analyst-declared empirical degrees as a primitive basis for contact minimality. It instead takes a frozen set of claim-relative Rival-Separation Obligations and a versioned external-root separation incidence, then enumerates the exact minimum external discrimination covers for that finite court.
+
+The result is **frontier-relative and instrument-relative**. It is not world dimensionality. Minimum bases may be nonunique and need not satisfy matroid basis exchange. Root cost is reported separately from cardinality. Rival/query expansion or root drift may raise rank; improved instrumentation may lower it.
+
+```text
+MINIMUM COVER != WORLD DIMENSION
+SAME RANK != SAME ONTOLOGY
+LOW RANK != INDEPENDENT EVIDENCE
+OPTIMIZER COMPLETENESS != FRONTIER COMPLETENESS
+FINITE MINIMUM != FINAL OPEN-WORLD MINIMUM
+FINAL_TRUTH_DISTANCE = UNIDENTIFIED
+```
+
+
+### v0.8 cross-axis non-inferences
+
+Calibration authority, selection-history sufficiency, decision warrant, and evaluation-contract authority are not inferred by contact-rank minimization.
+
+```text
+rank.calibration_authority_inferred=false
+rank.selection_history_sufficiency_inferred=false
+rank.decision_warrant_inferred=false
+rank.evaluation_contract_authority_inferred=false
+```
+
+These are deliberate scientific boundaries: the finite optimizer operates after a separation relation has been constituted; it does not certify the upstream operation that constituted it.
+
+
+## v0.9 — open rival-frontier governance
+
+MQR-4.42 adds `REALFRONTIER 0.9`.
+
+Canonical Rust: `src/frontier_v09.rs` / `real-v09-frontier`.
+Independent relational evaluator: `prolog/frontier_v09.pl`.
+Lean boundary: `lean/MQR/Frontier.lean`.
+Constitution: `V09-FRONTIER.md`.
+
+v0.9 treats the live rival frontier as a generated, query-relative and admission-governed object rather than a supplied complete set. It records generator ancestry, query families, discovery history, finite grammar state, frontier escapes and the before/after FCR surface.
+
+No packet can earn world-frontier completeness. Repeated no-discovery supports only generator-relative saturation. Current-rival separation does not imply query-language closure. Multiple generators do not imply independent search when ancestry collapses. Stable FCR can coexist with important discovery, while rank increase is not a scalar discovery-value measure.
+
+The positive operating rule is:
+
+```text
+OPEN FRONTIER RECEIPT
++ LIVE FRONTIER REOPENING RESERVE
++ AUDITABLE CURRENT-RIVAL DISCRIMINATION
++ EXPLICIT GENERATOR / QUERY / ADMISSION PROVENANCE
+----------------------------------------------------
+=> CONDITIONAL LOCAL USE OF FCR
+
+NOT
+=> FRONTIER COMPLETENESS
+=> SCIENTIFIC STOPPING RULE
+=> FINAL TRUTH
+```
+
+Canonical guards:
+
+```text
+frontier.world_complete=NO
+frontier.discovery_value_scalar=OFF
+frontier.fcr_guidance_scope=CONDITIONAL
+frontier.open_frontier_receipt=REQUIRED
+frontier.reopening_reserve=REQUIRED
+frontier.reopen_on_escape=YES
+frontier.completeness_claim=FORBIDDEN
+frontier.discovery_impact_mode=VECTOR
+```
+
+The live doctrine is **reopening competence rather than completeness certification**.
+
+
+## v0.10 — open-frontier attention allocation
+
+MQR-4.43 adds `REALALLOCATE 0.10`.
+
+Canonical Rust: `src/allocation_v10.rs` / `real-v10-allocate`.
+Independent relational evaluator: `prolog/allocation_v10.pl`.
+Lean boundary: `lean/MQR/Allocation.lean`.
+Constitution: `V10-ALLOCATION.md`.
+
+v0.10 treats finite scientific attention as a declared budget over typed search lanes with activation costs, ancestry, obligations, due horizons, reopening/exploitation roles and a witness-level exploration-debt ledger.
+
+The positive object is an **Allocation Admissibility Envelope (AAE)**, not a unique optimizer. The 4.42 Frontier Reopening Reserve is strengthened operationally to an **Activation-Capable Reopening Reserve (ACRR)**: nominal reserve must be large enough to exercise at least one declared reopening lane.
+
+Twin-world fixtures hold the visible RSAR surface fixed while reversing the witness-only next escape route. The evaluator therefore refuses to infer a universally correct next action from observationally identical open-frontier histories.
+
+```text
+ADMISSIBLE != OPTIMAL
+NOMINAL RESERVE != ACTIVATION-CAPABLE RESERVE
+EXPLORATION DEBT = TYPED LEDGER
+OPPORTUNITY COST = VECTOR
+UNIVERSAL NEXT ACTION = UNIDENTIFIED
+WORLD FRONTIER COMPLETE = NO
+STOPPING RULE = FORBIDDEN
+```
+
+Declared priors/utilities may authorize optimization only inside that declared model. They do not become a probability distribution or utility function over unconceived rivals.
+
+Final MQR-4.43 scope:
+- AAE is an admissibility-membership surface, not a universal optimizer;
+- ACRR is activation capability, while ancestry/common-mode exposure remains separate;
+- Lean proves the twin-world deterministic-policy boundary and a narrow finite unit-activation anti-starvation theorem with empty axiom ancestry;
+- explicit obligation/debt semantics, not reserve existence alone, govern periodic exercise;
+- declared-model optimization never lifts `allocation.world_optimum_identified` or `allocation.world_frontier_complete`.
+
+The live doctrine is **finite attention governance without pricing the unknown**.
+
+
+## v0.11 — exploration-obligation constitution
+
+MQR-4.44 adds `REALCONSTITUTE 0.11`.
+
+Canonical Rust: `src/constitution_v11.rs` / `real-v11-constitute`.  
+Independent relational evaluator: `prolog/constitution_v11.pl`.  
+Lean boundary: `lean/MQR/Constitution.lean`.  
+Constitution: `V11-OBLIGATION-CONSTITUTION.md`.
+
+v0.11 moves one level upstream from v0.10's allocation contract and audits the constitution of the obligations themselves.
+
+Its primary representation attack is:
+
+```text
+ONE OBLIGATION -> {A,B}
+!= label count
+TWO OBLIGATIONS -> {A} + {B}
+
+while
+
+DECLARED BURDEN UNION = {A,B}
+```
+
+Therefore obligation count is rejected as an adequacy primitive. The live audit surface is the declared obligation–burden relation.
+
+v0.11 separately tracks agenda-source ancestry, predecessor/successor burden coverage and debt continuity. A successor label cannot retire predecessor debt merely by renaming or deletion. Full successor coverage and debt discharge are distinct checks.
+
+Endogenous mandate formation is permitted but marked. External provenance is likewise visible without becoming a truth oracle.
+
+The repair is explicitly second-order limited:
+
+```text
+OBLIGATION COUNT != SEARCH BURDEN
+DECLARED BURDEN UNION != WORLD-FUNDAMENTAL BURDEN ONTOLOGY
+SUCCESSOR COVERAGE != DEBT DISCHARGE
+PROVENANCE != TRUTH ORACLE
+FINITE EOCR PASS != WORLD-COMPLETE OBLIGATION ONTOLOGY
+```
+
+Canonical guards include:
+
+```text
+constitution.partition_count_authority=REJECT
+constitution.partition_audit_surface=DECLARED_BURDEN_UNION
+constitution.external_source_truth_oracle=NO
+constitution.endogenous_source_truth_oracle=NO
+constitution.world_obligation_complete=NO
+constitution.burden_atom_ontology_complete=NO
+constitution.open_world_receipt=REQUIRED
+constitution.reopen_on_escape=YES
+constitution.guidance_mode=CONTRACT_RELATIVE_CONSTITUTIONAL
+```
+
+The live doctrine is **provisional obligation constitution with burden continuity and open-world reopening**, not a complete theory of what science ought to search.
+
+
+## v0.12 — burden-ontology revision transport
+
+MQR-4.45 adds `REALREVISE 0.12`.
+
+Canonical Rust: `src/revision_v12.rs` / `real-v12-revise`.
+Independent relational evaluator: `prolog/revision_v12.pl`.
+Lean boundary: `lean/MQR/Revision.lean`.
+Constitution: `V12-BURDEN-REVISION.md`.
+
+v0.12 moves the obligation-governance problem across changing burden ontologies. Labels and version succession are neither necessary nor sufficient for cross-version burden identity. Transport is typed as `EXACT / REFINE / MERGE / OVERLAP / DISJOINT / UNMAPPED`.
+
+Historical exploration debt is keyed to source ancestry rather than target-carrier cardinality. A refinement may create several target carriers without multiplying one historical debt; a merge may create one target carrier without erasing several independently inherited debts. Full refinement coverage and provenance-preserving merge can carry debt locally, while partial overlap, unmapped disappearance and ancestry collapse require reopening.
+
+Cross-constitution comparison is deliberately partial:
+
+```text
+COMPARABILITY = MAPPED_SUBSPACE_ONLY
+CONFLICT LOCALIZATION != TRUE WINNER
+DIRECT/COMPOSED REVISION DISAGREEMENT -> REOPEN
+WORLD BURDEN IDENTITY = NOT INFERRED
+FUTURE REVISION CLOSURE = NO
+```
+
+The live doctrine is **versioned, loss-aware burden transport without ontology-identity laundering**.
+
+
+## v0.13 — contestable burden-translation authority
+
+MQR-4.46 adds REALMAPAUTH 0.13.
+
+Canonical Rust: src/map_authority_v13.rs / real-v13-map-authority.
+Independent relational evaluator: prolog/map_authority_v13.pl.
+Lean boundary: lean/MQR/MapAuthority.lean.
+Constitution: V13-TRANSLATION-AUTHORITY.md.
+
+v0.13 moves one level upstream from v0.12: a typed burden-transport relation is no longer treated as authoritative merely because it is declared. The live receipt tracks proposer/adjudicator/standard ancestry, self-certification, common-mode adjudication, capture risk, competing standards, set-valued correspondence, world-facing narrowing, direct/meta conflict and meta-dependency.
+
+Correspondence may remain non-singleton. A forced singleton is a reopening event. A world-facing separator may narrow the surviving relation set but never creates a unique world-correspondence oracle. Cyclic meta-validation creates no independent root; finite unanchored meta-dependency is carried as explicit meta-debt.
+
+Canonical guards:
+
+~~~text
+UNIQUE WORLD CORRESPONDENCE = NO
+FUTURE TRANSLATION CLOSURE = NO
+CONSENSUS TRUTH ORACLE = NO
+STANDARD TRUTH ORACLE = NO
+EXTERNALITY TRUTH ORACLE = NO
+META-CYCLE AUTHORITY = NO
+GUIDANCE = CONTESTABLE_SET_VALUED_TRANSLATION_AUTHORITY
+~~~
+
+The live doctrine is **provisional translation authority without a final dictionary or meta-standard**.
+
+
+## v0.14 — translation-challenge constitution
+
+MQR-4.47 adds `REALCHALLENGE 0.14`.
+
+Canonical Rust: `src/challenge_v14.rs` / `real-v14-challenge`.
+Independent relational evaluator: `prolog/challenge_v14.pl`.
+Lean boundary: `lean/MQR/Challenge.lean`.
+Constitution: `V14-CHALLENGE-CONSTITUTION.md`.
+
+v0.14 moves one level upstream from v0.13's world-facing separator: a probe does not gain narrowing authority merely because it is world-facing. The live receipt distinguishes the registered family, selected packet, selection rule and timing; computes declared defeat-route coverage; audits probe ancestry and candidate-derived relevance/scoring; retains omitted counterprobes; and reopens under challenge expansion.
+
+Canonical guards:
+
+~~~text
+WORLD_FACING != SELECTION_AUTHORIZED
+PROBE COUNT != ROUTE COVERAGE
+PROBE COUNT != ANCESTRY INDEPENDENCE
+CURRENT FAMILY COMPLETE = NO
+FUTURE CHALLENGE SPACE CLOSED = NO
+GUIDANCE = CONSTITUTED_REOPENABLE_SEPARATOR_AUTHORITY
+~~~
+
+A clean ancestry-separated, route-covering, prospectively selected packet may earn `AUTHORIZED_PROVISIONAL_NARROWING`. A post-outcome selection, captured discriminator, omitted counterprobe, coverage hole, common ancestry, or expansion conflict yields HOLD/REOPEN rather than silent promotion.
+
+The live doctrine is **constituted and reopenable separator authority without a final challenge space**.
+
+
+## v0.15 — defeat-route ontology constitution
+
+MQR-4.48 adds `REALROUTE 0.15`.
+
+Canonical Rust: `src/route_v15.rs` / `real-v15-route`.
+Independent relational evaluator: `prolog/route_v15.pl`.
+Lean boundary: `lean/MQR/RouteOntology.lean`.
+Constitution: `V15-ROUTE-ONTOLOGY.md`.
+
+v0.15 moves one level upstream from v0.14's defeat-route coverage matrix. Route labels and route counts are no longer treated as stable coverage primitives. The live receipt tracks declaration-relative defeat content, route ancestry, EXACT/REFINE/MERGE/OVERLAP/DISJOINT/UNMAPPED route transport, content-level coverage witnesses, hidden-route discoveries and revision-path disagreement.
+
+Canonical guards:
+
+~~~text
+ROUTE LABEL != ROUTE IDENTITY
+ROUTE COUNT != DEFEAT-CONTENT COUNT
+ROUTE SPLIT != NEW DEFEAT CAPACITY
+ROUTE MERGE != COVERAGE DISCHARGE
+EQUAL COVERAGE FRACTIONS != COVERAGE EQUIVALENCE
+CURRENT ROUTE ONTOLOGY COMPLETE = NO
+FUTURE DEFEAT SPACE CLOSED = NO
+GUIDANCE = VERSIONED_DEFEAT_CONTENT_COVERAGE
+~~~
+
+A content-preserving refinement or merge may carry local coverage authority. Undertransport, coverage collapse, ancestry entanglement, hidden-route discovery or noncommuting revision paths yield HOLD/REOPEN rather than silent inheritance.
+
+The live doctrine is **versioned defeat-content coverage without a final taxonomy of ways to fail**.
+
+
+## v0.16 — defeat-content constitution
+
+MQR-4.49 adds `REALDEFEAT 0.16`.
+
+Canonical Rust: `src/defeat_v16.rs` / `real-v16-defeat`.
+Independent relational evaluator: `prolog/defeat_v16.pl`.
+Lean boundary: `lean/MQR/DefeatContent.lean`.
+Constitution: `V16-DEFEAT-CONTENT.md`.
+
+v0.16 moves one level upstream from v0.15's defeat-content ledger. A content name, mechanism, manifestation or representation cell is no longer treated as an identity primitive. The live object is a claim-relative Counterfactual Defeat Profile (CDP) over a declared challenge family.
+
+Canonical guards:
+
+~~~text
+DEFEAT LABEL != DEFEAT IDENTITY
+MECHANISM != MANIFESTATION != DEFEAT ROLE
+CONTENT COUNT != INDEPENDENT FAILURE DIMENSIONS
+CURRENT CDP EQUIVALENCE != FUTURE/WORLD IDENTITY
+CURRENT DEFEAT ATOMS COMPLETE = NO
+FUTURE DEFEAT SPACE CLOSED = NO
+GUIDANCE = REOPENABLE_COUNTERFACTUAL_DEFEAT_QUOTIENT
+~~~
+
+A counterfactually identical split earns no new distinction. A prospectively separated refinement may earn local authority. A fully witnessed scope quotient may merge defeat roles without asserting metaphysical identity. Common cause compresses independence rather than automatically collapsing content. Challenge expansion, hidden-content genesis, representation collapse or revision-path conflict yields HOLD/REOPEN.
+
+The live doctrine is **route identity through reopenable, claim-relative defeat-role equivalence without final error atoms**.
+
+
+## v0.17 — constitutional regress boundary
+
+MQR-4.50 adds `REALREGRESS 0.17`.
+
+Canonical Rust: `src/regress_v17.rs` / `real-v17-regress`.
+Independent relational evaluator: `prolog/regress_v17.pl`.
+Lean boundary: `lean/MQR/RegressBoundary.lean`.
+Constitution: `V17-REGRESS-BOUNDARY.md`.
+
+v0.17 does not search for a final foundation. It asks when recursive critique of the current scientific-authority constitution may stop *operationally* at a declared claim/use surface. The live receipt freezes claim scope, challenge and world-contact families, decision contract, registered refinements and materiality criteria; requires replay of every admitted refinement; carries unresolved debt explicitly; separates descriptive from action authority; and preserves activation-capable reopening.
+
+Canonical guards:
+
+~~~text
+METAPHYSICAL TERMINATION != OPERATIONAL TERMINATION
+CURRENT FIXED POINT != GLOBAL FIXED POINT
+REGISTERED STABILITY != FUTURE REFINEMENT-SPACE COMPLETENESS
+DESCRIPTIVE SUFFICIENCY != UNIVERSAL ACTION WARRANT
+OPERATIONAL STOP != OPEN-WORLD SEARCH RETIREMENT
+
+FINAL ONTOLOGY = NO
+FUTURE REFINEMENT SPACE CLOSED = NO
+STOP-RULE TRUTH ORACLE = NO
+OPERATIONAL STOP PERMANENT = NO
+REOPENING RESERVE = ACTIVE
+GUIDANCE = REOPENABLE_OPERATIONAL_FIXED_POINT
+~~~
+
+Input-admissibility firewall:
+
+~~~text
+CRBR CONSUMES CONSTITUTIONALLY ADMITTED S/Q/W/R/K.
+CRBR DOES NOT SELF-AUTHORIZE A THIN SURFACE.
+UPSTREAM HOLD/REOPEN CANNOT BE LAUNDERED INTO PASS BY v0.17.
+~~~
+
+A nonvacuous, replay-complete, debt-free, criterion-invariant current surface may earn `AUTHORIZED_CRITERION_ROBUST_OPERATIONAL_STOP`. An explicit decision contract with action invariance may additionally earn `AUTHORIZED_ACTION_UNDER_DECLARED_CONTRACT`. Material refinements, live debt, post-outcome scope/criterion capture, criterion disagreement, meta-cycles, path conflict, new distinguishing world contact, criterion-envelope break or decision-contract change yield HOLD/REOPEN.
+
+The live doctrine is **reopenable operational sufficiency without a final ontology, global stopping rule, or retirement of open-world inquiry**.
+
+
+## v0.18 — stopping-rule calibration
+
+MQR-4.51 adds `REALSTOP 0.18`.
+
+Canonical local evaluator: Rust `src/stop_v18.rs` / `real-v18-stop`.
+Independent relational evaluator: `prolog/stop_v18.pl`.
+Prospective calibration harness: `experiments/mqr-4.51/benchmark.py`.
+Finite Lean boundary: `lean/MQR/StoppingCalibration.lean`.
+Constitution: `V18-STOPPING-CALIBRATION.md`.
+
+v0.18 separates **constitutional stop eligibility** from **calibrated stop timing**.
+
+The first prospective court materialized 468 generated traces across three independently coded domains and twelve forcing families, with 108 discovery / 144 calibration / 216 untouched holdout traces.
+
+Raw immediate OQSC stopping failed C1 in every domain:
+
+~~~text
+RAW OQSC HOLDOUT
+PSE_live = 51
+AE_live = 51
+OIW = 38.5
+VERDICT = FAIL
+~~~
+
+The calibration split selected one additional eligible transition, `lambda=1`, from the frozen `{0,1,2,3}` family. Without holdout tuning, that successor passed C1–C5 in FAULT, MEASUREMENT and SEARCH:
+
+~~~text
+CALIBRATED OQSC-LAG-1 HOLDOUT
+PSE_live = 0
+AE_live = 0
+OIW = 338.5
+RL_max = 0
+MISSED_REOPEN = 0
+VERDICT = PASS
+~~~
+
+The increase in OIW is retained as a load-bearing trade-off; no scalar score erases it.
+
+Canonical guards:
+
+~~~text
+OQSC ELIGIBLE != CALIBRATED STOP NOW
+LIVE-OBLIGATION PREMATURE ERROR != FUTURE REOPENING
+PRIMARY SCALAR SCORE = OFF
+HIDDEN GOLD ACCESS = NO
+FUTURE ORACLE = NO
+POST-HOLDOUT POLICY REPAIR = FORBIDDEN
+EXTERNAL CALIBRATION = HOLD
+UNIVERSAL OPTIMALITY = FORBIDDEN
+GUIDANCE = CALIBRATED_REOPENABLE_STOP
+~~~
+
+The benchmark-specific `lambda=1` result is **not** a universal real-world stopping constant. v0.18 makes the calibration coordinate explicit while preserving v0.17's reopening reserve and upstream-admissibility firewall.
+
+The live doctrine is **internally calibrated, reopenable stop timing on the declared benchmark family, with external scientific calibration still on HOLD**.
+
+
+## v0.19 — naturalistic trace / authority-mode boundary
+
+MQR-4.52 adds `REALTRACE 0.19`.
+
+Canonical evaluator: Rust `src/trace_v19.rs` / `real-v19-trace`.
+Independent relational evaluator: `prolog/trace_v19.pl`.
+Naturalistic reconstruction/scorer: `experiments/mqr-4.52/naturalistic_cases.py` + `naturalistic_court.py`.
+Finite proof boundary: `lean/MQR/NaturalisticTrace.lean`.
+Constitution: `V19-NATURALISTIC-TRACE.md`.
+
+v0.19 is a **representation revision** forced by the first naturalistic transport attack on v0.18.
+
+The frozen MQR-4.52 corpus admitted 7 PRIMARY episodes across seven instrument/science regimes, retained 1 ozone-hole episode as SENSITIVITY, and rejected the currently unresolved Hubble-tension programme from primary scoring.
+
+Five PRIMARY episodes admit source-supported claim-freeze windows. On those windows:
+
+~~~text
+RAW OQSC:
+  definite N-PSE = 0
+  definite N-OIW = 0
+  within window = 5
+
+OQSC-LAG-1:
+  definite N-PSE = 0
+  definite N-OIW = 0
+  within window = 5
+~~~
+
+This is **partial naturalistic compatibility**, not prospective external validation.
+
+Two stronger results defeat direct transport of the v0.18 ontology:
+
+~~~text
+6 / 7 PRIMARY EPISODES = MULTI-MODE AUTHORITY
+
+6 / 6 EPISODES WITH AN ELIGIBLE STATE
+= FIXED EVENT-COUNT LAG
+  SENSITIVE TO INERT CHECKPOINT REFINEMENT
+~~~
+
+A claim can freeze while probing continues. A treatment can be provisionally usable while mechanism remains open. An investigation can be handed off or archived without a truth declaration. A novel post-closure world contact can reopen one coordinate without globally reversing every prior result.
+
+Therefore v0.19 tracks:
+
+~~~text
+CLAIM
+PROBE
+USE
+LIVE OBLIGATION
+CRITERION
+BREAK / REOPENING
+SOURCE-TEMPORAL MAPPING
+PARTIAL STOP WINDOW
+AUTHORITY-MODE PROJECTION
+TRACE GRANULARITY
+~~~
+
+Canonical non-inferences:
+
+~~~text
+CLAIM FREEZE != PROBE STOP
+PROVISIONAL USE != UNIVERSAL MECHANISTIC CLOSURE
+ARCHIVE != TRUTH
+HISTORICAL ACTION != GOLD
+ONE EVENT != ONE UNIT OF WORLD CONTACT
+LAG-1 GENERATED CALIBRATION != NATURALISTIC UNIVERSAL CONSTANT
+NATURALISTIC COMPATIBILITY != PROSPECTIVE EXTERNAL VALIDATION
+WORLD CONTACT != FALSIFICATION ONLY
+~~~
+
+Canonical guards:
+
+~~~text
+trace.unique_stop_time_inferred=NO
+trace.historical_action_truth_oracle=NO
+trace.naturalistic_retuning_lambda=NO
+trace.prospective_external_validation=NO
+trace.popperian_master_semantics=REJECT
+trace.world_contact_negative_only=NO
+trace.guidance_mode=MODE_RELATIVE_REOPENABLE_AUTHORITY
+~~~
+
+The live MQR-4.52 thesis is intentionally broader than a falsification-centred picture but does not claim originality for being “post-Popperian.” Exploratory experimentation, active/pragmatic realism, perspectival realism, local realism and conditional robustness are prior-art constraints.
+
+The candidate MQR excess is narrower: **an executable, source-temporal, partially identified and reopenable authority state over claims, probes, uses, obligations and resource transitions**.
+
+v0.19 does not infer that these coordinates are final or that one universal ontological principle governs all sciences.

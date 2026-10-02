@@ -1,0 +1,16 @@
+REALCONSTITUTE 0.11
+id escape-reconstitution
+claim_scope frontier-search
+agenda_source S1 anc1 MIXED
+burden A QUERY
+burden C RESIDUAL
+obligation OA S1 MANDATORY A
+challenge_route LIVE
+escape_burden C
+witness_omitted_burden NONE
+authorize_laundering NO
+authorize_successor_coverage YES
+authorize_common_mode NO
+authorize_reopen YES
+authorize_admissible NO
+END

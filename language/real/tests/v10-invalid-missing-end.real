@@ -1,0 +1,12 @@
+REALALLOCATE 0.10
+id invalid-missing-end
+claim_scope frontier-search
+budget 1
+horizon 1
+lane R ancR 1 OPTIONAL REOPENING GENERATOR
+reserve 1
+normative_prior NONE
+normative_utility NONE
+history_signature H-BAD
+policy CONTRACT
+witness_escape_lane NONE

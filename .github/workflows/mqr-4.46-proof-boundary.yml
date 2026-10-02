@@ -1,0 +1,116 @@
+name: MQR-4.46 Translation-Authority Lean Boundary
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'language/real/lean/MQR/MapAuthority.lean'
+      - 'language/real/lean/MQR.lean'
+      - 'language/real/V13-TRANSLATION-AUTHORITY.md'
+      - '.github/workflows/mqr-4.46-proof-boundary.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  proof-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build with pinned Lean kernel
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+
+      - name: Check axiom ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/MapAuthority.lean | tee /tmp/map-authority.log
+          if grep -F 'sorryAx' /tmp/map-authority.log; then exit 1; fi
+          theorems=(
+            MQR.adjudicatorCountDoesNotImplyAncestryIndependence
+            MQR.selfCertificationAddsNoIndependentWitness
+            MQR.sameDeclaredSurfaceCanLeaveMultipleRelationsAdmissible
+            MQR.adjudicatorConsensusDoesNotImplyUniqueWorldCorrespondence
+            MQR.standardAgreementDoesNotCreateTruthOracle
+            MQR.cyclicMetaSupportDoesNotCreateIndependentRoot
+            MQR.worldFacingSeparatorCanNarrowWithoutClosingCorrespondence
+            MQR.finiteMetaDebtCanRemainExplicitWithoutFinalOracle
+            MQR.currentMappingAuthorityDoesNotImplyFutureTranslationClosure
+          )
+          for theorem in "${theorems[@]}"; do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/map-authority.log
+          done
+          echo MQR446_MAP_AUTHORITY_AXIOM_ANCESTRY=EMPTY
+
+      - name: Build pinned independent checker stack
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          git clone https://github.com/leanprover/lean4export.git _lean4export
+          git -C _lean4export checkout 076e8e57707e813375e8f9da8bf989799ace9680
+          cp lean-toolchain _lean4export/lean-toolchain
+          (cd _lean4export && lake build lean4export)
+          git clone https://github.com/robsimmons/nanoda_lib.git _nanoda_lib
+          git -C _nanoda_lib checkout 68d5ca9db226849b41a6fff59d796ff19d0a8840
+          cargo build --release --manifest-path _nanoda_lib/Cargo.toml
+
+      - name: Independent nanoda replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env _lean4export/.lake/build/bin/lean4export MQR -- \
+            MQR.adjudicatorCountDoesNotImplyAncestryIndependence \
+            MQR.selfCertificationAddsNoIndependentWitness \
+            MQR.sameDeclaredSurfaceCanLeaveMultipleRelationsAdmissible \
+            MQR.adjudicatorConsensusDoesNotImplyUniqueWorldCorrespondence \
+            MQR.standardAgreementDoesNotCreateTruthOracle \
+            MQR.cyclicMetaSupportDoesNotCreateIndependentRoot \
+            MQR.worldFacingSeparatorCanNarrowWithoutClosingCorrespondence \
+            MQR.finiteMetaDebtCanRemainExplicitWithoutFinalOracle \
+            MQR.currentMappingAuthorityDoesNotImplyFutureTranslationClosure \
+            > /tmp/mqr-446.export
+          cat > /tmp/mqr-446-nanoda.json <<'JSON'
+          {
+            "export_file_path": "/tmp/mqr-446.export",
+            "use_stdin": false,
+            "permitted_axioms": [],
+            "unpermitted_axiom_hard_error": true,
+            "nat_extension": true,
+            "string_extension": true,
+            "print_success_message": true
+          }
+          JSON
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr-446-nanoda.json
+          echo REAL_LANGUAGE_NANODA_INDEPENDENT_CHECKER=PASS
+          echo MQR446_NANODA_MAP_AUTHORITY_REPLAY=PASS
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.46/Lean+nanoda"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" \
+            -f context="$context" \
+            -f description="$description" \
+            -f target_url="$target"

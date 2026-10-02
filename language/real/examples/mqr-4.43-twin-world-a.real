@@ -1,0 +1,19 @@
+REALALLOCATE 0.10
+id twin-world-a
+claim_scope frontier-search
+budget 1
+horizon 1
+lane A ancA 1 OPTIONAL REOPENING GENERATOR
+lane B ancB 1 OPTIONAL REOPENING GENERATOR
+reserve 1
+normative_prior NONE
+normative_utility NONE
+history_signature H-TWIN-0
+policy UNDECIDED
+witness_escape_lane A
+authorize_acrr YES
+authorize_starvation NO
+authorize_debt 0
+authorize_escape_reallocation NO
+authorize_common_mode NO
+END

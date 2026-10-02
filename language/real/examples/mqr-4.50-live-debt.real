@@ -1,0 +1,17 @@
+REALREGRESS 0.17
+id live-debt
+claim_scope claim-authority
+scope_timing FROZEN
+scope_nonvacuous YES
+challenge q1
+world_contact w1
+decision_contract NONE
+action_invariant NO
+decision_contract_change NO
+stability_rounds 1
+refinement r1 REPLAYED INERT
+criterion k1 PROSPECTIVE INDEPENDENT
+criterion_verdict k1 r1 INERT
+debt d1 MATERIAL LIVE
+path direct PASS
+END

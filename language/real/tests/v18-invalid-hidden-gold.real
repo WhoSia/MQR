@@ -1,0 +1,11 @@
+REALSTOP 0.18
+id invalid_hidden
+upstream PASS
+oqsc YES
+live_debt NO
+criterion_invariant YES
+break NONE
+confirmation_required 0
+eligible_streak 1
+hidden_gold SAFE
+END

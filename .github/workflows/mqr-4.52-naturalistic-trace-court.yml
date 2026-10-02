@@ -1,0 +1,125 @@
+name: MQR-4.52 Naturalistic Stopping-Trace Admission Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.52/**'
+      - 'language/real/src/trace_v19.rs'
+      - 'language/real/prolog/trace_v19.pl'
+      - 'language/real/examples/mqr-4.52-*.real'
+      - 'language/real/tests/v19-invalid-*.real'
+      - 'language/real/V19-NATURALISTIC-TRACE.md'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.52-naturalistic-trace-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  naturalistic-trace-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.19 trace evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v19-trace
+
+      - name: Execute v0.19 Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v19-trace
+          P=language/real/prolog/trace_v19.pl
+
+          for f in language/real/examples/mqr-4.52-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep '^trace\.' /tmp/rust > /tmp/rust.core
+            grep '^trace\.' /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.52-claim-freeze-active-probe.real > /tmp/multi
+          grep -F 'trace.binary_projection_loss=YES' /tmp/multi
+          grep -F 'trace.fixed_event_lag_transport=REJECT' /tmp/multi
+          grep -F 'trace.guidance_mode=MODE_RELATIVE_REOPENABLE_AUTHORITY' /tmp/multi
+
+          "$V" language/real/examples/mqr-4.52-opera-freeze.real > /tmp/opera
+          grep -F 'trace.naturalistic_admission=YES' /tmp/opera
+          grep -F 'trace.binary_projection_loss=NO' /tmp/opera
+
+          "$V" language/real/examples/mqr-4.52-provisional-use.real > /tmp/proxy
+          grep -F 'trace.naturalistic_admission=NO' /tmp/proxy
+          grep -F 'trace.use_mode=PROVISIONAL' /tmp/proxy
+
+          "$V" language/real/examples/mqr-4.52-venus-censored.real > /tmp/venus
+          grep -F 'trace.reopen_required=YES' /tmp/venus
+          grep -F 'trace.stop_window=RIGHT_CENSORED' /tmp/venus
+
+          for x in language/real/tests/v19-invalid-*.real; do
+            if "$V" "$x"; then exit 1; fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V19_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR452_MODE_RELATIVE_TRACE_SEMANTICS=PASS
+          echo MQR452_FIXED_EVENT_LAG_TRANSPORT=REJECT
+
+      - name: Execute frozen naturalistic transport court
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/mqr-4.52
+          python naturalistic_court.py | tee /tmp/mqr452.log
+          cd ../..
+
+          grep -F 'mqr452.primary_cases=7' /tmp/mqr452.log
+          grep -F 'mqr452.sensitivity_cases=1' /tmp/mqr452.log
+          grep -F 'mqr452.rejected_cases=1' /tmp/mqr452.log
+          grep -F 'mqr452.transportable_primary_cases=5' /tmp/mqr452.log
+          grep -F 'mqr452.multi_mode_cases=6' /tmp/mqr452.log
+          grep -F 'mqr452.raw.within_window=5' /tmp/mqr452.log
+          grep -F 'mqr452.lag1.within_window=5' /tmp/mqr452.log
+          grep -F 'mqr452.raw.definite_premature=0' /tmp/mqr452.log
+          grep -F 'mqr452.lag1.definite_premature=0' /tmp/mqr452.log
+          grep -F 'mqr452.granularity.eligible_cases=6' /tmp/mqr452.log
+          grep -F 'mqr452.granularity.sensitive_cases=6' /tmp/mqr452.log
+          grep -F 'mqr452.v18_binary_naturalistic_ontology=FAIL' /tmp/mqr452.log
+          grep -F 'mqr452.lag1_external_calibration=NOT_ESTABLISHED' /tmp/mqr452.log
+          grep -F 'mqr452.realtrace_v019_revision=EARNED' /tmp/mqr452.log
+          grep -F 'mqr452.popperian_master_semantics=REJECT' /tmp/mqr452.log
+
+      - name: Upload naturalistic court report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.52-naturalistic-report-${{ github.sha }}
+          path: experiments/mqr-4.52/results/naturalistic_report.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.52/Court"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="$context" -f description="$description" -f target_url="$target"

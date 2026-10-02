@@ -1,0 +1,20 @@
+REALROUTE 0.15
+id hidden-novel
+claim_scope defeat-route-ontology
+source_ontology O1
+target_ontology O2
+content x
+content z
+source_route r a1 x COVERED
+target_route r a1 x
+map r EXACT r
+coverage_witness r r x
+hidden_route hz NOVEL_ROUTE z
+authorize_coverage_authority REOPEN_HIDDEN_NOVEL_CONTENT
+authorize_coverage_equivalence YES
+authorize_duplication NO
+authorize_collapse NO
+authorize_hidden_novel YES
+authorize_ancestry_entanglement NO
+authorize_path_conflict NO
+END

@@ -1,0 +1,12 @@
+REALCONTACTRANK 0.8
+id bad-stale
+claim_scope C
+frontier F
+query_class Q
+root R EXTERNAL STALE
+obligation O
+separates R O
+authorize_rank 1
+authorize_unique YES
+authorize_exchange VACUOUS
+END

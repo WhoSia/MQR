@@ -1,0 +1,156 @@
+name: MQR-4.47 Translation-Challenge Constitution Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.47/**'
+      - 'language/real/src/challenge_v14.rs'
+      - 'language/real/prolog/challenge_v14.pl'
+      - 'language/real/examples/mqr-4.47-*.real'
+      - 'language/real/tests/v14-invalid-*.real'
+      - 'language/real/V14-CHALLENGE-CONSTITUTION.md'
+      - 'language/real/lean/MQR/Challenge.lean'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.47-translation-challenge-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  challenge-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.14 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v14-challenge
+
+      - name: Execute challenge-constitution attacks and Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v14-challenge
+          P=language/real/prolog/challenge_v14.pl
+          CORE='^challenge\.(registered_probe_count|selected_probe_count|selected_world_probe_count|selected_ancestry_count|route_count|covered_route_count|uncovered_route_count|declared_route_coverage_complete|probe_route_multiplicity|common_ancestry|post_outcome_selection|incumbent_relevance|discriminator_capture|omitted_counterprobe|correspondence_before|correspondence_after|narrowed|expansion_count|expansion_instability|expansion_reopen_required|expansion_state|current_family_complete|future_challenge_space_closed|probe_count_truth_oracle|externality_truth_oracle|cost_truth_oracle|selection_rule_truth_oracle|selection_authority|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.47-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep -E "$CORE" /tmp/rust > /tmp/rust.core
+            grep -E "$CORE" /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.47-cherry-pick-exact.real > /tmp/cpe
+          "$V" language/real/examples/mqr-4.47-cherry-pick-overlap.real > /tmp/cpo
+          grep -F 'challenge.correspondence_after=EXACT' /tmp/cpe
+          grep -F 'challenge.correspondence_after=OVERLAP' /tmp/cpo
+          grep -F 'challenge.omitted_counterprobe=YES' /tmp/cpe
+          grep -F 'challenge.selection_authority=REOPEN_OMITTED_COUNTERPROBE' /tmp/cpo
+
+          "$V" language/real/examples/mqr-4.47-post-outcome.real > /tmp/post
+          grep -F 'challenge.post_outcome_selection=YES' /tmp/post
+          grep -F 'challenge.selection_authority=HOLD_POST_OUTCOME_SELECTION' /tmp/post
+
+          "$V" language/real/examples/mqr-4.47-route-hole.real > /tmp/hole
+          grep -F 'challenge.uncovered_route_count=1' /tmp/hole
+          grep -F 'challenge.selection_authority=HOLD_ROUTE_COVERAGE' /tmp/hole
+
+          "$V" language/real/examples/mqr-4.47-common-ancestry.real > /tmp/common
+          grep -F 'challenge.selected_world_probe_count=2' /tmp/common
+          grep -F 'challenge.selected_ancestry_count=1' /tmp/common
+          grep -F 'challenge.common_ancestry=YES' /tmp/common
+
+          "$V" language/real/examples/mqr-4.47-probe-split-gerrymander.real > /tmp/split
+          grep -F 'challenge.selected_world_probe_count=6' /tmp/split
+          grep -F 'challenge.covered_route_count=2' /tmp/split
+          grep -F 'challenge.probe_route_multiplicity=YES' /tmp/split
+          grep -F 'challenge.selected_ancestry_count=2' /tmp/split
+          grep -F 'challenge.selection_authority=HOLD_COMMON_ANCESTRY' /tmp/split
+
+          "$V" language/real/examples/mqr-4.47-candidate-score-capture.real > /tmp/score
+          "$V" language/real/examples/mqr-4.47-incumbent-relevance.real > /tmp/relevance
+          grep -F 'challenge.discriminator_capture=YES' /tmp/score
+          grep -F 'challenge.selection_authority=HOLD_DISCRIMINATOR_CAPTURE' /tmp/score
+          grep -F 'challenge.incumbent_relevance=YES' /tmp/relevance
+          grep -F 'challenge.selection_authority=HOLD_DISCRIMINATOR_CAPTURE' /tmp/relevance
+
+          "$V" language/real/examples/mqr-4.47-clean-narrowing.real > /tmp/clean
+          grep -F 'challenge.declared_route_coverage_complete=YES' /tmp/clean
+          grep -F 'challenge.common_ancestry=NO' /tmp/clean
+          grep -F 'challenge.discriminator_capture=NO' /tmp/clean
+          grep -F 'challenge.correspondence_after=OVERLAP' /tmp/clean
+          grep -F 'challenge.selection_authority=AUTHORIZED_PROVISIONAL_NARROWING' /tmp/clean
+
+          "$V" language/real/examples/mqr-4.47-expansion-reopen.real > /tmp/reopen
+          grep -F 'challenge.expansion_instability=YES' /tmp/reopen
+          grep -F 'challenge.expansion_reopen_required=YES' /tmp/reopen
+          grep -F 'challenge.expansion_state=REOPENED' /tmp/reopen
+          grep -F 'challenge.selection_authority=REOPEN_EXPANSION_CONFLICT' /tmp/reopen
+
+          "$V" language/real/examples/mqr-4.47-stable-expansion.real > /tmp/stable
+          grep -F 'challenge.expansion_count=3' /tmp/stable
+          grep -F 'challenge.expansion_state=STABLE' /tmp/stable
+          grep -F 'challenge.future_challenge_space_closed=NO' /tmp/stable
+
+          "$V" language/real/examples/mqr-4.47-nondiscriminating.real > /tmp/non
+          grep -F 'challenge.narrowed=NO' /tmp/non
+          grep -F 'challenge.selection_authority=ADMISSIBLE_NO_NARROWING' /tmp/non
+
+          "$V" language/real/examples/mqr-4.47-internal-only.real > /tmp/internal
+          grep -F 'challenge.selected_world_probe_count=0' /tmp/internal
+          grep -F 'challenge.selection_authority=HOLD_NO_WORLD_FACING' /tmp/internal
+
+          grep -F 'challenge.current_family_complete=NO' /tmp/clean
+          grep -F 'challenge.future_challenge_space_closed=NO' /tmp/clean
+          grep -F 'challenge.probe_count_truth_oracle=NO' /tmp/clean
+          grep -F 'challenge.externality_truth_oracle=NO' /tmp/clean
+          grep -F 'challenge.cost_truth_oracle=NO' /tmp/clean
+          grep -F 'challenge.selection_rule_truth_oracle=NO' /tmp/clean
+          grep -F 'challenge.guidance_mode=CONSTITUTED_REOPENABLE_SEPARATOR_AUTHORITY' /tmp/clean
+
+          for x in language/real/tests/v14-invalid-*.real; do
+            if "$V" "$x"; then
+              echo "Rust unexpectedly accepted $x" >&2
+              exit 1
+            fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then
+              echo "Prolog unexpectedly accepted $x" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V14_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR447_SEPARATOR_CHERRYPICK_WITNESS=PASS
+          echo MQR447_POST_OUTCOME_SELECTION_GUARD=PASS
+          echo MQR447_DEFEAT_ROUTE_COVERAGE=PASS
+          echo MQR447_PROBE_ANCESTRY_GUARD=PASS
+          echo MQR447_CHALLENGE_GERRYMANDER_WITNESS=PASS
+          echo MQR447_DISCRIMINATOR_CAPTURE_GUARD=PASS
+          echo MQR447_CLEAN_WORLD_FACING_NARROWING=PASS
+          echo MQR447_CHALLENGE_EXPANSION_REOPENING=PASS
+          echo MQR447_FINITE_STABILITY_NOT_CLOSURE=PASS
+          echo MQR447_FUTURE_CHALLENGE_SPACE_CLOSED=NO
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.47/Court"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state"             -f context="$context"             -f description="$description"             -f target_url="$target"

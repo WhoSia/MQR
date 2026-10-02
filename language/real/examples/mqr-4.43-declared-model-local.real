@@ -1,0 +1,21 @@
+REALALLOCATE 0.10
+id declared-model-local
+claim_scope frontier-search
+budget 2
+horizon 1
+lane R ancR 1 MANDATORY REOPENING GENERATOR
+obligation OR R 1
+allocate 1 R 1
+outcome 1 R NO_NEW
+reserve 1
+normative_prior DECLARED
+normative_utility DECLARED
+history_signature H-MODEL
+policy DECLARED_MODEL
+witness_escape_lane NONE
+authorize_acrr YES
+authorize_starvation NO
+authorize_debt 0
+authorize_escape_reallocation NO
+authorize_common_mode NO
+END

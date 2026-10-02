@@ -1,0 +1,14 @@
+REALPROGRESS 0.20
+id progress_atlas
+chart OTHER
+inert_checkpoint QUOTIENT
+evidence_batching QUOTIENT
+parameter_recode QUOTIENT
+obligation_partition QUOTIENT
+path_loop QUOTIENT
+path_order NONCOMMUTATIVE
+local_structure ADMISSIBLE_REGION
+magnitude_transport UNLICENSED
+continuation_value SEPARATE
+reopening ACTIVE
+END

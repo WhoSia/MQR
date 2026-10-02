@@ -1,0 +1,45 @@
+name: MQR-4.42 Frontier Lean Boundary
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'language/real/lean/MQR/Frontier.lean'
+      - '.github/workflows/mqr-4.42-proof-boundary.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Frontier axiom ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/Frontier.lean | tee /tmp/frontier.log
+          if grep -F 'sorryAx' /tmp/frontier.log; then exit 1; fi
+          for theorem in \
+            MQR.currentRivalSeparationDoesNotImplyQueryLanguageClosure \
+            MQR.repeatedNoDiscoveryDoesNotImplyFrontierCompleteness \
+            MQR.stableFcrCanAccompanyFrontierDiscovery \
+            MQR.rankIncreaseAloneDoesNotEstablishDiscoveryValue \
+            MQR.multipleGeneratorsDoNotImplyIndependentRivalSearch \
+            MQR.finiteGrammarClosureDoesNotImplyScientificFrontierClosure \
+            MQR.plausibleGeneratorPortfoliosCanYieldNonnestedFrontiers \
+            MQR.queryExtensionCanRevealPreviouslyHiddenRival \
+            MQR.conditionalFrontierGuidanceDoesNotRequireWorldCompleteness \
+            MQR.reopeningReserveDoesNotEstablishFrontierCompleteness
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/frontier.log
+          done
+          echo MQR442_FRONTIER_AXIOM_ANCESTRY=EMPTY

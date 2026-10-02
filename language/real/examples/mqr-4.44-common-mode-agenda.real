@@ -1,0 +1,18 @@
+REALCONSTITUTE 0.11
+id common-mode-agenda
+claim_scope frontier-search
+agenda_source S1 shared EXTERNAL
+agenda_source S2 shared MIXED
+burden A QUERY
+burden B REPRESENTATION
+obligation OA S1 MANDATORY A
+obligation OB S2 MANDATORY B
+challenge_route LIVE
+escape_burden NONE
+witness_omitted_burden NONE
+authorize_laundering NO
+authorize_successor_coverage YES
+authorize_common_mode YES
+authorize_reopen NO
+authorize_admissible YES
+END

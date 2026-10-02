@@ -1,0 +1,17 @@
+REALCONSTITUTE 0.11
+id debt-rename-launder
+claim_scope frontier-search
+agenda_source S1 anc1 ENDOGENOUS
+burden A QUERY
+obligation NEW S1 MANDATORY A
+predecessor OLD A DEBT
+successor OLD NEW
+challenge_route LIVE
+escape_burden NONE
+witness_omitted_burden NONE
+authorize_laundering YES
+authorize_successor_coverage YES
+authorize_common_mode NO
+authorize_reopen NO
+authorize_admissible NO
+END

@@ -1,0 +1,11 @@
+REALTRANSFER 0.5
+id "mqr-4.38-nonformal-world-authority"
+mode NONFORMAL
+claim_scope CLAIM_SCOPE
+world_scope WORLD_SCOPE
+world_authority PASS
+scope_contains WORLD_SCOPE CLAIM_SCOPE
+ancestor DIRECT_MEASUREMENT LOAD_BEARING PASS
+formal_custody NOT_APPLICABLE "no formal proof route claimed"
+authorize NOT_APPLICABLE
+END

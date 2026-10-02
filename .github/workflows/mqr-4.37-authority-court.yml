@@ -1,0 +1,37 @@
+name: MQR-4.37 Authority Adversarial Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.37/**'
+      - '.github/workflows/mqr-4.37-authority-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  authority-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Execute frozen countermodel court
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --release --manifest-path experiments/mqr-4.37/rust/Cargo.toml | tee /tmp/mqr437.log
+          grep -F 'QUANTIFIER_SCOPE_LAUNDERING_COUNTERMODEL=PASS' /tmp/mqr437.log
+          grep -F 'RECEIPT_COMPRESSION_PARADOX_COUNTERMODEL=PASS' /tmp/mqr437.log
+          grep -F 'EPISTEMIC_DEBT_CONCENTRATION_COUNTERMODEL=PASS' /tmp/mqr437.log
+          grep -F 'CHECKER_INDEPENDENCE_VECTOR_ATTACK=PASS' /tmp/mqr437.log
+          grep -F 'PCRA_MINIMALITY_ATTACK=PASS' /tmp/mqr437.log
+          grep -F 'TRUTH_ORACLE_TRAP=PASS' /tmp/mqr437.log
+          grep -F 'FINITE_CLOSURE_INTERNAL_VALIDITY=SURVIVES' /tmp/mqr437.log
+          grep -F 'FINITE_CLOSURE_AUTHORITY_TRANSFER=NOT_ENTAILED' /tmp/mqr437.log
+          grep -F 'PCRA_UNIFIED_SCIENTIFIC_AUTHORITY_PRIMITIVE=REJECT' /tmp/mqr437.log
+          grep -F 'FORMAL_CUSTODY_SCIENTIFIC_AUTHORITY_SPLIT=SUPPORTED' /tmp/mqr437.log
+          grep -F 'OUTCOME_BRANCH_C=SUPPORTED' /tmp/mqr437.log
+          grep -F 'OUTCOME_BRANCH_E=SUPPORTED' /tmp/mqr437.log
+          grep -F 'MQR437_ADVERSARIAL_COURT=PASS' /tmp/mqr437.log

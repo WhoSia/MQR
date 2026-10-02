@@ -1,0 +1,136 @@
+name: MQR-4.51 Prospective Stopping-Rule Calibration Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.51/**'
+      - 'language/real/src/stop_v18.rs'
+      - 'language/real/prolog/stop_v18.pl'
+      - 'language/real/examples/mqr-4.51-*.real'
+      - 'language/real/tests/v18-invalid-*.real'
+      - 'language/real/V18-STOPPING-CALIBRATION.md'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.51-stopping-calibration-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  stopping-calibration-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.18 stop evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v18-stop
+
+      - name: Execute v0.18 local semantics and Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v18-stop
+          P=language/real/prolog/stop_v18.pl
+
+          for f in language/real/examples/mqr-4.51-stop-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep '^stop\.' /tmp/rust > /tmp/rust.core
+            grep '^stop\.' /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.51-stop-immediate.real | grep -F 'stop.action=STOP'
+          "$V" language/real/examples/mqr-4.51-stop-lag-wait.real | grep -F 'stop.action=CONTINUE'
+          "$V" language/real/examples/mqr-4.51-stop-lag-pass.real | grep -F 'stop.action=STOP'
+          "$V" language/real/examples/mqr-4.51-stop-live-debt.real | grep -F 'stop.action=CONTINUE'
+          "$V" language/real/examples/mqr-4.51-stop-reopen.real | grep -F 'stop.action=REOPEN'
+
+          for x in language/real/tests/v18-invalid-*.real; do
+            if "$V" "$x"; then
+              echo "Rust unexpectedly accepted $x" >&2
+              exit 1
+            fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then
+              echo "Prolog unexpectedly accepted $x" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V18_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR451_HIDDEN_GOLD_GRAMMAR_ACCESS=NO
+          echo MQR451_FUTURE_ORACLE=NO
+
+      - name: First authoritative prospective calibration and untouched holdout reveal
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.51/benchmark.py --json-out /tmp/mqr451-report.json | tee /tmp/mqr451.log
+
+          grep -F 'mqr451.trace_count=468' /tmp/mqr451.log
+          grep -F 'mqr451.split.DISCOVERY=108' /tmp/mqr451.log
+          grep -F 'mqr451.split.CALIBRATION=144' /tmp/mqr451.log
+          grep -F 'mqr451.split.HOLDOUT=216' /tmp/mqr451.log
+          grep -F 'mqr451.domain_count=3' /tmp/mqr451.log
+          grep -F 'mqr451.family_count=12' /tmp/mqr451.log
+          grep -F 'mqr451.anti_self_scoring=PASS' /tmp/mqr451.log
+          grep -F 'mqr451.holdout_integrity=PASS' /tmp/mqr451.log
+          grep -E '^mqr451.raw_oqsc_verdict=(PASS|FAIL)$' /tmp/mqr451.log
+          grep -E '^mqr451.calibrated_successor_verdict=(PASS|FAIL)$' /tmp/mqr451.log
+          grep -F 'mqr451.external_calibration=HOLD' /tmp/mqr451.log
+          grep -F 'mqr451.universal_optimality=FORBIDDEN' /tmp/mqr451.log
+          grep -F 'mqr451.primary_scalar_score=OFF' /tmp/mqr451.log
+          grep -F 'mqr451.future_oracle=FORBIDDEN' /tmp/mqr451.log
+          grep -F 'mqr451.novel_post_stop_contact_charged_as_pse=NO' /tmp/mqr451.log
+          grep -F 'mqr451.same_kernel_cross_domain=YES' /tmp/mqr451.log
+
+          python - <<'PY'
+          import json
+          p=json.load(open('/tmp/mqr451-report.json'))
+          assert p['trace_count']==468
+          assert p['split_counts']=={'DISCOVERY':108,'CALIBRATION':144,'HOLDOUT':216}
+          assert len(p['domains'])==3
+          assert p['family_count']==12
+          assert p['criteria']['C7_anti_self_scoring'] is True
+          assert p['criteria']['C8_holdout_integrity'] is True
+          assert p['guards']['primary_scalar_score']=='OFF'
+          assert p['guards']['future_oracle']=='FORBIDDEN'
+          assert p['verdict']['external_calibration']=='HOLD'
+          assert p['verdict']['universal_optimality']=='FORBIDDEN'
+          assert p['calibration_selection']['lag_lambda'] in [0,1,2,3]
+          print('MQR451_REPORT_SCHEMA=PASS')
+          PY
+
+      - name: Upload immutable benchmark report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.51-benchmark-report-${{ github.sha }}
+          path: /tmp/mqr451-report.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.51/Court"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="$context" -f description="$description" -f target_url="$target"

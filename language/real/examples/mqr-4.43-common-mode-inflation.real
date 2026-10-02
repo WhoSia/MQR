@@ -1,0 +1,25 @@
+REALALLOCATE 0.10
+id common-mode-inflation
+claim_scope frontier-search
+budget 5
+horizon 2
+lane A1 shared 1 MANDATORY REOPENING GENERATOR
+lane A2 shared 1 MANDATORY REOPENING GENERATOR
+lane B independent 1 MANDATORY REOPENING EXTERNAL_CASE
+obligation O1 A1 1
+obligation O2 A2 2
+obligation O3 B 2
+allocate 1 A1 1
+allocate 2 A2 1
+reserve 1
+normative_prior NONE
+normative_utility NONE
+history_signature H-CM
+policy NOMINAL_DIVERSITY
+witness_escape_lane B
+authorize_acrr YES
+authorize_starvation YES
+authorize_debt 1
+authorize_escape_reallocation NO
+authorize_common_mode YES
+END

@@ -1,0 +1,24 @@
+REALSUBSTITUTE 0.7
+id X
+claim_kind TRANSPORT_ONLY
+source_authority PASS
+final_authority PASS
+root R0 EXTERNAL PASS LIVE
+degree D0
+cover D0 R0
+query_root q0 R0
+bridge T1 A B PASS
+generate T1 q0 q1
+endpoint_query q1
+naturality T1 PASS SELF NONE
+path P1 A B PASS
+coherence PASS CLOSED
+ancestor MEAS PASS
+preserve T1 MEAS
+defeat REACHABLE
+justification_target BCLAIM
+justify BCLAIM T1
+justify T1 R0
+direct_receipt ABSENT
+authorize PASS
+END

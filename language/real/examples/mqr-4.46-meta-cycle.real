@@ -1,0 +1,22 @@
+REALMAPAUTH 0.13
+id meta-cycle
+claim_scope translation-authority
+source_ontology V1
+target_ontology V2
+candidate_relation EXACT
+proposer P rootP
+adjudicator A1 anc1 EXTERNAL
+adjudicator A2 anc2 EXTERNAL
+standard K std0 PRESEALED
+witness W1 K A1 DIRECT EXACT
+witness W2 K A2 DIRECT EXACT
+meta_dep REL K
+meta_dep K REL
+force_singleton NO
+authorize_mapping_authority REOPEN_META_CYCLE
+authorize_correspondence_singleton YES
+authorize_self_certified NO
+authorize_capture_risk NO
+authorize_meta_cycle YES
+authorize_world_separator NO
+END

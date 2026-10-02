@@ -1,0 +1,25 @@
+REALDEFEAT 0.16
+id manifestation-multiplication
+claim_scope route-identity
+source_representation R1
+target_representation R2
+challenge q1
+challenge q2
+source_content d1 m v1 a1 q1
+source_content d2 m v2 a2 q2
+target_content t1 m v1 b1 q1
+target_content t2 m v2 b2 q2
+map d1 EXACT t1
+map d2 EXACT t2
+role_witness d1 t1 q1
+role_witness d2 t2 q2
+authorize_identity_authority AUTHORIZED_LOCAL_COUNTERFACTUAL_QUOTIENT
+authorize_local_equivalence YES
+authorize_split_duplication NO
+authorize_manifestation_multiplication YES
+authorize_mechanism_aliasing NO
+authorize_common_cause NO
+authorize_expansion_break NO
+authorize_hidden_novel NO
+authorize_path_conflict NO
+END

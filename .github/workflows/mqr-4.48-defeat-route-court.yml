@@ -1,0 +1,172 @@
+name: MQR-4.48 Defeat-Route Ontology Constitution Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.48/**'
+      - 'language/real/src/route_v15.rs'
+      - 'language/real/prolog/route_v15.pl'
+      - 'language/real/examples/mqr-4.48-*.real'
+      - 'language/real/tests/v15-invalid-*.real'
+      - 'language/real/V15-ROUTE-ONTOLOGY.md'
+      - 'language/real/lean/MQR/RouteOntology.lean'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.48-defeat-route-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  route-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.15 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v15-route
+
+      - name: Execute route-ontology attacks and Rust-Prolog concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v15-route
+          P=language/real/prolog/route_v15.pl
+          CORE='^route\.(source_route_count|target_route_count|source_content_count|target_content_count|source_covered_content_count|target_witnessed_content_count|source_ancestry_count|target_ancestry_count|split_count|merge_count|source_coverage_complete|target_coverage_complete|coverage_transport_complete|content_surface_equivalent|coverage_duplication_detected|coverage_collapse_detected|coverage_equivalence|hidden_route_count|hidden_novel_content|ancestry_entanglement|path_conflict|reopen_required|coverage_authority|current_route_ontology_complete|future_defeat_space_closed|route_count_truth_oracle|route_label_identity_oracle|coverage_fraction_truth_oracle|revision_path_truth_oracle|guidance_mode)='
+
+          for f in language/real/examples/mqr-4.48-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep -E "$CORE" /tmp/rust > /tmp/rust.core
+            grep -E "$CORE" /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.48-same-label-drift.real > /tmp/drift
+          grep -F 'route.content_surface_equivalent=NO' /tmp/drift
+          grep -F 'route.coverage_authority=HOLD_CONTENT_SURFACE_CHANGE' /tmp/drift
+
+          "$V" language/real/examples/mqr-4.48-different-label-alias.real > /tmp/alias
+          grep -F 'route.coverage_equivalence=YES' /tmp/alias
+          grep -F 'route.coverage_authority=AUTHORIZED_CONTENT_PRESERVING_TRANSPORT' /tmp/alias
+
+          "$V" language/real/examples/mqr-4.48-split-inflation.real > /tmp/split
+          grep -F 'route.source_route_count=1' /tmp/split
+          grep -F 'route.target_route_count=5' /tmp/split
+          grep -F 'route.source_content_count=1' /tmp/split
+          grep -F 'route.target_content_count=1' /tmp/split
+          grep -F 'route.coverage_duplication_detected=YES' /tmp/split
+          grep -F 'route.ancestry_entanglement=YES' /tmp/split
+          grep -F 'route.coverage_authority=HOLD_ROUTE_ANCESTRY_ENTANGLEMENT' /tmp/split
+
+          "$V" language/real/examples/mqr-4.48-split-undertransport.real > /tmp/under
+          grep -F 'route.coverage_transport_complete=NO' /tmp/under
+          grep -F 'route.coverage_authority=HOLD_COVERAGE_TRANSPORT' /tmp/under
+
+          "$V" language/real/examples/mqr-4.48-refinement-preserve.real > /tmp/refine
+          grep -F 'route.split_count=1' /tmp/refine
+          grep -F 'route.coverage_equivalence=YES' /tmp/refine
+          grep -F 'route.coverage_authority=AUTHORIZED_CONTENT_PRESERVING_TRANSPORT' /tmp/refine
+
+          "$V" language/real/examples/mqr-4.48-merge-launder.real > /tmp/ml
+          grep -F 'route.merge_count=1' /tmp/ml
+          grep -F 'route.coverage_collapse_detected=YES' /tmp/ml
+          grep -F 'route.coverage_authority=HOLD_COVERAGE_COLLAPSE' /tmp/ml
+
+          "$V" language/real/examples/mqr-4.48-merge-preserve.real > /tmp/mp
+          grep -F 'route.merge_count=1' /tmp/mp
+          grep -F 'route.coverage_collapse_detected=NO' /tmp/mp
+          grep -F 'route.coverage_equivalence=YES' /tmp/mp
+          grep -F 'route.coverage_authority=AUTHORIZED_CONTENT_PRESERVING_TRANSPORT' /tmp/mp
+
+          "$V" language/real/examples/mqr-4.48-equal-count-pass.real > /tmp/eca
+          "$V" language/real/examples/mqr-4.48-equal-count-fail.real > /tmp/ecb
+          grep -F 'route.source_route_count=2' /tmp/eca
+          grep -F 'route.target_route_count=2' /tmp/eca
+          grep -F 'route.source_route_count=2' /tmp/ecb
+          grep -F 'route.target_route_count=2' /tmp/ecb
+          grep -F 'route.coverage_authority=AUTHORIZED_CONTENT_PRESERVING_TRANSPORT' /tmp/eca
+          grep -F 'route.coverage_authority=HOLD_COVERAGE_TRANSPORT' /tmp/ecb
+
+          "$V" language/real/examples/mqr-4.48-ancestry-entangled.real > /tmp/ent
+          grep -F 'route.source_route_count=2' /tmp/ent
+          grep -F 'route.source_ancestry_count=1' /tmp/ent
+          grep -F 'route.ancestry_entanglement=YES' /tmp/ent
+          grep -F 'route.coverage_authority=HOLD_ROUTE_ANCESTRY_ENTANGLEMENT' /tmp/ent
+
+          "$V" language/real/examples/mqr-4.48-hidden-novel.real > /tmp/hn
+          grep -F 'route.hidden_route_count=1' /tmp/hn
+          grep -F 'route.hidden_novel_content=YES' /tmp/hn
+          grep -F 'route.reopen_required=YES' /tmp/hn
+          grep -F 'route.coverage_authority=REOPEN_HIDDEN_NOVEL_CONTENT' /tmp/hn
+
+          "$V" language/real/examples/mqr-4.48-hidden-refinement.real > /tmp/hr
+          grep -F 'route.hidden_novel_content=NO' /tmp/hr
+          grep -F 'route.reopen_required=YES' /tmp/hr
+          grep -F 'route.coverage_authority=REOPEN_HIDDEN_ROUTE_REVISION' /tmp/hr
+
+          "$V" language/real/examples/mqr-4.48-path-conflict.real > /tmp/path
+          grep -F 'route.path_conflict=YES' /tmp/path
+          grep -F 'route.coverage_authority=REOPEN_REVISION_PATH_CONFLICT' /tmp/path
+
+          "$V" language/real/examples/mqr-4.48-stable-revisions.real > /tmp/stable
+          grep -F 'route.path_conflict=NO' /tmp/stable
+          grep -F 'route.coverage_authority=AUTHORIZED_CONTENT_PRESERVING_TRANSPORT' /tmp/stable
+          grep -F 'route.future_defeat_space_closed=NO' /tmp/stable
+
+          grep -F 'route.current_route_ontology_complete=NO' /tmp/refine
+          grep -F 'route.future_defeat_space_closed=NO' /tmp/refine
+          grep -F 'route.route_count_truth_oracle=NO' /tmp/refine
+          grep -F 'route.route_label_identity_oracle=NO' /tmp/refine
+          grep -F 'route.coverage_fraction_truth_oracle=NO' /tmp/refine
+          grep -F 'route.revision_path_truth_oracle=NO' /tmp/refine
+          grep -F 'route.guidance_mode=VERSIONED_DEFEAT_CONTENT_COVERAGE' /tmp/refine
+
+          for x in language/real/tests/v15-invalid-*.real; do
+            if "$V" "$x"; then
+              echo "Rust unexpectedly accepted $x" >&2
+              exit 1
+            fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then
+              echo "Prolog unexpectedly accepted $x" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V15_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR448_ROUTE_LABEL_IDENTITY_GUARD=PASS
+          echo MQR448_SPLIT_GERRYMANDER_WITNESS=PASS
+          echo MQR448_MERGE_COVERAGE_LAUNDERING=PASS
+          echo MQR448_COVERAGE_EQUIVALENCE_FAILURE=PASS
+          echo MQR448_ROUTE_ANCESTRY_ENTANGLEMENT=PASS
+          echo MQR448_CONTENT_PRESERVING_REFINEMENT=PASS
+          echo MQR448_HIDDEN_ROUTE_REOPENING=PASS
+          echo MQR448_REVISION_PATH_CONFLICT=PASS
+          echo MQR448_FINITE_ROUTE_STABILITY_NOT_CLOSURE=PASS
+          echo MQR448_FUTURE_DEFEAT_SPACE_CLOSED=NO
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.48/Court"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" \
+            -f context="$context" \
+            -f description="$description" \
+            -f target_url="$target"

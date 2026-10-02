@@ -1,0 +1,15 @@
+REALTRACE 0.19
+id venus_phosphine
+source_cutoff 2022-11-17
+mapping BOUNDED
+claim RESTRICTED
+probe ACTIVE
+use NONE
+live_obligation BOUNDED
+criterion DISAGREE
+break WORLD_CONTACT
+projection MULTI_MODE
+granularity IRREGULAR
+stop_window RIGHT_CENSORED
+historical_action CONTINUE_PROBING
+END

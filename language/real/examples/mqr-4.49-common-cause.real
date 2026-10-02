@@ -1,0 +1,25 @@
+REALDEFEAT 0.16
+id common-cause
+claim_scope route-identity
+source_representation R1
+target_representation R2
+challenge q1
+challenge q2
+source_content d1 m1 v1 common q1
+source_content d2 m2 v2 common q2
+target_content t1 m1 v1 common q1
+target_content t2 m2 v2 common q2
+map d1 EXACT t1
+map d2 EXACT t2
+role_witness d1 t1 q1
+role_witness d2 t2 q2
+authorize_identity_authority AUTHORIZED_LOCAL_COUNTERFACTUAL_QUOTIENT
+authorize_local_equivalence YES
+authorize_split_duplication NO
+authorize_manifestation_multiplication NO
+authorize_mechanism_aliasing NO
+authorize_common_cause YES
+authorize_expansion_break NO
+authorize_hidden_novel NO
+authorize_path_conflict NO
+END

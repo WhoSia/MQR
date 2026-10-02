@@ -1,0 +1,16 @@
+REALTRANSFER 0.5
+id "v05-invalid-self-certified-bridge"
+mode FORMAL_MEDIATED
+claim_scope CLAIM
+world_scope WORLD
+statement_scope STMT
+world_authority PASS
+scope_contains WORLD CLAIM
+scope_contains STMT CLAIM
+semantic_witness SW PASS SELF "world predicate" "formal predicate" "bridge certifies itself"
+ancestor A LOAD_BEARING PASS
+preserve A
+defeat_path D REACHABLE "reopen"
+formal_custody PASS "checked"
+authorize PASS
+END
