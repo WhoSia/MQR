@@ -1,7 +1,7 @@
 #include <array>
 #include <algorithm>
 #include <bit>
-#include <cstdint>
+#include <cstdint>\n#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <map>
