@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.69**.
+Status: live through **MQR-4.70**.
 
 ## Generation-IV authority kernel
 
@@ -1630,3 +1630,54 @@ Adaptive-trial prespecification, workflow provenance and independent replication
 REALWARRANT 0.30-CANDIDATE is development-only. Its predictive class is derived, intervention-relative, and carries no world-validity authority. REALACQUIRE 0.29 remains the latest promoted Real-Language syntax.
 
 The successor must not add ancestry dimensions or promote the current seven classes. The next live pressure is whether the intervention family used to define predictive equivalence can itself be expanded, transported or revised without circularly determining the state quotient it is meant to justify.
+
+## MQR-4.70 boundary — intervention-family closure authority
+
+MQR-4.70 closes the intervention-family endogeneity question raised by MQR-4.69.
+
+Canonical result:
+
+~~~text
+FAMILY_RELATIVE_MINIMALITY_ONLY
+CLASSICAL_BASELINE_ABSORPTION_STRONG
+CLOSURE_AUTHORITY_TYPING_SURVIVES
+PARTITION_CLOSURE_NE_BLACKWELL_CLOSURE
+OPEN_WORLD_CLOSURE_UNEARNED
+NATURALISTIC_ACQUISITION_TRANSPORT_HOLD
+NO_0_30_PROMOTION
+~~~
+
+The surviving distinction is not a new experiment optimizer or predictive-state representation.
+
+~~~text
+PREDICTIVE STATE MINIMALITY IS FAMILY-RELATIVE
+EXPERIMENT COMPARISON DOES NOT BY ITSELF CLOSE THE EXPERIMENT UNIVERSE
+PARTITION CLOSURE IS WEAKER THAN BLACKWELL CLOSURE
+FINITE ENVELOPE CLOSURE IS NOT OPEN-WORLD CLOSURE
+CLOSURE AUTHORITY MUST CARRY ITS RELATIVIZING CONDITIONS
+NO KNOWN EXTERIOR PROBE IS NOT PROOF OF NO ADMISSIBLE EXTERIOR PROBE
+~~~
+
+Classical absorption is strong:
+- input-conditioned predictive state -> epsilon-transducer / PSR baseline;
+- separating intervention systems and adaptive allocation -> causal experimental design baseline;
+- minimal sufficient experiment design -> identifiability/design baseline;
+- experiment informativeness, equivalence and deficiency -> Blackwell/Torgersen baseline;
+- alternative minimal test families -> separating-system / matroid-basis baseline.
+
+MQR-4.70 retains a closure-certificate authority discipline:
+- C0 local family-relative minimality;
+- C1 finite-envelope closure;
+- C2 response-signature closure;
+- C3 parameter/model partition closure;
+- C4 decision-class-relative Blackwell closure;
+- C5 grammar-relative admissible-envelope closure;
+- C6 open-world scientific closure is not earned.
+
+In the finite deterministic calibration C1/C3 and C2/C4 collapse. In the stochastic calibration C3 and C4 separate: a current experiment can already distinguish parameter values while a stronger exterior experiment is not a garbling of it. Therefore partition closure must not be used as a substitute for decision-theoretic experiment closure.
+
+The K562 Perturb-seq naturalistic protocol is prospectively sealed, but source-byte acquisition was unavailable in the execution environment. No naturalistic response result is claimed.
+
+REALACQUIRE 0.29 remains the latest promoted Real-Language syntax. REALWARRANT 0.30-CANDIDATE remains unpromoted. MQR-4.70 introduces no new language primitive.
+
+The successor must not reopen generic experiment optimization or add closure labels merely for granularity. The next live pressure is whether admissibility-envelope closure can itself be independently generated, audited, revised and transported without circularly appealing to the scientific state whose authority it is supposed to delimit.
