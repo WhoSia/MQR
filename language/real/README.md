@@ -1,4 +1,4 @@
-# Real-Language / Real-Packet v0.3
+# Real-Language / Real-Packet v0.4 proof boundary + v0.3 transport compatibility
 
 Real-Language is MQR's active event-to-realist-authority language.
 
@@ -16,13 +16,49 @@ Historical profile grammar:
 v0.2 remains readable for archival reproducibility.
 
 ### v0.3
-Current grammar:
+Transport grammar retained for canonical/historical compatibility:
 
 - C/E/P/R authority gates
 - W/N/I/D profile
 - **legacy axis T is forbidden**
 - transport is represented by a typed relation map
 - lineage kind is explicit
+
+### v0.4 — live proof-boundary lane
+
+v0.4 adds explicit formal/empirical ancestry without replacing world contact:
+
+- typed FORMAL / DEFINITION / MODEL / EMPIRICAL premises;
+- FORMAL_ONLY / WORLD_DEPENDENT obligations;
+- explicit dependency ancestry;
+- CHECKED / UNCHECKED / REFUTED / NOT_APPLICABLE proof states;
+- empirical authority ceilings;
+- finite probe-class / internal-residue receipts;
+- mechanical rejection of axiom laundering.
+
+Canonical proof receipt:
+
+`language/real/V04-PROOF-RECEIPT.md`
+
+Canonical v0.4 proof run:
+
+`36146576232`
+
+The target Lean theorems have empty axiom ancestry and were independently rechecked by a pinned nanoda stack.
+
+The first world-contact-bound v0.4 packet is:
+
+`language/real/examples/mqr-4.36-fresh-fiber-pcra.real`
+
+It permits PASS for the narrowly receipt-backed internal-residue claim, keeps open-world adequacy at HOLD, and records fresh NU3 sufficiency as FAIL.
+
+Therefore:
+
+```text
+KERNEL_VERIFIED != WORLD_VERIFIED
+FORMAL_CERTAINTY_CANNOT_LAUNDER_EMPIRICAL_UNCERTAINTY
+ZERO_INTERNAL_RESIDUE != ZERO_OPEN_WORLD_RESIDUE
+```
 
 MQR-4.31 found that one T coordinate conflated:
 1. transport target/component,
@@ -212,9 +248,31 @@ CI requires:
 
 Implementation language is not an epistemic primitive.
 
+## Proof-assistant division of labor
+
+Real-Language is the typed boundary between world contact and proof systems.
+
+Target architecture:
+
+```text
+WORLD CONTACT
+ -> native evidence
+ -> typed empirical receipt
+ -> Real-Language premise authority
+ -> formal obligation
+ -> Lean proof
+ -> independent formal recheck
+ -> scoped consequence
+```
+
+Lean or another prover may certify derivability inside the formal region.
+It does not certify the truth of empirical premises merely because they are formalized.
+
+The current working architecture is **Proof-Carrying Realist Authority (PCRA)**. PCRA is a methodology/design hypothesis, not a new metaphysical primitive.
+
 ## Ceiling
 
-Real-Language is allowed to represent earned authority and transport relations.
+Real-Language is allowed to represent earned authority, transport relations, premise ancestry and proof receipts.
 
 It is not allowed to manufacture:
 - a truth percentage,

@@ -1,9 +1,0 @@
-[package]
-name = "mqr-4-32-composition"
-version = "0.1.0"
-edition = "2024"
-publish = false
-
-[[bin]]
-name = "mqr432"
-path = "src/main.rs"

@@ -1,0 +1,88 @@
+name: Real-Language v0.4 Lean Proof Boundary
+# canonical-proof-trigger: pinned-lean4export-plus-nanoda
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'language/real/lean/**'
+      - 'language/real/V04-PRESEAL.md'
+      - '.github/workflows/real-language-proof-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-proof-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build with pinned Lean kernel
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+
+      - name: Inspect theorem axiom ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/Residue.lean | tee /tmp/lean-proof-boundary.log
+          if grep -F 'sorryAx' /tmp/lean-proof-boundary.log; then
+            echo 'Finished proof unexpectedly depends on sorryAx' >&2
+            exit 1
+          fi
+          grep -F "'MQR.zeroInternalResidueOfComplete' does not depend on any axioms" /tmp/lean-proof-boundary.log
+          grep -F "'MQR.extensionContainsUncoveredProbe' does not depend on any axioms" /tmp/lean-proof-boundary.log
+          grep -F "'MQR.checkedProofCannotRaiseHoldToPass' does not depend on any axioms" /tmp/lean-proof-boundary.log
+          echo REAL_LANGUAGE_V04_LEAN_KERNEL=PASS
+          echo REAL_LANGUAGE_V04_AXIOM_ANCESTRY=EMPTY
+
+      - name: Build pinned independent checker stack
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          git clone https://github.com/leanprover/lean4export.git _lean4export
+          git -C _lean4export checkout 076e8e57707e813375e8f9da8bf989799ace9680
+          cp lean-toolchain _lean4export/lean-toolchain
+          (
+            cd _lean4export
+            lake build lean4export
+          )
+          git clone https://github.com/robsimmons/nanoda_lib.git _nanoda_lib
+          git -C _nanoda_lib checkout 68d5ca9db226849b41a6fff59d796ff19d0a8840
+          cargo build --release --manifest-path _nanoda_lib/Cargo.toml
+          echo REAL_LANGUAGE_V04_INDEPENDENT_STACK=BUILT
+
+      - name: Independent nanoda replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env _lean4export/.lake/build/bin/lean4export MQR -- \
+            MQR.zeroInternalResidueOfComplete \
+            MQR.extensionContainsUncoveredProbe \
+            MQR.checkedProofCannotRaiseHoldToPass \
+            > /tmp/mqr-v04.export
+          cat > /tmp/mqr-v04-nanoda.json <<'JSON'
+          {
+            "export_file_path": "/tmp/mqr-v04.export",
+            "use_stdin": false,
+            "permitted_axioms": [],
+            "unpermitted_axiom_hard_error": true,
+            "nat_extension": true,
+            "string_extension": true,
+            "print_success_message": true
+          }
+          JSON
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr-v04-nanoda.json | tee /tmp/nanoda-v04.log
+          echo REAL_LANGUAGE_V04_NANODA_INDEPENDENT_CHECKER=PASS
+          echo LEAN_PROOF_IS_NOT_WORLD_VERIFICATION=TRUE

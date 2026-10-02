@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.31**.
+Status: live through **MQR-4.36**.
 
 ## Generation-IV authority kernel
 
@@ -248,6 +248,528 @@ The language's central invariant is:
 
 > strong current realist authority may coexist with mystery, open ontology and unconceived future rivals.
 
+#### MQR-4.32 transport composition result
+
+MQR-4.32 tests the MQR-4.31 default that adjacent transport PASS edges do not automatically compose.
+
+The live composition object is a three-regime, component-indexed path:
+
+```text
+A --tau_AB--> B --tau_BC--> C
+ \----------tau_AC---------/
+```
+
+Adjacent PASS edges establish at most a `COMPOSITION_CANDIDATE`.
+
+Promotion to `COMPOSITION_PASS` requires:
+- explicit bridge classes;
+- compatibility of the actual intermediate state;
+- preservation of downstream-required distinctions;
+- a mediated A→C prediction frozen before direct reveal;
+- an independently admissible direct A→C surface;
+- direct survival;
+- path congruence at the declared claim scope.
+
+Bridge classes are typed, not scored:
+- EXACT
+- QUOTIENT_COMPATIBLE
+- SUCCESSOR_REFINEMENT
+- LOSSY
+- NONCOMMENSURABLE
+- UNRESOLVED
+
+Direct path outcomes distinguish:
+- COMPOSITION_PASS
+- PATH_DIVERGENT_PASS
+- NONTRANSITIVITY_WITNESS
+- COMPOSITION_SPLIT_REQUIRED
+- typed HOLD/OUT_OF_SCOPE states.
+
+The first admitted external prospective triangle is TKN-001, an ENGINEERING_DEVELOPMENT case over Hugging Face tokenizers 0.21.4 → 0.22.2 → 0.23.2.
+
+Frozen component:
+ordered token IDs plus ordered token strings under a fixed WordLevel vocabulary, [UNK] token, Whitespace pre-tokenizer and declared fixture set.
+
+Prospective result:
+
+```text
+A→B = TRANSPORT_PASS
+B→C = TRANSPORT_PASS
+mediated A→C prediction = TRANSPORT_PASS  [sealed before direct execution]
+held-out direct A→C = TRANSPORT_PASS
+path = COMMUTES_AT_CLAIM_QUOTIENT
+composition = COMPOSITION_PASS
+```
+
+This earns one scoped external witness that typed transport can compose under receipt-conditioned, independently tested conditions.
+
+It does **not** establish general transport transitivity or regime equivalence.
+
+The pre-reveal external candidate manifest froze a stricter promotion requirement:
+- at least six confirmatory triangles;
+- at least two lineage kinds;
+- at least one RESEARCH_LAB triangle;
+- at least one ENGINEERING_DEVELOPMENT triangle;
+- at least one COMPOSITION_PASS;
+- at least one canonical NONTRANSITIVITY_WITNESS;
+- at least one path-divergence/refinement witness.
+
+The admitted 4.32 confirmatory corpus contains only TKN-001. A research-lab confirmatory triangle is absent. EPISTEME P35 and HWPX P316 are diagnostic-only because their proposed direct comparisons do not provide the required independent direct surface; C3X P19 is excluded from fresh confirmation because candidate discovery exposed outcome-bearing information before a valid mediated seal.
+
+Therefore:
+
+```text
+SCOPED_RECEIPT_CONDITIONED_COMPOSITION = EXTERNALLY_WITNESSED
+MQR432_EXTERNAL_PROMOTION = HOLD
+CROSS_LINEAGE_CONFIRMATION = HOLD
+GLOBAL_TRANSITIVITY = REJECTED_AS_DEFAULT
+```
+
+The direct TKN world-contact produced an additional failure-typing result. World-contact and adjudication succeeded, but the final workflow receipt push lost a race with a concurrent main commit. MQR therefore distinguishes:
+
+```text
+CUSTODY_FAILURE_AFTER_SUCCESSFUL_ADJUDICATION
+!=
+SCIENTIFIC_TRANSPORT_FAILURE
+```
+
+Canonical world-contact workflows are frozen as manual read-only replay surfaces after adjudication so later documentation changes cannot mutate canonical receipts.
+
+ChatGPT-Web-HWPX-MCP remains `ENGINEERING_DEVELOPMENT`, not a research Lab.
+
+#### Research-engineering standard after MQR-4.32
+
+Repository engineering is explicitly non-epistemic infrastructure, but newly touched load-bearing executable surfaces now separate failure families:
+
+- G0 deterministic core: format, lint, unit/regression tests, release build;
+- G1 generated-contract integrity: generated-file/schema/golden-output and lock-state drift;
+- G2 compatibility geometry: OS/target/feature/version/adapter matrices;
+- G3 integration and conformance: E2E/native/provider contact with retained failure traces;
+- G4 security and supply-chain provenance: dependency audit, CI pinning/policy, hashes/attestations;
+- G5 scientific world contact: preseal, frozen criterion/prediction, execution and immutable scientific receipt.
+
+G0–G4 cannot manufacture G5 authority.
+G5 does not excuse weak G0–G4 engineering.
+
+Rust remains the default canonical language for newly touched authority-bearing adjudication when practical. Python remains suitable for independent reference implementations, exploratory statistics and non-authority-bearing glue.
+
+#### MQR-4.33 composition-support boundary result
+
+MQR-4.33 attacks the MQR-4.32 composition result counterexample-first.
+
+The frozen support representation was:
+
+```text
+P(x) = (
+  component_identity,
+  direct_independent,
+  domain_covered,
+  information_preserved,
+  state_reset,
+  adapter_commutative
+)
+```
+
+and the prospective support classes were:
+- S0 STRICT_SUPPORT;
+- S1 GENERALIZATION_RISK;
+- S2 PATH_RISK;
+- S3 UNRESOLVED.
+
+Known-outcome forcing worlds validated the executable algebra:
+
+```text
+F0 -> COMPOSITION_PASS
+F1 -> NONTRANSITIVITY_WITNESS
+F2 -> PATH_DIVERGENT_PASS
+F3 -> COMPOSITION_SPLIT_REQUIRED
+```
+
+The only uncontaminated fresh engineering case, TOML-001, failed earlier than composition.
+
+Under the frozen method-level parser surface:
+
+```text
+A -> B = TRANSPORT_FAIL
+B -> C = TRANSPORT_PASS
+COMPOSITION_CANDIDATE = NO
+```
+
+Therefore its fresh verdict is:
+
+```text
+COMPONENT_IDENTITY_ASSUMPTION_DEFEATED
+```
+
+not a fresh NONTRANSITIVITY_WITNESS.
+
+A post-failure common-adapter diagnostic later recovered the common bridge surface and produced an A/C boundary mismatch on the predeclared TOML-1.1 family. The frozen lexical minimizer reduced that diagnostic mismatch to the single fixture H04, local time with omitted seconds.
+
+Because the adapter was selected after the fresh failure, this has zero promotion credit.
+
+Inherited TKN-001 then falsified deterministic use of S1:
+
+```text
+TKN-001 -> S1_GENERALIZATION_RISK
+historical outcome -> COMPOSITION_PASS
+prediction_match -> false
+```
+
+The stronger MQR-4.33 result is representational.
+
+TKN-001 and TOML-D1 have the same frozen support profile:
+
+```text
+P(TKN-001) = P(TOML-D1) = (1,1,0,1,1,1)
+```
+
+but different observed outcomes:
+
+```text
+Y(TKN-001) = COMPOSITION_PASS
+Y(TOML-D1) = NONTRANSITIVITY_WITNESS
+```
+
+Define:
+
+```text
+x ~P y  iff  P(x) = P(y)
+```
+
+If composition outcome Y were identified by the frozen support quotient, there would exist a deterministic map g such that:
+
+```text
+Y = g o P
+```
+
+on the observed cases.
+
+The profile collision makes this impossible.
+
+Therefore:
+
+```text
+SUPPORT_PROFILE_IDENTIFIABILITY = FAIL
+OUTCOME_FACTORIZATION_THROUGH_FROZEN_PROFILE = FAIL
+FROZEN_SUPPORT_QUOTIENT_SUFFICIENCY = FAIL
+```
+
+Equivalently, the observed composition-outcome map does not descend to the frozen support quotient.
+
+This is an exact two-point representation-sufficiency failure. It does not identify the missing coordinate and does not establish that no richer support domain exists.
+
+The CODATA research-measurement diagnostic independently recomputed 12 frozen rolling triangles under the naive z<=1 agreement relation. Two triangles were composition candidates and both directly passed; zero CODATA nontransitivity witnesses occurred. This lane has zero RESEARCH_LAB promotion credit and does not establish general transitivity.
+
+Fresh RESEARCH_LAB confirmatory N was frozen at maximum zero before fresh direct reveal because EPISTEME eligibility screening exposed outcome-bearing commit metadata. No replacement lab was permitted.
+
+Therefore:
+
+```text
+SUPPORT_DOMAIN_DISCOVERY = HOLD
+POST_REVEAL_RESCUE = FORBIDDEN
+STRONGEST_EARNED_RESULT = SUPPORT_REPRESENTATION_INSUFFICIENT
+```
+
+The doctrinal update is not “composition support is unknowable.”
+
+It is:
+
+> the first natural support quotient is too coarse, and successor support representations must be prospectively refined rather than retrospectively fitted to the collision.
+
+#### MQR-4.34 relational support geometry result
+
+MQR-4.34 responds to the exact MQR-4.33 support-profile collision by changing the explanandum prospectively rather than repairing the failed Boolean classifier.
+
+The primary support object is now relational:
+
+```text
+MU(B -> D) = {
+  DOMAIN_RELATION,
+  SEMANTIC_MAP,
+  COMPONENT_RELATION,
+  QUOTIENT_RELATION,
+  STATE_RELATION,
+  ENDPOINT_CONTRACT
+}
+```
+
+Frozen relation types:
+- R0 SAME_GENERATOR_HOLDOUT;
+- R1 STRICT_DOMAIN_EXTENSION;
+- R2 SUCCESSOR_REFINEMENT;
+- R3 CONSTITUTIVE_COMPONENT_SHIFT;
+- R4 OVERLAP_NONNESTED;
+- R5 UNRESOLVED.
+
+These map prospectively to authority states A0–A5. The map does not predict raw direct PASS/FAIL. It determines what adjacent evidence is entitled to support before direct reveal.
+
+The relation grammar was frozen before inherited TKN/TOML remapping and before fresh external behavioral reveal.
+
+Zero-credit inherited calibration separated the MQR-4.33 collision:
+
+```text
+TKN-001  -> R0 SAME_GENERATOR_HOLDOUT -> A0 HOLDOUT_SUPPORT_ADMISSIBLE
+TOML-D1 -> R1 STRICT_DOMAIN_EXTENSION -> A1 EXTENSION_REQUIRES_FRESH_CONTACT
+```
+
+No rule was added after this mapping.
+
+Three fresh ENGINEERING_DEVELOPMENT worlds then supplied three different prospective authority patterns.
+
+SJSON-001:
+
+```text
+R0 SAME_GENERATOR_HOLDOUT
+adjacent bridge PASS/PASS
+mediated direct PASS prediction sealed before direct reveal
+direct A->C PASS
+prediction confirmed
+```
+
+REGEX-001:
+
+```text
+R1 STRICT_DOMAIN_EXTENSION
+adjacent bridge PASS/PASS
+mediated direct prediction NOT LICENSED
+fresh direct contact required
+direct A->C PASS
+```
+
+The later direct PASS does not retroactively convert R1 into R0. The evidential burden existed before the outcome was known.
+
+UNORM-001:
+
+```text
+R2 SUCCESSOR_REFINEMENT
+coarse bridge PASS/PASS
+successor-only direct prediction NOT LICENSED
+fresh successor direct A->C = DIVERGENCE
+```
+
+This is the sharpest fresh result. A preserved coarse quotient can coexist with divergence on successor-only distinctions. Therefore coarse support cannot automatically license authority over a refined direct domain.
+
+The integrated closure passed forcing worlds, Rust/C++ concordance, decoy invariance, relation-changing intervention sensitivity, inherited zero-credit separation, frozen fresh relation receipts and exact replay of all three external worlds.
+
+Canonical closure:
+
+```text
+run = 36138820535
+head = 25c7de572af0c65d2137574a3b1dec14a9b2f95f
+```
+
+The exact presealed external-identification rule was not satisfied:
+- fresh external N = 3 < 6;
+- lineage kinds = 1 < 2;
+- RESEARCH_LAB N = 0 < 2;
+- fresh R0 N = 1 < 2.
+
+Therefore:
+
+```text
+RELATIONAL_SUPPORT_GEOMETRY_EXTERNAL_IDENTIFICATION = HOLD
+STRONGEST_EARNED_RESULT = RELATIONAL_SUPPORT_AUTHORITY_IS_DOMAIN_MAP_INDEXED
+```
+
+The doctrinal update is:
+
+> Adjacent transport evidence has no context-free support authority. Its admissible reach is indexed by the prospectively declared map from bridge support to direct claim domain.
+
+This remains narrower than a universal support law. The full MU representation may itself be defeated by a future fresh authority-state collision.
+
+Literature constraints used in interpretation, with zero case credit:
+- Pearl & Bareinboim 2011: explicit source/target difference structure for transportability;
+- Tal 2017: model-mediated calibration and measurement authority;
+- Cousot & Cousot 1977: coarse abstraction/refinement discipline;
+- Unicode UAX #15: version-conditioned normalization stability and successor-only normalization distinctions.
+
+MQR does not claim that MU is a causal selection diagram, a metrological calibration theorem, or a Galois connection.
+
+
+#### MQR-4.35 relational-receipt collision result
+
+MQR-4.35 attacks the MQR-4.34 relational receipt itself rather than protecting it by definition.
+
+For a frozen probe algebra P, let q_R map a world/case to its support receipt and let E_P be independently adjudicated empirical support reach. Finite-court sufficiency requires a factorization:
+
+```text
+E_P = g o q_R
+```
+
+Equivalently:
+
+```text
+q_R(x) = q_R(y) -> E_P(x) = E_P(y)
+```
+
+A same-receipt opposite-reach pair is therefore a direct representation-sufficiency counterexample.
+
+The predeclared refinement ladder was:
+
+```text
+NU0 = MU
+NU1 = MU + MAP_ALGEBRA
+NU2 = NU1 + INTERVENTION_ALIGNMENT
+NU3 = NU2 + SENSITIVITY_SCOPE
+```
+
+The forcing court produced the exact preregistered collision vector:
+
+```text
+NU0_COLLISIONS = 3
+NU1_COLLISIONS = 2
+NU2_COLLISIONS = 1
+NU3_COLLISIONS = 0
+```
+
+Therefore:
+
+```text
+MU_UNIVERSAL_SUFFICIENCY = FAIL
+COARSEST_PREDECLARED_FORCING_SEPARATOR = NU3
+NU3_NATURALISTIC_IDENTIFICATION = HOLD
+RELATIONALITY = RETAINED_BUT_WEAKENED
+```
+
+The update is not that relational support geometry is useless. It is that taxonomic relation type alone is not sufficient: compositional authority is probe-relative and mechanism-sensitive.
+
+MQR-4.35 separates:
+1. usefulness;
+2. observed-corpus separation;
+3. sufficiency relative to a frozen probe/decision family;
+4. universal sufficiency across open-ended future inquiry.
+
+Only the first three can be prospectively earned on bounded evidence. The fourth retains open-world residue.
+
+#### MQR-4.36 fresh naturalistic fiber and proof-boundary result
+
+MQR-4.36 freezes NU3 unchanged and subjects it to fresh naturalistic contact.
+
+The fresh corpus was fixed before behavioral reveal at:
+- four external engineering cases;
+- two domain families;
+- one lineage kind;
+- zero RESEARCH_LAB cases.
+
+Therefore positive naturalistic identification was structurally HOLD before execution.
+
+The strict-extension fiber F-R1 assigned exactly the same NU3 receipt to JSCHEMA-001 and OASV-001.
+
+Fresh world contact returned:
+
+```text
+JSCHEMA-001 -> E1_QUOTIENT_ONLY
+OASV-001    -> E0_FULL
+```
+
+Thus:
+
+```text
+NU3_NATURALISTIC_SUFFICIENCY = FAIL
+NU3_NATURALISTIC_IDENTIFICATION = HOLD
+POST_REVEAL_RESCUE = FORBIDDEN
+```
+
+This is stronger than the MQR-4.35 forcing defeat because the same-NU3 opposite-reach collision occurred under preregistered fresh package behavior.
+
+Decision-relative sufficiency is separately typed.
+
+The fine D36 action map distinguishes E0/E1 and therefore also collides.
+
+The frozen coarser D36_CORE decision maps both E0_FULL and E1_QUOTIENT_ONLY to ALLOW_CORE_REUSE. Hence:
+
+```text
+NU3 exact empirical-reach sufficiency = FAIL
+NU3 fine-decision sufficiency = FAIL
+NU3 D36_CORE decision-relative sufficiency = NOT_DEFEATED
+```
+
+This does not make NU3 representationally sufficient. It shows that an explicitly frozen decision may legitimately ignore a real distinction.
+
+The preregistered probe class contained 132 atomic execution rows. All completed with zero unresolved rows.
+
+Therefore:
+
+```text
+INTERNAL_RESIDUE_WITHIN_DECLARED_PROBE_CLASS = ZERO
+OPEN_WORLD_RESIDUE = NOT_ELIMINATED
+```
+
+This is a genuine finite closure result whose quantifier is restricted to the declared probe class. It cannot be promoted into completeness of future interventions, instruments, observables, successor distinctions or ontology.
+
+Real-Language v0.4 introduces a proof-assistant boundary rather than a truth oracle.
+
+The live architecture is:
+
+```text
+WORLD
+ -> instrument / intervention / provider
+ -> native evidence
+ -> typed empirical receipt
+ -> Real-Language premise + authority state
+ -> Lean proof term
+ -> kernel / independent proof checker
+ -> scoped consequence
+```
+
+Pinned Lean 4.34.0 verifies the target theorem closure with empty axiom ancestry, and a pinned nanoda stack independently rechecks the exported target closure.
+
+The formal targets include:
+- complete coverage of a declared Fin n probe class implies zero internal residue inside that class;
+- a strict syntactic extension can contain a probe uncovered by the old tested predicate;
+- checked formal proof cannot raise empirical HOLD to PASS under the no-laundering relation.
+
+Therefore:
+
+```text
+KERNEL_VERIFIED != WORLD_VERIFIED
+FORMAL_CERTAINTY_CANNOT_LAUNDER_EMPIRICAL_UNCERTAINTY
+```
+
+Independent proof checking strengthens proof/software custody. It does not create an independent world-contact lineage.
+
+The working architecture is Proof-Carrying Realist Authority (PCRA):
+
+```text
+PCRA =
+  WORLD_RECEIPT
+  + TYPED_PREMISE_AUTHORITY
+  + FORMAL_DEPENDENCY_GRAPH
+  + KERNEL_CHECK
+  + INDEPENDENT_RECHECK_WHEN_AVAILABLE
+  + OPEN_WORLD_RESIDUE
+```
+
+PCRA is a design architecture, not a new metaphysical primitive.
+
+Rubenstein et al. (2017) supplies a positive formal control. Exact SEM transformations can compose when state transformations are paired with surjective order-preserving intervention maps and exact interventional-distribution correspondence. This blocks the opposite overreaction that composition is never warranted.
+
+MQR distinguishes:
+
+```text
+FORMAL COMPOSITION THEOREM
+from
+EMPIRICAL ENTITLEMENT TO THE THEOREM'S PREMISES
+```
+
+Thus proof assistants may certify composition conditional on explicit premises while world-facing inquiry remains responsible for whether those premises apply.
+
+The MQR UV-Vis origin is retained in sharpened form:
+
+```text
+sample
+ -> physical coupling
+ -> detector
+ -> digitization
+ -> calibrated representation
+ -> typed premise
+ -> Real-Language
+ -> Lean
+ -> scoped scientific consequence
+```
+
+Formalization can move the kernel/world frontier downstream or upstream. It cannot abolish the frontier.
+
 ## Current compression
 
 1. **Authority is earned by reachable defeat, not by agreement count.**
@@ -330,6 +852,18 @@ The language's central invariant is:
 78. **Formal diamond closure ≠ authority diamond closure.** Endpoint identity must be separated from equality of world-facing defeat routes.
 79. **Path-dependent evidence ≠ path-dependent reality.** A common endpoint replay can test whether sequence dependence persists when the same challenge family is restored.
 80. **Raw receipt custody is composition infrastructure.** Preserving sufficiently rich native evidence can convert apparent ontology noncommutation into auditable evidence transport.
+81. **Adjacent transport survival ≠ composition support.** Pairwise PASS establishes at most a composition candidate until the direct path is independently adjudicated.
+82. **Support-risk indicator ≠ identifying support coordinate.** A variable may locate pressure without deterministically separating PASS from failure.
+83. **Same support profile ≠ same composition outcome.** If two cases collide under a frozen support quotient but differ in outcome, the outcome map cannot factor through that quotient.
+84. **Component identity is an admission claim, not a free premise.** A triangle can fail before composition because the supposedly common executable component does not survive regime change.
+85. **Post-failure diagnostic counterexample ≠ fresh confirmatory counterexample.** Repair can localize a boundary without retroactively earning prospective promotion credit.
+86. **Forcing separation ≠ naturalistic sufficiency.** A representation that separates constructed adversarial worlds can still collide under fresh world contact.
+87. **Decision sufficiency ≠ representational sufficiency.** A frozen coarse action map may legitimately ignore an empirical distinction without making the representation complete.
+88. **Finite internal residue zero ≠ open-world residue zero.** Exhaustive closure is only as broad as the declared probe class and its admission map.
+89. **Kernel verified ≠ world verified.** Formal derivability cannot raise the authority of empirical or model premises on which the theorem depends.
+90. **Independent proof checker ≠ independent world-contact lineage.** Checker plurality diversifies formal custody, not measurement ancestry.
+91. **Formal composition theorem ≠ empirical composition warrant.** Explicit exact-transformation conditions can license composition formally; whether a scientific bridge satisfies them remains world-facing.
+92. **Formalization moves epistemic debt; it does not erase world-contact debt.** Moving more transformations into a proof assistant changes the frontier but does not turn the kernel into a physical oracle.
 
 ## Live governance objects
 

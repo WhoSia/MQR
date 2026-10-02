@@ -10,3 +10,7 @@ path = "src/main.rs"
 [[bin]]
 name = "real-calibrate"
 path = "src/calibrate.rs"
+
+[[bin]]
+name = "real-v04"
+path = "src/proof_v04.rs"

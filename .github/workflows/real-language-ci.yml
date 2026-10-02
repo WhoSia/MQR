@@ -1,4 +1,5 @@
 name: Real-Language CI
+
 on:
   push:
     branches: [main]
@@ -6,8 +7,10 @@ on:
       - 'language/real/**'
       - '.github/workflows/real-language-ci.yml'
   workflow_dispatch:
+
 permissions:
   contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -17,13 +20,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Build canonical Rust compilers
         run: cargo build --manifest-path language/real/Cargo.toml --release --bins
-      - name: Real-Packet Rust Python concordance
+
+      - name: Real-Packet v0.2/v0.3 Rust Python concordance
         shell: bash
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
+            if grep -q '^REALPACKET 0.4$' "$f"; then
+              continue
+            fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
             python language/real/reference.py "$f" > /tmp/python.out
             diff -u /tmp/python.out /tmp/rust.out
@@ -32,6 +40,7 @@ jobs:
             diff -u /tmp/python.scalar /tmp/rust.scalar
           done
           echo REAL_LANGUAGE_PACKET_CONCORDANCE=PASS
+
       - name: Real-Packet v0.3 typed-transport guards
         shell: bash
         run: |
@@ -53,6 +62,7 @@ jobs:
             exit 1
           fi
           echo REAL_LANGUAGE_V03_TYPED_TRANSPORT_GUARDS=PASS
+
       - name: Calibration scorer persistent smoke
         shell: bash
         run: |
@@ -67,3 +77,24 @@ jobs:
           diff -u /tmp/python.cal /tmp/rust.cal
           grep -F $'smoke\t0.500000\t0.500000\t0.500000\t0.500000\t0.500000' /tmp/rust.cal
           echo REAL_LANGUAGE_CALIBRATION_SCORER_SMOKE=PASS
+
+      - name: Real-Packet v0.4 formal-empirical boundary guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          V04=./language/real/target/release/real-v04
+          POS=language/real/examples/mqr-4.36-proof-boundary.real
+          NEG=language/real/tests/v04-invalid-axiom-laundering.real
+          "$V04" "$POS" > /tmp/v04.out
+          grep -F 'proof.world_laundering_guard=PASS' /tmp/v04.out
+          grep -F 'formal_validity_is_not_empirical_truth=true' /tmp/v04.out
+          grep -F 'empirical_entitlement_ceiling=HOLD' /tmp/v04.out
+          grep -F 'authorized=HOLD' /tmp/v04.out
+          grep -F 'internal_residue=ZERO_INTERNAL' /tmp/v04.out
+          grep -F 'open_world_residue=true' /tmp/v04.out
+          if "$V04" "$NEG"; then
+            echo 'v0.4 unexpectedly allowed empirical HOLD to be promoted by formal CHECKED proof' >&2
+            exit 1
+          fi
+          echo REAL_LANGUAGE_V04_AXIOM_LAUNDERING_GUARD=PASS
+          echo REAL_LANGUAGE_V04_INTERNAL_VS_OPEN_WORLD_RESIDUE=PASS
