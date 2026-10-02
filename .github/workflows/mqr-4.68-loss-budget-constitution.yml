@@ -34,15 +34,15 @@ jobs:
           name: mqr-4.68-canonical-results
           path: experiments/mqr-4.68/results/
       - name: Publish canonical receipt
-        if: \${{ always() }}
+        if: ${{ always() }}
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          state=success; if [ "\${{ job.status }}" != success ]; then state=failure; fi
-          gh api --method POST "repos/\${GITHUB_REPOSITORY}/statuses/\${GITHUB_SHA}" \
-            -f state="\$state" -f context="MQR-4.68/Canonical-Court" \
-            -f description="run \${GITHUB_RUN_ID}: \${{ job.status }}" \
-            -f target_url="\${GITHUB_SERVER_URL}/\${GITHUB_REPOSITORY}/actions/runs/\${GITHUB_RUN_ID}"
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.68/Canonical-Court" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
   independent-concordance:
     runs-on: ubuntu-latest
@@ -65,15 +65,15 @@ jobs:
           diff -u experiments/mqr-4.68/results/python_summary.tsv experiments/mqr-4.68/results/cpp_summary.tsv
           echo MQR468_PYTHON_CPP_CONCORDANCE=PASS
       - name: Publish concordance receipt
-        if: \${{ always() }}
+        if: ${{ always() }}
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          state=success; if [ "\${{ job.status }}" != success ]; then state=failure; fi
-          gh api --method POST "repos/\${GITHUB_REPOSITORY}/statuses/\${GITHUB_SHA}" \
-            -f state="\$state" -f context="MQR-4.68/Python-Cpp-Concordance" \
-            -f description="run \${GITHUB_RUN_ID}: \${{ job.status }}" \
-            -f target_url="\${GITHUB_SERVER_URL}/\${GITHUB_REPOSITORY}/actions/runs/\${GITHUB_RUN_ID}"
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.68/Python-Cpp-Concordance" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
   real-loss-contract:
     runs-on: ubuntu-latest
@@ -97,17 +97,17 @@ jobs:
             language/real/examples/mqr-4.68-cross-domain.real \
             language/real/examples/mqr-4.68-posthoc-rescue.real
           do
-            "\$BIN" "\$packet" > /tmp/rust.out
-            swipl -q -f language/real/prolog/loss_contract_v30.pl -- "\$packet" > /tmp/prolog.out
+            "$BIN" "$packet" > /tmp/rust.out
+            swipl -q -f language/real/prolog/loss_contract_v30.pl -- "$packet" > /tmp/prolog.out
             diff -u /tmp/rust.out /tmp/prolog.out
           done
-          "\$BIN" language/real/examples/mqr-4.68-local-soft.real | tee /tmp/local.log
+          "$BIN" language/real/examples/mqr-4.68-local-soft.real | tee /tmp/local.log
           grep -F 'loss_contract.decision=ACCEPT_WITH_AUDIT' /tmp/local.log
           grep -F 'loss_contract.world_validity=NOT_ESTABLISHED' /tmp/local.log
           grep -F 'loss_contract.global_loss_score=FORBIDDEN' /tmp/local.log
-          "\$BIN" language/real/examples/mqr-4.68-reopen.real | grep -F 'loss_contract.decision=REEXPAND_REQUIRED'
-          "\$BIN" language/real/examples/mqr-4.68-cross-domain.real | grep -F 'loss_contract.decision=HOLD_TRANSPORT'
-          "\$BIN" language/real/examples/mqr-4.68-posthoc-rescue.real | grep -F 'loss_contract.decision=REVISION_FORBIDDEN'
+          "$BIN" language/real/examples/mqr-4.68-reopen.real | grep -F 'loss_contract.decision=REEXPAND_REQUIRED'
+          "$BIN" language/real/examples/mqr-4.68-cross-domain.real | grep -F 'loss_contract.decision=HOLD_TRANSPORT'
+          "$BIN" language/real/examples/mqr-4.68-posthoc-rescue.real | grep -F 'loss_contract.decision=REVISION_FORBIDDEN'
           echo MQR468_REAL_LOSS_CONTRACT=PASS
       - name: Reject hidden scalar authority
         run: |
@@ -119,15 +119,15 @@ jobs:
           fi
           grep -F 'scalar_mode must be OFF' /tmp/bad.err
       - name: Publish Real-Lang receipt
-        if: \${{ always() }}
+        if: ${{ always() }}
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          state=success; if [ "\${{ job.status }}" != success ]; then state=failure; fi
-          gh api --method POST "repos/\${GITHUB_REPOSITORY}/statuses/\${GITHUB_SHA}" \
-            -f state="\$state" -f context="MQR-4.68/Real-Loss-Contract" \
-            -f description="run \${GITHUB_RUN_ID}: \${{ job.status }}" \
-            -f target_url="\${GITHUB_SERVER_URL}/\${GITHUB_REPOSITORY}/actions/runs/\${GITHUB_RUN_ID}"
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.68/Real-Loss-Contract" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
   lean-boundary:
     runs-on: ubuntu-latest
@@ -154,19 +154,19 @@ jobs:
             MQR.unauthorized_revision_blocks \
             MQR.admissible_implies_componentwise
           do
-            grep -F "'\$theorem' does not depend on any axioms" /tmp/mqr468-lean.log
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr468-lean.log
           done
           echo MQR468_LEAN_LOSS_CONTRACT=PASS
       - name: Publish Lean receipt
-        if: \${{ always() }}
+        if: ${{ always() }}
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          state=success; if [ "\${{ job.status }}" != success ]; then state=failure; fi
-          gh api --method POST "repos/\${GITHUB_REPOSITORY}/statuses/\${GITHUB_SHA}" \
-            -f state="\$state" -f context="MQR-4.68/Lean-Boundary" \
-            -f description="run \${GITHUB_RUN_ID}: \${{ job.status }}" \
-            -f target_url="\${GITHUB_SERVER_URL}/\${GITHUB_REPOSITORY}/actions/runs/\${GITHUB_RUN_ID}"
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.68/Lean-Boundary" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
   structural-guards:
     runs-on: ubuntu-latest
@@ -184,12 +184,12 @@ jobs:
           grep -F 'loss_contract.cross_domain_severity_equality=NOT_ASSUMED' language/real/src/loss_contract_v30.rs
           echo MQR468_STRUCTURAL_GUARDS=PASS
       - name: Publish guard receipt
-        if: \${{ always() }}
+        if: ${{ always() }}
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          state=success; if [ "\${{ job.status }}" != success ]; then state=failure; fi
-          gh api --method POST "repos/\${GITHUB_REPOSITORY}/statuses/\${GITHUB_SHA}" \
-            -f state="\$state" -f context="MQR-4.68/Structural-Guards" \
-            -f description="run \${GITHUB_RUN_ID}: \${{ job.status }}" \
-            -f target_url="\${GITHUB_SERVER_URL}/\${GITHUB_REPOSITORY}/actions/runs/\${GITHUB_RUN_ID}"
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.68/Structural-Guards" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
