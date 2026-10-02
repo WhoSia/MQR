@@ -1,0 +1,122 @@
+name: MQR-4.64 Acquisition-Constraint Binding Characterization
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.64/**'
+      - '.github/workflows/mqr-4.64-binding-characterization.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  rust-characterization:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile canonical Rust characterizer
+        run: rustc --edition=2021 -O experiments/mqr-4.64/binding_characterizer.rs -o /tmp/mqr464
+      - name: Run frozen finite enumeration
+        run: |
+          /tmp/mqr464 | tee /tmp/mqr464-rust.log
+          grep -F 'MQR464_WORLD_COUNT=26112' /tmp/mqr464-rust.log
+          grep -F 'MQR464_COMPARISON_COUNT=522240' /tmp/mqr464-rust.log
+          grep -F 'MQR464_ACTION_CATALOG=16' /tmp/mqr464-rust.log
+          grep -F 'MQR464_SCALAR_SCORE=FORBIDDEN' /tmp/mqr464-rust.log
+          grep -F 'MQR464_ORACLE_TRAP=ORACLE_DEPENDENT' /tmp/mqr464-rust.log
+          grep -F 'MQR464_REVERSIBLE_OPR_RELEASE=PASS' /tmp/mqr464-rust.log
+          grep -F 'MQR464_SUBSTITUTABLE_SEPARATOR_RELEASE=PASS' /tmp/mqr464-rust.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.64-rust-results
+          path: experiments/mqr-4.64/results/
+      - name: Publish Rust receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.64/Rust-Characterization"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  independent-concordance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run Rust enumeration
+        run: |
+          rustc --edition=2021 -O experiments/mqr-4.64/binding_characterizer.rs -o /tmp/mqr464
+          /tmp/mqr464
+      - name: Run independent Python enumeration
+        run: |
+          python experiments/mqr-4.64/independent_enumerator.py | tee /tmp/mqr464-py.log
+          grep -F 'MQR464_PY_WORLD_COUNT=26112' /tmp/mqr464-py.log
+          grep -F 'MQR464_PY_COMPARISON_COUNT=522240' /tmp/mqr464-py.log
+          grep -F 'MQR464_PY_INDEPENDENT_ENUMERATION=PASS' /tmp/mqr464-py.log
+      - name: Compare complete count matrix
+        shell: bash
+        run: |
+          {
+            head -n 1 experiments/mqr-4.64/results/rust_summary.tsv
+            grep '^COUNT' experiments/mqr-4.64/results/rust_summary.tsv
+          } > /tmp/rust_counts.tsv
+          diff -u /tmp/rust_counts.tsv experiments/mqr-4.64/results/python_counts.tsv
+          echo MQR464_RUST_PYTHON_COUNT_CONCORDANCE=PASS
+      - name: Publish concordance receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.64/Independent-Concordance"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  deterministic-replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exact replay twice
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 -O experiments/mqr-4.64/binding_characterizer.rs -o /tmp/mqr464
+          /tmp/mqr464 >/tmp/run1.log
+          sha256sum experiments/mqr-4.64/results/rust_summary.tsv experiments/mqr-4.64/results/rust_witnesses.tsv > /tmp/hash1
+          rm -rf experiments/mqr-4.64/results
+          /tmp/mqr464 >/tmp/run2.log
+          sha256sum experiments/mqr-4.64/results/rust_summary.tsv experiments/mqr-4.64/results/rust_witnesses.tsv > /tmp/hash2
+          diff -u /tmp/hash1 /tmp/hash2
+          diff -u /tmp/run1.log /tmp/run2.log
+          echo MQR464_DETERMINISTIC_REPLAY=PASS
+      - name: Publish replay receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.64/Deterministic-Replay"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen study receipts and anti-inflation guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -F 'No scalar MQR score is permitted.' experiments/mqr-4.64/BINDING-MANIFEST.md
+          grep -F 'No post-reveal action catalog, weights, thresholds, or classification rule changes.' experiments/mqr-4.64/ENUMERATION-FREEZE.md
+          grep -F 'No universal MQR controller superiority' experiments/mqr-4.64/PRESEAL.md
+          grep -F 'CURRENT DRIVE RE-SEARCH' experiments/mqr-4.64/MISSING-LITERATURE.md
+          echo MQR464_PRESEAL_GUARDS=PASS
+      - name: Publish guard receipt
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success; if [ "${{ job.status }}" != success ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}"             -f state="$state" -f context="MQR-4.64/Structural-Guards"             -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}"             -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
