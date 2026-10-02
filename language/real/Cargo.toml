@@ -86,3 +86,25 @@ path = "src/trace_v19.rs"
 [[bin]]
 name = "real-v20-progress"
 path = "src/progress_v20.rs"
+
+
+[[bin]]
+name = "real-v21-invariance"
+path = "src/invariance_v21.rs"
+
+
+[[bin]]
+name = "real-v22-consequence"
+path = "src/consequence_v22.rs"
+
+[[bin]]
+name = "real-v23-value"
+path = "src/value_v23.rs"
+
+[[bin]]
+name = "real-v24-ecology"
+path = "src/strategy_v24.rs"
+
+[[bin]]
+name = "real-v25-reflex"
+path = "src/reflex_v25.rs"

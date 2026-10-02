@@ -1,0 +1,16 @@
+REALCONSEQUENCE 0.22
+id intuition_oracle
+target CAUSAL
+typed_channels PASS
+ancestry_audit PASS
+common_mode NO
+generator_grammar DECLARED
+off_grammar_route ACTIVE
+adversarial_expansion PASS
+serialization_quotient PASS
+tacit_competence VERIFIED
+heuristic_role SELF_AUTHORIZING
+holdout AVAILABLE
+reopening ACTIVE
+world_complete NO_CLAIM
+END

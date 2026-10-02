@@ -8,6 +8,9 @@ on:
   push:
     branches: [main]
     paths:
+      - 'experiments/mqr-4.55/FINAL-SEAL.md'
+      - 'experiments/mqr-4.54/FINAL-SEAL.md'
+      - 'experiments/mqr-4.53/FINAL-SEAL.md'
       - 'experiments/mqr-4.52/FINAL-SEAL.md'
       - 'language/real/lean/**'
       - 'language/real/V04-PRESEAL.md'
@@ -24,6 +27,7 @@ on:
       - 'language/real/V18-STOPPING-CALIBRATION.md'
       - 'language/real/V19-NATURALISTIC-TRACE.md'
       - 'language/real/V20-PROGRESS-ATLAS.md'
+      - 'language/real/V22-CONSEQUENCE-FAMILY.md'
       - '.github/workflows/real-language-proof-ci.yml'
   workflow_dispatch:
 
@@ -325,6 +329,128 @@ jobs:
           _nanoda_lib/target/release/nanoda_bin /tmp/mqr-453-integrated-nanoda.json
           echo MQR453_INTEGRATED_PROGRESS_GEOMETRY_AXIOM_ANCESTRY=EMPTY
           echo MQR453_INTEGRATED_NANODA_PROGRESS_GEOMETRY_REPLAY=PASS
+
+      - name: Integrated v0.21 InvarianceConstitution proof replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/InvarianceConstitution.lean | tee /tmp/lean-invariance-constitution.log
+          if grep -F 'sorryAx' /tmp/lean-invariance-constitution.log; then exit 1; fi
+          theorems=(
+            MQR.subsystemCertificationDoesNotTransportToEmbedding
+            MQR.generatorWiseCertificationDoesNotEstablishClosure
+            MQR.overQuotientCanEraseInterventionDifference
+            MQR.underQuotientCanCountRepresentationalDuplicate
+            MQR.postRevealQuotientCanLaunderRegression
+            MQR.morphismDeletionCanManufactureCoherence
+            MQR.currentProbeAgreementDoesNotEstablishUniqueConstitution
+            MQR.metaInvarianceDoesNotTerminateWarrant
+            MQR.scopedConstitutionCanBeAdmissible
+            MQR.partialGrammarCanBeLocallyAdequateWithoutGlobalGroup
+            MQR.reopenedRefinementNeedNotRetroactivelyInvalidateScopedReceipt
+            MQR.invarianceDoesNotSelfAuthorizeConstitution
+          )
+          for theorem in "${theorems[@]}"; do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/lean-invariance-constitution.log
+          done
+
+          lake env _lean4export/.lake/build/bin/lean4export MQR -- \
+            MQR.subsystemCertificationDoesNotTransportToEmbedding \
+            MQR.generatorWiseCertificationDoesNotEstablishClosure \
+            MQR.overQuotientCanEraseInterventionDifference \
+            MQR.underQuotientCanCountRepresentationalDuplicate \
+            MQR.postRevealQuotientCanLaunderRegression \
+            MQR.morphismDeletionCanManufactureCoherence \
+            MQR.currentProbeAgreementDoesNotEstablishUniqueConstitution \
+            MQR.metaInvarianceDoesNotTerminateWarrant \
+            MQR.scopedConstitutionCanBeAdmissible \
+            MQR.partialGrammarCanBeLocallyAdequateWithoutGlobalGroup \
+            MQR.reopenedRefinementNeedNotRetroactivelyInvalidateScopedReceipt \
+            MQR.invarianceDoesNotSelfAuthorizeConstitution \
+            > /tmp/mqr-454-integrated.export
+          cat > /tmp/mqr-454-integrated-nanoda.json <<'JSON'
+          {
+            "export_file_path": "/tmp/mqr-454-integrated.export",
+            "use_stdin": false,
+            "permitted_axioms": [],
+            "unpermitted_axiom_hard_error": true,
+            "nat_extension": true,
+            "string_extension": true,
+            "print_success_message": true
+          }
+          JSON
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr-454-integrated-nanoda.json
+          echo MQR454_INTEGRATED_INVARIANCE_CONSTITUTION_AXIOM_ANCESTRY=EMPTY
+          echo MQR454_INTEGRATED_NANODA_INVARIANCE_CONSTITUTION_REPLAY=PASS
+
+      - name: Integrated v0.22 ConsequenceFamily proof replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/ConsequenceFamily.lean | tee /tmp/lean-consequence-family.log
+          if grep -F 'sorryAx' /tmp/lean-consequence-family.log; then exit 1; fi
+          theorems=(
+            MQR.manyNominalProbesDoNotEstablishIndependentConsequenceFamily
+            MQR.probeSaturationDoesNotImplyInterventionAdequacy
+            MQR.interventionSaturationDoesNotImplyMorphismAdequacy
+            MQR.targetGeneratedDefeatersDoNotEstablishExteriorChallengeCoverage
+            MQR.serializationRefinementDoesNotCreateMaterialConsequenceDiversity
+            MQR.generatorGrammarClosureDoesNotImplyWorldConsequenceClosure
+            MQR.expertHeadcountDoesNotImplyGeneratorIndependence
+            MQR.productiveIntuitionCanGenerateWithoutSelfAuthorizing
+            MQR.seductiveIntuitionCanFailWorldContact
+            MQR.formalCompletenessDoesNotImplyPrimitiveCompleteness
+            MQR.protocolCompletenessDoesNotImplyDiscriminatingCompetence
+            MQR.tacitCompetenceCanBeReconstructed
+            MQR.sameCurrentFamilyDoesNotDetermineExpansionCapacity
+            MQR.rigorCanRepairHeuristicGap
+            MQR.crossChannelConvergenceCanStrengthenLocalAuthority
+            MQR.openFamilyCanEarnLocalAdequacyWithoutCompleteness
+            MQR.consequenceFamilyDoesNotSelfCertifyCompleteness
+            MQR.heuristicGenerationDoesNotCreateClaimAuthority
+            MQR.formalRigorDoesNotEstablishWorldFamilyCompleteness
+          )
+          for theorem in "${theorems[@]}"; do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/lean-consequence-family.log
+          done
+
+          lake env _lean4export/.lake/build/bin/lean4export MQR -- \
+            MQR.manyNominalProbesDoNotEstablishIndependentConsequenceFamily \
+            MQR.probeSaturationDoesNotImplyInterventionAdequacy \
+            MQR.interventionSaturationDoesNotImplyMorphismAdequacy \
+            MQR.targetGeneratedDefeatersDoNotEstablishExteriorChallengeCoverage \
+            MQR.serializationRefinementDoesNotCreateMaterialConsequenceDiversity \
+            MQR.generatorGrammarClosureDoesNotImplyWorldConsequenceClosure \
+            MQR.expertHeadcountDoesNotImplyGeneratorIndependence \
+            MQR.productiveIntuitionCanGenerateWithoutSelfAuthorizing \
+            MQR.seductiveIntuitionCanFailWorldContact \
+            MQR.formalCompletenessDoesNotImplyPrimitiveCompleteness \
+            MQR.protocolCompletenessDoesNotImplyDiscriminatingCompetence \
+            MQR.tacitCompetenceCanBeReconstructed \
+            MQR.sameCurrentFamilyDoesNotDetermineExpansionCapacity \
+            MQR.rigorCanRepairHeuristicGap \
+            MQR.crossChannelConvergenceCanStrengthenLocalAuthority \
+            MQR.openFamilyCanEarnLocalAdequacyWithoutCompleteness \
+            MQR.consequenceFamilyDoesNotSelfCertifyCompleteness \
+            MQR.heuristicGenerationDoesNotCreateClaimAuthority \
+            MQR.formalRigorDoesNotEstablishWorldFamilyCompleteness \
+            > /tmp/mqr-455-integrated.export
+          cat > /tmp/mqr-455-integrated-nanoda.json <<'JSON'
+          {
+            "export_file_path": "/tmp/mqr-455-integrated.export",
+            "use_stdin": false,
+            "permitted_axioms": [],
+            "unpermitted_axiom_hard_error": true,
+            "nat_extension": true,
+            "string_extension": true,
+            "print_success_message": true
+          }
+          JSON
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr-455-integrated-nanoda.json
+          echo MQR455_INTEGRATED_CONSEQUENCE_FAMILY_AXIOM_ANCESTRY=EMPTY
+          echo MQR455_INTEGRATED_NANODA_CONSEQUENCE_FAMILY_REPLAY=PASS
 
       - name: Publish externally readable workflow receipt
         if: ${{ always() }}

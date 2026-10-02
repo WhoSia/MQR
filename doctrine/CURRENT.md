@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.52**.
+Status: live through **MQR-4.58**.
 
 ## Generation-IV authority kernel
 
@@ -1063,7 +1063,171 @@ Formalization can move the kernel/world frontier downstream or upstream. It cann
 277. **Five identified naturalistic windows do not identify one stopping law.** Raw OQSC and lag-one both fell inside the five source-supported claim-freeze windows in the first 4.52 corpus, while two further cases remained contract-dependent/right-censored; the result is compatibility plus representational defeat, not a policy winner.
 278. **No final authority-mode basis is inferred.** Claim/probe/use/obligation/criterion/reopening coordinates are the current minimum representation forced by the first naturalistic attack and remain open to successor refinement.
 
+279. **Scientific progress need not be a scalar magnitude.** A scientifically useful progress structure may be a metric, partial order, preorder, reachability relation or admissible region; total numerical comparability is not a default entitlement.
+280. **Event count ≠ world-contact progress.** Inert checkpoint split/merge can change event count while preserving every declared scientific consequence.
+281. **Elapsed time ≠ epistemic progress.** Physical duration may matter causally or operationally in a local domain, but waiting and active probing can occupy equal time while producing different world contact.
+282. **Resource expenditure ≠ epistemic progress.** Cost belongs to allocation and stopping policy unless an explicit domain model ties resource use to scientific consequence; expensive inquiry can be epistemically null.
+283. **Obligation-carrier count ≠ burden discharge.** Split/merge of obligation labels cannot manufacture or erase progress when burden ancestry and discharge state are unchanged.
+284. **Descriptive information ≠ intervention reach ≠ action value.** Equal information gain can coexist with unequal manipulability/use authority, and equal intervention reach can coexist with unequal residual discrimination.
+285. **Local invariant geometry is possible.** Fisher-type statistical geometry, Blackwell/Le Cam experiment comparison, observability/identifiability structure and other domain-local constructions defeat any blanket claim that representation-invariant scientific geometry is impossible.
+286. **Local metric existence ≠ global scientific-progress ruler.** A distance or order earned inside one constituted chart does not transport its magnitude across domains without an additional calibration/transport warrant.
+287. **More claim authority ≠ more scientific progress.** Corrective progress may justifiably reduce the authority of a claim while increasing calibration to the world.
+288. **Authority-mode path length ≠ net progress.** Epistemically inert loops can accumulate path length while returning to the same quotient state.
+289. **Path order may be scientifically material.** A valid quotient must preserve noncommuting world-facing operations when order changes attainable evidence, intervention validity or authority.
+290. **Progress state ≠ continuation value.** What inquiry has achieved and whether another probe is worth doing are distinct objects; identical achieved-progress states may warrant opposite continue/stop actions under different continuation-value envelopes.
+291. **Structural transport ≠ magnitude transport.** Cross-domain preservation of burden/discrimination order can earn a morphism without licensing shared units of information, cost, distance or progress.
+292. **Cross-axis scalarization requires extra calibration.** When load-bearing axes admit independent permissible rescalings, a weighted scalar ranking can reverse on crossing profiles; Pareto incomparability must be retained absent a justified inter-axis calibration.
+293. **World-Contact Progress Atlas is global only at the meta-constitutional layer.** MQR-4.53 globally requires explicit target, inert-transformation class, quotient, decision/use contract, reopening structure and transport rule while permitting different local progress structures.
+294. **Progress-enough-to-stop is region- and continuation-relative, not scalar-threshold-relative.** Local stop eligibility requires an admissible progress region, empty live material debt for the contract, bounded continuation value and active reopening reserve.
+295. **Invariance does not self-authorize its invariance class.** Success under a declared `G_inert` cannot by itself justify the chart target, transformation class or admissible morphisms; this remains a live constitutional debt.
+296. **REALPROGRESS-0.20 is an atlas boundary, not a final theory of progress.** It rejects an unlicensed global ruler while retaining locally earned geometry and explicit successor vulnerability.
+
+
+297. **Invariance does not self-authorize the constitution of sameness.** A structure surviving transformations in a declared class does not by itself warrant treating that class as scientifically inert.
+298. **Actual consequence-preserving symmetry ≠ current inertness certification.** Certification is indexed to declared probes, interventions, morphisms, defeat distinctions, scope and embedding conditions, and remains reopenable.
+299. **Transformation grammar is typed rather than globally group-valued by default.** GROUP, GROUPOID, PSEUDOGROUP, MONOID and PARTIAL_FAMILY claims carry different closure/inverse/domain obligations; a locally adequate grammar is not automatically a failed global group.
+300. **Over-quotienting and under-quotienting are dual constitutional errors.** A quotient may erase an interventionally material distinction, while an unnecessarily fine representation may manufacture scientific change from certified redundancy.
+301. **Subsystem inertness does not automatically transport to composite inertness.** Embedding scope is load-bearing whenever relational consequences can distinguish internally indistinguishable states.
+302. **Morphism admission is authority-bearing.** Apparent atlas coherence obtained by deleting a dissenting arrow does not self-authorize that deletion; admissible transport arrows require independent provenance and challenge routes.
+303. **Equivalence-kernel order ≠ scientific-authority order.** Refinement and compression compare how many pairs a constitution identifies; neither relation alone orders epistemic authority.
+304. **A globally scoped successful receipt ≠ a unique global invariance constitution.** Global transport can be earned within a declared scope while rival constitutions remain undefeated or presently indistinguishable.
+305. **WCICR is scoped, defeat-responsive and reopenable.** The World-Contact Invariance Constitution Receipt records target, domain, typed transformation grammar, closure obligations, probe/intervention families, morphism grammar, defeat preservation, embedding scope, preseal provenance and reopening route.
+306. **World-contacted invariance constitution ≠ consequence-family completeness.** Passing WCICR does not establish that the current probe, intervention, morphism, defeat or scope families are complete or uniquely privileged; that open-world residue remains active.
+
+
+307. **A current consequence family does not self-certify its completeness.** Passing every admitted probe/intervention/morphism/defeat/scope consequence establishes only survival relative to the constituted family.
+308. **More tests ≠ more independence ≠ more adequacy ≠ more authority.** Nominal consequence count and raw coverage fractions cannot substitute for ancestry, generator diversity and escape capacity.
+309. **Consequence channels are typed.** Observational saturation does not automatically establish intervention adequacy; intervention saturation does not automatically establish morphism/transport adequacy; omitted load-bearing channels require explicit receipts.
+310. **Finite generator-grammar closure ≠ world consequence closure.** A family-generation grammar can be internally closed while a material off-grammar consequence remains unconceived or inexpressible.
+311. **Formal completeness within a constituted language ≠ scientific primitive completeness.** A formal system may be complete for its declared syntax/semantics while the world-facing distinction later requires a primitive outside that language.
+312. **Generation authority ≠ claim authority.** Heuristics, diagrams, analogy, model manipulation, trained recognition, aesthetic/fluency signals and tacit skill may propose consequences without self-authorizing their scientific verdicts.
+313. **Generation–Adjudication Asymmetry is live.** Candidate generation may be broad, plural and partly pre-formal; claim promotion must remain scoped, prospective, world-contacted, defeat-responsive and provenance-bearing.
+314. **Rigor is load-bearing but not a universal ex-ante search gate.** When a tacit/high-level move becomes authority-bearing or defeat-sensitive, enough of it should be exposed to make failure auditable; complete prior formalization of every generative act is not required.
+315. **Protocol custody ≠ discriminating competence custody.** Tacit dependence is a capability obligation that may be trained, reconstructed, substituted and held-out tested; it is neither invisible pedigree authority nor automatically ineffable.
+316. **Current family contents do not determine future corrigibility.** Two programmes with the same current consequence set may differ in generator ancestry, exterior expansion, holdout routes and reopening capacity.
+317. **WCCFR is local and explicitly open.** The World-Contact Consequence-Family Receipt may license scoped family adequacy only while retaining off-grammar challenge, adversarial expansion, ancestry audit and reopening, and while refusing a world-completeness claim.
+
+318. **Admissible allocation ≠ good challenge preference.** A schedule may satisfy RSAR/AAE while directing attention toward scientifically weak, irrelevant or proxy-gamed expansion routes.
+319. **Challenge value is typed rather than scalar by default.** Information gain, target relevance, separation power, action value, escape value, option value, cost and opportunity cost are distinct coordinates; scalar projection remains OFF absent an externally declared calibration.
+320. **Universal scientific utility is not licensed.** An open consequence ecology plus finite attention does not identify one domain-general, representation-invariant total utility over conceivable research directions.
+321. **Declared-model optimization is admissible but local.** Explicit prior/utility/cost/horizon models may identify a local optimum; that optimum does not promote itself to world-optimal science.
+322. **Challenge-value proxies require provenance and anti-Goodhart attack.** A proxy sharing ancestry with the incumbent target/model can improve while target-defeating capacity deteriorates.
+323. **Target relevance is temporally and semantically reopenable.** A relevance ordering must be reconstituted when claim, use, decision, scope or consequence ecology changes materially.
+324. **Generator diversity ≠ valuation diversity.** Independent challenge generators may remain common-mode when ranked by one captured value estimator or representation.
+325. **Opportunity-cost structure transports more readily than magnitude.** Foregone-alternative structure may be meaningful across domains while numerical exchange rates require explicit units and calibration.
+326. **Current challenge value ≠ continuation/option value.** A modest immediate challenge may be preferred when it prospectively unlocks a new independent consequence family under a declared horizon.
+327. **The value constitution must itself be challengeable.** A search policy may not constitutionally exempt its own relevance/value machinery from exterior criticism or reopening.
+328. **WCEPR is local, defeasible and non-totalizing.** The World-Contact Expansion-Policy Receipt may license scoped challenge preference only under an explicit target/use contract, typed value profile, value-estimator provenance, drift/decoy audits, opportunity-cost/horizon surface, exterior value challenge and reopening; it does not certify a universal utility or world-optimal research policy.
+
+329. **Local WCEPR pass ≠ incentive-robust search.** A valid challenge-value receipt can remain epistemically misleading when strategic agents shape which challenges, costs, targets and proxies reach the receipt.
+330. **Observed challenge supply is mechanism-relative.** Non-observation under one funding/publication/attention mechanism does not establish that a material challenge is unavailable or unconceived.
+331. **Reported cost ≠ realized cost ≠ social opportunity cost.** Cost inputs become defeasible measurement objects when agents can shade reports or when the mechanism induces proposal, positioning or compliance effort.
+332. **Target revision can be strategic.** Post-reveal target changes require independent ratification and a new receipt when they could erase an adverse result by reframing relevance.
+333. **Proxy plurality can become proxy arbitrage.** When multiple admissible metrics exist, proxy-choice timing and provenance are authority-bearing; post-outcome metric selection cannot silently preserve a preferred ranking.
+334. **Discovery institutions can be performative.** Funding, publication, ranking and attention mechanisms may change future challenge supply, methods, participants, costs and evaluation distributions.
+335. **Strategic equilibrium ≠ epistemic adequacy.** Nash, best-response or performative stability is a behavioral property and cannot self-promote to a certificate that the right scientific questions are being asked.
+336. **Nominal agent count ≠ strategic independence.** Strategic independence requires incentive/ownership/reward ancestry audit; nominal identities may be compressed when materially common-mode.
+337. **Mechanism counterfactuals can be scientific interventions.** Holding the scientific population as fixed as feasible while changing an institutional rule can expose mechanism-induced deformation of the discovery ecology.
+338. **Formal exteriority ≠ incentive exteriority.** An auditor or challenge route can be organizationally external while remaining reward-dependent on the incumbent mechanism.
+339. **Transparent constitutions must remain reopenable under strategic adaptation.** Public admission rules are learnable; systematic adaptation to them is evidence for reconstitution, not a reason to abandon auditability.
+340. **Exterior/randomized reserves are challenge routes, not universal allocation laws.** Randomization may reveal strategically omitted challenges without becoming a default scientific mechanism.
+341. **Mechanism-local incentive compatibility does not imply universal institutional authority.** A locally truthful or efficient mechanism remains conditional on its declared utilities, information structure, costs, horizon and domain.
+342. **WCSER is local, defeasible and non-totalizing.** The World-Contact Strategic-Ecology Receipt may license scoped robustness only when agents, private information, incentives, supply provenance, cost/target/proxy reporting, performative feedback, strategic ancestry, mechanism counterfactuals, exterior challenge and reopening are exposed; it does not certify a universal mechanism or epistemically adequate equilibrium.
+
+343. **Current actor ontology is not a fixed scientific ontology.** Actor birth, death, merger, fission, intermediation and evaluator creation can change which authority-bearing entities exist; `A_t` need not equal `A_(t+1)`.
+344. **Actor identity is genealogical and defeasible.** Same name does not imply same authority-bearing actor; different names do not imply independent ancestries; merger/fission cannot silently erase or duplicate unresolved scientific debt.
+345. **Actor extinction ≠ obligation discharge.** Scientific obligations may outlive their current bearer; successor assignment or explicit orphaned-debt state is required.
+346. **Organizational continuity ≠ role continuity ≠ utility continuity.** Material role or utility mutation requires reauthorization rather than automatic authority transport.
+347. **Mechanisms have genealogy and versioned authority.** Amendment, copying, migration, replication and extinction create successor mechanisms; prior empirical authority does not automatically transport to the new version/domain.
+348. **Actor and rule can co-evolve.** Rule changes may create actor classes and incentive surfaces that later modify the rule; both agents and mechanisms are state variables.
+349. **Ontology failure can precede model failure.** When a new actor/role/mechanism category is required to describe an executable distinction, ontology expansion may be admitted with provenance; primitive creation is not licensed by convenience alone.
+350. **No MQR constitution is successor-immune.** WCSER, WCEPR, WCAER, RCSR, ISP, Real-Language and RAVEL itself may become later explananda.
+351. **Stage closure is local discharge, not metaphysical finality.** `CLOSED(stage)` means the frozen obligations of that stage were discharged under its evidence and constitution; later defeat does not retroactively falsify the historical receipt.
+352. **RAVEL self-reduction requires anti-inflation.** More recursive criticism, terminology or receipts do not constitute progress; promotion requires a new executable distinction, new world-contact route, blocked authority laundering, surviving positive witness or real operational repair. Otherwise compress/no-promote.
+353. **Inquiry-scaffold value ≠ world-claim authority.** A representation may strongly decompose ignorance, generate questions, organize measurement, support modal exploration or coordinate inquiry while carrying weak or heterogeneous literal-world authority.
+354. **World-claim authority ≠ inquiry-scaffold value.** Strongly world-confirmed representations may also be poor scaffolds for a particular inquiry; the two axes cross-cut rather than forming a single rank.
+355. **Drake-type representations require typed authority.** Agenda-setting/decomposition value does not authorize uncertain numerical output; uncertain output does not make the representation scientifically empty.
+356. **Exploratory/idealized models require role typing.** Modal, how-possibly, regulative, baseline and error-localization roles do not automatically promote to how-actually authority.
+357. **Scaffold authority is defeasible and retireable.** A once-useful representation may fossilize obsolete categories or distort measurement priorities; ISP requires revision/retirement routes.
+358. **No universal truth-distance or scientific-usefulness scalar is restored.** WCAER/RCSR/ISP are typed receipts, not hidden total scores; scalar projection remains OFF absent separately earned calibration.
+
 ## Live governance objects
+
+- World-Contact Actor-Ecology Receipt (WCAER)
+- Dynamic Discovery-Ecology State Ξ_t = (A_t, Θ_t, M_t, Ω_t, Σ_t, U_t, Φ_t, X_t, R_t, G_t, L_t)
+- Actor / Coalition / Role / Mechanism Genealogy (G_t)
+- Obligation-Transport / Orphaned-Debt Ledger
+- Role / Utility Reauthorization Receipt
+- Mechanism-Version / Reproduction / Extinction Lineage
+- Ontology-Expansion Receipt for emergent actor/role/mechanism categories
+- Reflexive Constitution Self-Reduction Receipt (RCSR)
+- RAVEL Frozen-Stress / Survivor / Defeat Ledger
+- RAVEL Anti-Inflation / No-Op Compression Gate
+- Local-Closure / Successor-Vulnerability Receipt
+- Inquiry-Scaffold Profile (ISP)
+- Representation-Role Ledger (L_t)
+- Drake-Type Scaffold / World-Claim Separation Receipt
+- Exploratory / Modal / Regulative Role Typing
+- Scaffold Retirement / Revision Route
+
+- World-Contact Strategic-Ecology Receipt (WCSER)
+- Strategic Discovery-Ecology Constitution Ξ = (A, Θ, M, Ω, Σ, U, Φ, X, R)
+- Agent / Role Map (A)
+- Private-Information Surface (Θ)
+- Institutional Mechanism Map (M)
+- Strategic Action Surface (Σ)
+- Incentive / Payoff Map (U)
+- Performative Feedback Law (Φ)
+- Challenge-Supply Provenance Receipt
+- Reported-vs-Realized Cost Reconciliation
+- Target-Framing / Proxy-Choice Provenance
+- Strategic-Ancestry / Multiplicity-Compression Graph
+- Mechanism Counterfactual Replay
+- Exterior / Randomized Challenge Reserve (X)
+- Equilibrium Authority Ceiling
+- Capture Attribution Receipt
+- Strategic-Ecology Reopening / Reconstitution Law (R)
+
+- World-Contact Expansion-Policy Receipt (WCEPR)
+- Challenge-Value Constitution Ω = (T, C, V, Q, Π_V, A, O, D, R)
+- Typed Challenge-Value Profile (V)
+- Local Comparison Relation / Declared-Model Utility (Q)
+- Value-Estimator Provenance Graph (Π_V)
+- Target-Drift Sentinel
+- Scientific-Search Goodhart / Proxy-Capture Diagnostic
+- Opportunity-Cost / Horizon Surface
+- Option-Value / Continuation-Structure Receipt
+- Exterior Value-Challenge Route
+- Value-Constitution Reopening Law (R)
+
+- World-Contact Consequence-Family Receipt (WCCFR)
+- Consequence-Family Constitution Ψ = (T, F, Γ_F, Π, E, H, R)
+- Consequence-Generator Grammar (Γ_F)
+- Consequence Ancestry / Common-Mode Graph (Π)
+- Exterior / Off-Grammar Expansion Route (E)
+- Heuristic / Intuitive Proposal Ecology (H; generation-only authority)
+- Serialization Quotient Audit
+- Tacit-Competence Reconstruction Obligation
+- Consequence-Family Reopening Law (R)
+
+- World-Contact Invariance Constitution Receipt (WCICR)
+- Typed Transformation Grammar (Γ; GROUP / GROUPOID / PSEUDOGROUP / MONOID / PARTIAL_FAMILY)
+- Invariance-Constitution Scope / Embedding Receipt
+- Morphism-Admission Integrity Receipt
+- Over-/Under-Quotient Diagnostic Surface
+
+- Progress-Constitution Receipt (PCR)
+- World-Contact Progress Atlas (WCPA)
+- World-Contact Quotient / Quotient Preorder (WCQ / WCQP)
+- Representation-Invariance Test (RIT)
+- Obligation-Discharge Geometry (ODG)
+- Information–Intervention Non-Equivalence Receipt (IIN)
+- Authority-Mode Path / Loop Receipt (AMP-L)
+- Cross-Domain Reparameterization Receipt (CDR)
+- Progress Admissible Region (PAR)
+- Continuation-Value Envelope (CVE)
+- Progress Preorder Receipt (PPR)
+- Stop-Invariance Test (SIT)
 
 - Naturalistic Stopping-Trace Admission (NSTA)
 - Ex-Ante Inquiry-State Reconstruction (EISR)

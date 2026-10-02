@@ -1,0 +1,16 @@
+REALCONSEQUENCE 0.22
+id world_complete_overclaim
+target OTHER
+typed_channels PASS
+ancestry_audit PASS
+common_mode NO
+generator_grammar DECLARED
+off_grammar_route ACTIVE
+adversarial_expansion PASS
+serialization_quotient PASS
+tacit_competence RECONSTRUCTIBLE
+heuristic_role GENERATE_ONLY
+holdout UNAVAILABLE_JUSTIFIED
+reopening ACTIVE
+world_complete CLAIMED
+END

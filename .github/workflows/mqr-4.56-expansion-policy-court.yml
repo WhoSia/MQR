@@ -1,0 +1,122 @@
+name: MQR-4.56 Expansion Policy Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.56/**'
+      - 'language/real/src/value_v23.rs'
+      - 'language/real/prolog/value_v23.pl'
+      - 'language/real/examples/mqr-4.56-*.real'
+      - 'language/real/tests/v23-invalid-*.real'
+      - 'language/real/V23-EXPANSION-POLICY.md'
+      - '.github/workflows/mqr-4.56-expansion-policy-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  expansion-policy-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.23 evaluator
+        run: rustc --edition=2024 -O language/real/src/value_v23.rs -o /tmp/real-v23-value
+
+      - name: Execute Rust-Prolog v0.23 concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=/tmp/real-v23-value
+          P=language/real/prolog/value_v23.pl
+          for f in language/real/examples/mqr-4.56-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep '^value\.' /tmp/rust > /tmp/rust.core
+            grep '^value\.' /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.56-local-admissible.real > /tmp/local
+          grep -F 'value.local_guidance=YES' /tmp/local
+          grep -F 'value.diagnosis=LOCAL_EXPANSION_GUIDANCE_ADMISSIBLE' /tmp/local
+          grep -F 'value.universal_scientific_utility=REJECT' /tmp/local
+          grep -F 'value.world_optimal_policy=NOT_EARNED' /tmp/local
+          grep -F 'value.wcepr=EARNED_LOCAL_CANDIDATE' /tmp/local
+
+          "$V" language/real/examples/mqr-4.56-hidden-proxy.real | grep -F 'value.diagnosis=HIDDEN_PROXY_DEPENDENCE'
+          "$V" language/real/examples/mqr-4.56-target-drift-blind.real | grep -F 'value.diagnosis=TARGET_DRIFT_BLIND'
+          "$V" language/real/examples/mqr-4.56-unit-reversal.real | grep -F 'value.diagnosis=UNIT_RANK_REVERSAL'
+          "$V" language/real/examples/mqr-4.56-self-insulated.real | grep -F 'value.diagnosis=VALUE_MODEL_SELF_INSULATION'
+          "$V" language/real/examples/mqr-4.56-world-optimizer.real | grep -F 'value.diagnosis=WORLD_OPTIMIZER_OVERCLAIM'
+
+          for x in language/real/tests/v23-invalid-*.real; do
+            if "$V" "$x"; then exit 1; fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+          echo REAL_LANGUAGE_V23_RUST_PROLOG_CONCORDANCE=PASS
+
+      - name: Execute frozen expansion-policy countermodel court
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.56/expansion_policy_court.py | tee /tmp/mqr456.log
+          grep -F 'mqr456.cheap_challenge_trap=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.information_relevance_divergence=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.novelty_drift=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.incumbent_proxy_goodhart=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.target_relevance_drift=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.adversarial_decoy_flood=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.common_evaluator_capture=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.cost_unit_rank_reversal=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.horizon_reversal=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.actionability_divergence=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.surprise_not_importance=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.sunk_yield_lockin=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.value_model_self_insulation=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.equal_current_value_unequal_option=PASS' /tmp/mqr456.log
+          grep -F 'mqr456.declared_model_local_optimizer=ADMIT' /tmp/mqr456.log
+          grep -F 'mqr456.partial_order_guidance=ADMIT' /tmp/mqr456.log
+          grep -F 'mqr456.target_drift_reopening=ADMIT' /tmp/mqr456.log
+          grep -F 'mqr456.adversarial_decoy_rejection=ADMIT' /tmp/mqr456.log
+          grep -F 'mqr456.option_opening_value=ADMIT' /tmp/mqr456.log
+          grep -F 'mqr456.value_model_revision=ADMIT' /tmp/mqr456.log
+          grep -F 'mqr456.universal_scientific_utility=REJECT' /tmp/mqr456.log
+          grep -F 'mqr456.challenge_value_scalar_default=OFF' /tmp/mqr456.log
+          grep -F 'mqr456.value_constitution_self_authorizes=REJECT' /tmp/mqr456.log
+          grep -F 'mqr456.world_optimal_expansion_policy=NOT_EARNED' /tmp/mqr456.log
+          grep -F 'mqr456.wcepr=CANDIDATE' /tmp/mqr456.log
+
+      - name: Upload expansion-policy report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.56-expansion-policy-report-${{ github.sha }}
+          path: experiments/mqr-4.56/results/expansion_policy_report.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.56/Court" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

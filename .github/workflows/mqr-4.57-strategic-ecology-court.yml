@@ -1,0 +1,126 @@
+name: MQR-4.57 Strategic Discovery-Ecology Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.57/**'
+      - 'language/real/src/strategy_v24.rs'
+      - 'language/real/prolog/strategy_v24.pl'
+      - 'language/real/examples/mqr-4.57-*.real'
+      - 'language/real/tests/v24-invalid-*.real'
+      - 'language/real/V24-STRATEGIC-ECOLOGY.md'
+      - '.github/workflows/mqr-4.57-strategic-ecology-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  strategic-ecology-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.24 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v24-ecology
+
+      - name: Execute Rust-Prolog v0.24 concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v24-ecology
+          P=language/real/prolog/strategy_v24.pl
+
+          for f in language/real/examples/mqr-4.57-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep '^strategy\.' /tmp/rust > /tmp/rust.core
+            grep '^strategy\.' /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.57-local-admissible.real > /tmp/local
+          grep -F 'strategy.local_strategic_robustness=YES' /tmp/local
+          grep -F 'strategy.diagnosis=LOCAL_STRATEGIC_ECOLOGY_ADMISSIBLE' /tmp/local
+          grep -F 'strategy.wcepr_incentive_robust_by_default=REJECT' /tmp/local
+          grep -F 'strategy.equilibrium_implies_epistemic_adequacy=REJECT' /tmp/local
+          grep -F 'strategy.universal_scientific_mechanism=NOT_EARNED' /tmp/local
+          grep -F 'strategy.wcser=EARNED_LOCAL_CANDIDATE' /tmp/local
+
+          "$V" language/real/examples/mqr-4.57-supply-blind.real | grep -F 'strategy.diagnosis=SUPPLY_ENDOGENEITY_BLIND'
+          "$V" language/real/examples/mqr-4.57-cost-oracle.real | grep -F 'strategy.diagnosis=COST_REPORT_ORACLE'
+          "$V" language/real/examples/mqr-4.57-performative-blind.real | grep -F 'strategy.diagnosis=PERFORMATIVE_FEEDBACK_BLIND'
+          "$V" language/real/examples/mqr-4.57-sybil.real | grep -F 'strategy.diagnosis=SYBIL_MULTIPLICITY'
+          "$V" language/real/examples/mqr-4.57-equilibrium-overclaim.real | grep -F 'strategy.diagnosis=EQUILIBRIUM_OVERCLAIM'
+          "$V" language/real/examples/mqr-4.57-world-mechanism.real | grep -F 'strategy.diagnosis=WORLD_MECHANISM_OVERCLAIM'
+          "$V" language/real/examples/mqr-4.57-capture-unattributed.real | grep -F 'strategy.diagnosis=CAPTURE_ATTRIBUTION_GAP'
+
+          for x in language/real/tests/v24-invalid-*.real; do
+            if "$V" "$x"; then exit 1; fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V24_RUST_PROLOG_CONCORDANCE=PASS
+
+      - name: Execute frozen strategic-ecology court
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.57/strategic_ecology_court.py | tee /tmp/mqr457.log
+
+          for key in \
+            challenge_withholding challenge_stuffing cost_shading cost_inflation \
+            target_relabeling proxy_shopping metric_migration funding_contest_dissipation \
+            publication_selection_deterioration coalition_capture sybil_challenge_ecology \
+            performative_target_shift strategic_exterior_capture equilibrium_bad_science \
+            mechanism_switch_reversal counterfactual_hidden_challenge \
+            strategic_replication_suppression adaptive_wcepr_capture; do
+            grep -F "mqr457.$key=PASS" /tmp/mqr457.log
+          done
+
+          for key in \
+            truthful_report_local_mechanism exterior_randomized_challenge \
+            mechanism_counterfactual_replay realized_cost_reconciliation \
+            target_change_ratification incentive_independent_convergence \
+            anti_sybil_ancestry_compression capture_triggered_reconstitution; do
+            grep -F "mqr457.$key=ADMIT" /tmp/mqr457.log
+          done
+
+          grep -F 'mqr457.wcepr_incentive_robust_by_default=REJECT' /tmp/mqr457.log
+          grep -F 'mqr457.equilibrium_implies_epistemic_adequacy=REJECT' /tmp/mqr457.log
+          grep -F 'mqr457.nominal_agent_count_implies_independence=REJECT' /tmp/mqr457.log
+          grep -F 'mqr457.universal_scientific_mechanism=NOT_EARNED' /tmp/mqr457.log
+          grep -F 'mqr457.wcser=CANDIDATE' /tmp/mqr457.log
+
+      - name: Upload strategic-ecology report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.57-strategic-ecology-report-${{ github.sha }}
+          path: experiments/mqr-4.57/results/strategic_ecology_report.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.57/Court" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

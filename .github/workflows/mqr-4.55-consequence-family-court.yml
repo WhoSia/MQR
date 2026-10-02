@@ -1,0 +1,141 @@
+name: MQR-4.55 Consequence-Family Constitution Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.55/**'
+      - 'language/real/src/consequence_v22.rs'
+      - 'language/real/prolog/consequence_v22.pl'
+      - 'language/real/examples/mqr-4.55-*.real'
+      - 'language/real/tests/v22-invalid-*.real'
+      - 'language/real/V22-CONSEQUENCE-FAMILY.md'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.55-consequence-family-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  consequence-family-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.22 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v22-consequence
+
+      - name: Execute Rust-Prolog v0.22 concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v22-consequence
+          P=language/real/prolog/consequence_v22.pl
+
+          for f in language/real/examples/mqr-4.55-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep '^consequence\.' /tmp/rust > /tmp/rust.core
+            grep '^consequence\.' /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.55-open-admissible.real > /tmp/open
+          grep -F 'consequence.local_adequacy=YES' /tmp/open
+          grep -F 'consequence.diagnosis=OPEN_LOCAL_ADMISSIBLE' /tmp/open
+          grep -F 'consequence.world_family_complete=NO' /tmp/open
+          grep -F 'consequence.wccfr=EARNED_LOCAL_CANDIDATE' /tmp/open
+
+          "$V" language/real/examples/mqr-4.55-common-mode.real > /tmp/common
+          grep -F 'consequence.common_mode=YES' /tmp/common
+          grep -F 'consequence.local_adequacy=NO' /tmp/common
+          grep -F 'consequence.diagnosis=COMMON_MODE_CAPTURE' /tmp/common
+
+          "$V" language/real/examples/mqr-4.55-heuristic-self-authority.real > /tmp/heuristic
+          grep -F 'consequence.diagnosis=HEURISTIC_SELF_AUTHORITY' /tmp/heuristic
+          grep -F 'consequence.intuition_self_authorizes=REJECT' /tmp/heuristic
+
+          "$V" language/real/examples/mqr-4.55-competence-gap.real > /tmp/competence
+          grep -F 'consequence.diagnosis=COMPETENCE_GAP' /tmp/competence
+
+          "$V" language/real/examples/mqr-4.55-closure-mirage.real > /tmp/closure
+          grep -F 'consequence.diagnosis=GENERATOR_CLOSURE_MIRAGE' /tmp/closure
+
+          "$V" language/real/examples/mqr-4.55-world-complete-overclaim.real > /tmp/world
+          grep -F 'consequence.diagnosis=WORLD_COMPLETENESS_OVERCLAIM' /tmp/world
+          grep -F 'consequence.world_family_complete=NO' /tmp/world
+
+          for x in language/real/tests/v22-invalid-*.real; do
+            if "$V" "$x"; then exit 1; fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+
+          echo REAL_LANGUAGE_V22_RUST_PROLOG_CONCORDANCE=PASS
+          echo MQR455_RAW_TEST_COUNT_NOT_AUTHORITY=PASS
+          echo MQR455_HEURISTIC_GENERATION_NOT_SELF_AUTHORITY=PASS
+
+      - name: Execute frozen consequence-family countermodel court
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.55/consequence_family_court.py | tee /tmp/mqr455.log
+
+          grep -F 'mqr455.many_probes_one_ancestry=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.probe_saturation_intervention_escape=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.intervention_saturation_morphism_escape=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.target_generated_defeat_blindness=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.serialization_inflation=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.generator_closure_world_escape=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.expert_headcount_common_mode=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.productive_intuition_generator=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.seductive_intuition_not_oracle=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.formal_completeness_primitive_omission=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.protocol_not_competence=PASS' /tmp/mqr455.log
+          grep -F 'mqr455.same_family_different_expansion_capacity=PASS' /tmp/mqr455.log
+
+          grep -F 'mqr455.rigor_repairs_intuition=ADMIT' /tmp/mqr455.log
+          grep -F 'mqr455.intuition_generate_world_adjudicate=ADMIT' /tmp/mqr455.log
+          grep -F 'mqr455.cross_channel_convergence=ADMIT' /tmp/mqr455.log
+          grep -F 'mqr455.tacit_competence_reconstructible=ADMIT' /tmp/mqr455.log
+          grep -F 'mqr455.open_family_local_adequacy=ADMIT' /tmp/mqr455.log
+
+          grep -F 'mqr455.self_certifying_consequence_family=REJECT' /tmp/mqr455.log
+          grep -F 'mqr455.formal_rigor_implies_family_completeness=REJECT' /tmp/mqr455.log
+          grep -F 'mqr455.intuition_self_authorizes=REJECT' /tmp/mqr455.log
+          grep -F 'mqr455.world_consequence_family_complete=NO' /tmp/mqr455.log
+          grep -F 'mqr455.more_tests_implies_more_authority=REJECT' /tmp/mqr455.log
+          grep -F 'mqr455.wccfr=CANDIDATE' /tmp/mqr455.log
+
+      - name: Upload consequence-family court report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.55-consequence-family-report-${{ github.sha }}
+          path: experiments/mqr-4.55/results/consequence_family_report.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish externally readable workflow receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          context="MQR-4.55/Court"
+          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
+          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="$context" -f description="$description" -f target_url="$target"

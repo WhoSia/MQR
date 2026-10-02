@@ -1,0 +1,102 @@
+name: MQR-4.58 Reflexive Ecology Proof Boundary
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.58/FINAL-SEAL.md'
+      - 'language/real/lean/MQR/ReflexiveEcology.lean'
+      - 'language/real/V25-REFLEXIVE-ECOLOGY.md'
+      - '.github/workflows/mqr-4.58-reflexive-ecology-proof.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  proof-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build cumulative Lean package
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+
+      - name: Check v0.25 theorem ancestry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/ReflexiveEcology.lean | tee /tmp/mqr458-lean.log
+          if grep -F 'sorryAx' /tmp/mqr458-lean.log; then exit 1; fi
+          test "$(grep -c 'does not depend on any axioms' /tmp/mqr458-lean.log)" -ge 15
+          echo MQR458_REFLEXIVE_AXIOM_ANCESTRY=EMPTY
+
+      - name: Build independent checker stack
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          git clone https://github.com/leanprover/lean4export.git _lean4export
+          git -C _lean4export checkout 076e8e57707e813375e8f9da8bf989799ace9680
+          cp lean-toolchain _lean4export/lean-toolchain
+          (cd _lean4export && lake build lean4export)
+          git clone https://github.com/robsimmons/nanoda_lib.git _nanoda_lib
+          git -C _nanoda_lib checkout 68d5ca9db226849b41a6fff59d796ff19d0a8840
+          cargo build --release --manifest-path _nanoda_lib/Cargo.toml
+
+      - name: Independent replay of key boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env _lean4export/.lake/build/bin/lean4export MQR.ReflexiveEcology -- \
+            MQR.initialActorRegistryNeedNotBeComplete \
+            MQR.stageClosureDoesNotImplySuccessorImmunity \
+            MQR.scaffoldValueDoesNotImplyWorldClaimAuthority \
+            MQR.worldClaimAuthorityDoesNotImplyScaffoldValue \
+            MQR.actorBirthCanRequireOntologyExpansion \
+            MQR.mergerCanTransportUnresolvedObligation \
+            MQR.ravelCanPromoteOnlyWithNewExecutableContent \
+            MQR.ravelNoopCanBeCompressed \
+            MQR.drakeCanHaveHighScaffoldValueWithoutNumericAuthorityPromotion \
+            MQR.exploratoryRoleDoesNotAutomaticallyCreateHowActuallyAuthority \
+            MQR.universalTruthDistanceRemainsUnavailable \
+            MQR.finalReflectiveFixedPointRemainsUnearned \
+            > /tmp/mqr-458.export
+
+          cat > /tmp/mqr-458-nanoda.json <<'JSON'
+          {
+            "export_file_path": "/tmp/mqr-458.export",
+            "use_stdin": false,
+            "permitted_axioms": [],
+            "unpermitted_axiom_hard_error": true,
+            "nat_extension": true,
+            "string_extension": true,
+            "print_success_message": true
+          }
+          JSON
+
+          _nanoda_lib/target/release/nanoda_bin /tmp/mqr-458-nanoda.json
+          echo MQR458_NANODA_REFLEXIVE_ECOLOGY_REPLAY=PASS
+
+      - name: Publish receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.58/Lean+nanoda" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

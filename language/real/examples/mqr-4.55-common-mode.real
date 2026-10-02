@@ -1,0 +1,16 @@
+REALCONSEQUENCE 0.22
+id common_mode
+target MEASUREMENT
+typed_channels PASS
+ancestry_audit PASS
+common_mode YES
+generator_grammar DECLARED
+off_grammar_route ACTIVE
+adversarial_expansion PASS
+serialization_quotient PASS
+tacit_competence NA
+heuristic_role NONE
+holdout AVAILABLE
+reopening ACTIVE
+world_complete NO_CLAIM
+END

@@ -1,6 +1,6 @@
 # Real-Language v0.20 — World-Contact Progress Atlas
 
-Status: EXECUTABLE-CANDIDATE / MQR-4.53 / REPRESENTATION-INVARIANCE / LOCAL-GEOMETRY / GLOBAL-META-CONSTITUTION / ANTI-SCALAR
+Status: **EXECUTABLE / MQR-4.53 CLOSED / REPRESENTATION-INVARIANCE / LOCAL-GEOMETRY / GLOBAL-META-CONSTITUTION / ANTI-SCALAR / REOPENABLE / CHART-CONSTITUTION-AUTHORITY-HOLD**
 
 ## Why v0.20 exists
 
@@ -192,7 +192,7 @@ A chart with `continuation_value COLLAPSED` is parseable for attack but cannot e
 
 ## Current 4.53 claim ceiling
 
-Candidate earned by the executable countermodel family:
+Earned by the executable countermodel family:
 - raw event count is not representation-invariant;
 - obligation carrier count is not burden invariant;
 - equal descriptive information can coexist with unequal intervention reach;
@@ -225,4 +225,49 @@ WITHOUT HAVING
 A GLOBAL PROGRESS RULER.
 ~~~
 
-This remains open to successor attack.
+This is the closed MQR-4.53 representation boundary and remains reopenable under successor attack.
+
+
+## MQR-4.53 authoritative closure
+
+First qualifying Court reveal:
+
+~~~text
+head = 632e748367b7793bc1a5d85b766e2c1018f3c3dc
+run = 36389215348
+verdict = SUCCESS
+~~~
+
+Formal namespace-only proof repair:
+
+~~~text
+head = 740011008f81d5b766894e8123b69028e11add96
+dedicated Lean+nanoda = 36526995228 / SUCCESS
+integrated Lean+nanoda = 36526995262 / SUCCESS
+integrated Real-Language CI = 36526995269 / SUCCESS
+~~~
+
+No scientific result changed in the proof repair.
+
+Canonical 4.53 result:
+
+~~~text
+progress.global_scalar=REJECT
+progress.local_invariant_structures=ADMIT
+progress.progress_equals_promotion=NO
+progress.information_equals_intervention=NO
+progress.path_length_equals_net_progress=NO
+progress.cross_domain_magnitude_default=NO
+progress.scalar_threshold_stop=REJECT
+progress.guidance_mode=GLOBAL_META_LOCAL_GEOMETRY
+~~~
+
+The open constitutional debt is deliberate:
+
+~~~text
+INVARIANCE UNDER G_inert
+DOES NOT SELF-AUTHORIZE
+THE CHOICE OF G_inert.
+~~~
+
+v0.20 governs locally earned progress structures; it does not claim the chart constitution is final.

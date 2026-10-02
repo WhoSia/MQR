@@ -1,4 +1,4 @@
-# Real-Language / Real-Packet v0.4 proof boundary + v0.3 transport compatibility
+# Real-Language / Real-Packet v0.3–v0.25
 
 Real-Language is MQR's active event-to-realist-authority language.
 
@@ -859,3 +859,356 @@ The live MQR-4.52 thesis is intentionally broader than a falsification-centred p
 The candidate MQR excess is narrower: **an executable, source-temporal, partially identified and reopenable authority state over claims, probes, uses, obligations and resource transitions**.
 
 v0.19 does not infer that these coordinates are final or that one universal ontological principle governs all sciences.
+
+
+## v0.20 — world-contact progress atlas
+
+MQR-4.53 adds `REALPROGRESS 0.20`.
+
+Canonical evaluator: Rust `src/progress_v20.rs` / `real-v20-progress`.
+Independent relational evaluator: `prolog/progress_v20.pl`.
+Countermodel court: `experiments/mqr-4.53/progress_court.py`.
+Finite proof boundary: `lean/MQR/ProgressGeometry.lean`.
+Constitution: `V20-PROGRESS-ATLAS.md`.
+
+The first qualifying post-Amendment-A Court reveal was:
+
+~~~text
+head = 632e748367b7793bc1a5d85b766e2c1018f3c3dc
+run = 36389215348
+verdict = SUCCESS
+~~~
+
+Thirteen candidate progress families were attacked. No unlicensed universal scalar survived.
+
+~~~text
+EVENT COUNT = REJECT
+ELAPSED TIME = POLICY INPUT ONLY
+RESOURCE COST = POLICY INPUT ONLY
+SHANNON / KL = LOCAL ONLY
+VOI = CONTRACT-LOCAL
+FISHER-RAO = LOCAL METRIC
+BLACKWELL = LOCAL PARTIAL ORDER
+OBLIGATION COUNT = REJECT
+BURDEN DISCHARGE = LOCAL PREORDER
+AUTHORITY PATH LENGTH = REJECT
+NET AUTHORITY LEVEL = REJECT
+PARETO / VECTOR = PARTIAL ONLY
+WCPA = PROMOTED
+~~~
+
+The positive result is not anti-metric.
+
+Fisher geometry, Blackwell/Le Cam comparison, observability/identifiability and other local constructions show that representation-invariant metrics/orders may exist once a target space and admissible transformations are constituted.
+
+The live MQR result is narrower:
+
+~~~text
+LOCAL METRIC / ORDER / PREORDER /
+REACHABILITY STRUCTURE
+MAY BE SCIENTIFICALLY EARNED
+
+WITHOUT A
+GLOBAL SCIENTIFIC-PROGRESS RULER.
+~~~
+
+v0.20 therefore represents a **World-Contact Progress Atlas**:
+
+~~~text
+chart =
+(
+  inquiry-state space,
+  declared inert transformations,
+  quotient,
+  claim/use/decision contract,
+  reopening/world-contact structure,
+  local progress structure
+)
+~~~
+
+Core non-identities:
+
+~~~text
+PROGRESS STATE != CONTINUATION VALUE
+MORE CLAIM AUTHORITY != MORE PROGRESS
+INFORMATION != INTERVENTION REACH != ACTION VALUE
+PATH LENGTH != NET PROGRESS
+STRUCTURAL TRANSPORT != MAGNITUDE TRANSPORT
+LOCAL GEOMETRY != GLOBAL RULER
+~~~
+
+Stop semantics are correspondingly non-scalar:
+
+~~~text
+CURRENT STATE IN PAR
++ LIVE MATERIAL DEBT EMPTY
++ CVE BELOW DECLARED OPPORTUNITY-COST BOUND
++ REOPENING RESERVE ACTIVE
+----------------------------------------------
+=> LOCAL STOP ELIGIBILITY
+~~~
+
+This does not quantify unconceived probes.
+
+Post-reveal proof integration exposed one namespace collision between the old Constitution and new ProgressGeometry witness names. It was repaired at `740011008f81d5b766894e8123b69028e11add96` without changing any theorem statement or scientific result.
+
+The remaining constitutional debt is explicit:
+
+~~~text
+INVARIANCE UNDER G_inert
+DOES NOT SELF-AUTHORIZE
+THE CHOICE OF G_inert.
+~~~
+
+The chart target, inert-transformation class and cross-chart morphism authority remain open to successor attack.
+
+
+## v0.21 — world-contact invariance constitution
+
+MQR-4.54 adds `REALINVARIANCE 0.21`.
+
+Canonical implementation:
+- Rust: `src/invariance_v21.rs` / `real-v21-invariance`;
+- independent evaluator: `prolog/invariance_v21.pl`;
+- formal boundary: `lean/MQR/InvarianceConstitution.lean`;
+- executable constitution: `V21-INVARIANCE-CONSTITUTION.md`.
+
+The live constitution object is:
+
+```text
+C = (T, X, Γ, P, A, M, D, S)
+```
+
+The transformation surface is typed rather than presumed globally group-valued:
+
+```text
+GROUP | GROUPOID | PSEUDOGROUP | MONOID | PARTIAL_FAMILY
+```
+
+v0.21 distinguishes an actual consequence-preserving symmetry from a transformation currently certified inert under the declared probe/intervention/morphism/defeat/scope contract. It detects over-quotienting, under-quotienting, scope-export failure, morphism capture and post-reveal constitution capture.
+
+The key authority boundary is:
+
+```text
+EQUIVALENCE-KERNEL ORDER
+!=
+SCIENTIFIC-AUTHORITY ORDER
+```
+
+A globally scoped successful receipt may earn transport within its declared scope without establishing a unique global invariance constitution.
+
+The live receipt is **WCICR — World-Contact Invariance Constitution Receipt**. It is reopenable and explicitly does not certify completeness of the consequence families used to audit it.
+
+
+## v0.22 — world-contact consequence-family constitution
+
+MQR-4.55 adds `REALCONSEQUENCE 0.22`.
+
+Canonical implementation:
+- Rust: `src/consequence_v22.rs` / `real-v22-consequence`;
+- independent evaluator: `prolog/consequence_v22.pl`;
+- formal boundary: `lean/MQR/ConsequenceFamily.lean`;
+- executable constitution: `V22-CONSEQUENCE-FAMILY.md`.
+
+The live consequence-family constitution is:
+
+```text
+F = P ⊔ A ⊔ M ⊔ D ⊔ S
+Ψ = (T, F, Γ_F, Π, E, H, R)
+```
+
+where the receipt audits current consequence contents, generation grammar, ancestry/common-mode structure, exterior expansion, heuristic/tacit proposal ecology and reopening.
+
+The key authority boundaries are:
+
+```text
+MORE TESTS
+!= MORE INDEPENDENCE
+!= MORE ADEQUACY
+!= MORE AUTHORITY
+
+FORMAL COMPLETENESS(L)
+!= WORLD CONSEQUENCE COMPLETENESS
+
+HEURISTIC GENERATION
+!= CLAIM AUTHORITY
+```
+
+v0.22 therefore permits diagrams, analogy, model manipulation, trained recognition and tacit competence to **generate** candidate consequences without letting those channels self-authorize their products.
+
+The live methodological asymmetry is:
+
+```text
+GENERATION:
+BROAD / PLURAL / PRE-FORMAL-ADMISSIBLE
+
+ADJUDICATION:
+STRICT / SCOPED / PROSPECTIVE /
+WORLD-CONTACTED / DEFEAT-RESPONSIVE
+```
+
+Rigor remains load-bearing: when a compressed/tacit/high-level move becomes defeat-sensitive, enough of it should be made explicit to audit failure. But ex-ante formalizability is not a universal admission requirement for scientific search.
+
+The live receipt is **WCCFR — World-Contact Consequence-Family Receipt**. It can earn local family adequacy only while emitting `world_family_complete=NO`.
+
+REALCONSEQUENCE 0.22 is not a universal discovery algorithm and does not define one homogeneous faculty of intuition.
+
+
+## v0.23 — world-contact expansion-policy constitution
+
+MQR-4.56 adds `REALVALUE 0.23`.
+
+Canonical implementation:
+- Rust: `src/value_v23.rs` / `real-v23-value`;
+- independent evaluator: `prolog/value_v23.pl`;
+- formal boundary: `lean/MQR/ExpansionPolicy.lean`;
+- executable constitution: `V23-EXPANSION-POLICY.md`.
+
+The live expansion-policy constitution is:
+
+```text
+Ω = (T, C, V, Q, Π_V, A, O, D, R)
+```
+
+The key authority boundaries are:
+
+```text
+ADMISSIBLE ALLOCATION
+!= GOOD CHALLENGE PREFERENCE
+
+INFORMATION GAIN
+!= TARGET RELEVANCE
+!= ACTION VALUE
+!= ESCAPE VALUE
+!= OPTION VALUE
+
+GENERATOR DIVERSITY
+!= VALUATION DIVERSITY
+
+LOCAL OPTIMUM
+!= WORLD-OPTIMAL SCIENCE
+```
+
+Challenge value is typed and target-relative rather than scalar by default. `REALVALUE 0.23` audits target/use contracts, value-estimator provenance, proxy dependence, target drift, adversarial decoys, opportunity-cost semantics, horizon, option value, exterior value challenge and reopening.
+
+The live receipt is **WCEPR — World-Contact Expansion-Policy Receipt**.
+
+WCEPR may license:
+- local dominance;
+- partial-order guidance;
+- declared-model optimization;
+- option-opening preference;
+- world-contacted revision of the value constitution.
+
+It does not license a universal scientific utility or a world-optimal expansion policy. Scalar default remains OFF.
+
+
+## v0.24 — world-contact strategic-ecology constitution
+
+MQR-4.57 adds `REALSTRATEGY 0.24`.
+
+Canonical implementation:
+- Rust: `src/strategy_v24.rs` / `real-v24-ecology`;
+- independent evaluator: `prolog/strategy_v24.pl`;
+- formal boundary: `lean/MQR/StrategicEcology.lean`;
+- executable constitution: `V24-STRATEGIC-ECOLOGY.md`.
+
+The live discovery-ecology constitution is:
+
+```text
+Ξ = (A, Θ, M, Ω, Σ, U, Φ, X, R)
+```
+
+Its key authority boundaries are:
+
+```text
+LOCAL WCEPR PASS
+!= INCENTIVE-ROBUST SEARCH
+
+OBSERVED CHALLENGE SUPPLY
+!= EXOGENOUS FRONTIER
+
+REPORTED COST
+!= REALIZED COST
+!= SOCIAL OPPORTUNITY COST
+
+STABLE EQUILIBRIUM
+!= EPISTEMIC ADEQUACY
+
+NOMINAL AGENT COUNT
+!= STRATEGIC INDEPENDENCE
+
+LOCAL MECHANISM SUCCESS
+!= UNIVERSAL SCIENTIFIC MECHANISM
+```
+
+`REALSTRATEGY 0.24` audits agent/role maps, private-information surfaces, incentive maps, challenge-supply provenance, reported-vs-realized cost, target/proxy choice provenance, performative feedback, strategic ancestry, identity multiplicity, mechanism counterfactuals, exterior reserves, equilibrium ceilings, capture attribution and reopening.
+
+The live receipt is **WCSER — World-Contact Strategic-Ecology Receipt**.
+
+WCSER can license scoped strategic-robustness claims only while the institutional mechanism itself remains a defeasible world-contact object. It does not certify truthful revelation, an epistemically adequate equilibrium, or a universal scientific institution.
+
+
+## v0.25 — reflexive ecology & inquiry-scaffold constitution
+
+MQR-4.58 adds `REALREFLEX 0.25`.
+
+Canonical implementation:
+- Rust: cumulative v0.25 reflexive-ecology evaluator;
+- independent Prolog evaluator;
+- formal boundary: `lean/MQR/ReflexiveEcology.lean`;
+- executable constitution: `V25-REFLEXIVE-ECOLOGY.md`.
+
+The live dynamic ecology is:
+
+```text
+Ξ_t --τ_t--> Ξ_(t+1)
+
+Ξ_t =
+(A_t, Θ_t, M_t, Ω_t, Σ_t, U_t, Φ_t, X_t, R_t, G_t, L_t)
+```
+
+where `G_t` is actor/coalition/role/mechanism genealogy and `L_t` is the representation/scaffold-role ledger.
+
+The key authority boundaries are:
+
+```text
+SAME NAME != SAME ACTOR
+SAME LINEAGE != SAME ROLE
+SAME ROLE != SAME UTILITY
+SAME MECHANISM LABEL != SAME RULE SYSTEM
+
+CLOSED(stage) != SUCCESSOR IMMUNITY
+
+INQUIRY-SCAFFOLD VALUE
+!= WORLD-CLAIM AUTHORITY
+
+WORLD-CLAIM AUTHORITY
+!= INQUIRY-SCAFFOLD VALUE
+```
+
+The live receipts are:
+- **WCAER — World-Contact Actor-Ecology Receipt**;
+- **RCSR — Reflexive Constitution Self-Reduction Receipt**;
+- **ISP — Inquiry-Scaffold Profile**.
+
+RCSR makes constitutional self-subjection executable: no MQR constitution, including WCAER/RCSR/ISP/Real-Language/RAVEL itself, is exempt from becoming a later explanandum.
+
+The RAVEL anti-inflation law is live:
+
+```text
+MORE SELF-CRITIQUE
+!= MORE SCIENTIFIC VALUE
+
+NEW EXECUTABLE DISTINCTION
+OR NEW WORLD-CONTACT ROUTE
+OR REAL OPERATIONAL REPAIR
+=> PROMOTION CANDIDATE
+
+OTHERWISE
+=> COMPRESS / NO-PROMOTION
+```
+
+ISP keeps inquiry-scaffold value non-scalar and distinct from world-claim authority. The Drake equation is admitted as a decomposition/question-generation/measurement-agenda scaffold without promoting uncertain numerical output to literal-world authority. Newtonian mechanics remains a positive control showing that high scaffold value and high regime-bounded world authority can coexist.
+
+Truth-distance scalar remains OFF; no final reflective fixed point is claimed.

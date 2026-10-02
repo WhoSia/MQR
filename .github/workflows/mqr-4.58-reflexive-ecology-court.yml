@@ -1,0 +1,145 @@
+name: MQR-4.58 Reflexive Ecology Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.58/**'
+      - 'language/real/src/reflex_v25.rs'
+      - 'language/real/prolog/reflex_v25.pl'
+      - 'language/real/examples/mqr-4.58-*.real'
+      - 'language/real/tests/v25-invalid-*.real'
+      - 'language/real/V25-REFLEXIVE-ECOLOGY.md'
+      - '.github/workflows/mqr-4.58-reflexive-ecology-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  reflexive-ecology-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install independent relational evaluator
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq swi-prolog-nox
+
+      - name: Build canonical v0.25 evaluator
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v25-reflex
+
+      - name: Execute Rust-Prolog v0.25 concordance
+        shell: bash
+        run: |
+          set -euo pipefail
+          V=./language/real/target/release/real-v25-reflex
+          P=language/real/prolog/reflex_v25.pl
+
+          for f in language/real/examples/mqr-4.58-*.real; do
+            "$V" "$f" > /tmp/rust
+            swipl -q -s "$P" -g "run('$f'),halt" -t "halt(1)" > /tmp/prolog
+            grep '^reflex\.' /tmp/rust > /tmp/rust.core
+            grep '^reflex\.' /tmp/prolog > /tmp/prolog.core
+            diff -u /tmp/rust.core /tmp/prolog.core
+          done
+
+          "$V" language/real/examples/mqr-4.58-local-admissible.real > /tmp/local
+          grep -F 'reflex.local_reflexive_robustness=YES' /tmp/local
+          grep -F 'reflex.diagnosis=LOCAL_REFLEXIVE_ECOLOGY_ADMISSIBLE' /tmp/local
+          grep -F 'reflex.truth_distance_scalar=OFF' /tmp/local
+          grep -F 'reflex.final_fixed_point=NO_CLAIM' /tmp/local
+          grep -F 'reflex.wcaer=EARNED_LOCAL_CANDIDATE' /tmp/local
+          grep -F 'reflex.rcsr=EARNED_LOCAL_CANDIDATE' /tmp/local
+          grep -F 'reflex.isp=EARNED_LOCAL_CANDIDATE' /tmp/local
+
+          "$V" language/real/examples/mqr-4.58-genealogy-gap.real | grep -F 'reflex.diagnosis=GENEALOGY_GAP'
+          "$V" language/real/examples/mqr-4.58-self-exempt.real | grep -F 'reflex.diagnosis=CONSTITUTION_SELF_EXEMPTION'
+          "$V" language/real/examples/mqr-4.58-closure-overclaim.real | grep -F 'reflex.diagnosis=CLOSURE_FINALITY_OVERCLAIM'
+          "$V" language/real/examples/mqr-4.58-scaffold-conflation.real | grep -F 'reflex.diagnosis=SCAFFOLD_WORLD_AUTHORITY_CONFLATION'
+          "$V" language/real/examples/mqr-4.58-drake-role-gap.real | grep -F 'reflex.diagnosis=DRAKE_ROLE_GAP'
+          "$V" language/real/examples/mqr-4.58-fossilized-scaffold.real | grep -F 'reflex.diagnosis=SCAFFOLD_FOSSILIZATION'
+          "$V" language/real/examples/mqr-4.58-scalar-resurrection.real | grep -F 'reflex.diagnosis=TRUTH_DISTANCE_SCALAR_RESURRECTION'
+          "$V" language/real/examples/mqr-4.58-fixed-point-overclaim.real | grep -F 'reflex.diagnosis=FINAL_REFLECTIVE_FIXED_POINT_OVERCLAIM'
+
+          for x in language/real/tests/v25-invalid-*.real; do
+            if "$V" "$x"; then exit 1; fi
+            if swipl -q -s "$P" -g "run('$x'),halt" -t "halt(1)"; then exit 1; fi
+          done
+          echo REAL_LANGUAGE_V25_RUST_PROLOG_CONCORDANCE=PASS
+
+      - name: Execute frozen reflexive ecology stress court
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.58/reflexive_ecology_court.py | tee /tmp/mqr458.log
+
+          stress_keys=(
+            actor_birth_outside_registry actor_death_obligation_residue
+            coalition_merger_laundering coalition_fission_laundering
+            intermediary_creation role_mutation utility_mutation
+            endogenous_preference_formation mechanism_amendment
+            mechanism_self_replication mechanism_extinction auditor_creation_capture
+            genealogy_truncation obligation_orphaning utility_role_cross_mutation
+            rule_actor_coevolution endogenous_ontology_failure identity_by_label_laundering
+            constitution_self_exemption ravel_theatre infinite_regress_laundering
+            closure_finality_conflation scaffold_to_truth_laundering
+            truth_to_scaffold_collapse drake_numerical_fetish drake_authority_inflation
+            toy_model_possibility_inflation scaffold_fossilization
+            newton_prestige_transfer isp_scalar_resurrection
+          )
+          for key in "${stress_keys[@]}"; do
+            grep -F "mqr458.$key=PASS" /tmp/mqr458.log
+          done
+
+          positive_keys=(
+            actor_birth_admission merger_debt_transport fission_ancestry_compression
+            role_mutation_reauthorization utility_mutation_detection
+            mechanism_amendment_replay institution_reproduction_transport
+            actor_rule_coevolution_trace ravel_self_defeat ravel_noop_compression
+            drake_scaffold_admission schelling_role_separation
+            hardy_weinberg_regulative_admission newton_dual_admission scaffold_retirement
+          )
+          for key in "${positive_keys[@]}"; do
+            grep -F "mqr458.$key=ADMIT" /tmp/mqr458.log
+          done
+
+          grep -F 'mqr458.fixed_actor_ontology=REJECT' /tmp/mqr458.log
+          grep -F 'mqr458.fixed_utility_transport=REJECT' /tmp/mqr458.log
+          grep -F 'mqr458.fixed_mechanism_ontology=REJECT' /tmp/mqr458.log
+          grep -F 'mqr458.constitution_self_immunity=REJECT' /tmp/mqr458.log
+          grep -F 'mqr458.stage_closure_finality=REJECT' /tmp/mqr458.log
+          grep -F 'mqr458.scaffold_value_equals_world_authority=REJECT' /tmp/mqr458.log
+          grep -F 'mqr458.world_authority_equals_scaffold_value=REJECT' /tmp/mqr458.log
+          grep -F 'mqr458.truth_distance_scalar=NOT_EARNED' /tmp/mqr458.log
+          grep -F 'mqr458.universal_self_reduction_fixed_point=NOT_EARNED' /tmp/mqr458.log
+          grep -F 'mqr458.wcaer=CANDIDATE' /tmp/mqr458.log
+          grep -F 'mqr458.rcsr=CANDIDATE' /tmp/mqr458.log
+          grep -F 'mqr458.isp=CANDIDATE' /tmp/mqr458.log
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.58-reflexive-ecology-report-${{ github.sha }}
+          path: experiments/mqr-4.58/results/reflexive_ecology_report.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish receipt
+        if: ${{ always() }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          state=success
+          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="$state" -f context="MQR-4.58/Court" \
+            -f description="run ${GITHUB_RUN_ID}: ${{ job.status }}" \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

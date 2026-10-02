@@ -1,0 +1,18 @@
+REALVALUE 0.23
+id hidden_proxy
+target_contract DECLARED
+typed_value_profile PASS
+value_provenance PASS
+proxy_dependence HIDDEN
+target_drift_sentinel ACTIVE
+adversarial_decoy_test PASS
+opportunity_cost DECLARED
+unit_audit PASS
+horizon DECLARED
+option_value TRACKED
+exterior_value_challenge ACTIVE
+reopening ACTIVE
+optimizer_scope NONE
+scalar_default OFF
+world_optimum NO_CLAIM
+END

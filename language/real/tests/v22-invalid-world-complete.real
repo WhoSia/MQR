@@ -1,0 +1,16 @@
+REALCONSEQUENCE 0.22
+id bad_world
+target OTHER
+typed_channels PASS
+ancestry_audit PASS
+common_mode NO
+generator_grammar DECLARED
+off_grammar_route ACTIVE
+adversarial_expansion PASS
+serialization_quotient PASS
+tacit_competence NA
+heuristic_role NONE
+holdout AVAILABLE
+reopening ACTIVE
+world_complete MAYBE
+END
