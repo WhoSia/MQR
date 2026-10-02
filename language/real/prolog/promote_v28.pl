@@ -37,17 +37,17 @@ decide(M) :-
     b(M,chronology_only,'NO',Chron),
     b(M,event_order_sensitive,'NO',OrderSensitive),
     b(M,same_ancestry,'YES',SameAnc),
-    (MF=true;Lost=true;Debt=true;Prov=true -> Material=true ; Material=false),
+    any_true4(MF,Lost,Debt,Prov,Material),
     transition(Chron,Material,RB,RA,VB,VA,Reopen,SB,SA,HB,HA,CB,CA,Old,New,T),
     exact_restore(Old,New,SB,SA,HB,HA,RB,RA,VB,VA,CB,CA,Lost,Debt,Prov,Exact),
     mutation(RB,RA,Mutation),
     independent_warrant(RB,RA,SameAnc,Independent),
     veto_transition(VB,VA,VT),
     bool_word(Material,MW),
-    (Material=true;OrderSensitive=true -> Path=true ; Path=false), bool_word(Path,PW),
+    any_true2(Material,OrderSensitive,Path), bool_word(Path,PW),
     (OrderSensitive=true -> Comm=false ; Comm=true), bool_word(Comm,CW),
-    (Lost=true;Debt=true;Prov=true -> H='ACTIVE' ; H='INACTIVE'),
-    (Lost=true;Debt=true -> LOD='ACTIVE' ; LOD='INACTIVE'),
+    any_true3(Lost,Debt,Prov,Hb), (Hb=true -> H='ACTIVE' ; H='INACTIVE'),
+    any_true2(Lost,Debt,Lb), (Lb=true -> LOD='ACTIVE' ; LOD='INACTIVE'),
     bool_word(Reopen,RW), bool_word(Exact,EW),
     format("promotion.transition=~w~n",[T]),
     format("promotion.old_relation=~w~n",[Old]),
@@ -69,7 +69,7 @@ decide(M) :-
     writeln("promotion.odr=CANDIDATE"),
     writeln("promotion.rmr=CANDIDATE").
 
-bool_word(true,'YES'). bool_word(false,'NO').
+any_true2(A,B,true) :- (A=true ; B=true), !.\nany_true2(_,_,false).\nany_true3(A,B,C,true) :- (A=true ; B=true ; C=true), !.\nany_true3(_,_,_,false).\nany_true4(A,B,C,D,true) :- (A=true ; B=true ; C=true ; D=true), !.\nany_true4(_,_,_,_,false).\n\nbool_word(true,'YES'). bool_word(false,'NO').
 
 transition(true,false,_,_,_,_,_,_,_,_,_,_,_,_,_,'HISTORY_IRRELEVANT') :- !.
 transition(_,_,RB,RA,_,_,_,_,_,_,_,_,_,_,_,'REASON_MUTATED') :- RB \= RA, !.
