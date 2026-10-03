@@ -47,7 +47,7 @@ theorem execution_defeater_implies_scientific_defeater
       rw [hs] at h
       cases h
   | true =>
-      exact hs
+      rfl
 
 #print axioms MQR.scientific_defeater_need_not_be_execution_defeater
 #print axioms MQR.permission_unlock_can_change_execution_defeat_without_changing_scientific_defeat
