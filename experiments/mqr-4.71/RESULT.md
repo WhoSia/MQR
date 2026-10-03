@@ -1,6 +1,6 @@
 # MQR-4.71 — RESULT
 
-Status: **SCIENTIFIC READOUT COMPLETE / GENERATIVE-CONSTITUTION-STATE-RESIDUE-SURVIVES / DYNAMIC-STATE-MATH-BASELINE-ABSORBED / SCIENTIFIC-vs-EXECUTION-CLOSURE-SEPARATED / META-CLOSURE-SCOPE-RELATIVE / NATURALISTIC-WORLD-CONTACT-PARTIAL / NO-v0.30-PROMOTION**
+Status: **SCIENTIFICALLY CLOSED / GENERATIVE-CONSTITUTION-STATE-RESIDUE-SURVIVES / DYNAMIC-STATE-MATH-BASELINE-ABSORBED / SCIENTIFIC-vs-EXECUTION-CLOSURE-SEPARATED / META-CLOSURE-SCOPE-RELATIVE / NATURALISTIC-WORLD-CONTACT-PARTIAL / OPEN-WORLD-CLOSURE-UNEARNED / NO-v0.30-PROMOTION**
 
 ## Canonical verdict
 
@@ -169,10 +169,45 @@ REALWARRANT 0.30-CANDIDATE remains unpromoted.
 
 The current distinctions are better represented as doctrine/audit metadata than as a new language primitive.
 
-## 12. Stage closure condition
+## 12. Scientific closure
 
-MQR-4.71 is scientifically ready to close if the latest exact-head integrated workflow verifies the final Lean/contact-scope boundary without changing the scientific claims.
+The exact-head integrated workflow on:
 
-If that exact-head formal integration fails for a substantive theorem reason, the stage remains HOLD.
+`9c6e3f419b8486582056dedb29e222e2d81b7eb2`
 
-Compiler/proof-script repairs that do not change theorem statements do not reopen the scientific Court.
+completed successfully as run:
+
+`37115271307`
+
+with all 10 dedicated jobs SUCCESS:
+- canonical-envelope;
+- independent-envelope;
+- transport-guard;
+- structural-guards;
+- meta-closure;
+- lean-boundary;
+- generative-quotient;
+- closure-defeasibility;
+- three-layer-contact;
+- scope-termination.
+
+The final scoped-defeater proof repair changed no theorem statement and reopened no scientific case.
+
+Therefore MQR-4.71 is scientifically CLOSED.
+
+Canonical closure label:
+
+```text
+CURRENT_ENVELOPE_INSUFFICIENT_FOR_FUTURE_CONTACT_DYNAMICS
+COMPACT_GENERATIVE_STATE_SUFFICIENT_ON_AUGMENTED_FROZEN_COURT
+ANCESTRY_PROXY_DEFEATED
+GENERIC_DYNAMIC_STATE_THEORY_BASELINE_ABSORBED
+EXECUTION_CLOSURE_NE_SCIENTIFIC_CONTACT_CLOSURE
+GENERATOR_OUTPUT_NE_GENERATOR_COMPLETENESS_PROOF
+RELATIVE_SCOPE_CLOSURE_CAN_TERMINATE
+OPEN_WORLD_CLOSURE_UNEARNED
+NATURALISTIC_GENERATIVE_CONSTITUTION_CONTACT_PARTIAL
+NO_0_30_PROMOTION
+```
+
+A stronger naturalistic prospectively matched pair remains useful future evidence, but it is not required to keep this stage artificially open.
