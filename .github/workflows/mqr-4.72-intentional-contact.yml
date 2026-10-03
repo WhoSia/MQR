@@ -84,7 +84,7 @@ jobs:
           grep -F 'NATURAL-SCIENCE-AND-MATHEMATICS-RECENTERED' experiments/mqr-4.72/PRESEAL.md
           grep -F 'Intentionality here is not private psychology.' experiments/mqr-4.72/PRESEAL.md
           grep -F 'Institutional-fiat drift' experiments/mqr-4.72/PRESEAL.md
-          grep -F 'Exploratory experiment' experiments/mqr-4.72/INTENTIONAL-CONTACT-CONSTITUTION.md
+          grep -F 'exploratory experiment' experiments/mqr-4.72/INTENTIONAL-CONTACT-CONSTITUTION.md
           grep -F $'N3\tNATSCI\tEXPLORATORY' experiments/mqr-4.72/COURT-FREEZE.tsv
           grep -F $'M2\tMATH\tFRAMEWORK_CHANGED' experiments/mqr-4.72/COURT-FREEZE.tsv
           echo MQR472_STRUCTURAL_GUARDS=PASS
