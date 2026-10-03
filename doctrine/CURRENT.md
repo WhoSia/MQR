@@ -1681,3 +1681,52 @@ The K562 Perturb-seq naturalistic protocol is prospectively sealed, but source-b
 REALACQUIRE 0.29 remains the latest promoted Real-Language syntax. REALWARRANT 0.30-CANDIDATE remains unpromoted. MQR-4.70 introduces no new language primitive.
 
 The successor must not reopen generic experiment optimization or add closure labels merely for granularity. The next live pressure is whether admissibility-envelope closure can itself be independently generated, audited, revised and transported without circularly appealing to the scientific state whose authority it is supposed to delimit.
+
+## MQR-4.71 boundary — scientific-contact envelope authority
+
+MQR-4.71 closes the upstream constitution question left open by MQR-4.70.
+
+Canonical result:
+
+~~~text
+CURRENT_ENVELOPE_INSUFFICIENT_FOR_FUTURE_CONTACT_DYNAMICS
+COMPACT_GENERATIVE_STATE_SUFFICIENT_ON_AUGMENTED_FROZEN_COURT
+ANCESTRY_PROXY_DEFEATED
+GENERIC_DYNAMIC_STATE_THEORY_BASELINE_ABSORBED
+EXECUTION_CLOSURE_NE_SCIENTIFIC_CONTACT_CLOSURE
+GENERATOR_OUTPUT_NE_GENERATOR_COMPLETENESS_PROOF
+RELATIVE_SCOPE_CLOSURE_CAN_TERMINATE
+OPEN_WORLD_CLOSURE_UNEARNED
+NATURALISTIC_GENERATIVE_CONSTITUTION_CONTACT_PARTIAL
+NO_0_30_PROMOTION
+~~~
+
+The contact constitution is typed into three layers:
+
+~~~text
+X_t subseteq S_t subseteq C_t
+C_t = generator-produced candidate contacts
+S_t = scientifically relevant/discriminating contacts
+X_t = currently executable/permitted contacts
+~~~
+
+Closure authority must declare which layer it closes. Current execution closure must not be promoted to scientific-contact closure.
+
+The first predictive-quotient attack exposed ancestry as a sample-dependent proxy for generator capability. A second presealed correlation-breaking phase removed that proxy. On the augmented frozen trigger family the unique minimal feature set is generator capability + technology state + budget state + ethics state. This finite state result is not MQR novelty: constrained/sequential experimental-design theory already absorbs generic dynamic feasible-set state augmentation.
+
+The surviving MQR authority boundary is:
+
+~~~text
+CURRENT ADMITTED ENVELOPE != FUTURE CONTACT-DYNAMICS STATE
+GENERATOR SATURATION != GENERATOR COMPLETENESS
+EXECUTION-COMPLETE != SCIENTIFIC-CONTACT-COMPLETE
+RELATIVE SCOPE CLOSURE != OPEN-WORLD CLOSURE
+~~~
+
+Meta-closure does not force infinite regress. Relative closure may terminate on an independently warranted finite universe, complete grammar relative to declared semantics, or explicit execution contract. Defining the scope as whatever the current generator outputs is circular and earns no completeness authority.
+
+Naturalistic donors support the type distinctions: research governance separates scientific validity/value from execution permission; self-driving laboratories separate generator capability from safety/approval gates; Advanced LIGO supplies a technology-unlock donor; autonomous scientific systems such as Adam and mobile robotic chemistry operate inside bounded formal/experimental spaces; adaptive platform trials distinguish current active content from rules governing future arm entry/exit. These are partial world contacts, not full validation of the MQR ontology.
+
+REALACQUIRE 0.29 remains the latest promoted Real-Language syntax. REALWARRANT 0.30-CANDIDATE remains unpromoted. MQR-4.71 adds no new language primitive.
+
+The successor must not reopen generic dynamic-feasible-set mathematics, generic autonomous experiment generation, or research-governance constraint typing as MQR novelty. The next live pressure is whether relative scope authority can itself be audited, inherited, revised, combined and challenged across nested scientific institutions without collapsing into circular constitutional self-authorization.
