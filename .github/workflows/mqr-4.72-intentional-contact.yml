@@ -1,0 +1,90 @@
+name: MQR-4.72 Intentional Contact and Truth Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.72/**'
+      - 'language/real/lean/MQR/IntentionalContact.lean'
+      - '.github/workflows/mqr-4.72-intentional-contact.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Canonical intentional-contact court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.72/intentional_contact_court.py | tee /tmp/mqr472.log
+          grep -F 'MQR472_INTENTIONAL_CONTACT=PASS' /tmp/mqr472.log
+          grep -F 'MQR472_CASES=11' /tmp/mqr472.log
+          grep -F 'MQR472_EXPLORATORY_WITHOUT_FULL_TARGET=YES' /tmp/mqr472.log
+          grep -F 'MQR472_THEORY_SELF_GATE_BLOCKED=YES' /tmp/mqr472.log
+          grep -F 'MQR472_DEFEAT_ROUTE_LOSS_DOWNGRADES=YES' /tmp/mqr472.log
+          grep -F 'MQR472_MATH_FRAMEWORK_LABEL_NOT_ENOUGH=YES' /tmp/mqr472.log
+          grep -F 'MQR472_CHECKED_KERNEL_RELATIVE_AUTHORITY=YES' /tmp/mqr472.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.72-intentional-contact
+          path: experiments/mqr-4.72/results/intentional_contact_court.tsv
+
+  independent-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independent C++ court
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.72/independent_intentional_contact.cpp -o /tmp/mqr472-cpp
+          /tmp/mqr472-cpp | tee /tmp/mqr472-cpp.log
+          grep -F 'MQR472_CPP_INTENTIONAL_CONTACT=PASS' /tmp/mqr472-cpp.log
+          grep -F 'MQR472_CPP_CASES=11' /tmp/mqr472-cpp.log
+          grep -F 'MQR472_CPP_EXPLORATORY_WITHOUT_FULL_TARGET=YES' /tmp/mqr472-cpp.log
+          grep -F 'MQR472_CPP_THEORY_SELF_GATE_BLOCKED=YES' /tmp/mqr472-cpp.log
+          grep -F 'MQR472_CPP_DEFEAT_ROUTE_LOSS_DOWNGRADES=YES' /tmp/mqr472-cpp.log
+          grep -F 'MQR472_CPP_MATH_FRAMEWORK_LABEL_NOT_ENOUGH=YES' /tmp/mqr472-cpp.log
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Verify intentional-contact theorem boundary
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/IntentionalContact.lean | tee /tmp/mqr472-lean.log
+          if grep -F 'sorryAx' /tmp/mqr472-lean.log; then exit 1; fi
+          for theorem in             MQR.full_target_specification_not_necessary_for_legitimate_exploration             MQR.same_theorem_label_does_not_force_same_semantic_truth             MQR.theory_self_gated_reliability_is_flagged
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr472-lean.log
+          done
+          echo MQR472_LEAN=PASS
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen direction
+        run: |
+          set -euo pipefail
+          grep -F 'NATURAL-SCIENCE-AND-MATHEMATICS-RECENTERED' experiments/mqr-4.72/PRESEAL.md
+          grep -F 'Intentionality here is not private psychology.' experiments/mqr-4.72/PRESEAL.md
+          grep -F 'Institutional-fiat drift' experiments/mqr-4.72/PRESEAL.md
+          grep -F 'Exploratory experiment' experiments/mqr-4.72/INTENTIONAL-CONTACT-CONSTITUTION.md
+          grep -F $'N3\tNATSCI\tEXPLORATORY' experiments/mqr-4.72/COURT-FREEZE.tsv
+          grep -F $'M2\tMATH\tFRAMEWORK_CHANGED' experiments/mqr-4.72/COURT-FREEZE.tsv
+          echo MQR472_STRUCTURAL_GUARDS=PASS
