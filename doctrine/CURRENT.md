@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.70**.
+Status: live through **MQR-4.72**.
 
 ## Generation-IV authority kernel
 
@@ -1730,3 +1730,24 @@ Naturalistic donors support the type distinctions: research governance separates
 REALACQUIRE 0.29 remains the latest promoted Real-Language syntax. REALWARRANT 0.30-CANDIDATE remains unpromoted. MQR-4.71 adds no new language primitive.
 
 The successor must not reopen generic dynamic-feasible-set mathematics, generic autonomous experiment generation, or research-governance constraint typing as MQR novelty. The next live pressure is whether relative scope authority can itself be audited, inherited, revised, combined and challenged across nested scientific institutions without collapsing into circular constitutional self-authorization.
+
+#### MQR-4.72 defeat-capability transport result
+
+MQR-4.72 rejects defeat-route identity as a necessary condition for authority inheritance.
+
+Current doctrine:
+
+```text
+AUTHORITY_INHERITANCE_TRACKS_CLAIM_RELEVANT_DEFEAT_CAPABILITY
+DEFEAT_ROUTE_IDENTITY_IS_NOT_REQUIRED
+LABEL_OR_PROCEDURE_CONTINUITY_IS_NOT_SUFFICIENT
+FULL_TARGET_SPECIFICATION_IS_NOT_NECESSARY
+SOLE_THEORY_SELF_GATING => HOLD
+MATHEMATICAL_AUTHORITY_TRANSPORT_IS_FRAMEWORK_RELATIVE
+PROCEDURE_OR_CONSENSUS_NE_UNQUALIFIED_TRUTH
+NO_REAL_LANGUAGE_0_30_PROMOTION
+```
+
+For each still-live claim-relevant defeat obligation on the declared scope, a successor must preserve a route, explicitly transport the obligation, or independently reconstruct an equal-or-stronger exposure to the relevant error/counterexample class.
+
+Intentionality is nonfoundational: it organizes which world/proof contact is attempted but does not itself warrant truth. Exploratory inquiry may be legitimate with structured directedness, reproducible contact and defeatability before a mature target ontology exists.
