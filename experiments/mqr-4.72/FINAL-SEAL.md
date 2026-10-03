@@ -64,3 +64,12 @@ REALACQUIRE 0.29 remains current. Real-Language 0.30 is **NOT PROMOTED**.
 MQR-4.72 is CLOSED once exact-head validation confirms canonical 11-case Court, independent C++ concordance, Lean theorem boundary and structural frozen-direction guards.
 
 Future successors must preserve the distinction: **DEFEAT ROUTE IDENTITY != DEFEAT CAPABILITY CONTINUITY.**
+## Closure receipts
+
+- doctrine/CURRENT.md integration commit: `d3fe9af1aa14267ba4d7e7b84ef37aabc57e739b`
+- README live-surface integration commit: `a94a4a488dbedb69bee0323b9aa10b495fa0d628`
+- Notion canonical page: `3eeef561-cf92-8143-aecd-f3e00025a6f3`
+- Drive FINAL-SEAL receipt: `1srhUbpRBEAuW3rWP1vvZX3jUUKXjqGFNywzjDU16Wpo`
+- Scientific FINAL-SEAL validation run at pre-receipt head: `37119382977` = 4/4 SUCCESS
+
+This receipt-only update does not alter the frozen cases, Court logic, Lean boundary, or scientific verdict.
