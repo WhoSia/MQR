@@ -1596,3 +1596,29 @@ naturalistic_world_validity = NOT_ESTABLISHED
 REALACQUIRE 0.29 remains the latest promoted syntax.
 
 REALWARRANT 0.30-CANDIDATE remains development-only and unpromoted.
+
+## MQR-4.71 — no new syntax promotion
+
+MQR-4.71 does not promote a new Real-Language surface.
+
+The stage separates candidate, scientific-relevance and current-execution contact layers, and it distinguishes current admitted envelope from the state governing future contact-space transitions.
+
+Canonical machine boundary:
+
+~~~text
+current_envelope != future_contact_dynamics_state
+generator_saturation != generator_completeness
+execution_closure != scientific_contact_closure
+relative_scope_closure != open_world_closure
+ancestry_proxy != primitive_state
+~~~
+
+The augmented frozen Court identifies generator capability + technology state + budget state + ethics state as the unique minimal feature set for the declared trigger family after generator↔ancestry proxy separation. This is finite constitutional bookkeeping, not a promoted semantic ontology.
+
+Generic dynamic feasible-set state augmentation is baseline absorbed by constrained/sequential experimental-design theory.
+
+Naturalistic world contact remains partial. No prospectively matched real-world pair validates the full MQR-4.71 ontology.
+
+REALACQUIRE 0.29 remains the latest promoted syntax.
+
+REALWARRANT 0.30-CANDIDATE remains development-only and unpromoted.
