@@ -40,7 +40,14 @@ theorem execution_defeater_implies_scientific_defeater
     (q : ScopedContact)
     (h : ExecutionClosureDefeater q = true) :
     ScientificClosureDefeater q = true := by
-  decide
+  unfold ExecutionClosureDefeater at h
+  unfold ScientificClosureDefeater
+  cases hs : q.scientificSplit with
+  | false =>
+      rw [hs] at h
+      cases h
+  | true =>
+      exact hs
 
 #print axioms MQR.scientific_defeater_need_not_be_execution_defeater
 #print axioms MQR.permission_unlock_can_change_execution_defeat_without_changing_scientific_defeat
