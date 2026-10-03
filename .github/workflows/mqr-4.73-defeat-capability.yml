@@ -1,0 +1,83 @@
+name: MQR-4.73 Defeat Capability Dominance Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.73/**'
+      - 'language/real/lean/MQR/DefeatCapability.lean'
+      - '.github/workflows/mqr-4.73-defeat-capability.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Canonical capability court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.73/capability_court.py | tee /tmp/mqr473.log
+          grep -F 'MQR473_CAPABILITY_COURT=PASS' /tmp/mqr473.log
+          grep -F 'MQR473_CASES=14' /tmp/mqr473.log
+          grep -F 'MQR473_HIDDEN_LOSS_BLOCKS_DOMINANCE=YES' /tmp/mqr473.log
+          grep -F 'MQR473_TRACEABILITY_ALONE_NOT_ENOUGH=YES' /tmp/mqr473.log
+          grep -F 'MQR473_MATH_SEMANTIC_LOSS_BLOCKS_DOMINANCE=YES' /tmp/mqr473.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4.73-capability-court
+          path: experiments/mqr-4.73/results/capability_court.tsv
+
+  independent-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independent C++ capability court
+        run: |
+          set -euo pipefail
+          g++ -std=c++20 -O2 experiments/mqr-4.73/independent_capability_court.cpp -o /tmp/mqr473-cpp
+          /tmp/mqr473-cpp | tee /tmp/mqr473-cpp.log
+          grep -F 'MQR473_CPP_CAPABILITY_COURT=PASS' /tmp/mqr473-cpp.log
+          grep -F 'MQR473_CPP_CASES=14' /tmp/mqr473-cpp.log
+          grep -F 'MQR473_CPP_HIDDEN_LOSS_BLOCKS_DOMINANCE=YES' /tmp/mqr473-cpp.log
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Verify capability theorem boundary
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/DefeatCapability.lean | tee /tmp/mqr473-lean.log
+          if grep -F 'sorryAx' /tmp/mqr473-lean.log; then exit 1; fi
+          for theorem in             MQR.novel_channel_does_not_compensate_old_loss             MQR.strict_local_dominance_requires_old_recoverability             MQR.traceability_alone_does_not_force_capability_dominance             MQR.proving_more_does_not_force_authority_dominance
+          do
+            grep -F "'$theorem' does not depend on any axioms" /tmp/mqr473-lean.log
+          done
+          echo MQR473_LEAN=PASS
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen direction
+        run: |
+          set -euo pipefail
+          grep -F 'DEFEAT CAPABILITY != NEW DEFEAT-CONTENT ATOM' experiments/mqr-4.73/PRESEAL.md
+          grep -F 'MQR-4.49 absorption' experiments/mqr-4.73/PRESEAL.md
+          grep -F $'N3\tNATSCI\tA,B\tB,C\tNO\tYES' experiments/mqr-4.73/COURT-FREEZE.tsv
+          grep -F $'M2\tMATH\tP,Q\tQ,R\tNO\tYES' experiments/mqr-4.73/COURT-FREEZE.tsv
+          echo MQR473_STRUCTURAL_GUARDS=PASS
