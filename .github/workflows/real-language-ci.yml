@@ -21,7 +21,6 @@ on:
 
 permissions:
   contents: read
-  statuses: write
 
 jobs:
   validate:
@@ -41,7 +40,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in language/real/examples/*.real; do
-            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19|PROGRESS 0.20|INVARIANCE 0.21|CONSEQUENCE 0.22|VALUE 0.23|STRATEGY 0.24|REFLEX 0.25|PROMOTE 0.26|PROMOTE 0.27|PROMOTE 0.28|ACQUIRE 0.29)' "$f"; then
+            if grep -Eq '^REAL(PACKET 0.4|TRANSFER 0.5|COMPOSE 0.6|SUBSTITUTE 0.7|CONTACTRANK 0.8|FRONTIER 0.9|ALLOCATE 0.10|CONSTITUTE 0.11|REVISE 0.12|MAPAUTH 0.13|CHALLENGE 0.14|ROUTE 0.15|DEFEAT 0.16|REGRESS 0.17|STOP 0.18|TRACE 0.19|PROGRESS 0.20|INVARIANCE 0.21|CONSEQUENCE 0.22|VALUE 0.23|STRATEGY 0.24|REFLEX 0.25|PROMOTE 0.26|PROMOTE 0.27|PROMOTE 0.28|ACQUIRE 0.29|APPROX 0.30-CANDIDATE|LOSS 0.30-CANDIDATE|WARRANT 0.30-CANDIDATE)' "$f"; then
               continue
             fi
             ./language/real/target/release/real "$f" > /tmp/rust.out
@@ -1120,20 +1119,49 @@ jobs:
           echo REAL_LANGUAGE_V22_RUST_PROLOG_CONCORDANCE=PASS
           echo MQR455_INTEGRATED_CONSEQUENCE_FAMILY=PASS
 
-      - name: Publish externally readable workflow receipt
-        if: ${{ always() }}
+      - name: Real-Language v0.30-v0.31 candidate integration
         shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          state=success
-          if [ "${{ job.status }}" != "success" ]; then state=failure; fi
-          context="Real-Language/CI"
-          description="run ${GITHUB_RUN_ID}: ${{ job.status }}"
-          target="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
-            -f state="$state" \
-            -f context="$context" \
-            -f description="$description" \
-            -f target_url="$target"
+          command -v swipl >/dev/null
+
+          for f in language/real/examples/mqr-4.67-*.real; do
+            ./language/real/target/release/real-v30-approx "$f" > /tmp/v30.rust
+            swipl -q -f language/real/prolog/approx_v30.pl -- "$f" > /tmp/v30.prolog
+            diff -u /tmp/v30.rust /tmp/v30.prolog
+          done
+
+          for f in language/real/examples/mqr-4.68-*.real; do
+            ./language/real/target/release/real-v30-loss-contract "$f" > /tmp/v30.rust
+            swipl -q -f language/real/prolog/loss_contract_v30.pl -- "$f" > /tmp/v30.prolog
+            diff -u /tmp/v30.rust /tmp/v30.prolog
+          done
+
+          for f in language/real/examples/mqr-4.69-*.real; do
+            ./language/real/target/release/real-v30-warrant-lineage "$f" > /tmp/v30.rust
+            swipl -q -f language/real/prolog/warrant_lineage_v30.pl -- "$f" > /tmp/v30.prolog
+            diff -u /tmp/v30.rust /tmp/v30.prolog
+          done
+
+          R31=./language/real/target/release/real-v31-envelope
+          P31=language/real/prolog/envelope_v31.pl
+          for f in language/real/examples/mqr-4.74-*.realenvelope; do
+            "$R31" "$f" > /tmp/v31.rust
+            swipl -q -f "$P31" -- "$f" > /tmp/v31.prolog
+            diff -u /tmp/v31.rust /tmp/v31.prolog
+          done
+
+          for f in language/real/tests/invalid/mqr-4.74-*.realenvelope; do
+            if "$R31" "$f" >/tmp/v31.invalid.rust 2>&1; then
+              echo "Rust unexpectedly accepted invalid REALENVELOPE fixture: $f" >&2
+              exit 1
+            fi
+            if swipl -q -f "$P31" -- "$f" >/tmp/v31.invalid.prolog 2>&1; then
+              echo "Prolog unexpectedly accepted invalid REALENVELOPE fixture: $f" >&2
+              exit 1
+            fi
+          done
+
+          echo REAL_LANGUAGE_V30_CANDIDATE_CONCORDANCE=PASS
+          echo REAL_LANGUAGE_V31_ENVELOPE_CONCORDANCE=PASS
+          echo REAL_LANGUAGE_ACTIONS_HISTORY_WRITEBACK=OFF
