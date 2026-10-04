@@ -1777,3 +1777,36 @@ For claim scope S, still-live predecessor obligation family Omega and declared a
 Exact raw inversion is sufficient but not necessary. A claim-sufficient recovery witness may preserve local authority when every authority-changing predecessor distinction remains recoverable, but the witness must not be supplied solely by the successor model under test and must survive the declared perturbation envelope.
 
 Blackwell comparison, sufficient statistics, causal separating systems, observability/controllability, calibration/traceability, robust experimental design, conservative extension, trusted kernels and proof certificates are prior-art baselines. MQR-4.73 retains only the constitutional transport discipline and its open-world firewall.
+
+
+#### MQR-4.74 robustness-envelope authority result
+
+MQR-4.74 removes the remaining authority-free status of the perturbation/misspecification envelope Pi used by MQR-4.73.
+
+Current doctrine:
+
+```text
+ROBUSTNESS_CERTIFICATE_IS_ENVELOPE_VERSION_RELATIVE
+PERTURBATION_ENVELOPE_AUTHORITY_IS_NOT_PRIMITIVE
+UNDERINCLUSION_AND_OVERINCLUSION_ARE_DISTINCT_FAILURES
+MORE_STRESS_TESTS_NE_STRONGER_ENVELOPE_AUTHORITY
+STRESS_EXTREMITY_NE_CLAIM_RELEVANCE
+EXECUTION_BLOCK_NE_SCIENTIFIC_IRRELEVANCE
+SCOPE_CHANGING_PERTURBATION_REQUIRES_TRANSPORT
+SPLIT_MERGE_REQUIRE_DISTINCTION_RECEIPTS
+LATER_ADMISSIBLE_EXPANSION_MAY_REOPEN_SUCCESSOR_AUTHORITY
+LATER_DEFEAT_NE_RETROACTIVE_FALSEHOOD_OF_CORRECTLY_SCOPED_PRIOR_CERTIFICATE
+FINITE_ENVELOPE_NE_OPEN_WORLD_COMPLETE
+NO_UNIVERSAL_PERTURBATION_SEVERITY_ORDER
+NO_REAL_LANGUAGE_0_31_PROMOTION
+```
+
+A robustness certificate must name the declared claim scope, live obligation family and perturbation-envelope version under which it was earned. Admissibility requires typed coherence, claim relevance, independent motivation/provenance and explicit scope semantics; current execution feasibility is a separate coordinate.
+
+A coherent, claim-relevant perturbation may remain scientific debt when current technology or permission blocks execution. Conversely, an incoherent, irrelevant or scope-changing perturbation cannot manufacture defeat of the original claim merely by being more extreme or increasing the test count.
+
+Later admissible expansion may reopen present successor authority while preserving the historical truth of the narrower statement that the predecessor was robust within the explicitly declared earlier envelope. Split, merge and cross-instrument/framework transport require explicit distinction-preservation or loss receipts.
+
+Distributionally robust optimization, uncertainty/ambiguity-set construction, stress-test design, robust Bayesian experimental design, measurement-model semantics and formal theory-equivalence machinery are baseline donors rather than MQR inventions.
+
+`REALENVELOPE 0.31-CANDIDATE` is development-only. It records envelope/version/admission/revision/transport authority and rejects post-outcome laundering, scope laundering, receipt-free split/merge and open-world completeness claims. `REALACQUIRE 0.29` remains the latest promoted Real-Language syntax; all 0.30 and 0.31 lanes remain unpromoted.
