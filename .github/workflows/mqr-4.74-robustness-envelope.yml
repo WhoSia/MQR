@@ -1,0 +1,110 @@
+name: MQR-4.74 Robustness Envelope
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.74/**'
+      - 'language/real/V31-ROBUSTNESS-ENVELOPE-CANDIDATE.md'
+      - 'language/real/src/envelope_v31.rs'
+      - 'language/real/prolog/envelope_v31.pl'
+      - 'language/real/examples/mqr-4.74-*.realenvelope'
+      - 'language/real/lean/MQR/RobustnessEnvelope.lean'
+      - 'language/real/lean/MQR.lean'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.74-robustness-envelope.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Canonical Rust envelope court
+        run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.74/envelope_court.rs -o /tmp/mqr474-court
+          /tmp/mqr474-court | tee /tmp/mqr474-court.log
+          grep -F 'MQR474_ENVELOPE_COURT=PASS' /tmp/mqr474-court.log
+          grep -F 'MQR474_CASES=15' /tmp/mqr474-court.log
+          grep -F 'MQR474_UNDERINCLUSION_REOPENS=YES' /tmp/mqr474-court.log
+          grep -F 'MQR474_OVERINCLUSION_DOES_NOT_AUTO_DEFEAT=YES' /tmp/mqr474-court.log
+          grep -F 'MQR474_PRIOR_SCOPED_CERTIFICATE_REMAINS_HISTORICAL=YES' /tmp/mqr474-court.log
+
+  independent-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SWI-Prolog
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq swi-prolog-nox
+      - name: Independent Prolog envelope court
+        run: |
+          set -euo pipefail
+          swipl -q -f experiments/mqr-4.74/independent_envelope_court.pl -- experiments/mqr-4.74/COURT-FREEZE.tsv | tee /tmp/mqr474-prolog.log
+          grep -F 'MQR474_PROLOG_ENVELOPE_COURT=PASS' /tmp/mqr474-prolog.log
+          grep -F 'MQR474_PROLOG_CASES=15' /tmp/mqr474-prolog.log
+
+  real-language:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install SWI-Prolog
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq swi-prolog-nox
+      - name: Build REALENVELOPE
+        run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v31-envelope
+      - name: Rust-Prolog candidate concordance
+        run: |
+          set -euo pipefail
+          R=./language/real/target/release/real-v31-envelope
+          P=language/real/prolog/envelope_v31.pl
+          for f in language/real/examples/mqr-4.74-*.realenvelope; do
+            "$R" "$f" > /tmp/rust.out
+            swipl -q -f "$P" -- "$f" > /tmp/prolog.out
+            diff -u /tmp/rust.out /tmp/prolog.out
+          done
+          "$R" language/real/examples/mqr-4.74-expansion-reopen.realenvelope | grep -F 'envelope.successor_authority=REOPEN'
+          "$R" language/real/examples/mqr-4.74-scientific-debt.realenvelope | grep -F 'envelope.scientific_debt_count=1'
+          "$R" language/real/examples/mqr-4.74-overinclusive.realenvelope | grep -F 'envelope.rejected_count=2'
+          echo MQR474_REALENVELOPE_CONCORDANCE=PASS
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Check robustness-envelope theorem boundary
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/RobustnessEnvelope.lean | tee /tmp/mqr474-lean.log
+          if grep -F 'sorryAx' /tmp/mqr474-lean.log; then exit 1; fi
+          test "$(grep -c 'does not depend on any axioms' /tmp/mqr474-lean.log)" -ge 6
+          lake env lean MQR.lean
+          echo MQR474_LEAN=PASS
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Frozen-direction and bot-firewall guards
+        run: |
+          set -euo pipefail
+          grep -F 'MQR-4.71 duplication' experiments/mqr-4.74/PRESEAL.md
+          grep -F 'Underinclusion' experiments/mqr-4.74/PRESEAL.md
+          grep -F 'Overinclusion' experiments/mqr-4.74/PRESEAL.md
+          grep -F 'REALENVELOPE 0.31-CANDIDATE' language/real/V31-ROBUSTNESS-ENVELOPE-CANDIDATE.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
+          echo MQR474_STRUCTURAL_GUARDS=PASS
