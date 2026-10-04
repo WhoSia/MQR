@@ -1,0 +1,15 @@
+REALCHALLENGE 0.32-CANDIDATE
+id invalid-bounded-closure
+sealed PASS
+claim_scope_hash theorem-family-1
+challenge_family_hash countermodel-1
+portfolio_id p-bad-closure
+admissibility_rule_hash admit-m1
+dependency_rule_hash dep-m1
+evidence_kind PROVED
+completeness_claim RELATIVE_ONLY
+open_world_complete OFF
+generator search-a FINITE_MODEL_SEARCH enc-a YES NO NO NO YES NO
+generator search-b SAT_SEARCH enc-b YES NO NO NO YES NO
+pair search-a search-b NO NO YES NO_CLOSURE_FROM_SEARCH_FAILURE
+END
