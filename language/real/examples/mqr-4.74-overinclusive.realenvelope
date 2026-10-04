@@ -1,0 +1,16 @@
+REALENVELOPE 0.31-CANDIDATE
+id mqr-4.74-overinclusive
+sealed PASS
+claim_scope_hash claim-s1
+obligation_family_hash omega-1
+envelope_id pi-over
+envelope_version v1
+parent_certificate NONE
+admissibility_rule_hash admit-r3
+revision_rule_hash revise-r3
+evidence_kind ENUMERATED
+completeness_claim RELATIVE_ONLY
+open_world_complete OFF
+perturbation incoherent-world EXTERNAL NO YES YES AVAILABLE PERMITTED YES REJECT_INCOHERENT
+perturbation unrelated-axis EXTERNAL YES NO YES AVAILABLE PERMITTED YES REJECT_IRRELEVANT
+END
