@@ -1,0 +1,15 @@
+REALENVELOPE 0.31-CANDIDATE
+id mqr-4.74-scientific-debt
+sealed PASS
+claim_scope_hash claim-s1
+obligation_family_hash omega-1
+envelope_id pi-debt
+envelope_version v1
+parent_certificate NONE
+admissibility_rule_hash admit-r2
+revision_rule_hash revise-r2
+evidence_kind INFERRED
+completeness_claim RELATIVE_ONLY
+open_world_complete OFF
+perturbation inaccessible-sensor INSTRUMENT YES YES YES CURRENTLY_UNREALIZABLE BLOCKED YES ADMIT_SCIENTIFIC_DEBT
+END
