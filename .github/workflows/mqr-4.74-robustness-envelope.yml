@@ -9,6 +9,7 @@ on:
       - 'language/real/src/envelope_v31.rs'
       - 'language/real/prolog/envelope_v31.pl'
       - 'language/real/examples/mqr-4.74-*.realenvelope'
+      - 'language/real/tests/invalid/mqr-4.74-*.realenvelope'
       - 'language/real/lean/MQR/RobustnessEnvelope.lean'
       - 'language/real/lean/MQR.lean'
       - 'language/real/Cargo.toml'
@@ -70,6 +71,15 @@ jobs:
           "$R" language/real/examples/mqr-4.74-expansion-reopen.realenvelope | grep -F 'envelope.successor_authority=REOPEN'
           "$R" language/real/examples/mqr-4.74-scientific-debt.realenvelope | grep -F 'envelope.scientific_debt_count=1'
           "$R" language/real/examples/mqr-4.74-overinclusive.realenvelope | grep -F 'envelope.rejected_count=2'
+          for f in language/real/tests/invalid/mqr-4.74-*.realenvelope; do
+            if "$R" "$f" >/tmp/rust-invalid.out 2>&1; then
+              echo "Rust unexpectedly accepted $f"; cat /tmp/rust-invalid.out; exit 1
+            fi
+            if swipl -q -f "$P" -- "$f" >/tmp/prolog-invalid.out 2>&1; then
+              echo "Prolog unexpectedly accepted $f"; cat /tmp/prolog-invalid.out; exit 1
+            fi
+          done
+          echo MQR474_NEGATIVE_FIXTURES=PASS
           echo MQR474_REALENVELOPE_CONCORDANCE=PASS
 
   lean-boundary:
