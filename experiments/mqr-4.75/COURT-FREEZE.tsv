@@ -1,0 +1,14 @@
+case_id	domain	generator_a	generator_b	shared_authority_ancestry	shared_infrastructure	independent_world_contact	postoutcome_tuned	novel	claim_relevant	bounded_search	counterexample_found	expected
+N1	NATSCI	residual-A	residual-B	YES	YES	NO	NO	YES	YES	YES	YES	COMMON_MODE_HOLD
+N2	NATSCI	instrument-A	instrument-B	NO	YES	YES	NO	NO	YES	YES	YES	INDEPENDENT_CHALLENGE
+N3	NATSCI	critic-A	critic-B	NO	YES	NO	NO	YES	YES	YES	YES	ROUTE_DIVERSE_LOCAL
+N4	NATSCI	critic-A	critic-B	YES	NO	NO	NO	YES	YES	YES	YES	COMMON_MODE_HOLD
+N5	NATSCI	anomaly-A	external-replication	NO	NO	YES	NO	YES	YES	YES	YES	AUTHORITY_UPGRADED
+N6	NATSCI	adversary-A	adversary-B	NO	NO	NO	YES	YES	YES	YES	YES	NO_PROSPECTIVE_AUTHORITY
+N7	NATSCI	generator-A	generator-B	NO	NO	NO	NO	YES	NO	YES	YES	NOVEL_BUT_IRRELEVANT
+M1	MATH	search-A	search-B	YES	NO	NO	NO	YES	YES	YES	NO	NO_CLOSURE_FROM_SEARCH_FAILURE
+M2	MATH	encoding-A	encoding-B	NO	YES	NO	NO	YES	YES	YES	YES	ROUTE_DIVERSE_LOCAL
+M3	MATH	framework-A	framework-B	YES	NO	NO	NO	YES	YES	YES	YES	COMMON_MODE_HOLD
+M4	MATH	countermodel-search	external-model-construction	NO	NO	YES	NO	YES	YES	YES	YES	AUTHORITY_UPGRADED
+C1	CONTROL	generator-A	generator-B	NO	YES	NO	NO	NO	YES	YES	NO	BENIGN_SHARED_INFRASTRUCTURE
+C2	CONTROL	generator-A	generator-B	NO	NO	NO	NO	YES	YES	YES	NO	NO_CLOSURE_FROM_SEARCH_FAILURE
