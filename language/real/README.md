@@ -1671,3 +1671,36 @@ Positive Rust/Prolog concordance and negative laundering fixtures are implementa
 They do not establish that the declared envelope is complete, optimal, or uniquely scientifically correct.
 
 The live doctrine is **versioned robustness authority without uncertainty-set sovereignty**.
+
+
+## v0.32-CANDIDATE — challenge-generator independence receipts
+
+MQR-4.75 adds `REALCHALLENGE 0.32-CANDIDATE` as a development-only lane.
+
+Promotion boundary:
+
+```text
+LATEST_PROMOTED = REALACQUIRE 0.29
+0.30 / 0.31 / 0.32 CANDIDATE LANES = UNPROMOTED
+```
+
+Canonical implementation:
+- Rust: `src/challenge_v32.rs` / `real-v32-challenge`
+- independent evaluator: `prolog/challenge_v32.pl`
+- Lean boundary: `lean/MQR/ChallengeGenerator.lean`
+- constitution: `V32-CHALLENGE-GENERATOR-CANDIDATE.md`
+
+Machine-visible invariants:
+
+```text
+NOVELTY != INDEPENDENCE
+ALGORITHM_DIVERSITY != ASSUMPTION_DIVERSITY
+SHARED_INFRASTRUCTURE != AUTOMATIC_DEPENDENCE
+BOUNDED_SEARCH_FAILURE != ABSENCE_OF_COUNTEREXAMPLE
+PORTFOLIO_DIVERSITY != GENERATOR_COMPLETENESS
+POSTOUTCOME_TUNING != PROSPECTIVE_AUTHORITY
+```
+
+v0.32 records generator ancestry, target-model dependence, external-world contact, post-outcome tuning, novelty/relevance, bounded-search status and pairwise common-mode/route-diversity receipts.
+
+It does not generate critics, optimize generator portfolios or certify open-world challenge completeness.
