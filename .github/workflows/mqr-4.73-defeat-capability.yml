@@ -6,6 +6,7 @@ on:
       - 'experiments/mqr-4.73/**'
       - 'language/real/lean/MQR/DefeatCapability.lean'
       - 'language/real/lean/MQR/Recoverability.lean'
+      - 'language/real/lean/MQR/RobustRecoverability.lean'
       - '.github/workflows/mqr-4.73-defeat-capability.yml'
   workflow_dispatch:
 jobs:
@@ -16,15 +17,15 @@ jobs:
       - run: |
           python3 experiments/mqr-4.73/capability_court.py
           python3 experiments/mqr-4.73/recoverability_court.py
+          python3 experiments/mqr-4.73/robust_recoverability_court.py
   independent:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: |
-          g++ -std=c++20 -O2 experiments/mqr-4.73/independent_capability_court.cpp -o /tmp/a
-          /tmp/a
-          g++ -std=c++20 -O2 experiments/mqr-4.73/independent_recoverability_court.cpp -o /tmp/b
-          /tmp/b
+          g++ -std=c++20 -O2 experiments/mqr-4.73/independent_capability_court.cpp -o /tmp/a && /tmp/a
+          g++ -std=c++20 -O2 experiments/mqr-4.73/independent_recoverability_court.cpp -o /tmp/b && /tmp/b
+          g++ -std=c++20 -O2 experiments/mqr-4.73/independent_robust_recoverability_court.cpp -o /tmp/c && /tmp/c
   lean:
     runs-on: ubuntu-latest
     steps:
@@ -41,6 +42,7 @@ jobs:
           cd language/real/lean
           lake env lean MQR/DefeatCapability.lean
           lake env lean MQR/Recoverability.lean
+          lake env lean MQR/RobustRecoverability.lean
   guards:
     runs-on: ubuntu-latest
     steps:
@@ -48,5 +50,7 @@ jobs:
       - run: |
           grep -F 'MQR-4.49 absorption' experiments/mqr-4.73/PRESEAL.md
           grep -F 'RECOVERABILITY-ORACLE-UNDER-ATTACK' experiments/mqr-4.73/RECOVERABILITY-PRESEAL.md
+          grep -F 'PERTURBATION-ENVELOPE-FROZEN' experiments/mqr-4.73/ROBUST-RECOVERABILITY-PRESEAL.md
           grep -F 'INCOMPARABLE_HIDDEN_LOSS' experiments/mqr-4.73/COURT-FREEZE.tsv
           grep -F 'POSTHOC_PREDICTOR' experiments/mqr-4.73/RECOVERABILITY-FREEZE.tsv
+          grep -F 'NOMINAL_ONLY_NOT_DOMINANT' experiments/mqr-4.73/ROBUST-RECOVERABILITY-FREEZE.tsv
