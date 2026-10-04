@@ -1,0 +1,15 @@
+REALCHALLENGE 0.32-CANDIDATE
+id mqr-4.75-external-upgrade
+sealed PASS
+claim_scope_hash claim-s1
+challenge_family_hash cf-1
+portfolio_id p-upgrade
+admissibility_rule_hash admit-c1
+dependency_rule_hash dep-c1
+evidence_kind OBSERVED
+completeness_claim RELATIVE_ONLY
+open_world_complete OFF
+generator internal-anomaly MODEL_CRITIC anc-internal YES NO NO YES YES YES
+generator external-replication INSTRUMENT anc-external NO YES NO NO YES YES
+pair internal-anomaly external-replication NO NO YES AUTHORITY_UPGRADED
+END
