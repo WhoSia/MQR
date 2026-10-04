@@ -1,0 +1,17 @@
+REALENVELOPE 0.31-CANDIDATE
+id mqr-4.74-expansion-reopen
+sealed PASS
+claim_scope_hash claim-s1
+obligation_family_hash omega-1
+envelope_id pi-1
+envelope_version v2
+parent_certificate cert-pi-v1
+admissibility_rule_hash admit-r1
+revision_rule_hash revise-r1
+evidence_kind SIMULATED
+completeness_claim RELATIVE_ONLY
+open_world_complete OFF
+transition EXPAND pi-v1 pi-v2 independent-rival-entry
+perturbation old-control RIVAL YES YES YES AVAILABLE PERMITTED YES NO_NEW_FAILURE
+perturbation exterior-anomaly ANOMALY YES YES YES AVAILABLE PERMITTED YES ADMIT_NEW_FAILURE
+END
