@@ -1,6 +1,6 @@
 # MQR-4.75 — RESULT
 
-Status: **CLOSED-CANDIDATE / CHALLENGE-INDEPENDENCE-ROUTE-RELATIVE / COMMON-MODE-ANCESTRY-EXPLICIT / BOUNDED-SEARCH-CLOSURE-REJECTED / REALCHALLENGE-0.32-CANDIDATE-UNPROMOTED**
+Status: **CLOSED / CHALLENGE-INDEPENDENCE-ROUTE-RELATIVE / COMMON-MODE-ANCESTRY-EXPLICIT / BOUNDED-SEARCH-CLOSURE-REJECTED / REALCHALLENGE-0.32-CANDIDATE-UNPROMOTED**
 
 ## Parent
 
@@ -193,4 +193,4 @@ Validated:
 
 All 0.30, 0.31 and 0.32 lanes remain **UNPROMOTED**.
 
-Global Real-Language integration remains a closure gate.
+Global Real-Language integration: `37215500523` — SUCCESS. The historical Real-Language surface and the 0.30–0.32 candidate lanes coexist on one green read-only CI surface.
