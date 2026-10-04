@@ -1,0 +1,98 @@
+name: MQR-4.75 Challenge Generator Independence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.75/**'
+      - 'language/real/V32-CHALLENGE-GENERATOR-CANDIDATE.md'
+      - 'language/real/src/challenge_v32.rs'
+      - 'language/real/prolog/challenge_v32.pl'
+      - 'language/real/examples/mqr-4.75-*.realchallenge'
+      - 'language/real/tests/invalid/mqr-4.75-*.realchallenge'
+      - 'language/real/lean/MQR/ChallengeGenerator.lean'
+      - 'language/real/lean/MQR.lean'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.75-challenge-generator.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          rustc --edition=2024 -O experiments/mqr-4.75/challenge_court.rs -o /tmp/mqr475-court
+          /tmp/mqr475-court | tee /tmp/mqr475.log
+          grep -F 'MQR475_CHALLENGE_COURT=PASS' /tmp/mqr475.log
+          grep -F 'MQR475_CASES=13' /tmp/mqr475.log
+
+  independent-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq swi-prolog-nox
+      - run: |
+          swipl -q -f experiments/mqr-4.75/independent_challenge_court.pl -- experiments/mqr-4.75/COURT-FREEZE.tsv | tee /tmp/mqr475-prolog.log
+          grep -F 'MQR475_PROLOG_CHALLENGE_COURT=PASS' /tmp/mqr475-prolog.log
+          grep -F 'MQR475_PROLOG_CASES=13' /tmp/mqr475-prolog.log
+
+  real-language:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq swi-prolog-nox
+      - run: cargo build --manifest-path language/real/Cargo.toml --release --bin real-v32-challenge
+      - run: |
+          set -euo pipefail
+          R=./language/real/target/release/real-v32-challenge
+          P=language/real/prolog/challenge_v32.pl
+          for f in language/real/examples/mqr-4.75-*.realchallenge; do
+            "$R" "$f" > /tmp/rust.out
+            swipl -q -f "$P" -- "$f" > /tmp/prolog.out
+            diff -u /tmp/rust.out /tmp/prolog.out
+          done
+          for f in language/real/tests/invalid/mqr-4.75-*.realchallenge; do
+            if "$R" "$f" >/tmp/rust-invalid.out 2>&1; then echo "Rust accepted invalid $f"; exit 1; fi
+            if swipl -q -f "$P" -- "$f" >/tmp/prolog-invalid.out 2>&1; then echo "Prolog accepted invalid $f"; exit 1; fi
+          done
+          echo MQR475_REALCHALLENGE_CONCORDANCE=PASS
+          echo MQR475_REALCHALLENGE_NEGATIVE_FIXTURES=PASS
+
+  lean-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: true
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - run: |
+          cd language/real/lean
+          lake env lean MQR/ChallengeGenerator.lean | tee /tmp/mqr475-lean.log
+          if grep -F 'sorryAx' /tmp/mqr475-lean.log; then exit 1; fi
+          test "$(grep -c 'does not depend on any axioms' /tmp/mqr475-lean.log)" -ge 5
+          lake env lean MQR.lean
+          echo MQR475_LEAN=PASS
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'NOVEL_CHALLENGE != INDEPENDENT_CHALLENGE' experiments/mqr-4.75/PRESEAL.md
+          grep -F 'COUNTERMODEL_NOT_FOUND != COUNTERMODEL_ABSENT' experiments/mqr-4.75/PRESEAL.md
+          grep -F 'REALCHALLENGE 0.32-CANDIDATE' language/real/V32-CHALLENGE-GENERATOR-CANDIDATE.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
+          echo MQR475_STRUCTURAL_GUARDS=PASS
