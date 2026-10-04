@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.72**.
+Status: live through **MQR-4.73**.
 
 ## Generation-IV authority kernel
 
@@ -1751,3 +1751,29 @@ NO_REAL_LANGUAGE_0_30_PROMOTION
 For each still-live claim-relevant defeat obligation on the declared scope, a successor must preserve a route, explicitly transport the obligation, or independently reconstruct an equal-or-stronger exposure to the relevant error/counterexample class.
 
 Intentionality is nonfoundational: it organizes which world/proof contact is attempted but does not itself warrant truth. Exploratory inquiry may be legitimate with structured directedness, reproducible contact and defeatability before a mature target ontology exists.
+
+
+#### MQR-4.73 robust defeat-capability dominance result
+
+MQR-4.73 removes the remaining primitive in the MQR-4.72 phrase “equal-or-stronger defeat capability.”
+
+Current doctrine:
+
+```text
+DEFEAT_CAPABILITY_IS_NOT_A_NEW_ERROR_ATOM
+NOMINAL_RECOVERABILITY_NE_ROBUST_RECOVERABILITY
+POSTHOC_PREDICTABILITY_NE_RECOVERABILITY
+LOWER_UNCERTAINTY_NE_PRESERVED_FAILURE_EXPOSURE
+MORE_PROVABILITY_NE_INHERITED_MATHEMATICAL_AUTHORITY
+HIDDEN_PREDECESSOR_LOSS_BLOCKS_DOMINANCE
+ROBUST_DOMINANCE_IS_SCOPE_OBLIGATION_PERTURBATION_RELATIVE
+NO_UNIVERSAL_DEFEAT_CAPABILITY_ORDER
+NO_OPEN_WORLD_FAILURE_CLOSURE
+NO_REAL_LANGUAGE_0_30_PROMOTION
+```
+
+For claim scope S, still-live predecessor obligation family Omega and declared admissible perturbation/misspecification envelope Pi, a successor cannot inherit robust defeat-capability dominance if any still-live predecessor authority-changing distinction becomes unrecoverable anywhere inside Pi.
+
+Exact raw inversion is sufficient but not necessary. A claim-sufficient recovery witness may preserve local authority when every authority-changing predecessor distinction remains recoverable, but the witness must not be supplied solely by the successor model under test and must survive the declared perturbation envelope.
+
+Blackwell comparison, sufficient statistics, causal separating systems, observability/controllability, calibration/traceability, robust experimental design, conservative extension, trusted kernels and proof certificates are prior-art baselines. MQR-4.73 retains only the constitutional transport discipline and its open-world firewall.
