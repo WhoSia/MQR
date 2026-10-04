@@ -1,0 +1,15 @@
+REALENVELOPE 0.31-CANDIDATE
+id invalid-scope-laundering
+sealed PASS
+claim_scope_hash claim-s1
+obligation_family_hash omega-1
+envelope_id pi-bad-scope
+envelope_version v1
+parent_certificate cert-old
+admissibility_rule_hash admit-bad
+revision_rule_hash revise-bad
+evidence_kind INFERRED
+completeness_claim RELATIVE_ONLY
+open_world_complete OFF
+perturbation changed-measurand INSTRUMENT YES YES YES AVAILABLE PERMITTED NO ADMIT_NEW_FAILURE
+END
