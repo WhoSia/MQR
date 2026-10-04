@@ -22,7 +22,8 @@ int main(){
     else got=r["case_id"]=="P6"?"ROBUST_CALIBRATION_BRIDGE":"ROBUST_RECOVERABLE";
    }
   }else{
-   if(!stable||!sem)got="NONCONSERVATIVE_HOLD";
+   if(!indep&&!sem)got="LABEL_ONLY_HOLD";
+   else if(!stable||!sem)got="NONCONSERVATIVE_HOLD";
    else if(stable&&indep&&sem)got=adds?"ROBUST_RELATIVE_DOMINANCE":"ROBUST_RELATIVE";
    else if(!indep)got="LABEL_ONLY_HOLD";
   }
