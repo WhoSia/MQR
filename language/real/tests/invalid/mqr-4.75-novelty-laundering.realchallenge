@@ -1,0 +1,15 @@
+REALCHALLENGE 0.32-CANDIDATE
+id invalid-novelty-laundering
+sealed PASS
+claim_scope_hash claim-s1
+challenge_family_hash cf-1
+portfolio_id p-bad
+admissibility_rule_hash admit-c1
+dependency_rule_hash dep-c1
+evidence_kind SIMULATED
+completeness_claim RELATIVE_ONLY
+open_world_complete OFF
+generator a METHOD_A anc-shared YES NO NO YES YES YES
+generator b METHOD_B anc-shared YES NO NO YES YES YES
+pair a b YES NO YES INDEPENDENT_CHALLENGE
+END
