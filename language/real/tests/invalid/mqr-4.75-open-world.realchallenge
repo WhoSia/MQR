@@ -1,0 +1,13 @@
+REALCHALLENGE 0.32-CANDIDATE
+id invalid-open-world
+sealed PASS
+claim_scope_hash claim-s1
+challenge_family_hash cf-1
+portfolio_id p-bad-open
+admissibility_rule_hash admit-c1
+dependency_rule_hash dep-c1
+evidence_kind ENUMERATED
+completeness_claim RELATIVE_ONLY
+open_world_complete ON
+generator a METHOD_A anc-a NO NO NO YES YES YES
+END
