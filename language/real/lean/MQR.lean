@@ -28,3 +28,5 @@ import MQR.PromotionDynamics
 import MQR.EvidenceAcquisition
 
 import MQR.RobustnessEnvelope
+
+import MQR.ChallengeGenerator
