@@ -1164,4 +1164,23 @@ jobs:
 
           echo REAL_LANGUAGE_V30_CANDIDATE_CONCORDANCE=PASS
           echo REAL_LANGUAGE_V31_ENVELOPE_CONCORDANCE=PASS
+
+          R32=./language/real/target/release/real-v32-challenge
+          P32=language/real/prolog/challenge_v32.pl
+          for f in language/real/examples/mqr-4.75-*.realchallenge; do
+            "$R32" "$f" > /tmp/v32.rust
+            swipl -q -f "$P32" -- "$f" > /tmp/v32.prolog
+            diff -u /tmp/v32.rust /tmp/v32.prolog
+          done
+          for f in language/real/tests/invalid/mqr-4.75-*.realchallenge; do
+            if "$R32" "$f" >/tmp/v32.invalid.rust 2>&1; then
+              echo "Rust unexpectedly accepted invalid REALCHALLENGE fixture: $f" >&2
+              exit 1
+            fi
+            if swipl -q -f "$P32" -- "$f" >/tmp/v32.invalid.prolog 2>&1; then
+              echo "Prolog unexpectedly accepted invalid REALCHALLENGE fixture: $f" >&2
+              exit 1
+            fi
+          done
+          echo REAL_LANGUAGE_V32_CHALLENGE_CONCORDANCE=PASS
           echo REAL_LANGUAGE_ACTIONS_HISTORY_WRITEBACK=OFF
