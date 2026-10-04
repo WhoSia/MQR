@@ -89,3 +89,15 @@ Real-Language 0.30: **NOT PROMOTED**.
 Future successors must preserve:
 
 **NOMINAL RECOVERABILITY != ROBUST DEFEAT-CAPABILITY RECOVERABILITY.**
+
+
+## Closure receipts
+
+- doctrine/CURRENT.md integration commit: `7b9c2bc4ed1b9b624669d5bcc7a665806380f6ba`
+- README current-surface integration commit: `3e3624789f0e193ecb4b894a60e201f8e5de4da8`
+- Notion canonical page: `3eeef561-cf92-81fc-b97e-db1f20d1f9a2`
+- Drive MQR-4.73 FINAL-SEAL receipt: `1zFLjNl8I-PdTovQ9RckAw5hLkdgZrl1EM-MudVFpKRY`
+- Literature Commons intake normalization receipt: `1-yBop5n1nUURsRS1So_mF_eXJdyNE1Rtjb_CC19GLQc`
+- pre-receipt scientific validation run: `37206533900` = 4/4 SUCCESS
+
+This receipt-only update changes no frozen case, verdict rule, theorem statement or scientific conclusion.
