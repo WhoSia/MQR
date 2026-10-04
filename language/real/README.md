@@ -1,4 +1,4 @@
-# Real-Language / Real-Packet v0.3–v0.26
+# Real-Language / Real-Packet v0.3–v0.31 development line
 
 Real-Language is MQR's active event-to-realist-authority language.
 
@@ -1622,3 +1622,52 @@ Naturalistic world contact remains partial. No prospectively matched real-world 
 REALACQUIRE 0.29 remains the latest promoted syntax.
 
 REALWARRANT 0.30-CANDIDATE remains development-only and unpromoted.
+
+
+## v0.31-CANDIDATE — robustness-envelope authority receipts
+
+MQR-4.74 adds `REALENVELOPE 0.31-CANDIDATE` as a development-only lane.
+
+Promotion boundary remains:
+
+```text
+LATEST_PROMOTED = REALACQUIRE 0.29
+REALAPPROX / REALLOSS / REALWARRANT 0.30-CANDIDATE = UNPROMOTED
+REALENVELOPE 0.31-CANDIDATE = UNPROMOTED
+```
+
+Canonical implementation:
+- Rust: `src/envelope_v31.rs` / `real-v31-envelope`
+- independent evaluator: `prolog/envelope_v31.pl`
+- Lean boundary: `lean/MQR/RobustnessEnvelope.lean`
+- constitution: `V31-ROBUSTNESS-ENVELOPE-CANDIDATE.md`
+
+v0.31 does **not** optimize or certify the best perturbation / uncertainty / ambiguity set.
+It records the authority conditions of a declared robustness envelope and its revision history.
+
+Machine-visible invariants include:
+
+```text
+ENVELOPE_SIZE != ENVELOPE_AUTHORITY
+STRESS_EXTREMITY != CLAIM_RELEVANCE
+EXECUTION_BLOCK != SCIENTIFIC_IRRELEVANCE
+ROBUST_WITHIN_PI != ROBUST_UNDER_ALL_LEGITIMATE_EXPANSIONS
+LATER_ADMISSIBLE_EXPANSION MAY REOPEN SUCCESSOR AUTHORITY
+LATER_DEFEAT != RETROACTIVE_FALSEHOOD_OF A CORRECTLY SCOPED PRIOR CERTIFICATE
+FINITE_ENVELOPE != OPEN_WORLD_COMPLETE
+```
+
+The packet records:
+- claim/scope and obligation-family identity;
+- envelope id/version and parent certificate;
+- admissibility and revision rule identity;
+- typed perturbation generator, coherence, relevance and independence;
+- realizability separately from execution permission;
+- explicit exclusion actions;
+- expansion/split/merge/transport receipts;
+- open-world completeness ceiling.
+
+Positive Rust/Prolog concordance and negative laundering fixtures are implementation evidence only.
+They do not establish that the declared envelope is complete, optimal, or uniquely scientifically correct.
+
+The live doctrine is **versioned robustness authority without uncertainty-set sovereignty**.
