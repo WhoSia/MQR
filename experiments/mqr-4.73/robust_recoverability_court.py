@@ -24,10 +24,10 @@ def verdict(r):
                 return "ROBUST_SEPARATOR_REFINEMENT" if r["case_id"]=="P8" else "ROBUST_LOCAL_DOMINANCE"
             return "ROBUST_CALIBRATION_BRIDGE" if r["case_id"]=="P6" else "ROBUST_RECOVERABLE"
     else:
-        if not stable or not sem:
-            return "NONCONSERVATIVE_HOLD"
         if not indep and not sem:
             return "LABEL_ONLY_HOLD"
+        if not stable or not sem:
+            return "NONCONSERVATIVE_HOLD"
         if stable and indep and sem:
             return "ROBUST_RELATIVE_DOMINANCE" if adds else "ROBUST_RELATIVE"
         if not indep:
