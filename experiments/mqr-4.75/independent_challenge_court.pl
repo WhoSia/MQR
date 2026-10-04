@@ -4,10 +4,11 @@ verdict([_Id,_Domain,_A,_B,SA0,SI0,WC0,P0,N0,R0,B0,F0,_Expected],V):-
  yn(SA0,SA),yn(SI0,SI),yn(WC0,WC),yn(P0,P),yn(N0,N),yn(R0,R),yn(B0,B),yn(F0,F),
  ( P=true,R=true -> V="NO_PROSPECTIVE_AUTHORITY"
  ; N=true,R=false -> V="NOVEL_BUT_IRRELEVANT"
+ ; SI=true,SA=false,WC=false,N=false,R=true -> V="BENIGN_SHARED_INFRASTRUCTURE"
  ; B=true,F=false -> V="NO_CLOSURE_FROM_SEARCH_FAILURE"
  ; SA=true -> V="COMMON_MODE_HOLD"
- ; WC=true,F=true -> V="AUTHORITY_UPGRADED"
- ; SI=true,SA=false,WC=false,N=false,R=true -> V="BENIGN_SHARED_INFRASTRUCTURE"
+ ; WC=true,F=true,N=true -> V="AUTHORITY_UPGRADED"
+ ; WC=true,F=true,N=false -> V="INDEPENDENT_CHALLENGE"
  ; SA=false,R=true,F=true,WC=false -> V="ROUTE_DIVERSE_LOCAL"
  ; V="HOLD").
 check([],0,0,[]).
