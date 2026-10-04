@@ -1810,3 +1810,34 @@ Later admissible expansion may reopen present successor authority while preservi
 Distributionally robust optimization, uncertainty/ambiguity-set construction, stress-test design, robust Bayesian experimental design, measurement-model semantics and formal theory-equivalence machinery are baseline donors rather than MQR inventions.
 
 `REALENVELOPE 0.31-CANDIDATE` is development-only. It records envelope/version/admission/revision/transport authority and rejects post-outcome laundering, scope laundering, receipt-free split/merge and open-world completeness claims. `REALACQUIRE 0.29` remains the latest promoted Real-Language syntax; all 0.30 and 0.31 lanes remain unpromoted.
+
+
+#### MQR-4.75 challenge-generator independence result
+
+MQR-4.75 removes the remaining assumption that generator plurality, novelty or algorithmic diversity can stand in for independent challenge authority.
+
+Current doctrine:
+
+```text
+CHALLENGE_INDEPENDENCE_IS_ROUTE_RELATIVE
+CHALLENGE_INDEPENDENCE_IS_AUTHORITY_ANCESTRY_RELATIVE
+ALGORITHM_DIVERSITY_NE_ASSUMPTION_DIVERSITY
+SHARED_INFRASTRUCTURE_NE_AUTOMATIC_DEPENDENCE
+NOVELTY_NE_INDEPENDENCE
+NOVELTY_NE_CLAIM_RELEVANCE
+POSTOUTCOME_TUNING_NE_PROSPECTIVE_AUTHORITY
+BOUNDED_SEARCH_FAILURE_NE_COUNTEREXAMPLE_ABSENCE
+EXTERNAL_CONTACT_CAN_UPGRADE_CHALLENGE_AUTHORITY
+FINITE_GENERATOR_PORTFOLIO_NE_OPEN_WORLD_COMPLETENESS
+NO_REAL_LANGUAGE_0_32_PROMOTION
+```
+
+A challenge generator is not independently authoritative merely because it is implemented differently or produces a novel anomaly. The relevant dependence is whether the generators share authority-relevant assumptions, representations, semantic exclusions, measurement constructions or search grammars on the route by which the claim could lose authority.
+
+Shared infrastructure or data is not by itself disqualifying. Common-mode dependence must be claim- and route-relevant. Conversely, different algorithms can remain common-mode when they inherit the same exclusion or target-model assumption.
+
+Posterior predictive checks, residual/model-discrepancy diagnostics, analyst/pipeline diversity, counterexample-driven mathematical revision, automated counterexample generation and CEGAR are baseline donors rather than MQR inventions.
+
+Bounded failure to find a counterexample does not establish counterexample absence. External measurement, replication or semantic construction can upgrade challenge authority when it breaks the relevant common mode.
+
+`REALCHALLENGE 0.32-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains the latest promoted syntax; all 0.30–0.32 lanes remain unpromoted.
