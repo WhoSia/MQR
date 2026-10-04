@@ -7,13 +7,13 @@ fn verdict(r:&HashMap<String,String>)->&'static str{
  let found=yn(&r["counterexample_found"]);
  if post && rel {return "NO_PROSPECTIVE_AUTHORITY"}
  if nov && !rel {return "NOVEL_BUT_IRRELEVANT"}
+ if si && !sa && !wc && !nov && rel {return "BENIGN_SHARED_INFRASTRUCTURE"}
  if bounded && !found {return "NO_CLOSURE_FROM_SEARCH_FAILURE"}
  if sa {return "COMMON_MODE_HOLD"}
- if wc && found {return "AUTHORITY_UPGRADED"}
- if si && !sa && !wc && !nov && rel {return "BENIGN_SHARED_INFRASTRUCTURE"}
- if !sa && rel && found {
-   if wc {return "INDEPENDENT_CHALLENGE"} else {return "ROUTE_DIVERSE_LOCAL"}
+ if wc && found {
+   if nov {return "AUTHORITY_UPGRADED"} else {return "INDEPENDENT_CHALLENGE"}
  }
+ if !sa && rel && found {return "ROUTE_DIVERSE_LOCAL"}
  "HOLD"
 }
 fn main(){
