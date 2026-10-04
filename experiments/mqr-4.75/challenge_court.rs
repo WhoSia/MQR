@@ -18,12 +18,12 @@ fn verdict(r:&HashMap<String,String>)->&'static str{
 }
 fn main(){
  let src=fs::read_to_string("experiments/mqr-4.75/COURT-FREEZE.tsv").unwrap();
- let mut it=src.lines(); let h:Vec<&str>=it.next().unwrap().split('	').collect();
+ let mut it=src.lines(); let h:Vec<&str>=it.next().unwrap().split('\t').collect();
  let mut n=0;let mut bad=0;
  let mut cm=false;let mut benign=false;let mut bounded=false;let mut up=false;let mut post=false;let mut irrelevant=false;
  for line in it{
   if line.trim().is_empty(){continue}
-  let v:Vec<&str>=line.split('	').collect(); if v.len()!=h.len(){eprintln!("bad row");process::exit(2)}
+  let v:Vec<&str>=line.split('\t').collect(); if v.len()!=h.len(){eprintln!("bad row");process::exit(2)}
   let mut r=HashMap::new(); for(i,k)in h.iter().enumerate(){r.insert((*k).to_string(),v[i].to_string());}
   let got=verdict(&r);n+=1;if got!=r["expected"]{bad+=1;eprintln!("{}: {} != {}",r["case_id"],got,r["expected"])}
   match r["case_id"].as_str(){
