@@ -1,0 +1,15 @@
+REALENVELOPE 0.31-CANDIDATE
+id invalid-split-no-receipt
+sealed PASS
+claim_scope_hash claim-s1
+obligation_family_hash omega-1
+envelope_id pi-bad-split
+envelope_version v1
+parent_certificate NONE
+admissibility_rule_hash admit-bad
+revision_rule_hash revise-bad
+evidence_kind PROVED
+completeness_claim RELATIVE_ONLY
+open_world_complete OFF
+perturbation split-target DOMAIN_GRAMMAR YES YES YES AVAILABLE PERMITTED YES SPLIT_PARENT
+END
