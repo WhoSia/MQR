@@ -133,3 +133,8 @@ path = "src/warrant_lineage_v30.rs"
 [[bin]]
 name = "real-v31-envelope"
 path = "src/envelope_v31.rs"
+
+
+[[bin]]
+name = "real-v32-challenge"
+path = "src/challenge_v32.rs"
