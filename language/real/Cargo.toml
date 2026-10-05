@@ -138,3 +138,7 @@ path = "src/envelope_v31.rs"
 [[bin]]
 name = "real-v32-challenge"
 path = "src/challenge_v32.rs"
+
+[[bin]]
+name = "real-v33-upgrade"
+path = "src/upgrade_v33.rs"
