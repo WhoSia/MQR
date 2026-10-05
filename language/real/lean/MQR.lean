@@ -30,3 +30,5 @@ import MQR.EvidenceAcquisition
 import MQR.RobustnessEnvelope
 
 import MQR.ChallengeGenerator
+
+import MQR.ChallengeAuthorityUpgrade
