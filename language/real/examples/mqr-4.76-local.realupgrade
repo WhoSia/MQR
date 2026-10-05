@@ -1,0 +1,20 @@
+REALUPGRADE 0.33-CANDIDATE
+id n1-local
+sealed PASS
+origin INTERNAL
+source_challenge_hash residual-a
+claim_scope_hash claim-n1
+source_dependency_graph_hash deps-n1
+witness_route RAW_MEASUREMENT_REPLICATION
+witness_provenance_hash witness-n1
+correspondence EXACT
+postoutcome_tuned NO
+contact_kind MEASUREMENT
+split_merge NONE
+residual_common_mode NO
+authority_state LOCAL_AUTHORITY_UPGRADE
+certificate_version v1
+reopen_on_ancestry_revision YES
+dependency measurement BREAK raw-measurement-n1
+dependency model PRESERVE target-model-n1
+END
