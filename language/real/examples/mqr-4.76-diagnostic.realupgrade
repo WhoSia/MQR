@@ -1,0 +1,20 @@
+REALUPGRADE 0.33-CANDIDATE
+id n2-diagnostic
+sealed PASS
+origin INTERNAL
+source_challenge_hash residual-n2
+claim_scope_hash claim-n2
+source_dependency_graph_hash deps-n2
+witness_route OTHER_LAB_SAME_CALIBRATION
+witness_provenance_hash witness-n2
+correspondence EXACT
+postoutcome_tuned NO
+contact_kind MEASUREMENT
+split_merge NONE
+residual_common_mode YES
+authority_state DIAGNOSTIC_REPLICATION_ONLY
+certificate_version v1
+reopen_on_ancestry_revision YES
+dependency laboratory BREAK lab-n2
+dependency calibration PRESERVE calibration-n2
+END
