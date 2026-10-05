@@ -1,0 +1,20 @@
+REALUPGRADE 0.33-CANDIDATE
+id c2-merge
+sealed PASS
+origin INTERNAL
+source_challenge_hash challenge-c2
+claim_scope_hash claim-c2
+source_dependency_graph_hash deps-c2
+witness_route EXTERNAL_REPLICATION
+witness_provenance_hash witness-c2
+correspondence EXACT
+postoutcome_tuned NO
+contact_kind MEASUREMENT
+split_merge MERGE
+residual_common_mode YES
+authority_state MERGE_COLLAPSE
+certificate_version v2
+reopen_on_ancestry_revision YES
+dependency measurement BREAK measurement-c2
+dependency calibration PRESERVE common-calibration-c2
+END
