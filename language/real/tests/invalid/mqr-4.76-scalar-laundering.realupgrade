@@ -1,0 +1,20 @@
+REALUPGRADE 0.33-CANDIDATE
+id bad-scalar
+sealed PASS
+origin INTERNAL
+source_challenge_hash x
+claim_scope_hash x
+source_dependency_graph_hash x
+witness_route EXTERNAL_REPLICATION
+witness_provenance_hash x
+correspondence EXACT
+postoutcome_tuned NO
+contact_kind MEASUREMENT
+split_merge NONE
+residual_common_mode NO
+authority_state LOCAL_AUTHORITY_UPGRADE
+certificate_version v1
+reopen_on_ancestry_revision YES
+independence_score 0.9
+dependency measurement BREAK independent
+END
