@@ -6,6 +6,12 @@ const CONTACT:[&str;7]=["MEASUREMENT","RAW_DATA","ANALYSIS","SEMANTIC","PROOF","
 const SM:[&str;3]=["NONE","SPLIT","MERGE"];
 const STATES:[&str;7]=["NO_UPGRADE","DIAGNOSTIC_REPLICATION_ONLY","LOCAL_AUTHORITY_UPGRADE","CROSS_ROUTE_INDEPENDENCE_UPGRADE","SPLIT_REQUIRED","MERGE_COLLAPSE","REOPEN"];
 const EFFECTS:[&str;5]=["BREAK","PRESERVE","REPLACE","UNRESOLVED","NEW"];
+const FIELDS:[&str;17]=[
+"id","sealed","origin","source_challenge_hash","claim_scope_hash","source_dependency_graph_hash",
+"witness_route","witness_provenance_hash","correspondence","postoutcome_tuned","contact_kind",
+"split_merge","residual_common_mode","authority_state","certificate_version",
+"reopen_on_ancestry_revision","evidence_kind"
+];
 
 #[derive(Debug)]
 struct Dep{name:String,effect:String,prov:String}
@@ -30,6 +36,7 @@ fn main(){
      continue
    }
    if t.len()!=2{die(format!("{}:{} invalid field",p,ln+1))}
+   if !FIELDS.contains(&t[0]){die(format!("{}:{} unknown field: {}",p,ln+1,t[0]))}
    if f.insert(t[0].into(),t[1].into()).is_some(){die(format!("duplicate field: {}",t[0]))}
  }
  if !header||!ended{die("packet must contain REALUPGRADE 0.33-CANDIDATE ... END")}
