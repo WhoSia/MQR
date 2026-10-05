@@ -1,0 +1,20 @@
+REALUPGRADE 0.33-CANDIDATE
+id n8-split
+sealed PASS
+origin INTERNAL
+source_challenge_hash challenge-n8
+claim_scope_hash claim-n8
+source_dependency_graph_hash deps-n8
+witness_route EXTERNAL_REPLICATION
+witness_provenance_hash witness-n8
+correspondence REFINE
+postoutcome_tuned NO
+contact_kind RAW_DATA
+split_merge SPLIT
+residual_common_mode NO
+authority_state SPLIT_REQUIRED
+certificate_version v1
+reopen_on_ancestry_revision YES
+dependency data BREAK data-n8
+dependency semantics UNRESOLVED source-semantics-n8
+END
