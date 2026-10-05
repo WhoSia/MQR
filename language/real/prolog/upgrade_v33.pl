@@ -6,6 +6,12 @@ sm("NONE"). sm("SPLIT"). sm("MERGE").
 state("NO_UPGRADE"). state("DIAGNOSTIC_REPLICATION_ONLY"). state("LOCAL_AUTHORITY_UPGRADE").
 state("CROSS_ROUTE_INDEPENDENCE_UPGRADE"). state("SPLIT_REQUIRED"). state("MERGE_COLLAPSE"). state("REOPEN").
 effect("BREAK"). effect("PRESERVE"). effect("REPLACE"). effect("UNRESOLVED"). effect("NEW").
+allowed_field("id"). allowed_field("sealed"). allowed_field("origin").
+allowed_field("source_challenge_hash"). allowed_field("claim_scope_hash"). allowed_field("source_dependency_graph_hash").
+allowed_field("witness_route"). allowed_field("witness_provenance_hash"). allowed_field("correspondence").
+allowed_field("postoutcome_tuned"). allowed_field("contact_kind"). allowed_field("split_merge").
+allowed_field("residual_common_mode"). allowed_field("authority_state"). allowed_field("certificate_version").
+allowed_field("reopen_on_ancestry_revision"). allowed_field("evidence_kind").
 yn("YES",true). yn("NO",false).
 die(M):-writeln(user_error,M),halt(2).
 explicit(V):-V\="",V\="OPEN",V\="NA".
@@ -21,6 +27,9 @@ emit([d(N,E,P)|Xs],I):-format("upgrade.dependency.~w=~w:~w:~w~n",[I,N,E,P]),J is
 run(File):-
  read_file_to_string(File,S,[]),split_string(S,"\n","\r",Raw),exclude(=(""),Raw,L),
  member("REALUPGRADE 0.33-CANDIDATE",L),member("END",L),
+ forall(member(Line,L),
+   ((Line="REALUPGRADE 0.33-CANDIDATE";Line="END";sub_string(Line,0,11,_,"dependency "))->true;
+    (split_string(Line," "," ",[K,_]),allowed_field(K)))),
  need(L,"sealed","PASS"),
  forall(member(K,["id","source_challenge_hash","claim_scope_hash","source_dependency_graph_hash","witness_route","witness_provenance_hash","certificate_version"]),
    (need(L,K,V),(explicit(V)->true;die("required token must be explicit")))),
