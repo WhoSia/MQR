@@ -1888,3 +1888,36 @@ PRESERVE_CHALLENGE_CORRESPONDENCE
 They do not thereby become the same evidence type.
 
 `REALUPGRADE 0.33-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains the latest promoted syntax; all 0.30–0.33 candidate lanes remain unpromoted.
+
+
+#### MQR-4.78 separator-generator authority result
+
+MQR-4.78 removes the remaining primitive status of the separator/witness generator used by MQR-4.77.
+
+Current doctrine:
+
+```text
+SEPARATOR_PERFORMANCE_NE_SEPARATOR_GENERATOR_AUTHORITY
+SEPARATOR_FOUND_NE_SEPARATOR_FAMILY_ADEQUATE
+NO_SEPARATOR_FOUND_NE_NO_SEPARATOR_EXISTS
+PROBE_DIVERSITY_NE_GENERATOR_INDEPENDENCE
+DIFFERENT_PROBES_NE_DIFFERENT_GENERATOR_ANCESTRY
+NEGATIVE_CONTROL_NE_ONTOLOGY_INDEPENDENT_CONTROL
+ADVERSARIAL_SEARCH_NE_OPEN_WORLD_SEARCH
+CURRENT_FAMILY_SATURATION_NE_OPEN_WORLD_NONSEPARABILITY
+GENERATOR_OUTPUT_NE_GENERATOR_COMPLETENESS_PROOF
+POSTOUTCOME_SEPARATOR_GENERATION_NE_PROSPECTIVE_AUTHORITY
+WITNESS_MULTIPLICITY_IS_ANCESTRY_QUOTIENTABLE
+SEPARATOR_AUTHORITY_IS_DEFEASIBLE
+NO_REAL_LANGUAGE_0_35_PROMOTION
+```
+
+A separator family cannot use the indistinguishability induced by its own ontology, representation, candidate language or search grammar as evidence of its own completeness. This forbidden move is **separator-constitution circularity**.
+
+Local separator authority does not require open-world generator completeness. It may terminate relative to an independently warranted finite universe, complete grammar under declared semantics, or explicit execution/formal contract. Current generator output cannot certify that termination by itself.
+
+Negative controls, active experimental design, intervention selection, adversarial testing, falsification search and automated theorem/counterexample generation are prior-art baselines. MQR-4.78 retains only the constitutional authority discipline over generator provenance, authority-relevant ancestry, independently warranted coverage, prospective status, split/merge receipts and reopening.
+
+`REALGENERATE 0.35-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains the latest promoted syntax; all 0.30–0.35 candidate lanes remain unpromoted.
+
+The next live pressure is coverage-warrant authority: what independently warrants the target family against which separator-generator adequacy is judged when multiple admissible coverage constitutions compete?
