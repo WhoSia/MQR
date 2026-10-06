@@ -1,0 +1,57 @@
+name: MQR-4.77 Dependency Cut Identifiability
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.77/**'
+      - '.github/workflows/mqr-4.77-dependency-cut-identifiability.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.77/identifiability_court.rs -o /tmp/mqr477-court
+          /tmp/mqr477-court experiments/mqr-4.77/cases.tsv | tee /tmp/mqr477.log
+          grep -F 'MQR477_CASES=18' /tmp/mqr477.log
+          grep -F 'MQR477_PASS=18' /tmp/mqr477.log
+          grep -F 'MQR477_FULL_GRAPH_IDENTIFICATION_REQUIRED=NO' /tmp/mqr477.log
+          grep -F 'MQR477_SELECTED_GRAPH_LAUNDERING=REJECT' /tmp/mqr477.log
+          grep -F 'MQR477_COURT=PASS' /tmp/mqr477.log
+
+  independent-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq swi-prolog-nox
+      - run: |
+          set -euo pipefail
+          swipl -q -f experiments/mqr-4.77/independent_identifiability_court.pl -- experiments/mqr-4.77/cases.tsv | tee /tmp/mqr477-prolog.log
+          grep -F 'MQR477_CASES=18' /tmp/mqr477-prolog.log
+          grep -F 'MQR477_PASS=18' /tmp/mqr477-prolog.log
+          grep -F 'MQR477_PROLOG_COURT=PASS' /tmp/mqr477-prolog.log
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'DECLARED_BREAK != IDENTIFIED_BREAK' experiments/mqr-4.77/PRESEAL.md
+          grep -F 'NO_OBSERVED_COMMON_MODE != COMMON_MODE_ABSENT' experiments/mqr-4.77/PRESEAL.md
+          grep -F 'REALIDENTIFY 0.34-CANDIDATE' experiments/mqr-4.77/PRESEAL.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
+          if grep -R -E '(^|[[:space:]])git[[:space:]]+(commit|push|tag)([[:space:]]|$)' .github/workflows/*.yml; then
+            echo 'forbidden repository writeback command found in workflow'
+            exit 1
+          fi
+          echo MQR477_STRUCTURAL_GUARDS=PASS
