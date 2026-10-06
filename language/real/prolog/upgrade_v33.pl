@@ -11,7 +11,7 @@ allowed_field("source_challenge_hash"). allowed_field("claim_scope_hash"). allow
 allowed_field("witness_route"). allowed_field("witness_provenance_hash"). allowed_field("correspondence").
 allowed_field("postoutcome_tuned"). allowed_field("contact_kind"). allowed_field("split_merge").
 allowed_field("residual_common_mode"). allowed_field("authority_state"). allowed_field("certificate_version").
-allowed_field("reopen_on_ancestry_revision"). allowed_field("evidence_kind").
+allowed_field("reopen_on_ancestry_revision").
 yn("YES",true). yn("NO",false).
 die(M):-writeln(user_error,M),halt(2).
 explicit(V):-V\="",V\="OPEN",V\="NA".
