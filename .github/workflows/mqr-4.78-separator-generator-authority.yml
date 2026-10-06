@@ -1,0 +1,61 @@
+name: MQR-4.78 Separator Generator Authority
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.78/**'
+      - '.github/workflows/mqr-4.78-separator-generator-authority.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.78/separator_generator_court.rs -o /tmp/mqr478
+          /tmp/mqr478 experiments/mqr-4.78/COURT-FREEZE.tsv | tee /tmp/mqr478.log
+          grep -F 'MQR478_CASES=16' /tmp/mqr478.log
+          grep -F 'MQR478_PASS=16' /tmp/mqr478.log
+          grep -F 'MQR478_SELF_CERTIFYING_COMPLETENESS=REJECT' /tmp/mqr478.log
+          grep -F 'MQR478_GENERATOR_PLURALITY_IMPLIES_INDEPENDENCE=REJECT' /tmp/mqr478.log
+          grep -F 'MQR478_FAMILY_SATURATION_IMPLIES_OPEN_WORLD_NONSEPARABILITY=REJECT' /tmp/mqr478.log
+          grep -F 'MQR478_SEPARATOR_CONSTITUTION_CIRCULARITY=REJECT' /tmp/mqr478.log
+          grep -F 'MQR478_COURT=PASS' /tmp/mqr478.log
+
+  independent-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          set -euo pipefail
+          python experiments/mqr-4.78/independent_separator_generator_court.py experiments/mqr-4.78/COURT-FREEZE.tsv | tee /tmp/mqr478-py.log
+          grep -F 'MQR478_CASES=16' /tmp/mqr478-py.log
+          grep -F 'MQR478_PASS=16' /tmp/mqr478-py.log
+          grep -F 'MQR478_PYTHON_COURT=PASS' /tmp/mqr478-py.log
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'SEPARATOR_FOUND != SEPARATOR_FAMILY_ADEQUATE' experiments/mqr-4.78/PRESEAL.md
+          grep -F 'NO_SEPARATOR_FOUND != NO_SEPARATOR_EXISTS' experiments/mqr-4.78/PRESEAL.md
+          grep -F 'REALGENERATE 0.35-CANDIDATE' experiments/mqr-4.78/PRESEAL.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
+          if grep -R -E '(^|[[:space:]])git[[:space:]]+(commit|push|tag)([[:space:]]|$)' .github/workflows/*.yml; then
+            echo 'forbidden repository writeback command found in workflow'
+            exit 1
+          fi
+          echo MQR478_STRUCTURAL_GUARDS=PASS
