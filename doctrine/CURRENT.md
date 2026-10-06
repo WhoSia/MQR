@@ -1952,3 +1952,34 @@ External validity, generalizability, transportability, target-population estimat
 `REALCOVERAGE 0.36-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains the latest promoted syntax; all 0.30–0.36 lanes remain unpromoted.
 
 The next live pressure is coverage-warrant inheritance and conflict resolution across partially overlapping institutions, disciplines or formal frameworks without scalarization or authority laundering.
+
+
+#### MQR-4.80 coverage-constitution gluing result
+
+MQR-4.80 governs composition of partially overlapping locally warranted coverage constitutions.
+
+Current doctrine:
+
+```text
+OVERLAP_AGREEMENT_NE_GLOBAL_WARRANT
+LOCAL_WARRANT_NE_GLOBAL_GLUABILITY
+UNION_OF_TARGETS_NE_WARRANTED_JOINT_CONSTITUTION
+INTERSECTION_OF_TARGETS_NE_SAFE_COMMON_DENOMINATOR
+COMMON_VOCABULARY_NE_COMMON_OBLIGATION
+TRANSLATION_NE_AUTHORITY_EQUIVALENCE
+COMPOSITION_NE_OBLIGATION_PRESERVATION
+NONOVERLAP_SILENCE_NE_NONOVERLAP_IRRELEVANCE
+COMPOSITION_MAY_PRESERVE_AUTHORITY_BUT_CANNOT_CREATE_IT_EX_NIHILO
+A_ONLY_AND_B_ONLY_OBLIGATIONS_REMAIN_EXPLICIT_UNLESS_SEPARATELY_DISCHARGED
+UNRESOLVED_CONFLICT_REMAINS_EXPLICIT_UNLESS_SEPARATELY_DISCHARGED
+HIDDEN_NONOVERLAP_MAY_REOPEN_JOINT_AUTHORITY
+NO_REAL_LANGUAGE_0_37_PROMOTION
+```
+
+The central forbidden move is overlap inflation: local agreement on a shared overlap does not authorize claims over the nonoverlap. Union laundering and intersection laundering are distinct authority failures. A joint constitution inherits only obligations whose authority is traceable to warranted local sources and whose claim-relevant distinctions survive translation.
+
+Causal transportability, heterogeneous data fusion, sheaf/local-to-global consistency, boundary objects and generic institutional translation are prior-art baselines. MQR-4.80 retains only the authority discipline of distinction-obligation preservation under constitution composition.
+
+`REALGLUE 0.37-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains latest promoted syntax; all 0.30–0.37 lanes remain unpromoted.
+
+The next live pressure is composition-order dependence: whether obligation-preserving gluing is associative or path-dependent when more than two constitutions are composed.
