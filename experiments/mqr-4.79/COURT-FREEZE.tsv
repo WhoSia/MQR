@@ -1,0 +1,17 @@
+id	domain	prospective	independent_warrant	finite_contract	competing_constitutions	off_target_escape	institution_only	postoutcome	split_merge	expected
+N1	natural	1	1	0	0	0	0	0	none	LOCALLY_WARRANTED_TARGET
+N2	natural	1	0	0	0	0	0	0	none	PROVISIONAL_TARGET
+N3	natural	1	1	0	1	0	0	0	none	COMPETING_CONSTITUTIONS
+N4	natural	1	1	1	0	0	0	0	none	FINITE_CONTRACT_CLOSED
+N5	natural	1	1	0	0	1	0	0	none	OFF_TARGET_ESCAPE
+N6	natural	1	0	0	0	0	1	0	none	UNWARRANTED_TARGET
+N7	natural	0	1	0	0	0	0	1	none	PROVISIONAL_TARGET
+N8	natural	1	1	0	0	0	0	0	split	SPLIT_REQUIRED
+M1	math	1	1	1	0	0	0	0	none	FINITE_CONTRACT_CLOSED
+M2	math	1	1	0	1	0	0	0	none	COMPETING_CONSTITUTIONS
+M3	math	1	0	0	0	0	0	0	none	PROVISIONAL_TARGET
+M4	math	1	1	0	0	0	0	0	merge	MERGE_REQUIRED
+M5	math	1	1	0	0	1	0	0	none	OFF_TARGET_ESCAPE
+C1	control	1	0	0	0	0	1	0	none	UNWARRANTED_TARGET
+C2	control	1	1	0	0	0	0	0	none	LOCALLY_WARRANTED_TARGET
+C3	control	1	1	0	1	1	0	0	none	OFF_TARGET_ESCAPE
