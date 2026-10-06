@@ -1,6 +1,6 @@
 # MQR Current Doctrine
 
-Status: live through **MQR-4.73**.
+Status: live through **MQR-4.76**.
 
 ## Generation-IV authority kernel
 
@@ -1841,3 +1841,50 @@ Posterior predictive checks, residual/model-discrepancy diagnostics, analyst/pip
 Bounded failure to find a counterexample does not establish counterexample absence. External measurement, replication or semantic construction can upgrade challenge authority when it breaks the relevant common mode.
 
 `REALCHALLENGE 0.32-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains the latest promoted syntax; all 0.30–0.32 lanes remain unpromoted.
+
+
+#### MQR-4.76 challenge-authority transport & independence-upgrade result
+
+MQR-4.76 attacks the MQR-4.75 opening that external contact can upgrade challenge authority by asking what, exactly, changes when a historically dependent challenge gains stronger present authority.
+
+Current doctrine:
+
+```text
+CHALLENGE_ORIGIN_IS_IMMUTABLE_PROVENANCE
+LATER_AUTHORITY_UPGRADE_NE_ORIGINAL_INDEPENDENCE
+AUTHORITY_UPGRADE_REQUIRES_CLAIM_RELEVANT_DEPENDENCY_CUT
+AUTHORITY_UPGRADE_REQUIRES_CHALLENGE_CORRESPONDENCE
+CUT_PROVENANCE_AND_RESIDUAL_DEPENDENCE_MUST_REMAIN_EXPLICIT
+EXTERNAL_LOCATION_NE_EXTERNAL_AUTHORITY
+REPLICATION_COUNT_NE_INDEPENDENCE
+DIFFERENT_LAB_NE_DIFFERENT_MEASUREMENT_ANCESTRY
+DIFFERENT_INSTRUMENT_NE_DIFFERENT_CALIBRATION_ANCESTRY
+SEMANTIC_RECONSTRUCTION_NE_AUTOMATIC_AUTHORITY_UPGRADE
+INDEPENDENT_CHECKING_NE_INDEPENDENT_FORMALIZATION
+COMMON_MODE_EDGE_BROKEN_NE_ALL_COMMON_MODES_BROKEN
+WITNESS_MULTIPLICITY_IS_ANCESTRY_QUOTIENTABLE
+INDEPENDENCE_UPGRADE_CERTIFICATES_ARE_DEFEASIBLE
+CROSS_DOMAIN_WITNESS_EQUIVALENCE_IS_ROLE_LEVEL_ONLY
+CROSS_DOMAIN_ROLE_EQUIVALENCE_NE_EVIDENCE_TYPE_IDENTITY
+NO_SCALAR_OR_TIMELESS_FINAL_INDEPENDENCE
+NO_OPEN_WORLD_INDEPENDENCE_CLOSURE
+NO_REAL_LANGUAGE_0_33_PROMOTION
+```
+
+A later replication, measurement, semantic reconstruction or proof route can strengthen the current authority of a challenge that originated internally only when it breaks a declared claim-relevant dependency while preserving the challenge's claim-relevant correspondence. Successful transport does not rewrite the historical origin as independent.
+
+Authority upgrade is therefore typed and scoped. Residual or newly introduced dependencies stay visible; witness counts do not add authority mechanically; apparently distinct witnesses may collapse under later shared-ancestry reconstruction; and a previously passing upgrade certificate may reopen if later evidence defeats the asserted ancestry separation or correspondence.
+
+Replication, triangulation, robustness, metrological traceability/calibration and independent proof checking are prior-art baselines. MQR-4.76 retains only the constitutional transport discipline joining immutable origin provenance, dependency-cut receipts, correspondence, ancestry-aware split/merge and defeasible authority certificates.
+
+Natural-science and mathematical witnesses share at most a structural authority-transport role:
+
+```text
+BREAK_RELEVANT_DEPENDENCY
++
+PRESERVE_CHALLENGE_CORRESPONDENCE
+```
+
+They do not thereby become the same evidence type.
+
+`REALUPGRADE 0.33-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains the latest promoted syntax; all 0.30–0.33 candidate lanes remain unpromoted.
