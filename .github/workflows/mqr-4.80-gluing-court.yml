@@ -1,0 +1,48 @@
+name: MQR-4.80 Gluing Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.80/**'
+      - '.github/workflows/mqr-4.80-gluing-court.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.80/gluing_obligation_court.rs -o /tmp/mqr480
+          /tmp/mqr480 experiments/mqr-4.80/COURT-FREEZE.tsv | tee /tmp/mqr480.log
+          grep -F 'MQR480_CASES=16' /tmp/mqr480.log
+          grep -F 'MQR480_PASS=16' /tmp/mqr480.log
+          grep -F 'MQR480_COURT=PASS' /tmp/mqr480.log
+
+  independent-oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          test "$(grep -c '^| [NMC][0-9]' experiments/mqr-4.80/INDEPENDENT-ORACLE.md)" -eq 16
+          for state in PROVENANCE_PRESERVING_PARTIAL_GLUE INTERSECTION_LAUNDERING UNION_LAUNDERING TRANSLATION_LAUNDERING OBLIGATION_LOSS NO_JOINT_AUTHORITY OVERLAP_ONLY_AUTHORITY REOPEN_HIDDEN_NONOVERLAP OBLIGATION_INVENTION CONFLICT_PRESERVED; do
+            grep -F "$state" experiments/mqr-4.80/INDEPENDENT-ORACLE.md >/dev/null
+          done
+
+  structural:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'OVERLAP_AGREEMENT != GLOBAL_WARRANT' experiments/mqr-4.80/PRESEAL.md
+          grep -F 'UNION_OF_TARGETS != WARRANTED_JOINT_CONSTITUTION' experiments/mqr-4.80/PRESEAL.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
