@@ -1,0 +1,17 @@
+id	domain	overlap_agree	preserve_a_only	preserve_b_only	invent_joint	drop_conflict	translation_preserves	provenance	joint_scope	later_hidden_nonoverlap	expected
+N1	natural	1	1	1	0	0	1	1	partial	0	PROVENANCE_PRESERVING_PARTIAL_GLUE
+N2	natural	1	0	0	0	0	1	1	overlap	0	INTERSECTION_LAUNDERING
+N3	natural	1	1	1	1	0	1	1	union	0	UNION_LAUNDERING
+N4	natural	1	1	1	0	0	0	1	partial	0	TRANSLATION_LAUNDERING
+N5	natural	1	1	1	0	1	1	1	partial	0	OBLIGATION_LOSS
+N6	natural	1	1	1	0	0	1	0	partial	0	NO_JOINT_AUTHORITY
+N7	natural	1	1	1	0	0	1	1	overlap	0	OVERLAP_ONLY_AUTHORITY
+N8	natural	1	1	1	0	0	1	1	partial	1	REOPEN_HIDDEN_NONOVERLAP
+M1	math	1	1	1	0	0	1	1	partial	0	PROVENANCE_PRESERVING_PARTIAL_GLUE
+M2	math	1	1	0	0	0	1	1	partial	0	OBLIGATION_LOSS
+M3	math	1	1	1	1	0	1	1	union	0	OBLIGATION_INVENTION
+M4	math	1	1	1	0	0	0	1	partial	0	TRANSLATION_LAUNDERING
+M5	math	0	1	1	0	0	1	1	partial	0	CONFLICT_PRESERVED
+C1	control	1	0	0	0	0	1	1	overlap	0	INTERSECTION_LAUNDERING
+C2	control	1	1	1	0	0	1	1	overlap	0	OVERLAP_ONLY_AUTHORITY
+C3	control	1	1	1	1	1	1	1	union	0	OBLIGATION_LOSS
