@@ -1704,3 +1704,51 @@ POSTOUTCOME_TUNING != PROSPECTIVE_AUTHORITY
 v0.32 records generator ancestry, target-model dependence, external-world contact, post-outcome tuning, novelty/relevance, bounded-search status and pairwise common-mode/route-diversity receipts.
 
 It does not generate critics, optimize generator portfolios or certify open-world challenge completeness.
+
+
+## v0.33-CANDIDATE — challenge-authority upgrade receipts
+
+MQR-4.76 adds `REALUPGRADE 0.33-CANDIDATE` as a development-only lane.
+
+Promotion boundary:
+
+```text
+LATEST_PROMOTED = REALACQUIRE 0.29
+0.30 / 0.31 / 0.32 / 0.33 CANDIDATE LANES = UNPROMOTED
+```
+
+Canonical implementation:
+- Rust: `src/upgrade_v33.rs` / `real-v33-upgrade`;
+- independent evaluator: `prolog/upgrade_v33.pl`;
+- Lean boundary: `lean/MQR/ChallengeAuthorityUpgrade.lean`;
+- constitution: `V33-CHALLENGE-AUTHORITY-UPGRADE-CANDIDATE.md`.
+
+Machine-visible invariants:
+
+```text
+LATER_AUTHORITY_UPGRADE != ORIGINAL_INDEPENDENCE
+EXTERNAL_LOCATION != EXTERNAL_AUTHORITY
+REPLICATION_COUNT != INDEPENDENCE
+SEMANTIC_RECONSTRUCTION != AUTOMATIC_UPGRADE
+COMMON_MODE_EDGE_BROKEN != ALL_COMMON_MODES_BROKEN
+MORE_BROKEN_EDGES != SCALAR_MORE_INDEPENDENT
+WITNESS_COUNT != INDEPENDENT_WITNESS_COUNT
+CERTIFICATE_PASS != PERMANENT_INDEPENDENCE
+CROSS_DOMAIN_ROLE_EQUIVALENCE != EVIDENCE_TYPE_IDENTITY
+```
+
+v0.33 records immutable challenge origin, claim/scope correspondence, typed dependency edges, witness provenance, residual common mode, split/merge ancestry, post-outcome tuning, current authority state and a versioned reopening certificate.
+
+Authority-changing dependency effects are typed as `BREAK / PRESERVE / REPLACE / UNRESOLVED / NEW`. The language never interprets the number of BREAK edges as an independence score.
+
+A scoped upgrade requires a relevant dependency cut and preserved challenge correspondence; cross-route upgrade additionally requires the declared relevant residual common mode to be absent. Later ancestry or correspondence revision can reopen the certificate.
+
+Unknown fields fail closed, including attempted scalar-independence laundering.
+
+Natural-science and mathematical evidence remain ontologically distinct. v0.33 shares only the role-level transport grammar:
+
+```text
+BREAK_RELEVANT_DEPENDENCY + PRESERVE_CHALLENGE_CORRESPONDENCE
+```
+
+`REALACQUIRE 0.29` remains the latest promoted Real-Language syntax.
