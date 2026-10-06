@@ -1,0 +1,17 @@
+id	domain	prospective	coverage_warrant	ontology_common	grammar_common	ancestry_diverse	separator_found	separates_live	finite_complete_grammar	postoutcome	reopen_ancestry	split_merge	expected
+N1	natural	1	1	0	0	1	1	1	0	0	0	none	ANCESTRY_DIVERSE_LOCAL_AUTHORITY
+N2	natural	1	0	0	0	0	1	1	0	0	0	none	FAMILY_RELATIVE_SEPARATION
+N3	natural	1	0	1	0	0	1	1	0	0	0	none	COMMON_MODE_GENERATOR
+N4	natural	1	0	0	1	0	1	0	0	0	0	none	COMMON_MODE_GENERATOR
+N5	natural	1	1	0	0	1	0	0	0	0	0	none	NO_SEPARATOR_AUTHORITY
+N6	natural	0	1	0	0	1	1	1	0	1	0	none	DIAGNOSTIC_FAMILY_ONLY
+N7	natural	1	1	0	0	1	1	1	0	0	1	none	REOPEN_GENERATOR_ANCESTRY
+N8	natural	1	1	0	0	1	1	1	0	0	0	split	SPLIT_REQUIRED
+M1	math	1	1	0	0	1	1	1	1	0	0	none	ANCESTRY_DIVERSE_LOCAL_AUTHORITY
+M2	math	1	0	0	1	0	1	1	0	0	0	none	COMMON_MODE_GENERATOR
+M3	math	1	0	0	0	0	1	1	0	0	0	none	FAMILY_RELATIVE_SEPARATION
+M4	math	1	1	0	0	1	1	1	0	0	0	merge	MERGE_COLLAPSE
+M5	math	0	0	0	0	1	1	1	0	1	0	none	DIAGNOSTIC_FAMILY_ONLY
+M6	math	1	1	1	1	0	0	0	0	0	0	none	NO_SEPARATOR_AUTHORITY
+C1	control	1	1	0	0	1	1	0	0	0	0	none	FAMILY_RELATIVE_SEPARATION
+C2	control	1	1	0	0	1	1	1	1	0	0	none	ANCESTRY_DIVERSE_LOCAL_AUTHORITY
