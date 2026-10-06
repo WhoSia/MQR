@@ -4,9 +4,9 @@ yn("YES",true). yn("NO",false).
 
 classify(_,_,_,_,_,true,_,_,"NO_UPGRADE"):-!.
 classify(_,"DISJOINT",_,_,_,_,_,_,"NO_UPGRADE"):-!.
-classify(_,_,_,_,_,"MERGE",_,_,"MERGE_COLLAPSE"):-!.
+classify(_,_,_,_,_,_,"MERGE",_,"MERGE_COLLAPSE"):-!.
 classify(_,"REFINE",_,_,_,_,_,_,"SPLIT_REQUIRED"):-!.
-classify(_,_,_,_,_,"SPLIT",_,_,"SPLIT_REQUIRED"):-!.
+classify(_,_,_,_,_,_,"SPLIT",_,"SPLIT_REQUIRED"):-!.
 classify(Route,_,false,_,_,_,_,_,
   "DIAGNOSTIC_REPLICATION_ONLY"):- member(Route,["OTHER_LAB_SAME_CALIBRATION","SECOND_PROVER_SAME_ENCODING"]),!.
 classify(_,_,false,_,_,_,_,_,"NO_UPGRADE"):-!.
