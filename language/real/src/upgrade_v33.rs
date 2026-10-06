@@ -10,7 +10,7 @@ const FIELDS:[&str;17]=[
 "id","sealed","origin","source_challenge_hash","claim_scope_hash","source_dependency_graph_hash",
 "witness_route","witness_provenance_hash","correspondence","postoutcome_tuned","contact_kind",
 "split_merge","residual_common_mode","authority_state","certificate_version",
-"reopen_on_ancestry_revision","evidence_kind"
+"reopen_on_ancestry_revision"
 ];
 
 #[derive(Debug)]
