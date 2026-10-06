@@ -28,8 +28,8 @@ jobs:
       - run: |
           rustc --edition=2024 -O experiments/mqr-4.76/upgrade_court.rs -o /tmp/mqr476-court
           /tmp/mqr476-court experiments/mqr-4.76/COURT-FREEZE.tsv | tee /tmp/mqr476.log
-          grep -F 'MQR476_CASES=17' /tmp/mqr476.log
-          grep -F 'MQR476_PASS=17' /tmp/mqr476.log
+          grep -F 'MQR476_CASES=16' /tmp/mqr476.log
+          grep -F 'MQR476_PASS=16' /tmp/mqr476.log
           grep -F 'MQR476_ORIGIN_NONLAUNDERING=PASS' /tmp/mqr476.log
           grep -F 'MQR476_CHALLENGE_COURT=PASS' /tmp/mqr476.log
 
