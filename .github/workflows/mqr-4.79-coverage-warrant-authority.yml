@@ -1,0 +1,51 @@
+name: MQR-4.79 Coverage Warrant Authority
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.79/**'
+      - '.github/workflows/mqr-4.79-coverage-warrant-authority.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.79/coverage_warrant_court.rs -o /tmp/mqr479
+          /tmp/mqr479 experiments/mqr-4.79/COURT-FREEZE.tsv | tee /tmp/mqr479.log
+          grep -F 'MQR479_CASES=16' /tmp/mqr479.log
+          grep -F 'MQR479_PASS=16' /tmp/mqr479.log
+          grep -F 'MQR479_TARGET_SUCCESS_CERTIFIES_CONSTITUTION=REJECT' /tmp/mqr479.log
+          grep -F 'MQR479_COURT=PASS' /tmp/mqr479.log
+
+  independent-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          set -euo pipefail
+          python experiments/mqr-4.79/independent_coverage_warrant_court.py experiments/mqr-4.79/COURT-FREEZE.tsv | tee /tmp/mqr479-py.log
+          grep -F 'MQR479_CASES=16' /tmp/mqr479-py.log
+          grep -F 'MQR479_PASS=16' /tmp/mqr479-py.log
+          grep -F 'MQR479_PYTHON_COURT=PASS' /tmp/mqr479-py.log
+
+  structural-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'CURRENT_TARGET_FAMILY != WARRANTED_TARGET_FAMILY' experiments/mqr-4.79/PRESEAL-CORE.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
