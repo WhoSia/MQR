@@ -6,7 +6,7 @@ const CONTACT:[&str;7]=["MEASUREMENT","RAW_DATA","ANALYSIS","SEMANTIC","PROOF","
 const SM:[&str;3]=["NONE","SPLIT","MERGE"];
 const STATES:[&str;7]=["NO_UPGRADE","DIAGNOSTIC_REPLICATION_ONLY","LOCAL_AUTHORITY_UPGRADE","CROSS_ROUTE_INDEPENDENCE_UPGRADE","SPLIT_REQUIRED","MERGE_COLLAPSE","REOPEN"];
 const EFFECTS:[&str;5]=["BREAK","PRESERVE","REPLACE","UNRESOLVED","NEW"];
-const FIELDS:[&str;17]=[
+const FIELDS:[&str;16]=[
 "id","sealed","origin","source_challenge_hash","claim_scope_hash","source_dependency_graph_hash",
 "witness_route","witness_provenance_hash","correspondence","postoutcome_tuned","contact_kind",
 "split_merge","residual_common_mode","authority_state","certificate_version",
