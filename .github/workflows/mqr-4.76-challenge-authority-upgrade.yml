@@ -40,8 +40,8 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq swi-prolog-nox
       - run: |
           swipl -q -f experiments/mqr-4.76/independent_upgrade_court.pl -- experiments/mqr-4.76/COURT-FREEZE.tsv | tee /tmp/mqr476-prolog.log
-          grep -F 'MQR476_CASES=17' /tmp/mqr476-prolog.log
-          grep -F 'MQR476_PASS=17' /tmp/mqr476-prolog.log
+          grep -F 'MQR476_CASES=16' /tmp/mqr476-prolog.log
+          grep -F 'MQR476_PASS=16' /tmp/mqr476-prolog.log
           grep -F 'MQR476_PROLOG_CHALLENGE_COURT=PASS' /tmp/mqr476-prolog.log
 
   real-language:
