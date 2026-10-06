@@ -1921,3 +1921,34 @@ Negative controls, active experimental design, intervention selection, adversari
 `REALGENERATE 0.35-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains the latest promoted syntax; all 0.30–0.35 candidate lanes remain unpromoted.
 
 The next live pressure is coverage-warrant authority: what independently warrants the target family against which separator-generator adequacy is judged when multiple admissible coverage constitutions compete?
+
+
+#### MQR-4.79 coverage-warrant authority result
+
+MQR-4.79 removes the remaining primitive status of the target family used to judge separator-generator adequacy.
+
+Current doctrine:
+
+```text
+TARGET_DECLARATION_NE_TARGET_WARRANT
+CURRENT_TARGET_FAMILY_NE_WARRANTED_TARGET_FAMILY
+GENERATOR_SUCCESS_ON_DECLARED_TARGET_NE_TARGET_CONSTITUTION_COMPLETENESS
+REFERENCE_CLASS_NE_NATURAL_KIND
+LARGER_TARGET_FAMILY_NE_BETTER_COVERAGE_WARRANT
+FINER_PARTITION_NE_STRONGER_COVERAGE_WARRANT
+CURRENT_INSTITUTIONAL_SCOPE_NE_SCIENTIFIC_SCOPE
+TARGET_FAMILY_AGREEMENT_NE_TARGET_FAMILY_AUTHORITY
+COMPETING_ADMISSIBLE_CONSTITUTIONS_MAY_REMAIN_INCOMPARABLE
+FINITE_CONTRACT_CLOSURE_IS_ALLOWED_WHEN_INDEPENDENTLY_WARRANTED
+OFF_TARGET_ESCAPE_REOPENS_LOCAL_COVERAGE_AUTHORITY
+NO_SCALAR_OR_OPEN_WORLD_COVERAGE_WARRANT
+NO_REAL_LANGUAGE_0_36_PROMOTION
+```
+
+The forbidden authority move is **coverage-constitution circularity**: a constitution K may define a target family T_K, and a generator may successfully cover T_K, without thereby proving that K included every claim-relevant distinction.
+
+External validity, generalizability, transportability, target-population estimation, construct validation and generic reference-class declaration are prior-art baselines. MQR-4.79 retains only the constitutional discipline for target-family warrant provenance, competing constitutions, non-scalar comparison, split/merge, off-target escape and defeasible reopening.
+
+`REALCOVERAGE 0.36-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains the latest promoted syntax; all 0.30–0.36 lanes remain unpromoted.
+
+The next live pressure is coverage-warrant inheritance and conflict resolution across partially overlapping institutions, disciplines or formal frameworks without scalarization or authority laundering.
