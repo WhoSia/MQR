@@ -1,0 +1,48 @@
+name: MQR-4.81 Authority Descent Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.81/**'
+      - '.github/workflows/mqr-4.81-authority-descent.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.81/authority_descent_court.rs -o /tmp/mqr481
+          /tmp/mqr481 experiments/mqr-4.81/COURT-FREEZE.tsv | tee /tmp/mqr481.log
+          grep -F 'MQR481_CASES=16' /tmp/mqr481.log
+          grep -F 'MQR481_PASS=16' /tmp/mqr481.log
+          grep -F 'MQR481_COURT=PASS' /tmp/mqr481.log
+
+  independent-oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          test "$(grep -c '^| [NM][0-9]' experiments/mqr-4.81/INDEPENDENT-ORACLE.md)" -eq 16
+          for state in GLOBAL_AUTHORITY_DESCENT CYCLE_ANCESTRY_DRIFT TRIPLE_OVERLAP_MISMATCH GLOBAL_CONFLICT_ERASURE HIDDEN_INTERMEDIATE_OBLIGATION_LOSS COMPOSITION_ORDER_AUTHORITY_REVERSAL PAIRWISE_ONLY_AUTHORITY REOPEN_HIGHER_ORDER_INCOMPATIBILITY; do
+            grep -F "$state" experiments/mqr-4.81/INDEPENDENT-ORACLE.md >/dev/null
+          done
+
+  structural:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'PAIRWISE_VALID_GLUE != GLOBAL_AUTHORITY_DESCENT' experiments/mqr-4.81/PRESEAL.md
+          grep -F 'DATA_DESCENT != AUTHORITY_DESCENT' experiments/mqr-4.81/PRESEAL.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
