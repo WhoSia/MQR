@@ -1,0 +1,11 @@
+id	family	relations	edge_present	warrant	debt	scope	ancestry	reopen	exp_rel_core	exp_auth_core
+F1	fiber_history	Q,Q	1,1	w1,w2	d1,d1	s1,s1	p1,p2	r1,r1	1	0
+F2	positive_cross_relation	Q1,Q2	1,1	w1,w1	d1,d1	s1,s1	p1,p1	r1,r1	1	1
+F3	debt_mismatch	Q,Q	1,1	w1,w1	d1,d2	s1,s1	p1,p1	r1,r1	1	0
+F4	scope_mismatch	Q,Q	1,1	w1,w1	d1,d1	s1,s2	p1,p1	r1,r1	1	0
+F5	ancestry_mismatch	Q1,Q2	1,1	w1,w1	d1,d1	s1,s1	p1,p2	r1,r1	1	0
+F6	reopening_mismatch	Q,Q	1,1	w1,w1	d1,d1	s1,s1	p1,p1	r1,r2	1	0
+F7	noncommon_edge	Q1,Q2	1,0	w1,w1	d1,d1	s1,s1	p1,p1	r1,r1	0	0
+F8	independent_positive_fiber	Q,Q	1,1	w1,w1	d1,d1	s1,s1	p1,p1	r1,r1	1	1
+F9	provenance_repair_control	Q,Q	1,1	w1,w1	d1,d1	s1,s1	p2,p2	r1,r1	1	1
+F10	warrant_mismatch	Q1,Q2	1,1	w1,w2	d1,d1	s1,s1	p1,p1	r1,r1	1	0
