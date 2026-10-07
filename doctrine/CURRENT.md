@@ -1983,3 +1983,31 @@ Causal transportability, heterogeneous data fusion, sheaf/local-to-global consis
 `REALGLUE 0.37-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains latest promoted syntax; all 0.30–0.37 lanes remain unpromoted.
 
 The next live pressure is composition-order dependence: whether obligation-preserving gluing is associative or path-dependent when more than two constitutions are composed.
+
+
+#### MQR-4.81 higher-order coverage-authority descent result
+
+MQR-4.81 governs N-ary composition of locally warranted coverage constitutions after binary obligation-preserving gluing.
+
+Current doctrine:
+
+```text
+PAIRWISE_VALID_GLUE_NE_GLOBAL_AUTHORITY_DESCENT
+PAIRWISE_AGREEMENT_NE_HIGHER_ORDER_COHERENCE
+GLOBAL_OBJECT_EXISTENCE_NE_GLOBAL_WARRANT
+DATA_DESCENT_NE_AUTHORITY_DESCENT
+PAIRWISE_PROVENANCE_PRESERVATION_NE_CYCLE_COHERENT_ANCESTRY
+PAIRWISE_CONFLICT_VISIBILITY_NE_GLOBAL_CONFLICT_PRESERVATION
+COMPOSITION_ORDER_EQUALITY_NE_AUTHORITY_PATH_INDEPENDENCE
+HIDDEN_INTERMEDIATE_LOSS_CAN_DEFEAT_GLOBAL_WARRANT
+LATER_HIGHER_ORDER_INCOMPATIBILITY_CAN_REOPEN
+NO_REAL_LANGUAGE_0_38_PROMOTION
+```
+
+Global coverage authority requires higher-order coherence beyond pairwise passes: triple-overlap identity where relevant, cycle-coherent obligation ancestry, preservation of unresolved conflicts, absence of hidden intermediate obligation loss, absence of composition-order authority reversal, and an independently warranted higher-order descent basis.
+
+Associativity, ontology merging, sheaf descent, contextuality/global-section obstruction, cohomological obstruction and generic provenance algebra are prior-art baselines. MQR-4.81 retains only the scientific-authority discipline layered over those baselines.
+
+`REALDESCENT 0.38-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains latest promoted syntax; all 0.30–0.38 lanes remain unpromoted.
+
+The next live pressure is coherence-recursion termination: whether higher-order descent certificates themselves require yet higher coherence witnesses and where that regress can legitimately stop.
