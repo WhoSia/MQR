@@ -1,0 +1,17 @@
+id	domain	scope_explicit	relevance_warrant	basis_sufficient	residual_debt_explicit	compute_stop_only	self_certifying	open_world_claim	higher_order_escape	reopen_on_escape	expected
+N1	natural	1	1	1	1	0	0	0	0	1	FINITE_SCOPE_CLOSED
+N2	natural	0	1	1	1	0	0	0	0	1	UNWARRANTED_TRUNCATION
+N3	natural	1	1	1	1	1	0	0	0	1	COMPUTE_STOP_ONLY
+N4	natural	1	0	1	1	0	0	0	0	1	BASIS_AUTHORITY_MISSING
+N5	natural	1	1	0	1	0	0	0	0	1	RESIDUAL_HIGHER_ORDER_DEBT
+N6	natural	1	1	1	1	0	0	1	0	1	OPEN_WORLD_COMPLETENESS_UNEARNED
+N7	natural	1	1	1	1	0	0	0	1	0	HIGHER_ORDER_ESCAPE
+N8	natural	1	1	1	1	0	0	0	1	1	REOPEN_BEYOND_TRUNCATION
+M1	math	1	1	1	1	0	0	0	0	1	FINITE_SCOPE_CLOSED
+M2	math	1	1	1	1	0	1	0	0	1	UNWARRANTED_TRUNCATION
+M3	math	1	1	1	0	0	0	0	0	1	RESIDUAL_HIGHER_ORDER_DEBT
+M4	math	1	0	1	0	0	0	0	0	1	BASIS_AUTHORITY_MISSING
+M5	math	1	1	0	1	0	0	0	0	1	RESIDUAL_HIGHER_ORDER_DEBT
+M6	math	1	1	1	1	0	0	1	0	1	OPEN_WORLD_COMPLETENESS_UNEARNED
+M7	math	1	1	1	1	0	0	0	1	0	HIGHER_ORDER_ESCAPE
+M8	math	1	1	1	1	0	0	0	1	1	REOPEN_BEYOND_TRUNCATION
