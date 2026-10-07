@@ -1,0 +1,24 @@
+name: MQR-4.86 Debt Transport Court
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.86/**'
+      - '.github/workflows/mqr-4.86-debt-transport.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  debt-transport:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Execute frozen debt cases
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 experiments/mqr-4.86/debt_transport.rs -o /tmp/mqr486_debt
+          /tmp/mqr486_debt | tee /tmp/result
+          grep -Fx 'MQR486_DEBT_CASES=8' /tmp/result
+          grep -Fx 'MQR486_DEBT_PASS=8' /tmp/result
+          grep -Fx 'MQR486_DEBT_SCIENTIFIC_NOVELTY=UNADJUDICATED' /tmp/result
