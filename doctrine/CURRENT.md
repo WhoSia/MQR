@@ -2065,3 +2065,11 @@ Blackwell/Torgersen experiment comparison, Le Cam deficiency, Postnikov/truncati
 `REALCOMPARE 0.40-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains latest promoted syntax.
 
 The next live pressure is network coherence: whether locally warranted pairwise authority-comparison relations compose into a coherent global comparison structure without cycles, ranking reversal or residual-debt routing conflict.
+
+#### MQR-4.84 authority-comparison network-coherence result
+
+MQR-4.84 governs the finite network formed by independently warranted MQR-4.83 comparison edges. Pairwise warrant does not create global order warrant. The network court preserves explicit cycles, scope-indexed transitivity failure, equivalence-class fracture, residual-debt routing holonomy, path-dependent dominance reversal, missing cycle-breaking warrants, and legitimate incomparability. Acyclicity alone does not warrant a preorder, and totalization is not authority completion.
+
+The positive object is the maximal warranted comparison structure: the largest explicitly scoped subgraph whose retained path compositions preserve direction, scope, equivalence ancestry and residual-debt routing. Later network inconsistency reopens the certificate.
+
+Generic tournament cycles, intransitive preference, path dependence, local-to-global obstruction, Blackwell/Torgersen comparison, Le Cam deficiency, generic partial orders and completion theory remain prior-art baselines. MQR-4.84 retains only the outcome-blind, executable authority-network court over already-warranted cross-truncation certificates. `REALCOMPARE 0.40-CANDIDATE` remains unpromoted; `REALACQUIRE 0.29` remains latest promoted syntax.

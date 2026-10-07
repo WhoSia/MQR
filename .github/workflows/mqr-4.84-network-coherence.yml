@@ -1,0 +1,48 @@
+name: MQR-4.84 Authority Network Coherence Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.84/**'
+      - '.github/workflows/mqr-4.84-network-coherence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.84/authority_network_court.rs -o /tmp/mqr484
+          /tmp/mqr484 experiments/mqr-4.84/COURT-FREEZE.tsv | tee /tmp/mqr484.log
+          grep -F 'MQR484_CASES=20' /tmp/mqr484.log
+          grep -F 'MQR484_PASS=20' /tmp/mqr484.log
+          grep -F 'MQR484_COURT=PASS' /tmp/mqr484.log
+
+  independent-oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          test "$(grep -c '^| [NM][0-9]' experiments/mqr-4.84/INDEPENDENT-ORACLE.md)" -eq 20
+          for state in GLOBALLY_CYCLIC_CLOSURE SCOPE_INDEXED_TRANSITIVITY_FAILURE EQUIVALENCE_CLASS_FRACTURE RESIDUAL_DEBT_ROUTING_HOLONOMY PATH_DEPENDENT_DOMINANCE_REVERSAL ACYCLIC_NOT_GLOBAL_PREORDER CYCLE_BREAKING_WARRANT_MISSING ILLEGITIMATE_TOTALIZATION INCOMPARABILITY_PRESERVED MAXIMAL_WARRANTED_COMPARISON_STRUCTURE REOPEN_UNDER_NETWORK_INCONSISTENCY; do
+            grep -F "$state" experiments/mqr-4.84/INDEPENDENT-ORACLE.md >/dev/null
+          done
+
+  structural:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'PAIRWISE_WARRANT != GLOBAL_ORDER_WARRANT' experiments/mqr-4.84/PRESEAL.md
+          grep -F 'TOTALIZATION != AUTHORITY_COMPLETION' experiments/mqr-4.84/PRESEAL.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
