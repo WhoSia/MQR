@@ -1,0 +1,55 @@
+name: MQR-4.85 Warranted Extension Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.85/**'
+      - '.github/workflows/mqr-4.85-warranted-extension.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.85/warranted_extension_court.rs -o /tmp/mqr485
+          /tmp/mqr485 experiments/mqr-4.85/COURT-FREEZE.tsv | tee /tmp/mqr485.log
+          grep -F 'MQR485_CASES=20' /tmp/mqr485.log
+          grep -F 'MQR485_PASS=20' /tmp/mqr485.log
+          grep -E 'MQR485_NONLIFT_WITNESSES=[1-9][0-9]*' /tmp/mqr485.log
+          grep -E 'MQR485_POSITIVE_LIFT_WITNESSES=[1-9][0-9]*' /tmp/mqr485.log
+          grep -E 'MQR485_CHOICE_INVARIANCE_NONLIFT_WITNESSES=[1-9][0-9]*' /tmp/mqr485.log
+          grep -E 'MQR485_CORE_NONLIFT_WITNESSES=[1-9][0-9]*' /tmp/mqr485.log
+          grep -E 'MQR485_UNAUTHORIZED_SELECTOR_WITNESSES=[1-9][0-9]*' /tmp/mqr485.log
+          grep -E 'MQR485_REOPEN_CASES=[1-9][0-9]*' /tmp/mqr485.log
+          grep -F 'MQR485_COURT=PASS' /tmp/mqr485.log
+
+  independent-oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          test "$(grep -Ec '^\| F([1-9]|1[0-9]|20) \|' experiments/mqr-4.85/INDEPENDENT-ORACLE.md)" -eq 20
+          grep -F 'CHOICE_INVARIANCE_ACROSS_EXTENSIONS != EDGE_AUTHORITY_WARRANT' experiments/mqr-4.85/PRESEAL.md
+          grep -F 'ORDER_OF_DELETION_AGGREGATION != SCIENTIFIC_REVOCATION_WARRANT' experiments/mqr-4.85/PRESEAL.md
+          grep -F 'MATHEMATICAL_EXTENSION_CORE != WARRANT_UNIFORM_AUTHORITY_CORE' experiments/mqr-4.85/PRESEAL.md
+
+  structural:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'MATHEMATICAL_EXTENDABILITY != SCIENTIFIC_AUTHORITY_TO_EXTEND' experiments/mqr-4.85/PRESEAL.md
+          grep -F 'SUZUMURA_CONSISTENCY != SCIENTIFIC_TOTALIZATION_LICENSE' experiments/mqr-4.85/PRESEAL.md
+          grep -F 'DETERMINISTIC_SELECTION != AUTHORIZED_SELECTION' experiments/mqr-4.85/PRESEAL.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
