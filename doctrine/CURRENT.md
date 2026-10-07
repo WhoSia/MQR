@@ -2011,3 +2011,57 @@ Associativity, ontology merging, sheaf descent, contextuality/global-section obs
 `REALDESCENT 0.38-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains latest promoted syntax; all 0.30–0.38 lanes remain unpromoted.
 
 The next live pressure is coherence-recursion termination: whether higher-order descent certificates themselves require yet higher coherence witnesses and where that regress can legitimately stop.
+
+
+#### MQR-4.82 coherence-termination authority result
+
+MQR-4.82 governs finite stopping of higher-order coherence verification without converting scoped closure into open-world finality.
+
+Current doctrine:
+
+```text
+FINITE_COHERENCE_PASS_NE_OPEN_WORLD_COHERENCE_COMPLETENESS
+NO_OBSTRUCTION_BELOW_N_NE_NO_OBSTRUCTION_ABOVE_N
+TRUNCATION_LEVEL_NE_NATURAL_AUTHORITY_BOUNDARY
+MINIMAL_BASIS_NE_GLOBAL_COMPLETENESS
+HIGHER_ORDER_CERTIFICATE_NE_SELF_WARRANTING_CERTIFICATE
+FINITE_SCOPE_CLOSURE_ALLOWED_WHEN_RELEVANCE_RULE_AND_BASIS_AUTHORITY_ARE_INDEPENDENTLY_WARRANTED
+RESIDUAL_HIGHER_ORDER_DEBT_REMAINS_EXPLICIT
+LATER_HIGHER_ORDER_ESCAPE_REOPENS
+NO_REAL_LANGUAGE_0_39_PROMOTION
+```
+
+Finite coherence authority may close only relative to an explicit claim scope, an independently warranted higher-level relevance rule, a scope-relative sufficient coherence basis, explicit residual debt, and a reopening trigger.
+
+Hyperdescent, hypercompletion, finite truncation, bounded hypercovers and generic epistemic regress are prior-art baselines. MQR-4.82 retains only the scientific-authority discipline governing adoption of a finite coherence boundary.
+
+`REALTRUNCATE 0.39-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains latest promoted syntax.
+
+
+#### MQR-4.83 cross-truncation authority-comparison result
+
+MQR-4.83 governs comparison and authority transport between independently warranted finite coherence closures whose depths, claim scopes, basis authorities, relevance rules or residual debts differ.
+
+Current doctrine:
+
+```text
+DEEPER_TRUNCATION_NE_STRONGER_AUTHORITY
+MORE_CHECKED_LEVELS_NE_WARRANT_DOMINANCE
+TRUNCATION_MAP_NE_AUTHORITY_TRANSPORT
+CERTIFICATE_REFINEMENT_NE_SCIENTIFIC_SUBSUMPTION
+SCOPE_INCLUSION_NE_AUTHORITY_INCLUSION
+BASIS_INCLUSION_NE_BASIS_AUTHORITY_INHERITANCE
+RESIDUAL_DEBT_MUST_TRANSPORT_OR_BE_SEPARATELY_DISCHARGED
+AUTHORITY_EQUIVALENCE_REQUIRES_BIDIRECTIONAL_WARRANT
+INCOMPARABILITY_IS_A_LIVE_AUTHORITY_STATE
+LATER_CROSS_LEVEL_ESCAPE_REOPENS
+NO_REAL_LANGUAGE_0_40_PROMOTION
+```
+
+Depth, fineness, mathematical refinement or scope inclusion cannot manufacture a scientific authority order. A directional comparison requires direction-preserving claim-scope correspondence, preservation of claim-relevant higher-order distinctions, transport of basis authority rather than basis content alone, and migration or independently warranted discharge of residual debt. Equivalence requires the corresponding conditions in both directions.
+
+Blackwell/Torgersen experiment comparison, Le Cam deficiency, Postnikov/truncation maps, hypercompletion, generic model refinement, adequacy-for-purpose, domain-relative model transfer and generic partial-order theory are prior-art baselines. MQR-4.83 retains only the authority-typed comparison and debt-preserving transport discipline between finite coherence closures.
+
+`REALCOMPARE 0.40-CANDIDATE` is development-only. `REALACQUIRE 0.29` remains latest promoted syntax.
+
+The next live pressure is network coherence: whether locally warranted pairwise authority-comparison relations compose into a coherent global comparison structure without cycles, ranking reversal or residual-debt routing conflict.
