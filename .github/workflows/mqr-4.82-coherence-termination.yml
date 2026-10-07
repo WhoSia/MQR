@@ -1,0 +1,49 @@
+name: MQR-4.82 Coherence Termination Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.82/**'
+      - '.github/workflows/mqr-4.82-coherence-termination.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.82/coherence_termination_court.rs -o /tmp/mqr482
+          /tmp/mqr482 experiments/mqr-4.82/COURT-FREEZE.tsv | tee /tmp/mqr482.log
+          grep -F 'MQR482_CASES=16' /tmp/mqr482.log
+          grep -F 'MQR482_PASS=16' /tmp/mqr482.log
+          grep -F 'MQR482_COURT=PASS' /tmp/mqr482.log
+
+  independent-oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.82/independent_case_oracle.rs -o /tmp/mqr482_oracle
+          /tmp/mqr482_oracle experiments/mqr-4.82/COURT-FREEZE.tsv | tee /tmp/mqr482_oracle.log
+          grep -F 'MQR482_ORACLE_CASES=16' /tmp/mqr482_oracle.log
+          grep -F 'MQR482_ORACLE_PASS=16' /tmp/mqr482_oracle.log
+
+  structural:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'FINITE_COHERENCE_PASS != OPEN_WORLD_COHERENCE_COMPLETENESS' experiments/mqr-4.82/PRESEAL.md
+          grep -F 'NO_OBSTRUCTION_BELOW_N != NO_OBSTRUCTION_ABOVE_N' experiments/mqr-4.82/PRESEAL.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
