@@ -1,0 +1,48 @@
+name: MQR-4.83 Cross Truncation Court
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.83/**'
+      - '.github/workflows/mqr-4.83-cross-truncation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: |
+          set -euo pipefail
+          rustc --edition=2024 -O experiments/mqr-4.83/cross_truncation_authority_court.rs -o /tmp/mqr483
+          /tmp/mqr483 experiments/mqr-4.83/COURT-FREEZE.tsv | tee /tmp/mqr483.log
+          grep -F 'MQR483_CASES=18' /tmp/mqr483.log
+          grep -F 'MQR483_PASS=18' /tmp/mqr483.log
+          grep -F 'MQR483_COURT=PASS' /tmp/mqr483.log
+
+  independent-oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          test "$(grep -c '^| [NM][0-9]' experiments/mqr-4.83/INDEPENDENT-ORACLE.md)" -eq 18
+          for state in A_AUTHORITY_DOMINATES_B B_AUTHORITY_DOMINATES_A AUTHORITY_EQUIVALENT_AT_SHARED_SCOPE AUTHORITY_INCOMPARABLE DEPTH_LAUNDERING REFINEMENT_WITHOUT_AUTHORITY_TRANSPORT BASIS_AUTHORITY_NONINHERITANCE RESIDUAL_DEBT_MIGRATION_FAILURE REOPEN_CROSS_LEVEL_ESCAPE; do
+            grep -F "$state" experiments/mqr-4.83/INDEPENDENT-ORACLE.md >/dev/null
+          done
+
+  structural:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          set -euo pipefail
+          grep -F 'DEEPER_TRUNCATION != STRONGER_AUTHORITY' experiments/mqr-4.83/PRESEAL.md
+          grep -F 'TRUNCATION_MAP != AUTHORITY_TRANSPORT' experiments/mqr-4.83/PRESEAL.md
+          test "$(git log -n 100 --format='%an%n%cn' | grep -Fc 'github-actions[bot]' || true)" -eq 0
+          test "$(grep -R -E 'contents:[[:space:]]*write' .github/workflows | wc -l)" -eq 0
