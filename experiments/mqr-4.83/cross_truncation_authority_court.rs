@@ -5,10 +5,10 @@ fn classify(c:&[&str])->&'static str{
  let basis_auth=b(c[6]); let refine=b(c[7]); let debt=b(c[8]); let depth=b(c[9]); let escape=b(c[10]);
  if escape{return "REOPEN_CROSS_LEVEL_ESCAPE";}
  if depth{return "DEPTH_LAUNDERING";}
+ if dir=="NONE" || !scope || !rel{return "AUTHORITY_INCOMPARABLE";}
  if refine && !basis_content{return "REFINEMENT_WITHOUT_AUTHORITY_TRANSPORT";}
  if basis_content && !basis_auth{return "BASIS_AUTHORITY_NONINHERITANCE";}
  if !debt{return "RESIDUAL_DEBT_MIGRATION_FAILURE";}
- if dir=="NONE" || !scope || !rel{return "AUTHORITY_INCOMPARABLE";}
  if dir=="BOTH"{return "AUTHORITY_EQUIVALENT_AT_SHARED_SCOPE";}
  if dir=="A2B"{return "A_AUTHORITY_DOMINATES_B";}
  if dir=="B2A"{return "B_AUTHORITY_DOMINATES_A";}
