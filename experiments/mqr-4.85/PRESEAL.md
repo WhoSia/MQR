@@ -177,3 +177,8 @@ Kill or narrow MQR-4.85 if:
 ## Authority ceiling
 
 This Court may establish only a finite executable constitution over frozen authority-comparison cases. It cannot establish a universal scientific ordering theorem, empirical adequacy, causal superiority, or novelty for the underlying order/choice mathematics.
+
+
+## Hosted execution receipt rule
+
+The Court may close only on an exact-head hosted run created **after** the read-only MQR-4.85 workflow exists on `main`. A missing, queued, or in-progress run is not PASS evidence. Hosted failure must be classified before any scientific expectation is changed.
