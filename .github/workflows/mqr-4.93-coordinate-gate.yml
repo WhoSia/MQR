@@ -1,0 +1,39 @@
+name: MQR 4.93 — Pinned Original Species Coordinate Semantics
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.93/serov_coordinate_gate.py'
+      - '.github/workflows/mqr-4.93-coordinate-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-coordinate-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Pinned Numerical Parser
+        run: |
+          python -m pip install --disable-pip-version-check numpy==1.26.4
+      - name: Audit Immutable Original Anemone Coordinate Semantics and Spatial Feasibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=experiments/mqr-4.92:experiments/mqr-4.93 python experiments/mqr-4.93/serov_coordinate_gate.py 2>&1 | tee mqr493-coordinate-gate.log
+          grep -E '^MQR493_GATE0_STATUS=' mqr493-coordinate-gate.log
+      - name: Retain Original-Source Gate Receipt Even on Failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR493-Original-Species-Coordinate-Gate
+          path: |
+            mqr493-coordinate-gate.log
+            mqr493-gate0-coordinate-inventory.json
+          retention-days: 30
