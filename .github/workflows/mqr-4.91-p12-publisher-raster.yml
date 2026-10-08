@@ -1,0 +1,35 @@
+name: MQR-4.91 P1.2 — Publisher Raster Identity Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.91/p12_published_target_raster_inventory.py'
+      - '.github/workflows/mqr-4.91-p12-publisher-raster.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect publisher model source and output region identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=experiments/mqr-4.90 python experiments/mqr-4.91/p12_published_target_raster_inventory.py 2>&1 | tee p491-inventory.log
+          grep -Fx 'MQR491_P12_CANDIDATE_RECEIPT_WRITTEN=YES' p491-inventory.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR491-P12-Publisher-Target-Inventory
+          path: |
+            p491-inventory.log
+            p491-original-prediction-inventory/prediction-candidates.json
+          retention-days: 30
