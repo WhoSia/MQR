@@ -1,0 +1,39 @@
+name: MQR-4.91 P1.6 — Multi-Species Matched External Fold AUC
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.91/p16_multispecies_fold_auc.py'
+      - '.github/workflows/mqr-4.91-p16-multispecies.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Replay original species models and evaluate fixed external labels
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=experiments/mqr-4.90:experiments/mqr-4.91 python experiments/mqr-4.91/p16_multispecies_fold_auc.py 2>&1 | tee p491-p16.log
+          grep -Fx MQR491_P16_TWO_SPECIES_SOURCE_MATCHED_AUC=PASS p491-p16.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR491-P16-Multispecies-Fold-AUC
+          path: |
+            p491-p16.log
+            p491-p16-multispecies/p16-results.json
+          retention-days: 30
