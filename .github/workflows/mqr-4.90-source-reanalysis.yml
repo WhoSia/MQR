@@ -1,0 +1,36 @@
+name: MQR-4.90 Source-Reported AUC Reanalysis
+on:
+  push:
+    branches: [main, mqr-4.90-empirical-source-reanalysis]
+    paths:
+      - 'experiments/mqr-4.90/**'
+      - '.github/workflows/mqr-4.90-source-reanalysis.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-reanalysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check table provenance and fail-closed admission gates
+        run: |
+          set -euo pipefail
+          python -m compileall -q experiments/mqr-4.90/
+          python experiments/mqr-4.90/audit_reported_oracle_auc.py --self-test
+          python experiments/mqr-4.90/audit_reported_oracle_auc.py | tee mqr490-verdict.txt
+          grep -Fx 'MQR490_ORACLE_ROWS=36' mqr490-verdict.txt
+          grep -Fx 'MQR490_SOURCE_CELLS=144' mqr490-verdict.txt
+          grep -Fx 'MQR490_PRIMARY_EFFECTS_ADMITTED=0' mqr490-verdict.txt
+          grep -Fx 'MQR490_POOLED_ESTIMATE=HOLD' mqr490-verdict.txt
+          python experiments/mqr-4.90/audit_reported_oracle_auc.py --json > mqr490-reanalysis.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR490-Source-Reported-AUC-Receipt
+          path: |
+            mqr490-verdict.txt
+            mqr490-reanalysis.json
+          retention-days: 30
