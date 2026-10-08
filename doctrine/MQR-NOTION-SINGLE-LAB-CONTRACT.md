@@ -19,4 +19,8 @@ Eight rows (`MQR-4.84` … `MQR-4.91`) had been created under `Labs`, including 
 
 ## Scientific pointer, not new Lab
 
-As of incident remediation: `MQR-4.90` bounded source court closed; `MQR-4.91` remains OPEN as a **version section**, pinned Java Maxent original Oceania raster reprojected exactly 2,931 valid cells (max abs error 0.0), 4 original fold target rasters generated, reproducibility CI `37777179020` SUCCESS, fold-target AUC not yet computed. See `docs/MQR-4.91-P1-SOURCE-IDENTITY-CORRECTION.md`. All future source/Harvest and Pn outputs go to the same MQR canonical Notion page.
+**Current verified handoff 2026-10-08:** `MQR 4.90` previously bounded-closed. `MQR 4.91` scientifically `CLOSED / SOURCE-SCOPED EMPIRICAL PASS / METHOD NOVELTY HOLD` (ten original Matsui targets, 40 source-matched original-fitted-fold vs final contrasts across three species and ONE study; exact replay; map spatial-correlation experiment empirical HOLD owing original Zenodo 502/503/504). Canonical scientific closeout `docs/MQR-4.91-FINAL-SCIENTIFIC-CLOSEOUT.md`.
+
+`MQR 4.92` research version `OPEN / P0 PRECOMMIT`, proposed (not author-confirmed) formal title `Cross-Study Evaluation Contracts, Spatial Prediction–Performance Discordance, Source-Root Dependence & Falsifiable Evidence-Repair Benchmarks`; see `docs/MQR-4.92-OPENING-RESEARCH-PRECOMMIT.md`. All 4.92 research belongs as **headings in the exact same existing MQR canonical Notion root**. The GitHub 4.92 path is a source-file path, not a Lab or Notion child entity.
+
+Postwrite invariant remains EXACTLY ONE `MQR%` Labs row, the canonical root page ID `3c8ef561-cf92-8156-93b6-fcf6de9955f7`.
