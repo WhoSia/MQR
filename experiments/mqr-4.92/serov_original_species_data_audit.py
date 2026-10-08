@@ -38,6 +38,10 @@ def main():
     width=len(header)
     if len(set(header))!=width:raise ValueError("duplicate source CSV column names")
     total=0;malformed=0;blank_per_column=[0]*width
+    label_counts={}; lat_bounds=[float("inf"),float("-inf")];lon_bounds=[float("inf"),float("-inf")]
+    presence_idx=header.index("presence") if "presence" in header else None
+    lat_idx=header.index("lat") if "lat" in header else None
+    lon_idx=header.index("long") if "long" in header else None
     for row in stream:
         if len(row)!=width:
             malformed+=1
@@ -45,6 +49,14 @@ def main():
         total+=1
         for j,value in enumerate(row):
             if not value.strip():blank_per_column[j]+=1
+        if presence_idx is not None:
+            label=str(row[presence_idx]).strip()
+            label_counts[label]=label_counts.get(label,0)+1
+        for idx,bounds in ((lat_idx,lat_bounds),(lon_idx,lon_bounds)):
+            if idx is not None and row[idx].strip():
+                try:
+                    val=float(row[idx]);bounds[0]=min(bounds[0],val);bounds[1]=max(bounds[1],val)
+                except ValueError:pass
     if total<10 or malformed:raise ValueError("source CSV invalid row-width or too few data rows")
     result={"source_root":"Serov-Koldasbayeva-Zaytsev-2026",
       "repo":REPO,"commit":COMMIT,"source_original_file":PATH,
@@ -52,13 +64,16 @@ def main():
       "column_count":width,"column_names":header,
       "row_count":total,"malformed_rows":malformed,
       "blank_per_column":dict(zip(header,blank_per_column)),
+      "presence_raw_class_counts":label_counts,
+      "latitude_bounds":lat_bounds,"longitude_bounds":lon_bounds,
       "scientific_status":"SOURCE_DATA_IDENTITY_AND_COLUMNS_PASS_ONLY",
       "not_identified":["target risk labels","training vs deployment splits",
         "model predictions","population source/target transfer success","cross-paper common estimand"],
       "noncomparability":"Matsui original Oxalis latifolia source is distinct; matching string oxalis does not prove same sample universe"}
     OUT.write_text(json.dumps(result,indent=2,ensure_ascii=False),encoding="utf8")
     print("MQR492_SEROV_ORIGINAL_CSV_SCHEMA="+json.dumps({
-      "rows":total,"cols":width,"headers":header},ensure_ascii=False))
+      "rows":total,"cols":width,"headers":header,"presence_labels":label_counts,
+      "latitude_bounds":lat_bounds,"longitude_bounds":lon_bounds},ensure_ascii=False))
     print("MQR492_INDEPENDENT_ORIGINAL_DATA_IDENTITY=PASS")
 
 if __name__=="__main__":main()
