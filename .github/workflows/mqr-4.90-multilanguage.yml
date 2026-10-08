@@ -35,6 +35,10 @@ jobs:
           grep -Fx 'MQR490_P8_PUBLISHER_S4_ROWS=108' "$GITHUB_WORKSPACE/mqr490-s4.log"
           grep -Fx 'MQR490_P8_KOLD_S4_AUDIT=PASS' "$GITHUB_WORKSPACE/mqr490-s4.log"
           grep -Fx 'MQR490_P8_SIGNED_PRIMARY_OPTIMISM=NOT_IDENTIFIED' "$GITHUB_WORKSPACE/mqr490-s4.log"
+          cargo run --offline --quiet --bin reference_tv_bound | tee "$GITHUB_WORKSPACE/mqr490-reference-bounds.log"
+          grep -Fx 'MQR490_P8_TV_PRIOR_BOUND=NOT_MEASURED' "$GITHUB_WORKSPACE/mqr490-reference-bounds.log"
+          grep -Fx 'MQR490_P8_COMMON_PREDICTOR=NOT_RECONSTRUCTED_ACROSS_CV' "$GITHUB_WORKSPACE/mqr490-reference-bounds.log"
+          grep -Fx 'MQR490_P8_PARTIAL_IDENTIFICATION_TYPE_COURT=PASS' "$GITHUB_WORKSPACE/mqr490-reference-bounds.log"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -42,6 +46,7 @@ jobs:
           path: |
             mqr490-rust.log
             mqr490-s4.log
+            mqr490-reference-bounds.log
           retention-days: 30
   prolog-lineage:
     runs-on: ubuntu-latest
