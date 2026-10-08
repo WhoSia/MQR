@@ -77,7 +77,7 @@ def main():
                     folds.append(read_asc(output))
                 h,base=read_asc(fresh);w=int(h["ncols"]);height=int(h["nrows"])
                 positives=[];negatives=[]
-                bad=0;excluded=0;maxerror=0
+                bad=0;excluded=0;maxerror=0;examples=[]
                 for label,sub,suffix,out in [
                     (1,"1_Maxent_values_for_presence_cells","",positives),
                     (0,"2_Maxent_values_for_absence_cells","_2",negatives)]:
@@ -96,10 +96,17 @@ def main():
                             if base[ix]==h["nodata_value"]:raise RuntimeError("unexpected source score masked")
                             original_score=float(score)
                             delta=abs(original_score-base[ix]);maxerror=max(maxerror,delta)
-                            if delta>1e-4:bad+=1
+                            if delta>1e-4:
+                                bad+=1
+                                if len(examples)<12:examples.append({"X":x,"Y":y,"source_score":original_score,"replay_score":base[ix],"delta":delta,"grid_col":c,"grid_row":r})
                             if any(v[ix]==hh["nodata_value"] for hh,v in folds):raise RuntimeError("fold missing source point")
                             out.append([original_score]+[v[ix] for _,v in folds])
-                if bad:raise RuntimeError(f"original score geographic join mismatch {stem}: {bad}")
+                if bad:
+                    entry.update(state="HOLD_COORDINATE_JOIN",bad_count=bad,examples=examples,max_error=maxerror,
+                        positives_before_hold=len(positives),negatives_before_hold=len(negatives))
+                    report["cases"].append(entry)
+                    print("MQR491_P16_COORDINATE_HOLD="+json.dumps(entry,ensure_ascii=False),flush=True)
+                    continue
                 if min(len(positives),len(negatives))<2:raise RuntimeError("too few scored cases")
                 results=[auc([p[j] for p in positives],[n[j] for n in negatives]) for j in range(5)]
                 entry.update(state="PASS",published_source_target_raster=targetpath,
