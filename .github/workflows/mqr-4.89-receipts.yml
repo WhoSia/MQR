@@ -54,3 +54,9 @@ jobs:
           python experiments/mqr-4.89/migration_boundary_court.py | tee migration.log
           grep -Fx 'MQR489_MIGRATION_BOUNDARY_PASS=5' migration.log
           grep -Fx 'MQR489_INDEPENDENT_REPLICATION=NOT_PERFORMED' migration.log
+      - name: Audit byte-bound replay manifest consistency
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.89/replay_manifest_court.py | tee manifest.log
+          grep -Fx 'MQR489_MANIFEST_CONSISTENCY_PASS=6' manifest.log
+          grep -Fx 'MQR489_EXECUTION_AUTHENTICITY=UNVERIFIED' manifest.log
