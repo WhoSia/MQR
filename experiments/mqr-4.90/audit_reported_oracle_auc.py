@@ -105,6 +105,7 @@ def summarize(rows):
         "raw_dataset_families": len(DATASETS),
         "measure": "reported external-test oracle-max ROC AUC",
         "contrasts": contrasts,
+        "temporal_target_scope": directional_scope(),
         "primary_validation_optimism_effects": 0,
         "pooled_effect": None,
         "limits": [
@@ -151,6 +152,51 @@ def self_test(rows):
         corrupted[field] = replacement
         assert not primary_admission(corrupted)["admit"], field
     assert summarize(rows)["pooled_effect"] is None
+    assert temporal_transfer(2006, 2012, 2003, 2005) == "RETROSPECTIVE_TRANSFER"
+    assert temporal_transfer(2003, 2005, 2006, 2012) == "PROSPECTIVE_TRANSFER"
+    assert temporal_transfer(2003, 2007, 2006, 2009) == "OVERLAPPING_OR_INTERLEAVED"
+    assert all(x["orientation"] == "RETROSPECTIVE_TRANSFER"
+               for x in directional_scope().values())
+
+
+def temporal_transfer(train_start, train_end, test_start, test_end):
+    """Classify a target-year holdout; out-of-time does not imply forecasting."""
+    values = (train_start, train_end, test_start, test_end)
+    if not all(isinstance(value, int) for value in values):
+        raise ValueError("years must be integers")
+    if train_start > train_end or test_start > test_end:
+        raise ValueError("invalid temporal intervals")
+    if test_end < train_start:
+        return "RETROSPECTIVE_TRANSFER"
+    if test_start > train_end:
+        return "PROSPECTIVE_TRANSFER"
+    return "OVERLAPPING_OR_INTERLEAVED"
+
+
+def directional_scope():
+    """Document published years, distinguishing label years from climate years.
+
+    G. campestris: paper §2.2.1 models 2003–2018; upstream public
+    main.R loads historical test labels from gen_1994_2002.csv.
+    T. pacificus: paper §2.2.2 states train 2006–2012, test 2003–2005.
+    """
+    intervals = {
+        DATASETS[0]: (2003, 2018, 1994, 2002),
+        DATASETS[1]: (2006, 2012, 2003, 2005),
+    }
+    return {
+        name: {
+            "train_years": [span[0], span[1]],
+            "external_years": [span[2], span[3]],
+            "orientation": temporal_transfer(*span),
+            "prospective_forecast_authority": "NOT_ESTABLISHED",
+            "year_source": (
+                "article §2.2.1 and upstream GitHub source filenames/main.R"
+                if name == DATASETS[0] else "article §2.2.2"
+            ),
+        }
+        for name, span in intervals.items()
+    }
 
 
 def main():
