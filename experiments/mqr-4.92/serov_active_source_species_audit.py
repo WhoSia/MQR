@@ -63,7 +63,7 @@ def summarize(name):
     required={"lat","long","presence","year"}|{f"bio{i}" for i in range(1,20)}
     if not required.issubset(set(cols)):
         raise ValueError(f"missing original expected science columns: {name}")
-    labels={};year_hist={};complete_year_hist={};incomplete_year_hist={};year_bounds=[float("inf"),float("-inf")]
+    labels={};complete_label_hist={};complete_label_years={};year_hist={};complete_year_hist={};incomplete_year_hist={};year_bounds=[float("inf"),float("-inf")]
     lat=[float("inf"),float("-inf")];lon=[float("inf"),float("-inf")]
     missing=0;total=0
     for row in stream:
@@ -80,6 +80,10 @@ def summarize(name):
                 is_complete=False
             target=complete_year_hist if is_complete else incomplete_year_hist
             target[raw_year]=target.get(raw_year,0)+1
+            if is_complete:
+                complete_label_hist[label]=complete_label_hist.get(label,0)+1
+                annual=complete_label_years.setdefault(raw_year,{})
+                annual[label]=annual.get(label,0)+1
         for key,b in (("lat",lat),("long",lon),("year",year_bounds)):
             try:
                 x=float(row[key])
@@ -91,6 +95,8 @@ def summarize(name):
             "rows":total,"cols":len(cols),"presence_raw_counts":labels,
             "year_count_histogram":year_hist,
             "complete_bioclim_and_label_per_year":complete_year_hist,
+            "complete_case_presence_counts":complete_label_hist,
+            "complete_case_presence_by_year":complete_label_years,
             "incomplete_bioclim_or_label_per_year":incomplete_year_hist,
             "lat_bounds":lat,"long_bounds":lon,"year_bounds":year_bounds,
             "nonfinite_or_missing_core_cells":missing,
@@ -109,7 +115,8 @@ def main():
     for name,z in entries.items():
         print("MQR492_ACTIVE_SOURCE_SPECIES="+json.dumps({"species":name,
            "rows":z["rows"],"presence":z["presence_raw_counts"],
-           "year_bounds":z["year_bounds"],"binary_labels":z["binary_labels_available"],"year_count_histogram":z["year_count_histogram"],"complete_bioclim_and_label_per_year":z["complete_bioclim_and_label_per_year"]}))
+           "year_bounds":z["year_bounds"],"binary_labels":z["binary_labels_available"],"year_count_histogram":z["year_count_histogram"],"complete_bioclim_and_label_per_year":z["complete_bioclim_and_label_per_year"],"complete_case_presence_counts":z["complete_case_presence_counts"],
+      "complete_case_presence_by_year":z["complete_case_presence_by_year"]}))
     print("MQR492_SEROV_ACTIVE_ORIGINAL_DATA_AUDIT=PASS")
 
 if __name__=="__main__": main()
