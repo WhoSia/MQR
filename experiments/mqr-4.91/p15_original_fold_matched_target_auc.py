@@ -17,7 +17,22 @@ from zipfile import ZipFile
 from hashlib import md5, sha256, sha1
 from collections import Counter
 import json, os, subprocess, math
-from p9_maxent_projection_feasibility import INPUTS, download as source_download
+from p9_maxent_projection_feasibility import INPUTS, download as verified_source_download
+import time
+def source_download(name, expected, limit, destination):
+    # Two fresh bounded GETs max. Keep publisher MD5 fail-closed.
+    previous=None
+    for attempt in range(2):
+        try:
+            return verified_source_download(name, expected, limit, destination)
+        except RuntimeError as e:
+            previous=e
+            destination.unlink(missing_ok=True)
+            if "digest mismatch" not in str(e) or attempt==1:
+                raise
+            print("MQR491_P15_UPSTREAM_HASH_MISMATCH_RETRY_ONCE="+name,flush=True)
+            time.sleep(1)
+    raise previous
 
 ROOT=Path(os.getenv("MQR491_P15_OUTPUT","p491-matched-auc"))
 JAR_URL=("https://raw.githubusercontent.com/mrmaxent/Maxent/v3.4.4/"
