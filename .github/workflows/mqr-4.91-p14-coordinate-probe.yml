@@ -1,0 +1,35 @@
+name: MQR-4.91 P1.4 — Original Target Coordinates and Labels
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.91/p14_source_coordinate_join_probe.py'
+      - '.github/workflows/mqr-4.91-p14-coordinate-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-join-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit Original Score CSV Geographic Join Keys
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=experiments/mqr-4.90 python experiments/mqr-4.91/p14_source_coordinate_join_probe.py 2>&1 | tee p491-p14-probe.log
+          grep -Fx MQR491_P14_SOURCE_COLUMNS_AUDITED=PASS p491-p14-probe.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR491-P14-Source-Join-Probe
+          path: |
+            p491-p14-probe.log
+            p491-p14-coordinates/source-columns.json
+          retention-days: 30
