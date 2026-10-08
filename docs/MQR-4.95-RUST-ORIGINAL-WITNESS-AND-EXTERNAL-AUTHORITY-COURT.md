@@ -74,6 +74,21 @@ After P1 closed as a code court, **the original Serov article's Methods were re-
 
 **New P2 discriminant:** First fetch original GBIF download/constituent dataset lineage (`0031144-240626123714530`) and check it against any prospective FinBIF source/record keys before promoting independence. If it is merely identical or derived data, record `SOURCE_ROOT_COLLISION`. Direct original GBIF downloadable metadata endpoint was not accessed through available public fetch in this court; only the article's explicit citation was verified. No independent external field calibration is admitted. This provenance result **narrows candidate search** even while 4.95 stays OPEN.
 
+## 5B. Rust original-GBIF-record source-lineage gate, current final CI
+
+Following the article's original GBIF download disclosure, Rust source `experiments/mqr-4.95/src/provenance.rs` was added and wired into `main.rs`. This is an explicit typed **source collision** gate, not a secret new data source. It pins `Anemone nemorosa L.` and the Serov original paper's exact original [GBIF download 0031144-240626123714530](https://www.gbif.org/occurrence/download/0031144-240626123714530). The finite fixture court distinguishes:
+- same original GBIF download under any portal name → `ReusedOriginalDownload`;
+- different download with overlapping original occurrence record ID → `OverlappingObservationId`;
+- different taxon → `TaxonMismatch`;
+- wrong original target-frame site/time/effort protocol → `TargetFrameMismatch`;
+- no verified observed non-detection/absence → `BinaryNegativeObservationMissing`;
+- unknown occurrence ancestry or only a new URL → `SourceAncestryUnresolved`;
+- at best, a fully **hypothetically asserted**, duplicate-free, taxon- and protocol-matched specimen may be `CandidateForExternalHumanAuditOnly`, **NOT automatically verified independent calibration**.
+
+Final [CI 37809168246](https://github.com/WhoSia/MQR/actions/runs/37809168246) SUCCESS: **13 Rust unit tests PASS**, original CSV Git blob and original-data same-root label audit PASS; original GBIF parent record source-collision test PASS; original-data finite target risk numbers unchanged from first success. The implemented evidence-type tests use mocked synthetic manifest IDs and do not demonstrate a real GBIF data fetch, live independent metadata audit or actual independent observer record. It is a **falsifier for obvious source-root aliasing**, not positive certification of observation independence.
+
+Final derived ZIP source/artifact receipt in original Drive `02_ANALYSIS_SAFE`: [MQR495-Rust-GBIF-Ancestry-and-Target-Witness-Final.zip](https://drive.google.com/file/d/1vqbO4kcSAAiQrP1ksrBh4_U7hUsJWQFz/view) (3,261 bytes). Previous same-stage result receipt `1vqbO4kcSAAiQrP1ksrBh4_U7hUsJWQFz` supersedes neither historical failing CI logs nor first P1 receipt `198s1pn9cUlQxfDvoO68rjpNmiYuQqcNh`; retain both because the first run captured the P1 state before ancestry patch.
+
 ## 6. Current scientific verdict and continuation trigger
 
 **PASS:** real pinned original source, Rust-native model and 64-site label-masking audit, exact finite-label risk bounds and observable contraction, deterministic site-budget mathematical optimum, adversarial world counterexample, Rust type-level claim-scope tests, mathematical pairwise-inclusion and Horvitz–Thompson micro-fixtures, continuous CI/Drive artifact provenance.
