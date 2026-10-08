@@ -1,0 +1,43 @@
+name: MQR-4.90 P8 — Original Fourfold CV Source Verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.90/p8_original_cv_folds.py'
+      - 'experiments/mqr-4.90/canonical/src/bin/audit_cv_folds.rs'
+      - '.github/workflows/mqr-4.90-p8-cv-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-folds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original Maxent fold-fit source and published table A4
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.90/p8_original_cv_folds.py | tee p8-original-cv.log
+          grep -Fx 'MQR490_P8_CV_FOLD_MODELS=12' p8-original-cv.log
+          grep -Fx 'MQR490_P8_CV_ORIGINAL_RESULTS=PASS' p8-original-cv.log
+      - name: Independently verify A4 fold-source data in Rust
+        run: |
+          set -euo pipefail
+          cargo run --offline --quiet --manifest-path experiments/mqr-4.90/canonical/Cargo.toml --bin audit_cv_folds -- p8-materialization/p8-publisher-cv-folds.csv | tee p8-original-cv-rust.log
+          grep -Fx 'MQR490_P8_CV_FOLD_SOURCE_REPRODUCTION=PASS' p8-original-cv-rust.log
+          grep -Fx 'MQR490_P8_CV_NEGATIVE_REFERENCE_EQUIVALENCE_TO_TARGET=NOT_ESTABLISHED' p8-original-cv-rust.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR490-P8-Original-Fourfold-CV-Source-Receipt
+          path: |
+            p8-original-cv.log
+            p8-original-cv-rust.log
+            p8-materialization/p8-publisher-cv-folds.csv
+          retention-days: 30
