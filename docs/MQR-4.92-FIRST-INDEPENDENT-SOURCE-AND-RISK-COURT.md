@@ -58,3 +58,14 @@ Critical cross-paper nonadmission: Matsui rank-AUC and Serov target-loss risk **
 **HOLD:** paper's full original experimental MAPE/KMM result replication; independent second *publication-level* result reproduced; objective external method superiority; spatial holdout, spatial dependence uncertainty; completeness/minimality of any evidence repair proof; significant out-of-distribution risk correction; error-correctness improvement beyond human/file/numeric baselines.
 
 **Actionable next within 4.92:** Reconstruct exactly the authors' study active-notebook preprocessing including year/class screens without relabeling; compare four estimators under original source trials with prespecified class balance and actual space/time split; benchmark contract rule against a serious rival and blinded original source human audit. Record costs and false admission rates without optimistic tuning. Check coordinate-name inversion by geographic knowledge and downstream use before assigning defect severity. Preserve one MQR Notion canonical root, no version subpages or Labs rows; do not open 4.93.
+
+## VI. Permanent raw source receipts (Google Drive 02_ANALYSIS_SAFE)
+
+Both the GitHub human-authored source code and actual CI artifacts are preserved. Original code, raw plant CSV and notebook files remain in the pinned author repository; these small receipts hold hashes, command output and JSON audit results, not full hundreds-of-MB original research datasets.
+
+- Author function risk source smoke CI 37793832383 → Drive file `1_nELQEPNIq8XnXhLm5J0mXi93eaobaTS` (1,293 B).
+- Two-root constructed contract regression CI 37794048359 → Drive file `1EPzX88O4b_wTB-RalQWAxp7Ya7z1Lm_b` (1,658 B).
+- Original active species year×label×BIO-completeness CI 37795655846 → Drive file `1VWZSq4qNPLoYiVBu11pweKqLbzTihO0p` (4,593 B).
+- Anemone actual original risk function year-split pilot and reweighting diagnostics CI 37796041048 → Drive file `15douq9UXvqf7b29-vaEK1JP4n9LmvoL1` (2,079 B).
+
+Each file's name, size, ZIP MIME type and existing `02_ANALYSIS_SAFE` parent ID `1szynM5kvA7sMExkaJ5sjvwrO3HPaXT1X` were independently confirmed by Drive metadata readback after upload. No original publisher files renamed, copied or modified; no new MQR Notion Lab or child was created.
