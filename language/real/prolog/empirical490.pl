@@ -131,6 +131,26 @@ admit_reference_only_tv_bridge(Id, Upper) :-
 minimal_witness_set(matsui_2026, WitnessList) :-
     findall(W, missing_bridge_witness(matsui_2026, W), WitnessList).
 
+% P9 coarse-REPORT-ONLY nonidentification (not a Maxent source replay).
+% Each fixed pair of two positive/two negative rankings has AUC numerator
+% 0..4; a published native CV and published final target AUC do not
+% specify the UNREPORTED target score of the original fold predictor.
+% These completions are synthetic witness worlds, not observed effects.
+reported_pair(summary_world_high, 3, 2).
+reported_pair(summary_world_low, 3, 2).
+unreported_fold_target_wins(summary_world_high, 4).
+unreported_fold_target_wins(summary_world_low, 0).
+same_reporting_surface(A,B) :-
+    dif(A,B), reported_pair(A,CV,F), reported_pair(B,CV,F).
+hidden_gap_sign(World, positive) :-
+    reported_pair(World,_,Final),unreported_fold_target_wins(World,Fold),Fold>Final.
+hidden_gap_sign(World, negative) :-
+    reported_pair(World,_,Final),unreported_fold_target_wins(World,Fold),Fold<Final.
+summary_nonidentification_countermodel :-
+    same_reporting_surface(summary_world_high,summary_world_low),
+    hidden_gap_sign(summary_world_high,positive),
+    hidden_gap_sign(summary_world_low,negative).
+
 % Independent typed test cases are nonempirical, except the grounded
 % reported tables and source-genealogy facts stated above.
 :- begin_tests(mqr490).
@@ -151,6 +171,7 @@ test(wang_precision_witness) :- reason(wang_2023_amazon, paired_uncertainty_abse
 test(wadoux_wang_shared_root) :-
     shares_raw_family(wadoux_2021_amazon, wang_2023_amazon).
 test(reporting_receipt_concordance) :- emit_policy_receipt.
+test(summary_only_finite_nonidentification) :- summary_nonidentification_countermodel.
 test(matsui_ten_original_scores_reproduced) :- raw_external_auc_reproduced(matsui_2026,10).
 test(matsui_missing_reference_tv_witness, [fail]) :- admit_reference_only_tv_bridge(matsui_2026,_).
 test(synthetic_reference_tv_positive_control) :- admit_reference_only_tv_bridge(ideal_reference_bridge, 0.10).
