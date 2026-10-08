@@ -20,6 +20,12 @@ evidence(wang_2023_amazon, development_cv, spatially_disjoint,
 evidence(ideal_prospective, development_cv, prospective,
          same_reference, same_deployment, paired_precision,
          independent_cohort, disjoint_target).
+evidence(ideal_spatial, development_cv, spatially_disjoint,
+         same_reference, same_deployment, paired_precision,
+         independent_cohort, disjoint_target).
+evidence(ideal_backcast, development_cv, retrospective,
+         same_reference, same_deployment, paired_precision,
+         independent_cohort, disjoint_target).
 
 % A source can be eligible only under the exact future target-relative
 % validation-optimism estimand. Explain why other receipts cannot promote.
@@ -50,6 +56,20 @@ admit(Id) :-
     nonvar(Id),
     evidence(Id, _, _, _, _, _, _, _),
     \+ reason(Id, _).
+
+% Target-conditioned admissibility: the original admit/1 is for a
+% prospective future forecast claim only. A spatial holdout can support
+% spatial transport; a retrospective holdout can support historical
+% backcasting, but neither implies a future forecast on its own.
+compatible_scope(prospective, future_forecast).
+compatible_scope(spatially_disjoint, spatial_transport).
+compatible_scope(retrospective, historical_backcast).
+
+admit_for_scope(Id, Claim) :-
+    nonvar(Id), nonvar(Claim),
+    evidence(Id, _, Direction, _, _, _, _, _),
+    compatible_scope(Direction, Claim),
+    \+ (reason(Id, Other), Other \= not_prospective_target).
 
 % Directed lineage graph. Shared extraction roots defeat the assumption
 % that citations or repeated samples produce independent studies.
@@ -95,6 +115,10 @@ test(reject_matsui_reference, [fail]) :- admit(matsui_2026).
 test(reject_serov_conditional_population, [fail]) :- admit(serov_2026_demo).
 test(reject_wang_in_sample_reference, [fail]) :- admit(wang_2023_amazon).
 test(accept_precisely_eligible_positive_control) :- admit(ideal_prospective).
+test(admit_spatial_for_spatial_claim) :- admit_for_scope(ideal_spatial, spatial_transport).
+test(reject_spatial_for_future_claim, [fail]) :- admit_for_scope(ideal_spatial, future_forecast).
+test(admit_backcast_for_historical_claim) :- admit_for_scope(ideal_backcast, historical_backcast).
+test(reject_backcast_as_spatial, [fail]) :- admit_for_scope(ideal_backcast, spatial_transport).
 test(fail_closed_unknown, [fail]) :- admit(unknown_id).
 test(oracle_witness) :- reason(kold_2025, test_informed_selection).
 test(matsui_negative_witness) :- reason(matsui_2026, reference_design_mismatch).
