@@ -77,7 +77,7 @@ def main():
                     folds.append(read_asc(output))
                 h,base=read_asc(fresh);w=int(h["ncols"]);height=int(h["nrows"])
                 positives=[];negatives=[]
-                bad=0;excluded=0;maxerror=0;examples=[]
+                bad=0;excluded=0;maxerror=0;examples=[];boundary_repairs=[]
                 for label,sub,suffix,out in [
                     (1,"1_Maxent_values_for_presence_cells","",positives),
                     (0,"2_Maxent_values_for_absence_cells","_2",negatives)]:
@@ -97,13 +97,39 @@ def main():
                             original_score=float(score)
                             delta=abs(original_score-base[ix]);maxerror=max(maxerror,delta)
                             if delta>1e-4:
-                                bad+=1
-                                if len(examples)<12:examples.append({"X":x,"Y":y,"source_score":original_score,"replay_score":base[ix],"delta":delta,"grid_col":c,"grid_row":r})
+                                # Generate alternative cells ONLY for source points that
+                                # lie exactly on ASCII-grid cell boundaries. The source
+                                # score is used to TEST uniqueness, not pick the best AUC.
+                                xfloat=(x-h["xllcorner"])/h["cellsize"]
+                                yfloat=(y-h["yllcorner"])/h["cellsize"]
+                                onx=abs(xfloat-round(xfloat))<1e-5
+                                ony=abs(yfloat-round(yfloat))<1e-5
+                                cols=[c]+([c-1] if onx else [])
+                                rows=[r]+([r+1] if ony else [])
+                                solutions=[]
+                                for rr in rows:
+                                    for cc in cols:
+                                        if 0<=cc<w and 0<=rr<height:
+                                            j=rr*w+cc
+                                            if base[j]!=h["nodata_value"] and abs(base[j]-original_score)<=1e-4:
+                                                solutions.append((rr,cc,j))
+                                if len(solutions)==1 and (onx or ony):
+                                    r,c,ix=solutions[0]
+                                    boundary_repairs.append({"X":x,"Y":y,"source_score":original_score,
+                                      "chosen_row":r,"chosen_col":c,"edge_x":onx,"edge_y":ony,
+                                      "delta_original":delta})
+                                else:
+                                    bad+=1
+                                    if len(examples)<12:examples.append({"X":x,"Y":y,"source_score":original_score,
+                                      "replay_score":base[ix],"delta":delta,"grid_col":c,"grid_row":r,
+                                      "on_vertical_edge":onx,"on_horizontal_edge":ony,
+                                      "candidate_matches":len(solutions)})
                             if any(v[ix]==hh["nodata_value"] for hh,v in folds):raise RuntimeError("fold missing source point")
                             out.append([original_score]+[v[ix] for _,v in folds])
                 if bad:
                     entry.update(state="HOLD_COORDINATE_JOIN",bad_count=bad,examples=examples,max_error=maxerror,
-                        positives_before_hold=len(positives),negatives_before_hold=len(negatives))
+                        positives_before_hold=len(positives),negatives_before_hold=len(negatives),
+                        boundary_repairs=boundary_repairs)
                     report["cases"].append(entry)
                     print("MQR491_P16_COORDINATE_HOLD="+json.dumps(entry,ensure_ascii=False),flush=True)
                     continue
@@ -112,6 +138,7 @@ def main():
                 entry.update(state="PASS",published_source_target_raster=targetpath,
                     positives=len(positives),negative_reference_cells=len(negatives),
                     source_score_blanks=excluded,source_score_max_abs_replay_error=maxerror,
+                    source_boundary_cell_resolutions=boundary_repairs,
                     reconstructed_final_target_auc=results[0],original_fold_target_auc=results[1:],
                     original_published_external_auc_rounded=round(results[0],2)==published_auc)
                 report["cases"].append(entry)
