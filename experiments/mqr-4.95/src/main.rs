@@ -358,6 +358,6 @@ mod tests {
             }
         }
     }
-    #[test] fn quoted_original_csv_header() {assert_eq!(headers("\\\"lat\\\",\\\"long\\\",\\\"bio1\\\""),vec!["lat","long","bio1"]);}
+    #[test] fn quoted_original_csv_header() {assert_eq!(headers(r#""lat","long","bio1""#), vec!["lat","long","bio1"]);}
     #[test] fn stable_fnv_source_selection() {assert_eq!(fnv(b"hello"),0xa430d84680aabd0b);}
 }
