@@ -17,7 +17,7 @@ namespace MQR.Empirical490
 -- AUC for each pair is winning-positive-negative comparisons / 4.
 def nullAUCNumerators : List Nat := [0, 1, 2, 2, 3, 4]
 
-def passTargetFilter (wins : Nat) : Bool := wins * 10 > 4 * 7
+def passTargetFilter (wins : Nat) : Bool := decide (wins * 10 > 4 * 7)
 
 def filteredNumerators : List Nat :=
   nullAUCNumerators.filter passTargetFilter
