@@ -1,0 +1,35 @@
+name: MQR 4.92 — Two-Source Evaluation Contract Adversarial Benchmark
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.92/source_contract_adversarial_benchmark.py'
+      - '.github/workflows/mqr-4.92-contract-benchmark.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  constructed-source-contract-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare Weak Source Metadata Baselines to Typed Claim Decisions
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.92/source_contract_adversarial_benchmark.py 2>&1 | tee mqr492-contract-adversarial.log
+          grep -Fx MQR492_SOURCE_CONTRACT_ADVERSARIAL_TEST=PASS mqr492-contract-adversarial.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR492-Two-Source-Adversarial-Contract-Receipt
+          path: |
+            mqr492-contract-adversarial.log
+            mqr492-source-contract-benchmark.json
+          retention-days: 30
