@@ -6,7 +6,7 @@
 - source fit on years 2000–2012, source validation on 2013–2016,
   temporal target evaluation on 2017–2024,
 - no model/weight/metric tuning on target y,
-- deterministic outcome-blind subsampling up to 1200/64/64,
+- deterministic outcome-blind subsampling up to 512/64/64,\n- fit cap reduced from 1200 after FIRST source-only feasibility rejection:\n  2000–2012 yielded 758 complete BIO+label rows, not enough for 1200;\n  no risk estimate had been evaluated when this count-based change was made,
 - author-original NW and KMM estimator function code pinned and unmodified.
 This differs from Serov et al.'s reported paper experimental protocol, so
 the result is a bounded independent-source pipeline pilot, NOT replication
@@ -22,7 +22,7 @@ from serov_author_function_replay import verified_original_code, source_function
 
 DATA="anemone"
 PATH="datasets/species/anemone.csv"
-PARTS={"fit":(2000,2012,1200),"source_holdout":(2013,2016,64),"target_holdout":(2017,2024,64)}
+PARTS={"fit":(2000,2012,512),"source_holdout":(2013,2016,64),"target_holdout":(2017,2024,64)}
 OUT=Path("mqr492-anemone-predeclared-real-source-risk.json")
 
 def sample_data():
@@ -99,6 +99,7 @@ def main():
       "source_estimator_file":"source/estimations.py",
       "design":"year-based non-spatial heldout; 19 original BIO features, binary presence",
       "periods":{k:list(v[:2]) for k,v in PARTS.items()},
+      "prespecified_feasibility_revision":"Original 1200 fit-size rejected before risk estimation; revised to 512 only after independent completed-BIO cohort count 758; no target metric observed",
       "original_eligible_row_counts":cohorts,
       "chosen_sizes":{k:len(v) for k,v in chosen.items()},
       "class_positive_by_chosen_group":{
@@ -121,6 +122,7 @@ def main():
       "nonadmissions":[
         "Temporal holdout is not a spatial generalization benchmark",
         "Subsampled new experimental design is not the original author reported risk experiment",
+        "Complete BIO case filtration can induce serious population and year selection bias",
         "A single 64+64 holdout yields no independent population-level confidence interval",
         "The same study's target labels are available solely for post-hoc oracle evaluation",
         "This does not establish KMM is superior to NW or a novel MQR method"
