@@ -1,10 +1,10 @@
-# MQR 4.92 — Opening Research Precommit (Proposed Formal Name)
-**Proposed formal name, subject to author confirmation:**
+# MQR 4.92 — Canonical Research Constitution
+**Author-confirmed formal name (2026-10-08):**
 **MQR-4.92 — Cross-Study Evaluation Contracts, Spatial Prediction–Performance Discordance, Source-Root Dependence & Falsifiable Evidence-Repair Benchmarks**
 
 Korean: **연구 간 평가 계약, 공간 예측과 성능의 불일치, 자료 계보 의존성 및 반증 가능한 증거 복구 벤치마크**.
 
-**Version status:** `OPEN / P0 PRECOMMIT / TITLE PROPOSED, NOT YET CONFIRMED`.
+**Version status:** `OPEN / P0 CANONICAL / FORMAL TITLE CONFIRMED BY USER`.
 **Predecessor:** 4.91 `CLOSED / SOURCE-SCOPED EMPIRICAL PASS / METHOD NOVELTY HOLD` as `docs/MQR-4.91-FINAL-SCIENTIFIC-CLOSEOUT.md`.
 **Research form:** Within the existing MQR single-Lab Notion page only; this GitHub file is an admissible research artifact, not permission to create Notion 4.92 pages or Labs rows. Four or more experiments may follow within this ONE version, not new numbered Labs.
 
@@ -55,4 +55,4 @@ MQR 4.91 source original fold-raster map correlation numerical replay was blocke
 - **NEGATIVE/BOUNDED:** existing published methods and simple baselines match or surpass added type rules; document that the incremental scientific value is unsupported and close rather than continue indefinitely.
 - **HOLD:** independent original study source inaccessible or incompatible, blocked map replay, missing evaluation identity, lack of independent root count for statistical uncertainty, or no honest comparator.
 
-**Execution ethic:** reason judgment up front, cheap bounded source tests, no bot-authored commits, no new Notion pages/folders, no Notion Labs duplicates. Keep title provisional until user confirms; next MQR version beyond 4.92 is not authorized by this document.
+**Execution ethic:** reason judgment up front, cheap bounded source tests, no bot-authored commits, no new Notion pages/folders, no Notion Labs duplicates. Title is confirmed by the author; do not move the version number beyond 4.92 without fresh authorization.
