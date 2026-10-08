@@ -98,6 +98,9 @@ def main():
         raise AssertionError("source function estimator and author original weights numerically disagree")
     if not math.isclose(float(np.mean(l_g)),source_risk,rel_tol=1e-10):
         raise AssertionError("source NW estimator vs independent source validation loss mismatch")
+    effective_sample_size=float(np.sum(w)**2/np.sum(w**2))
+    if not 0<effective_sample_size<=len(w)+1e-6:
+        raise AssertionError("invalid bounded KMM effective sample size")
     result={
       "status":"BOUNDED_REAL_ORIGINAL_DATA_ESTIMATOR_PILOT_PASS",
       "original_study":"Serov-Koldasbayeva-Zaytsev 2026 Scientific Reports",
@@ -119,7 +122,8 @@ def main():
          "NW_absolute_target_error":abs(source_risk-target_oracle),
          "KMM_absolute_target_error":abs(kmm_risk-target_oracle)},
       "kmm_weight_summary":{"min":float(np.min(w)),"max":float(np.max(w)),
-          "sum":float(np.sum(w))},
+          "sum":float(np.sum(w)),"effective_sample_size":effective_sample_size,
+          "n_source_heldout_weights":len(w)},
       "provenance_guard":{
         "target_Y_used_for_training":False,
         "target_Y_used_for_reweighting":False,
@@ -137,6 +141,10 @@ def main():
     OUT.write_text(json.dumps(result,indent=2),encoding="utf8")
     print("MQR492_REAL_SOURCE_COHORTS="+json.dumps(result["chosen_sizes"]))
     print("MQR492_REAL_SOURCE_RISK="+json.dumps(result["risk_metrics"],sort_keys=True))
+    print("MQR492_REAL_SOURCE_DIAGNOSTICS="+json.dumps({
+        "eligible_by_group":cohorts,"positive_count":result["class_positive_by_chosen_group"],
+        "KMM_weight_effective_n":effective_sample_size,"KMM_weight_max":float(np.max(w)),
+        "KMM_weight_min":float(np.min(w))},sort_keys=True))
     print("MQR492_SEROV_REAL_ORIGINAL_DATA_PILOT=PASS")
 
 if __name__=="__main__":main()
