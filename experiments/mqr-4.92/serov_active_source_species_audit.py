@@ -62,13 +62,16 @@ def summarize(name):
     required={"lat","long","presence","year"}|{f"bio{i}" for i in range(1,20)}
     if not required.issubset(set(cols)):
         raise ValueError(f"missing original expected science columns: {name}")
-    labels={};year_bounds=[float("inf"),float("-inf")]
+    labels={};year_hist={};year_bounds=[float("inf"),float("-inf")]
     lat=[float("inf"),float("-inf")];lon=[float("inf"),float("-inf")]
     missing=0;total=0
     for row in stream:
         total+=1
         label=(row.get("presence") or "").strip()
         labels[label]=labels.get(label,0)+1
+        raw_year=(row.get("year") or "").strip()
+        if raw_year:
+            year_hist[raw_year]=year_hist.get(raw_year,0)+1
         for key,b in (("lat",lat),("long",lon),("year",year_bounds)):
             try:
                 x=float(row[key])
@@ -78,6 +81,7 @@ def summarize(name):
     if total<100:raise ValueError("unexpected tiny publisher dataset")
     return {"source_file":path,"git_blob_sha1":sha,"bytes":len(raw),
             "rows":total,"cols":len(cols),"presence_raw_counts":labels,
+            "year_count_histogram":year_hist,
             "lat_bounds":lat,"long_bounds":lon,"year_bounds":year_bounds,
             "nonfinite_or_missing_core_cells":missing,
             "binary_labels_available":all(v in labels for v in ("0","1"))}
@@ -95,7 +99,7 @@ def main():
     for name,z in entries.items():
         print("MQR492_ACTIVE_SOURCE_SPECIES="+json.dumps({"species":name,
            "rows":z["rows"],"presence":z["presence_raw_counts"],
-           "year_bounds":z["year_bounds"],"binary_labels":z["binary_labels_available"]}))
+           "year_bounds":z["year_bounds"],"binary_labels":z["binary_labels_available"],"year_count_histogram":z["year_count_histogram"]}))
     print("MQR492_SEROV_ACTIVE_ORIGINAL_DATA_AUDIT=PASS")
 
 if __name__=="__main__": main()
