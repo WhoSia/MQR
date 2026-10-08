@@ -36,11 +36,11 @@ jobs:
           python experiments/mqr-4.89/adversarial_receipt_court.py | tee adversarial.log
           grep -Fx 'MQR489_ADVERSARIAL_PASS=12' adversarial.log
           grep -Fx 'MQR489_EXTERNAL_VERIFICATION=NOT_PERFORMED' adversarial.log
-      - name: Check replay receipt gates
+      - name: Check deprecated replay API fails closed
         run: |
           set -euo pipefail
           python experiments/mqr-4.89/replay_receipt_gates.py | tee replay.log
-          grep -Fx 'MQR489_REPLAY_GATES_PASS=7' replay.log
+          grep -Fx 'MQR489_LEGACY_FAIL_CLOSED_PASS=7' replay.log
           grep -Fx 'MQR489_REPLAY_PERFORMED=NO' replay.log
       - name: Verify byte-bound replay receipts
         run: |
