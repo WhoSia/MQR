@@ -1,0 +1,44 @@
+name: MQR-4.90 P8 — Preserve Publisher Supplement MMC S1
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.90-p8-supplement-preservation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify and capture original publisher's S4 tables PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p supplement
+          curl --fail --location --retry 2 --max-time 180 \
+            'https://ars.els-cdn.com/content/image/1-s2.0-S1574954125005308-mmc1.pdf' \
+            --output 'supplement/Koldasbayeva_Zaytsev_2025_MMC-S1_Methods_Results_S1-S4.pdf'
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          p=Path("supplement/Koldasbayeva_Zaytsev_2025_MMC-S1_Methods_Results_S1-S4.pdf")
+          raw=p.read_bytes()
+          assert raw.startswith(b"%PDF-"), "not a real PDF"
+          assert 1_000_000 < len(raw) < 15_000_000, "unexpected source size"
+          sha=hashlib.sha256(raw).hexdigest()
+          (p.parent/"SHA256SUMS").write_text(f"{sha}  {p.name}\n")
+          print("MQR490_P8_PUBLISHER_S4_SHA256="+sha)
+          print("MQR490_P8_PUBLISHER_S4_BYTES="+str(len(raw)))
+          print("MQR490_P8_PUBLISHER_S4_PDF=PASS")
+          PY
+          (cd supplement && sha256sum --check SHA256SUMS)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR490-P8-Original-Publisher-Supplement-S1
+          path: supplement/
+          retention-days: 30
