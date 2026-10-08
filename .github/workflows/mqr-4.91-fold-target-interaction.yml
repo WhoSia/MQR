@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'experiments/mqr-4.91/fold_target_interaction_analysis.py'
+      - 'experiments/mqr-4.91/evaluation_contract_guard.py'
       - '.github/workflows/mqr-4.91-fold-target-interaction.yml'
   workflow_run:
     workflows:
@@ -27,6 +28,7 @@ jobs:
         run: |
           set -euo pipefail
           python experiments/mqr-4.91/fold_target_interaction_analysis.py --self-test
+          python experiments/mqr-4.91/evaluation_contract_guard.py --self-test
   from-source-receipt:
     if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
@@ -56,7 +58,10 @@ jobs:
           test "$(printf '%s\n' "$f" | wc -l)" -eq 1
           python experiments/mqr-4.91/fold_target_interaction_analysis.py \
             --self-test --input "$f" --output fold-target-interaction.json 2>&1 | tee fold-target-interaction.log
+          python experiments/mqr-4.91/evaluation_contract_guard.py --self-test \
+            --input "$f" --output mqr491-comparability.json 2>&1 | tee mqr491-comparability.log
           grep -Fx MQR491_TEN_TARGET_FACTOR_ANALYSIS=PASS fold-target-interaction.log
+          grep -Fx MQR491_TYPED_SOURCE_GUARD=PASS mqr491-comparability.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -64,4 +69,6 @@ jobs:
           path: |
             fold-target-interaction.log
             fold-target-interaction.json
+            mqr491-comparability.json
+            mqr491-comparability.log
           retention-days: 30
