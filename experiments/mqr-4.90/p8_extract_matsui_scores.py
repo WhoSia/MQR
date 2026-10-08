@@ -54,14 +54,21 @@ def read_scores(z, member, label):
         if "SAMPLE_1" not in fields:
             raise RuntimeError(f"missing Maxent cloglog score column {member.filename}: {fields}")
         values = []
+        missing = 0
         for row in reader:
-            score = float(row["SAMPLE_1"])
+            cell = (row.get("SAMPLE_1") or "").strip()
+            if cell == "" or cell.upper() in {"NA", "N/A", "NULL"}:
+                # Outside Maxent prediction footprint, an absent model
+                # score is NOT a score of zero. Preserve missingness.
+                missing += 1
+                continue
+            score = float(cell)
             if not (0 <= score <= 1):
                 raise RuntimeError("score outside cloglog [0,1], likely source mismatch")
             values.append((label, score))
     if not values:
         raise RuntimeError(f"empty target score set {member.filename}")
-    return values
+    return values, missing
 
 
 def main():
@@ -72,8 +79,8 @@ def main():
         yes = select_entry(z, "1_Maxent_values_for_presence_cells", CASE)
         # README says an extra 2 is appended to absence-cell filenames.
         no = select_entry(z, "2_Maxent_values_for_absence_cells", "Oxalis_latifolia_America-Oceania_2.csv")
-        positives = read_scores(z, yes, 1)
-        negatives = read_scores(z, no, 0)
+        positives, missing_pos = read_scores(z, yes, 1)
+        negatives, missing_neg = read_scores(z, no, 0)
         scores = ARTIFACT_DIR / "oxalis-america-oceania-reference-scores.csv"
         with scores.open("w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
@@ -92,6 +99,9 @@ def main():
             "absence_score_member": no.filename,
             "presence_records": len(positives),
             "absence_reference_cell_records": len(negatives),
+            "missing_presence_prediction_cells": missing_pos,
+            "missing_negative_prediction_cells": missing_neg,
+            "missing_prediction_policy": "exclude blank or NA model predictions, do not impute 0",
             "score_stream_sha256": sha256(scores.read_bytes()).hexdigest(),
             "status": "EXTRACTED_NOT_YET_ADMITTED",
             "limitations": [
@@ -106,6 +116,8 @@ def main():
     )
     print("MQR490_P8_PRESENCE_COUNT=" + str(len(positives)))
     print("MQR490_P8_REFERENCE_NEGATIVE_COUNT=" + str(len(negatives)))
+    print("MQR490_P8_MISSING_PRESENCE_PREDICTIONS=" + str(missing_pos))
+    print("MQR490_P8_MISSING_NEGATIVE_PREDICTIONS=" + str(missing_neg))
     print("MQR490_P8_SCORE_STREAM_SHA256=" + provenance["score_stream_sha256"])
     print("MQR490_P8_SCORE_EXTRACTION=PASS")
 
