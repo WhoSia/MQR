@@ -1,0 +1,90 @@
+name: MQR-4.90 Canonical Rust, Lean and Prolog Court
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.90/canonical/**'
+      - 'experiments/mqr-4.90/*.csv'
+      - 'language/real/lean/MQR/Empirical490.lean'
+      - 'language/real/prolog/empirical490.pl'
+      - '.github/workflows/mqr-4.90-multilanguage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rust-canonical:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test typed source and estimand contracts with Rust
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/mqr-4.90/canonical
+          cargo test --offline --verbose
+          cargo run --offline --quiet | tee "$GITHUB_WORKSPACE/mqr490-rust.log"
+          grep -Fx 'MQR490_RUST_CANONICAL_SOURCE_ROWS=36' "$GITHUB_WORKSPACE/mqr490-rust.log"
+          grep -Fx 'MQR490_RUST_CANONICAL_MATSUI_PAIRS=10' "$GITHUB_WORKSPACE/mqr490-rust.log"
+          grep -Fx 'MQR490_RUST_CANONICAL_NULL_COUNTS=12,7,2,6' "$GITHUB_WORKSPACE/mqr490-rust.log"
+          grep -Fx 'MQR490_RUST_PRIMARY_SIGNED_EFFECTS=0' "$GITHUB_WORKSPACE/mqr490-rust.log"
+          grep -Fx 'MQR490_RUST_VERDICT=PASS' "$GITHUB_WORKSPACE/mqr490-rust.log"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR490-Rust-Canonical
+          path: mqr490-rust.log
+          retention-days: 30
+  prolog-lineage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install SWI-Prolog only for executable logic tests
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq swi-prolog-nox
+      - name: Prove stratified rejection and genealogical dependency queries
+        shell: bash
+        run: |
+          set -euo pipefail
+          swipl -q -s language/real/prolog/empirical490.pl -g 'run_tests(mqr490),halt(0)' -t 'halt(1)' 2>&1 | tee mqr490-prolog.log
+          echo 'MQR490_PROLOG_LINEAGE_COURT=PASS' | tee -a mqr490-prolog.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR490-Prolog-Lineage
+          path: mqr490-prolog.log
+          retention-days: 30
+  lean-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: false
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Kernel-check the six-state source-conditioned fixture
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd language/real/lean
+          lake env lean MQR/Empirical490.lean | tee "$GITHUB_WORKSPACE/mqr490-lean.log"
+          if grep -E 'sorryAx|unknown declaration' "$GITHUB_WORKSPACE/mqr490-lean.log"; then exit 1; fi
+          grep -F 'does not depend on any axioms' "$GITHUB_WORKSPACE/mqr490-lean.log"
+          echo 'MQR490_LEAN_THEOREMS=PASS' | tee -a "$GITHUB_WORKSPACE/mqr490-lean.log"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR490-Lean-Kernel
+          path: mqr490-lean.log
+          retention-days: 30
