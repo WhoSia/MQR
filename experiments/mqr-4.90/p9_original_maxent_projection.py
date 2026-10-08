@@ -66,21 +66,43 @@ def read_asc(path):
 def compare(original,reprojected):
     h1,a=read_asc(original)
     h2,b=read_asc(reprojected)
-    for k in ("ncols","nrows","xllcorner","yllcorner","cellsize"):
-        if not math.isclose(h1[k],h2[k],abs_tol=1e-9,rel_tol=0):
-            raise RuntimeError(f"grid geometry mismatch: {k} {h1[k]} {h2[k]}")
-    valid=[];missing=0
-    for x,y in zip(a,b):
-        if x==h1["nodata_value"] and y==h2["nodata_value"]:
-            missing+=1;continue
-        if (x==h1["nodata_value"])!=(y==h2["nodata_value"]):
-            raise RuntimeError("replayed model has different valid area")
-        valid.append(abs(x-y))
-    if len(valid)<250:
-        raise RuntimeError("too few scored map grid cells")
-    return {"n_scored":len(valid),"n_missing":missing,
-            "max_abs_diff":max(valid),"mean_abs_diff":sum(valid)/len(valid),
-            "grid_geometry":h1}
+    # Original author publication can be an explicitly cropped target grid.
+    # Reprojected climates are the entire ecoregion extent. Never compare
+    # different raster columns or assume identical data array origin.
+    size=h1["cellsize"]
+    if not math.isclose(size,h2["cellsize"],abs_tol=1e-10,rel_tol=0):
+        raise RuntimeError("different source and replay cell sizes")
+    dx=(h1["xllcorner"]-h2["xllcorner"])/size
+    dy=(h1["yllcorner"]-h2["yllcorner"])/size
+    if abs(dx-round(dx))>1e-6 or abs(dy-round(dy))>1e-6:
+        raise RuntimeError(f"target raster does not align with climate grid: dx={dx}, dy={dy}")
+    xoff,yoff=round(dx),round(dy)
+    w1,hgt1=int(h1["ncols"]),int(h1["nrows"])
+    w2,hgt2=int(h2["ncols"]),int(h2["nrows"])
+    diffs=[]; missing=0; uncovered=0
+    for row1 in range(hgt1):
+        # ASCII grids begin at the northern boundary, yllcorner at south.
+        row2=hgt2-yoff-hgt1+row1
+        for col1 in range(w1):
+            col2=xoff+col1
+            a_val=a[row1*w1+col1]
+            if row2<0 or row2>=hgt2 or col2<0 or col2>=w2:
+                if a_val!=h1["nodata_value"]:uncovered+=1
+                continue
+            b_val=b[row2*w2+col2]
+            if a_val==h1["nodata_value"] and b_val==h2["nodata_value"]:
+                missing+=1;continue
+            if a_val==h1["nodata_value"] or b_val==h2["nodata_value"]:
+                uncovered+=1;continue
+            diffs.append(abs(a_val-b_val))
+    if uncovered:
+        raise RuntimeError(f"published scored target extent or mask has {uncovered} uncovered cells")
+    if len(diffs)<250:raise RuntimeError("insufficient shared scored cells")
+    return {"n_scored":len(diffs),"n_missing":missing,"n_uncovered":uncovered,
+            "max_abs_diff":max(diffs),"mean_abs_diff":sum(diffs)/len(diffs),
+            "grid_geometry":h1,"replay_full_grid_geometry":h2,
+            "aligned_integer_offset":{"x":xoff,"y":yoff}}
+
 
 def project(jar,lam,envdir,out):
     cmd=["java","-Djava.awt.headless=true","-Xmx2g","-cp",str(jar),
