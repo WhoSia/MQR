@@ -90,3 +90,10 @@ jobs:
           python experiments/mqr-4.89/real_lang_warrant_bridge.py | tee bridge.log
           grep -Fx 'MQR489_BRIDGE_CHECKS=12 PASS' bridge.log
           grep -Fx 'MQR489_SCIENTIFIC_AUTHORITY=NOT_DETERMINED' bridge.log
+      - name: Reject causal warrant from observational equivalence
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.89/causal_nonidentifiability_bridge.py | tee causal-bridge.log
+          grep -Fx 'MQR489_CAUSAL_COUNTERMODEL_CHECKS=12 PASS' causal-bridge.log
+          grep -Fx 'MQR489_CAUSAL_WARRANT=HOLD_CAUSAL_WARRANT_NONIDENTIFIABLE' causal-bridge.log
+          grep -Fx 'MQR489_ORIGINAL_EMPIRICAL_REPLAY=NOT_PERFORMED' causal-bridge.log
