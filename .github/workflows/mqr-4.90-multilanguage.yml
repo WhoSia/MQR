@@ -51,7 +51,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          swipl -q -s language/real/prolog/empirical490.pl -g 'run_tests(mqr490),halt(0)' -t 'halt(1)' 2>&1 | tee mqr490-prolog.log
+          swipl -q -s language/real/prolog/empirical490.pl -g 'run_tests(mqr490),emit_policy_receipt,halt(0)' -t 'halt(1)' 2>&1 | tee mqr490-prolog.log
+          grep -Fx 'MQR490_PROLOG_PRIMARY_SIGNED_EFFECTS=0' mqr490-prolog.log
+          grep -Fx 'MQR490_PROLOG_POOLED_EFFECT=HOLD' mqr490-prolog.log
           echo 'MQR490_PROLOG_LINEAGE_COURT=PASS' | tee -a mqr490-prolog.log
       - uses: actions/upload-artifact@v4
         if: always()
@@ -88,3 +90,23 @@ jobs:
           name: MQR490-Lean-Kernel
           path: mqr490-lean.log
           retention-days: 30
+  cross-language-concordance:
+    needs: [rust-canonical, prolog-lineage, lean-proof]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: MQR490-*
+          path: receipts
+          merge-multiple: true
+      - name: Confirm Rust and Prolog admissions agree under Lean kernel constraints
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fx 'MQR490_RUST_PRIMARY_SIGNED_EFFECTS=0' receipts/mqr490-rust.log
+          grep -Fx 'MQR490_PROLOG_PRIMARY_SIGNED_EFFECTS=0' receipts/mqr490-prolog.log
+          grep -Fx 'MQR490_RUST_POOLED_EFFECT=HOLD' receipts/mqr490-rust.log
+          grep -Fx 'MQR490_PROLOG_POOLED_EFFECT=HOLD' receipts/mqr490-prolog.log
+          grep -Fx 'MQR490_RUST_REFERENCE_NEGATIVE_COUNTERMODEL=PASS' receipts/mqr490-rust.log
+          grep -Fx 'MQR490_LEAN_THEOREMS=PASS' receipts/mqr490-lean.log
+          echo 'MQR490_CROSS_LANGUAGE_CONCORDANCE=PASS'
