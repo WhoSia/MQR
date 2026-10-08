@@ -1,0 +1,11 @@
+source_case,n_positive,n_negative,published_external_auc,recomputed_external_auc,source_doi,source_actions_run
+Oxalis_latifolia_America-Oceania,105,2826,0.53,0.53192970,10.5281/zenodo.19970795,37728772674
+Oxalis_latifolia_America-Africa,137,10065,0.81,0.81025451,10.5281/zenodo.19970795,37728772674
+Oxalis_latifolia_America-Europe,449,2695,0.89,0.89026119,10.5281/zenodo.19970795,37728772674
+Digitaria_sanguinalis_Europe-Oceania,320,2640,0.77,0.76837240,10.5281/zenodo.19970795,37728772674
+Digitaria_sanguinalis_Europe-Africa,174,8178,0.56,0.55935640,10.5281/zenodo.19970795,37728772674
+Digitaria_sanguinalis_Europe-NorthAmerica,1070,6454,0.72,0.72092385,10.5281/zenodo.19970795,37728772674
+Digitaria_sanguinalis_Europe-SouthAmerica,127,5204,0.61,0.60786373,10.5281/zenodo.19970795,37728772674
+Amaranthus_retroflexus_NorthAmerica-Oceania,131,2775,0.92,0.91590262,10.5281/zenodo.19970795,37728772674
+Amaranthus_retroflexus_NorthAmerica-EastAsia,380,4454,0.79,0.79402814,10.5281/zenodo.19970795,37728772674
+Amaranthus_retroflexus_NorthAmerica-Europe,2635,3284,0.81,0.81076226,10.5281/zenodo.19970795,37728772674
