@@ -1,0 +1,39 @@
+name: MQR-4.91 P1.5 — Source-Matched Original Four-Fold Target AUC
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.91/p15_original_fold_matched_target_auc.py'
+      - '.github/workflows/mqr-4.91-p15-matched-fold-auc.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  score-matched-folds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Reproduce final scores and evaluate four folds under identical source target
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=experiments/mqr-4.90 python experiments/mqr-4.91/p15_original_fold_matched_target_auc.py 2>&1 | tee p491-p15-matched-auc.log
+          grep -Fx MQR491_P15_MATCHED_TARGET_FOLD_AUC=PASS p491-p15-matched-auc.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR491-P15-Original-Source-Matched-Fold-AUC
+          path: |
+            p491-p15-matched-auc.log
+            p491-matched-auc/maxent-projection-pilot.json
+          retention-days: 30
