@@ -1,0 +1,13 @@
+[package]
+name = "mqr495-calibration-witness"
+version = "0.1.0"
+edition = "2021"
+description = "Original-source finite-target risk bounds and typed evidence authority; std-only Rust"
+
+[[bin]]
+name = "mqr495-calibration-witness"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
