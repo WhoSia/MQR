@@ -43,8 +43,8 @@ fn compute_auc(raw: &str) -> Result<(f64, usize, usize), String> {
 }
 fn main() {
     let args: Vec<_> = env::args().collect();
-    if args.len() != 2 {
-        eprintln!("usage: cargo run --bin raw_target_auc -- <score-stream.csv>");
+    if !(args.len() == 2 || args.len() == 3) {
+        eprintln!("usage: cargo run --bin raw_target_auc -- <score-stream.csv> [reported_source_auc]");
         std::process::exit(2);
     }
     let src = fs::read_to_string(&args[1]).expect("source stream read failed");
@@ -52,8 +52,15 @@ fn main() {
     println!("MQR490_P8_RECOMPUTED_EXTERNAL_AUC={auc:.8}");
     println!("MQR490_P8_REFERENCE_PRESENCE_COUNT={npos}");
     println!("MQR490_P8_REFERENCE_NEGATIVE_COUNT={nneg}");
-    if (auc - 0.53).abs() > 0.005 {
-        eprintln!("MQR490_P8_MATCH_ORIGINAL_ROUNDED_AUC=FAIL: {auc:.8} vs 0.53");
+    let original: f64 = if args.len() == 3 {
+        args[2].parse().expect("source-reported AUC is not a number")
+    } else { 0.53 };
+    if !(0.0..=1.0).contains(&original) {
+        panic!("source-reported AUC is outside the unit interval");
+    }
+    println!("MQR490_P8_PUBLISHED_TARGET_AUC={original:.2}");
+    if (auc - original).abs() > 0.005001 {
+        eprintln!("MQR490_P8_MATCH_ORIGINAL_ROUNDED_AUC=FAIL: {auc:.8} vs {original:.2}");
         std::process::exit(1);
     }
     println!("MQR490_P8_MATCH_ORIGINAL_ROUNDED_AUC=PASS");
