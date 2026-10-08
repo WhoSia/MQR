@@ -50,6 +50,40 @@ theorem filteredSurpassesUnfiltered :
 -- The strict inequality above is: 7/(2*4) > 12/(6*4).
 -- The proposition does not quantify over other, nonuniform ranking laws.
 
+-- Directional admissibility must be indexed by the proposed claim:
+-- geographically disjoint observations can warrant geographical transfer
+-- claims without pretending to be future-forecast validation.
+inductive ClaimScope where
+  | futureForecast
+  | spatialTransport
+  | historicalBackcast
+  deriving DecidableEq, Repr
+
+inductive TestDirection where
+  | prospective
+  | geographicallyDisjoint
+  | retrospective
+  | overlapping
+  deriving DecidableEq, Repr
+
+def scopeCompatible : ClaimScope → TestDirection → Bool
+  | .futureForecast, .prospective => true
+  | .spatialTransport, .geographicallyDisjoint => true
+  | .historicalBackcast, .retrospective => true
+  | _, _ => false
+
+theorem spatialTargetSupportsSpatialClaim :
+    scopeCompatible .spatialTransport .geographicallyDisjoint = true := by decide
+
+theorem spatialTargetDoesNotProveForecast :
+    scopeCompatible .futureForecast .geographicallyDisjoint = false := by decide
+
+theorem historicalTargetDoesNotProveForecast :
+    scopeCompatible .futureForecast .retrospective = false := by decide
+
+theorem historicalTargetSupportsBackcastClaim :
+    scopeCompatible .historicalBackcast .retrospective = true := by decide
+
 structure Evidence where
   oracleSelection : Bool
   retrospectiveTarget : Bool
@@ -131,5 +165,8 @@ theorem differentTargetsCanReverseReportedSigns :
 #print axioms allRequiredForAdmission
 #print axioms differentTargetsCanReverseReportedSigns
 #print axioms negativeSampleChangeReversesMeasuredAUC
+#print axioms spatialTargetSupportsSpatialClaim
+#print axioms spatialTargetDoesNotProveForecast
+#print axioms historicalTargetSupportsBackcastClaim
 
 end MQR.Empirical490
