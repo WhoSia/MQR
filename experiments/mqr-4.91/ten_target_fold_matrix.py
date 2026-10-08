@@ -66,7 +66,7 @@ def main():
                 missing=[envpath+b+".asc" for b in BIO if envpath+b+".asc" not in efiles]
                 if missing:
                     entry["state"]="HOLD_ENV_MISSING";entry["missing"]=missing;report["cases"].append(entry);continue
-                env=t/f"env-{species}";env.mkdir()
+                env=t/f"env-{species}-{target}";env.mkdir()
                 for b in BIO:(env/(b+".asc")).write_bytes(e.read(envpath+b+".asc"))
                 lam=t/f"{species}.lambdas";lam.write_bytes(z.read(source_model))
                 original=t/f"{species}-published.asc";original.write_bytes(z.read(targetpath))
