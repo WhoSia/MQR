@@ -1,0 +1,40 @@
+name: MQR-4.91 — Ten Original External Targets, Four Fold Models
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.91/ten_target_fold_matrix.py'
+      - '.github/workflows/mqr-4.91-ten-target-fold-matrix.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Verify Publisher Sources and Match Ten Original Evaluation Targets
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONUNBUFFERED=1 PYTHONPATH=experiments/mqr-4.90:experiments/mqr-4.91 python experiments/mqr-4.91/ten_target_fold_matrix.py 2>&1 | tee mqr491-ten-target.log
+          grep -Fx 'MQR491_TEN_TARGET_MATCHED_CASES=10' mqr491-ten-target.log
+          grep -Fx 'MQR491_TEN_TARGETS_MATCHED_FOLD_AUC=PASS' mqr491-ten-target.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR491-Ten-Target-Source-Matched-Fold-Matrix
+          path: |
+            mqr491-ten-target.log
+            p491-ten-target-matrix/ten-target-matrix.json
+          retention-days: 30
