@@ -15,8 +15,16 @@ enum Selection {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum Direction {
     Prospective,
+    SpatiallyDisjoint,
     Retrospective,
     Overlapping,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+enum ClaimScope {
+    FutureForecast,
+    SpatialTransport,
+    HistoricalBackcast,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -29,7 +37,7 @@ enum NegativeDesign {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 enum Reason {
     TestInformedSelection,
-    RetrospectiveNotProspective,
+    TargetScopeMismatch,
     TargetDesignMismatch,
     DeploymentPolicyMismatch,
     NoPairedUncertainty,
@@ -51,12 +59,22 @@ struct Evidence {
 
 impl Evidence {
     fn evaluate(&self) -> Vec<Reason> {
+        self.evaluate_for(ClaimScope::FutureForecast)
+    }
+
+    fn evaluate_for(&self, claim: ClaimScope) -> Vec<Reason> {
         let mut result = Vec::new();
         if self.selection != Selection::DevelopmentOnly {
             result.push(Reason::TestInformedSelection);
         }
-        if self.direction != Direction::Prospective {
-            result.push(Reason::RetrospectiveNotProspective);
+        let target_matches_claim = matches!(
+            (claim, self.direction),
+            (ClaimScope::FutureForecast, Direction::Prospective)
+                | (ClaimScope::SpatialTransport, Direction::SpatiallyDisjoint)
+                | (ClaimScope::HistoricalBackcast, Direction::Retrospective)
+        );
+        if !target_matches_claim {
+            result.push(Reason::TargetScopeMismatch);
         }
         if self.cv_negative != self.target_negative {
             result.push(Reason::TargetDesignMismatch);
@@ -297,13 +315,25 @@ fn verdict() -> Result<(), String> {
     }
     let mut retrospective = eligible_template();
     retrospective.direction = Direction::Retrospective;
-    if !retrospective.evaluate().contains(&Reason::RetrospectiveNotProspective) {
+    if !retrospective.evaluate().contains(&Reason::TargetScopeMismatch) {
         return Err("retrospective future claim allowed".into());
     }
     let mut overlapping = eligible_template();
     overlapping.direction = Direction::Overlapping;
-    if !overlapping.evaluate().contains(&Reason::RetrospectiveNotProspective) {
+    if !overlapping.evaluate().contains(&Reason::TargetScopeMismatch) {
         return Err("overlapping future claim allowed".into());
+    }
+    let mut spatial = eligible_template();
+    spatial.direction = Direction::SpatiallyDisjoint;
+    if !spatial.evaluate_for(ClaimScope::SpatialTransport).is_empty()
+        || !spatial.evaluate().contains(&Reason::TargetScopeMismatch) {
+        return Err("spatial-only evidence cannot be routed to proper scope".into());
+    }
+    let mut historical = eligible_template();
+    historical.direction = Direction::Retrospective;
+    if !historical.evaluate_for(ClaimScope::HistoricalBackcast).is_empty()
+        || !historical.evaluate().contains(&Reason::TargetScopeMismatch) {
+        return Err("retrospective evidence cannot be routed to proper scope".into());
     }
     let mut filtered = eligible_template();
     filtered.selection = Selection::TargetThreshold;
@@ -327,6 +357,7 @@ fn verdict() -> Result<(), String> {
     println!("MQR490_RUST_CANONICAL_MATSUI_PAIRS=10");
     println!("MQR490_RUST_CANONICAL_FAMILIES=3");
     println!("MQR490_RUST_CANONICAL_NULL_COUNTS=12,7,2,6");
+    println!("MQR490_RUST_SCOPE_ROUTING=PASS");
     println!("MQR490_RUST_REFERENCE_NEGATIVE_COUNTERMODEL=PASS");
     println!("MQR490_RUST_PRIMARY_SIGNED_EFFECTS=0");
     println!("MQR490_RUST_POOLED_EFFECT=HOLD");
@@ -351,8 +382,8 @@ mod tests {
         let alternatives: Vec<(Evidence, Reason)> = vec![
             (Evidence { selection: Selection::TestOracleMaximum, ..base }, Reason::TestInformedSelection),
             (Evidence { selection: Selection::TargetThreshold, ..base }, Reason::TestInformedSelection),
-            (Evidence { direction: Direction::Retrospective, ..base }, Reason::RetrospectiveNotProspective),
-            (Evidence { direction: Direction::Overlapping, ..base }, Reason::RetrospectiveNotProspective),
+            (Evidence { direction: Direction::Retrospective, ..base }, Reason::TargetScopeMismatch),
+            (Evidence { direction: Direction::Overlapping, ..base }, Reason::TargetScopeMismatch),
             (Evidence { target_negative: NegativeDesign::PresenceBackground, ..base }, Reason::TargetDesignMismatch),
             (Evidence { same_deployment_policy: false, ..base }, Reason::DeploymentPolicyMismatch),
             (Evidence { has_paired_uncertainty: false, ..base }, Reason::NoPairedUncertainty),
@@ -362,6 +393,17 @@ mod tests {
         for (fixture, failure) in alternatives {
             assert_eq!(fixture.evaluate(), vec![failure]);
         }
+    }
+    #[test]
+    fn target_claim_scope_changes_admission_legally() {
+        let base = eligible_template();
+        let spatial = Evidence { direction: Direction::SpatiallyDisjoint, ..base };
+        assert_eq!(spatial.evaluate_for(ClaimScope::SpatialTransport), vec![]);
+        assert_eq!(spatial.evaluate(), vec![Reason::TargetScopeMismatch]);
+        let past = Evidence { direction: Direction::Retrospective, ..base };
+        assert_eq!(past.evaluate_for(ClaimScope::HistoricalBackcast), vec![]);
+        assert_eq!(past.evaluate(), vec![Reason::TargetScopeMismatch]);
+        assert_eq!(past.evaluate_for(ClaimScope::SpatialTransport), vec![Reason::TargetScopeMismatch]);
     }
     #[test]
     fn source_reported_effects_are_not_pooled() {
