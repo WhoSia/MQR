@@ -1,0 +1,39 @@
+name: MQR 4.94 — Fixed-Predictor Geographic Validation Ablation
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.94/fixed_predictor_g_ablation.py'
+      - '.github/workflows/mqr-4.94-fixed-predictor-ablation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fixed-predictor-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Frozen Original Risk Dependencies
+        run: |
+          python -m pip install --disable-pip-version-check numpy==1.26.4 scipy==1.12.0 cvxopt==1.3.2 scikit-learn==1.5.1
+      - name: Check Identical Learned Predictor Across Near and Far Validation Sites
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=experiments/mqr-4.92:experiments/mqr-4.93:experiments/mqr-4.94 python experiments/mqr-4.94/fixed_predictor_g_ablation.py 2>&1 | tee mqr494-fixed-predictor.log
+          grep -Fx MQR494_FIXED_PREDICTOR_ABLATION=PASS mqr494-fixed-predictor.log
+      - name: Archive Failure and Success Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR494-Fixed-Predictor-Original-Source-Validation-Ablation
+          path: |
+            mqr494-fixed-predictor.log
+            mqr494-fixed-predictor-validation-ablation.json
+          retention-days: 30
