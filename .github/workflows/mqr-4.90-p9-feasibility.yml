@@ -1,0 +1,36 @@
+name: MQR-4.90 P9 — Maxent Fold Projection Source Court
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.90/p9_maxent_projection_feasibility.py'
+      - '.github/workflows/mqr-4.90-p9-feasibility.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-feasibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check Matsui original CV fitted models and target environmental layers
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.90/p9_maxent_projection_feasibility.py | tee p9-feasibility.log
+          grep -Fx 'MQR490_P9_MODEL_FOLD_LAMBDAS=12' p9-feasibility.log
+          grep -Fx 'MQR490_P9_RAW_COMMON_PREDICTIONS=NOT_YET_OBTAINED' p9-feasibility.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR490-P9-Maxent-Projection-Feasibility
+          path: |
+            p9-feasibility.log
+            p9-feasibility/p9-original-model-feasibility.json
+          retention-days: 30
