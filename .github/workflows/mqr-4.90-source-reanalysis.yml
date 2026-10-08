@@ -36,6 +36,15 @@ jobs:
           grep -Fx 'MQR490_POSTSELECTION_GAP=0.375' target-selection.log
           grep -Fx 'MQR490_ORIGINAL_SEROV_REPLICATION=NOT_PERFORMED' target-selection.log
           grep -Fx 'MQR490_NULL_AUC_EXACT_TEST=PASS' target-selection.log
+      - name: Audit corrected Matsui geographically linked scores without pooling
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.90/audit_matsui_external_auc.py | tee matsui-audit.log
+          grep -Fx 'MQR490_MATSUI_MATCHED_SCORE_ROWS=10' matsui-audit.log
+          grep -Fx 'MQR490_MATSUI_SOURCE_FAMILIES=3' matsui-audit.log
+          grep -Fx 'MQR490_MATSUI_OXALIS_REVERSAL=PASS' matsui-audit.log
+          grep -Fx 'MQR490_MATSUI_DESIGN_MISMATCH=CONFIRMED' matsui-audit.log
+          grep -Fx 'MQR490_MATSUI_META_POOLING=HOLD' matsui-audit.log
       - uses: actions/upload-artifact@v4
         with:
           name: MQR490-Source-Reported-AUC-Receipt
@@ -43,4 +52,5 @@ jobs:
             mqr490-verdict.txt
             mqr490-reanalysis.json
             target-selection.log
+            matsui-audit.log
           retention-days: 30
