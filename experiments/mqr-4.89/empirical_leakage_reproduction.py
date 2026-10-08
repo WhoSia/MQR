@@ -41,7 +41,7 @@ def proxy_case(seed):
 def full_selection_case(seed):
     rng=np.random.default_rng(seed+35000)
     n,p=180,1400
-    X=rng.standard_normal((n,p));y=rng.integers(0,2,n)
+    y=rng.integers(0,2,n); X=rng.standard_normal((n,p))
     tr,te=train_test_split(np.arange(n),test_size=.45,stratify=y,random_state=seed)
     def features(rows):
         yy=y[rows]*2-1
