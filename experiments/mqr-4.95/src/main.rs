@@ -55,7 +55,7 @@ fn error(msg: &str) -> Box<dyn Error> {
     std::io::Error::new(std::io::ErrorKind::InvalidData, msg).into()
 }
 fn headers(raw: &str) -> Vec<&str> {
-    raw.trim_start_matches('\u{feff}').trim_end().split(',').map(str::trim).collect()
+    raw.trim_start_matches('\u{feff}').trim_end().split(',').map(|field|field.trim().trim_matches('"')).collect()
 }
 fn columns(path: &str) -> Result<(usize,usize,usize,usize,[usize;F]),Box<dyn Error>> {
     let file=File::open(path)?;
@@ -358,5 +358,6 @@ mod tests {
             }
         }
     }
+    #[test] fn quoted_original_csv_header() {assert_eq!(headers("\\\"lat\\\",\\\"long\\\",\\\"bio1\\\""),vec!["lat","long","bio1"]);}
     #[test] fn stable_fnv_source_selection() {assert_eq!(fnv(b"hello"),0xa430d84680aabd0b);}
 }
