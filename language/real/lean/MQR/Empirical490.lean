@@ -87,7 +87,7 @@ theorem rejectReferenceDesignMismatch (r : Evidence)
 theorem rejectUnknownCohort (r : Evidence)
     (h : r.cohortGenealogy = false) : ¬ admitted r := by
   intro ha
-  exact Bool.noConfusion (ha.2.2.2.2.2.1.trans h)
+  exact Bool.noConfusion (ha.2.2.2.2.2.1.symm.trans h)
 
 theorem allRequiredForAdmission (r : Evidence) :
     admitted r → r.independentTarget = true ∧
