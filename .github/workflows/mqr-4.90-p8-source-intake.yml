@@ -1,0 +1,36 @@
+name: MQR-4.90 P8 — Bounded Original-Source Materialization
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.90/p8_source_probe.py'
+      - '.github/workflows/mqr-4.90-p8-source-intake.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  materialization:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download, hash, and enumerate upstream 96.7 MB Maxent raw archive
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.90/p8_source_probe.py | tee p8-source-probe.log
+          grep -Fx 'MQR490_P8_SOURCE_INVENTORY=PASS' p8-source-probe.log
+          grep -Fx 'MQR490_P8_ZENODO_MD5=aa9c99dd43b3060589fa31dddf8501a4' p8-source-probe.log
+      - name: Preserve small source-genealogy receipt only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR490-P8-Matsui-Source-Inventory
+          path: |
+            p8-materialization/*.json
+            p8-source-probe.log
+          retention-days: 30
