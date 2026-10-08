@@ -1,0 +1,55 @@
+name: MQR-4.90 P8 — All Native-Only Target AUC Replication
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.90/p8_all_matsui_scores.py'
+      - 'experiments/mqr-4.90/canonical/src/bin/raw_target_auc.rs'
+      - '.github/workflows/mqr-4.90-p8-all-targets.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ten-source-targets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify publisher and materialize ten target score streams
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.90/p8_all_matsui_scores.py | tee p8-all-source.log
+          grep -Fx 'MQR490_P8_NATIVE_SOURCE_ROWS=10' p8-all-source.log
+          grep -Fx 'MQR490_P8_ALL_TARGETS_EXTRACTED=PASS' p8-all-source.log
+      - name: Recompute all ten target AUCs with canonical Rust
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.90/canonical/Cargo.toml --bin raw_target_auc
+          : > p8-all-rust.log
+          count=0
+          while IFS=$'\t' read -r case path reported; do
+            echo "SOURCE_TARGET_CASE=$case" | tee -a p8-all-rust.log
+            cargo run --offline --quiet --manifest-path experiments/mqr-4.90/canonical/Cargo.toml --bin raw_target_auc -- "$path" "$reported" | tee -a p8-all-rust.log
+            count=$((count + 1))
+          done < p8-materialization/p8-all-targets.tsv
+          test "$count" -eq 10
+          test "$(grep -Fc 'MQR490_P8_MATCH_ORIGINAL_ROUNDED_AUC=PASS' p8-all-rust.log)" -eq 10
+          echo 'MQR490_P8_ALL_TEN_SOURCE_TARGETS=PASS' | tee -a p8-all-rust.log
+      - name: Preserve derived source-genealogy and computation only
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR490-P8-All-Ten-AUC-Replication-Receipts
+          path: |
+            p8-all-rust.log
+            p8-all-source.log
+            p8-materialization/p8-all-targets.tsv
+            p8-materialization/p8-all-targets-provenance.json
+          retention-days: 30
