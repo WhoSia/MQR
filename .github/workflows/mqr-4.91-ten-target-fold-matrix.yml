@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'experiments/mqr-4.91/ten_target_fold_matrix.py'
+      - 'experiments/mqr-4.91/spatial_map_agreement.py'
       - '.github/workflows/mqr-4.91-ten-target-fold-matrix.yml'
   workflow_dispatch:
 permissions:
@@ -27,6 +28,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python experiments/mqr-4.91/spatial_map_agreement.py
           PYTHONUNBUFFERED=1 PYTHONPATH=experiments/mqr-4.90:experiments/mqr-4.91 python experiments/mqr-4.91/ten_target_fold_matrix.py 2>&1 | tee mqr491-ten-target.log
           grep -Fx 'MQR491_TEN_TARGET_MATCHED_CASES=10' mqr491-ten-target.log
           grep -Fx 'MQR491_TEN_TARGETS_MATCHED_FOLD_AUC=PASS' mqr491-ten-target.log
