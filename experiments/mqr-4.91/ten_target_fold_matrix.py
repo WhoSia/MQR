@@ -7,13 +7,31 @@ import csv,json,math
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from zipfile import ZipFile
-from p15_original_fold_matched_target_auc import (INPUTS,source_download,download_jar,project,read_asc,
+from p15_original_fold_matched_target_auc import (INPUTS,source_download as pinned_source_download,download_jar,project,read_asc,
     compare,score_join as legacy_score_join,BIO)
 from p9_original_maxent_projection import CV_DIR as OXALIS_CV
 from p14_source_coordinate_join_probe import snippet
 from bisect import bisect_left,bisect_right
 from io import TextIOWrapper
 from spatial_map_agreement import pairwise_spatial_stability
+from urllib.error import HTTPError, URLError
+import time
+
+def source_download(name, expected, limit, destination):
+    # Never relax source digest; only retry transient upstream transport errors.
+    for attempt in range(3):
+        try:
+            return pinned_source_download(name, expected, limit, destination)
+        except HTTPError as e:
+            if e.code not in (429, 502, 503, 504) or attempt==2:
+                raise
+            print("MQR491_TRANSIENT_UPSTREAM_HTTP_RETRY="+str(e.code),flush=True)
+        except (TimeoutError, URLError) as e:
+            if attempt==2:raise
+            print("MQR491_TRANSIENT_UPSTREAM_NETWORK_RETRY="+type(e).__name__,flush=True)
+        destination.unlink(missing_ok=True)
+        time.sleep(2*(attempt+1))
+    raise AssertionError("unexpected retry exhaustion")
 ROOT=Path("p491-ten-target-matrix")
 BASE="3_Maxent_predictions/1_Maxent_output/"
 TABLE=Path(__file__).resolve().parents[1]/"mqr-4.90"/"matsui_2026_native_only_external_auc_pairs.csv"
