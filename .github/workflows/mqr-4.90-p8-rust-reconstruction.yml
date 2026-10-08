@@ -1,0 +1,45 @@
+name: MQR-4.90 P8 — Raw Target AUC Rust Reconstruction
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.90/p8_extract_matsui_scores.py'
+      - 'experiments/mqr-4.90/canonical/src/bin/raw_target_auc.rs'
+      - '.github/workflows/mqr-4.90-p8-rust-reconstruction.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-source-reconstruction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Extract pinned published target score stream (no Git writes)
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.90/p8_extract_matsui_scores.py | tee p8-source-reconstruction.log
+          grep -Fx 'MQR490_P8_SCORE_EXTRACTION=PASS' p8-source-reconstruction.log
+      - name: Verify exact rank-AUC calculation in canonical Rust
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.90/canonical/Cargo.toml --bin raw_target_auc
+          cargo run --offline --quiet --manifest-path experiments/mqr-4.90/canonical/Cargo.toml --bin raw_target_auc -- p8-materialization/oxalis-america-oceania-reference-scores.csv | tee p8-rust-audit.log
+          grep -Fx 'MQR490_P8_MATCH_ORIGINAL_ROUNDED_AUC=PASS' p8-rust-audit.log
+          grep -Fx 'MQR490_P8_CROSS_DESIGN_SIGNED_BIAS=NOT_IDENTIFIED' p8-rust-audit.log
+      - name: Archive bounded scientific receipt only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR490-P8-Raw-Target-Rust-AUC-Receipt
+          path: |
+            p8-rust-audit.log
+            p8-source-reconstruction.log
+            p8-materialization/oxalis-provenance.json
+            p8-materialization/oxalis-america-oceania-reference-scores.csv
+          retention-days: 30
