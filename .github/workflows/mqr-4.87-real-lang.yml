@@ -1,0 +1,22 @@
+name: MQR-4.87 Real Lang P1 Court
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.87/**'
+      - '.github/workflows/mqr-4.87-real-lang.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  frozen-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute P1 synthetic witness court
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.87/real_lang_p1.py | tee result.log
+          grep -Fx 'MQR487_P1_CASES=10' result.log
+          grep -Fx 'MQR487_P1_PASS=10' result.log
+          grep -Fx 'MQR487_P1_NOVELTY=UNADJUDICATED' result.log
