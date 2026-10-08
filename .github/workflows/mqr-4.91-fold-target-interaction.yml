@@ -1,0 +1,67 @@
+name: MQR-4.91 — Fold-by-Target Interaction, Source-Attested
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.91/fold_target_interaction_analysis.py'
+      - '.github/workflows/mqr-4.91-fold-target-interaction.yml'
+  workflow_run:
+    workflows:
+      - 'MQR-4.91 — Ten Original External Targets, Four Fold Models'
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  synthetic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Algebra and Truncated-Evidence Rejection Tests
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.91/fold_target_interaction_analysis.py --self-test
+  from-source-receipt:
+    if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover exact successful source-run artifact (read-only)
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPSTREAM_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          set -euo pipefail
+          mkdir -p source
+          gh run download "$UPSTREAM_RUN_ID" --repo ${{ github.repository }} \
+            --name MQR491-Ten-Target-Source-Matched-Fold-Matrix --dir source
+          find source -name ten-target-matrix.json -type f
+      - name: Decompose AUC Matrix with No Independence Claims
+        shell: bash
+        run: |
+          set -euo pipefail
+          f=$(find source -name ten-target-matrix.json -type f)
+          test "$(printf '%s\n' "$f" | wc -l)" -eq 1
+          python experiments/mqr-4.91/fold_target_interaction_analysis.py \
+            --self-test --input "$f" --output fold-target-interaction.json 2>&1 | tee fold-target-interaction.log
+          grep -Fx MQR491_TEN_TARGET_FACTOR_ANALYSIS=PASS fold-target-interaction.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR491-Ten-Target-Fold-Interaction
+          path: |
+            fold-target-interaction.log
+            fold-target-interaction.json
+          retention-days: 30
