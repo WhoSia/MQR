@@ -106,6 +106,31 @@ emit_policy_receipt :-
     format('MQR490_PROLOG_PRIMARY_SIGNED_EFFECTS=0~n'),
     format('MQR490_PROLOG_POOLED_EFFECT=HOLD~n').
 
+% P8 reference normalization: there is a factual, reproduced target
+% score for Matsui, but no measured CV-vs-target negative-reference TV
+% and no established identical CV/deployment predictor or positive pool.
+% Zero new evidence should be *invented* by a closed-world proof rule.
+raw_external_auc_reproduced(matsui_2026, 10).
+missing_bridge_witness(matsui_2026, same_cv_deployment_predictor).
+missing_bridge_witness(matsui_2026, common_positive_reference).
+missing_bridge_witness(matsui_2026, empirical_negative_tv_bound).
+missing_bridge_witness(matsui_2026, paired_source_precision).
+
+% Explicitly synthetic positive-control evidence, not a source finding.
+matched_cv_deployment_predictor(ideal_reference_bridge).
+matched_positive_reference(ideal_reference_bridge).
+measured_reference_tv_bound(ideal_reference_bridge, 0.10).
+
+admit_reference_only_tv_bridge(Id, Upper) :-
+    nonvar(Id),
+    matched_cv_deployment_predictor(Id),
+    matched_positive_reference(Id),
+    measured_reference_tv_bound(Id, Upper),
+    number(Upper), Upper >= 0, Upper =< 1.
+
+minimal_witness_set(matsui_2026, WitnessList) :-
+    findall(W, missing_bridge_witness(matsui_2026, W), WitnessList).
+
 % Independent typed test cases are nonempirical, except the grounded
 % reported tables and source-genealogy facts stated above.
 :- begin_tests(mqr490).
@@ -126,6 +151,14 @@ test(wang_precision_witness) :- reason(wang_2023_amazon, paired_uncertainty_abse
 test(wadoux_wang_shared_root) :-
     shares_raw_family(wadoux_2021_amazon, wang_2023_amazon).
 test(reporting_receipt_concordance) :- emit_policy_receipt.
+test(matsui_ten_original_scores_reproduced) :- raw_external_auc_reproduced(matsui_2026,10).
+test(matsui_missing_reference_tv_witness, [fail]) :- admit_reference_only_tv_bridge(matsui_2026,_).
+test(synthetic_reference_tv_positive_control) :- admit_reference_only_tv_bridge(ideal_reference_bridge, 0.10).
+test(matsui_exact_missing_witnesses) :-
+    minimal_witness_set(matsui_2026, Missing),
+    length(Missing, 4),
+    member(empirical_negative_tv_bound, Missing),
+    member(same_cv_deployment_predictor, Missing).
 test(congo_not_amazon, [fail]) :-
     shares_raw_family(ploton_2020_congo, wang_2023_amazon).
 test(kold_backward_is_backcast) :-
