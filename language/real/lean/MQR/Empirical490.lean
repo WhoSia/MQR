@@ -215,4 +215,56 @@ theorem differentTargetsCanReverseReportedSigns :
 #print axioms noBridgeWithoutReferenceBound
 #print axioms fixedScoreNegativeMixtureWitness
 
+/-!
+P9 coarse-summary nonidentification witness (NON-NOVEL finite countermodel).
+The observations are only published aggregate source-CV and external-final
+AUCs. Both hidden completions respect the same observed pair.
+The proof does not claim nonidentification if actual fold lambda files,
+target covariates, and prediction rules are jointly available; those may
+determine the missing fold scores after a validated projection.
+Four AUC pair wins correspond to two positives and two negatives.
+-/
+structure PublishedPair where
+  nativeCvWins : Nat
+  finalExternalWins : Nat
+  deriving DecidableEq, Repr
+
+structure FoldCompletion where
+  published : PublishedPair
+  foldOnExternalWins : Nat
+  deriving DecidableEq, Repr
+
+def publishedOnly (w : FoldCompletion) := w.published
+
+def samePublishedFixture : PublishedPair :=
+  { nativeCvWins := 3, finalExternalWins := 2 }
+
+def worldHigh : FoldCompletion :=
+  { published := samePublishedFixture, foldOnExternalWins := 4 }
+
+def worldLow : FoldCompletion :=
+  { published := samePublishedFixture, foldOnExternalWins := 0 }
+
+theorem sameAggregateObservations :
+    publishedOnly worldHigh = publishedOnly worldLow := by rfl
+
+theorem twoCompatibleHiddenRankings :
+    aucPairWins [3, 4] [1, 2] = worldHigh.foldOnExternalWins ∧
+    aucPairWins [1, 2] [3, 4] = worldLow.foldOnExternalWins := by decide
+
+theorem oppositeUnseenFoldTargetGaps :
+    (Int.ofNat worldHigh.foldOnExternalWins -
+       Int.ofNat worldHigh.published.finalExternalWins > 0) ∧
+    (Int.ofNat worldLow.foldOnExternalWins -
+       Int.ofNat worldLow.published.finalExternalWins < 0) := by decide
+
+theorem publishedAggregatePairDoesNotDetermineHiddenGap :
+    publishedOnly worldHigh = publishedOnly worldLow ∧
+    worldHigh.foldOnExternalWins ≠ worldLow.foldOnExternalWins := by decide
+
+#print axioms sameAggregateObservations
+#print axioms twoCompatibleHiddenRankings
+#print axioms oppositeUnseenFoldTargetGaps
+#print axioms publishedAggregatePairDoesNotDetermineHiddenGap
+
 end MQR.Empirical490
