@@ -1,0 +1,59 @@
+name: MQR 4.95 — Rust Original-Source Calibration Witness Court
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.95/**'
+      - '.github/workflows/mqr-4.95-rust-calibration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rust-original-calibration-witness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify Rust Compiler and Zero External Package Dependencies
+        shell: bash
+        run: |
+          rustc --version
+          cargo --version
+          cargo metadata --offline --no-deps --manifest-path experiments/mqr-4.95/Cargo.toml --format-version 1 > /dev/null
+      - name: Compile and Exhaustively Check Rust Finite-Site Bound Court
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.95/Cargo.toml 2>&1 | tee mqr495-rust-tests.log
+          grep -F 'test result: ok.' mqr495-rust-tests.log
+      - name: Download Immutable Original Species CSV and Check Publisher Git Blob
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 2 --max-time 80             'https://raw.githubusercontent.com/egorser0v/Importance-reweighting/46c4d011c9f0cd0614c08e7edb68ac2491f659c8/datasets/species/anemone.csv'             -o mqr495-anemone-original.csv
+          sha="$(git hash-object mqr495-anemone-original.csv)"
+          echo "MQR495_ORIGINAL_GIT_BLOB=$sha" | tee mqr495-source-pin.log
+          test "$sha" = '0e1c83dda391229ffd3cb69573d184eebf1c7bdd'
+          echo 'MQR495_ORIGINAL_SOURCE_HASH=PASS' | tee -a mqr495-source-pin.log
+      - name: Run Original-Data Fixed-Target Rust Audit With Target Label Seal
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --offline --release --manifest-path experiments/mqr-4.95/Cargo.toml --             mqr495-anemone-original.csv . 2>&1 | tee mqr495-rust-audit.log
+          grep -Fx MQR495_ORIGINAL_SOURCE_AUDIT=PASS mqr495-rust-audit.log
+          grep -Fx MQR495_INDEPENDENT_CALIBRATION_WITNESS=HOLD mqr495-rust-audit.log
+          grep -Fx MQR495_DESIGN_BASED_POPULATION_CI=HOLD mqr495-rust-audit.log
+      - name: Preserve Provenance, Rust Tests, Derived Finite-Target Results and Failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR495-Rust-Original-Calibrated-Target-Risk-Bounds
+          path: |
+            mqr495-source-pin.log
+            mqr495-rust-tests.log
+            mqr495-rust-audit.log
+            mqr495-source-risk-witness.txt
+            mqr495-target-audit-intervals.csv
+          retention-days: 30
