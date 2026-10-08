@@ -95,6 +95,24 @@ theorem allRequiredForAdmission (r : Evidence) :
   intro ha
   exact ⟨ha.2.2.2.2.2.2, ha.2.2.2.2.1⟩
 
+-- Fixed ranking function / unchanged positive scores. Swapping just
+-- the sample designated as negative can change AUC by its entire range.
+-- In particular, a numerical CV−external difference is not identified
+-- as a spatial-transfer effect unless the reference sampling design matches.
+def aucPairWins (positive negative : List Nat) : Nat :=
+  ((positive.flatMap fun p => negative.map fun n =>
+    if p > n then (1 : Nat) else 0)).foldl (· + ·) 0
+
+theorem fixedPredictorLowNegatives :
+    aucPairWins [3, 4] [1, 2] = 4 := by decide
+
+theorem fixedPredictorHighNegatives :
+    aucPairWins [3, 4] [5, 6] = 0 := by decide
+
+theorem negativeSampleChangeReversesMeasuredAUC :
+    aucPairWins [3, 4] [1, 2] >
+      aucPairWins [3, 4] [5, 6] := by decide
+
 -- Reported Matsui native-only example, signed in hundredths of AUC.
 -- Source fixture: internal Oxalis CV 0.87, external Oceania 0.53,
 -- external Europe 0.89 (different reference-negative designs).
@@ -112,5 +130,6 @@ theorem differentTargetsCanReverseReportedSigns :
 #print axioms rejectUnknownCohort
 #print axioms allRequiredForAdmission
 #print axioms differentTargetsCanReverseReportedSigns
+#print axioms negativeSampleChangeReversesMeasuredAUC
 
 end MQR.Empirical490
