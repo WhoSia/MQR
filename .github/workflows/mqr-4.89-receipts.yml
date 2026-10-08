@@ -42,3 +42,9 @@ jobs:
           python experiments/mqr-4.89/replay_receipt_gates.py | tee replay.log
           grep -Fx 'MQR489_REPLAY_GATES_PASS=7' replay.log
           grep -Fx 'MQR489_REPLAY_PERFORMED=NO' replay.log
+      - name: Verify byte-bound replay receipts
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.89/replay_receipt_gates_v2.py | tee byte-bound.log
+          grep -Fx 'MQR489_BYTE_BOUND_TESTS=10/10 PASS' byte-bound.log
+          grep -Fx 'MQR489_REAL_DATA_REPLAY=NOT_PERFORMED' byte-bound.log
