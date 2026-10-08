@@ -8,6 +8,7 @@ on:
       - 'language/real/lean/MQR/Empirical490.lean'
       - 'language/real/prolog/empirical490.pl'
       - '.github/workflows/mqr-4.90-multilanguage.yml'
+      - 'docs/MQR-4.90-CANONICAL-LIFECYCLE.md'
   workflow_dispatch:
 permissions:
   contents: read
