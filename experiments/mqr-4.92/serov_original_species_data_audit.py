@@ -31,7 +31,7 @@ def read_frozen():
 
 def main():
     raw=read_frozen()
-    text=raw.decode("utf8-sig")
+    text=raw.decode("utf-8-sig")
     stream=csv.reader(io.StringIO(text,newline=""))
     header=next(stream,None)
     if not header or len(header)<2:raise ValueError("source CSV missing columns")
