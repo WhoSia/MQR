@@ -5,6 +5,7 @@ on:
     paths:
       - 'experiments/mqr-4.90/p8_all_matsui_scores.py'
       - 'experiments/mqr-4.90/canonical/src/bin/raw_target_auc.rs'
+      - 'experiments/mqr-4.90/canonical/src/bin/reference_union_auc.rs'
       - '.github/workflows/mqr-4.90-p8-all-targets.yml'
   workflow_dispatch:
 permissions:
@@ -42,6 +43,33 @@ jobs:
           test "$count" -eq 10
           test "$(grep -Fc 'MQR490_P8_MATCH_ORIGINAL_ROUNDED_AUC=PASS' p8-all-rust.log)" -eq 10
           echo 'MQR490_P8_ALL_TEN_SOURCE_TARGETS=PASS' | tee -a p8-all-rust.log
+      - name: Re-evaluate each fixed-model target against counterfactual all-grid background
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.90/canonical/Cargo.toml --bin reference_union_auc
+          : > p8-reference-bridge.log
+          count=0
+          while IFS=
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR490-P8-All-Ten-AUC-Replication-Receipts
+          path: |
+            p8-all-rust.log
+            p8-reference-bridge.log
+            p8-all-source.log
+            p8-materialization/p8-all-targets.tsv
+            p8-materialization/p8-all-targets-provenance.json
+          retention-days: 30
+\t' read -r case path reported; do
+            cargo run --offline --quiet --manifest-path experiments/mqr-4.90/canonical/Cargo.toml --bin reference_union_auc -- "$case" "$path" | tee -a p8-reference-bridge.log
+            count=$((count + 1))
+          done < p8-materialization/p8-all-targets.tsv
+          test "$count" -eq 10
+          test "$(grep -Fc 'MQR490_REFERENCE_BRIDGE_EMPIRICAL_MIXTURE_IDENTITY=PASS' p8-reference-bridge.log)" -eq 10
+          test "$(grep -Fc 'MQR490_REFERENCE_BRIDGE_MATCHED_CV_BACKGROUND=NOT_ESTABLISHED' p8-reference-bridge.log)" -eq 10
+          echo 'MQR490_P8_TEN_REFERENCE_ONLY_BRIDGES=PASS' | tee -a p8-reference-bridge.log
       - name: Preserve derived source-genealogy and computation only
         uses: actions/upload-artifact@v4
         if: always()
