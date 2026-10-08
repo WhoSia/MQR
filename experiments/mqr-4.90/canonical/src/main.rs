@@ -265,6 +265,15 @@ fn exact_null_oracle() -> (usize, usize, usize, usize) {
     (sum_all, sum_selected, selected, total)
 }
 
+/// AUC wins for one fixed model under an explicitly chosen negative sample.
+fn auc_wins(positives: &[i32], negatives: &[i32]) -> Result<(usize, usize), String> {
+    if positives.is_empty() || negatives.is_empty() {
+        return Err("AUC needs both classes".to_owned());
+    }
+    let wins = positives.iter().flat_map(|p| negatives.iter().map(move |n| (*p > *n) as usize)).sum();
+    Ok((wins, positives.len() * negatives.len()))
+}
+
 fn verdict() -> Result<(), String> {
     let path = Path::new(env!("CARGO_MANIFEST_DIR")).parent()
         .ok_or("manifest directory has no dataset parent")?;
@@ -304,6 +313,13 @@ fn verdict() -> Result<(), String> {
     if data.kold_spread.len() != 36 || data.matsui_signed_gap.len() != 10 {
         return Err("canonical key counts changed".into());
     }
+    // One unchanged predictor and unchanged positives [3,4] yield either
+    // AUC 1 or AUC 0 solely by changing reference-negative rank choices.
+    // It is a two-criterion countermodel, not a measured Matsui effect.
+    if auc_wins(&[3, 4], &[1, 2])? != (4, 4)
+        || auc_wins(&[3, 4], &[5, 6])? != (0, 4) {
+        return Err("identical model / changed negative design countermodel failed".into());
+    }
     if !eligible_template().evaluate().is_empty() {
         return Err("positive-control profile is incorrectly rejected".into());
     }
@@ -311,6 +327,7 @@ fn verdict() -> Result<(), String> {
     println!("MQR490_RUST_CANONICAL_MATSUI_PAIRS=10");
     println!("MQR490_RUST_CANONICAL_FAMILIES=3");
     println!("MQR490_RUST_CANONICAL_NULL_COUNTS=12,7,2,6");
+    println!("MQR490_RUST_REFERENCE_NEGATIVE_COUNTERMODEL=PASS");
     println!("MQR490_RUST_PRIMARY_SIGNED_EFFECTS=0");
     println!("MQR490_RUST_POOLED_EFFECT=HOLD");
     println!("MQR490_RUST_VERDICT=PASS");
@@ -355,6 +372,13 @@ mod tests {
         assert_eq!(exact_null_oracle(), (12, 7, 2, 6));
         // Expected unconditional AUC 12/(6*4)=0.5;
         // conditioned AUC 7/(2*4)=0.875.
+    }
+    #[test]
+    fn reference_sampling_alone_can_reverse_auc() {
+        let positives = [3, 4];
+        assert_eq!(auc_wins(&positives, &[1, 2]).unwrap(), (4, 4));
+        assert_eq!(auc_wins(&positives, &[5, 6]).unwrap(), (0, 4));
+        assert!(auc_wins(&positives, &[]).is_err());
     }
     #[test]
     fn exact_decimal_rejects_bad_source() {
