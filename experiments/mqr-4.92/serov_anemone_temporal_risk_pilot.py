@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
-"""MQR 4.92: PRECOMMITTED tiny real-data source-risk pilot on independent Serov data.
+"""MQR 4.92: author-source-only cohort feasibility revisions and fixed risk pilot.
 
-2026-10-08 design fixed BEFORE observed outcomes:
-- original Git-blob-pinned 'anemone.csv' source, all 19 bio features,
-- source fit on years 2000–2012, source validation on 2013–2016,
-  temporal target evaluation on 2017–2024,
-- no model/weight/metric tuning on target y,
-- deterministic outcome-blind subsampling up to 512/64/64,\n- fit cap reduced from 1200 after FIRST source-only feasibility rejection:\n  2000–2012 yielded 758 complete BIO+label rows, not enough for 1200;\n  no risk estimate had been evaluated when this count-based change was made,
-- author-original NW and KMM estimator function code pinned and unmodified.
-This differs from Serov et al.'s reported paper experimental protocol, so
-the result is a bounded independent-source pipeline pilot, NOT replication
-of published performance or a spatial shift effect.
+This is an independent ORIGINAL-DATA estimator pipeline pilot, not a
+reproduction of Serov et al.'s published model selection or risk tables.
+
+Historical source-only feasibility corrections, both before any target risk:
+  (1) Original 2000–2012 fit cohort requested 1200, but yielded only
+      758 complete 19-BIO + valid-label rows; rejected without fitting.
+  (2) Reduced fit cohort size to 512, but every pre-2013 complete row
+      had class 1 only; again rejected before loss/estimator computation.
+  (3) Across all three active author species, pre-2013 complete cases
+      contain no class 0. The third precommitted temporal split is
+      FIT 2013–2018 (512), SOURCE HOLDOUT 2019–2020 (64),
+      TARGET HOLDOUT 2021–2024 (64).
+
+All original data and author NW/KMM functions are pinned by Git blob SHA.
+No target labels may be used for training or estimator weighting;
+target y is allowed only to calculate the post hoc evaluation oracle.
+No spatial-generalization or publication-level superiority claim.
 """
 import csv,hashlib,io,json,math
 from pathlib import Path
@@ -22,7 +29,7 @@ from serov_author_function_replay import verified_original_code, source_function
 
 DATA="anemone"
 PATH="datasets/species/anemone.csv"
-PARTS={"fit":(2000,2012,512),"source_holdout":(2013,2016,64),"target_holdout":(2017,2024,64)}
+PARTS={"fit":(2013,2018,512),"source_holdout":(2019,2020,64),"target_holdout":(2021,2024,64)}
 OUT=Path("mqr492-anemone-predeclared-real-source-risk.json")
 
 def sample_data():
@@ -99,7 +106,7 @@ def main():
       "source_estimator_file":"source/estimations.py",
       "design":"year-based non-spatial heldout; 19 original BIO features, binary presence",
       "periods":{k:list(v[:2]) for k,v in PARTS.items()},
-      "prespecified_feasibility_revision":"Original 1200 fit-size rejected before risk estimation; revised to 512 only after independent completed-BIO cohort count 758; no target metric observed",
+      "prespecified_feasibility_revision":"Two historical source-only gate failures: pre-2013 complete count 758 <1200; after size cut to 512, class-0 count zero. Original-author active species year/class audit fixed current 2013+ split before observing ANY risk estimates",
       "original_eligible_row_counts":cohorts,
       "chosen_sizes":{k:len(v) for k,v in chosen.items()},
       "class_positive_by_chosen_group":{
