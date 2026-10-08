@@ -1,0 +1,35 @@
+name: MQR 4.92 — Independent Published Species Dataset Identity
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.92/serov_original_species_data_audit.py'
+      - '.github/workflows/mqr-4.92-serov-source-dataset.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-data-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify SHA-1 of Original Source Species CSV and Row/Column Structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.92/serov_original_species_data_audit.py 2>&1 | tee mqr492-serov-species-data.log
+          grep -Fx MQR492_INDEPENDENT_ORIGINAL_DATA_IDENTITY=PASS mqr492-serov-species-data.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR492-Independent-Serov-Species-Data-Receipt
+          path: |
+            mqr492-serov-species-data.log
+            mqr492-serov-original-species-csv-audit.json
+          retention-days: 30
