@@ -48,3 +48,9 @@ jobs:
           python experiments/mqr-4.89/replay_receipt_gates_v2.py | tee byte-bound.log
           grep -Fx 'MQR489_BYTE_BOUND_TESTS=10/10 PASS' byte-bound.log
           grep -Fx 'MQR489_REAL_DATA_REPLAY=NOT_PERFORMED' byte-bound.log
+      - name: Audit legacy-to-byte-bound migration
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.89/migration_boundary_court.py | tee migration.log
+          grep -Fx 'MQR489_MIGRATION_BOUNDARY_PASS=5' migration.log
+          grep -Fx 'MQR489_INDEPENDENT_REPLICATION=NOT_PERFORMED' migration.log
