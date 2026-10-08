@@ -28,7 +28,7 @@ def verified_original_code():
         data = response.read(90_000)
     if len(data) > 20_000:
         raise ValueError("bounded upstream file unexpectedly large")
-    blob = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\\x00" + data).hexdigest()
+    blob = hashlib.sha1(b"blob " + str(len(data)).encode() + bytes([0]) + data).hexdigest()
     if blob != GIT_BLOB_SHA1:
         raise ValueError(f"upstream source identity mismatch: {blob}")
     return data.decode("utf-8")
