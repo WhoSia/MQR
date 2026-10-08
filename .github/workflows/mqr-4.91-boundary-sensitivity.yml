@@ -1,0 +1,39 @@
+name: MQR-4.91 — Boundary-Blind Source Evaluation Sensitivity
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.91/p17_boundary_blind_sensitivity.py'
+      - '.github/workflows/mqr-4.91-boundary-sensitivity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sensitivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Compute Predeclared Border-Free AUC Comparison
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=experiments/mqr-4.90:experiments/mqr-4.91 python experiments/mqr-4.91/p17_boundary_blind_sensitivity.py 2>&1 | tee p491-boundary-sensitivity.log
+          grep -Fx MQR491_P17_BOUNDARY_EXCLUSION_SENSITIVITY=PASS p491-boundary-sensitivity.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR491-Boundary-Blind-Sensitivity
+          path: |
+            p491-boundary-sensitivity.log
+            p491-p17-sensitivity/p16-results.json
+          retention-days: 30
