@@ -84,3 +84,9 @@ jobs:
           python experiments/mqr-4.89/replay_manifest_court.py | tee manifest.log
           grep -Fx 'MQR489_MANIFEST_CONSISTENCY_PASS=6' manifest.log
           grep -Fx 'MQR489_EXECUTION_AUTHENTICITY=UNVERIFIED' manifest.log
+      - name: Check original Real Lang warrant bridge
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.89/real_lang_warrant_bridge.py | tee bridge.log
+          grep -Fx 'MQR489_BRIDGE_CHECKS=12 PASS' bridge.log
+          grep -Fx 'MQR489_SCIENTIFIC_AUTHORITY=NOT_DETERMINED' bridge.log
