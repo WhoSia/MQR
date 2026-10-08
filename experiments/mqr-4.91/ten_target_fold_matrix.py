@@ -13,6 +13,7 @@ from p9_original_maxent_projection import CV_DIR as OXALIS_CV
 from p14_source_coordinate_join_probe import snippet
 from bisect import bisect_left,bisect_right
 from io import TextIOWrapper
+from spatial_map_agreement import pairwise_spatial_stability
 ROOT=Path("p491-ten-target-matrix")
 BASE="3_Maxent_predictions/1_Maxent_output/"
 TABLE=Path(__file__).resolve().parents[1]/"mqr-4.90"/"matsui_2026_native_only_external_auc_pairs.csv"
@@ -82,6 +83,7 @@ def main():
                     output=t/f"{species}-{i}.asc";project(jar,l,env,output)
                     folds.append(read_asc(output))
                 h,base=read_asc(fresh);w=int(h["ncols"]);height=int(h["nrows"])
+                stability=pairwise_spatial_stability(folds,(h,base))
                 positives=[];negatives=[]
                 bad=0;excluded=0;maxerror=0;examples=[];boundary_repairs=[];interior_pos=[];interior_neg=[];boundary_counts=[0,0]
                 for label,sub,suffix,out in [
@@ -165,9 +167,11 @@ def main():
                     positives=len(positives),negative_reference_cells=len(negatives),
                     source_score_blanks=excluded,source_score_max_abs_replay_error=maxerror,
                     source_boundary_cell_resolutions=boundary_repairs,boundary_blind_sensitivity=sensitivity,
+                    spatial_fold_map_agreement=stability,
                     reconstructed_final_target_auc=results[0],original_fold_target_auc=results[1:],
                     original_published_external_auc_rounded=round(results[0],2)==published_auc)
                 report["cases"].append(entry)
+                print("MQR491_SPATIAL_MAP_AGREEMENT="+json.dumps({"species":species,"target":target,"valid_pixel_n":stability["source_common_scored_pixels"],"min_pair_spearman":stability["spatial_rank_min"],"mean_pair_spearman":stability["spatial_rank_mean"],"max_pair_spearman":stability["spatial_rank_max"],"external_auc_spread":max(results[1:])-min(results[1:])}),flush=True)
                 print("MQR491_TEN_TARGET_CASE="+json.dumps({"species":species,"target":target,"positive":len(positives),"negative":len(negatives),"folds":results[1:],"final":results[0],"fold_range":max(results[1:])-min(results[1:]),"boundary_pos":boundary_counts[0],"boundary_neg":boundary_counts[1],"boundary_resolutions":len(boundary_repairs),"interior_folds":interior_auc[1:]}),flush=True)
                 print("MQR491_P16_CASE="+json.dumps({k:v for k,v in entry.items()
                       if k in ("species","target","state","positives","negative_reference_cells",
