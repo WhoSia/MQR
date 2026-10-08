@@ -1,0 +1,39 @@
+name: MQR 4.92 — Frozen Source Weight and Balance Diagnostics
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.92/serov_anemone_weight_sensitivity.py'
+      - '.github/workflows/mqr-4.92-serov-weight-sensitivity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-only-weight-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Frozen Source Numerical Dependencies
+        run: |
+          python -m pip install --disable-pip-version-check numpy==1.26.4 scipy==1.12.0 cvxopt==1.3.2 scikit-learn==1.5.1
+      - name: Run Source-Only Frozen KMM Sensitivity
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=experiments/mqr-4.92 python experiments/mqr-4.92/serov_anemone_weight_sensitivity.py 2>&1 | tee mqr492-weight-sensitivity.log
+          grep -Fx MQR492_WEIGHT_DIAGNOSTIC=PASS mqr492-weight-sensitivity.log
+      - name: Upload Immutable-Derived Diagnostic Receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR492-Original-Anemone-KMM-Weight-Sensitivity
+          path: |
+            mqr492-weight-sensitivity.log
+            mqr492-kmm-weight-sensitivity.json
+          retention-days: 30
