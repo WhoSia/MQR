@@ -16,6 +16,30 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install pinned experiment dependencies
+        run: python -m pip install -r experiments/mqr-4.89/empirical_requirements.txt
+      - name: Run executed synthetic ML study twice and confirm exact reproducibility
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.89/empirical_leakage_reproduction.py --seeds 12 | tee run-one.log
+          grep -Fx 'MQR489_EXECUTED_SYNTHETIC_TRIALS=48' run-one.log
+          grep -Fx 'MQR489_ORIGINAL_DATA_REPLICATION=NOT_PERFORMED' run-one.log
+          cp mqr489_experiment_results.json first-run.json
+          python experiments/mqr-4.89/empirical_leakage_reproduction.py --seeds 12 | tee run-two.log
+          cmp first-run.json mqr489_experiment_results.json
+          echo 'MQR489_DETERMINISTIC_RERUN=PASS'
+      - name: Preserve ML experiment outputs as CI artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR489-Synthetic-Experiment-Outputs
+          path: |
+            mqr489_experiment_results.json
+            run-one.log
+            run-two.log
+          retention-days: 30
       - name: Compile both receipt interpreters
         run: python -m compileall -q experiments/mqr-4.89/
       - name: Run frozen synthetic policy fixtures
