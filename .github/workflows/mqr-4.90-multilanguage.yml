@@ -31,11 +31,17 @@ jobs:
           grep -Fx 'MQR490_RUST_CANONICAL_NULL_COUNTS=12,7,2,6' "$GITHUB_WORKSPACE/mqr490-rust.log"
           grep -Fx 'MQR490_RUST_PRIMARY_SIGNED_EFFECTS=0' "$GITHUB_WORKSPACE/mqr490-rust.log"
           grep -Fx 'MQR490_RUST_VERDICT=PASS' "$GITHUB_WORKSPACE/mqr490-rust.log"
+          cargo run --offline --quiet --bin audit_s4 | tee "$GITHUB_WORKSPACE/mqr490-s4.log"
+          grep -Fx 'MQR490_P8_PUBLISHER_S4_ROWS=108' "$GITHUB_WORKSPACE/mqr490-s4.log"
+          grep -Fx 'MQR490_P8_KOLD_S4_AUDIT=PASS' "$GITHUB_WORKSPACE/mqr490-s4.log"
+          grep -Fx 'MQR490_P8_SIGNED_PRIMARY_OPTIMISM=NOT_IDENTIFIED' "$GITHUB_WORKSPACE/mqr490-s4.log"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: MQR490-Rust-Canonical
-          path: mqr490-rust.log
+          path: |
+            mqr490-rust.log
+            mqr490-s4.log
           retention-days: 30
   prolog-lineage:
     runs-on: ubuntu-latest
