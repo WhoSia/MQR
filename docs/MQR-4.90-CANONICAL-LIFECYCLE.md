@@ -9,7 +9,7 @@
 - `experiments/mqr-4.90/canonical/Cargo.toml` and `src/main.rs` are the main scientific decision executable, dependency-free edition 2021, with fixed-decimal AUC and explicit reject reasons.
 - `cargo test --offline`; `cargo run --offline`. Source inputs are versioned CSV in `experiments/mqr-4.90/`.
 - Deterministic source checks: Koldasbayeva et al. 2025 Tables 2–3, 36 source rows / 144 algorithm AUC cells, test-oracle maximum marked ineligible for the target estimand; Matsui 2026 Appendix A1–A4, 10 native-only score pairs across 3 source/calibration families, negative sampling incompatibility.
-- A target metric is admissible for prospective deployment only with development-only model selection, prospective temporal target, matched negative/reference design, deployment policy, paired uncertainty/covariance, independently audited cohort genealogy and independent target. This is a **deliberately narrow** scope, not a general assertion that every valid research question requires prospective data.
+- A target claim is admitted only after claim-relative target routing: prospective evidence can support **future forecasting**, geographically disjoint test evidence may support **spatial transport**, and retrospective evidence may support **historical backcasting**. The temporal orientation is not promoted across these claim types. All scopes separately require development-only model selection, matched reference-negative design, compatible deployment policy, paired uncertainty/covariance, audited cohort genealogy and an appropriately independent target. This is deliberately narrower than arbitrary descriptive comparisons, without illegitimately demanding future holdouts for a purely spatial claim.
 
 ### Track B — Lean kernel proof boundary
 
@@ -55,3 +55,10 @@
 3. Materialize Wang's complete repeated spatial sample IDs, spatial-target reference RMSE, cross-CV draw covariance and shared-root graph with Wadoux.
 4. Add equivalence/cross-language differential tests so Rust and Prolog cannot silently disagree on the same case; formalize required Lean invariants without using proof output as a substitute for empirical replay.
 5. At bounded exhaustion, close as `SCOPED_NONIDENTIFIABILITY` only after a documented source-acquisition court, or close as `ESTIMAND_COMPARABLE` if matched effects and uncertainty become available. Do not open MQR-4.91 by continuity alone.
+
+### P7 — Claim scope refinement and cross-language concordance
+
+- Rust `Direction` supports prospective, geographically disjoint, retrospective and overlapping target evidence; `ClaimScope` distinguishes future forecasting, spatial transport and historical backcasting. Type-matched evidence is evaluated under its declared scope, not forced to pass an unrelated future-forecast gate.
+- Prolog `admit_for_scope/2` mirrors the same distinctions with explicit idealized positive/negative controls. A geographic holdout does not thereby prove a forward forecast. A past holdout is legitimate for a bounded historical backcast when reference definitions and other evidence constraints match.
+- Lean `scopeCompatible` has kernel-checked claims establishing future/space/backcast separation. Common-output CI `cross-language-concordance` requires canonical Rust and Prolog to agree on no currently eligible primary signed effects and HOLD pooling, alongside a Lean kernel receipt. This is a regression-level concordance check, not yet a complete proof of software equivalence across all inputs.
+- Scientific meaning: the P6 test `prospective_only` restriction would have excluded all spatial targets even under fully matched scoring; P7 explicitly repairs that category error while retaining strict exclusion for the current Matsui cross-negative-design pairs. No actual source result is promoted by this routing change.
