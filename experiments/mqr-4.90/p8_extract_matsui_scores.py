@@ -71,7 +71,7 @@ def main():
     with zipfile.ZipFile(raw) as z:
         yes = select_entry(z, "1_Maxent_values_for_presence_cells", CASE)
         # README says an extra 2 is appended to absence-cell filenames.
-        no = select_entry(z, "2_Maxent_values_for_absence_cells", "Oxalis_latifolia_America-Oceania2.csv")
+        no = select_entry(z, "2_Maxent_values_for_absence_cells", "Oxalis_latifolia_America-Oceania_2.csv")
         positives = read_scores(z, yes, 1)
         negatives = read_scores(z, no, 0)
         scores = ARTIFACT_DIR / "oxalis-america-oceania-reference-scores.csv"
