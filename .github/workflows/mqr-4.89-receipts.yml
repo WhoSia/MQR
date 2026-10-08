@@ -1,0 +1,32 @@
+name: MQR-4.89 Scientific Receipt Regression
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.89/**'
+      - '.github/workflows/mqr-4.89-receipts.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-receipts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile both receipt interpreters
+        run: python -m compileall -q experiments/mqr-4.89/
+      - name: Run frozen synthetic policy fixtures
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.89/real_lang_scientific_receipts.py | tee synthetic.log
+          grep -Fx 'MQR489_SYNTHETIC_PASS=10' synthetic.log
+          grep -Fx 'MQR489_EMPIRICAL_REPLICATION=NOT_PERFORMED' synthetic.log
+      - name: Run source-reported case consistency audit
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.89/source_reported_civil_war_cases.py | tee empirical-contact.log
+          grep -Fx 'MQR489_CASES_PASS=4' empirical-contact.log
+          grep -Fx 'MQR489_INDEPENDENT_REPLICATION=NOT_PERFORMED' empirical-contact.log
