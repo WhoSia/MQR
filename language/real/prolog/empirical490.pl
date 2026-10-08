@@ -72,6 +72,20 @@ temporal_use(Evidence, retrospective_backcast) :-
 temporal_use(Evidence, future_forecast) :-
     observation(Evidence, forward_year_split).
 
+% Emit an independently evaluated decision receipt, including only
+% source-reported candidates (never the fictional ideal positive control).
+source_reported(kold_2025).
+source_reported(matsui_2026).
+source_reported(serov_2026_demo).
+source_reported(wang_2023_amazon).
+
+emit_policy_receipt :-
+    findall(X, (source_reported(X), admit(X)), Admitted),
+    length(Admitted, Count),
+    Count =:= 0,
+    format('MQR490_PROLOG_PRIMARY_SIGNED_EFFECTS=0~n'),
+    format('MQR490_PROLOG_POOLED_EFFECT=HOLD~n').
+
 % Independent typed test cases are nonempirical, except the grounded
 % reported tables and source-genealogy facts stated above.
 :- begin_tests(mqr490).
@@ -87,6 +101,7 @@ test(matsui_negative_witness) :- reason(matsui_2026, reference_design_mismatch).
 test(wang_precision_witness) :- reason(wang_2023_amazon, paired_uncertainty_absent).
 test(wadoux_wang_shared_root) :-
     shares_raw_family(wadoux_2021_amazon, wang_2023_amazon).
+test(reporting_receipt_concordance) :- emit_policy_receipt.
 test(congo_not_amazon, [fail]) :-
     shares_raw_family(ploton_2020_congo, wang_2023_amazon).
 test(kold_backward_is_backcast) :-
