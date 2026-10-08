@@ -85,7 +85,7 @@ fn finite_frame(path: &str) -> Result<(Vec<Site>,usize),Box<dyn Error>> {
                 !(59.0..=71.5).contains(&lat) || !(19.0..=32.5).contains(&lon) {
                 return None;
             }
-            let mut bio=[0.;F];
+            let mut bio=[0.0_f64;F];
             for j in 0..F {
                 bio[j]=values.get(bi[j])?.trim().parse().ok()?;
                 if !bio[j].is_finite(){ return None; }
@@ -324,7 +324,7 @@ mod tests {
         assert!(can_upgrade_external(RootClaim::IndependentlyAttested,true,true,true)); // mocked attested constructor, not real evidence
     }
     #[test] fn finite_label_bounds_exact_adversarial_worlds() {
-        let p=[.01,.15,.31,.67,.82,.98];
+        let p=[0.01,0.15,0.31,0.67,0.82,0.98];
         let loss:Vec<LossPair>=p.iter().map(|&v|LossPair::from_p(v)).collect();
         let known=[1usize,4usize];
         let actual=[0,1,1,0,0,1];
@@ -343,7 +343,7 @@ mod tests {
         assert!((b.width()-loss.iter().enumerate().filter(|(i,_)|!known.contains(i)).map(|(_,q)|q.span()).sum::<f64>()/6.).abs()<1e-12);
     }
     #[test] fn equal_cost_top_width_is_exactly_optimal() {
-        let p=[.02,.1,.3,.65,.8,.99];
+        let p=[0.02,0.1,0.3,0.65,0.8,0.99];
         let pairs:Vec<LossPair>=p.iter().map(|&v|LossPair::from_p(v)).collect();
         let y=[0,1,0,1,1,0];
         let mut ranks=(0..6).collect::<Vec<_>>();
