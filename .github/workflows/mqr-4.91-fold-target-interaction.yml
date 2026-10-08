@@ -5,6 +5,7 @@ on:
     paths:
       - 'experiments/mqr-4.91/fold_target_interaction_analysis.py'
       - 'experiments/mqr-4.91/evaluation_contract_guard.py'
+      - 'experiments/mqr-4.91/spatial_map_agreement.py'
       - '.github/workflows/mqr-4.91-fold-target-interaction.yml'
   workflow_run:
     workflows:
@@ -29,6 +30,7 @@ jobs:
           set -euo pipefail
           python experiments/mqr-4.91/fold_target_interaction_analysis.py --self-test
           python experiments/mqr-4.91/evaluation_contract_guard.py --self-test
+          python experiments/mqr-4.91/spatial_map_agreement.py
   from-source-receipt:
     if: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
