@@ -1,0 +1,11 @@
+source_case,n_scored_positive,n_scored_unrecorded,original_unrecorded_negative_auc,recomputed_all_valid_grid_background_auc,source_only_negative_definition_delta,reproduction_actions_run,upstream_doi,bridge_cv_background_comparable
+Oxalis_latifolia_America-Oceania,105,2826,0.53192970,0.53078585,-0.00114385,37729497381,10.5281/zenodo.19970795,not_established
+Oxalis_latifolia_America-Africa,137,10065,0.81025451,0.80608819,-0.00416633,37729497381,10.5281/zenodo.19970795,not_established
+Oxalis_latifolia_America-Europe,449,2695,0.89026119,0.83452732,-0.05573387,37729497381,10.5281/zenodo.19970795,not_established
+Digitaria_sanguinalis_Europe-Oceania,320,2640,0.76837240,0.73935916,-0.02901323,37729497381,10.5281/zenodo.19970795,not_established
+Digitaria_sanguinalis_Europe-Africa,174,8178,0.55935640,0.55811981,-0.00123659,37729497381,10.5281/zenodo.19970795,not_established
+Digitaria_sanguinalis_Europe-NorthAmerica,1070,6454,0.72092385,0.68950592,-0.03141793,37729497381,10.5281/zenodo.19970795,not_established
+Digitaria_sanguinalis_Europe-SouthAmerica,127,5204,0.60786373,0.60529410,-0.00256963,37729497381,10.5281/zenodo.19970795,not_established
+Amaranthus_retroflexus_NorthAmerica-Oceania,131,2775,0.91590262,0.89715408,-0.01874854,37729497381,10.5281/zenodo.19970795,not_established
+Amaranthus_retroflexus_NorthAmerica-EastAsia,380,4454,0.79402814,0.77091463,-0.02311351,37729497381,10.5281/zenodo.19970795,not_established
+Amaranthus_retroflexus_NorthAmerica-Europe,2635,3284,0.81076226,0.67241819,-0.13834407,37729497381,10.5281/zenodo.19970795,not_established
