@@ -27,10 +27,20 @@ jobs:
           grep -Fx 'MQR490_PRIMARY_EFFECTS_ADMITTED=0' mqr490-verdict.txt
           grep -Fx 'MQR490_POOLED_ESTIMATE=HOLD' mqr490-verdict.txt
           python experiments/mqr-4.90/audit_reported_oracle_auc.py --json > mqr490-reanalysis.json
+      - name: Verify target-outcome oracle selection counterexample
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.90/target_oracle_selection_counterexample.py | tee target-selection.log
+          grep -Fx 'MQR490_TARGET_CONDITIONED_NULL_AUC=0.875' target-selection.log
+          grep -Fx 'MQR490_UNFILTERED_NULL_AUC=0.5' target-selection.log
+          grep -Fx 'MQR490_POSTSELECTION_GAP=0.375' target-selection.log
+          grep -Fx 'MQR490_ORIGINAL_SEROV_REPLICATION=NOT_PERFORMED' target-selection.log
+          grep -Fx 'MQR490_NULL_AUC_EXACT_TEST=PASS' target-selection.log
       - uses: actions/upload-artifact@v4
         with:
           name: MQR490-Source-Reported-AUC-Receipt
           path: |
             mqr490-verdict.txt
             mqr490-reanalysis.json
+            target-selection.log
           retention-days: 30
