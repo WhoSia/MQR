@@ -2,6 +2,7 @@
 //! All science calculations use std-only Rust; no Python model or CSV utilities.
 //! New FNV site permutation + GD logistic is NOT author sklearn replication.
 //! Target labels are re-read only after scores, site selections and policies fix.
+mod design;
 use std::collections::{BTreeMap, BTreeSet};
 use std::error::Error;
 use std::fs::{self, File};
@@ -307,6 +308,8 @@ fn main()->Result<(),Box<dyn Error>> {
                      b.lower,b.upper,b.width(),oracle);
         }
     }
+    if design::theoretical_design_gate()!=(true,true,true) {return Err(error("HT inclusion-order test denied"));}
+    println!("MQR495_SAMPLING_DESIGN_LOGIC=PASS");
     println!("MQR495_ORIGINAL_SOURCE_AUDIT=PASS");
     println!("MQR495_INDEPENDENT_CALIBRATION_WITNESS=HOLD");
     println!("MQR495_DESIGN_BASED_POPULATION_CI=HOLD");
