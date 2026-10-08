@@ -1,7 +1,7 @@
 name: MQR-4.90 Source-Reported AUC Reanalysis
 on:
   push:
-    branches: [main, mqr-4.90-empirical-source-reanalysis]
+    branches: [main]
     paths:
       - 'experiments/mqr-4.90/**'
       - '.github/workflows/mqr-4.90-source-reanalysis.yml'
@@ -13,6 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Require Rust canonical audit as the authoritative source decision
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd experiments/mqr-4.90/canonical
+          cargo test --offline
+          cargo run --offline --quiet | tee "$GITHUB_WORKSPACE/mqr490-canonical.log"
+          grep -Fx 'MQR490_RUST_VERDICT=PASS' "$GITHUB_WORKSPACE/mqr490-canonical.log"
+          grep -Fx 'MQR490_RUST_POOLED_EFFECT=HOLD' "$GITHUB_WORKSPACE/mqr490-canonical.log"
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -49,6 +58,7 @@ jobs:
         with:
           name: MQR490-Source-Reported-AUC-Receipt
           path: |
+            mqr490-canonical.log
             mqr490-verdict.txt
             mqr490-reanalysis.json
             target-selection.log
