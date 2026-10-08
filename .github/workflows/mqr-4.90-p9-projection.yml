@@ -1,0 +1,40 @@
+name: MQR-4.90 P9 — Original Maxent Fold Model External Projection
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.90/p9_original_maxent_projection.py'
+      - '.github/workflows/mqr-4.90-p9-projection.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  published-fold-projection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Replay original published final raster and four CV fold models
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.90/p9_original_maxent_projection.py 2>&1 | tee p9-projection.log
+          grep -Fx 'MQR490_P9_FOLD_PREDICTION_MAPS=4' p9-projection.log
+          grep -Fx 'MQR490_P9_SAME_TARGET_FOLD_MODEL_PROJECTIONS=PASS' p9-projection.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR490-P9-Original-Maxent-Projection
+          path: |
+            p9-projection.log
+            p9-projection/maxent-projection-pilot.json
+          retention-days: 30
