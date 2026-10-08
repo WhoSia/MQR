@@ -147,6 +147,48 @@ theorem negativeSampleChangeReversesMeasuredAUC :
     aucPairWins [3, 4] [1, 2] >
       aucPairWins [3, 4] [5, 6] := by decide
 
+/-!
+P8: A mathematical TV sensitivity bound only transfers when predictor and
+positive reference are held fixed, and the negative reference TV distance is
+source-certified. A data publication with external AUC alone cannot certify
+any one of those three independent factual premises. This proves only that
+the *typed evidence contract* blocks ungrounded promotion.
+-/
+structure ReferenceBridgeWitness where
+  samePredictor : Bool
+  samePositiveReference : Bool
+  empiricalNegativeTvBound : Bool
+  deriving DecidableEq, Repr
+
+def bridgeWarranted (w : ReferenceBridgeWitness) : Bool :=
+  w.samePredictor && w.samePositiveReference && w.empiricalNegativeTvBound
+
+def matsuiKnownBridge : ReferenceBridgeWitness :=
+  { samePredictor := false,
+    samePositiveReference := false,
+    empiricalNegativeTvBound := false }
+
+def syntheticCompleteBridge : ReferenceBridgeWitness :=
+  { samePredictor := true,
+    samePositiveReference := true,
+    empiricalNegativeTvBound := true }
+
+theorem rawExternalAUCAloneDoesNotCertifyBridge :
+    bridgeWarranted matsuiKnownBridge = false := by decide
+
+theorem anExplicitCompleteWitnessWouldPass :
+    bridgeWarranted syntheticCompleteBridge = true := by decide
+
+theorem noBridgeWithoutReferenceBound (w : ReferenceBridgeWitness)
+    (h : w.empiricalNegativeTvBound = false) :
+    bridgeWarranted w = false := by
+  simp [bridgeWarranted, h]
+
+theorem fixedScoreNegativeMixtureWitness :
+    aucPairWins [3, 4] ([1, 2] ++ [5, 6]) =
+      aucPairWins [3, 4] [1, 2] +
+      aucPairWins [3, 4] [5, 6] := by decide
+
 -- Reported Matsui native-only example, signed in hundredths of AUC.
 -- Source fixture: internal Oxalis CV 0.87, external Oceania 0.53,
 -- external Europe 0.89 (different reference-negative designs).
@@ -168,5 +210,9 @@ theorem differentTargetsCanReverseReportedSigns :
 #print axioms spatialTargetSupportsSpatialClaim
 #print axioms spatialTargetDoesNotProveForecast
 #print axioms historicalTargetSupportsBackcastClaim
+#print axioms rawExternalAUCAloneDoesNotCertifyBridge
+#print axioms anExplicitCompleteWitnessWouldPass
+#print axioms noBridgeWithoutReferenceBound
+#print axioms fixedScoreNegativeMixtureWitness
 
 end MQR.Empirical490
