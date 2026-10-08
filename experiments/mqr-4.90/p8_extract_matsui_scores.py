@@ -21,13 +21,28 @@ CASE = "Oxalis_latifolia_America-Oceania.csv"
 
 
 def select_entry(z, folder: str, name: str):
-    candidate = [
+    group = [
         x for x in z.infolist()
         if x.filename.startswith(f"{BASE}/{folder}/")
-        and x.filename.rsplit("/", 1)[-1] == name
+        and x.filename.lower().endswith(".csv")
     ]
+    candidate = [x for x in group if x.filename.rsplit("/", 1)[-1] == name]
+    if not candidate:
+        # The README only says an extra "2" is appended to avoid collision;
+        # original archive filenames may vary in separators. Match exactly
+        # one semantically pinned calibration→target stem, NEVER a different
+        # species/target or an ambiguous source.
+        key = Path(name).stem.removesuffix("2").lower().replace("_", "").replace("-", "")
+        candidate = [
+            x for x in group
+            if Path(x.filename).stem.lower().replace("_", "").replace("-", "").startswith(key)
+        ]
     if len(candidate) != 1:
-        raise RuntimeError(f"cannot identify unique {folder}/{name}: {len(candidate)}")
+        nearby = [x.filename for x in group if "Oxalis_latifolia_America" in x.filename][:30]
+        raise RuntimeError(
+            f"cannot identify unique {folder}/{name}: matches={len(candidate)}, "
+            f"nearby={nearby}"
+        )
     return candidate[0]
 
 
