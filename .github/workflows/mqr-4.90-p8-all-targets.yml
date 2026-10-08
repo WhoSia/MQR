@@ -50,19 +50,7 @@ jobs:
           cargo test --offline --manifest-path experiments/mqr-4.90/canonical/Cargo.toml --bin reference_union_auc
           : > p8-reference-bridge.log
           count=0
-          while IFS=
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: MQR490-P8-All-Ten-AUC-Replication-Receipts
-          path: |
-            p8-all-rust.log
-            p8-reference-bridge.log
-            p8-all-source.log
-            p8-materialization/p8-all-targets.tsv
-            p8-materialization/p8-all-targets-provenance.json
-          retention-days: 30
-\t' read -r case path reported; do
+          while IFS=$'\t' read -r case path reported; do
             cargo run --offline --quiet --manifest-path experiments/mqr-4.90/canonical/Cargo.toml --bin reference_union_auc -- "$case" "$path" | tee -a p8-reference-bridge.log
             count=$((count + 1))
           done < p8-materialization/p8-all-targets.tsv
@@ -77,6 +65,7 @@ jobs:
           name: MQR490-P8-All-Ten-AUC-Replication-Receipts
           path: |
             p8-all-rust.log
+            p8-reference-bridge.log
             p8-all-source.log
             p8-materialization/p8-all-targets.tsv
             p8-materialization/p8-all-targets-provenance.json
