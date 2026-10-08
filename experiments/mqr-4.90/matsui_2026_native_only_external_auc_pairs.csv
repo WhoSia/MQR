@@ -1,0 +1,11 @@
+species,calibration,target,internal_cv_auc,external_region_auc,source_cv_table,source_external_table,cv_negative_definition,external_negative_definition,extraction_scope
+Oxalis latifolia,America,Oceania,0.87,0.53,A4,A1,Maxent background,grid cells without recorded presences,native_only
+Oxalis latifolia,America,Africa,0.87,0.81,A4,A1,Maxent background,grid cells without recorded presences,native_only
+Oxalis latifolia,America,Europe,0.87,0.89,A4,A1,Maxent background,grid cells without recorded presences,native_only
+Digitaria sanguinalis,Europe,Oceania,0.82,0.77,A4,A2,Maxent background,grid cells without recorded presences,native_only
+Digitaria sanguinalis,Europe,Africa,0.82,0.56,A4,A2,Maxent background,grid cells without recorded presences,native_only
+Digitaria sanguinalis,Europe,North America,0.82,0.72,A4,A2,Maxent background,grid cells without recorded presences,native_only
+Digitaria sanguinalis,Europe,South America,0.82,0.61,A4,A2,Maxent background,grid cells without recorded presences,native_only
+Amaranthus retroflexus,North America,Oceania,0.85,0.92,A4,A3,Maxent background,grid cells without recorded presences,native_only
+Amaranthus retroflexus,North America,East Asia,0.85,0.79,A4,A3,Maxent background,grid cells without recorded presences,native_only
+Amaranthus retroflexus,North America,Europe,0.85,0.81,A4,A3,Maxent background,grid cells without recorded presences,native_only
