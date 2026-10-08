@@ -1,0 +1,35 @@
+name: MQR 4.92 — Serov Active Original Species and Notebook Source Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.92/serov_active_source_species_audit.py'
+      - '.github/workflows/mqr-4.92-serov-active-species.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  active-original-publisher-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify Immutable Notebook and Three Active Species Original Datasets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python experiments/mqr-4.92/serov_active_source_species_audit.py 2>&1 | tee mqr492-active-species.log
+          grep -Fx MQR492_SEROV_ACTIVE_ORIGINAL_DATA_AUDIT=PASS mqr492-active-species.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR492-Serov-Active-Species-Provenance-Receipt
+          path: |
+            mqr492-active-species.log
+            mqr492-serov-active-source-data.json
+          retention-days: 30
