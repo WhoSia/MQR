@@ -3,6 +3,7 @@
 //! New FNV site permutation + GD logistic is NOT author sklearn replication.
 //! Target labels are re-read only after scores, site selections and policies fix.
 mod design;
+mod provenance;
 use std::collections::{BTreeMap, BTreeSet};
 use std::error::Error;
 use std::fs::{self, File};
@@ -309,6 +310,11 @@ fn main()->Result<(),Box<dyn Error>> {
         }
     }
     if design::theoretical_design_gate()!=(true,true,true) {return Err(error("HT inclusion-order test denied"));}
+    if provenance::example_known_original_collision()!=provenance::SourceVerdict::ReusedOriginalDownload {
+        return Err(error("original GBIF parent source collision not detected"));
+    }
+    println!("MQR495_ORIGINAL_GBIF_ANEMONE_PARENT_DOWNLOAD={}",provenance::ORIGINAL_GBIF_ANEMONE_DOWNLOAD);
+    println!("MQR495_GBIF_SOURCE_ANCESTRY_COLLISION=PASS");
     println!("MQR495_SAMPLING_DESIGN_LOGIC=PASS");
     println!("MQR495_ORIGINAL_SOURCE_AUDIT=PASS");
     println!("MQR495_INDEPENDENT_CALIBRATION_WITNESS=HOLD");
