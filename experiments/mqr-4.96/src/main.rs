@@ -44,7 +44,8 @@ fn parse(path:&str)->ResultX<(Vec<Record>,BTreeMap<String,SourceStat>,BTreeMap<(
  let h=lines.next().ok_or_else(||fail("empty GBIF source"))??;
  let header:Vec<&str>=h.trim_end_matches('\r').split('\t').collect();
  let fkeys=["gbifID","datasetKey","occurrenceStatus","decimalLatitude","decimalLongitude","year","coordinateUncertaintyInMeters"];
- let indices=fkeys.map(|x|field(&header,x)).into_iter().collect::<ResultX<Vec<_>>>()?;
+ let [i0,i1,i2,i3,i4,i5,i6]=fkeys.map(|x|field(&header,x));
+ let indices=[i0?,i1?,i2?,i3?,i4?,i5?,i6?];
  let mut ids=BTreeSet::new();let mut rows=Vec::new();
  let mut source=BTreeMap::<String,SourceStat>::new();
  let mut ugroup=BTreeMap::<(bool,bool),Uncertainty>::new();
