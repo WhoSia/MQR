@@ -170,11 +170,11 @@ fn main()->Result<(),Box<dyn Error>>{
        kastikka["PRESENT"]!=9862 || kastikka["ABSENT"]!=0 {
         return Err(err("current GBIF source cohort count drift; do not misreport as historical 2024 parent ratios"));
     }
-    output.push_str(&format!("MQR495_P2B_SPRING_CURRENT_2000_2024=PRESENT:{} ABSENT:{} ORIGINAL_PARENT_2024:{}\\n",
+    output.push_str(&format!("MQR495_P2B_SPRING_CURRENT_2000_2024=PRESENT:{} ABSENT:{} ORIGINAL_PARENT_2024:{}\n",
         spring["PRESENT"],spring["ABSENT"],counts["acf9b46d-e71a-4ccb-91d2-a021ffda4dd4"]));
-    output.push_str(&format!("MQR495_P2B_KASTIKKA_CURRENT_2000_2024=PRESENT:{} ABSENT:{} ORIGINAL_PARENT_2024:{}\\n",
+    output.push_str(&format!("MQR495_P2B_KASTIKKA_CURRENT_2000_2024=PRESENT:{} ABSENT:{} ORIGINAL_PARENT_2024:{}\n",
         kastikka["PRESENT"],kastikka["ABSENT"],counts["f2e389da-39c3-4f21-8d72-b7d574d924a9"]));
-    output.push_str("MQR495_P2B_SOURCE_LABEL_MECHANISM_HETEROGENEITY=PASS_OBSERVATIONAL\\n");
+    output.push_str("MQR495_P2B_SOURCE_LABEL_MECHANISM_HETEROGENEITY=PASS_OBSERVATIONAL\n");
     let o=Path::new(&argv[4]);
     fs::create_dir_all(o)?;
     let mut f=File::create(o.join("mqr495-gbif-p2-rust-verdict.txt"))?;
