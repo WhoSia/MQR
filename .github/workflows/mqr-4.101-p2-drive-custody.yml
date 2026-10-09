@@ -28,9 +28,9 @@ jobs:
           groups={
             'courts':['docs/MQR-4.101*','README.md'],
             'methods':['experiments/mqr-4.101','.github/workflows/mqr-4.101-p1-risk-sharpness.yml','.github/workflows/mqr-4.101-p2-selective-reference.yml',
-               'language/real/src/reference_v41.rs','language/real/examples/mqr-4.101-p2-*.real','language/real/Cargo.toml'],
+               'language/real/src/reference_v41.rs','language/real/fixtures/v41/mqr-4.101-p2-*.real','language/real/Cargo.toml'],
             'reallang':['language/real/README.md','language/real/V41-FALLIBLE-REFERENCE-CANDIDATE.md',
-               'language/real/src/reference_v41.rs','language/real/examples/mqr-4.101-p2-*.real','language/real/Cargo.toml']
+               'language/real/src/reference_v41.rs','language/real/fixtures/v41/mqr-4.101-p2-*.real','language/real/Cargo.toml']
           }
           outputs={}
           for group,specs in groups.items():

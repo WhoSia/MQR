@@ -5,7 +5,7 @@ on:
     paths:
       - 'experiments/mqr-4.101/**'
       - 'language/real/src/reference_v41.rs'
-      - 'language/real/examples/mqr-4.101-p2-*.real'
+      - 'language/real/fixtures/v41/mqr-4.101-p2-*.real'
       - 'language/real/Cargo.toml'
       - '.github/workflows/mqr-4.101-p2-selective-reference.yml'
   workflow_dispatch:
@@ -65,17 +65,17 @@ jobs:
           cargo test --offline --manifest-path language/real/Cargo.toml --bin real-v41-reference
           cargo build --offline --manifest-path language/real/Cargo.toml --bin real-v41-reference --bin real
           cargo run --offline --manifest-path language/real/Cargo.toml \
-            --bin real-v41-reference -- language/real/examples/mqr-4.101-p2-no-external-certificate.real \
+            --bin real-v41-reference -- language/real/fixtures/v41/mqr-4.101-p2-no-external-certificate.real \
             2>&1 | tee p2-ci-result/real-source.log
           grep -F 'reference.finite_bounds=[0,487]/487' p2-ci-result/real-source.log
           grep -F 'reference.world_authority=HOLD:NO_REFERENCE_ERROR_CERTIFICATE' p2-ci-result/real-source.log
           cargo run --offline --manifest-path language/real/Cargo.toml \
-            --bin real-v41-reference -- language/real/examples/mqr-4.101-p2-hypothetical-strata.real \
+            --bin real-v41-reference -- language/real/fixtures/v41/mqr-4.101-p2-hypothetical-strata.real \
             2>&1 | tee p2-ci-result/real-hypothetical.log
           grep -F 'reference.finite_bounds=[69,164]/487' p2-ci-result/real-hypothetical.log
           grep -F 'reference.world_authority=HOLD:SENSITIVITY_ONLY_NOT_WORLD_CONTACT' p2-ci-result/real-hypothetical.log
           if cargo run --offline --manifest-path language/real/Cargo.toml \
-             --bin real-v41-reference -- language/real/examples/mqr-4.101-p2-invalid-fake-certificate.real \
+             --bin real-v41-reference -- language/real/fixtures/v41/mqr-4.101-p2-invalid-fake-certificate.real \
              > p2-ci-result/real-rejected.log 2>&1; then
             echo 'FAIL: Real-Language accepted reference label accuracy without certificate'; exit 1
           fi
