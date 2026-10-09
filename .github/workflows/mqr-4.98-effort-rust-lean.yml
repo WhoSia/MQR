@@ -1,0 +1,99 @@
+name: MQR 4.98 — Original Alder Flycatcher Effort, Rust and Lean Identification Court
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.98/**'
+      - '.github/workflows/mqr-4.98-effort-rust-lean.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rust-original-effort:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Compile and Test Rust Zero-Truncated Field Model
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.98/Cargo.toml 2>&1 | tee mqr498-rust-tests.log
+          grep -F 'test result: ok. 5 passed' mqr498-rust-tests.log
+      - name: Reacquire Complete Original 2005 Alder Flycatcher Capture and Covariate CSVs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p mqr498-original-field
+          root='https://raw.githubusercontent.com/cran/unmarked/fc0c7119d86c53c9e48a4db10ff2170819cd245f/inst/csv'
+          for f in alfl.csv alfl.capRecap.csv alflCovs.csv; do
+            curl -fLsS --retry 2 --max-time 65 "$root/$f" -o "mqr498-original-field/$f"
+          done
+          test "$(git hash-object mqr498-original-field/alfl.csv)" = cf8fb85ecbedad96bfd826ba8c0d28d00aa22b6c
+          test "$(git hash-object mqr498-original-field/alfl.capRecap.csv)" = 0b20495dc49c94cdf3ee4202edc682f7e7522015
+          test "$(git hash-object mqr498-original-field/alflCovs.csv)" = 7adb7214614d02c3cdf55ba07028f869d8d5d151
+          {
+            echo MQR498_ORIGINAL_ALFL_2005_BLOBS=PASS
+            echo ORIGINAL_COMMIT=fc0c7119d86c53c9e48a4db10ff2170819cd245f
+            echo FIELD_COLLECTION_ROOT=ALDER_FLYCATCHER_2005_CHANDLER
+            echo FIELD_EFFORT_EXPOSURE=15_MINUTES_3_TIMES_5_MINUTES
+            git hash-object mqr498-original-field/*.csv
+            sha256sum mqr498-original-field/*.csv
+            wc -l mqr498-original-field/*.csv
+          } | tee mqr498-source-original-manifest.txt
+      - name: Verify Source Histories and Run Conditional Detection Estimation
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --offline --release --bin mqr498-alfl --manifest-path experiments/mqr-4.98/Cargo.toml -- \
+            mqr498-original-field/alfl.csv \
+            mqr498-original-field/alfl.capRecap.csv \
+            mqr498-original-field/alflCovs.csv . 2>&1 | tee mqr498-original-field-rust-court.log
+          grep -Fx MQR498_ORIGINAL_ROW_LEVEL_VS_49_SITE_SUMMARY_PATTERN_COUNTS=PASS_EXACT mqr498-original-field-rust-court.log
+          grep -Fx MQR498_EFFORT_EXPOSURE=3_KNOWN_FIVE_MINUTE_WINDOWS_PER_15MIN_POINT_COUNT mqr498-original-field-rust-court.log
+          grep -Fx MQR498_BIRD_CAPTURE_HISTORIES_INFER_BIOLOGICAL_OCCUPANCY_OR_ABUNDANCE=HOLD_ZERO_TRUNCATION mqr498-original-field-rust-court.log
+      - name: Preserve Full Original Field Data, Rust Evidence and Source Custody
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR498-Real-2005-ALFL-Original-Field-And-Rust-Effort-Source-Court
+          path: |
+            mqr498-original-field/
+            mqr498-source-original-manifest.txt
+            mqr498-rust-tests.log
+            mqr498-original-field-rust-court.log
+            mqr498-original-capture-effort-verdict.txt
+            mqr498-original-2005-observed-history-and-roles.tsv
+          retention-days: 30
+  lean-effort-and-truncation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: experiments/mqr-4.98/lean
+          build: true
+          test: false
+          use-mathlib-cache: false
+      - name: Formal Lean Proof Build No Sorry
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -nE '^[[:space:]]*(sorry|admit|axiom)([[:space:]]|$)' experiments/mqr-4.98/lean/Mqr498Effort.lean
+          cd experiments/mqr-4.98/lean
+          lake build 2>&1 | tee ../../../mqr498-lean-build.log
+          echo MQR498_LEAN_TRUNCATED_HISTORY_AND_EFFORT=PASS | tee -a ../../../mqr498-lean-build.log
+      - name: Archive Lean Mathematical Proof Source and Build Receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR498-Lean-Original-Detection-Effort-Zero-Truncation-Court
+          path: |
+            experiments/mqr-4.98/lean/Mqr498Effort.lean
+            mqr498-lean-build.log
+          retention-days: 30
