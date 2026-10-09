@@ -3,7 +3,7 @@ use std::{env,fs};
 fn main(){
  let path=env::args().nth(1).expect("CSV required");
  let data=fs::read_to_string(path).expect("source-based CSV missing");
- let mut rows=0_u64;let mut cuts=[(400_u64,0_u64,0_u64,0_u64);5];
+ let mut rows=0_u64;let mut cuts=[(400_u64,0_u64,0_u64,0_u64),(420,0,0,0),(440,0,0,0),(460,0,0,0),(480,0,0,0)];
  for (i,s) in data.lines().enumerate(){
     if i==0 {assert_eq!(s,"cutoff_ms,record,n,m,missing,reference_disagreement,perfect_reference_lower_count,perfect_reference_upper_count");continue}
     let c=s.split(',').collect::<Vec<_>>();assert_eq!(c.len(),8);
