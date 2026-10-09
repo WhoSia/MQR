@@ -1,0 +1,8 @@
+[package]
+name = "mqr496-source-semantics"
+version = "0.1.0"
+edition = "2021"
+description = "Source-conditioned label and spatial-uncertainty court on original GBIF 2024; std only"
+[[bin]]
+name = "mqr496-source-semantics"
+path = "src/main.rs"
