@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/mqr-4.100-canonical-drive-custody.yml'
+      - 'docs/MQR-4.100*'
+      - 'experiments/mqr-4.100/p8_dual_expert_qtdb.py'
   workflow_dispatch:
 permissions:
   contents: read
