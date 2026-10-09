@@ -1,0 +1,6 @@
+name = "mqr497_detection"
+version = "0.1.0"
+defaultTargets = ["Mqr497Detection"]
+
+[[lean_lib]]
+name = "Mqr497Detection"
