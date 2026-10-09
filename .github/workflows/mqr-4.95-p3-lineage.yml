@@ -1,0 +1,102 @@
+name: MQR 4.95 — Original GBIF-Presence Lineage and Custodial Source Archive
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.95/src/bin/gbif_p3.rs'
+      - '.github/workflows/mqr-4.95-p3-lineage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-lineage-rust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Build and Test Rust P3 Source Contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.95/Cargo.toml 2>&1 | tee mqr495-p3-tests.log
+          grep -F 'test result: ok.' mqr495-p3-tests.log
+      - name: Preserve Pinned Complete Serov Original Species CSV and Source Notebook
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p original-author-source
+          repo='https://raw.githubusercontent.com/egorser0v/Importance-reweighting/46c4d011c9f0cd0614c08e7edb68ac2491f659c8'
+          curl -fLsS --retry 2 --max-time 90 \
+            "$repo/datasets/species/anemone.csv" -o original-author-source/anemone.csv
+          curl -fLsS --retry 2 --max-time 90 \
+            "$repo/notebooks/datasets.ipynb" -o original-author-source/datasets.ipynb
+          csv_sha="$(git hash-object original-author-source/anemone.csv)"
+          notebook_sha="$(git hash-object original-author-source/datasets.ipynb)"
+          test "$csv_sha" = '0e1c83dda391229ffd3cb69573d184eebf1c7bdd'
+          test "$notebook_sha" = '5d9dc434b2bf7d070f44501b2e97f8ce3abd9ec0'
+          {
+            echo 'MQR495_P3_ORIGINAL_SOURCE_PIN=PASS'
+            echo "MQR495_P3_AUTHOR_COMMIT=46c4d011c9f0cd0614c08e7edb68ac2491f659c8"
+            echo "MQR495_P3_SEROV_CSV_GIT_BLOB=$csv_sha"
+            echo "MQR495_P3_SEROV_NOTEBOOK_GIT_BLOB=$notebook_sha"
+            sha256sum original-author-source/anemone.csv original-author-source/datasets.ipynb
+            wc -c original-author-source/anemone.csv original-author-source/datasets.ipynb
+          } | tee mqr495-p3-source-manifest.txt
+      - name: Attempt Cited 2024 Original GBIF Archive (Bounded No Fabricated Snapshot)
+        shell: bash
+        run: |
+          set -euo pipefail
+          url='https://api.gbif.org/v1/occurrence/download/request/0031144-240626123714530.zip'
+          set +e
+          status="$(curl -LsS --retry 1 --max-time 45 -w '%{http_code}' -o original-author-source/GBIF-2024-0031144.zip "$url")"
+          exitcode="$?"
+          set -e
+          {
+            echo "MQR495_P3_GBIF_DOWNLOAD_URL=$url"
+            echo "MQR495_P3_GBIF_ARCHIVE_HTTP=$status CURL_EXIT=$exitcode"
+          } | tee mqr495-p3-gbif-original-status.txt
+          if [ "$exitcode" -eq 0 ] && [ "$status" = 200 ] && \
+             unzip -t original-author-source/GBIF-2024-0031144.zip > mqr495-p3-gbif-unzip-test.txt 2>&1; then
+            echo 'MQR495_P3_GBIF_2024_ARCHIVE=AVAILABLE_VALID_ZIP' | tee -a mqr495-p3-gbif-original-status.txt
+            unzip -Z -1 original-author-source/GBIF-2024-0031144.zip | head -100 > mqr495-p3-gbif-archive-contents.txt
+            sha256sum original-author-source/GBIF-2024-0031144.zip | tee -a mqr495-p3-gbif-original-status.txt
+          else
+            rm -f original-author-source/GBIF-2024-0031144.zip
+            echo 'MQR495_P3_GBIF_2024_ARCHIVE=NOT_AVAILABLE_OR_INVALID' | tee -a mqr495-p3-gbif-original-status.txt
+          fi
+      - name: Run Rust Exact Publisher Source Field and ID Audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --offline --release --bin gbif_p3 \
+            --manifest-path experiments/mqr-4.95/Cargo.toml -- \
+            original-author-source/anemone.csv mqr495-p3-rust-schema-verdict.txt \
+            2>&1 | tee mqr495-p3-source-court.log
+          grep -Fx MQR495_P3_PUBLISHER_SOURCE_ROW_COUNT=29543 mqr495-p3-source-court.log
+          grep -Fx MQR495_P3_ORIGINAL_SOURCE_PIN=PASS mqr495-p3-source-manifest.txt
+      - name: Bundle Original Source and Historical GBIF Receipt Without Bot Commits
+        if: always()
+        shell: bash
+        run: |
+          tar -czf MQR495-Serov-Original-CSV-Notebook-and-GBIF-Archive-IfAvailable.tar.gz \
+            original-author-source mqr495-p3-source-manifest.txt \
+            mqr495-p3-gbif-original-status.txt 2>/dev/null || true
+          sha256sum MQR495-Serov-Original-CSV-Notebook-and-GBIF-Archive-IfAvailable.tar.gz > MQR495-Source-Tar-SHA256.txt || true
+      - name: Archive Full Original Sources and Negative Evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR495-P3-Original-Serov-And-GBIF-Source-Custody
+          path: |
+            MQR495-Serov-Original-CSV-Notebook-and-GBIF-Archive-IfAvailable.tar.gz
+            MQR495-Source-Tar-SHA256.txt
+            mqr495-p3-source-manifest.txt
+            mqr495-p3-gbif-original-status.txt
+            mqr495-p3-gbif-unzip-test.txt
+            mqr495-p3-gbif-archive-contents.txt
+            mqr495-p3-rust-schema-verdict.txt
+            mqr495-p3-tests.log
+            mqr495-p3-source-court.log
+          retention-days: 30
