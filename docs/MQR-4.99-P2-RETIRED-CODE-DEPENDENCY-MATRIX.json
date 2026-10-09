@@ -1,0 +1,729 @@
+{
+  "repository": "WhoSia/MQR",
+  "scope": "CI_ROOT_AND_STAGE_WORKFLOW_STATIC_AUDIT",
+  "method": "GitHub recursive tree plus canonical real-language CI and proof workflow source text",
+  "pinned_head": "4a2a552a43275b2f647d5c58947d84ac6584f052",
+  "interpretation": "Direct textual references are necessary but not sufficient evidence of runtime dependency. Absence of a direct reference does NOT license deletion. Dynamic imports and independent workflows must be checked before any removal.",
+  "github_tree_entries": 1221,
+  "github_blobs": 1130,
+  "listed_workflows": 119,
+  "stage_range": "4.41–4.98",
+  "stages_with_experiment_files": 57,
+  "active_referenced_stages": [
+    "4.41",
+    "4.51",
+    "4.52",
+    "4.53",
+    "4.54",
+    "4.55",
+    "4.59",
+    "4.60",
+    "4.61",
+    "4.62"
+  ],
+  "all_unarchived_stages_retained": true,
+  "stages": [
+    {
+      "stage": "4.41",
+      "files": 4,
+      "bytes": 28841,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.41-proof-boundary.yml",
+        ".github/workflows/mqr-4.41-rank-court.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.42",
+      "files": 2,
+      "bytes": 19188,
+      "stage_workflow_count": 3,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.42-frontier-court.yml",
+        ".github/workflows/mqr-4.42-frontier-direct.yml",
+        ".github/workflows/mqr-4.42-proof-boundary.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.43",
+      "files": 3,
+      "bytes": 36407,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.43-allocation-court.yml",
+        ".github/workflows/mqr-4.43-proof-boundary.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.44",
+      "files": 3,
+      "bytes": 34348,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.44-obligation-constitution-court.yml",
+        ".github/workflows/mqr-4.44-proof-boundary.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.45",
+      "files": 3,
+      "bytes": 32192,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.45-burden-revision-court.yml",
+        ".github/workflows/mqr-4.45-proof-boundary.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.46",
+      "files": 3,
+      "bytes": 30335,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.46-proof-boundary.yml",
+        ".github/workflows/mqr-4.46-translation-authority-court.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.47",
+      "files": 3,
+      "bytes": 32613,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.47-proof-boundary.yml",
+        ".github/workflows/mqr-4.47-translation-challenge-court.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.48",
+      "files": 3,
+      "bytes": 36896,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.48-defeat-route-court.yml",
+        ".github/workflows/mqr-4.48-proof-boundary.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.49",
+      "files": 3,
+      "bytes": 41581,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.49-defeat-content-court.yml",
+        ".github/workflows/mqr-4.49-proof-boundary.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.50",
+      "files": 3,
+      "bytes": 43196,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.50-proof-boundary.yml",
+        ".github/workflows/mqr-4.50-regress-boundary-court.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.51",
+      "files": 12,
+      "bytes": 70821,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.51-proof-boundary.yml",
+        ".github/workflows/mqr-4.51-stopping-calibration-court.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.52",
+      "files": 8,
+      "bytes": 72464,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.52-naturalistic-proof.yml",
+        ".github/workflows/mqr-4.52-naturalistic-trace-court.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml",
+        "real-language-proof-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.53",
+      "files": 9,
+      "bytes": 119348,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.53-progress-measure-court.yml",
+        ".github/workflows/mqr-4.53-progress-proof.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml",
+        "real-language-proof-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.54",
+      "files": 6,
+      "bytes": 44589,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.54-invariance-constitution-court.yml",
+        ".github/workflows/mqr-4.54-invariance-proof.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml",
+        "real-language-proof-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.55",
+      "files": 7,
+      "bytes": 49171,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.55-consequence-family-court.yml",
+        ".github/workflows/mqr-4.55-consequence-proof.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml",
+        "real-language-proof-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.56",
+      "files": 7,
+      "bytes": 47885,
+      "stage_workflow_count": 4,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.56-expansion-policy-court.yml",
+        ".github/workflows/mqr-4.56-expansion-policy-proof.yml",
+        ".github/workflows/mqr-4.56-lean-integration.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.57",
+      "files": 7,
+      "bytes": 51367,
+      "stage_workflow_count": 4,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.57-ecology-proof.yml",
+        ".github/workflows/mqr-4.57-lean.yml",
+        ".github/workflows/mqr-4.57-real-language.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.58",
+      "files": 8,
+      "bytes": 59502,
+      "stage_workflow_count": 4,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.58-lean.yml",
+        ".github/workflows/mqr-4.58-real-language.yml",
+        ".github/workflows/mqr-4.58-reflexive-ecology-court.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.59",
+      "files": 12,
+      "bytes": 33753,
+      "stage_workflow_count": 6,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.59-core.yml",
+        ".github/workflows/mqr-4.59-lean.yml",
+        ".github/workflows/mqr-4.59-promotion-court.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.60",
+      "files": 7,
+      "bytes": 23798,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.60-promotion-conflict.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.61",
+      "files": 7,
+      "bytes": 35032,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.61-promotion-dynamics.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.62",
+      "files": 8,
+      "bytes": 75172,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.62-evidence-acquisition.yml"
+      ],
+      "core_ci_direct_textual_refs": [
+        "real-language-ci.yml"
+      ],
+      "decision": "KEEP_LIVE_CORE_CI_REFERENCE"
+    },
+    {
+      "stage": "4.63",
+      "files": 10,
+      "bytes": 85134,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.63-cross-domain-calibration.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.64",
+      "files": 10,
+      "bytes": 62574,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.64-binding-characterization.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.65",
+      "files": 7,
+      "bytes": 63082,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.65-constraint-compilation.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.66",
+      "files": 8,
+      "bytes": 62743,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.66-scientific-state-quotient.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.67",
+      "files": 8,
+      "bytes": 77767,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.67-scientific-authority-approximation.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.68",
+      "files": 8,
+      "bytes": 47112,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.68-loss-budget-constitution.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.69",
+      "files": 13,
+      "bytes": 83763,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.69-warrant-ancestry.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.70",
+      "files": 28,
+      "bytes": 116088,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.70-probe-family.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.71",
+      "files": 41,
+      "bytes": 122292,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.71-contact-envelope.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.72",
+      "files": 9,
+      "bytes": 37562,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.72-intentional-contact.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.73",
+      "files": 17,
+      "bytes": 47194,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.73-defeat-capability.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.74",
+      "files": 7,
+      "bytes": 33699,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.74-robustness-envelope.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.75",
+      "files": 7,
+      "bytes": 27458,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.75-challenge-generator.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.76",
+      "files": 8,
+      "bytes": 54553,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.76-challenge-authority-upgrade.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.77",
+      "files": 6,
+      "bytes": 27955,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.77-dependency-cut-identifiability.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.78",
+      "files": 7,
+      "bytes": 25799,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.78-separator-generator-authority.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.79",
+      "files": 8,
+      "bytes": 13135,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.79-coverage-warrant-authority.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.80",
+      "files": 8,
+      "bytes": 17065,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.80-gluing-court.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.81",
+      "files": 7,
+      "bytes": 11428,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.81-authority-descent.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.82",
+      "files": 8,
+      "bytes": 14200,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.82-coherence-termination.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.83",
+      "files": 9,
+      "bytes": 20859,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.83-cross-truncation.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.84",
+      "files": 8,
+      "bytes": 16430,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.84-network-coherence.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.85",
+      "files": 6,
+      "bytes": 32167,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.85-warranted-extension.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.86",
+      "files": 5,
+      "bytes": 11585,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.86-debt-transport.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.87",
+      "files": 2,
+      "bytes": 5096,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.87-real-lang.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.88",
+      "files": 0,
+      "bytes": 0,
+      "stage_workflow_count": 0,
+      "stage_workflow_examples": [],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.89",
+      "files": 12,
+      "bytes": 33746,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.89-receipts.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.90",
+      "files": 22,
+      "bytes": 112244,
+      "stage_workflow_count": 9,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.90-multilanguage.yml",
+        ".github/workflows/mqr-4.90-p8-all-targets.yml",
+        ".github/workflows/mqr-4.90-p8-cv-original.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.91",
+      "files": 13,
+      "bytes": 89259,
+      "stage_workflow_count": 9,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.91-boundary-sensitivity.yml",
+        ".github/workflows/mqr-4.91-fold-target-interaction.yml",
+        ".github/workflows/mqr-4.91-p1-grid-diagnostic.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.92",
+      "files": 6,
+      "bytes": 40251,
+      "stage_workflow_count": 6,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.92-contract-benchmark.yml",
+        ".github/workflows/mqr-4.92-serov-active-species.yml",
+        ".github/workflows/mqr-4.92-serov-real-risk-pilot.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.93",
+      "files": 2,
+      "bytes": 18819,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.93-coordinate-gate.yml",
+        ".github/workflows/mqr-4.93-geosite-risk.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.94",
+      "files": 2,
+      "bytes": 19664,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.94-fixed-predictor-ablation.yml",
+        ".github/workflows/mqr-4.94-spatial-risk.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.95",
+      "files": 11,
+      "bytes": 56155,
+      "stage_workflow_count": 4,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.95-gbif-p2-rust-lean.yml",
+        ".github/workflows/mqr-4.95-p3-lineage.yml",
+        ".github/workflows/mqr-4.95-p3b-full-id-reconstruction.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.96",
+      "files": 6,
+      "bytes": 15103,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.96-source-label-rust-lean.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.97",
+      "files": 7,
+      "bytes": 19170,
+      "stage_workflow_count": 2,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.97-dryad-source.yml",
+        ".github/workflows/mqr-4.97-naamp-rust-lean.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    },
+    {
+      "stage": "4.98",
+      "files": 6,
+      "bytes": 13669,
+      "stage_workflow_count": 1,
+      "stage_workflow_examples": [
+        ".github/workflows/mqr-4.98-effort-rust-lean.yml"
+      ],
+      "core_ci_direct_textual_refs": [],
+      "decision": "HOLD_PENDING_SOURCE_DEPENDENCY_AND_PINNED_ARCHIVE"
+    }
+  ],
+  "next_required_steps": [
+    "source-level import/path-reference closure",
+    "archivable blob manifest for each proposed stage",
+    "verified Google Drive byte archive",
+    "no-regression CI impact witness",
+    "no github-actions[bot] authored commits"
+  ]
+}

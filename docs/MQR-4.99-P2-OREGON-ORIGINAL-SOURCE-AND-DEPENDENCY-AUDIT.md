@@ -1,7 +1,7 @@
 # MQR-4.99-P2 — Independent Oregon Original Source, Observation-Regime Separation and Retired-Code Dependency Audit
 
 Date: 2026-10-09. This document is a POST-RETRIEVAL forensic source audit, not a blind pre-result preregistration.
-STATUS: SOURCE BYTE IDENTITY / PROTOCOL-FIELD CUSTODY PASS; BIOLOGICAL AVAILABILITY GROUND TRUTH, SOURCE-TARGET ECOLOGICAL RISK, GENERAL PARAMETRIC IDENTIFICATION and NEW THEOREM HOLD.
+STATUS: SOURCE BYTE IDENTITY / RUST–PYTHON CI / GOOGLE DRIVE BYTE CUSTODY PASS; BIOLOGICAL AVAILABILITY GROUND TRUTH, SOURCE-TARGET ECOLOGICAL RISK, GENERAL PARAMETRIC IDENTIFICATION and NEW THEOREM HOLD.
 
 ## 1. Source ancestry, original byte and DOI
 
@@ -69,3 +69,11 @@ Decision: keep every currently referenced folder; keep all not-yet-archived cand
 ## 6. Judgment
 
 P2 source custody and reconciliation may PASS when the pinned source ZIP is reacquired in GitHub CI, Python and Rust agree, and an artifact is preserved in Drive. The empirical separate true-availability measurement is STILL HOLD. Do not mistake fitting a singing-rate latent variable for verifying an independent physical availability sensor. Next gate: behavior/singing independently watched, or an explicitly sharp partial-identification analysis with measured external calibration and protocol correspondence.
+
+## 7. Final source custody receipt (2026-10-09)
+
+GitHub human-authored source/audit head: 4a2a552a43275b2f647d5c58947d84ac6584f052. GitHub Actions run https://github.com/WhoSia/MQR/actions/runs/37895816435 SUCCESS: pinned full original ZIP reacquired, Python source audit PASS, Rust source audit and mathematical regression PASS, read-only workflow artifact uploaded. Artifact 11599763761, outer ZIP SHA-256 5835834bd4a6af59e7c3f7cb070c9de54e4b6f8243a6c26be2db5a28d209d944. Authenticated Drive archive https://drive.google.com/file/d/1K6u4tKwMIC4jFXtpD1m3Y1729OBZXmLO/view at MQR / 01_SOURCE_ACCRUAL_RAW. Downloaded Drive copy and verified outer ZIP SHA and inner original ZIP SHA 279a67cf8c763a1ba5166497ed223ac5feb656b5a6e7f110dae3c0d1a11e001d, 26 entries; separate source_audit.json exists and its tracked counts match independently. The measured **availability truth** and population transport remain HOLD.
+
+Dependency audit manifest: docs/MQR-4.99-P2-RETIRED-CODE-DEPENDENCY-MATRIX.json, pinned at source/audit commit 4a2a552a43275b2f647d5c58947d84ac6584f052. Static tree count 1,221 entries, 1,130 blobs, 119 workflow YAMLs; 57 stage directories (4.41–4.98), 10 with direct Real-Language core/proof workflow path references; 47 additional stage directories **HOLD pending full reverse-dependency and Drive-byte archiving**. This matrix is a conservative textual audit rather than exhaustive executable path analysis. No further historical code was deleted in P2.
+
+**P2 verdict:** CLOSED — BOUNDED ORIGINAL-SOURCE CUSTODY PASS / REAL AVAILABILITY-PERCEPTION INDEPENDENT CALIBRATION HOLD / POPULATION-RISK TRANSPORT HOLD. This is a stage-local exit gate, NOT scientific closure of MQR-4.99 as a whole.
