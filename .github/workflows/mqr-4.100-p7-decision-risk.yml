@@ -1,0 +1,110 @@
+name: "MQR 4.100 — P7 Cross-Site Step-Event Decision Court"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.100/p7_video_reference_court.py'
+      - 'experiments/mqr-4.100/src/bin/p7_source_reference.rs'
+      - '.github/workflows/mqr-4.100-p7-decision-risk.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  paired-source-video-referenced-risk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download exact original Clemson Data.zip with publisher TLS validated to OS roots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p mqr4100-p7
+          # The publisher currently omits required certificate intermediates.
+          # Obtain the *public* CA intermediates from the CA's verified HTTPS
+          # repository, verify that chain against GitHub's existing OS roots,
+          # and pass ONLY this verified chain as an additional curl CA bundle.
+          # Do not use --insecure and do not introduce a novel trusted root.
+          curl --fail --location --show-error --silent --max-time 25 \
+            'https://repository.emsign.com/certs/EEEMIncommonOVG2C.crt' \
+            --output mqr4100-p7/incommon-ovg2c.der
+          curl --fail --location --show-error --silent --max-time 25 \
+            'https://repository.emsign.com/certs/EMIncommonOVG2C.p7c' \
+            --output mqr4100-p7/incommon-chain.p7c
+          openssl x509 -inform DER -in mqr4100-p7/incommon-ovg2c.der \
+            -out mqr4100-p7/incommon-ovg2c.pem
+          openssl pkcs7 -inform DER -in mqr4100-p7/incommon-chain.p7c -print_certs \
+            -out mqr4100-p7/incommon-chain.pem
+          openssl verify -CAfile /etc/ssl/certs/ca-certificates.crt \
+            -untrusted mqr4100-p7/incommon-chain.pem mqr4100-p7/incommon-ovg2c.pem
+          cat /etc/ssl/certs/ca-certificates.crt \
+            mqr4100-p7/incommon-ovg2c.pem mqr4100-p7/incommon-chain.pem \
+            > mqr4100-p7/verified-publisher-chain.pem
+          curl --fail --location --show-error --silent --retry 2 --max-time 120 \
+            --cacert mqr4100-p7/verified-publisher-chain.pem \
+            'https://cecas.clemson.edu/tracking/Pedometer/Data.zip' \
+            --output mqr4100-p7/Clemson-Pedometer-Published-Data.zip
+          echo 'ce37832d5e234f6f014193a3a2af2f3162ab90905f303d473849512d690885da  mqr4100-p7/Clemson-Pedometer-Published-Data.zip' | sha256sum -c -
+      - name: Run exact video-annotation-conditional participant-holdout experiment
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m venv mqr4100-p7/venv
+          mqr4100-p7/venv/bin/python -m pip --disable-pip-version-check install 'numpy==2.2.6'
+          mqr4100-p7/venv/bin/python experiments/mqr-4.100/p7_video_reference_court.py \
+            mqr4100-p7/Clemson-Pedometer-Published-Data.zip mqr4100-p7/results \
+            > mqr4100-p7/python.log 2>&1
+          grep -F 'P7_CLEMSON_VIDEO_REFERENCE_SOURCE_BOUNDED_REPLAY_PASS; TRUE_INDEPENDENT_ERROR_AND_PARAMETER_TRANSPORT_HOLD' mqr4100-p7/python.log
+          python3 - <<'PY'
+          import json,csv
+          from pathlib import Path
+          d=Path("mqr4100-p7/results");r=json.loads((d/"p7_result.json").read_text())
+          assert (r["train_trials"],r["test_trials"],r["test_reference_count"]) == (45,45,28697)
+          assert [(v["t"],v["d"]) for v in r["parameters"]] == [(1.5,8),(1.5,6),(2.5,6)]
+          metrics=r["total_metrics"]
+          expected={"wrist":(15870,12827,13287),"hip":(19900,8797,15901),
+                    "ankle":(14059,14638,11924),"wrist_and_hip":(11451,17246,6846),
+                    "any_three":(24423,4274,28614)}
+          for policy,(tp,fn,fp) in expected.items():
+              actual=metrics[policy];assert (actual["tp"],actual["fn"],actual["fp"])==(tp,fn,fp),(policy,actual)
+          assert len(list(csv.DictReader((d/"p7_pair_overlap_by_trial.csv").open())))==135
+          assert len(list(csv.DictReader((d/"p7_test_per_trial.csv").open())))==45*(8*(1*2+2*1))
+          print("MQR4100_P7_HELDOUT_ANNOTATION_CONDITIONAL_TP_FN_FP=PASS")
+          PY
+      - name: Independently parse 90 source sensor/reference pairs in Rust and check sharp Fréchet tables
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import zipfile,pathlib
+          root=pathlib.Path('mqr4100-p7/original_unmodified_text')
+          with zipfile.ZipFile('mqr4100-p7/Clemson-Pedometer-Published-Data.zip') as z:
+              assert len(z.namelist())==180 and z.testzip() is None
+              for name in z.namelist():
+                  assert not name.startswith('/') and '..' not in pathlib.PurePosixPath(name).parts
+                  p=root/name;p.parent.mkdir(parents=True,exist_ok=True)
+                  p.write_bytes(z.read(name))
+          PY
+          cargo test --offline --manifest-path experiments/mqr-4.100/Cargo.toml --bin p7_source_reference
+          cargo run --offline --manifest-path experiments/mqr-4.100/Cargo.toml \
+            --bin p7_source_reference -- \
+            mqr4100-p7/original_unmodified_text \
+            mqr4100-p7/results/p7_pair_overlap_by_trial.csv 2>&1 | tee mqr4100-p7/rust.log
+          grep -F 'P7_RUST_ORIGINAL_VIDEO_ANNOTATION_CONTRACT_PASS' mqr4100-p7/rust.log
+          grep -F 'P7_RUST_VIDEO_CONDITIONAL_OVERLAP_BOUNDS=PASS' mqr4100-p7/rust.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR4100-P7-Heldout-Video-Conditional-Step-Risk-Receipts
+          path: |
+            mqr4100-p7/results/*.json
+            mqr4100-p7/results/*.csv
+            mqr4100-p7/python.log
+            mqr4100-p7/rust.log
+          if-no-files-found: warn
+          retention-days: 90
