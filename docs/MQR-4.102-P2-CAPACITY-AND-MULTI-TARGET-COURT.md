@@ -26,4 +26,21 @@ If weights between pooled and equal-record objectives are *unknown* (not Bayesia
 - Peer reviewers may share the same measurement trace, adjudication error, annotation tools and institutional labels. No external certification of reviewer error rates has been acquired.
 - Source QT values, annotation identities and PhysioNet authorship all belong to the original producers; no first-party ECG measurement or original theorem is attributed to MQR.
 
-**Executed outcome:** see [GitHub Actions](https://github.com/WhoSia/MQR/actions) after main push; do not mark P2 closed until the new source-pinned code passes. 4.102 remains OPEN regardless. 4.103 is a **next formal title proposal only**, not a version to open without user confirmation.
+## Actual execution (CI verified)
+
+[GitHub Actions #37938142064](https://github.com/WhoSia/MQR/actions/runs/37938142064) **SUCCESS**, at source commit `5416b43cb478d32e77512cbb1a6b1bfc9218b3bc`. The source-derived 487-row SHA-256 was checked, the script reproduced 402 paired and 76 disagreement labels, and **3,888 exhaustively enumerated small finite allocation problems** agreed with the claimed greedy single-target optimizer. The ten-case capacity-constrained table follows (all hypothetical reviews; no truth acquired):
+
+| Target | Original interval full width | Width after hypothetical ten reviews, cap 3/record | Allocation of ten |
+| --- | ---: | ---: | --- |
+| Beat-pooled decision difference | `76/201` ≈ 0.3781 | `22/67` ≈ 0.32836 | sel103 3, sel114 3, sel117 3, sel123 1 |
+| Equal-record decision difference | `236237/588225` ≈ 0.40162 | `200587/588225` ≈ 0.34100 | sel103 3, sel117 3, sel123 3, sel221 1 |
+
+The equal-record objective has many tied optimal allocations (all chosen 30-pair record cases have equal benefit until available counts are used). **In the present ten-review source/cap contract, minimizing the worst of the pooled and equal-record widths is degenerate**: equal-record width dominates the worst-case objective at its optimum. A minimax score of `200587/588225` was found (one tie-optimal allocation sel103 1, sel117 3, sel123 3, sel221 3); this does NOT demonstrate an independently nontrivial two-target tradeoff or validate robustness for all cost specifications.
+
+The capacity-three restriction, reviewer availability and all review outcomes are mathematical assumptions. No actual adjudications were purchased or performed. Selection based on nonrandom source-observed disagreements has no population-generalization guarantee. **P2 CLOSED BOUNDED for pinned-source allocation arithmetic and finite counterexample tests only; 4.102 OPEN; scientific independent adjudication HOLD.**
+
+### Next falsification
+
+An actual new objective conflict requires genuinely competing target weights or heterogeneous review costs under an explicit target-population measure, not simply writing “minimax” over two targets when one dominates. Changing eligibility due to a fallible selection mechanism also requires measured eligibility. Re-evaluate with a three-way independently justified conflict before claiming general robust optimization.
+
+**4.103 is a proposed next formal scientific question only; do not open without the user's decision.**
