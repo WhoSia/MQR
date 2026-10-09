@@ -57,18 +57,35 @@ jobs:
                 .results[0].samplingEffort]|@tsv' "$filename" >> sweden-anemone-records.tsv
             done
           done
-          wc -l gbif-parent-datasets.tsv sweden-anemone-records.tsv | tee mqr495-p2-source-inventory.log
+          : > original-parent-source-status.tsv
+          for group in spring kastikka; do
+            if [ "$group" = spring ]; then
+              ds='acf9b46d-e71a-4ccb-91d2-a021ffda4dd4'
+            else
+              ds='f2e389da-39c3-4f21-8d72-b7d574d924a9'
+            fi
+            for status in PRESENT ABSENT; do
+              filename="original-source-$group-$status.json"
+              curl -fLsS --retry 3 --retry-all-errors --max-time 45 \
+                "$base/occurrence/search?datasetKey=$ds&taxonKey=3033263&country=FI&year=2000%2C2024&occurrenceStatus=$status&limit=1" \
+                -o "$filename"
+              jq -er --arg group "$group" --arg dataset "$ds" --arg status "$status" \
+                '[$group,$dataset,$status,(.count|tostring)]|@tsv' "$filename" >> original-parent-source-status.tsv
+            done
+          done
+          wc -l gbif-parent-datasets.tsv sweden-anemone-records.tsv original-parent-source-status.tsv | tee mqr495-p2-source-inventory.log
       - name: Adjudicate Live GBIF Origins and True Swedish Binary Observations in Rust
         shell: bash
         run: |
           set -euo pipefail
           cargo run --offline --release --bin gbif_p2 \
             --manifest-path experiments/mqr-4.95/Cargo.toml -- \
-            gbif-parent.tsv gbif-parent-datasets.tsv sweden-anemone-records.tsv . \
+            gbif-parent.tsv gbif-parent-datasets.tsv sweden-anemone-records.tsv . original-parent-source-status.tsv \
             2>&1 | tee mqr495-p2-source-court.log
           grep -Fx MQR495_P2_DISTINCT_SWEDISH_FIELD_OBSERVATION_BINARY_CONTACT=PASS mqr495-p2-source-court.log
           grep -Fx MQR495_P2_FINNISH_TARGET_DIRECT_CALIBRATION=HOLD mqr495-p2-source-court.log
           grep -Fx MQR495_P2_SPATIAL_DESIGN_BASED_CI=HOLD mqr495-p2-source-court.log
+          grep -Fx MQR495_P2B_SOURCE_LABEL_MECHANISM_HETEROGENEITY=PASS_OBSERVATIONAL mqr495-p2-source-court.log
       - name: Preserve Raw Public API Responses and Failing or Passing Rust Receipts
         if: always()
         uses: actions/upload-artifact@v4
@@ -81,6 +98,8 @@ jobs:
             gbif-parent-datasets.tsv
             sweden-anemone-records.tsv
             sweden-*.json
+            original-parent-source-status.tsv
+            original-source-*.json
             mqr495-p2-rust-tests.log
             mqr495-p2-source-inventory.log
             mqr495-p2-source-court.log
