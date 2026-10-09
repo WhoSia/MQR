@@ -1,0 +1,6 @@
+name = "mqr498_effort"
+version = "0.1.0"
+defaultTargets = ["Mqr498Effort"]
+
+[[lean_lib]]
+name = "Mqr498Effort"
