@@ -3,6 +3,10 @@
 Date: 2026-10-09. This document is a POST-RETRIEVAL forensic source audit, not a blind pre-result preregistration.
 STATUS: SOURCE BYTE IDENTITY / RUST–PYTHON CI / GOOGLE DRIVE BYTE CUSTODY PASS; BIOLOGICAL AVAILABILITY GROUND TRUTH, SOURCE-TARGET ECOLOGICAL RISK, GENERAL PARAMETRIC IDENTIFICATION and NEW THEOREM HOLD.
 
+## Scope correction (2026-10-09 — interpret prior P2 claims narrowly)
+
+P2 did **not** collect or independently replicate field observations. It obtained an already published dataset from Kéry et al. (2024), performed checksum/custody checks, counted CSV entries, examined the original author's cutoff, and compared joins with original bookkeeping. Rust/Python code used the **same source bytes** and standard accounting identities; code independence does not imply ecological evidence independence. Earlier words such as "independent original source", "cross-protocol audit" and "PASS" refer only to a source **different from MQR-4.98** and to deterministic repository/data checks; they **do not** establish a new estimator, true species abundance, availability/perception separation, or external validation of 2024 author conclusions. Scientific contribution (if any) is limited to a bounded methods audit and source provenance clarification.
+
 ## 1. Source ancestry, original byte and DOI
 
 Kéry et al. (2024), Integrated distance sampling models for simple point counts. Ecology. DOI: https://doi.org/10.1002/ecy.4292. Independent original data and code v1.0: https://doi.org/10.5281/zenodo.10666980, published 2024-02-15.

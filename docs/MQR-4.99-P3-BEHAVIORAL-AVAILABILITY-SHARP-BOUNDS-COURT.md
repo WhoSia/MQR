@@ -1,6 +1,6 @@
 # MQR-4.99-P3 — Published Behavioral Availability, Sharp Conditional Bounds & Cross-Protocol Nontransport
 
-**Date:** 2026-10-09. **Status at authoring:** proposed scoped arithmetic and evidence court; CI pending. This note is **not** an original ecological calibration study, not a proof of a new theorem, and not a test of transfer to Oregon or Alder Flycatcher.
+**Date:** 2026-10-09. **Stage judgment:** P3 CLOSED BOUNDED — reported aggregate transcription and elementary conditional-set arithmetic verified in Rust/Python; original per-bird behavior events and scientific target calibration HOLD. This court is not a new field or method discovery. This note is **not** an original ecological calibration study, not a proof of a new theorem, and not a test of transfer to Oregon or Alder Flycatcher.
 
 ## A. Correct the significance of P2
 
@@ -45,7 +45,11 @@ Attainability is immediate: each p inside this interval admits a=q/p within the 
 
 ## D. Admissibility and no-overclaim ruling
 
-- **PASS, only when executable test passes:** accurate transcription of published Table 1 to a small source-labelled fixture; algebraic set bounds and constructive endpoints; Python/Rust deterministic agreement; 5/10-minute descriptive point checks.
+- **VERIFIED LOCAL PROGRAM TEST PASS (GitHub Actions #37897402876):** accurate transcription of published Table 1 to a small source-labelled fixture; algebraic set bounds and constructive endpoints; Python/Rust deterministic agreement; 5/10-minute descriptive point checks.
 - **HOLD:** bird-level primary behavior sequence (ACCESS database), any measured same-population unconditional q, empirical p separation for American Robins, cross-protocol source-target bridge, any confidence guarantee for p, ecological abundance/risk identification and method novelty.
 - **P2 revised:** mechanical byte/source auditing, no scientifically independent replication of availability; refrain from treating multiple languages or CI PASS as more independent ecological evidence.
 - **Next empirical exit gate:** matching the marked-bird availability logs to independent contemporaneous perception records or an explicitly documented same-target external calibration with known numerator/denominator and uncertainty. Otherwise retain P3 as a *bounded conceptual/aggregate sensitivity exercise*. Do not automatically advance or close MQR-4.99 scientifically.
+
+## E. Executable receipt (no ecological promotion)
+
+[GitHub Actions P3 arithmetic #37897402876](https://github.com/WhoSia/MQR/actions/runs/37897402876) completed successfully on commit 82eca89a3b006ae8751c33376e1b4f874e5514a7. Rust source check, P1 regression, published fixture inclusion, endpoint constructive witnesses and independent Python arithmetic check all passed. Both implementations read the same **manually transcribed published table**, so they do not constitute independent event-level field replicates. No behavior-event data, target-population known-denominator q, or uncertainty transport was acquired. Reader should not infer model rejection from descriptive Poisson discrepancies.
