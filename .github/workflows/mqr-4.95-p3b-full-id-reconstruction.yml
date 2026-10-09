@@ -1,0 +1,64 @@
+name: MQR 4.95 — Full 29543 GBIF-ID Presence Lineage Reconstruction
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.95/src/bin/gbif_p3b.rs'
+      - '.github/workflows/mqr-4.95-p3b-full-id-reconstruction.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-original-lineage-rust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Compile and Test All Rust P1-P3b Science Contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.95/Cargo.toml 2>&1 | tee mqr495-p3b-rust-tests.log
+          grep -F 'test result: ok.' mqr495-p3b-rust-tests.log
+      - name: Freeze Exact Original Publisher and 2024 GBIF Downloads
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p original
+          curl -fLsS --retry 2 --max-time 75 \
+            'https://raw.githubusercontent.com/egorser0v/Importance-reweighting/46c4d011c9f0cd0614c08e7edb68ac2491f659c8/datasets/species/anemone.csv' \
+            -o original/Serov-2026-anemone.csv
+          test "$(git hash-object original/Serov-2026-anemone.csv)" = 0e1c83dda391229ffd3cb69573d184eebf1c7bdd
+          curl -fLsS --retry 2 --max-time 75 \
+            'https://api.gbif.org/v1/occurrence/download/request/0031144-240626123714530.zip' \
+            -o original/GBIF-2024-0031144.zip
+          unzip -t original/GBIF-2024-0031144.zip | tail -2
+          unzip -p original/GBIF-2024-0031144.zip 0031144-240626123714530.csv > original/GBIF-2024-0031144.tsv
+          echo MQR495_P3B_BOTH_ORIGINAL_SOURCES_RETRIEVED=PASS | tee mqr495-p3b-original-source-sha256.txt
+          sha256sum original/Serov-2026-anemone.csv original/GBIF-2024-0031144.zip original/GBIF-2024-0031144.tsv | tee -a mqr495-p3b-original-source-sha256.txt
+          wc -l original/Serov-2026-anemone.csv original/GBIF-2024-0031144.tsv | tee -a mqr495-p3b-original-source-sha256.txt
+      - name: Reconstruct Original GBIF Record IDs and OccurrenceStatus in Rust
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --offline --release --bin gbif_p3b --manifest-path experiments/mqr-4.95/Cargo.toml -- \
+            original/Serov-2026-anemone.csv original/GBIF-2024-0031144.tsv . \
+            2>&1 | tee mqr495-p3b-original-id-lineage.log
+          grep -Fx MQR495_P3B_ORIGINAL_RAW_TO_SEROV_LABEL_AUDIT=PASS_BOUNDED mqr495-p3b-original-id-lineage.log
+          grep -Fx MQR495_P3B_ALL_ROW_ORDINAL_STATUS_LABEL_MISMATCHES=0 mqr495-p3b-original-id-lineage.log
+          grep -Fx MQR495_P3B_ALL_ROW_ORDINAL_NORMALIZED_COORDINATE_MISMATCHES=0 mqr495-p3b-original-id-lineage.log
+      - name: Preserve Complete Audit-Ready 29543-Row Original-ID to Label Correspondence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR495-P3B-All-Original-GBIF-IDs-to-Serov-Presence-Rust
+          path: |
+            mqr495-p3b-rust-tests.log
+            mqr495-p3b-original-source-sha256.txt
+            mqr495-p3b-original-id-lineage.log
+            mqr495-P3B-Original-2024-Ordinal-Lineage-Verdict.txt
+            mqr495-GBIF-Original-2024-Ordinal-ID-to-Presence.tsv
+            mqr495-GBIF-Original-2024-Presence-by-Dataset.tsv
+          retention-days: 30
