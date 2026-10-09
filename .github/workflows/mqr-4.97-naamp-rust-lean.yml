@@ -49,7 +49,17 @@ jobs:
             mqr497-naamp-original-field/frog2001pfer.csv . 2>&1 | tee mqr497-rust-real-naamp-court.log
           grep -c '^MQR497_NAAMP_REAL_SOURCE_REPEATED_DETECTION=PASS$' mqr497-rust-real-naamp-court.log | grep -Fx 2
           grep -c '^MQR497_ECOLOGICAL_OCCUPANCY_IDENTIFIED_UNCONDITIONALLY=HOLD$' mqr497-rust-real-naamp-court.log | grep -Fx 2
-          grep -c '^MQR497_SEROV_FINLAND_INDEPENDENT_TARGET_RISK=HOLD
+          grep -c '^MQR497_SEROV_FINLAND_INDEPENDENT_TARGET_RISK=HOLD$' mqr497-rust-real-naamp-court.log | grep -Fx 2
+      - name: Test Postdiscovery Rust Visit-Order Detection and Whole Site Heldout Comparators
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --offline --release --bin visit_order --manifest-path experiments/mqr-4.97/Cargo.toml -- \
+            mqr497-naamp-original-field/frog2001pcru.csv \
+            mqr497-naamp-original-field/frog2001pfer.csv mqr497-occasion-source-contract.txt \
+            2>&1 | tee mqr497-p1b-postdiscovery-occasion-court.log
+          grep -c '^MQR497_P1B_POSTDISCOVERY_REAL_FIELD_OBSERVATION_HETEROGENEITY=PASS$' mqr497-p1b-postdiscovery-occasion-court.log | grep -Fx 2
+          grep -c '^MQR497_P1B_ECOLOGICAL_OCCUPANCY_AND_STATIONARITY=HOLD$' mqr497-p1b-postdiscovery-occasion-court.log | grep -Fx 2
       - name: Archive Entire Original Real Field CSVs, Rust Fits and Custody
         if: always()
         uses: actions/upload-artifact@v4
@@ -66,154 +76,6 @@ jobs:
             mqr497-Pfer-original-site-visit-contract.tsv
             mqr497-occasion-source-contract.txt
             mqr497-p1b-postdiscovery-occasion-court.log
-          retention-days: 30
-  lean-repeated-detection-identifiability:
-    runs-on: ubuntu-latest
-    timeout-minutes: 16
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - uses: leanprover/lean-action@v1
-        with:
-          lake-package-directory: experiments/mqr-4.97/lean
-          build: true
-          test: false
-          use-mathlib-cache: false
-      - name: Require Lean Proofs Without Sorry or Trusted Axioms
-        shell: bash
-        run: |
-          set -euo pipefail
-          ! grep -nE '^[[:space:]]*(sorry|admit|axiom)([[:space:]]|$)' experiments/mqr-4.97/lean/Mqr497Detection.lean
-          cd experiments/mqr-4.97/lean
-          lake build 2>&1 | tee ../../../mqr497-lean-proof-check.log
-          echo MQR497_LEAN_ONE_VISIT_AMBIGUITY_AND_TWO_VISIT_CONTRAST=PASS | tee -a ../../../mqr497-lean-proof-check.log
-      - name: Preserve Exact Lean Proof Source and Build Log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: MQR497-Lean-Detectability-And-Source-Footprint-Proofs
-          path: |
-            mqr497-lean-proof-check.log
-            experiments/mqr-4.97/lean/Mqr497Detection.lean
-          retention-days: 30
- mqr497-rust-real-naamp-court.log | grep -Fx 2
-      - name: Test Postdiscovery Rust Visit-Order Detection and Whole Site Heldout Comparators
-        shell: bash
-        run: |
-          set -euo pipefail
-          cargo run --offline --release --bin visit_order --manifest-path experiments/mqr-4.97/Cargo.toml -- \
-            mqr497-naamp-original-field/frog2001pcru.csv \
-            mqr497-naamp-original-field/frog2001pfer.csv mqr497-occasion-source-contract.txt \
-            2>&1 | tee mqr497-p1b-postdiscovery-occasion-court.log
-          grep -c '^MQR497_P1B_POSTDISCOVERY_REAL_FIELD_OBSERVATION_HETEROGENEITY=PASS
-      - name: Archive Entire Original Real Field CSVs, Rust Fits and Custody
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: MQR497-Actual-NAAMP-2001-Frogs-Original-and-Rust-Detection-Court
-          path: |
-            mqr497-naamp-original-field/
-            mqr497-naamp-original-field-manifest.txt
-            mqr497-naamp-rust-tests.log
-            mqr497-rust-real-naamp-court.log
-            mqr497-Pcru-field-verdict.txt
-            mqr497-Pfer-field-verdict.txt
-            mqr497-Pcru-original-site-visit-contract.tsv
-            mqr497-Pfer-original-site-visit-contract.tsv
-          retention-days: 30
-  lean-repeated-detection-identifiability:
-    runs-on: ubuntu-latest
-    timeout-minutes: 16
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - uses: leanprover/lean-action@v1
-        with:
-          lake-package-directory: experiments/mqr-4.97/lean
-          build: true
-          test: false
-          use-mathlib-cache: false
-      - name: Require Lean Proofs Without Sorry or Trusted Axioms
-        shell: bash
-        run: |
-          set -euo pipefail
-          ! grep -nE '^[[:space:]]*(sorry|admit|axiom)([[:space:]]|$)' experiments/mqr-4.97/lean/Mqr497Detection.lean
-          cd experiments/mqr-4.97/lean
-          lake build 2>&1 | tee ../../../mqr497-lean-proof-check.log
-          echo MQR497_LEAN_ONE_VISIT_AMBIGUITY_AND_TWO_VISIT_CONTRAST=PASS | tee -a ../../../mqr497-lean-proof-check.log
-      - name: Preserve Exact Lean Proof Source and Build Log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: MQR497-Lean-Detectability-And-Source-Footprint-Proofs
-          path: |
-            mqr497-lean-proof-check.log
-            experiments/mqr-4.97/lean/Mqr497Detection.lean
-          retention-days: 30
- mqr497-p1b-postdiscovery-occasion-court.log | grep -Fx 2
-          grep -c '^MQR497_P1B_ECOLOGICAL_OCCUPANCY_AND_STATIONARITY=HOLD
-      - name: Archive Entire Original Real Field CSVs, Rust Fits and Custody
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: MQR497-Actual-NAAMP-2001-Frogs-Original-and-Rust-Detection-Court
-          path: |
-            mqr497-naamp-original-field/
-            mqr497-naamp-original-field-manifest.txt
-            mqr497-naamp-rust-tests.log
-            mqr497-rust-real-naamp-court.log
-            mqr497-Pcru-field-verdict.txt
-            mqr497-Pfer-field-verdict.txt
-            mqr497-Pcru-original-site-visit-contract.tsv
-            mqr497-Pfer-original-site-visit-contract.tsv
-          retention-days: 30
-  lean-repeated-detection-identifiability:
-    runs-on: ubuntu-latest
-    timeout-minutes: 16
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - uses: leanprover/lean-action@v1
-        with:
-          lake-package-directory: experiments/mqr-4.97/lean
-          build: true
-          test: false
-          use-mathlib-cache: false
-      - name: Require Lean Proofs Without Sorry or Trusted Axioms
-        shell: bash
-        run: |
-          set -euo pipefail
-          ! grep -nE '^[[:space:]]*(sorry|admit|axiom)([[:space:]]|$)' experiments/mqr-4.97/lean/Mqr497Detection.lean
-          cd experiments/mqr-4.97/lean
-          lake build 2>&1 | tee ../../../mqr497-lean-proof-check.log
-          echo MQR497_LEAN_ONE_VISIT_AMBIGUITY_AND_TWO_VISIT_CONTRAST=PASS | tee -a ../../../mqr497-lean-proof-check.log
-      - name: Preserve Exact Lean Proof Source and Build Log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: MQR497-Lean-Detectability-And-Source-Footprint-Proofs
-          path: |
-            mqr497-lean-proof-check.log
-            experiments/mqr-4.97/lean/Mqr497Detection.lean
-          retention-days: 30
- mqr497-p1b-postdiscovery-occasion-court.log | grep -Fx 2
-      - name: Archive Entire Original Real Field CSVs, Rust Fits and Custody
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: MQR497-Actual-NAAMP-2001-Frogs-Original-and-Rust-Detection-Court
-          path: |
-            mqr497-naamp-original-field/
-            mqr497-naamp-original-field-manifest.txt
-            mqr497-naamp-rust-tests.log
-            mqr497-rust-real-naamp-court.log
-            mqr497-Pcru-field-verdict.txt
-            mqr497-Pfer-field-verdict.txt
-            mqr497-Pcru-original-site-visit-contract.tsv
-            mqr497-Pfer-original-site-visit-contract.tsv
           retention-days: 30
   lean-repeated-detection-identifiability:
     runs-on: ubuntu-latest
