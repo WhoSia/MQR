@@ -24,8 +24,8 @@ fn parse_csv(path:&str)->BTreeMap<String,[usize;4]>{
 fn main(){
  let path=env::args().nth(1).expect("source CSV path required");let d=parse_csv(&path);
  assert_eq!(d.len(),11);
- let total=[(0..4).map(|i|d.values().map(|r|r[i]).sum()).collect::<Vec<_>>()];
- assert_eq!(total[0],vec![487,402,76,85]);
+ let total: Vec<usize> = (0..4).map(|i| d.values().map(|r|r[i]).sum::<usize>()).collect();
+ assert_eq!(total,vec![487,402,76,85]);
  assert_eq!(d.get("sel102"),Some(&[85,2,0,83]));
  assert_eq!(d.get("sel213"),Some(&[71,69,3,2]));
  assert_eq!(d.get("sel223"),Some(&[31,31,26,0]));
