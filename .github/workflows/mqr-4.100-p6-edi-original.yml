@@ -1,0 +1,94 @@
+name: "MQR 4.100 — EDI V5/V5/V6 Original-Row Replay"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.100/p6_edi_reconcile.py'
+      - 'experiments/mqr-4.100/src/bin/p6_edi_court.rs'
+      - 'experiments/mqr-4.100/sources/edi-v5v5v6/**'
+      - 'experiments/mqr-4.100/receipts/p6_edi_audit.json'
+      - '.github/workflows/mqr-4.100-p6-edi-original.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-edi-bytes-and-row-map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify exact EDI original ZIP bytes copied from authenticated portal
+        shell: bash
+        run: |
+          set -euo pipefail
+          src=experiments/mqr-4.100/sources/edi-v5v5v6
+          printf '%s\n' \
+            "29771c188cb1274b30f3d356716a3eadfed0954c55bbe5675cb49b10d26c79bd  $src/knb-lter-pal.219.5.zip" \
+            "7d141b10500a849c9de7f36c175f424ff929aa951100c0e5c62d50313186ddb9  $src/knb-lter-pal.220.5.zip" \
+            "c83097abfda2489386eedae03e8f3dd8835f655463bd6caf173c2ae271b50b0e  $src/knb-lter-pal.221.6.zip" | sha256sum --check -
+          test "$(git hash-object "$src/knb-lter-pal.219.5.zip")" = 'd52a7189a9743305d71542e26d1f95afc16a6dfc'
+          test "$(git hash-object "$src/knb-lter-pal.220.5.zip")" = '06241a7c0cfe6b6238299dfb7e1943a3717b6984'
+          test "$(git hash-object "$src/knb-lter-pal.221.6.zip")" = '794aa2b20de5dbf866621033bd92707a1568ed21'
+      - name: Acquire exact upstream published secondary combined CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/mqr4100-p6
+          curl --fail --location --show-error --silent --retry 3 --max-time 80 \
+            'https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/inst/extdata/penguins_raw.csv' \
+            -o /tmp/mqr4100-p6/penguins_raw.csv
+          echo '144f623143c9360fd77322a4f86acb06dc198814dbd2669724c63e6457b907bd  /tmp/mqr4100-p6/penguins_raw.csv' | sha256sum --check -
+      - name: Reconcile all original EDI rows and all 17 fields in Python Decimal
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.100/p6_edi_reconcile.py \
+            --source-dir experiments/mqr-4.100/sources/edi-v5v5v6 \
+            --combined /tmp/mqr4100-p6/penguins_raw.csv \
+            --outdir /tmp/mqr4100-p6 2>&1 | tee /tmp/mqr4100-p6/python.log
+          cmp experiments/mqr-4.100/receipts/p6_edi_audit.json /tmp/mqr4100-p6/edi_p6_audit.json
+          python3 - <<'PY'
+          import json,csv
+          from pathlib import Path
+          d=Path('/tmp/mqr4100-p6');x=json.loads((d/'edi_p6_audit.json').read_text())
+          c=x['counts']
+          assert (c['matched_keys'],c['total_field_comparisons'],c['raw_text_differences'],c['substantive_disagreements_at_edi_reported_precision']) == (344,5848,488,0)
+          assert c['reported_precision_level_variations']==5
+          for n,k in [('edi_p6_all_344_row_map.csv',344),('edi_p6_all_488_text_differences.csv',488),('edi_p6_precision_exceptions.csv',5)]:
+              with (d/n).open() as f:
+                  assert len(list(csv.DictReader(f)))==k,(n,k)
+          print('P6_ORIGINAL_EDI_FULL_344X17_FORENSIC_AUDIT_PASS')
+          PY
+      - name: Independently parse EDI records and 344 row keys in Rust
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/mqr4100-p6/edi-csv
+          for i in 219 220 221; do
+            case "$i" in 219) version=219.5;; 220) version=220.5;; 221) version=221.6;; esac
+            unzip -p "experiments/mqr-4.100/sources/edi-v5v5v6/knb-lter-pal.$version.zip" "table_$i.csv" > "/tmp/mqr4100-p6/edi-csv/table_$i.csv"
+          done
+          cargo test --offline --manifest-path experiments/mqr-4.100/Cargo.toml --bin p6_edi_court
+          cargo run --offline --manifest-path experiments/mqr-4.100/Cargo.toml \
+            --bin p6_edi_court -- \
+            /tmp/mqr4100-p6/edi-csv/table_219.csv \
+            /tmp/mqr4100-p6/edi-csv/table_220.csv \
+            /tmp/mqr4100-p6/edi-csv/table_221.csv \
+            /tmp/mqr4100-p6/penguins_raw.csv 2>&1 | tee /tmp/mqr4100-p6/rust.log
+          grep -F 'MQR4100_P6_RUST_ORIGINAL_EDI_PASS rows=344 columns=17 raw_text_diffs=488 normalized_substantive=0' /tmp/mqr4100-p6/rust.log
+      - name: Store forensic result without new authored commits
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR4100-P6-EDI344-Original-Row-Provenance
+          path: |
+            /tmp/mqr4100-p6/edi_p6_audit.json
+            /tmp/mqr4100-p6/edi_p6_all_344_row_map.csv
+            /tmp/mqr4100-p6/edi_p6_all_488_text_differences.csv
+            /tmp/mqr4100-p6/edi_p6_precision_exceptions.csv
+            /tmp/mqr4100-p6/python.log
+            /tmp/mqr4100-p6/rust.log
+          if-no-files-found: warn
+          retention-days: 90

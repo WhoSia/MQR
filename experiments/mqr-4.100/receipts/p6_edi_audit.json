@@ -1,0 +1,326 @@
+{
+  "scope": "Original authenticated EDI package bytes from user vs SHA-pinned published combined palmerpenguins secondary CSV; deterministic post-observation audit, NOT independent biological inference",
+  "input_combined": {
+    "source_commit": "8957207b78d6ccd1b4654a9dd9c9041b657478ab",
+    "sha256": "144f623143c9360fd77322a4f86acb06dc198814dbd2669724c63e6457b907bd",
+    "size": 53098,
+    "rows": 344,
+    "columns": [
+      "studyName",
+      "Sample Number",
+      "Species",
+      "Region",
+      "Island",
+      "Stage",
+      "Individual ID",
+      "Clutch Completion",
+      "Date Egg",
+      "Culmen Length (mm)",
+      "Culmen Depth (mm)",
+      "Flipper Length (mm)",
+      "Body Mass (g)",
+      "Sex",
+      "Delta 15 N (o/oo)",
+      "Delta 13 C (o/oo)",
+      "Comments"
+    ]
+  },
+  "packages": [
+    {
+      "species": "Adelie",
+      "version": "knb-lter-pal.219.5",
+      "drive_id": "1W3nVhoZU9PKK3Qv_f3MEB3Veq10nzsrL",
+      "zip_bytes": 18661,
+      "zip_sha256": "29771c188cb1274b30f3d356716a3eadfed0954c55bbe5675cb49b10d26c79bd",
+      "zip_member_count": 5,
+      "zip_crc_pass": true,
+      "data_csv_file": "table_219.csv",
+      "data_csv_bytes": 23755,
+      "data_csv_sha256": "76a2b8eeadc052b31753e525115698785a68299d07a827d63867446579cb9138",
+      "rows": 152,
+      "columns": [
+        "studyName",
+        "Sample Number",
+        "Species",
+        "Region",
+        "Island",
+        "Stage",
+        "Individual ID",
+        "Clutch Completion",
+        "Date Egg",
+        "Culmen Length (mm)",
+        "Culmen Depth (mm)",
+        "Flipper Length (mm)",
+        "Body Mass (g)",
+        "Sex",
+        "Delta 15 N (o/oo)",
+        "Delta 13 C (o/oo)",
+        "Comments"
+      ],
+      "metadata_xml_sha256": "ece7e1ff2eb3f27753c0453e308ba3ede9eed587ff2da0e74beb19fa0a43757c",
+      "quality_xml_sha256": "c9f6f14b065afe6537b82fe70e816e5fdd9eab3ca914f88703ab0952fd015cbd",
+      "manifest_sha256": "c53c4764dee715cab57e94945ab59577e905223516ed45f99acbcd7926e35a59",
+      "raw_null_counts": {
+        "studyName": 0,
+        "Sample Number": 0,
+        "Species": 0,
+        "Region": 0,
+        "Island": 0,
+        "Stage": 0,
+        "Individual ID": 0,
+        "Clutch Completion": 0,
+        "Date Egg": 0,
+        "Culmen Length (mm)": 1,
+        "Culmen Depth (mm)": 1,
+        "Flipper Length (mm)": 1,
+        "Body Mass (g)": 1,
+        "Sex": 6,
+        "Delta 15 N (o/oo)": 11,
+        "Delta 13 C (o/oo)": 11,
+        "Comments": 126
+      }
+    },
+    {
+      "species": "Gentoo",
+      "version": "knb-lter-pal.220.5",
+      "drive_id": "10CfoUN0o0GjVORTBHYY1DXmnY_qBtlHs",
+      "zip_bytes": 17505,
+      "zip_sha256": "7d141b10500a849c9de7f36c175f424ff929aa951100c0e5c62d50313186ddb9",
+      "zip_member_count": 5,
+      "zip_crc_pass": true,
+      "data_csv_file": "table_220.csv",
+      "data_csv_bytes": 18872,
+      "data_csv_sha256": "b79871f345b418f2bba067d234ed11dd439e4cbcf11921ceb7f79e50df9e7c68",
+      "rows": 124,
+      "columns": [
+        "studyName",
+        "Sample Number",
+        "Species",
+        "Region",
+        "Island",
+        "Stage",
+        "Individual ID",
+        "Clutch Completion",
+        "Date Egg",
+        "Culmen Length (mm)",
+        "Culmen Depth (mm)",
+        "Flipper Length (mm)",
+        "Body Mass (g)",
+        "Sex",
+        "Delta 15 N (o/oo)",
+        "Delta 13 C (o/oo)",
+        "Comments"
+      ],
+      "metadata_xml_sha256": "ba708df39f1af2e7a1e2c74801a2f8cb530b675b2ed876e9eac4a7764bd29633",
+      "quality_xml_sha256": "e2e08884f0fc8dd454b931ab56c751f10ff8d4582b773a8dac8cae00bf7c0cec",
+      "manifest_sha256": "e93ffda9f61d40617befad10883cefbbf87b0e3bf4e59994e2fd09e3d0c0f549",
+      "raw_null_counts": {
+        "studyName": 0,
+        "Sample Number": 0,
+        "Species": 0,
+        "Region": 0,
+        "Island": 0,
+        "Stage": 0,
+        "Individual ID": 0,
+        "Clutch Completion": 0,
+        "Date Egg": 0,
+        "Culmen Length (mm)": 1,
+        "Culmen Depth (mm)": 1,
+        "Flipper Length (mm)": 1,
+        "Body Mass (g)": 1,
+        "Sex": 5,
+        "Delta 15 N (o/oo)": 2,
+        "Delta 13 C (o/oo)": 2,
+        "Comments": 111
+      }
+    },
+    {
+      "species": "Chinstrap",
+      "version": "knb-lter-pal.221.6",
+      "drive_id": "1GnyzU11ueJEmhUT0I1PnxCxuDXz0esQ0",
+      "zip_bytes": 16267,
+      "zip_sha256": "c83097abfda2489386eedae03e8f3dd8835f655463bd6caf173c2ae271b50b0e",
+      "zip_member_count": 5,
+      "zip_crc_pass": true,
+      "data_csv_file": "table_221.csv",
+      "data_csv_bytes": 11263,
+      "data_csv_sha256": "fa9afb847942840371e698003eec0518c12d727403b975dfc67b9dba79700ea3",
+      "rows": 68,
+      "columns": [
+        "studyName",
+        "Sample Number",
+        "Species",
+        "Region",
+        "Island",
+        "Stage",
+        "Individual ID",
+        "Clutch Completion",
+        "Date Egg",
+        "Culmen Length (mm)",
+        "Culmen Depth (mm)",
+        "Flipper Length (mm)",
+        "Body Mass (g)",
+        "Sex",
+        "Delta 15 N (o/oo)",
+        "Delta 13 C (o/oo)",
+        "Comments"
+      ],
+      "metadata_xml_sha256": "1fbccb7639b2fa33fe5249aa6946e25c31a393a32cf37e26bb7041f24a54bde2",
+      "quality_xml_sha256": "9fef5a33ab9807a042420214eeb936e98ef0e179a3a7bf42efd3695b7aa50b9e",
+      "manifest_sha256": "cbe9434dae467651b8ca6167799750bf8d4081d235fca68101291f0773fffa57",
+      "raw_null_counts": {
+        "studyName": 0,
+        "Sample Number": 0,
+        "Species": 0,
+        "Region": 0,
+        "Island": 0,
+        "Stage": 0,
+        "Individual ID": 0,
+        "Clutch Completion": 0,
+        "Date Egg": 0,
+        "Culmen Length (mm)": 0,
+        "Culmen Depth (mm)": 0,
+        "Flipper Length (mm)": 0,
+        "Body Mass (g)": 0,
+        "Sex": 0,
+        "Delta 15 N (o/oo)": 1,
+        "Delta 13 C (o/oo)": 0,
+        "Comments": 53
+      }
+    }
+  ],
+  "counts": {
+    "both_rows": 344,
+    "matched_keys": 344,
+    "source_only_keys": 0,
+    "combined_only_keys": 0,
+    "source_duplicate_keys": 0,
+    "combined_duplicate_keys": 0,
+    "total_field_comparisons": 5848,
+    "raw_text_cell_matches": 5360,
+    "raw_text_differences": 488,
+    "classification_counts_for_raw_text_differences": {
+      "byte-level cell text equal": 5360,
+      "formatting_or_null_encoding_only": 483,
+      "extra_low_order_digits_consistent_with_float_serialization": 5
+    },
+    "substantive_disagreements_at_edi_reported_precision": 0,
+    "reported_precision_level_variations": 5,
+    "combined_and_EDI_concatenation_row_order_identical": true,
+    "weak_studyName_plus_sampleNumber_collisions": 124,
+    "strong_species_studyName_sampleNumber_collisions": 0,
+    "species": {
+      "Adelie Penguin (Pygoscelis adeliae)": 152,
+      "Gentoo penguin (Pygoscelis papua)": 124,
+      "Chinstrap penguin (Pygoscelis antarctica)": 68
+    },
+    "years": {
+      "PAL0708": 110,
+      "PAL0809": 114,
+      "PAL0910": 120
+    }
+  },
+  "raw_text_differences_by_column": {
+    "Comments": {
+      "formatting_or_null_encoding_only": 290
+    },
+    "Culmen Length (mm)": {
+      "formatting_or_null_encoding_only": 36
+    },
+    "Delta 13 C (o/oo)": {
+      "formatting_or_null_encoding_only": 46,
+      "extra_low_order_digits_consistent_with_float_serialization": 1
+    },
+    "Delta 15 N (o/oo)": {
+      "formatting_or_null_encoding_only": 46,
+      "extra_low_order_digits_consistent_with_float_serialization": 4
+    },
+    "Culmen Depth (mm)": {
+      "formatting_or_null_encoding_only": 50
+    },
+    "Sex": {
+      "formatting_or_null_encoding_only": 11
+    },
+    "Flipper Length (mm)": {
+      "formatting_or_null_encoding_only": 2
+    },
+    "Body Mass (g)": {
+      "formatting_or_null_encoding_only": 2
+    }
+  },
+  "precise_numeric_serialization_residuals": [
+    {
+      "key": {
+        "studyName": "PAL0809",
+        "Individual ID": "N46A1"
+      },
+      "species": "Adelie",
+      "source_file": "table_219.csv",
+      "column": "Delta 13 C (o/oo)",
+      "edi_text": "-26.69543",
+      "combined_text": "-26.695430000000002",
+      "classification": "extra_low_order_digits_consistent_with_float_serialization",
+      "absolute_decimal_delta": "2E-15"
+    },
+    {
+      "key": {
+        "studyName": "PAL0809",
+        "Individual ID": "N49A2"
+      },
+      "species": "Adelie",
+      "source_file": "table_219.csv",
+      "column": "Delta 15 N (o/oo)",
+      "edi_text": "8.39459",
+      "combined_text": "8.3945900000000009",
+      "classification": "extra_low_order_digits_consistent_with_float_serialization",
+      "absolute_decimal_delta": "9E-16"
+    },
+    {
+      "key": {
+        "studyName": "PAL0910",
+        "Individual ID": "N13A1"
+      },
+      "species": "Gentoo",
+      "source_file": "table_220.csv",
+      "column": "Delta 15 N (o/oo)",
+      "edi_text": "8.23468",
+      "combined_text": "8.2346800000000009",
+      "classification": "extra_low_order_digits_consistent_with_float_serialization",
+      "absolute_decimal_delta": "9E-16"
+    },
+    {
+      "key": {
+        "studyName": "PAL0910",
+        "Individual ID": "N98A1"
+      },
+      "species": "Chinstrap",
+      "source_file": "table_221.csv",
+      "column": "Delta 15 N (o/oo)",
+      "edi_text": "9.26715",
+      "combined_text": "9.2671500000000009",
+      "classification": "extra_low_order_digits_consistent_with_float_serialization",
+      "absolute_decimal_delta": "9E-16"
+    },
+    {
+      "key": {
+        "studyName": "PAL0910",
+        "Individual ID": "N98A2"
+      },
+      "species": "Chinstrap",
+      "source_file": "table_221.csv",
+      "column": "Delta 15 N (o/oo)",
+      "edi_text": "9.70465",
+      "combined_text": "9.7046500000000009",
+      "classification": "extra_low_order_digits_consistent_with_float_serialization",
+      "absolute_decimal_delta": "9E-16"
+    }
+  ],
+  "substantive_disagreements": [],
+  "no_correction_to_source": true,
+  "caveats": [
+    "Row-key uniqueness in a published collection does not establish globally unique birds across seasons.",
+    "Rounding combined text to explicit EDI reported precision matches the 5 isotope cells. The extra digits are consistent with floating-point serialization, but the actual transform code/cause was not reconstructed or proved.",
+    "This is a check of the pinned 344-row secondary combined version; not proof of all versions of palmerpenguins.",
+    "Same DOI/version metadata and original ZIP are provided by the user via authenticated EDI portal; internal hashes and manifest were verified, not a repository signature."
+  ]
+}
