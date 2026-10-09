@@ -1,0 +1,92 @@
+name: MQR 4.96 — Original GBIF Source-Conditioned Rust and Lean Court
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.96/**'
+      - '.github/workflows/mqr-4.96-source-label-rust-lean.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-source-rust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Rust Source Support and Measurement Logic Unit Tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.96/Cargo.toml 2>&1 | tee mqr496-rust-tests.log
+          grep -F 'test result: ok. 5 passed' mqr496-rust-tests.log
+      - name: Reacquire Exact 2024 Original GBIF Records and Original Serov CSV SHA
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLsS --retry 2 --max-time 90 \
+            'https://api.gbif.org/v1/occurrence/download/request/0031144-240626123714530.zip' \
+            -o mqr496-original-gbif-2024.zip
+          unzip -t mqr496-original-gbif-2024.zip | tail -2
+          unzip -p mqr496-original-gbif-2024.zip 0031144-240626123714530.csv > mqr496-original-gbif-2024.tsv
+          curl -fLsS --retry 2 --max-time 90 \
+            'https://raw.githubusercontent.com/egorser0v/Importance-reweighting/46c4d011c9f0cd0614c08e7edb68ac2491f659c8/datasets/species/anemone.csv' \
+            -o mqr496-original-author-anemone.csv
+          test "$(git hash-object mqr496-original-author-anemone.csv)" = 0e1c83dda391229ffd3cb69573d184eebf1c7bdd
+          sha256sum mqr496-original-gbif-2024.zip mqr496-original-author-anemone.csv | tee mqr496-original-input-sha256.log
+          echo MQR496_FROZEN_ORIGINAL_SOURCE=PASS | tee -a mqr496-original-input-sha256.log
+      - name: Execute Rust Class Support, Coordinate Uncertainty and Stratified Contrasts
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --offline --release --manifest-path experiments/mqr-4.96/Cargo.toml -- \
+            mqr496-original-gbif-2024.tsv . 2>&1 | tee mqr496-rust-original-data-court.log
+          grep -Fx MQR496_ORIGINAL_27_SOURCES_29543_ROWS=PASS mqr496-rust-original-data-court.log
+          grep -Fx MQR496_SOURCE_LABEL_ASSOCIATION=PASS_DESCRIPTIVE_NOT_CAUSAL mqr496-rust-original-data-court.log
+          grep -Fx MQR496_FINE_SITE_GEOGRAPHIC_AUTHORITY=HOLD_COORDINATE_UNCERTAINTY mqr496-rust-original-data-court.log
+          grep -Fx MQR496_SOURCE_CONDITIONAL_FINLAND_POPULATION_TRANSPORT=HOLD_NO_PROTOCOL_BRIDGE mqr496-rust-original-data-court.log
+      - name: Preserve Unmodified Original Source Hash and Derived Scientific Receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR496-Original-GBIF-Rust-Source-Label-Spatial-Uncertainty
+          path: |
+            mqr496-rust-tests.log
+            mqr496-rust-original-data-court.log
+            mqr496-original-input-sha256.log
+            mqr496-source-semantics-verdict.txt
+            mqr496-original-27-dataset-source-support.tsv
+            mqr496-original-source-by-label-geouncertainty.tsv
+          retention-days: 30
+  lean-provenance-erasure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: experiments/mqr-4.96/lean
+          build: true
+          test: false
+          use-mathlib-cache: false
+      - name: Verify Lean Scope Theorems With No Sorry
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -nE '^[[:space:]]*(sorry|admit)([[:space:]]|$)' experiments/mqr-4.96/lean/Mqr496SourceCourt.lean
+          cd experiments/mqr-4.96/lean
+          lake build 2>&1 | tee ../../../mqr496-lean-proof-build.log
+          echo MQR496_LEAN_SOURCE_ERASURE_AND_SCOPE=PASS | tee -a ../../../mqr496-lean-proof-build.log
+      - name: Archive Formal Proof Source and Build Receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR496-Lean-Source-Erasure-Noninjectivity-Proofs
+          path: |
+            mqr496-lean-proof-build.log
+            experiments/mqr-4.96/lean/Mqr496SourceCourt.lean
+          retention-days: 30
