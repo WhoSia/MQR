@@ -1,0 +1,46 @@
+name: "MQR 4.100 — Video-Labeled Independent Reference Source Audit"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.100/p5_clemson_audit.py'
+      - '.github/workflows/mqr-4.100-p5-video-annotations.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-annotations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Download provider-hosted event/sensor source with normal TLS verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p mqr4100-p5
+          curl --fail --location --show-error --silent --retry 2 --max-time 100 \
+            'https://cecas.clemson.edu/tracking/Pedometer/Data.zip' \
+            --output mqr4100-p5/Clemson-Pedometer-Published-Data.zip
+          echo 'ce37832d5e234f6f014193a3a2af2f3162ab90905f303d473849512d690885da  mqr4100-p5/Clemson-Pedometer-Published-Data.zip' | sha256sum -c -
+      - name: Match 30 participants, 3 gait regimes, 90 annotated paired files
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.100/p5_clemson_audit.py \
+            mqr4100-p5/Clemson-Pedometer-Published-Data.zip \
+            mqr4100-p5/annotation-source-audit.json 2>&1 | tee mqr4100-p5/source-replay.log
+          grep -F 'MQR4100_CLEMSON_SOURCE_INDEXED_VIDEO_ANNOTATION_AUDIT_PASS;EVENT_VALIDITY_AND_REANNOTATION_HOLD' mqr4100-p5/source-replay.log
+      - name: Archive source bytes and nonedited original-audit receipt
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR4100-Clemson-Video-Annotation-And-Three-IMU-Source
+          path: |
+            mqr4100-p5/Clemson-Pedometer-Published-Data.zip
+            mqr4100-p5/annotation-source-audit.json
+            mqr4100-p5/source-replay.log
+          if-no-files-found: warn
+          retention-days: 90
