@@ -1,0 +1,4 @@
+[package]
+name = "mqr4104-witnesses"
+version = "0.1.0"
+edition = "2021"
