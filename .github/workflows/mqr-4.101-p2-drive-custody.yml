@@ -1,0 +1,87 @@
+name: "MQR 4.101 P2 — Canonical Git/Drive Custody Snapshot"
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.101-p2-drive-custody.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  frozen-p2-repository-custody:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Freeze exact canonical bytes and content hashes under actual commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p custody
+          python3 - <<'PY'
+          import pathlib,hashlib,json,zipfile,subprocess
+          sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          assert len(sha)==40
+          groups={
+            'courts':['docs/MQR-4.101*','README.md'],
+            'methods':['experiments/mqr-4.101','.github/workflows/mqr-4.101-p1-risk-sharpness.yml','.github/workflows/mqr-4.101-p2-selective-reference.yml',
+               'language/real/src/reference_v41.rs','language/real/examples/mqr-4.101-p2-*.real','language/real/Cargo.toml'],
+            'reallang':['language/real/README.md','language/real/V41-FALLIBLE-REFERENCE-CANDIDATE.md',
+               'language/real/src/reference_v41.rs','language/real/examples/mqr-4.101-p2-*.real','language/real/Cargo.toml']
+          }
+          outputs={}
+          for group,specs in groups.items():
+            raw=subprocess.check_output(['git','ls-files','-z','--',*specs])
+            paths=sorted(set(f.decode() for f in raw.split(b'\x00') if f))
+            assert paths and len(paths)>=({'courts':3,'methods':9,'reallang':6}[group]),(group,paths)
+            ledger=[]
+            for s in paths:
+              blob=pathlib.Path(s).read_bytes()
+              ledger.append({'path':s,'bytes':len(blob),'sha256':hashlib.sha256(blob).hexdigest(),
+                'git_blob_sha1':subprocess.check_output(['git','hash-object',s],text=True).strip()})
+            manifest={'research':'MQR-4.101 — Fallible Reference Standards, Selective Adjudication & Dependence-Robust Risk Identifiability',
+              'git_commit':sha,'scope':group,'tracked_source_count':len(paths),
+              'P2_scientific_state':'CLOSED_BOUNDED_SOURCE_AND_FINITE_MATH_PASS;TRUE_REFERENCE_AND_TARGET_TRANSPORT_HOLD',
+              'implementation_CI':'https://github.com/WhoSia/MQR/actions/runs/37926668881',
+              'raw_source_note':'This includes a SHA-pinned 487-row publisher-derived QTDB annotation receipt. PhysioNet original ECG expert files are separately preserved in the MQR 4.100 P8 original-source archive.',
+              'files':ledger}
+            name='MQR4101-P2-FINAL-'+group+'-'+sha[:12]+'.zip'
+            with zipfile.ZipFile('custody/'+name,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              z.writestr('MQR4101-P2-SOURCE-MANIFEST.json',json.dumps(manifest,indent=2,ensure_ascii=False)+'\n')
+              for s in paths:z.write(s,arcname=s)
+            with zipfile.ZipFile('custody/'+name) as z:
+              assert z.testzip() is None
+              assert len(z.namelist())==len(paths)+1
+              for item in ledger:assert hashlib.sha256(z.read(item['path'])).hexdigest()==item['sha256']
+            p=pathlib.Path('custody')/name
+            outputs[group]={'file':name,'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'nfiles':len(paths)}
+            print('MQR4101_P2_PINNED_CUSTODY=PASS',group,len(paths),outputs[group]['sha256'])
+          pathlib.Path('custody/P2-CUSTODY-INDEX.json').write_text(json.dumps({'commit':sha,'archive_groups':outputs},indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4101-P2-Final-Courts-README
+          path: custody/MQR4101-P2-FINAL-courts-*.zip
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4101-P2-Final-Source-Math-CI
+          path: custody/MQR4101-P2-FINAL-methods-*.zip
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4101-P2-Final-RealLang-Candidate
+          path: custody/MQR4101-P2-FINAL-reallang-*.zip
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4101-P2-Custody-Index
+          path: custody/P2-CUSTODY-INDEX.json
+          if-no-files-found: error
+          retention-days: 90
