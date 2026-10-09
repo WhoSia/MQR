@@ -140,7 +140,7 @@ fn run(species:&str,path:&str,out:&str)->R<String>{
  let(mut day_min,mut day_max)=(u16::MAX,0);
  let mut visit_hist=BTreeMap::<usize,usize>::new();
  let(mut total_heard,mut high_call,mut call_zero)=(0,0,0);
- let(mut avg_temp,sum_after,mut visit_count)=(0.0,0.0,0.0);
+ let(mut avg_temp,mut visit_count)=(0.0,0.0);
  let mut time_total=0.0;
  for s in &sites{
   min_visit=min_visit.min(s.visits.len());max_visit=max_visit.max(s.visits.len());
@@ -198,11 +198,11 @@ mod tests{
  }
  #[test]fn zero_event_mixture_does_not_equal_known_absence(){
   let x=s(&[false,false,false]);
-  let v=log_prob(.5,.5,&x).exp();
-  assert!((v-(.5+.5*.125)).abs()<1e-12);
+  let v=log_prob(0.5,0.5,&x).exp();
+  assert!((v-(0.5+0.5*0.125)).abs()<1e-12);
  }
  #[test]fn heard_event_requires_occupancy(){
-  assert!(log_prob(1e-5,.8,&s(&[true,false])) < log_prob(.5,.8,&s(&[true,false])));
+  assert!(log_prob(1e-5,0.8,&s(&[true,false])) < log_prob(0.5,0.8,&s(&[true,false])));
  }
  #[test]fn zero_and_detected_site_produce_nontrivial_fit(){
   let x=vec![s(&[false,false,false]),s(&[true,false,true]),s(&[true,true,true]),s(&[false,false,false])];
