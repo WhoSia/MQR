@@ -1,0 +1,6 @@
+name = "mqr496_source_court"
+version = "0.1.0"
+defaultTargets = ["Mqr496SourceCourt"]
+
+[[lean_lib]]
+name = "Mqr496SourceCourt"
