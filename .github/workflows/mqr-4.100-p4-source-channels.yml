@@ -1,0 +1,72 @@
+name: "MQR 4.100 P4 — Source-Native Sensor Pairing & EDI Gate"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.100/**'
+      - '.github/workflows/mqr-4.100-p4-source-channels.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-two-physical-sensors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Reacquire original UCI HAR double ZIP and byte pin
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p mqr4100-p4-source
+          curl --fail --location --show-error --silent --retry 3 --max-time 150 \
+            'https://archive.ics.uci.edu/static/public/240/human+activity+recognition+using+smartphones.zip' \
+            --output mqr4100-p4-source/uci-har-official-outer.zip
+          echo 'c00b803081a5c797cd5e4b83700a9810b38d53d9d84e01917e090e1fdbc81031  mqr4100-p4-source/uci-har-official-outer.zip' | sha256sum -c -
+      - name: Source-native paired triaxial sensor audit and subject-heldout exploratory baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.100/p4_uci_har.py \
+            mqr4100-p4-source/uci-har-official-outer.zip mqr4100-p4-source/audit.json 2>&1 | tee mqr4100-p4-python.log
+          grep -F 'MQR4100_P4_UCI_SOURCE_NATIVE_TWO_SENSOR_PAIRING=PASS;PARAMETER_IDENTIFICATION=HOLD' mqr4100-p4-python.log
+      - name: Extract original sensor windows and identifiers without modifying bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import io, pathlib, zipfile
+          root=pathlib.Path("mqr4100-p4-source")
+          with zipfile.ZipFile(root/"uci-har-official-outer.zip") as o:
+              inner=o.read("UCI HAR Dataset.zip")
+          with zipfile.ZipFile(io.BytesIO(inner)) as z:
+              for split in ("train","test"):
+                  paths=[f"{split}/y_{split}.txt",f"{split}/subject_{split}.txt"]
+                  paths += [f"{split}/Inertial Signals/{sensor}_{ax}_{split}.txt" for sensor in ("total_acc","body_gyro") for ax in ("x","y","z")]
+                  for p in paths:
+                      b=z.read("UCI HAR Dataset/"+p)
+                      t=root/"extracted"/p
+                      t.parent.mkdir(parents=True,exist_ok=True)
+                      t.write_bytes(b)
+          PY
+      - name: Rust independently parses source window and subject alignment
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --offline --manifest-path experiments/mqr-4.100/Cargo.toml \
+            --bin p4_sensor_structure -- mqr4100-p4-source/extracted 2>&1 | tee mqr4100-p4-rust.log
+          grep -F 'MQR4100_P4_RUST_SOURCE_NATIVE_SENSOR_ALIGNMENT=PASS;BIOLOGICAL_PARAMETER_KERNEL=HOLD' mqr4100-p4-rust.log
+      - name: Archive exact UCI source, source ledger and independent replay output
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR4100-P4-UCI-Official-Original-Two-Sensors-And-Replay
+          path: |
+            mqr4100-p4-source/uci-har-official-outer.zip
+            mqr4100-p4-source/audit.json
+            mqr4100-p4-python.log
+            mqr4100-p4-rust.log
+          if-no-files-found: warn
+          retention-days: 90
