@@ -1,0 +1,55 @@
+name: MQR 4.97 — Verify Independent Dryad Field Detection Original Source
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/mqr-4.97-dryad-source.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pinned-field-original-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Fetch and Verify Dryad 2025 Actual Field Survey Source
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p mqr497-original-dryad-source
+          curl -fLsS --retry 2 --max-time 75 \
+            'https://datadryad.org/api/v2/files/4504994/download' \
+            -o mqr497-original-dryad-source/data_field.zip
+          echo '9ffb3dac7de8a01b30a46ece1a8702b646db7dad2724a2496fac9d3d4b4516f8  mqr497-original-dryad-source/data_field.zip' | sha256sum -c -
+          curl -fLsS --retry 2 --max-time 75 \
+            'https://datadryad.org/api/v2/files/4505006/download' \
+            -o mqr497-original-dryad-source/README.md
+          echo '9b3ad4c28d2dd3013ee1706733c50fc08fa817b1e10abeed504a887a0fe10e2f  mqr497-original-dryad-source/README.md' | sha256sum -c -
+          unzip -t mqr497-original-dryad-source/data_field.zip
+          unzip -Z -1 mqr497-original-dryad-source/data_field.zip | tee mqr497-original-field-list.txt
+          {
+            echo 'MQR497_DRYAD_DOI=10.5061/dryad.djh9w0wdr'
+            echo 'MQR497_DRYAD_VERSION=413222'
+            echo 'MQR497_DRYAD_ORIGINAL_FIELD_BYTES=4818'
+            echo 'MQR497_DRYAD_ORIGINAL_FIELD_SHA256=9ffb3dac7de8a01b30a46ece1a8702b646db7dad2724a2496fac9d3d4b4516f8'
+            sha256sum mqr497-original-dryad-source/*
+          } | tee mqr497-original-source-manifest.txt
+          for f in $(unzip -Z -1 mqr497-original-dryad-source/data_field.zip | grep -E '[.]csv$'); do
+            echo "ORIGINAL_ENTRY=$f"
+            unzip -p mqr497-original-dryad-source/data_field.zip "$f" | head -3
+            unzip -p mqr497-original-dryad-source/data_field.zip "$f" | wc -l
+          done | tee mqr497-original-real-field-inventory.txt
+          echo MQR497_ORIGINAL_FIELD_HASH_PASS=TRUE
+      - name: Preserve Actual Original Field Data and Metadata for Drive Custody
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR497-Actual-Dryad-Field-Survey-Original-and-Source-Manifest
+          path: |
+            mqr497-original-dryad-source/
+            mqr497-original-field-list.txt
+            mqr497-original-source-manifest.txt
+            mqr497-original-real-field-inventory.txt
+          retention-days: 30
