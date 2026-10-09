@@ -1,0 +1,41 @@
+name: "MQR 4.102 — Capacity-Constrained Allocation Court"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.102/p2_capacity_robust_allocation.py'
+      - '.github/workflows/mqr-4.102-p2-capacity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-capacity-court:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - name: Check exact original source receipt
+        run: |
+          echo 'd441a516cb0cfba50d6eb1d71662a1a3ff9c9e57546800e8127c59303a3ed842  experiments/mqr-4.101/p8_publisher_verified_487beat_receipt.csv' | sha256sum -c -
+      - name: Execute constrained allocation and exhaustive finite counterexample court
+        run: |
+          python3 experiments/mqr-4.102/p2_capacity_robust_allocation.py experiments/mqr-4.101/p8_publisher_verified_487beat_receipt.csv /tmp/mqr-4102-p2.json | tee /tmp/mqr-4102-p2.log
+          grep -F 'MQR4102_P2_CAPACITY_SELECTION_EXACT_SMALL_WORLDS=PASS;REAL_TRUTH_HOLD' /tmp/mqr-4102-p2.log
+          python3 - <<'PY'
+          import json
+          x=json.load(open('/tmp/mqr-4102-p2.json'))
+          assert x['review_truth_observations']==0
+          assert x['max_reviews_per_record']==3
+          assert x['budget']==10
+          assert x['small_world_exact_optimizer_tests']>1000
+          for t in ('pooled','equal'):
+              assert sum(x['targets'][t]['cap3_10_allocation'].values())==10
+          assert sum(x['minimax_over_all_unknown_mixture_weights']['selected_reviews'].values())==10
+          print('MQR4102_P2_SOURCE_REPLAY_CAPACITY_AND_MINIMAX_RECEIPT=PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4102-P2-Capacity-Allocation-Truth-Hold
+          path: /tmp/mqr-4102-p2.json
+          retention-days: 90
