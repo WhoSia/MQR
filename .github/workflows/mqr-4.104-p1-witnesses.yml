@@ -1,0 +1,29 @@
+name: "MQR 4.104 — Independent Witness Finite Court"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.104/**'
+      - '.github/workflows/mqr-4.104-p1-witnesses.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-witnesses:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exact correlated-witness tests
+        run: cargo test --offline --manifest-path experiments/mqr-4.104/Cargo.toml
+      - name: Exhaustive witness court
+        run: |
+          set -euo pipefail
+          cargo run --offline --manifest-path experiments/mqr-4.104/Cargo.toml | tee witness-p1.log
+          grep -F 'MQR4104_P1_SYNTHETIC_NONIDENTIFICATION_PASS;INDEPENDENT_REFERENCE_TRUTH_HOLD' witness-p1.log
+      - name: Preserve court output
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR4104-P1-Witness-Court
+          path: witness-p1.log
