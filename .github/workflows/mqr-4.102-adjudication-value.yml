@@ -50,6 +50,45 @@ jobs:
             --bin adjudication_court -- \
             experiments/mqr-4.101/p8_publisher_verified_487beat_receipt.csv | tee /tmp/mqr4102/rust.log
           grep -F 'MQR4102_RUST_DISCORDANCE_402_76_AND_SHARP_BOUNDS=PASS;TRUE_REFERENCE_VALIDATION=HOLD' /tmp/mqr4102/rust.log
+      - name: Preserve canonical version, executable and source audit manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,hashlib,pathlib,zipfile,subprocess
+          base=pathlib.Path('/tmp/mqr4102')
+          names=['README.md',
+                 'docs/MQR-4.102-ADJUDICATION-ALLOCATION-AND-DECISION-CONTRAST-ENTRY.md',
+                 'experiments/mqr-4.102/adjudication_value.py',
+                 'experiments/mqr-4.102/Cargo.toml',
+                 'experiments/mqr-4.102/src/bin/adjudication_court.rs',
+                 '.github/workflows/mqr-4.102-adjudication-value.yml']
+          source='experiments/mqr-4.101/p8_publisher_verified_487beat_receipt.csv'
+          original=pathlib.Path(source).read_bytes()
+          assert hashlib.sha256(original).hexdigest()=='d441a516cb0cfba50d6eb1d71662a1a3ff9c9e57546800e8127c59303a3ed842'
+          info={'original_git_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                'canonical_source_sha256':hashlib.sha256(original).hexdigest(),
+                'canonical_source_path':source,'source_custody':'P8 derived from authenticated PhysioNet; not new independent truth',
+                'formal_version':'MQR-4.102','predecessor':'MQR-4.101 OPEN',
+                'generated_at':'2026-10-09','entries':[
+                   {'path':p,'sha256':hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()}
+                   for p in names]}
+          dest=base/'MQR4102-Courts-Code-And-Fixed-Source-Manifest.zip'
+          with zipfile.ZipFile(dest,'w',compression=zipfile.ZIP_DEFLATED) as z:
+            z.writestr('FROZEN_SOURCE_MANIFEST.json',json.dumps(info,indent=2,ensure_ascii=False)+'\n')
+            for p in names:z.write(p,arcname=p)
+          with zipfile.ZipFile(dest) as z:
+            assert z.testzip() is None
+            for f in info['entries']:
+              assert hashlib.sha256(z.read(f['path'])).hexdigest()==f['sha256']
+          print('MQR4102_CANONICAL_SOURCE_ARCHIVE=PASS',dest.stat().st_size)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4102-Canonical-Court-Methods-README-Snapshot
+          path: /tmp/mqr4102/MQR4102-Courts-Code-And-Fixed-Source-Manifest.zip
+          if-no-files-found: error
+          retention-days: 90
       - name: Preserve exact computational receipt without source mutation
         uses: actions/upload-artifact@v4
         if: always()
