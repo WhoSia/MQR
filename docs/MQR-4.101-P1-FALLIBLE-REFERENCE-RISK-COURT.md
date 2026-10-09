@@ -1,6 +1,6 @@
 # MQR-4.101 — P1 Internal Court: Fallible-Reference Truth Risk and Selective Coverage
 
-**Not an additional formal research title.** Official name: *MQR-4.101 — Fallible Reference Standards, Selective Adjudication & Dependence-Robust Risk Identifiability.* P1 status initially **OPEN / source-conditional reanalysis and elementary mathematics checked locally / external CI pending**. MQR-4.100 P8 original-source custody and complete-pair disagreement court remain CLOSED BOUNDED, not magically replaced.
+**Not an additional formal research title.** Official name: *MQR-4.101 — Fallible Reference Standards, Selective Adjudication & Dependence-Robust Risk Identifiability.* P1 **CLOSED BOUNDED / real derived-source binary annotations and elementary mathematical risk interval exhaustively checked; true reference error and target population still HOLD**. MQR-4.100 P8 original-source custody and complete-pair disagreement court remain CLOSED BOUNDED, not magically replaced.
 
 ## 1. Source and comparison
 
@@ -50,4 +50,12 @@ At cutoff 440 under k=0, **beat-pooled** risk sensitivity range is `[0.15606, 0.
 
 Follow-ups: source-authentic third review, traceable independent error-certification, and a specified target population/decision loss. Do NOT claim P1 answers unknown latent QT truth or medical accuracy. The older MQR 6 historical chat exists at https://chatgpt.com/g/g-p-6a8e7e61cb3c8191b6afc475b21a5d82-mqr/c/6aa77eff-25d0-83ee-9ff7-0fc88cc6efc8 ; the failed export is not evidence that the original chat disappeared.
 
-**Stage judgment to be updated after actual CI:** 4.101 OPEN; P1 mathematical/operational observation sensitivity ONLY; empirically grounded external reference-error certificate and target risk transport HOLD.
+## 6. Executed independent CI and failure provenance
+
+- **Actual GitHub CI [#37917143944](https://github.com/WhoSia/MQR/actions/runs/37917143944): SUCCESS**, running on human-authored implementation commit `6c063cfff67805554e99c57d5d89d5fbf3d066f0`. Python verifies exact known-P8 487-row CSV SHA-256, re-computes 400/420/440/460/480 threshold-disagreement totals, and brute-forces **39,190** small finite truth-completion test cases for endpoint sharpness. Rust separately checks its n≤6 finite truth models and the actual **55** selected-record × cutoff receipt rows. No new expert judgement or full publisher ECG download occurred in this P1 CI; source ancestry remains the checksum-verified P8 corpus.
+- **First CI [#37916855181](https://github.com/WhoSia/MQR/actions/runs/37916855181): FAILED** in Rust because the receipt test accidentally initialized all five expected cutoff keys as 400. Python and Rust theorem tests already passed. The program was repaired with distinct expected 400/420/440/460/480 keys, and **the second full CI passed**. Failure remains visible; it does not prove the original physical observations wrong.
+- Successful run's artifact **11610685413**, `MQR4101-P1-Selectively-Observed-Fallible-Reference-Risk-Receipt` (artifact outer ZIP SHA-256 `8c60347ca5ec8079413df83d1130f7711adc44ff43139662bf6c53bc895e4ed2`) retains computed JSON/CSV and Python/Rust execution logs.
+- Drive canonical source-replay package: [MQR4101-P1-Founding-Source-Math-and-Replay.zip](https://drive.google.com/file/d/1bWi8UR0P2N5_p2z657hJYLIPX_bS92Sb/view) under `MQR/02_ANALYSIS_SAFE`. Official charter [Drive `00_GOVERNANCE`](https://drive.google.com/file/d/1GRKLOswau8lFNCtbF5iuEKSPw_p1APeb/view) and P1 court [Drive `03_REPORTS_COURTS`](https://drive.google.com/file/d/1V9eUWgFouBjwQlnm7rSgZfx5dg4qsgwX/view). Original P8 human annotation source remains a separate full original-source archive; the P1 package carries derived rows and their provenance, not another reference truth.
+
+**P1 CLOSED BOUNDED:** real reference-disagreement source conditionality plus known sharp *hypothetical external-k* error bounds established; **external k certificate, latent true QT, general population risk and accuracy ranking HOLD**. MQR-4.101 overall OPEN; title unchanged.
+

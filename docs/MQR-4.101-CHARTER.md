@@ -17,7 +17,7 @@ This generation asks: which auxiliary measurements, external error certificates,
 5. **Transport gate:** give the matching population/sampling/selection conditions. Source-weighted and equal-record-weighted fixed-set quantities differ even before transporting to new patients or recording sites.
 6. **Novelty gate:** partial-identification bounds and imperfect gold-standard problems are well-established (Manski and related literature). A PASS can certify an honest audit without claiming a new theorem or new medical data.
 
-## Initial P1 court (open at charter, close only on CI)
+## Initial P1 court (CLOSED BOUNDED after executed CI)
 
 For `m` observed fallible reference labels, `e` observed disagreements against `h`, and **externally certified** at most `k` wrong reference labels among `m`, the sharp finite count bounds are
 
@@ -35,4 +35,4 @@ Applied only as a probe to the previously verified QTDB P8 selected-beat CSV (`n
 
 ## Status
 
-**MQR-4.101 OPEN.** P1 empirical source is an **existing P8 audited-derived receipt**, not new raw labels. Mathematical sensitivity and full execution CI need adjudication. No verified independent truth, true risk improvement or clinical finding yet.
+**MQR-4.101 OPEN; internal P1 CLOSED BOUNDED.** P1 uses an **existing P8 audited-derived receipt**, not fresh truth labels. Full executed P1 [GitHub Actions #37917143944](https://github.com/WhoSia/MQR/actions/runs/37917143944) SUCCESS on human-authored source commit `6c063cfff67805554e99c57d5d89d5fbf3d066f0`. First attempt [#37916855181](https://github.com/WhoSia/MQR/actions/runs/37916855181) FAIL due to a Rust receipt-court threshold initialization bug; corrected, repeated Python+Rust audit PASS. No verified independent truth, true risk improvement or clinical finding yet.
