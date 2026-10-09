@@ -1,0 +1,8 @@
+[package]
+name = "mqr4102-adjudication"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "adjudication_court"
+path = "src/bin/adjudication_court.rs"
