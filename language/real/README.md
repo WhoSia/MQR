@@ -4,6 +4,11 @@ Real-Language is MQR's active event-to-realist-authority language.
 
 It compiles a scientific, methodological, or engineering event into a scoped authority packet while preserving open-world residue and successor vulnerability.
 
+## v0.41-CANDIDATE — external-reference authority firewall (not promoted)
+
+MQR-4.101-P2 adds [V41 fallible-reference contract](V41-FALLIBLE-REFERENCE-CANDIDATE.md) and executable `real-v41-reference` (Rust `src/reference_v41.rs`) as a **separate development-only entry point**. Current `REALPACKET 0.2/0.3` and most recently promoted `REALACQUIRE 0.29` remain unmodified. For the 487-beat actual P8 source-derived data, `certificate NONE` produces finite true-risk bounds `[0,487]` and `reference.world_authority=HOLD`; an explicitly hypothetical stratum-budget packet produces conditional `[69,164]` but **also HOLD**. The parser **cannot attest external medical reference truth by itself** and rejects attempts to invent error guarantees when no certificate exists. Record-level missingness is concentrated 83/85 in one QTDB record; no missing-at-random or annotator error independence assumption is inferred. New test examples in `examples/mqr-4.101-p2-*.real`; executable CI under `.github/workflows/mqr-4.101-p2-selective-reference.yml`. This is type/authority-contract engineering, **not a new theorem, biomedical finding, or formal promotion**.
+
+
 ## Version boundary
 
 ### v0.2

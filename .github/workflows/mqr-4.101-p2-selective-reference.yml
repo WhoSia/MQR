@@ -1,0 +1,94 @@
+name: "MQR 4.101 P2 — Selective Review and Fallible Reference"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.101/**'
+      - 'language/real/src/reference_v41.rs'
+      - 'language/real/examples/mqr-4.101-p2-*.real'
+      - 'language/real/Cargo.toml'
+      - '.github/workflows/mqr-4.101-p2-selective-reference.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-pinned-sharpness-and-real-language:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify exact P8 publisher-derived CSV ancestry (not new ECG truth)
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'd441a516cb0cfba50d6eb1d71662a1a3ff9c9e57546800e8127c59303a3ed842  experiments/mqr-4.101/p8_publisher_verified_487beat_receipt.csv' | sha256sum -c -
+      - name: Source-native Python grouping and fully enumerated sharp conditional budgets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p p2-ci-result
+          python3 experiments/mqr-4.101/p2_selective_dependence.py \
+            --csv experiments/mqr-4.101/p8_publisher_verified_487beat_receipt.csv \
+            --out p2-ci-result 2>&1 | tee p2-ci-result/python.log
+          grep -F 'MQR4101_P2_SOURCE_SELECTIVE_COVERAGE=PASS;REFERENCE_TRUTH_DEPENDENCE_RISK=HOLD' p2-ci-result/python.log
+          python3 - <<'PY'
+          import json,csv,pathlib
+          p=pathlib.Path('p2-ci-result')
+          r=json.loads((p/'p2_source_and_bounds.json').read_text())
+          assert (r['n'],r['complete_qt_pairs'],r['incomplete_qt_pairs'],r['disagreement'],r['agreement'])==(487,402,85,76,326)
+          assert r['missing_by_record']=={'sel102':83,'sel213':2}
+          assert r['sel223']['disagreement']==26
+          assert r['finite_exhaustive_cases']>=8000
+          s=r['scenarios']
+          assert s['NO_EXTERNAL_CERTIFICATE']['truth_error_counts']==[0,487]
+          assert s['HYPOTHETICAL_P1_POOLED_K10']['truth_error_counts']==[66,171]
+          assert s['HYPOTHETICAL_PAIR_GROUP_KD7_KG3']['truth_error_counts']==[69,164]
+          assert len(list(csv.DictReader((p/'p2_per_record_selection.csv').open())))==55
+          print('MQR4101_P2_SOURCE_NATIVE_SELECTION_AND_DEPENDENCE_ROBUST_SHARPNESS=PASS')
+          PY
+      - name: Independent Rust parser and exhaustive binary world enumeration
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.101/Cargo.toml --bin p2_source_court
+          cargo run --offline --manifest-path experiments/mqr-4.101/Cargo.toml \
+            --bin p2_source_court -- \
+            experiments/mqr-4.101/p8_publisher_verified_487beat_receipt.csv 2>&1 | tee p2-ci-result/rust.log
+          grep -F 'MQR4101_P2_RUST_SOURCE_SELECTION_COUNTS_PASS' p2-ci-result/rust.log
+          grep -F 'MQR4101_P2_RUST_CONDITIONAL_SHARPNESS_PASS;REFERENCE_DEPENDENCE_AND_TRUE_RISK_HOLD' p2-ci-result/rust.log
+      - name: Real-Language 0.41 candidate rejects unearned ground truth and retains legacy grammar
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path language/real/Cargo.toml --bin real-v41-reference
+          cargo build --offline --manifest-path language/real/Cargo.toml --bin real-v41-reference --bin real
+          cargo run --offline --manifest-path language/real/Cargo.toml \
+            --bin real-v41-reference -- language/real/examples/mqr-4.101-p2-no-external-certificate.real \
+            2>&1 | tee p2-ci-result/real-source.log
+          grep -F 'reference.finite_bounds=[0,487]/487' p2-ci-result/real-source.log
+          grep -F 'reference.world_authority=HOLD:NO_REFERENCE_ERROR_CERTIFICATE' p2-ci-result/real-source.log
+          cargo run --offline --manifest-path language/real/Cargo.toml \
+            --bin real-v41-reference -- language/real/examples/mqr-4.101-p2-hypothetical-strata.real \
+            2>&1 | tee p2-ci-result/real-hypothetical.log
+          grep -F 'reference.finite_bounds=[69,164]/487' p2-ci-result/real-hypothetical.log
+          grep -F 'reference.world_authority=HOLD:SENSITIVITY_ONLY_NOT_WORLD_CONTACT' p2-ci-result/real-hypothetical.log
+          if cargo run --offline --manifest-path language/real/Cargo.toml \
+             --bin real-v41-reference -- language/real/examples/mqr-4.101-p2-invalid-fake-certificate.real \
+             > p2-ci-result/real-rejected.log 2>&1; then
+            echo 'FAIL: Real-Language accepted reference label accuracy without certificate'; exit 1
+          fi
+          grep -F 'REJECTED: NO certificate cannot supply alleged zero-error caps' p2-ci-result/real-rejected.log
+          echo 'REAL_LANGUAGE_V41_REFERENCE_AUTHORITY_FIREWALL=PASS; PROMOTION_AND_WORLD_TRUTH=HOLD'
+      - name: Retain exact executable receipts, without bot commits
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR4101-P2-Selection-Dependence-RealLang-Receipts
+          path: |
+            p2-ci-result/*.json
+            p2-ci-result/*.csv
+            p2-ci-result/*.log
+          if-no-files-found: warn
+          retention-days: 90

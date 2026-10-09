@@ -1,0 +1,11 @@
+# No external guarantee exists for QTDB P8 reference-error budget.
+REALREFERENCE 0.41-CANDIDATE
+n 487
+paired 402
+disagree 76
+cap_disagree 0
+cap_agree 0
+certificate NONE
+selection STUDY_SELECTED
+source_sha256 d441a516cb0cfba50d6eb1d71662a1a3ff9c9e57546800e8127c59303a3ed842
+END
