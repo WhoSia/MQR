@@ -31,3 +31,23 @@ C. **Historically grounded divergence**: locate a case with two statistically eq
 D. **Non-instrumental cases**: do not treat changes in proof checker history as physical intervention into mathematical truth.
 
 **Status:** Stage OPEN, philosophical distinctness HOLD, archive source evidence differentiated from inferences. No new GitHub Actions.
+
+## P1 — Regnault's original comparative evidence (source: Chang 2004, ch.2)
+
+The canonical *Inventing Temperature* scan in Drive (ID 1RwuRfY9Ifz6iEAUZZm57z4EzHX8CP0CV) directly reports Regnault 1847 Table 2.4: air reference 100, 150, 200, 250, 300, 350 degrees; Choisy-le-Roi crystal mercury 100, 150.40, 201.25, 253.00, 305.72, 360.50; ordinary-glass mercury 100, 149.80, 199.70, 250.05, 301.08, 354.00. Thus difference crystal–ordinary rises 0, 0.60, 1.55, 2.95, 4.64, 6.50 degrees. This table is **Chang's presentation adapted from Regnault 1847 page 239**; direct checking of the 1847 original remains outstanding.
+
+Chang Table 2.5 (adapted Regnault 1847 page 181) compares constant-volume air thermometers at different initial pressure 762.75 vs 583.07 mmHg, positioned in the same oil bath. At A readings 95.57, 155.99, 212.25, 239.17, 281.07, 339.68 Celsius, A–A' residuals are 0.00, +0.17, -0.02, -0.04, +0.22, +0.29 Celsius. This supports comparatively stable readings across the studied pressure range, **not proof of absolute thermodynamic temperature truth**. Regnault/Chang emphasize testing intermediate points, diverse glass composition and thermal-treatment histories; two-point calibration alone is insufficient.
+
+## P1 mathematical distinction: statistical equivalence vs calibration-target identifiability
+
+Let physical temperature T be latent, and two instruments observe Y_i=g(T;delta)+epsilon_i with identical calibration map g(T;delta)=T+delta*T*(T-100)/10000. Then g(0;delta)=0 and g(100;delta)=100 for every delta. Even if epsilon_i have identical laws with independent noise and instruments agree extremely closely, observing only endpoints cannot identify delta. When an unknown common delta is present, full likelihood for data *conditional on g* is not a warrant that g corresponds to true physical temperature. At T=250, shared reading is 250+3.75delta; neither two endpoint anchors nor unlimited same-model replication resolves this without an additional independent measurement constraint or stronger physical calibration law.
+
+This is a **synthetic identifying counterexample** and is not a claim that Regnault used this polynomial. Executable source: [Regnault table transcription + synthetic test](../experiments/mqr_4107/regnault_comparability.py), commit 61a28dcbcba9b4842d94bcffa33657ca66581c78.
+
+## SNO comparison
+
+SNO 2002 PRL uses event PDFs from detector MC and calibration perturbation, with anticorrelated CC/NC shifts in Table II; Heeger dissertation Ch9 uses different threshold and background strategy, thus their tabulated shifts are not interchangeable. The philosophical parallel is **common calibration ancestry, not that temperature and neutrino flux are the same quantity**. The SNO claim is conditional on a physically characterized detector and calibration checks; Regnault's measurements tested comparability of thermometer material implementations. Neither same-output observation nor two fitted distributions guarantees a unique world-representing scale.
+
+## P1 verdict
+
+Historical and mathematical distinction: PASS BOUNDED as a source-backed conceptual reconstruction; incremental MQR philosophical novelty: HOLD. Strong competitors are Chang's epistemic iteration, established metrological traceability and nuisance parameter identifiability. Required next experiment: a matched target and complete rival-model court in which these mature theories yield an inadequate verdict for a specific documented case. Full Regnault 1847 manuscript independently not yet read.
