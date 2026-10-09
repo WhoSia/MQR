@@ -35,7 +35,7 @@ pub fn positive_overlap_detection(mix: ThreePositive) -> Option<(f64, f64)> {
     }
     let d1 = mix.only_second + mix.both;
     let d2 = mix.only_first + mix.both;
-    if d1 == 0.0 || d2 == 0.0 { return None; }
+    if d1 == 0.0 || d2 == 0.0 || mix.both == 0.0 { return None; }
     Some((mix.both / d1, mix.both / d2))
 }
 
@@ -86,6 +86,7 @@ mod tests {
         assert_eq!(zero_truncated_two_observers(0.0, 0.6, 0.4), None);
         assert_eq!(zero_truncated_two_observers(0.5, 0.0, 0.0), None);
         assert_eq!(sharp_detection_bounds(0.7, 0.1, 0.6), None);
+        assert_eq!(positive_overlap_detection(ThreePositive { only_first: 0.5, only_second: 0.5, both: 0.0 }), None);
         assert_eq!(sharp_detection_bounds(0.0, 0.0, 0.8), Some((0.0, 1.0)));
         assert_eq!(sharp_detection_bounds(0.0, 0.2, 0.8), Some((0.0, 0.0)));
     }
