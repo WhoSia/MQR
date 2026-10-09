@@ -57,6 +57,8 @@ theorem duplicate_does_not_split_fibers (a b : Bool) :
 def flatExperiment (_ : Bool) : Unit := ()
 theorem flat_experiment_cannot_identify_full_boolean_target :
     ObsEq flatExperiment false true ∧ (false : Bool) ≠ true := by
-  decide
+  constructor
+  · rfl
+  · decide
 
 end MQR4100
