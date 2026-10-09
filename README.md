@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.108 — Cross-principle traceability (OPEN/HOLD)
+
+[Notion 4.108](https://app.notion.com/p/3f4ef561cf92815d9c1ec11355427c92) · [Research source court](research/mqr_4108_calibration_model_underdetermination.md) · [Exact shared-reference test](experiments/mqr_4108/traceability_counterexample.py). Different measurement physics does not certify independent calibration ancestry. Against VIM, GUM, Tal (2017), and Chang (2004), original philosophical distinctness remains HOLD. MQR-4.107 original-image and interpolation limitations are inherited.
+
 ## Active historical-metrology court: MQR-4.107 (OPEN/HOLD)
 
 [Notion canonical](https://app.notion.com/p/3f4ef561cf92810384a6c022ad64f20d) · [Research audit](research/mqr_4107_evidential_history_equivalence.md) · [Regnault comparator test](experiments/mqr_4107/regnault_comparability.py) · [Heeger/SNO comparison](research/mqr_4106_heeger_ch9_comparison.md).
