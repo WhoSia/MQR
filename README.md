@@ -8,6 +8,12 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## Active historical-metrology court: MQR-4.107 (OPEN/HOLD)
+
+[Notion canonical](https://app.notion.com/p/3f4ef561cf92810384a6c022ad64f20d) · [Research audit](research/mqr_4107_evidential_history_equivalence.md) · [Regnault comparator test](experiments/mqr_4107/regnault_comparability.py) · [Heeger/SNO comparison](research/mqr_4106_heeger_ch9_comparison.md).
+
+Regnault 1847 data are distinguished from **synthetic shared-bias examples**. The current question is whether complete likelihood equivalence entails historically warranted measurement comparability. Lindsey 1997, standard selective inference and Chang 2004 are rivals, not MQR validations. **No new scientific novelty established; 4.106 and 4.107 remain OPEN/HOLD.** No Actions workflow is added for this court.
+
 ## What passing a test means here
 
 An executable PASS confirms **the declared local test contract**, not scientific discovery. Re-downloading a published dataset and reproducing its simple counts is source bookkeeping; separately implemented Rust/Python tests do not transform shared data ancestry into independent ecological evidence. Published behavioral summary estimates are not raw timed observation events, and source-species confidence intervals are not automatically target-species calibration guarantees. Mathematical feasibility/partial-identification intervals require matched target, event definition, known denominator, and explicit parameter constraints. Failure to satisfy any scientific bridge remains HOLD even when CI passes.
