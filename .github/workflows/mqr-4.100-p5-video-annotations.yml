@@ -21,7 +21,28 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p mqr4100-p5
-          curl --fail --location --show-error --silent --retry 2 --max-time 100 \
+          # The publisher currently omits required certificate intermediates.
+          # Obtain the *public* CA intermediates from the CA's verified HTTPS
+          # repository, verify that chain against GitHub's existing OS roots,
+          # and pass ONLY this verified chain as an additional curl CA bundle.
+          # Do not use --insecure and do not introduce a novel trusted root.
+          curl --fail --location --show-error --silent --max-time 25 \
+            'https://repository.emsign.com/certs/EEEMIncommonOVG2C.crt' \
+            --output mqr4100-p5/incommon-ovg2c.der
+          curl --fail --location --show-error --silent --max-time 25 \
+            'https://repository.emsign.com/certs/EMIncommonOVG2C.p7c' \
+            --output mqr4100-p5/incommon-chain.p7c
+          openssl x509 -inform DER -in mqr4100-p5/incommon-ovg2c.der \
+            -out mqr4100-p5/incommon-ovg2c.pem
+          openssl pkcs7 -inform DER -in mqr4100-p5/incommon-chain.p7c -print_certs \
+            -out mqr4100-p5/incommon-chain.pem
+          openssl verify -CAfile /etc/ssl/certs/ca-certificates.crt \
+            -untrusted mqr4100-p5/incommon-chain.pem mqr4100-p5/incommon-ovg2c.pem
+          cat /etc/ssl/certs/ca-certificates.crt \
+            mqr4100-p5/incommon-ovg2c.pem mqr4100-p5/incommon-chain.pem \
+            > mqr4100-p5/verified-publisher-chain.pem
+          curl --fail --location --show-error --silent --retry 2 --max-time 120 \
+            --cacert mqr4100-p5/verified-publisher-chain.pem \
             'https://cecas.clemson.edu/tracking/Pedometer/Data.zip' \
             --output mqr4100-p5/Clemson-Pedometer-Published-Data.zip
           echo 'ce37832d5e234f6f014193a3a2af2f3162ab90905f303d473849512d690885da  mqr4100-p5/Clemson-Pedometer-Published-Data.zip' | sha256sum -c -
