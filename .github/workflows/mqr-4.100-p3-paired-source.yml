@@ -1,0 +1,58 @@
+name: "MQR 4.100 P3 — Real Row Pairing Source Audit"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.100/**'
+      - '.github/workflows/mqr-4.100-p3-paired-source.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-index-and-year-holdout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Reacquire pinned previously published combined field records
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p mqr4100-p3-source
+          curl --fail --show-error --location --silent --retry 3 --max-time 60 \
+            'https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/inst/extdata/penguins_raw.csv' \
+            -o mqr4100-p3-source/penguins_raw.csv
+          test "$(git hash-object mqr4100-p3-source/penguins_raw.csv)" = 'ba99fbd527f0bb983b3d9615ef5c81a5917ab7d9'
+          sha256sum mqr4100-p3-source/penguins_raw.csv | tee mqr4100-p3-source/source-sha256.txt
+          echo MQR4100_P3_PINNED_COMBINED_CSV=PASS
+      - name: Independent Python paired-row/source-audit and exploratory year holdout
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.100/p3_paired_original.py \
+            mqr4100-p3-source/penguins_raw.csv \
+            mqr4100-p3-source/receipt.json 2>&1 | tee mqr4100-p3-python.log
+          grep -F 'MQR4100_P3_SOURCE_INDEXED_PAIRS=LOCAL_ACCOUNTING_PASS;EXTERNAL_TRANSPORT=HOLD' mqr4100-p3-python.log
+      - name: Independent Rust source parser and heldout centroid reconstruction
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.100/Cargo.toml --bin p3_paired_original
+          cargo run --offline --manifest-path experiments/mqr-4.100/Cargo.toml --bin p3_paired_original -- \
+            mqr4100-p3-source/penguins_raw.csv 2>&1 | tee mqr4100-p3-rust.log
+          grep -F 'P3_SCIENTIFIC_STATUS=PUBLIC_REUSED_ORIGINAL_NO_INDEPENDENT_SENSOR_OR_TRANSPORT' mqr4100-p3-rust.log
+      - name: Archive exact combined source bytes and both accounting receipts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR4100-P3-Pinned-Palmer-Combined-Source-And-Replay
+          path: |
+            mqr4100-p3-source/penguins_raw.csv
+            mqr4100-p3-source/receipt.json
+            mqr4100-p3-source/source-sha256.txt
+            mqr4100-p3-python.log
+            mqr4100-p3-rust.log
+          if-no-files-found: warn
+          retention-days: 90
