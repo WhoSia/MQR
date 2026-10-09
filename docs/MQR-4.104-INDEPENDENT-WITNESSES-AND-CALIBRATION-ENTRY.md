@@ -15,7 +15,7 @@ The program separates **witness count**, **noncommon error ancestry**, **actual 
 - MQR-4.103: P1 and P2 CLOSED BOUNDED for exact synthetic finite models. P2 3/4 vs 1/4 randomization restores oracle-law identification and design HT unbiasedness but not single-history truth recovery or fallible-reference truth certification. [P2 final court](MQR-4.103-P2-SEQUENTIAL-DESIGN-SUPPORT-AND-FALLIBLE-REFERENCE-COURT.md); [CI #37948743557 SUCCESS](https://github.com/WhoSia/MQR/actions/runs/37948743557), full source and results [archived and verified in Drive](https://drive.google.com/file/d/1cRwlurkKp1u3RDOfJY7gbv6hEBEO5Ej2/view). **4.103 itself remains OPEN** pending original-world validation and sequential transport.
 - This 4.104 opening does not claim actual patient risk, novel verification bias theorems, or gold-standard clinical truth.
 
-## P1: first adversarial model — agreement without independent truth
+## P1: inherited regression fixture — agreement without independent truth (NOT NOVEL)
 
 Let one latent bit T be the target. Observe two apparent binary witness labels A,B, but not T. The complete joint observable distribution can equal P(A=B=0)=P(A=B=1)=1/2, P(A != B)=0 under at least these two distinct worlds:
 
@@ -25,6 +25,12 @@ Let one latent bit T be the target. Observe two apparent binary witness labels A
 Both yield the **same entire distribution of A,B**, including 100% agreement and marginal 50/50 labels. Yet each adjudicator's error risk P(A != T) is 0 in W0 and 1 in W1. Even arbitrarily many *copies sharing this exact mechanism* preserve the ambiguity. This illustrates nonidentification from common-error ancestry, not universal impossibility of learning from additional independently validated information.
 
 **Important limitation:** these are two synthetic observationally equivalent parameterizations, not observed real QTDB adjudicators. For clinical labels, pathological inversion is an adversarial *logical* stress test, not an evidence-based prevalence claim. A third fully independent, certified-truth observation would change the observation model; a third unverified correlated label need not.
+
+## Research genealogy and duplicate-result correction
+
+**This example was incorrectly introduced as a new P1 scientific result.** Prior MQR-3.133 established that marginally admitted witnesses may share calibration drift, preprocessing artifacts or latent common causes. MQR-3.134 distinguished unidentified latent cause from an identified absence of such cause; MQR-3.135 limited dependence robustness to the admitted dependence family. MQR-4.103-P2 already gave exhaustive same-observation/different-truth witnesses under unrestricted reader errors (`T=000,E=000` versus `T=111,E=111` with `A=000`). The W0/W1 correlated-flip construction below is therefore **a minimal regression fixture**, not a discovery, new theorem, or independent scientific advance. It must not be scored as the P1 scientific closure criterion.
+
+**Corrected new intervention target:** given realistically fallible readers and a proposed external calibration protocol, determine which *observable audits or randomized adjudication interventions*, beyond correlated agreement, can partially identify an explicitly chosen error-risk estimand, what bounds they warrant, and which assumptions invalidate transport. A perfectly certified oracle is only a conditional benchmark, not an acquisition strategy. A genuine new claim needs a nontrivial, falsifiable intervention or real independent reference data not inherited from these common-error examples.
 
 ## P1 exact execution plan
 
@@ -46,7 +52,7 @@ Both yield the **same entire distribution of A,B**, including 100% agreement and
 ## Status ledger
 
 - Formal version: **OPEN**.
-- P1: **OPEN** until executable complete enumeration and actual CI.
+- P1: **OPEN** for genuinely new calibration/verification intervention and source contact; the correlated-witness code, even if all tests pass, is **REGRESSION ONLY**, not P1 scientific completion.
 - SOURCE-CUSTODY / MATHEMATICAL / CI: NOT YET ADJUDICATED for 4.104 at opening.
 - REFERENCE-TRUTH / EXTERNAL CALIBRATION / TRANSPORT / NOVELTY: **HOLD** until direct evidence.
 - Parent 4.103: **OPEN**; P1/P2 CLOSED BOUNDED in local synthetic scope.
