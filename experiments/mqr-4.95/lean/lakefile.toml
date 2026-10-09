@@ -1,0 +1,6 @@
+name = "mqr495_scope"
+version = "0.1.0"
+defaultTargets = ["Mqr495Scope"]
+
+[[lean_lib]]
+name = "Mqr495Scope"
