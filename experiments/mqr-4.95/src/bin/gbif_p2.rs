@@ -58,7 +58,7 @@ fn parse_evidence(xs:&[String])->Result<Evidence,Box<dyn Error>>{
 }
 fn main()->Result<(),Box<dyn Error>>{
     let argv:Vec<String>=env::args().collect();
-    if argv.len()!=5{return Err(err("Usage: gbif_p2 ORIGINAL_METADATA_TSV 27_DATASETS_TSV SWEDISH_4_ROWS_TSV OUTPUT_DIRECTORY"));}
+    if argv.len()!=6{return Err(err("Usage: gbif_p2 PARENT_TSV DATASETS_TSV SWEDISH_ROWS_TSV OUTPUT_DIRECTORY LIVE_PARENT_SOURCE_STATUS_TSV"));}
     let root=cells(lines(&argv[1])?.first().ok_or_else(||err("missing parent metadata"))?,6,"GBIF parent")?.to_vec();
     if root[0]!=PARENT || root[1]!=ORIGINAL_DOI ||
        root[2]!="29543" || root[3]!="27" || root[4]!="FI" || root[5]!="3033263" {
@@ -142,6 +142,39 @@ fn main()->Result<(),Box<dyn Error>>{
     output.push_str("MQR495_P2_DISTINCT_SWEDISH_FIELD_OBSERVATION_BINARY_CONTACT=PASS\n");
     output.push_str("MQR495_P2_FINNISH_TARGET_DIRECT_CALIBRATION=HOLD\n");
     output.push_str("MQR495_P2_SPATIAL_DESIGN_BASED_CI=HOLD\n");
+    // Postdiscovery 2026 current GBIF index, not archival 2024 occurrence-status proportions.
+    let mut source_status:BTreeMap<String,BTreeMap<String,usize>>=BTreeMap::new();
+    for row in lines(&argv[5])? {
+        let r=cells(&row,4,"current GBIF contributor presence status")?;
+        let (group,dataset,status)=(&r[0],&r[1],&r[2]);
+        if !keys.contains(dataset) ||
+            (group!="spring"&&group!="kastikka") ||
+            (status!="PRESENT"&&status!="ABSENT") {
+            return Err(err("source status not from frozen original GBIF contributor UUID"));
+        }
+        if (group=="spring"&&dataset!="acf9b46d-e71a-4ccb-91d2-a021ffda4dd4") ||
+           (group=="kastikka"&&dataset!="f2e389da-39c3-4f21-8d72-b7d574d924a9") {
+            return Err(err("original GBIF contributor group-to-dataset mismatch"));
+        }
+        let m=source_status.entry(group.clone()).or_default();
+        if m.insert(status.clone(),r[3].parse()?).is_some(){
+            return Err(err("repeated source-status cohort"));
+        }
+    }
+    if source_status.len()!=2 || source_status.values().any(|m|m.len()!=2) {
+        return Err(err("incomplete current source-status contrast"));
+    }
+    let spring=&source_status["spring"];
+    let kastikka=&source_status["kastikka"];
+    if spring["PRESENT"]!=3670 || spring["ABSENT"]!=11622 ||
+       kastikka["PRESENT"]!=9862 || kastikka["ABSENT"]!=0 {
+        return Err(err("current GBIF source cohort count drift; do not misreport as historical 2024 parent ratios"));
+    }
+    output.push_str(&format!("MQR495_P2B_SPRING_CURRENT_2000_2024=PRESENT:{} ABSENT:{} ORIGINAL_PARENT_2024:{}\\n",
+        spring["PRESENT"],spring["ABSENT"],counts["acf9b46d-e71a-4ccb-91d2-a021ffda4dd4"]));
+    output.push_str(&format!("MQR495_P2B_KASTIKKA_CURRENT_2000_2024=PRESENT:{} ABSENT:{} ORIGINAL_PARENT_2024:{}\\n",
+        kastikka["PRESENT"],kastikka["ABSENT"],counts["f2e389da-39c3-4f21-8d72-b7d574d924a9"]));
+    output.push_str("MQR495_P2B_SOURCE_LABEL_MECHANISM_HETEROGENEITY=PASS_OBSERVATIONAL\\n");
     let o=Path::new(&argv[4]);
     fs::create_dir_all(o)?;
     let mut f=File::create(o.join("mqr495-gbif-p2-rust-verdict.txt"))?;
