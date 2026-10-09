@@ -1,0 +1,16 @@
+name: "MQR 4.99 P1: Availability–Detection Math Scope"
+on:
+  push:
+    paths:
+      - 'experiments/mqr-4.99/**'
+      - '.github/workflows/mqr-4.99-identifiability-p1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mqr-499-math:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test scoped Rust identification identities
+        run: cargo test --manifest-path experiments/mqr-4.99/Cargo.toml
