@@ -2,7 +2,7 @@
 
 ## Internal P2 — Zero-Support Selection, Positive Designs, and Fallible-Reference Identification
 
-**Status: OPEN — exact mathematical analysis independently enumerated in Python; Rust CI must be checked before executable PASS.** This is **P2 inside 4.103**, not a new MQR version. The model is entirely synthetic; the PhysioNet QTDB source does not contain independently verified third-expert truth.
+**Status: OPEN — exact finite mathematics Python-verified and Rust CI #37948140071 SUCCESS; final P2 source-custody CI and archival closeout pending.** This is **P2 inside 4.103**, not a new MQR version. The model is entirely synthetic; the PhysioNet QTDB source does not contain independently verified third-expert truth.
 
 ### Primitive target and observation contract
 
@@ -56,7 +56,15 @@ With the complete D+ law identifying **A=111**, the hypothetical `k<=1` sharp tr
 ### Executable contract and current scientific disposition
 
 - P1 source remains `experiments/mqr-4.103/src/main.rs`. New bounded P2 implementation is `experiments/mqr-4.103/src/p2.rs`, imported into the same Rust executable. Five new Rust unit tests cover support classes, 8/8 exact conditional design expectations, single-history partial identification, hypothetical error-budget sharpness, and reviewer-error observational equivalence.
-- An independent Python enumeration reproduced four versus eight laws, the `[2,3]`, `[1,3]`, `[0,3]` one-history totals, and the HT identities. **Rust CI not yet certified in this paragraph.** Never label a commit itself CI SUCCESS.
+- An independent Python enumeration reproduced four versus eight laws, the `[2,3]`, `[1,3]`, `[0,3]` one-history totals, and the HT identities. **P2 Rust source CI #37948140071 SUCCESS, 8/8 unit tests; independent full run-log verification complete.** Never label a commit itself CI SUCCESS.
 - Claims held: genuinely accurate clinical reviewer; external 1-error certificate; newly acquired QTDB third expert; original survey design/inclusion probabilities for QTDB; population transfer; novelty of inverse-probability methods; general sequential optional-stopping theorem.
 
-**P2 decision remains OPEN until the actual Rust GitHub Actions job is observed, source custody is preserved in Drive, and the existing MQR-4.103 Notion version page is patched and re-read. MQR-4.103 remains OPEN.**
+**P2 remains OPEN pending full-source custody workflow and archival readback. Internal Rust finite mathematics has been verified in actual CI; full-world empirical truth and transport still HOLD. MQR-4.103 remains OPEN.**
+
+### First actual CI and Drive run-log receipt
+
+- Actual [GitHub Actions #37948140071 SUCCESS](https://github.com/WhoSia/MQR/actions/runs/37948140071), code commit `d49a95fdcd6dae13e6234db95421689530603f84`. Logs verify 8/8 Rust unit tests (three P1, five P2) and all P2 markers.
+- The first-run ZIP contains `p1-run.log` with **both P1 and P2 stdout**, although its early workflow artifact name still mentions P1. CRC and observed stdout verified locally.
+- GitHub artifact SHA-256 `b368ced802a21a513393c46c7873d2c8459bf8462096197746bd58ec9de4b1fe`; 539 bytes. Preserved in [Drive MQR/02_ANALYSIS_SAFE](https://drive.google.com/file/d/1tOk5CwjaktBaXACAeq-soFBWbuf6X6up/view) and re-downloaded with matching SHA-256 and ZIP integrity.
+- [Separate full-P2 source-custody workflow #37948743557](https://github.com/WhoSia/MQR/actions/runs/37948743557) includes `p2.rs`, both court documents, `main.rs`, Cargo manifest, workflow, README, commit receipt and SHA-256 manifest; this *separate run must still be checked* for success and Drive transfer before P2 bounded closeout.
+
