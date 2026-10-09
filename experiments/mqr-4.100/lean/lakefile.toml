@@ -1,0 +1,6 @@
+name = "mqr4100_refinement"
+version = "0.1.0"
+defaultTargets = ["Mqr4100Refinement"]
+
+[[lean_lib]]
+name = "Mqr4100Refinement"

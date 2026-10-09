@@ -1,0 +1,59 @@
+name: "MQR 4.100 P1 — Observation Quotient Refinement"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.100/**'
+      - '.github/workflows/mqr-4.100-p1-refinement.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-kernel-rust:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Finite experiment compatibility and counterexample court
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.100/Cargo.toml -- --nocapture 2>&1 | tee mqr4100-rust-p1.log
+          grep -F 'test result: ok. 7 passed' mqr4100-rust-p1.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR4100-P1-Rust-Finite-Experiment-Court
+          path: mqr4100-rust-p1.log
+          retention-days: 30
+  law-preserving-lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: experiments/mqr-4.100/lean
+          build: true
+          test: false
+          use-mathlib-cache: false
+      - name: Kernel projection theorem and negative controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -nE '^[[:space:]]*(sorry|admit|axiom)([[:space:]]|$)' experiments/mqr-4.100/lean/Mqr4100Refinement.lean
+          cd experiments/mqr-4.100/lean
+          lake build 2>&1 | tee ../../../mqr4100-lean-p1.log
+          echo MQR4100_P1_LEAN_PROJECTION_REFINEMENT_PASS | tee -a ../../../mqr4100-lean-p1.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR4100-P1-Lean-Refinement-Receipts
+          path: |
+            experiments/mqr-4.100/lean/Mqr4100Refinement.lean
+            mqr4100-lean-p1.log
+          retention-days: 30
