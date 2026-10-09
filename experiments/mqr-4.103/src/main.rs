@@ -1,6 +1,7 @@
 //! MQR-4.103 P1: exact finite adaptive verification courts.
 //! Hypothetical truthful review oracle, not real QTDB 3rd-party labels.
 use std::collections::BTreeMap;
+mod p2;
 fn histories(theta:u8)->BTreeMap<String,f64>{
  // The first verifier audits case 0 (truth theta0); second allocation depends
  // on first answer: if 0 audit case 1; if 1 audit case 2.
@@ -53,6 +54,7 @@ fn main(){
  for witness in witnesses{println!("WITNESS {witness}");}
  println!("MQR4103_P1_FAIR_COIN_STOPPED_NAIVE_MEAN={naive:.6} FIXED_FIRST_MEAN={first:.6} STOPPED_CENTERED_SUM={centered:.6}");
  println!("MQR4103_P1_FINITE_ADAPTIVE_OBSERVATIONAL_EQUIVALENCE_PASS;EXTERNAL_TRUTH_HOLD");
+ p2::run();
 }
 #[cfg(test)]
 mod tests{
