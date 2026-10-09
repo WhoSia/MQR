@@ -1,0 +1,118 @@
+name: "MQR 4.100 — P8 First-Party Two-Expert QT Annotation Court"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.100/p8_dual_expert_qtdb.py'
+      - '.github/workflows/mqr-4.100-p8-qtdb-experts.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-two-reader-annotation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install fixed public WFDB annotation decoder
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m venv /tmp/mqr4100-p8-venv
+          /tmp/mqr4100-p8-venv/bin/python -m pip --disable-pip-version-check install \
+            'wfdb==4.1.2' 'numpy==1.26.4' 'pandas==2.2.3'
+      - name: Re-download original PhysioNet QTDB v1.0.0 and verify official checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p mqr4100-p8/original mqr4100-p8/results
+          /tmp/mqr4100-p8-venv/bin/python - <<'PY'
+          import pathlib,urllib.request,hashlib,concurrent.futures
+          out=pathlib.Path('mqr4100-p8/original')
+          base='https://physionet.org/files/qtdb/1.0.0/'
+          roots={'ANNOTATORS':'41b223ff076eb236d83e6795f7178967e99ca2f5e238c9ea8e43c6ef081b8b0a',
+                 'RECORDS':'29aeb9287007953f42ffc4da9419eff17d34f681c1c8e4f34992b94f252f9a71',
+                 'SHA256SUMS.txt':'50ddae2c0515df6f9711a098ba0cb7f4e35b6b25642f905bd423f7f390d18497'}
+          def get(name):
+              with urllib.request.urlopen(urllib.request.Request(base+name,headers={'User-Agent':'MQR-public-source-audit/1.0'}),timeout=80) as r:return r.read()
+          for filename,h in roots.items():
+              raw=get(filename)
+              assert hashlib.sha256(raw).hexdigest()==h,filename
+              (out/filename).write_bytes(raw)
+          index={}
+          for line in (out/'SHA256SUMS.txt').read_text().splitlines():
+              p=line.split()
+              if len(p)==2 and len(p[0])==64:index[p[1]]=p[0]
+          names=sorted(x[:-4] for x in index if x.endswith('.q2c'))
+          assert names==['sel100','sel102','sel103','sel114','sel116','sel117',
+                         'sel123','sel213','sel221','sel223','sel230']
+          originals=[r+'.'+ext for r in names for ext in ('hea','dat','man','q1c','q2c','qt1','qt2')]
+          def one(name):
+              raw=get(name); h=hashlib.sha256(raw).hexdigest()
+              assert index[name]==h,('PHYSIONET_ORIGINAL_CHECKSUM_MISMATCH',name,h)
+              (out/name).write_bytes(raw)
+              return name,len(raw)
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:
+              status=list(pool.map(one,originals))
+          assert len(status)==77
+          print('MQR4100_P8_AUTHENTIC_PUBLISHER_ROOT_AND_77_ORIGINAL_SOURCE_FILES_PASS',
+                'files',len(status),'bytes',sum(x[1] for x in status))
+          PY
+      - name: P8 parser invariants and real expert disagreement audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          /tmp/mqr4100-p8-venv/bin/python experiments/mqr-4.100/p8_dual_expert_qtdb.py --selftest
+          /tmp/mqr4100-p8-venv/bin/python experiments/mqr-4.100/p8_dual_expert_qtdb.py \
+            --source-dir mqr4100-p8/original --out mqr4100-p8/results \
+            2>&1 | tee mqr4100-p8/execution.log
+          grep -F 'MQR4100_P8_AUTHENTICATED_PHYSIONET_DUAL_READER_SOURCE_PAIR_PASS; INDEPENDENT_TRUTH_AND_TRANSPORT_HOLD' mqr4100-p8/execution.log
+      - name: Independently re-read receipt and confirm partial-identification arithmetic
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib,json,csv,math
+          p=pathlib.Path('mqr4100-p8/results')
+          d=json.loads((p/'p8_receipt.json').read_text())
+          assert (d['all_selected_reference_beats'],d['paired_complete_qt'],
+                  d['unobserved_complete_pairs'])==(487,402,85)
+          b=d['disagreement_threshold_40ms']
+          assert b['exceed_count']==88
+          assert math.isclose(b['finite_reference_population_no_missingness_assumption_lower'],88/487)
+          assert math.isclose(b['finite_reference_population_no_missingness_assumption_upper'],173/487)
+          with (p/'p8_per_beat.csv').open() as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)==487
+          assert sum(int(x['paired_complete']) for x in rows)==402
+          assert sum(int(x['abs_disagreement_ge_40ms']) for x in rows if x['paired_complete']=='1')==88
+          print('P8_SHARP_40MS_PARTIAL_IDENTIFICATION_BOUNDS_PASS [88/487, 173/487]')
+          PY
+      - name: Preserve all original expert files, binary waveforms, and actual row receipts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib,zipfile,hashlib,json
+          base=pathlib.Path('mqr4100-p8')
+          out=base/'MQR4100-P8-PhysioNet-QTDB-11-Dual-Expert-Originals-And-Receipts.zip'
+          entries=sorted(x for x in (base/'original').rglob('*') if x.is_file())+sorted(x for x in (base/'results').rglob('*') if x.is_file())+[base/'execution.log']
+          with zipfile.ZipFile(out,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6,allowZip64=True) as z:
+              for src in entries:z.write(src,src.relative_to(base))
+          with zipfile.ZipFile(out) as z:
+              assert z.testzip() is None
+              assert len(z.namelist())==len(entries)
+          print('P8_ARCHIVE_ZIP_SHA256',hashlib.sha256(out.read_bytes()).hexdigest(),
+                'bytes',out.stat().st_size,'entries',len(entries))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4100-P8-QTDB-Dual-Expert-Originals-Binary-ECG-and-Full-Receipts
+          path: mqr4100-p8/MQR4100-P8-PhysioNet-QTDB-11-Dual-Expert-Originals-And-Receipts.zip
+          retention-days: 90
+          if-no-files-found: error
