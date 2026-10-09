@@ -1,0 +1,10 @@
+[package]
+name = "mqr497-naamp-field"
+version = "0.1.0"
+edition = "2021"
+description = "Original USGS NAAMP independently field-collected repeat detection audit in std-only Rust"
+[[bin]]
+name = "mqr497-naamp"
+path = "src/main.rs"
+[profile.release]
+opt-level = 3
