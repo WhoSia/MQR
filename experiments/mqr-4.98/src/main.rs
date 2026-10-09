@@ -85,7 +85,7 @@ fn fit_const(data:&[Bird])->(f64,f64){
 }
 fn fit_order(data:&[Bird])->([f64;3],f64){
  let mut best=([0.5;3],f64::NEG_INFINITY);
- for start in [[.2,.2,.2],[.8,.5,.25],[.5,.5,.5]]{
+ for start in [[0.2,0.2,0.2],[0.8,0.5,0.25],[0.5,0.5,0.5]]{
   let mut p=start;
   let mut step=0.01;
   for _ in 0..4{
