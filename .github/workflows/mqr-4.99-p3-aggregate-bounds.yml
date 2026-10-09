@@ -1,0 +1,20 @@
+name: "MQR 4.99 P3 — Published Behavior and Conditional Partial ID"
+on:
+  push:
+    paths:
+      - 'experiments/mqr-4.99/**'
+      - '.github/workflows/mqr-4.99-p3-aggregate-bounds.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  p3-bounded-mathematical-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate published aggregate transcription and conditional bounds in Rust
+        run: |
+          cargo test --manifest-path experiments/mqr-4.99/Cargo.toml
+          cargo run --manifest-path experiments/mqr-4.99/Cargo.toml --bin p3_bounds
+      - name: Independently check the same reported aggregate arithmetic in Python
+        run: python3 experiments/mqr-4.99/p3_published_aggregate_check.py
