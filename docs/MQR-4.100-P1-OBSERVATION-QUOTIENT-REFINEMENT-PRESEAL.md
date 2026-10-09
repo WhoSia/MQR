@@ -57,9 +57,11 @@ G4 nuisance and changed assumptions | typed map and model-version comparison | N
 G5 target function | explicit g and equivalence classes | N6 preserves honest scoped inference
 G6 cross-protocol and risk | population bridge + outcome/loss correspondence + uncertainty | HOLD
 G7 independent source | original external measurement with adequate claim-relevant dependence cut | HOLD
-G8 implementation | Rust/Lean regression success on GitHub exact commit | PENDING at first authored commit
+G8 implementation | Rust/Lean regression success on GitHub exact commit | 7 Rust tests + Lean build SUCCESS at final source head #37899325802
 
 A projection certificate makes J **at least as informative as E** for decisions on the exact same Θ, since the receiver can discard Z. Strict quotient refinement is neither equivalent to strict Blackwell dominance nor necessary for stricter Bayes risk in a particular decision problem. The category-theoretic word 'morphism' does not itself generate epistemic authority. Neither more sensors nor more source files constitute independent scientific evidence without a corresponding dependency cut.
+
+**P1 CLOSED — BOUNDED FORMAL / FINITE-MODEL CONTRACT PASS (2026-10-09).** Successful final [GitHub Actions #37899325802](https://github.com/WhoSia/MQR/actions/runs/37899325802), head `094ad2603bc27a95abca82d42c7f1bcb400a28dc`: Rust 7/7 finite experiments, Lean 4 projection/target-function theorem with a separate no-sorry build. Earlier #37899117974 failed before Lean proof due to missing Lake manifest; #37899215223 failed on constant-observation proof elaboration; repairs were made on human-authored `main` commits, then final rerun succeeded. These were implementation faults, not mathematical counterexamples. This certification does NOT establish novel theorems, approximate-kernel bounds, ecological field calibration, or cross-protocol transport.
 
 P1 can close in a narrow executable-math sense after tests pass. **Do not close MQR-4.100 as a scientific method discovery**; investigate in P2 whether realistic paired auxiliary sensors and target outcomes exist, and how uncertain/approximate kernel correspondences constrain conclusions (possible Le Cam deficiency sensitivity, not automatic theorem novelty).
 
