@@ -41,7 +41,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cargo run --offline --release --manifest-path experiments/mqr-4.95/Cargo.toml --             mqr495-anemone-original.csv . 2>&1 | tee mqr495-rust-audit.log
+          cargo run --offline --release --bin mqr495-calibration-witness --manifest-path experiments/mqr-4.95/Cargo.toml --             mqr495-anemone-original.csv . 2>&1 | tee mqr495-rust-audit.log
           grep -Fx MQR495_ORIGINAL_SOURCE_AUDIT=PASS mqr495-rust-audit.log
           grep -Fx MQR495_INDEPENDENT_CALIBRATION_WITNESS=HOLD mqr495-rust-audit.log
           grep -Fx MQR495_DESIGN_BASED_POPULATION_CI=HOLD mqr495-rust-audit.log
