@@ -1,0 +1,28 @@
+name: "MQR 4.103 — Sequential Verification Finite Court"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.103/**'
+      - '.github/workflows/mqr-4.103-p1-sequential.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Pure Rust unit contracts
+        run: cargo test --offline --manifest-path experiments/mqr-4.103/Cargo.toml
+      - name: Exhaustive eight-world and optional-stopping witnesses
+        run: |
+          set -euo pipefail
+          cargo run --offline --manifest-path experiments/mqr-4.103/Cargo.toml | tee p1-run.log
+          grep -F 'MQR4103_P1_FINITE_ADAPTIVE_OBSERVATIONAL_EQUIVALENCE_PASS;EXTERNAL_TRUTH_HOLD' p1-run.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4103-P1-Exact-Finite-Selection-Court
+          path: p1-run.log
