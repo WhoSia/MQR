@@ -71,3 +71,13 @@ A second intake listing after the 15 initial moves detected a newly uploaded con
 | MQR-4.108 (candidate) | classify provenance and document/graph mediation explicitly; compare warrant between historical models and measurement results | **no defensible conclusion not already explained by rivals** shown; DISTINCTNESS HOLD |
 
 Tal rival evidence specifically taken from the opening of §5.4, including 'coherence, robustness and accuracy'; GUM 5.2.4 names shared thermometer, physical standard and reference datum, 5.2.5 significant correlation. Chang source PDF Drive 1RwuRfY9Ifz6iEAUZZm57z4EzHX8CP0CV, Regnault narrative and ch5. No new unsupported historical measurement numbers entered. Future program: challenge whether a historical graph/table discrepancy changes *which* datum is justified, independently of already modeled covariance and coherence. No novelty claim currently.
+
+## P5 — Graph-table compression and conditional statistical sufficiency
+
+Regnault 1847 printed p240 specifies immediate experimental data -> carefully drawn Plate VIII curves -> p241 regular 10-degree comparison table. No underlying individual raw records or interpolation method have been newly reconstructed; the following is a SYNTHETIC court.
+
+Define Q=S∘G from raw observations to a fitted graph then table. Q need not be injective. Raw A=(0,2) and raw B=(1,1) yield the same arithmetic mean (=1) table, but different residual scatter (=2 versus 0). In a Gaussian model with KNOWN variance and unknown mean μ, the sample mean is sufficient for μ; those two raw sequences are not evidence of failure of that mathematical theorem. In a Gaussian model with UNKNOWN variance, the likelihood ratio A:B at μ=1 equals exp(-1/σ²), varying with σ². The mean alone is thus not sufficient for the joint model (μ,σ²), while mean plus residual sum of squares are sufficient. Python Fraction test PASS locally. Executable at experiments/mqr_4108/graph_table_sufficiency_counterexample.py (commit feb913d40f7e3281068919822ec909e898e1cc1d).
+
+A possible MQR-specific problem is the legitimacy of moving between calibrated quantities and rival statistical families after archival graphical reduction. But GUM/Tal/Chang and classical sufficiency remain strong rivals. No distinct MQR theorem proved. To establish a new claim require source-backed raw observations, named proposition, specified rival predictions, and a divergent historically justified verdict.
+
+DjVu user reports uploaded to 00; Drive 00_INTAKE children and global filename/djvu searches did NOT expose a DjVu at time of inspection, only 3 handoff Markdown files and 1 VIM 2012 text-duplicate candidate. No move possible without verified file ID. Do not invent move. P5 theoretical toy PASS, DJVU_INGEST_WAIT, NOVELTY_HOLD.
