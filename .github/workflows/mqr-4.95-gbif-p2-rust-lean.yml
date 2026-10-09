@@ -1,0 +1,119 @@
+name: MQR 4.95 — Live GBIF Root Court and Lean Scope Proofs
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.95/src/bin/gbif_p2.rs'
+      - 'experiments/mqr-4.95/lean/**'
+      - '.github/workflows/mqr-4.95-gbif-p2-rust-lean.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rust-live-gbif-source-court:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify Rust Source Contract Tests Offline
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --offline --manifest-path experiments/mqr-4.95/Cargo.toml 2>&1 | tee mqr495-p2-rust-tests.log
+          grep -F 'test result: ok.' mqr495-p2-rust-tests.log
+      - name: Fetch True GBIF Parent and Swedish Survey JSON Without Authentication
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://api.gbif.org/v1'
+          curl -fLsS --retry 3 --retry-all-errors --max-time 45 \
+            "$base/occurrence/download/0031144-240626123714530" -o gbif-parent-live.json
+          curl -fLsS --retry 3 --retry-all-errors --max-time 45 \
+            "$base/occurrence/download/0031144-240626123714530/datasets?limit=100" -o gbif-parent-datasets-live.json
+          jq -er '[.key,.doi,(.totalRecords|tostring),(.numberDatasets|tostring),
+             (.request.predicate.predicates[]|select(.key=="COUNTRY")|.value),
+             (.request.predicate.predicates[]|select(.key=="TAXON_KEY")|.value)]|@tsv' \
+             gbif-parent-live.json > gbif-parent.tsv
+          jq -er '.results[]|[.datasetKey,.datasetTitle,(.numberRecords|tostring),.datasetDOI]|@tsv' \
+             gbif-parent-datasets-live.json > gbif-parent-datasets.tsv
+          : > sweden-anemone-records.tsv
+          for group in current supplement; do
+            if [ "$group" = current ]; then
+              ds='d59ccafb-251e-46cf-9319-37b58d88e7c5'
+            else
+              ds='e1a32bea-73df-4b9b-af2e-6e148ab2641b'
+            fi
+            for status in PRESENT ABSENT; do
+              filename="sweden-${group}-${status}.json"
+              curl -fLsS --retry 3 --retry-all-errors --max-time 45 \
+                "$base/occurrence/search?datasetKey=${ds}&taxonKey=3033263&occurrenceStatus=${status}&limit=1" \
+                -o "$filename"
+              jq -er --arg group "$group" --arg dataset "$ds" --arg status "$status" \
+                '[$group,$dataset,$status,(.count|tostring),.results[0].occurrenceID,
+                .results[0].eventID,.results[0].scientificName,.results[0].countryCode,
+                (.results[0].coordinateUncertaintyInMeters|tostring),
+                .results[0].samplingEffort]|@tsv' "$filename" >> sweden-anemone-records.tsv
+            done
+          done
+          wc -l gbif-parent-datasets.tsv sweden-anemone-records.tsv | tee mqr495-p2-source-inventory.log
+      - name: Adjudicate Live GBIF Origins and True Swedish Binary Observations in Rust
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --offline --release --bin gbif_p2 \
+            --manifest-path experiments/mqr-4.95/Cargo.toml -- \
+            gbif-parent.tsv gbif-parent-datasets.tsv sweden-anemone-records.tsv . \
+            2>&1 | tee mqr495-p2-source-court.log
+          grep -Fx MQR495_P2_DISTINCT_SWEDISH_FIELD_OBSERVATION_BINARY_CONTACT=PASS mqr495-p2-source-court.log
+          grep -Fx MQR495_P2_FINNISH_TARGET_DIRECT_CALIBRATION=HOLD mqr495-p2-source-court.log
+          grep -Fx MQR495_P2_SPATIAL_DESIGN_BASED_CI=HOLD mqr495-p2-source-court.log
+      - name: Preserve Raw Public API Responses and Failing or Passing Rust Receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR495-P2-Live-GBIF-Rust-Ancestry
+          path: |
+            gbif-parent-live.json
+            gbif-parent-datasets-live.json
+            gbif-parent.tsv
+            gbif-parent-datasets.tsv
+            sweden-anemone-records.tsv
+            sweden-*.json
+            mqr495-p2-rust-tests.log
+            mqr495-p2-source-inventory.log
+            mqr495-p2-source-court.log
+            mqr495-gbif-p2-rust-verdict.txt
+          retention-days: 30
+  lean-framed-witness-nontransport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: experiments/mqr-4.95/lean
+          build: true
+          test: false
+          use-mathlib-cache: false
+      - name: Require No Admitted Sorry and Retain Scope-Proof Evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -nE '^[[:space:]]*(sorry|admit)([[:space:]]|$)' \
+            experiments/mqr-4.95/lean/Mqr495Scope.lean
+          cd experiments/mqr-4.95/lean
+          lake build 2>&1 | tee ../../../mqr495-p2-lean-build.log
+          echo MQR495_P2_LEAN_SCOPE_THEOREMS=PASS | tee -a ../../../mqr495-p2-lean-build.log
+      - name: Preserve Lean Proof and Failure Receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MQR495-P2-Lean-Scope-Nontransport
+          path: |
+            mqr495-p2-lean-build.log
+            experiments/mqr-4.95/lean/Mqr495Scope.lean
+          retention-days: 30
