@@ -27,3 +27,9 @@ The example isolates **result-dependent stopping** from item-specific adaptive a
 - **4.102 reuse:** prior real QTDB receipt was 487 selected beats, 402 complete two-expert comparisons, 76 disagreements, 85 incomplete pairs; the supposed capacity 3 per record and third-party audits 10 were hypothetical. Do **not** quietly use them as realized third-expert truth, and do not call the P1 toy model an empirical QTDB validation.
 
 **Execution contract:** `experiments/mqr-4.103/src/main.rs` exhaustive eight worlds and four optional-stop histories; no dependencies. `.github/workflows/mqr-4.103-p1-sequential.yml` must show actual success before P1 CLOSED BOUNDED. README records the formal title and OPEN/HOLD limits.
+
+## P1 execution disposition — bounded closure
+
+[Initial actual GitHub Actions #37939625158](https://github.com/WhoSia/MQR/actions/runs/37939625158) **SUCCESS** with 3 Rust tests and full enumeration. [Read-only source-custody GitHub Actions #37939944030](https://github.com/WhoSia/MQR/actions/runs/37939944030) **SUCCESS**, on human-authored `main` commit `471cc5f4c51f8666b92284fdd521ddbb47420749`. [Drive MQR/02_ANALYSIS_SAFE preserved executable and court snapshot](https://drive.google.com/file/d/1U7bZaVRMsJb7VZmpDO6sp_DT7fVywEnj/view), artifact SHA-256 `51c5dac0532aeddda19254e87af0204e38b0587fc7b7eccb7b8d049bf4028703`, 24,323 bytes; independently re-fetched, ZIP CRC verified. The archive contains a nested source-court snapshot ZIP; the outer ZIP is the GitHub Actions artifact container.
+
+**Verdict: MQR-4.103 internal P1 CLOSED BOUNDED (synthetic finite exhaustive model), overall MQR-4.103 OPEN.** No independent QTDB truth, verified clinical risk, optional-stopping general theorem, or independent implementation was established. Later README/doc-only commit is not falsely claimed to have run the computation.
