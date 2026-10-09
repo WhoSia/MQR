@@ -21,6 +21,17 @@ fn idx(h:&[String],key:&str)->Result<usize,Box<dyn Error>>{
  h.iter().position(|s|s==key).ok_or_else(||die(format!("missing input column {key}")))
 }
 fn norm(s:&str)->&str{if s==""||s=="NA"||s=="N/A" {"<MISSING>"}else{s}}
+fn same_coord(a:&str,b:&str)->bool {
+ if norm(a)==norm(b){return true;}
+ match (a.parse::<f64>(),b.parse::<f64>()){
+   (Ok(x),Ok(y)) if x.is_finite()&&y.is_finite()=>(x-y).abs()<=1e-10,
+   _=>false
+ }
+}
+fn normalized_site_coord(x:&str)->String{
+ if norm(x)=="<MISSING>" {return "<MISSING>".into();}
+ x.parse::<f64>().map(|v|format!("{v:.9}")).unwrap_or_else(|_|x.to_owned())
+}
 fn status(s:&str)->Result<u8,Box<dyn Error>>{
  match s{"ABSENT"=>Ok(0),"PRESENT"=>Ok(1),_=>Err(die(format!("unexpected original GBIF occurrenceStatus {s}")))}
 }
@@ -75,7 +86,7 @@ fn run(csv_path:&str,gbif_path:&str,out:&str)->Result<(),Box<dyn Error>>{
    if norm(&sf[si_year])!=norm(&gf[gi_year]){year_mismatches+=1;}
    let (al,gl)=(norm(&sf[si_lat]),norm(&gf[gi_lat]));
    let (ao,go)=(norm(&sf[si_lon]),norm(&gf[gi_lon]));
-   if al!=gl||ao!=go{latlon_mismatches+=1;}
+   if !same_coord(al,gl)||!same_coord(ao,go){latlon_mismatches+=1;}
    if al=="<MISSING>"||ao=="<MISSING>"{
       if al=="<MISSING>"&&gl=="<MISSING>"&&ao=="<MISSING>"&&go=="<MISSING>"{pair_missing+=1;}
    }
@@ -86,7 +97,7 @@ fn run(csv_path:&str,gbif_path:&str,out:&str)->Result<(),Box<dyn Error>>{
    totals.add(gbif_y);
    counts.entry(gf[gi_dataset].clone()).or_default().add(gbif_y);
    let collision_key=format!("{}|{}|{}|{}",
-      norm(&sf[si_lat]),norm(&sf[si_lon]),norm(&sf[si_year]),y);
+      normalized_site_coord(&sf[si_lat]),normalized_site_coord(&sf[si_lon]),norm(&sf[si_year]),y);
    *same_key.entry(collision_key).or_default()+=1;
    writeln!(mapping,"{rows}\t{}\t{}\t{}\t{}\t{y}\t{}\t{}\t{}",
       gf[gi_gbif],gf[gi_dataset],gf[gi_occ],gf[gi_status],
@@ -144,5 +155,6 @@ mod tests{
  use super::*;
  #[test]fn status_map_is_explicit(){assert_eq!(status("ABSENT").unwrap(),0);assert_eq!(status("PRESENT").unwrap(),1);assert!(status("").is_err());}
  #[test]fn missing_coordinate_is_not_false_conflict(){assert_eq!(norm("NA"),norm(""));assert_ne!(norm("NA"),norm("60.4"));}
+ #[test]fn numeric_coordinate_text_forms_same(){assert!(same_coord("25","25.0"));assert!(same_coord("61","61.0"));assert!(!same_coord("61","61.001"));assert_eq!(normalized_site_coord("25"),normalized_site_coord("25.0"));}
  #[test]fn csv_and_gbif_headers(){assert_eq!(csv(r#""lat","long","presence""#),vec!["lat","long","presence"]); assert_eq!(tsv("gbifID\tdatasetKey"),vec!["gbifID","datasetKey"]);}
 }
