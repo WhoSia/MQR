@@ -75,3 +75,11 @@ P4 status: text source custody PASS BOUNDED; direct facsimile numeric adjudicati
 Printed p181 / DjVu /215 corrected French transcription has A' pressure 785.21 at T=95.57, Chang Table 2.5 instead 782.21 mmHg. **The scan image itself has NOT been visually adjudicated**, despite recovery of its image URI and Firecrawl screenshot; neither text witness should be promoted to the printed source before visually validating pixels. The later extraction call for image-specific data returned a schema error and yielded no visual evidence.
 
 Historical direct primary corrected transcription PASS BOUNDED; primary-image pixel validation HOLD; Chang Table 2.4 identified-source match PASS BOUNDED (four+ rows); model-novelty HOLD.
+
+## P6 — Plate VIII located, image audit incomplete
+
+Regnault 1847, Mémoires Académie des sciences 21 **Plate VIII** is separately indexed in the volume's final plate pages as Wikisource DjVu **/820**: https://fr.wikisource.org/wiki/Page:M%C3%A9moires_de_l%E2%80%99Acad%C3%A9mie_des_sciences%2C_Tome_21.djvu/820 . Wikisource identifies an extracted individual PNG `Mémoires de l’Académie des sciences, Tome 21p820.png` (original image link on the page). The existence and plate number are VERIFIED from the corrected page index; the axes, specific traces, plotted points, and exact relation to the thermometer-versus-air comparison referenced in p240 have NOT been visually checked. Note the volume p581 also refers to a Plate VIII in a vapor-pressure discussion, so do not silently conflate graph purpose or assert an exact physical plot until the actual image is read.
+
+Printed p181/DjVu /215 corrected text still reads 785.21 mmHg (A' pressure at 95.57C) against Chang 2004 Table 2.5 at 782.21. Image URLs recovered; pixel evidence not acquired/readable. **P181_IMAGE_HOLD**. Independently extracted original p241/DjVu /275 table matches Chang Table 2.4, but table does not validate a unique graph interpolation procedure. **PLATE_VIII_DIGITIZATION_HOLD**.
+
+Source status: PLATE_LOCATED, IMAGE_READ_HOLD, P181_NUMBER_HOLD, GRAPH_RECONSTRUCTION_HOLD. Notion canonical to mirror this full ledger. No CI or Actions additions.
