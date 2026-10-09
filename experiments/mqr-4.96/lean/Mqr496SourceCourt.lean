@@ -68,19 +68,18 @@ theorem no_negative_receipt_without_survey (observed : Bool) :
   cases observed <;> rfl
 
 /-!
-A *toy* latent detection model: observed detection probability is
-occupancy × detection probability, with zero false positives. A single
-observed probability cannot recover both components without extra data.
-These two concrete interior-boundary parameters are counterexamples to
-injectivity. This is standard occupancy-model algebra, not MQR novelty.
+A binary detection logic counterexample, not an estimator: observed
+detection is true only if the organism is present AND the field method
+actually detects it. A true absence and a missed detection can yield
+the SAME observed negative. This is old occupancy/detection logic,
+not a newly discovered statistical theorem.
 -/
-def detectionObservation (occupancy detection : Rat) : Rat :=
-  occupancy * detection
+def recordedDetection (occupied detectedGivenOccupancy : Bool) : Bool :=
+  occupied && detectedGivenOccupancy
 
-theorem occupancy_not_identified_from_one_detected_rate :
-    (1 / 2 : Rat) ≠ 1 ∧
-    detectionObservation (1 / 2) 1 =
-      detectionObservation 1 (1 / 2) := by
+theorem observed_negative_does_not_identify_true_occupancy :
+    recordedDetection false true = recordedDetection true false ∧
+    false ≠ true := by
   decide
 
 end MQR496
