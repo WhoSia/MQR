@@ -26,3 +26,21 @@ jobs:
         with:
           name: MQR4103-P1-Exact-Finite-Selection-Court
           path: p1-run.log
+      - name: Freeze exact code, court, and readme for Drive
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p p1-custody
+          cp experiments/mqr-4.103/Cargo.toml p1-custody/
+          cp experiments/mqr-4.103/src/main.rs p1-custody/
+          cp docs/MQR-4.103-ADAPTIVE-VERIFICATION-AND-SEQUENTIAL-IDENTIFIABILITY-ENTRY.md p1-custody/
+          cp .github/workflows/mqr-4.103-p1-sequential.yml p1-custody/
+          cp README.md p1-custody/
+          git rev-parse HEAD > p1-custody/commit.txt
+          sha256sum p1-custody/* > p1-custody/SHA256SUMS.txt
+          (cd p1-custody && zip -q ../MQR4103-P1-Code-Court-README-Source-Snapshot.zip ./*)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4103-P1-Drive-Custody-Snapshot
+          path: MQR4103-P1-Code-Court-README-Source-Snapshot.zip
+          retention-days: 90
