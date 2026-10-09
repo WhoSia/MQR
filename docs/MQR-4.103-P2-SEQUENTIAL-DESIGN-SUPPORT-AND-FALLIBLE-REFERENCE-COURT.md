@@ -46,6 +46,16 @@ Suppose **hypothetically and externally** that at most `k` of the 3 reviewer lab
 
 With the complete D+ law identifying **A=111**, the hypothetical `k<=1` sharp true totals narrow to `{2,3}`; without a certified bound the totals still range from 0 to 3. Full-law identification and one-history partial identification must not be substituted for one another. All listed bounds are sharp by existence of assignments in exhaustive enumeration, **not continuous population confidence intervals**.
 
+### Stress test — positivity does not control finite-design variance
+
+The same D+ policy and the **same true prevalence** `R(T)=1/3` can produce very different design variances, even with a hypothetical perfect reviewer. Take `T0=0`, so unit 1 is favored (selection probability `3/4`) and unit 2 is the alternative (probability `1/4`).
+
+- World `T=(0,1,0)`: the sole true item is favored; `R_hat=4/9` with probability `3/4`, otherwise 0. Exact expectation `1/3`, design variance **`1/27`**.
+- World `T=(0,0,1)`: the sole true item is disfavored; `R_hat=4/3` with probability `1/4`, otherwise 0. Exact expectation `1/3`, design variance **`1/3`**: a **ninefold increase**, even though all inclusion probabilities remain positive and both worlds have identical prevalence.
+- For a one-positive-case population with `T0=0`, if the true item's inclusion probability is `q>0`, the HT prevalence estimator equals `1/(3q)` when selected and 0 otherwise. Therefore `E[R_hat]=1/3`, but `Var(R_hat)=(1-q)/(9q)`, diverging as `q` decreases to zero. Values of `R_hat>1` are possible: it is an unbiased *inverse-weighted estimate*, not a realized proportion constrained to the unit interval.
+
+Exact rational arithmetic using independent Python `fractions.Fraction` confirmed the `1/27`, `1/3`, and `(1-q)/(9q)` identities. **This variance stress test is a local analytical supplement, not yet a separately compiled Rust CI variance claim.** It is classical unequal-probability sampling mathematics, not a general MQR novelty claim. It strengthens the method court by separating *support*, *identification*, *unbiasedness*, *precision*, and *truth validity*.
+
 ### Prior-art and source audit
 
 - Horvitz, D. G. & Thompson, D. J. (1952), *A Generalization of Sampling Without Replacement from a Finite Universe*, JASA 47(260), 663–685. DOI: https://doi.org/10.1080/01621459.1952.10483446. Original publisher abstract documents unequal-probability design theory; the finite identity here is an application.
