@@ -1,0 +1,33 @@
+name: "MQR 4.99 P2 — Zenodo Original Source Custody"
+on:
+  push:
+    paths:
+      - 'experiments/mqr-4.99/**'
+      - '.github/workflows/mqr-4.99-zenodo-original-p2.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-custody:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and pin independently published original source
+        run: |
+          mkdir -p /tmp/mqr499
+          curl --fail --location --show-error --silent --retry 3 --max-time 90 "https://zenodo.org/api/records/10666980/files/kenkellner/IDS-v1.0.zip/content" --output /tmp/mqr499/original.zip
+          echo "279a67cf8c763a1ba5166497ed223ac5feb656b5a6e7f110dae3c0d1a11e001d  /tmp/mqr499/original.zip" | sha256sum -c -
+      - name: Verify original source ancestry and CSVs in independent Python
+        run: python3 experiments/mqr-4.99/source_audit.py /tmp/mqr499/original.zip /tmp/mqr499
+      - name: Verify independent Rust reconstruction and P1 regression
+        run: |
+          cargo test --manifest-path experiments/mqr-4.99/Cargo.toml
+          cargo run --manifest-path experiments/mqr-4.99/Cargo.toml --bin source_audit -- /tmp/mqr499/extracted
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr499-zenodo-original-and-audit
+          path: |
+            /tmp/mqr499/original.zip
+            /tmp/mqr499/source_audit.json
+          if-no-files-found: error
+          retention-days: 90
