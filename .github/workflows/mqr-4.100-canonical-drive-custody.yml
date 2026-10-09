@@ -1,0 +1,105 @@
+name: "MQR 4.100 — Preserve Canonical Courts, Code, and Governance"
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.100-canonical-drive-custody.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  frozen-source-export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Export exact tracked source subsets and machine-readable hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p custody
+          python3 - <<'PY'
+          import subprocess,json,hashlib,zipfile,pathlib,datetime
+          head=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          assert len(head)==40
+          specs={
+            'courts': ['docs/MQR-4.99*','docs/MQR-4.100*','README.md'],
+            'code': ['experiments/mqr-4.99','experiments/mqr-4.100','.github/workflows/mqr-4.99*','.github/workflows/mqr-4.100*'],
+            'governance': ['doctrine','README.md']
+          }
+          results={}
+          for group,paths in specs.items():
+            raw=subprocess.check_output(['git','ls-files','-z','--',*paths])
+            files=sorted(set(p.decode('utf8') for p in raw.split(b'\0') if p))
+            assert files,(group,'NO TRACKED FILES')
+            assert all(pathlib.Path(p).is_file() for p in files)
+            info=[]
+            for f in files:
+              buf=pathlib.Path(f).read_bytes()
+              info.append({'path':f,'bytes':len(buf),'sha256':hashlib.sha256(buf).hexdigest(),
+                           'git_blob_sha1':subprocess.check_output(['git','hash-object',f],text=True).strip()})
+            data={'type':'MQR_FIRST_PARTY_REPOSITORY_SNAPSHOT','research_title':'MQR-4.100 — Auxiliary Measurement Channels, Observation-Quotient Refinement & the Limits of Identifiability Transport',
+                  'commit':head,'source':'https://github.com/WhoSia/MQR','scope':group,
+                  'kind':'read-only copy of pinned authored sources, NOT new empirical validation',
+                  'tracked_file_count':len(files),'files':info}
+            out=pathlib.Path('custody')/('MQR-4.99-to-4.100-'+group+'-'+head[:12]+'.zip')
+            with zipfile.ZipFile(out,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              z.writestr('MQR-PINNED-SOURCE-MANIFEST.json',json.dumps(data,indent=2,ensure_ascii=False)+'\n')
+              for f in files:z.write(f,arcname=f)
+            with zipfile.ZipFile(out) as z:
+              assert z.testzip() is None
+              assert len(z.namelist())==len(files)+1
+            results[group]={'file':str(out),'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),
+                             'bytes':out.stat().st_size,'files':len(files)}
+          pathlib.Path('custody/README-ARCHIVE-MANIFEST.json').write_text(
+              json.dumps({'git_commit':head,'archive_artifacts':results,
+                          'archive_intent':'Drive subfolders 03_REPORTS_COURTS / 02_ANALYSIS_SAFE / 00_GOVERNANCE',
+                          'external_original_data_note':'P3-P7 publisher original sources and P6 three EDI first-party packages remain separately preserved in MQR/01_SOURCE_ACCRUAL_RAW; P7 analysis in 02_ANALYSIS_SAFE',
+                          'notion_note':'Canonical Notion MQR Lab remains its own document; these snapshots are GitHub content, not complete Notion export'},indent=2)+'\n')
+          print(json.dumps(results,indent=2))
+          PY
+      - name: Independent archive hash and file-count check
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import pathlib,json,zipfile,hashlib
+          report=json.loads(pathlib.Path('custody/README-ARCHIVE-MANIFEST.json').read_text())
+          for key,val in report['archive_artifacts'].items():
+            x=pathlib.Path(val['file'])
+            assert hashlib.sha256(x.read_bytes()).hexdigest()==val['sha256']
+            with zipfile.ZipFile(x) as z:
+              assert z.testzip() is None
+              m=json.loads(z.read('MQR-PINNED-SOURCE-MANIFEST.json'))
+              assert m['tracked_file_count']==val['files']
+              for f in m['files']:
+                assert hashlib.sha256(z.read(f['path'])).hexdigest()==f['sha256']
+            print('MQR_REPOSITORY_DRIVE_CUSTODY_CHECK_PASS',key,val['files'],val['bytes'],val['sha256'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR-Source-Courts-and-README-Snapshot
+          path: custody/MQR-4.99-to-4.100-courts-*.zip
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR-Executable-Code-Proofs-and-CI-Snapshot
+          path: custody/MQR-4.99-to-4.100-code-*.zip
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR-Doctrine-and-README-Snapshot
+          path: custody/MQR-4.99-to-4.100-governance-*.zip
+          if-no-files-found: error
+          retention-days: 90
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR-Three-Archive-Handover-Manifest
+          path: custody/README-ARCHIVE-MANIFEST.json
+          if-no-files-found: error
+          retention-days: 90
