@@ -1,0 +1,6 @@
+[package]
+name = "mqr-4110-regnault-court"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
