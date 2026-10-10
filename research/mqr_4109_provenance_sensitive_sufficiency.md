@@ -46,3 +46,27 @@ A novel MQR judgment requires a **named same-target** contrast under explicit sh
 ## P2 next falsification
 
 Seek a defensible historical claim with equal statistical information and genuinely different **same-target** warranted scientific conclusions after controlling for certificate existence, reference basis, estimation target, and source selection. If every case collapses into VIM traceability, GUM correlated uncertainties, Tal coherence, or Chang epistemic iteration, mark that local originality route NEGATIVE and migrate question rather than repeating synthetic tests.
+
+## P2 — Actual published Regnault same-target four-material contrast, 2026-10-10
+
+### Primary historical boundary
+Regnault (1847), printed pp240-241, describes p241 as a mercury-vs-air table drawn from graphical constructions based on immediate experiments (Plate VIII). At reported AIR thermometer value T=250 degrees C, the published p241 mercury readings are **253.00** (Choisy crystal), **250.05** (ordinary glass 5), **251.85** (green glass 10), **251.44** (Swedish glass 11). Thus the observed *published table* offsets t-T are **+3.00, +0.05, +1.85, +1.44 degrees C** and maximum tabular spread **2.95 degrees C**. Exact Fraction arithmetic checked locally; code experiments/mqr_4109/p2_regnault_same_target_court.py, commit 57ba26aed5b26f6e39b6da1959b3fb8feb8474c2. These are real historical *table values*, not reconstructed direct experimental observations, individually digitized Plate VIII points, or certified thermodynamic true temperatures. At T=250 four reported devices disagree, but no manufacturer-specific ground-truth judgment follows.
+
+### Same-target rival comparison — strongest charitable interpretation
+| Rival | What the p241 contrast supports / method | Why no distinct MQR verdict |
+|---|---|---|
+| Fisher-Neyman sufficiency | Requires a declared statistical family and target parameter; p241 readings are processed graph-derived summaries and original likelihood/variance are not supplied. Cannot assert sufficiency or its failure for the historical raw experiment. | The previous 4.108 Gaussian synthetic examples are classical, not evidence of Regnault actual likelihood. |
+| Blackwell comparison | Requires indexed experimental kernels on a common state space, and a specified stochastic garbling relation; four fixed tabular numeric readings do not define those kernels. | No Blackwell order or equality between thermometers can be inferred from a single graph-derived table row. |
+| GUM §5.2.4–5.2.5 | Consider correlated instrument/reference influences, glass-dependent corrections, covariance and uncertainty budgets, if requisite calibration information is available. | Without original calibration input uncertainties cannot quantify which thermometer's indicated temperature is closer to physical target. |
+| VIM §2.41 | Document actual result-specific chain to a reference, including contributing uncertainties. | A shared 'air reference' numerical abscissa is not a modern verified traceability certificate. |
+| Tal (2017) §5.4 | Treat agreement/disagreement as model-mediated calibration coherence test and question background assumptions. | Material disagreement and need to examine reference coherence are already in Tal's rival. |
+| Chang (2004), ch2 and ch5 | Analyzes Regnault thermometers, material differences, air-vs-mercury comparability and epistemic iteration. | Historical variation is central to Chang's existing account. |
+| MQR-4.109 | Separates source ink, graph processing, calibrated result, and proposition-warrant status. | No identified same-target verdict that mature rivals cannot replicate; uniqueness **HOLD**. |
+
+### Falsification conclusion
+An apparent MQR-specific finding 'the same thermometer reading does not imply identical metrological authority' is explicitly reducible to VIM's chain notion and Tal's model-coherence account. Regnault four-material disagreement is historical evidence **for demanding calibration**, not evidence for a novel MQR law. Thus **P2 source table arithmetic PASS_BOUNDED; same-target independence / novel discrimination HOLD**. Historical p181 printed A-prime pressure 785.21 versus Chang (2004) Table 2.5 782.21 remains a textual discrepancy without established causal provenance.
+
+### Prospective Flowing Version name — NOT OPENED
+**MQR-4.110 — Provenance-Sensitive Calibration Transport & Historical Measurement Warrant: Model-Relative Information Preservation, Cross-Standard Comparability, Source-Graph Reconstruction and Independent Rival Falsification**
+
+This is intentionally an *incremental renaming* of 4.109. It cannot be justified as migration of a genuinely new primitive question until the concrete intervention object changes, e.g. obtaining independent raw-to-graph or authenticated calibration-chain evidence rather than repeating algebra on the same p241 readings. 4.109 stays OPEN/HOLD, and 4.110 is merely a proposal, not an opened/closed scientific stage.
