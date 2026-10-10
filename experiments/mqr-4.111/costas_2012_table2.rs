@@ -104,6 +104,8 @@ fn main() {
         mean_difference(young()), mean_difference(&ROWS[1..6]));
     println!("young one-parameter leave-one-out RMSE: additive={:.3} mGy, proportional={:.3} mGy",
         young_loo_rmse(true), young_loo_rmse(false));
+    println!("MODERN-ANALOGUE SOURCE WITNESS: GWD-245 original EBG De=23±5 mGy; separately bleached aliquots residual=8±1 mGy, authors' contrast=15 mGy; historical expected De=1±1 mGy.");
+    println!("These are different aliquots of the same source sample; no paired individual-grain restoration inferred.");
     println!("MODEL STATUS: descriptive summaries and post-hoc diagnostics, not fitted OSL mechanisms.");
 }
 
@@ -161,5 +163,33 @@ mod tests {
         assert!((add - 10.5409255339).abs() < 1e-7);
         assert!((mult - 19.7591388094).abs() < 1e-7);
         assert!(add < mult);
+    }
+    #[test]
+    fn authors_modern_analogue_intervention_is_unpaired() {
+        // Costas et al. (2012), section 5: separate 24 aliquots of GWD-245
+        // exposed to daylight for one week vs source natural signal.
+        // Reported summary results in mGy. No within-aliquot pairing is claimed.
+        let natural_ebg = 23;
+        let following_bleach = 8;
+        let historical_expected = 1;
+        assert_eq!(natural_ebg - following_bleach, 15);
+        assert_eq!(natural_ebg - historical_expected, 22);
+        assert_eq!(natural_ebg - following_bleach - historical_expected, 14);
+        assert_eq!(ROWS[12].ebg_dose_mgy, natural_ebg);
+        assert_eq!(ROWS[12].expected_dose_mgy, historical_expected);
+    }
+    #[test]
+    fn descriptive_age_group_contrast_is_robust_to_one_young_removal() {
+        let baseline = mean_difference(&ROWS[1..6]);
+        let youth = young();
+        assert!((baseline - 6.0).abs() < 1e-12);
+        for omit in 0..youth.len() {
+            let residual_sum: f64 = youth.iter().enumerate()
+                .filter(|(j,_)| *j != omit)
+                .map(|(_,r)| dose_difference(*r)).sum();
+            assert!(residual_sum / (youth.len() - 1) as f64 > baseline);
+        }
+        // Shared historical-age model, nonindependent grains and lack of raw
+        // per-aliquot trajectories prevent causal or inferential interpretation.
     }
 }
