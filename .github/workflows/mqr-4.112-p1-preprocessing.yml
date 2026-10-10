@@ -60,6 +60,18 @@ jobs:
           Rscript experiments/mqr-4.112/p1/2021_source_preprocessing_comparison.R 2>&1 | tee "$RUNNER_TEMP/p1_historical.log"
           cp "$RUNNER_TEMP/p1_historical.log" p1_out/historical_runtime.log
           test -f p1_out/historical_verdict.txt
+      - name: Install JAGS to test whether grain-row order changes an actual posterior
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends jags
+      - name: Re-index original grain rows and calculate real same-model MCMC counterfactual
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript experiments/mqr-4.112/p1/row_order_mcmc_counterfactual.R 2>&1 | tee "$RUNNER_TEMP/p1_mcmc.log"
+          cp "$RUNNER_TEMP/p1_mcmc.log" p1_out/row_order_mcmc_runtime.log
       - name: Archive equality and difference receipts, no source mutations
         uses: actions/upload-artifact@v4
         if: always()
