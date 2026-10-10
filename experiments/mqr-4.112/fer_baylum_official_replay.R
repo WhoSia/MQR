@@ -74,11 +74,33 @@ if(identical(Sys.getenv("MQR_READER_ONLY"),"1")) quit(save="no",status=0)
 # origin fit TRUE, "lognormal_A", 5000 sample, t=5, 3 chains.
 # Package 0.3.3 marks Generate_DataFile deprecated but still exports it.
 set.seed(4112L)
-names <- c("FER1","FER3")
-dat <- BayLum::Generate_DataFile(paste0(data_path,"/"),
-           FolderNames=names,Nb_sample=2,verbose=FALSE)
-if(!is.list(dat)) stop("Original BayLum Generate_DataFile did not produce a list.")
-cat("GENERATE_DATAFILE_PASS keys:", paste(names(dat),collapse=","),"\n")
+samples <- c("FER1","FER3")
+# BayLum 0.3.3 deprecated Generate_DataFile(). Its recursive directory import
+# fails on the 2021 source with Luminescence 1.3.1 ("subscript out of bounds").
+# Use the package-author supported replacement create_DataFile() with precisely
+# the same ORIGINAL CSV settings, 49 included grains, and source BIN files.
+config <- lapply(samples, function(fer) {
+  src <- file.path(data_path,fer)
+  lines <- readLines(file.path(src,"rule.csv"),warn=FALSE)
+  lines <- lines[grepl("=",lines,fixed=TRUE)]
+  name_key <- trimws(sub("=.*$","",lines))
+  val <- as.numeric(trimws(sub("^[^=]*=","",lines)))
+  stopifnot(length(val)==10,all(is.finite(val)),all(!duplicated(name_key)))
+  rules <- as.list(stats::setNames(val,name_key))
+  source_dose <- as.numeric(utils::read.csv(file.path(src,"DoseSource.csv"))[1,])
+  env_dose <- as.numeric(utils::read.csv(file.path(src,"DoseEnv.csv"))[1,])
+  stopifnot(length(source_dose)==2,length(env_dose)==2,all(is.finite(source_dose)),all(is.finite(env_dose)))
+  list(sample=fer,files=input(fer),
+       settings=list(dose_source=source_dose,dose_env=env_dose,
+                     rules=rules))
+})
+dat <- BayLum::create_DataFile(config_file=config,verbose=FALSE)
+if(!is.list(dat)||!all(c("LT","sLT","ITimes","J","K")%in%names(dat))) {
+  stop("Original-source modern BayLum create_DataFile did not produce a valid model input.")
+}
+cat("CREATE_DATAFILE_REPLACEMENT_PASS keys:", paste(names(dat),collapse=","),"\n")
+cat("Model J selected grains:",paste(dat$J,collapse=","),"regeneration K:",paste(dat$K,collapse=","),"\n")
+stopifnot(all(dat$J==49L))
 saveRDS(dat,file.path("out","FER1_FER3_BayLum_source_generated_data.rds"))
 params <- list(DATA=dat,SampleNames=names,Nb_sample=2,
    PriorAge=rep(c(10,100),2),BinPerSample=rep(1,2),
