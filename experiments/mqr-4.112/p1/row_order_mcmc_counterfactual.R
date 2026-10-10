@@ -4,6 +4,9 @@
 options(warn=1)
 stopifnot(requireNamespace("BayLum"),requireNamespace("rjags"),
           requireNamespace("coda"),requireNamespace("Luminescence"))
+# BayLum::AgeS_Computation loads Model_AgeS via data(...), which resolves in
+# the attached package search path, not only requireNamespace(). P0 did attach it.
+suppressPackageStartupMessages(library(BayLum))
 old<-readRDS("p1_out/historical_2021_snapshot_processed.rds")
 new<-readRDS("p1_out/current_2025_created_data.rds")
 samples<-c("FER1","FER3")
