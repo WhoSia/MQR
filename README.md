@@ -10,7 +10,7 @@ This repository is the **living formal substrate** of MQR.
 
 ## MQR-4.110 — Source-grounded calibration transport (OPEN/HOLD)
 
-[Notion canonical](https://app.notion.com/p/3f5ef561cf9281f7a246d950d72f4a41) · [Source-byte and rival audit](research/mqr_4110_source_graph_calibration_transport.md). Original 15MB Regnault DjVu bytes acquired; SHA-256 and 824 page-form signatures checked, local page raster decode still HOLD. Fisher–Neyman/Blackwell/VIM/GUM/Tal/Chang remain rivals; no new MQR novelty. No Actions.
+[Notion canonical](https://app.notion.com/p/3f5ef561cf9281f7a246d950d72f4a41) · [Source-byte and rival audit](research/mqr_4110_source_graph_calibration_transport.md). Original Regnault DjVu verified against public original by SHA-256; **824 pages and six native-rendered source images confirmed** in [Actions #38033207087](https://github.com/WhoSia/MQR/actions/runs/38033207087). **Erratum:** DjVu pp.274–275 = printed pp.238–239, not pp.240–241. [Drive page-render archive](https://drive.google.com/file/d/1wz3A8v6HtEna4TBYFB_aWH6bkinz7Ilj/view). [Rust experiment CI #38031726173](https://github.com/WhoSia/MQR/actions/runs/38031726173) and [Rust dependency audit #38032842985](https://github.com/WhoSia/MQR/actions/runs/38032842985) SUCCESS. Fisher–Neyman/Blackwell/VIM/GUM/Tal/Chang remain strong rivals; novelty HOLD.
 
 ## MQR-4.109 — Provenance-sensitive sufficiency (OPEN/HOLD)
 
