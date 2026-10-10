@@ -1,0 +1,31 @@
+name: "MQR — Rust Retirement Dependency Audit"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/mqr-retirement-audit.rs'
+      - '.github/workflows/mqr-retirement-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  read-only-dependency-court:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Rust exact scanner unit tests
+        run: |
+          rustc --edition=2021 --test tools/mqr-retirement-audit.rs -o /tmp/mqr-retirement-tests
+          /tmp/mqr-retirement-tests
+      - name: Rust tracked-source reverse-reference audit
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 tools/mqr-retirement-audit.rs -o /tmp/mqr-retirement-audit
+          /tmp/mqr-retirement-audit | tee retirement-audit.log
+          grep -F 'MQR_RETIREMENT_STATIC_DEPENDENCY_AUDIT_FINISHED;AUTO_DELETE=0' retirement-audit.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR-Retirement-Dependency-Audit
+          path: retirement-audit.log
