@@ -115,3 +115,60 @@ writeLines(if(all_eq)"HISTORICAL_INPUT_PARITY=PASS"
     "p1_out/historical_verdict.txt")
 # This code only adjudicates preprocessing; posterior attribution requires
 # a source-aligned JAGS run with EXACT old data and same model, not an assumption.
+
+
+# P1-C: distinguish genuine channel/ratio differences from cohort row permutations.
+# The 2021 algorithm deliberately uses the author DiscPos.csv row order.
+# The new converter may use the raw BIN physical acquisition order instead.
+order_rows <- list()
+for (i in seq_along(samples)) {
+  s <- samples[i]
+  old_lt <- old$LT[[i]]
+  new_lt <- modern$LT[[i]]
+  old_se <- old$sLT[[i]]
+  new_se <- modern$sLT[[i]]
+  stopifnot(identical(dim(old_lt),dim(new_lt)),identical(dim(old_se),dim(new_se)))
+  col_set_match <- logical(ncol(old_lt))
+  for (j in seq_len(ncol(old_lt))) {
+    x <- sort(signif(old_lt[,j],digits=12L))
+    y <- sort(signif(new_lt[,j],digits=12L))
+    col_set_match[j] <- isTRUE(all.equal(x,y,tolerance=1e-10,check.attributes=FALSE))
+    cat("P1_COLUMN_VALUE_MULTISET",s,"COL",j,"MATCH",col_set_match[j],"\n")
+  }
+  old_sig <- apply(cbind(old_lt,old_se),1,function(v)
+          paste(formatC(signif(v,12L),digits=12,format="fg"),collapse="|"))
+  new_sig <- apply(cbind(new_lt,new_se),1,function(v)
+          paste(formatC(signif(v,12L),digits=12,format="fg"),collapse="|"))
+  map <- match(old_sig,new_sig)
+  row_match <- sum(!is.na(map))
+  perfect_multiset <- identical(sort(old_sig),sort(new_sig))
+  cat("P1_PERMUTATION_TEST",s,"whole_row_matched",row_match,"of",length(old_sig),
+      "perfect_row_multiset",perfect_multiset,
+      "all_column_value_multisets",all(col_set_match),"\n")
+  dp <- read.csv(file.path(root,s,"DiscPos.csv"),stringsAsFactors=FALSE)
+  stopifnot(nrow(dp)==nrow(old_lt))
+  orig <- Luminescence::read_BIN2R(file.path(root,s,"bin.BIN"),
+       verbose=FALSE,zero_data.rm=FALSE,duplicated.rm=FALSE)
+  meta <- orig@METADATA
+  observed <- unique(meta[,c("POSITION","GRAIN")])
+  source_keys <- paste(dp[[1]],dp[[2]],sep=":")
+  raw_keys <- paste(observed$POSITION,observed$GRAIN,sep=":")
+  rawmap <- match(source_keys,raw_keys)
+  cat("P1_SOURCE_ID_MAP",s,"49 raw keys linked",sum(!is.na(rawmap)),
+      "source order equals raw order",identical(seq_along(rawmap),as.integer(rawmap)),
+      "first 8 map positions",paste(head(rawmap,8),collapse=","),"\n")
+  # Identify whether the modern rows are exactly the raw acquisition-key order.
+  if(all(!is.na(rawmap))){
+    keyed_match <- all(abs(old_lt-modern$LT[[i]][rawmap,,drop=FALSE])<1e-10) &&
+                   all(abs(old_se-modern$sLT[[i]][rawmap,,drop=FALSE])<1e-10)
+    cat("P1_SOURCE_KEY_ALIGNED_LT_AND_SLT_EQUAL",s,keyed_match,"\n")
+  }
+  rec <- data.frame(sample=s,grain_source_order=seq_along(map),
+      source_disc=dp[[1]],source_grain=dp[[2]],
+      modern_row_from_signal_signature=map,modern_raw_key_index=rawmap,
+      stringsAsFactors=FALSE)
+  order_rows[[i]]<-rec
+}
+write.csv(do.call(rbind,order_rows),"p1_out/grain_order_and_signature_crosswalk.csv",
+          row.names=FALSE)
+cat("P1 row-permutation adjudication completed; model causal attribution still needs old input MCMC.\n")
