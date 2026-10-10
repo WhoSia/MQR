@@ -1,5 +1,7 @@
 # MQR-4.107 — Evidential-History Equivalence, Statistical Sufficiency & Historical Warrant
 
+> **PRIMARY-IMAGE ERRATUM (2026-10-10):** Original full-volume SHA-256 `00f9dc99fea5af6944c4f19624d945d89ea54a379bf660cb604fc77ba717efed` decoded in MQR-4.110: DjVu image index **274 = printed p.238** (description of graphical construction), and **275 = printed p.239** (four-material 10-degree summary table); earlier text calling these printed pp.240–241 is superseded. DjVu index 215 = printed p.181. See [MQR 4.110 direct-image court](mqr_4110_source_graph_calibration_transport.md). Retirement custody: historical one-off synthetic `experiments/mqr_4107/calibration_model_misspecification.py` is archived at https://drive.google.com/file/d/1Q5EGGj74dLfxxC3sOj2yE3Ni2_Z9ydjd/view with original Git blob 46b9819a3af6f251cde5902d4af197de74783b4f, removed on main at commit 2ef84267161df4c03e56200a6b3fded6c3ec71df after Rust static reference audit CI SUCCESS. This does not retract the synthetic mathematical example, and 4.107 overall remains OPEN/HOLD.
+
 **OPEN/HOLD · 2026-10-10.** Research follows MQR-4.106; do not seal as philosophical novelty.
 
 ## Strong statistical rival: Lindsey 1997
