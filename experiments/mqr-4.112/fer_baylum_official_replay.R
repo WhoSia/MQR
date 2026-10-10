@@ -107,7 +107,7 @@ params <- list(DATA=dat,SampleNames=samples,Nb_sample=2,
    SavePdf=FALSE,OutputFileName=character(),OutputFilePath="out/",
    SaveEstimates=FALSE,OutputTableName=character(),OutputTablePath="out/",
    sepTHETA=";",sepSC=",", LIN_fit=FALSE, Origin_fit=TRUE,
-   distribution="lognormal_A",Iter=5000,t=5,n.chains=3,
+   distribution="lognormal_A",Iter=5000,burnin=4000,adapt=1000,t=5,n.chains=3,
    jags_method="rjags",quiet=TRUE,roundingOfValue=2)
 run_age <- function(case, theta=NULL, strati=NULL) {
   cat("BayLum POSTERIOR START",case,"\n")
