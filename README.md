@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.110 — Source-grounded calibration transport (OPEN/HOLD)
+
+[Notion canonical](https://app.notion.com/p/3f5ef561cf9281f7a246d950d72f4a41) · [Source-byte and rival audit](research/mqr_4110_source_graph_calibration_transport.md). Original 15MB Regnault DjVu bytes acquired; SHA-256 and 824 page-form signatures checked, local page raster decode still HOLD. Fisher–Neyman/Blackwell/VIM/GUM/Tal/Chang remain rivals; no new MQR novelty. No Actions.
+
 ## MQR-4.109 — Provenance-sensitive sufficiency (OPEN/HOLD)
 
 [Notion canonical](https://app.notion.com/p/3f5ef561cf9281e88238f23450b60504) · [Research charter and rival court](research/mqr_4109_provenance_sensitive_sufficiency.md) · [Exact local binary test](experiments/mqr_4109/provenance_blackwell_court.py). Successor to 4.108: distinguish fixed-target Blackwell information, calibration-chain authority and historical source provenance. Synthetic mathematical fixture locally PASS; scientific originality and reference certification HOLD. No new CI Actions.
