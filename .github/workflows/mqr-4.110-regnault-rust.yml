@@ -1,0 +1,28 @@
+name: "MQR 4.110 — Regnault Rust Court"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.110/**'
+      - '.github/workflows/mqr-4.110-regnault-rust.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-table:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Rust unit tests
+        run: cargo test --offline --manifest-path experiments/mqr-4.110/Cargo.toml
+      - name: Exact published graph-table audit
+        run: |
+          set -euo pipefail
+          cargo run --offline --manifest-path experiments/mqr-4.110/Cargo.toml | tee court.log
+          grep -F 'MQR4110_P2_REGNAULT_PUBLISHED_GRAPH_TABLE_PASS;TRACEABILITY_HOLD;NOVELTY_HOLD' court.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MQR4110-Regnault-Rust-Court
+          path: court.log
