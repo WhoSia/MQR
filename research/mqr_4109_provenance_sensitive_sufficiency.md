@@ -1,5 +1,7 @@
 # MQR-4.109 — Provenance-Sensitive Sufficiency & Calibration-Graph Transport: Model-Relative Information Loss, Cross-Standard Warrant, Historical Reconstruction and Adversarial Rival Discrimination
 
+> **PRIMARY-IMAGE ERRATUM (2026-10-10):** Original full-volume SHA-256 `00f9dc99fea5af6944c4f19624d945d89ea54a379bf660cb604fc77ba717efed` decoded in MQR-4.110: DjVu image index **274 = printed p.238** (description of graphical construction), and **275 = printed p.239** (four-material 10-degree summary table); earlier text calling these printed pp.240–241 is superseded. DjVu index 215 = printed p.181. See [MQR 4.110 direct-image court](mqr_4110_source_graph_calibration_transport.md). The P2 Regnault four-material table is on printed p.239; its data-processing explanation is printed p.238. The historical 2.95 °C arithmetic is unaffected. The page-images were directly rendered only in 4.110 CI #38033207087 and archived as SHA-confirmed derivative Drive file 1wz3A8v6HtEna4TBYFB_aWH6bkinz7Ilj.
+
 **Official user-approved title, OPEN (2026-10-10).** Distinctness/novelty **HOLD**, not an assertion of new measurement theory. Sole working branch: `main`; no new Actions workflow.
 
 ## Primitive question and migration from 4.108
