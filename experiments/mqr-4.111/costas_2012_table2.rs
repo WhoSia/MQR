@@ -15,21 +15,23 @@ struct Row {
     lbg_sd: i32,
     ebg: i32,
     ebg_sd: i32,
+    expected_dose_mgy: i32,
+    ebg_dose_mgy: i32,
 }
 const ROWS: [Row; 13] = [
-    Row { name: "GWD-0", expected: 98, expected_sd: 10, lbg: 180, lbg_sd: 20, ebg: 160, ebg_sd: 20 },
-    Row { name: "GWD-10", expected: 94, expected_sd: 9, lbg: 115, lbg_sd: 13, ebg: 89, ebg_sd: 9 },
-    Row { name: "GWD-20", expected: 90, expected_sd: 9, lbg: 140, lbg_sd: 15, ebg: 110, ebg_sd: 10 },
-    Row { name: "GWD-40", expected: 82, expected_sd: 8, lbg: 117, lbg_sd: 11, ebg: 86, ebg_sd: 8 },
-    Row { name: "GWD-60", expected: 75, expected_sd: 7, lbg: 118, lbg_sd: 11, ebg: 98, ebg_sd: 9 },
-    Row { name: "GWD-80", expected: 67, expected_sd: 7, lbg: 93, lbg_sd: 11, ebg: 72, ebg_sd: 8 },
-    Row { name: "GWD-100", expected: 59, expected_sd: 6, lbg: 120, lbg_sd: 13, ebg: 94, ebg_sd: 10 },
-    Row { name: "GWD-140", expected: 43, expected_sd: 4, lbg: 76, lbg_sd: 8, ebg: 65, ebg_sd: 9 },
-    Row { name: "GWD-160", expected: 35, expected_sd: 4, lbg: 110, lbg_sd: 10, ebg: 97, ebg_sd: 9 },
-    Row { name: "GWD-180", expected: 28, expected_sd: 3, lbg: 97, lbg_sd: 9, ebg: 77, ebg_sd: 7 },
-    Row { name: "GWD-200", expected: 20, expected_sd: 2, lbg: 77, lbg_sd: 10, ebg: 60, ebg_sd: 8 },
-    Row { name: "GWD-220", expected: 12, expected_sd: 1, lbg: 60, lbg_sd: 7, ebg: 40, ebg_sd: 5 },
-    Row { name: "GWD-245", expected: 2, expected_sd: 1, lbg: 47, lbg_sd: 8, ebg: 34, ebg_sd: 3 },
+    Row { name: "GWD-0", expected: 98, expected_sd: 10, lbg: 180, lbg_sd: 20, ebg: 160, ebg_sd: 20, expected_dose_mgy: 73, ebg_dose_mgy: 119 },
+    Row { name: "GWD-10", expected: 94, expected_sd: 9, lbg: 115, lbg_sd: 13, ebg: 89, ebg_sd: 9, expected_dose_mgy: 56, ebg_dose_mgy: 52 },
+    Row { name: "GWD-20", expected: 90, expected_sd: 9, lbg: 140, lbg_sd: 15, ebg: 110, ebg_sd: 10, expected_dose_mgy: 55, ebg_dose_mgy: 65 },
+    Row { name: "GWD-40", expected: 82, expected_sd: 8, lbg: 117, lbg_sd: 11, ebg: 86, ebg_sd: 8, expected_dose_mgy: 54, ebg_dose_mgy: 56 },
+    Row { name: "GWD-60", expected: 75, expected_sd: 7, lbg: 118, lbg_sd: 11, ebg: 98, ebg_sd: 9, expected_dose_mgy: 53, ebg_dose_mgy: 70 },
+    Row { name: "GWD-80", expected: 67, expected_sd: 7, lbg: 93, lbg_sd: 11, ebg: 72, ebg_sd: 8, expected_dose_mgy: 50, ebg_dose_mgy: 55 },
+    Row { name: "GWD-100", expected: 59, expected_sd: 6, lbg: 120, lbg_sd: 13, ebg: 94, ebg_sd: 10, expected_dose_mgy: 41, ebg_dose_mgy: 66 },
+    Row { name: "GWD-140", expected: 43, expected_sd: 4, lbg: 76, lbg_sd: 8, ebg: 65, ebg_sd: 9, expected_dose_mgy: 31, ebg_dose_mgy: 46 },
+    Row { name: "GWD-160", expected: 35, expected_sd: 4, lbg: 110, lbg_sd: 10, ebg: 97, ebg_sd: 9, expected_dose_mgy: 26, ebg_dose_mgy: 71 },
+    Row { name: "GWD-180", expected: 28, expected_sd: 3, lbg: 97, lbg_sd: 9, ebg: 77, ebg_sd: 7, expected_dose_mgy: 19, ebg_dose_mgy: 51 },
+    Row { name: "GWD-200", expected: 20, expected_sd: 2, lbg: 77, lbg_sd: 10, ebg: 60, ebg_sd: 8, expected_dose_mgy: 13, ebg_dose_mgy: 41 },
+    Row { name: "GWD-220", expected: 12, expected_sd: 1, lbg: 60, lbg_sd: 7, ebg: 40, ebg_sd: 5, expected_dose_mgy: 8, ebg_dose_mgy: 28 },
+    Row { name: "GWD-245", expected: 2, expected_sd: 1, lbg: 47, lbg_sd: 8, ebg: 34, ebg_sd: 3, expected_dose_mgy: 1, ebg_dose_mgy: 23 },
 ];
 
 fn intervals_overlap_at_two_sd(r: Row) -> bool {
@@ -43,6 +45,45 @@ fn intervals_overlap_at_two_sd(r: Row) -> bool {
 fn young() -> &'static [Row] { &ROWS[6..] }
 fn ebg_bias(r: Row) -> i32 { r.ebg - r.expected }
 fn lbg_bias(r: Row) -> i32 { r.lbg - r.expected }
+
+
+fn dose_difference(r: Row) -> f64 {
+    f64::from(r.ebg_dose_mgy - r.expected_dose_mgy)
+}
+fn mean_difference(rs: &[Row]) -> f64 {
+    rs.iter().copied().map(dose_difference).sum::<f64>() / rs.len() as f64
+}
+fn young_loo_rmse(additive: bool) -> f64 {
+    let data = young();
+    let mut squared = 0.0;
+    for (i, row) in data.iter().copied().enumerate() {
+        let mut numerator = 0.0;
+        let mut denominator = 0.0;
+        let mut n_train = 0_usize;
+        for (j, train) in data.iter().copied().enumerate() {
+            if i != j {
+                let x = f64::from(train.expected_dose_mgy);
+                let y = f64::from(train.ebg_dose_mgy);
+                if additive {
+                    numerator += y - x;
+                } else {
+                    numerator += x * y;
+                    denominator += x * x;
+                }
+                n_train += 1;
+            }
+        }
+        let x_test = f64::from(row.expected_dose_mgy);
+        let y_test = f64::from(row.ebg_dose_mgy);
+        let prediction = if additive {
+            x_test + numerator / n_train as f64
+        } else {
+            x_test * numerator / denominator
+        };
+        squared += (y_test - prediction).powi(2);
+    }
+    (squared / data.len() as f64).sqrt()
+}
 
 fn main() {
     println!("MQR 4.111 P3: published Costas 2012 Table 2 summary ONLY");
@@ -59,6 +100,11 @@ fn main() {
         .filter(|&r| !intervals_overlap_at_two_sd(r)).count();
     println!("young n={}, sum_bias={} years, mean_bias={:.3} years, disjoint 2-sigma band pairs={}",
         n_young, total_bias, f64::from(total_bias) / n_young as f64, disjoint);
+    println!("young dose mean residual={:.3} mGy; older-five mean={:.3} mGy",
+        mean_difference(young()), mean_difference(&ROWS[1..6]));
+    println!("young one-parameter leave-one-out RMSE: additive={:.3} mGy, proportional={:.3} mGy",
+        young_loo_rmse(true), young_loo_rmse(false));
+    println!("MODEL STATUS: descriptive summaries and post-hoc diagnostics, not fitted OSL mechanisms.");
 }
 
 #[cfg(test)]
@@ -96,5 +142,24 @@ mod tests {
         assert_eq!(ebg_bias(ROWS[8]), 62);   // GWD-160
         assert_eq!(ebg_bias(ROWS[12]), 32);  // GWD-245
         assert_eq!(lbg_bias(ROWS[12]), 45);
+    }
+    #[test]
+    fn source_printed_dose_endpoints_and_residuals() {
+        assert_eq!(ROWS[0].expected_dose_mgy, 73);
+        assert_eq!(ROWS[0].ebg_dose_mgy, 119);
+        assert_eq!(ROWS[6].expected_dose_mgy, 41);
+        assert_eq!(ROWS[6].ebg_dose_mgy, 66);
+        assert_eq!(ROWS[12].expected_dose_mgy, 1);
+        assert_eq!(ROWS[12].ebg_dose_mgy, 23);
+        assert!((mean_difference(young()) - 187.0 / 7.0).abs() < 1e-10);
+        assert!((mean_difference(&ROWS[1..6]) - 6.0).abs() < 1e-10);
+    }
+    #[test]
+    fn source_table_descriptive_leave_one_out_dose_models() {
+        let add = young_loo_rmse(true);
+        let mult = young_loo_rmse(false);
+        assert!((add - 10.5409255339).abs() < 1e-7);
+        assert!((mult - 19.7591388094).abs() < 1e-7);
+        assert!(add < mult);
     }
 }
