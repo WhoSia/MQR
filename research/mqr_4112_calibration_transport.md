@@ -1,0 +1,49 @@
+# MQR-4.112 — Source-Indexed Calibration Transport & the Boundary of Retrodictive Identifiability
+
+**Formal stage OPEN on user authorization 2026-10-10.** Canonical [Notion MQR-4.112](https://app.notion.com/p/3f5ef561cf9281ee98e9ed6009932b82). Predecessor [4.111 evidence court](mqr_4111_irreversible_retrodiction.md) remains OPEN with its own empirical HOLDs. Opening a version is NOT a proven new physical law or new inference theorem.
+
+## Founding hypothesis, null explanations and admission conditions
+
+The known-dose calibration response at a measured site or grain is not automatically transportable to natural deposition history. For observed light curve O, natural premeasurement history H, latent age A, selected grain cohort S and measurement regime E, the desired transport requires explicit invariance of the relevant response channel conditioned on H/S, adequate support overlap, and correct covariance/reference ancestry. This must first be compared against already established SAR sensitivity, recuperation, thermal transfer, incomplete natural bleaching, selection/saturation, GUM and BayLum shared errors, and chronology-fit/georeferencing errors. A successful numerical source replay is only a necessary implementation control. No uniqueness follows from it.
+
+**Core judge:** comparator models must make prospective falsifiable predictions on held-out, source-matched units with independent measured reference records. Distinguish aliqout vs sample vs archaeological layer and measurement-input vs tutorial illustration. No fresh synthetic fixture can stand in for unique physical identification.
+
+## Real official R reader with original upstream FER BINs — PASS on first actual run
+
+[Original published Guérin 2021 supplement](https://gchron.copernicus.org/articles/3/229/2021/gchron-3-229-2021-supplement.zip) SHA-256 25d1129d2eea403dfd5f622dae74721420de223c03542d4e367ca2331bfb9228. No raw ZIP/BIN copied into repository. [Read-only initial R workflow #38060679832](https://github.com/WhoSia/MQR/actions/runs/38060679832) installed **R 4.5.2, Luminescence 1.3.1, BayLum 0.3.3, rjags 4-17 and JAGS 4.3.2**, fetched original official source and passed sha256sum. Official R Luminescence::read_BIN2R with duplicate-removal and zero-record-removal disabled decoded:
+- FER1 882 complete records x 100 original integer channels, SHA-256 of concatenated little-endian signed-int32 channel stream **491ba24ee9acd3dda89961c92817a53ad4e455ce47558bc3bb7a78213dc6bcff**.
+- FER3 784 x 100, SHA-256 **80b2a3b59439a217b928228a31114dcefedb5d4c7c90b2b57e2a9efac82345c0**.
+Both streams match the earlier independently written Python P8 raw byte-reader ALL 166600 individual original count values exactly. **OFFICIAL_R_X_PYTHON_SOURCE_CHANNEL_PARITY = PASS**; stronger than the earlier structural decoder boundary tests. Metadata emitted in [first-run artifact #11672364559](https://github.com/WhoSia/MQR/actions/runs/38060679832/artifacts/11672364559).
+
+The initial posterior stage failed: the 2021-author Rmd legacy Generate_DataFile method in current BayLum 0.3.3 (deprecated) triggers an error inside updated directory read_BIN2R. 0.3.3 explicitly recommends create_DataFile. [Current official R/JAGS implementation](../experiments/mqr-4.112/fer_baylum_official_replay.R) transcribes original rule.csv, DoseSource.csv, DoseEnv.csv and archived two 49-grain original BIN files into the supported create_DataFile configuration. [Second R workflow #38061025662](https://github.com/WhoSia/MQR/actions/runs/38061025662) confirms original-derived data frame J=49,49; regenerated cycle K=6,5, but its baseline inference failed before MCMC because BayLum 0.3.3 indexes an empty covariance as THETA[,1]. The third human-authored code revision supplies a zero-row 1-column numeric matrix for BayLum's own automatic diagonal covariance default; [third source CI #38061191619](https://github.com/WhoSia/MQR/actions/runs/38061191619) pending as this court was written. **Do not claim Bayesian posterior until logs show actual JAGS chains and output.**
+
+The sourced 2021 author model uses samples FER1 and FER3; original published subset (NOT full experiment); prior each 10–100 ka; origin-constrained exponential response and lognormal_A dose distribution; 3 chains, Iter=5000, thinning t=5. Two planned runs: no strata/no covariance, and authors' same-example realistic covariance plus ordered stratigraphy. Priors/dose-rate settings source-controlled. R RNG seeded; per-JAGS-chain deterministic seed control not yet independently established. Reference from [Guérin et al. 2021 section 3 and Table 1](https://gchron.copernicus.org/articles/3/229/2021/): published baseline 95% intervals FER1 [34.1,43.3] ka, FER3 [36.6,47.8] ka; independent strata-only [34.3,42.9] and [38.1,48.5] ka. These are **published reference** intervals, not MQR experimental results.
+
+## Original independent 14C chronology sample identity — source crosswalk
+
+[BayLum DATA_C14 built-in documentation](https://search.r-project.org/CRAN/refmans/BayLum/html/DATA_C14.html) lists S-EVA-26510,26506,26507,26508. [Talamo et al 2020 Table 3](https://onlinelibrary.wiley.com/doi/10.1002/jqs.3236) independently provides physical accession crosswalk, dates are **uncalibrated radiocarbon years BP, not calibrated ka**:
+
+| sample accession | AMS lab ID | published layer | uncalibrated radiocarbon BP |
+|---|---|---:|---:|
+| S-EVA-26506 / I4-423 | MAMS-16381 | 5 | 43370 +/- 300 |
+| S-EVA-26507 / I4-666 | MAMS-16371 | 5 | 42150 +/- 660 |
+| S-EVA-26508 / I4-709 | MAMS-16372 | 5 | 42370 +/- 680 |
+| S-EVA-26510 / I4-219 | MAMS-16373 | 6 | 37380 +/- 390 |
+
+Important **negative control**: S-EVA-26510 is in Layer 6, NOT FER3 Layer 5. [Guérin et al 2021](https://gchron.copernicus.org/articles/3/229/2021/) directly says FER3 Layer5B, FER1 Layer7, and original 2015 independent same-layer three radiocarbon calibrated CIs collectively between [44.4;47.3] ka cal BP. The later 2020 crosswalk gives broad Layer5 designation and does not independently establish 5B for each bone specimen. The 2021 pedagogic C14age=43400, err=400 is an illustrative single-sample model input and MUST NOT be identified with the three measured lab samples. Exactly proving which 2015 three samples are meant and precise original stratigraphic designation remains a further original-table check.
+
+[Older original Guérin et al 2015](https://doi.org/10.1016/j.jas.2015.01.019) and later Talamo 2020 have different model vintages. No multiplication of apparent independent experiments by relabelling same specimens/citations.
+
+## Costas GWD ground-reference and source match
+
+[Original 2012 Costas et al study](https://doi.org/10.1016/j.quageo.2012.03.007), [Costas 2013 Hamburg thesis](https://ediss.sub.uni-hamburg.de/handle/ediss/5374), and [AWI EPIC article accession](https://epic.awi.de/id/eprint/25988/) expose journal summaries/GPR illustration, not same physical original aliquot raw BIN/BINX/LxTx histories and fit-level GPR/georeferenced raw coordinates/covariance. Archived article's sample GWD-245 natural 23 +/- 5mGy, bleached 8 +/-1mGy and independent expected 1 +/-1mGy are DIFFERENT aliquots: no invented paired measurement. GPR thesis Fig2.2 original printed page14 / PDF p17 labels historic isochrones 1925,1936,1944,1958,1965,1988,1998,2003; 2009 is a later imagery panel, not labelled a historic buried GPR isochrone. This explains seven photos plus 1925 historical map without proving exact regression data. Source original author georeferencing and instrument records not located in accessible user Drive; custody/contact inquiry is still the acquisition route. No new linked observational experiment.
+
+## P0 adjudication
+
+- FORMAL_4_112 = OPEN (user authorized).
+- ORIGINAL_R_LUMINESCENCE_V4_READER_BYTES = **PASS, full 166600**.
+- 49+49 original grain model dataset under new source-input native BayLum parser = **PASS BOUNDED**.
+- BAYLUM_5000x3_POSTERIOR = **PENDING REAL CI RECEIPT / HOLD**.
+- LAYER5_C14_ID_CROSSWALK = **PASS BOUNDED at generic layer 5**; 5B verified original accession-level stratigraphy still HOLD.
+- COSTAS_INDIVIDUAL_GWD_HISTORY / ORIGINAL_GPR_GIS_AGE_COVARIANCE = **HOLD**.
+- NEW MQR CAUSAL/PHYSICAL LAW = **HOLD**.
