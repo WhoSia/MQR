@@ -1,0 +1,29 @@
+name: MQR-4.111 finite prior-state probe fixtures
+on:
+  push:
+    branches: [main]
+    paths:
+      - "experiments/mqr-4.111/src/main.rs"
+      - ".github/workflows/mqr-4.111-irrev-probe-rust.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-synthetic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute bounded exact finite fixtures
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --version
+          rustc --edition=2021 --test -D warnings \
+            experiments/mqr-4.111/src/main.rs -o "$RUNNER_TEMP/mqr-4111-tests"
+          "$RUNNER_TEMP/mqr-4111-tests" --nocapture
+          rustc --edition=2021 -D warnings \
+            experiments/mqr-4.111/src/main.rs -o "$RUNNER_TEMP/mqr-4111-main"
+          "$RUNNER_TEMP/mqr-4111-main"
