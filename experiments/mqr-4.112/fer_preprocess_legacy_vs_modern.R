@@ -52,8 +52,8 @@ for(key in keyFields)for(i in seq_along(fer)){
   a<-modern[[key]];b<-historical[[key]]
   if(is.list(a) && !is.data.frame(a))a<-a[[i]]
   if(is.list(b) && !is.data.frame(b))b<-b[[i]]
-  if(is.matrix(a)||is.data.frame(a))a<-a[,min(i,ncol(a)),drop=FALSE] else if(length(a)>1 && key %in% c("J","K","Nb_measurement"))a<-a[i]
-  if(is.matrix(b)||is.data.frame(b))b<-b[,min(i,ncol(b)),drop=FALSE] else if(length(b)>1 && key %in% c("J","K","Nb_measurement"))b<-b[i]
+  if(key %in% c("dLab","ddot_env") && (is.matrix(a)||is.data.frame(a)))a<-a[,min(i,ncol(a)),drop=FALSE] else if(length(a)>1 && key %in% c("J","K","Nb_measurement"))a<-a[i]
+  if(key %in% c("dLab","ddot_env") && (is.matrix(b)||is.data.frame(b)))b<-b[,min(i,ncol(b)),drop=FALSE] else if(length(b)>1 && key %in% c("J","K","Nb_measurement"))b<-b[i]
   v1<-as.vector(a);v2<-as.vector(b);n<-min(length(v1),length(v2))
   nums <- if(n>0) suppressWarnings(abs(as.numeric(v1[seq_len(n)])-as.numeric(v2[seq_len(n)]))) else numeric()
   diff <- if(length(nums)&&any(is.finite(nums)))max(nums[is.finite(nums)])else NA_real_
