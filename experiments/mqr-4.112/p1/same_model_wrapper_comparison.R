@@ -84,6 +84,7 @@ writeLines(c(paste("source_2021_git_blob",sourcehash),
              "same_data_argument=historical_2021_snapshot_processed.rds",
              "same_gamma_prior_strata_model=yes",
              "seed_control=R_only_JAGS_chain_initials_not_explicit",
+             "output_only_bridge=2021_list_BayLum_container_in_modern_namespace",
              "scope=pilot_comparison_not_historical_author_runtime"),
           "p1f_out/contract.txt")
 # Preserve historically exact function BODY; only make its historical namespace
@@ -91,7 +92,14 @@ writeLines(c(paste("source_2021_git_blob",sourcehash),
 old_env <- new.env(parent=globalenv())
 eval(parse(file=sourcepath,keep.source=TRUE),envir=old_env)
 stopifnot(exists("AgeS_Computation",envir=old_env,inherits=FALSE))
-old_env$.list_BayLum <- get(".list_BayLum",envir=asNamespace("BayLum"))
+# 2021 code invoked its package-internal list constructor. Modern BayLum
+# relocated that constructor inside its wrapper. Rebuild only the output
+# container interface, without modifying inference or upstream function text.
+old_env$.list_BayLum <- function(...) {
+  l <- list(...)
+  class(l) <- c("BayLum.list","list")
+  l
+}
 old_fun <- get("AgeS_Computation",envir=old_env,inherits=FALSE)
 common <- list(DATA=old_data,SampleNames=samples,Nb_sample=n,
  PriorAge=prior,BinPerSample=bin_per_sample,THETA=theta,
@@ -104,10 +112,10 @@ common <- list(DATA=old_data,SampleNames=samples,Nb_sample=n,
 # Later: adapt=2000, burnin=2000, sample=2000, thin=5.
 # Neither gives explicit per-chain JAGS RNG initialisations through these
 # historical wrapper signatures. Do NOT interpret small differences causally.
-run <- function(label,fun,extra=list()){
+run <- function(label,invoke){
  cat("P1F RUN_START",label,"\n");flush.console()
  set.seed(4112L)
- out <- do.call(fun,c(common,extra),envir=parent.frame())
+ out <- invoke()
  stopifnot(inherits(out,"BayLum.list"),!is.null(out$Sampling),!is.null(out$Ages))
  saveRDS(out,paste0("p1f_out/",label,"_actual_posterior.rds"))
  m <- as.matrix(out$Sampling)
@@ -125,11 +133,22 @@ run <- function(label,fun,extra=list()){
 }
 # Direct invocation (not a modified scientific function). Historical code
 # can depend on old package helper interfaces; failure must remain visible.
-old_res <- tryCatch(run("historical_exact_source",old_fun),
+old_res <- tryCatch(run("historical_exact_source",function() old_fun(
+ DATA=old_data,SampleNames=samples,Nb_sample=n,
+ PriorAge=prior,BinPerSample=bin_per_sample,THETA=theta,
+ StratiConstraints=strata,LIN_fit=FALSE,Origin_fit=TRUE,
+ distribution=dist,Iter=2000L,t=5L,n.chains=3L,
+ jags_method="rjags",quiet=TRUE,SavePdf=FALSE,SaveEstimates=FALSE,
+ roundingOfValue=3)),
  error=function(e){writeLines(conditionMessage(e),"p1f_out/historical_error.txt");
                    stop(e)})
-new_res <- run("modern_scheduled_match",BayLum::AgeS_Computation,
-               list(adapt=2000L,burnin=2000L,autorun=FALSE))
+new_res <- run("modern_scheduled_match",function() BayLum::AgeS_Computation(
+ DATA=old_data,SampleNames=samples,Nb_sample=n,
+ PriorAge=prior,BinPerSample=bin_per_sample,THETA=theta,
+ StratiConstraints=strata,LIN_fit=FALSE,Origin_fit=TRUE,
+ distribution=dist,Iter=2000L,t=5L,n.chains=3L,
+ jags_method="rjags",quiet=TRUE,SavePdf=FALSE,SaveEstimates=FALSE,
+ roundingOfValue=3,adapt=2000L,burnin=2000L,autorun=FALSE))
 comparison <- merge(old_res,new_res,by="sample",suffixes=c("_historical","_modern"))
 comparison$delta_ka <- comparison$age_mean_ka_modern -
                        comparison$age_mean_ka_historical
