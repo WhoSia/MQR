@@ -1,0 +1,24 @@
+name: MQR-4.112 P1 model edition blob evidence gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - "experiments/mqr-4.112/p1/model_vintage_blob_audit.py"
+      - ".github/workflows/mqr-4.112-p1-model-vintage.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify source-locked 2021/current BayLum tree blobs
+        run: python3 experiments/mqr-4.112/p1/model_vintage_blob_audit.py
+      - name: Preserve evidence receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4112-p1-model-vintage-blob-source-court
+          path: out/source_vintage_blob_manifest.json
+          retention-days: 30
