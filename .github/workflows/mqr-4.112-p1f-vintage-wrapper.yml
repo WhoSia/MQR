@@ -1,0 +1,79 @@
+name: MQR-4.112 P1-F historical versus modern same-model wrapper pilot
+on:
+  push:
+    branches: [main]
+    paths:
+      - "experiments/mqr-4.112/p1/same_model_wrapper_comparison.R"
+      - ".github/workflows/mqr-4.112-p1f-vintage-wrapper.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  vintage-wrapper:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5.2"
+          use-public-rspm: true
+      - name: Install native JAGS before rjags
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends jags libjags4
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::BayLum
+            any::ArchaeoPhases
+            any::coda
+            any::runjags
+          dependencies: '"hard"'
+          cache: false
+      - name: Acquire original source material and verify immutable hashes
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLSs --retry 3 --retry-all-errors             https://gchron.copernicus.org/articles/3/229/2021/gchron-3-229-2021-supplement.zip             -o "$RUNNER_TEMP/gu2021_original.zip"
+          echo "25d1129d2eea403dfd5f622dae74721420de223c03542d4e367ca2331bfb9228  $RUNNER_TEMP/gu2021_original.zip" | sha256sum -c -
+          unzip -q "$RUNNER_TEMP/gu2021_original.zip"
+          test -f PracticalGuideToBayLum_Data/data/FER1/bin.BIN
+          test -f PracticalGuideToBayLum_Data/data/FER3/bin.BIN
+          curl -fLSs --retry 3             https://raw.githubusercontent.com/crp2a/BayLum/2c267b63c2b7017cae1e141d0969eb0765ad2500/R/Generate_DataFile.R             -o upstream_BayLum_Generate_DataFile_2021.R
+          test "$(git hash-object upstream_BayLum_Generate_DataFile_2021.R)" = 5c9aeefda52b7be8a5ae28aaf0e3fef055e5bdf8
+          curl -fLSs --retry 3             https://raw.githubusercontent.com/crp2a/BayLum/2c267b63c2b7017cae1e141d0969eb0765ad2500/R/AgeS_Computation.R             -o upstream_BayLum_AgeS_Computation_2021.R
+          test "$(git hash-object upstream_BayLum_AgeS_Computation_2021.R)" = 8f269dc7d417aaf677b9ab7fba0ba42c71fd45f7
+      - name: Build same-author real FER data via frozen historic and current preprocessing
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript experiments/mqr-4.112/p1/2021_source_preprocessing_comparison.R > "$RUNNER_TEMP/preprocessing.log" 2>&1 || {
+            cat "$RUNNER_TEMP/preprocessing.log"
+            exit 1
+          }
+          test -s p1_out/historical_2021_snapshot_processed.rds
+          test -s p1_out/current_2025_created_data.rds
+          cp "$RUNNER_TEMP/preprocessing.log" p1_out/p1f_input_build.log
+      - name: Run actual unmodified 2021 source versus later wrapper with locked JAGS model and input
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript experiments/mqr-4.112/p1/same_model_wrapper_comparison.R 2>&1 | tee "$RUNNER_TEMP/p1f_mcmc.log"
+          cp "$RUNNER_TEMP/p1f_mcmc.log" p1f_out/runtime.log
+          test -s p1f_out/same_model_wrapper_comparison.csv
+          test -s p1f_out/frozen_mathematical_contract.rds
+      - name: Publish original-input and source-vintage evidence artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4112-p1f-same-model-vintage-actual
+          path: |
+            p1f_out/
+            p1_out/historical_api_bridge.txt
+            p1_out/historical_verdict.txt
+            p1_out/p1f_input_build.log
+          retention-days: 60
+          if-no-files-found: warn
