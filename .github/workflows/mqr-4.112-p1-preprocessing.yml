@@ -1,0 +1,54 @@
+name: MQR-4.112 P1 source-preprocessing equivalence
+on:
+  push:
+    branches: [main]
+    paths:
+      - "experiments/mqr-4.112/p1/**"
+      - ".github/workflows/mqr-4.112-p1-preprocessing.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  p1-fer-preprocess:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5.2"
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: any::BayLum
+          dependencies: '"hard"'
+          cache: false
+      - name: Verify original public author supplement before source-paired comparison
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLSs --retry 3 --retry-all-errors \
+            https://gchron.copernicus.org/articles/3/229/2021/gchron-3-229-2021-supplement.zip \
+            -o "$RUNNER_TEMP/gu2021_original.zip"
+          printf '%s  %s\n' \
+            25d1129d2eea403dfd5f622dae74721420de223c03542d4e367ca2331bfb9228 \
+            "$RUNNER_TEMP/gu2021_original.zip" | sha256sum -c -
+          unzip -q "$RUNNER_TEMP/gu2021_original.zip"
+          test -f PracticalGuideToBayLum_Data/data/FER1/bin.BIN
+          test -f PracticalGuideToBayLum_Data/data/FER3/bin.BIN
+      - name: Compare original author BINs under two installed BayLum algorithms
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript experiments/mqr-4.112/p1/fer_preprocess_equivalence.R 2>&1 | tee "$RUNNER_TEMP/p1.log"
+          mkdir -p p1_out
+          cp "$RUNNER_TEMP/p1.log" p1_out/log.txt
+          test -f p1_out/verdict.txt
+      - name: Archive equality and difference receipts, no source mutations
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqr-4112-p1-fer-preprocess-matrix-audit
+          path: p1_out/
+          retention-days: 30
+          if-no-files-found: warn
