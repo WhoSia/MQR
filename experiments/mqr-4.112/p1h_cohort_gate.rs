@@ -17,6 +17,7 @@ fn selected_keys(path: &str) -> Result<HashSet<(u32, u32)>, String> {
     }
     let mut ids = HashSet::new();
     for (j, line) in lines.enumerate() {
+        if line.trim().is_empty() { continue; }
         let tokens: Vec<_> = line.trim().split(',').collect();
         if tokens.len() != 2 { return Err(format!("row {j}: invalid width")); }
         let a: u32 = tokens[0].parse().map_err(|_| format!("row {j}: position"))?;
