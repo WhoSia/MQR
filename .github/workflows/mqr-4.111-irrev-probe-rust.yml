@@ -7,6 +7,7 @@ on:
       - "experiments/mqr-4.111/costas_2012_table2.rs"
       - "experiments/mqr-4.111/guerin_2021_fer_covariance.rs"
       - "experiments/mqr-4.111/source_rival_and_join_gate.rs"
+      - "experiments/mqr-4.111/fer_bin_v4_record_gate.rs"
       - ".github/workflows/mqr-4.111-irrev-probe-rust.yml"
   workflow_dispatch:
 
@@ -48,3 +49,9 @@ jobs:
           rustc --edition=2021 -D warnings \
             experiments/mqr-4.111/source_rival_and_join_gate.rs -o "$RUNNER_TEMP/mqr-4111-p7-main"
           "$RUNNER_TEMP/mqr-4111-p7-main"
+          rustc --edition=2021 --test -D warnings \
+            experiments/mqr-4.111/fer_bin_v4_record_gate.rs -o "$RUNNER_TEMP/mqr-4111-p8-tests"
+          "$RUNNER_TEMP/mqr-4111-p8-tests" --nocapture
+          rustc --edition=2021 -D warnings \
+            experiments/mqr-4.111/fer_bin_v4_record_gate.rs -o "$RUNNER_TEMP/mqr-4111-p8-main"
+          "$RUNNER_TEMP/mqr-4111-p8-main"
