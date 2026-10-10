@@ -23,7 +23,7 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends jags libjags4
+          sudo apt-get install -y --no-install-recommends jags
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
