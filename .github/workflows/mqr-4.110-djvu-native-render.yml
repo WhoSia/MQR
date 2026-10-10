@@ -1,0 +1,50 @@
+name: "MQR 4.110 — DjVu Source-Native Page Verification"
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.110-djvu-native-render.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-page-extraction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install ephemeral DjVuLibre renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq djvulibre-bin imagemagick
+          ddjvu -help > /dev/null 2>&1 || test $? -eq 10
+      - name: Fetch public original and verify Drive-original SHA-256
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          url='https://upload.wikimedia.org/wikipedia/commons/2/2f/M%C3%A9moires_de_l%E2%80%99Acad%C3%A9mie_des_sciences%2C_Tome_21.djvu'
+          curl --fail --location --show-error --silent --retry 3 --retry-delay 3 --max-time 180 \
+            -A 'MQR historical-source-integrity verifier (noncommercial academic work)' "$url" -o /tmp/regnault-original.djvu
+          printf '%s  %s\n' '00f9dc99fea5af6944c4f19624d945d89ea54a379bf660cb604fc77ba717efed' '/tmp/regnault-original.djvu' | sha256sum -c -
+          test "$(stat -c%s /tmp/regnault-original.djvu)" -eq 15049344
+          test "$(djvused /tmp/regnault-original.djvu -e n)" -eq 824
+          printf 'SOURCE_DJVU_SHA256_VERIFIED;PAGES=824\n' | tee out/source_receipt.txt
+      - name: Extract actual DjVu pages, no interpolation or OCR
+        run: |
+          set -euo pipefail
+          for p in 215 266 274 275 356 820; do
+            ddjvu -format=tiff -page="$p" /tmp/regnault-original.djvu "out/page-${p}.tiff"
+            convert "out/page-${p}.tiff" "out/page-${p}.png"
+            identify "out/page-${p}.png"
+            test -s "out/page-${p}.png"
+            rm "out/page-${p}.tiff"
+          done
+          printf 'REGNAULT_SIX_DJVU_PAGES_RENDERED_FROM_SHA256_PINNED_ORIGINAL\n' | tee -a out/source_receipt.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MQR4110-Regnault-Six-Verified-DjVu-Pages
+          path: out/
+          if-no-files-found: warn
