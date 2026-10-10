@@ -5,6 +5,7 @@ on:
     paths:
       - "experiments/mqr-4.111/src/main.rs"
       - "experiments/mqr-4.111/costas_2012_table2.rs"
+      - "experiments/mqr-4.111/guerin_2021_fer_covariance.rs"
       - ".github/workflows/mqr-4.111-irrev-probe-rust.yml"
   workflow_dispatch:
 
@@ -34,3 +35,9 @@ jobs:
           rustc --edition=2021 -D warnings \
             experiments/mqr-4.111/costas_2012_table2.rs -o "$RUNNER_TEMP/mqr-4111-costas-main"
           "$RUNNER_TEMP/mqr-4111-costas-main"
+          rustc --edition=2021 --test -D warnings \
+            experiments/mqr-4.111/guerin_2021_fer_covariance.rs -o "$RUNNER_TEMP/mqr-4111-fer-tests"
+          "$RUNNER_TEMP/mqr-4111-fer-tests" --nocapture
+          rustc --edition=2021 -D warnings \
+            experiments/mqr-4.111/guerin_2021_fer_covariance.rs -o "$RUNNER_TEMP/mqr-4111-fer-main"
+          "$RUNNER_TEMP/mqr-4111-fer-main"
