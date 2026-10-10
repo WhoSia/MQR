@@ -1,0 +1,75 @@
+name: MQR-4.112 P1-H source-population and observed-only BayLum sensitivity
+on:
+  push:
+    branches: [main]
+    paths:
+      - "experiments/mqr-4.112/p1h_*.R"
+      - "experiments/mqr-4.112/p1h_*.rs"
+      - ".github/workflows/mqr-4.112-p1h-population.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-source-population:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pin original Guérin2021 ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLSs --retry 3 --retry-all-errors https://gchron.copernicus.org/articles/3/229/2021/gchron-3-229-2021-supplement.zip -o author_original.zip
+          echo "25d1129d2eea403dfd5f622dae74721420de223c03542d4e367ca2331bfb9228  author_original.zip" | sha256sum -c -
+          unzip -q author_original.zip
+      - name: Rust source-cohort gate and local unit tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p p1h_out
+          rustc --edition=2021 --test experiments/mqr-4.112/p1h_cohort_gate.rs -o p1h_source_tests
+          ./p1h_source_tests
+          rustc --edition=2021 -Dwarnings experiments/mqr-4.112/p1h_cohort_gate.rs -o p1h_source_gate
+          ./p1h_source_gate PracticalGuideToBayLum_Data/data | tee p1h_out/source_cohort_counts.csv
+          test "$(wc -l < p1h_out/source_cohort_counts.csv)" -eq 3
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5.2"
+          use-public-rspm: true
+      - name: Install native JAGS
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends jags
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::BayLum
+            any::ArchaeoPhases
+            any::coda
+            any::runjags
+          dependencies: '"hard"'
+          cache: false
+      - name: Reconstruct hash-verified original 2021 author mathematical input
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLSs --retry 3 https://raw.githubusercontent.com/crp2a/BayLum/2c267b63c2b7017cae1e141d0969eb0765ad2500/R/Generate_DataFile.R -o upstream_BayLum_Generate_DataFile_2021.R
+          curl -fLSs --retry 3 https://raw.githubusercontent.com/crp2a/BayLum/2c267b63c2b7017cae1e141d0969eb0765ad2500/R/AgeS_Computation.R -o upstream_BayLum_AgeS_Computation_2021.R
+          test "$(git hash-object upstream_BayLum_Generate_DataFile_2021.R)" = 5c9aeefda52b7be8a5ae28aaf0e3fef055e5bdf8
+          test "$(git hash-object upstream_BayLum_AgeS_Computation_2021.R)" = 8f269dc7d417aaf677b9ab7fba0ba42c71fd45f7
+          Rscript experiments/mqr-4.112/p1/2021_source_preprocessing_comparison.R > p1h_out/source_preprocess.log 2>&1 || { cat p1h_out/source_preprocess.log; exit 1; }
+          Rscript experiments/mqr-4.112/p1/same_model_wrapper_comparison.R > p1h_out/frozen_model_reconstruction.log 2>&1 || { cat p1h_out/frozen_model_reconstruction.log; exit 1; }
+      - name: Actually run JAGS under partial observed-grain ablations
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript experiments/mqr-4.112/p1h_observed_thinning.R 2>&1 | tee p1h_out/thinning_runtime.log
+          test -s p1h_out/observed_only_thinning.csv
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqr-4112-p1h-original-population-and-real-subset-sensitivity
+          path: p1h_out/
+          retention-days: 60
+          if-no-files-found: warn
