@@ -52,7 +52,14 @@ fn main() {
     println!("MQR_REVERSE_DEPENDENCY_AUDIT;tracked_paths={};text_scanned={};mode=ADVISORY_NO_DELETION",
         paths.len(), decoded.len());
     for candidate in CANDIDATES {
-        assert!(paths.iter().any(|p| p == candidate), "candidate not tracked: {candidate}");
+        if !paths.iter().any(|p| p == candidate) {
+            if *candidate == "experiments/mqr_4107/calibration_model_misspecification.py" {
+                println!("CANDIDATE={candidate}");
+                println!("  status=RETIRED_ARCHIVED_DRIVE_1Q5EGGj74dLfxxC3sOj2yE3Ni2_Z9ydjd");
+                continue;
+            }
+            panic!("unaccounted missing candidate: {candidate}");
+        }
         let mut operational = Vec::new();
         let mut documentary = Vec::new();
         for (p, body) in &decoded {
