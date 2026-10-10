@@ -119,7 +119,7 @@ stopifnot(exists("AgeS_Computation",envir=old_env,inherits=FALSE))
 # container interface, without modifying inference or upstream function text.
 old_env$.list_BayLum <- function(...) {
   l <- list(...)
-  class(l) <- c("BayLum.list","list")
+  class(l) <- "BayLum.list"
   l
 }
 old_fun <- get("AgeS_Computation",envir=old_env,inherits=FALSE)
