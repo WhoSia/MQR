@@ -55,6 +55,21 @@ fn main() {
     }
     println!("At 2 individual 1-sigma bounds, GWD140 and GWD245 160-condition observations remain disjoint from source's expected dose.");
     println!("Guérin FER illustrative C14 43400±400 yr has no verified same-layer raw join; BayLum posterior not run.");
+    let disjoint_two_sd: Vec<&str> = SITES.iter()
+        .filter(|s| intervals_disjoint(s.expected_dose, s.expected_sd, s.natural_ebg_160, s.lower_sd, 2))
+        .map(|s| s.name).collect();
+    println!("2SD individual marginal intervals disjoint: {:?}", disjoint_two_sd);
+    let biases: Vec<i32> = YOUNG_AGE_PAIRS.iter().map(|(a,b)| age_bias(*a, *b)).collect();
+    println!("Published young-seven age residuals (years): {:?}; values above 40: {}",
+        biases, biases.iter().filter(|&&x| x>40).count());
+    let natural = Witness {study:"Costas2012",site:Some("GWD-245"),aliquot:None,kind:MeasurementKind::Natural};
+    let bleached = Witness {study:"Costas2012",site:Some("GWD-245"),aliquot:None,kind:MeasurementKind::Cleared};
+    let historic = Witness {study:"Costas2012",site:Some("GWD-245"),aliquot:None,kind:MeasurementKind::HistoricalAnchor};
+    let c14example = Witness {study:"Guerin2021",site:None,aliquot:None,kind:MeasurementKind::IllustrativeRadiocarbon};
+    println!("Costas natural vs cleared same original aliquot? {}; site/history summary join? {}; FER illustrative join? {}",
+        same_measured_aliquot(natural,bleached),
+        published_site_contrast(natural,historic),
+        published_site_contrast(natural,c14example));
     println!("No original GWD aliquot trace, raw GPR chronology covariance, or unique component attribution available.");
 }
 #[cfg(test)]
