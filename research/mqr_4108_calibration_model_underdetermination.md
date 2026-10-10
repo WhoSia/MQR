@@ -1,5 +1,7 @@
 # MQR-4.108 — Calibration-Model Underdetermination, Cross-Principle Traceability & Historical Warrant
 
+> **PRIMARY-IMAGE ERRATUM (2026-10-10):** Original full-volume SHA-256 `00f9dc99fea5af6944c4f19624d945d89ea54a379bf660cb604fc77ba717efed` decoded in MQR-4.110: DjVu image index **274 = printed p.238** (description of graphical construction), and **275 = printed p.239** (four-material 10-degree summary table); earlier text calling these printed pp.240–241 is superseded. DjVu index 215 = printed p.181. See [MQR 4.110 direct-image court](mqr_4110_source_graph_calibration_transport.md). Table values quoted for air T=250 and maximum material spread 2.95 °C are correct, but printed page is p.239, not p.241. Model-relative Gaussian toy is unchanged and not a historical source fit.
+
 **Formal status: OPEN / DISTINCTNESS HOLD.** Authorized successor to MQR-4.107, not a closure of predecessor.
 
 ## Primitive question
