@@ -51,6 +51,7 @@ fn main() {
     for r in ROWS {
         println!("{} expected={}±{}, LBG={}±{}, EBG={}±{}, EBG bias={}",
             r.name, r.expected, r.expected_sd, r.lbg, r.lbg_sd, r.ebg, r.ebg_sd, ebg_bias(r));
+        println!("{} LBG bias={} years", r.name, lbg_bias(r));
     }
     let n_young = young().len();
     let total_bias: i32 = young().iter().copied().map(ebg_bias).sum();
