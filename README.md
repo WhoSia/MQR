@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.109 — Provenance-sensitive sufficiency (OPEN/HOLD)
+
+[Notion canonical](https://app.notion.com/p/3f5ef561cf9281e88238f23450b60504) · [Research charter and rival court](research/mqr_4109_provenance_sensitive_sufficiency.md) · [Exact local binary test](experiments/mqr_4109/provenance_blackwell_court.py). Successor to 4.108: distinguish fixed-target Blackwell information, calibration-chain authority and historical source provenance. Synthetic mathematical fixture locally PASS; scientific originality and reference certification HOLD. No new CI Actions.
+
 ## MQR-4.108 — Cross-principle traceability (OPEN/HOLD)
 
 [Notion 4.108](https://app.notion.com/p/3f4ef561cf92815d9c1ec11355427c92) · [Research source court](research/mqr_4108_calibration_model_underdetermination.md) · [Exact shared-reference test](experiments/mqr_4108/traceability_counterexample.py). Different measurement physics does not certify independent calibration ancestry. Against VIM, GUM, Tal (2017), and Chang (2004), original philosophical distinctness remains HOLD. MQR-4.107 original-image and interpolation limitations are inherited.
@@ -24,6 +28,6 @@ Old README sections (former 4.100–4.104 frontiers, prior test/operational note
 
 **Active:** [MQR-4.108 research court](research/mqr_4108_calibration_model_underdetermination.md) (OPEN; DISTINCTNESS HOLD), [graph-table countermodel](experiments/mqr_4108/graph_table_sufficiency_counterexample.py), and [MQR-4.107 historical source audit](research/mqr_4107_evidential_history_equivalence.md) (OPEN/HOLD). For ongoing method, tests and historical proof states, consult these canonical ledgers and Notion, not superseded README paragraphs.
 
-**Proposed, not yet opened:** MQR-4.109 — Provenance-Sensitive Sufficiency & Calibration-Graph Transport: Model-Relative Information Loss, Cross-Standard Warrant, Historical Reconstruction and Adversarial Rival Discrimination. Its mathematical originality remains unestablished; GUM, VIM, Tal, Chang and classical sufficiency are explicit rivals.
+**Now opened:** [MQR-4.109](research/mqr_4109_provenance_sensitive_sufficiency.md), OPEN with DISTINCTNESS HOLD; VIM, GUM, Tal, Chang and classical sufficiency/Blackwell are rivals.
 
 A passing finite test certifies **only its stated local contract**; it does not establish historical source truth, independent traceability or new scientific discovery.
