@@ -19,7 +19,8 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq djvulibre-bin imagemagick
-          ddjvu -help > /dev/null 2>&1 || test $? -eq 10
+          command -v ddjvu
+          command -v djvused
       - name: Fetch public original and verify Drive-original SHA-256
         run: |
           set -euo pipefail
