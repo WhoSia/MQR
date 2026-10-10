@@ -1,0 +1,63 @@
+name: MQR-4.112 P0 official R/BayLum original-source replay
+on:
+  push:
+    branches: [main]
+    paths:
+      - "experiments/mqr-4.112/fer_baylum_official_replay.R"
+      - ".github/workflows/mqr-4.112-baylum-original-r.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-fer-r-baylum:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      R_KEEP_PKG_SOURCE: "yes"
+      MQR_READER_ONLY: "0"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install JAGS host library (no repository mutation)
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends jags libcurl4-openssl-dev libssl-dev libxml2-dev
+          jags --version || true
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5.2"
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: any::BayLum
+          dependencies: '"hard"'
+          cache: false
+      - name: Fetch author ORIGINAL public supplement with strict digest
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --retry 3 --retry-all-errors --fail --location --silent --show-error \
+            https://gchron.copernicus.org/articles/3/229/2021/gchron-3-229-2021-supplement.zip \
+            --output "$RUNNER_TEMP/fer_source_original.zip"
+          echo '25d1129d2eea403dfd5f622dae74721420de223c03542d4e367ca2331bfb9228  '"$RUNNER_TEMP/fer_source_original.zip" | sha256sum --check --strict
+          unzip -q "$RUNNER_TEMP/fer_source_original.zip"
+          test -f PracticalGuideToBayLum_Data/data/FER1/bin.BIN
+          test -f PracticalGuideToBayLum_Data/data/FER3/bin.BIN
+      - name: Exact official R record parity and two author BayLum/JAGS posterior models
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript experiments/mqr-4.112/fer_baylum_official_replay.R | tee "$RUNNER_TEMP/fer_baylum_runtime.log"
+          mkdir -p out
+          cp "$RUNNER_TEMP/fer_baylum_runtime.log" out/runtime.log
+      - name: Preserve calculation receipts (no git writes)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqr-4112-r-baylum-original-model-receipts
+          path: out/
+          if-no-files-found: warn
+          retention-days: 30
