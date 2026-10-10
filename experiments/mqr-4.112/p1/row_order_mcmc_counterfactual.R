@@ -24,10 +24,19 @@ for(i in seq_along(samples)){
   stopifnot(length(unique(m))==length(m),!anyNA(m))
   for (f in c("LT","sLT","ITimes","regDose")) {
     aligned[[f]][[i]] <- new[[f]][[i]][m,,drop=FALSE]
-    delta<-abs(old[[f]][[i]]-aligned[[f]][[i]])
-    matches<-all(is.finite(delta))&&all(delta<1e-10)
+    lhs<-old[[f]][[i]]
+    rhs<-aligned[[f]][[i]]
+    # Legacy sLT includes NA entries for zero/invalid signal; both implementations
+    # have the *same* missing positions. Paired NA is equal for input parity,
+    # but unilateral NA or unequal finite values must fail the gate.
+    paired_na<-is.na(lhs)&is.na(rhs)
+    paired_finite<-is.finite(lhs)&is.finite(rhs)
+    delta<-abs(lhs-rhs)
+    matches<-all(paired_na | (paired_finite & !is.na(delta) & delta<1e-10))
+    maxfinite<-if(any(paired_finite))max(delta[paired_finite]) else NA_real_
     cat("SOURCE_GRAIN_ROW_ALIGNED",samples[i],f,"MATCH",matches,
-        "maxDelta",if(all(is.finite(delta)))max(delta) else NA_real_,"\n")
+        "paired_NA",sum(paired_na),"unilateral_NA",sum(xor(is.na(lhs),is.na(rhs))),
+        "maxFiniteDelta",maxfinite,"\n")
     if(!matches)stop(paste("Cannot admit age counterfactual without numerical parity:",samples[i],f))
   }
 }
