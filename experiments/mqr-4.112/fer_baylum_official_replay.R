@@ -112,7 +112,9 @@ params <- list(DATA=dat,SampleNames=names,Nb_sample=2,
 run_age <- function(case, theta=NULL, strati=NULL) {
   cat("BayLum POSTERIOR START",case,"\n")
   pp<-params
-  pp$THETA<-if(is.null(theta)) numeric() else theta
+  # BayLum 0.3.3 indexes THETA[,1] before testing emptiness.
+  # A true 0x1 numeric matrix denotes its own author's default covariance.
+  pp$THETA<-if(is.null(theta)) matrix(numeric(),nrow=0,ncol=1) else theta
   pp$StratiConstraints<-if(is.null(strati)) numeric() else strati
   res <- do.call(BayLum::AgeS_Computation,pp)
   if(!inherits(res,"BayLum.list") || is.null(res$Sampling) || is.null(res$Ages)) {
