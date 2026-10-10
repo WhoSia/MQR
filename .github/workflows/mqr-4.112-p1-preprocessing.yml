@@ -44,6 +44,22 @@ jobs:
           mkdir -p p1_out
           cp "$RUNNER_TEMP/p1.log" p1_out/log.txt
           test -f p1_out/verdict.txt
+      - name: Pin the BayLum November 2021 source function by upstream Git blob
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLSs --retry 3 \
+            https://raw.githubusercontent.com/crp2a/BayLum/2c267b63c2b7017cae1e141d0969eb0765ad2500/R/Generate_DataFile.R \
+            -o upstream_BayLum_Generate_DataFile_2021.R
+          test "$(git hash-object upstream_BayLum_Generate_DataFile_2021.R)" = \
+            5c9aeefda52b7be8a5ae28aaf0e3fef055e5bdf8
+      - name: Compare exact November 2021 source against BayLum 0.3.3, same FER records
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript experiments/mqr-4.112/p1/2021_source_preprocessing_comparison.R 2>&1 | tee "$RUNNER_TEMP/p1_historical.log"
+          cp "$RUNNER_TEMP/p1_historical.log" p1_out/historical_runtime.log
+          test -f p1_out/historical_verdict.txt
       - name: Archive equality and difference receipts, no source mutations
         uses: actions/upload-artifact@v4
         if: always()
