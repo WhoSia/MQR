@@ -82,7 +82,7 @@ writeLines(c(paste("source_2021_git_blob",sourcehash),
              paste("model",growth,dist),
              paste("model_text_md5",unname(tools::md5sum("upstream_BayLum_AgeS_Computation_2021.R"))),
              "same_data_argument=historical_2021_snapshot_processed.rds",
-             "same_gamma_prior_strata_model=yes",
+             "same_gamma_prior_strata_model=yes",\n             "historical_coda_niter_2000_thin5_retained_per_chain_400",\n             "later_runjags_sample_400_thin5_retained_per_chain_400",
              "seed_control=R_only_JAGS_chain_initials_not_explicit",
              "output_only_bridge=2021_list_BayLum_and_ArchaeoPhases_defunct_CredibleInterval",
              "scope=pilot_comparison_not_historical_author_runtime"),
@@ -131,7 +131,7 @@ common <- list(DATA=old_data,SampleNames=samples,Nb_sample=n,
  roundingOfValue=3)
 # Identical nominal schedules:
 # 2021: n.adapt=2000, update=2000, coda.samples=2000, thin=5.
-# Later: adapt=2000, burnin=2000, sample=2000, thin=5.
+# Later: adapt=2000, burnin=2000, sample=400 retained draws per chain, thin=5.\n# runjags sample=2000 retained draws per chain, while old rjags coda.samples\n# n.iter=2000/thin5 retains 400 per chain. This controls that API difference.
 # Neither gives explicit per-chain JAGS RNG initialisations through these
 # historical wrapper signatures. Do NOT interpret small differences causally.
 run <- function(label,invoke){
@@ -168,12 +168,16 @@ new_res <- run("modern_scheduled_match",function() BayLum::AgeS_Computation(
  DATA=old_data,SampleNames=samples,Nb_sample=n,
  PriorAge=prior,BinPerSample=bin_per_sample,THETA=theta,
  StratiConstraints=strata,LIN_fit=FALSE,Origin_fit=TRUE,
- distribution=dist,Iter=2000L,t=5L,n.chains=3L,
+ distribution=dist,Iter=400L,t=5L,n.chains=3L,
  jags_method="rjags",quiet=TRUE,SavePdf=FALSE,SaveEstimates=FALSE,
  roundingOfValue=3,adapt=2000L,burnin=2000L,autorun=FALSE))
 comparison <- merge(old_res,new_res,by="sample",suffixes=c("_historical","_modern"))
 comparison$delta_ka <- comparison$age_mean_ka_modern -
                        comparison$age_mean_ka_historical
+# The key additional P1-F control: both wrappers must return equal retained
+# posterior draws (3 chains x 400), not merely equal Iter arguments.
+stopifnot(all(comparison$draws_historical==comparison$draws_modern),
+          all(comparison$draws_historical==1200L))
 write.csv(comparison,"p1f_out/same_model_wrapper_comparison.csv",row.names=FALSE)
 print(comparison)
 cat("P1F_REAL_HISTORICAL_WRAPPER_AND_MODERN_WRAPPER_EXECUTED",nrow(comparison),"\n")
