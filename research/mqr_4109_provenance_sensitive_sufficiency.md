@@ -70,3 +70,7 @@ An apparent MQR-specific finding 'the same thermometer reading does not imply id
 **MQR-4.110 — Provenance-Sensitive Calibration Transport & Historical Measurement Warrant: Model-Relative Information Preservation, Cross-Standard Comparability, Source-Graph Reconstruction and Independent Rival Falsification**
 
 This is intentionally an *incremental renaming* of 4.109. It cannot be justified as migration of a genuinely new primitive question until the concrete intervention object changes, e.g. obtaining independent raw-to-graph or authenticated calibration-chain evidence rather than repeating algebra on the same p241 readings. 4.109 stays OPEN/HOLD, and 4.110 is merely a proposal, not an opened/closed scientific stage.
+
+## P3 maintenance: 4.109 P2 Python fixture retired to Drive after Rust replacement
+
+4.109 P2 source-only fixed-decimal arithmetic was migrated to Rust canonical successor `experiments/mqr-4.110/src/main.rs` with a dedicated CI workflow. The one-off historical Python `experiments/mqr_4109/p2_regnault_same_target_court.py` is retired after Drive archive of full source content [MQR-4.109 P2 Python archive](https://drive.google.com/file/d/199mFVqJAn19rvRBVySGlNTTLp1LRrIJf/view). Original Git blob `7bbce363725b0d25a95a66e9c0aff2ab647e15e7` survives in Git history; Drive export reflows whitespace. Earlier file links represent *historical paths*, not active executables. Do not retire 4.109 P1 theoretical counterexample or live 4.108 tools without separately proving no dependency.
