@@ -116,7 +116,25 @@ run_age <- function(case, theta=NULL, strati=NULL) {
   # A true 0x1 numeric matrix denotes its own author's default covariance.
   pp$THETA<-if(is.null(theta)) matrix(numeric(),nrow=0,ncol=1) else theta
   pp$StratiConstraints<-if(is.null(strati)) numeric() else strati
-  res <- do.call(BayLum::AgeS_Computation,pp)
+  # BayLum 0.3.3 .list_BayLum uses sys.call(-1)[[1]] as its
+  # originator. do.call() passes a closure and fails only AFTER JAGS sampling.
+  # Invoke through a named function symbol to preserve the package's
+  # original output-class contract without monkey-patching package code.
+  AgeS_Computation <- BayLum::AgeS_Computation
+  res <- AgeS_Computation(
+    DATA=pp$DATA,SampleNames=pp$SampleNames,Nb_sample=pp$Nb_sample,
+    PriorAge=pp$PriorAge,BinPerSample=pp$BinPerSample,
+    SavePdf=pp$SavePdf,OutputFileName=pp$OutputFileName,
+    OutputFilePath=pp$OutputFilePath,SaveEstimates=pp$SaveEstimates,
+    OutputTableName=pp$OutputTableName,OutputTablePath=pp$OutputTablePath,
+    THETA=pp$THETA,sepTHETA=pp$sepTHETA,
+    StratiConstraints=pp$StratiConstraints,sepSC=pp$sepSC,
+    LIN_fit=pp$LIN_fit,Origin_fit=pp$Origin_fit,
+    distribution=pp$distribution,Iter=pp$Iter,
+    burnin=pp$burnin,adapt=pp$adapt,t=pp$t,
+    n.chains=pp$n.chains,jags_method=pp$jags_method,
+    quiet=pp$quiet,roundingOfValue=pp$roundingOfValue
+  )
   if(!inherits(res,"BayLum.list") || is.null(res$Sampling) || is.null(res$Ages)) {
     stop(paste("Missing actual BayLum sampling output",case))
   }
