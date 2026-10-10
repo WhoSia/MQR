@@ -75,3 +75,65 @@ P.230 reports the four separate high-temperature experimental columns at slightl
 
 ### Status update
 DJVU_ORIGINAL_SHA_MATCH PASS; DIR_PAGE_COUNT PASS 824; PAGE_215_266_274_275_356_820 RENDER_PASS; PDF_DERIVATIVE_PAGE_COMPLETENESS still HOLD (no 361MB PDF audit); DIRECT_RECORD_VS_GRAPH_TABLE_CLASSIFICATION PASS for the quoted source distinction; INDIVIDUAL_PLATE_CROSS_COORDINATE_RECONSTRUCTION HOLD; HISTORICAL_MEASUREMENT_UNCERTAINTY_CERTIFICATION HOLD; MQR_ORIGINAL_SAME_TARGET_VERDICT HOLD. GitHub Actions used in a deliberately scoped manner (including repair), no new heavyweight generalized CI.
+
+
+## P4 — Direction tournament: irreversible histories versus static traceability (2026-10-10)
+
+**Scientific status: MQR-4.110 remains OPEN / DISTINCTNESS HOLD.** This P4 is a Research-OS return-to-origin / direction-selection audit, not an experimental validation or the opening of MQR-4.111. No new physical observations, plate coordinates, or independent metrological certificates were produced.
+
+### Compression of the live 4.110 debts
+
+1. **Historical source recovery:** Regnault (1847) original DjVu source SHA-256 \`00f9dc99fea5af6944c4f19624d945d89ea54a379bf660cb604fc77ba717efed\`, 824 pages, six native-rendered images PASS as P3; printed p.238 is the graph-construction description, printed p.239 the four-glass normalized table; printed p.230 contains separate individual experimental columns at nonidentical reference temperatures. Plate VIII individual points/interpolation and historical covariance remain HOLD.
+2. **Fixed-experiment statistical sufficiency vs metrological warrant:** a declared experiment kernel and fixed target are necessary for invoking Fisher–Neyman/Blackwell. Source graphs, calibration-chain uncertainties and historical quantity individuation are already handled substantially by VIM/GUM, Tal (2017, 2019), Chang (2004). No distinct MQR judgment demonstrated.
+3. **Return to the physical world:** what can be known about the original specimen's state when observation or reference intervention itself changes the specimen and return to the old physical state cannot be independently established?
+
+### Four-way research-direction tournament
+
+| Candidate | Potential contribution | Strongest defeating objection | P4 disposition |
+|---|---|---|---|
+| A. More Plate VIII digitization | Better source scholarship and raw/derived distinctions | Marginal same-target theoretical discrimination; cannot infer experimental origin of unlabeled crosses by drawing a better curve | Archive as **bounded historical work**, do not block mainline |
+| B. Another provenance/traceability abstraction | Formal bookkeeping and calibrational consistency | VIM/GUM/Tal/Chang and existing 4.107–4.110 already explain the target; risks recursive refinement | **ABSORB / no new mainline version** |
+| C. Dynamic observation quotient | Makes future interventions explicit | Control-theoretic observability, behavioral equivalence, epsilon-transducers and causal abstraction already cover the theorem; MQR-4.106 already developed measurement-action state transitions | **NON-NOVEL formal fixture**, no novelty PASS |
+| D. Irreversible physical return and historically unrecoverable pre-intervention state | Changes the explanandum to original-state retrodiction under state-altering evidence acquisition; forces new source- and experiment-level discriminators | Potential outcomes, experimental design, latent-state identification and model-based measurement may fully reduce it | **WINNER AS RESEARCH QUESTION ONLY**; novelty and experimental evidence HOLD |
+
+### Exact miniature: present-output equivalence does not imply active-state equivalence
+
+Let \(S=\{0,1\}^2\), \(s=(q,m)\), \(O(q,m)=m\), and a hypothetical intervention \(C\) act as \(F_C(q,m)=(q,q)\). States \(a=(0,0)\), \(b=(1,0)\) satisfy \(O(a)=O(b)=0\), but \(O(F_C(a))=0\) and \(O(F_C(b))=1\). In this fully specified four-state synthetic system, the observation-only partition has two classes (by \(m\)); the partition induced by observing before and after \(C\) has four (by \((m,q)\)). The intervention modifies the system; the toy is not evidence about Regnault's actual glass.
+
+In a deterministic total transition system with unconstrained finite input words, define \(s\equiv_U t\) iff all admissible output histories under every word in \(U^*\) coincide. It is the greatest transition-invariant equivalence contained in \(\ker O\): right-invariance follows by prefixing an input; any transition-invariant relation inside \(\ker O\) implies equality of future outputs by induction. **This is standard behavioral/state-minimization mathematics, not a novel MQR theorem.** Importantly, destructiveness, protocol-dependent feasibility and partial transitions invalidate an unqualified use of \(U^*\); physical admissibility must be specified before quotient claims.
+
+### Stronger destructive-retrodiction falsifier: two worlds, same observable law
+
+Take a *single permitted irreversible probe* \(C\), non-informative pre-probe reading \(Y_0=0\), and post-probe \(Y_1\in\{0,1\}\).
+
+- World A (**pre-existing susceptibility**): \(Q\sim\mathrm{Bernoulli}(1/2)\); the probe reveals it, \(Y_1=Q\).
+- World B (**probe-created variation**): \(Q=0\) for every original specimen; the probe produces independent \(Z\sim\mathrm{Bernoulli}(1/2)\), \(Y_1=Z\).
+
+Both worlds give exactly \(P(Y_0=0,Y_1=0)=P(Y_0=0,Y_1=1)=1/2\), including for arbitrarily many independent specimens exposed solely to the same probe. Yet \(P(Q=1)\) is \(1/2\) in A and \(0\) in B. Thus these observations cannot identify the original-state claim; an *independently justified pre-probe marker*, a discriminating intervention family, validated structural assumptions, or further source traces are needed. This is a synthetic identification counterexample already anticipated by causal inference and measurement theory—not a new universal impossibility theorem.
+
+**Critical distinction:** discovering a post-probe difference does not by itself establish that the difference already existed before the probe. Conversely, randomized matched specimens can identify certain population-level intervention contrasts under design assumptions, but cannot recover a particular destroyed specimen's unobserved individual counterfactual.
+
+### Primary-source rivalry and historical limits
+
+- [Chang (2004), *Inventing Temperature*, user's full Drive original](https://drive.google.com/file/d/1RwuRfY9Ifz6iEAUZZm57z4EzHX8CP0CV/view): ch.2 reports that same-glass samples with different thermal treatments followed different expansion laws, citing Regnault (1847) p.165. This is **Chang's historical report**, not direct inspection of Regnault p.165 in this P4; Regnault P3 images do not establish a within-specimen before/after treatment experiment.
+- [Tal (2017), full original in Drive](https://drive.google.com/file/d/1P5guGX-EJBfjr0fKigoSyTOghk5q8Ff2/view): calibration models and predictive coherence already address much more than fixed numeric correction.
+- [Tal (2019), full original in Drive](https://drive.google.com/file/d/1dm4Oea-l6BVMEuZGTwe-OeUp05gYTzrA/view): discrimination between systematic measurement error and differing quantities has fundamental underdetermination; MQR may not award itself ontology solely from a state-quoitent.
+- [Barnett & Crutchfield (2015), full original in Drive](https://drive.google.com/file/d/1enuIYvv7dF4B1r59nCcGQmdO8mthCCwO/view): minimal predictive states for input-output stochastic processes.
+- [Geiger et al. (2025), full original JMLR in Drive](https://drive.google.com/file/d/1dkkczKfLgmHL8YPwKWrKunEdCbAel6hK/view): intervention-preserving causal abstraction.
+- Nelson W. Taylor (1944), *Aging Thermometers*, DOI 10.1111/j.1151-2916.1944.tb09124.x: only publisher abstract inspected in this P4; **Drive 미확보(색인 검색 기준); 직접 PDF 미확인**. Treat as an experiment-design lead, not primary full-text support.
+
+### Non-ceremonial RAVEL verdict and physical discriminators
+
+1. **Internal ancestral attack:** MQR-4.106 already represents a measurement as (readout, state transition) and gives order-sensitive back-action examples. Do not rebrand that result as 4.111.
+2. **External mathematical attack:** dynamic quotients and intervention models are existing theories; finite synthetic PASS adds no originality. Reject a new universal theorem based on the four-state example.
+3. **Historical attack:** Regnault pp.230/238/239 and Plate VIII are not a sample-indexed longitudinal history; no retrospective claim about a given specimen's exact pre-treatment glass state.
+4. **Prospective scientific experiment specification:** using institutionally supervised, already calibrated apparatus, compare matched sample cohorts with a predeclared intervention versus sham, independent reference checks before/after, source-registered specimens, and a prospective recovery check. Test whether an independently validated pre-intervention feature predicts post-intervention shift beyond what a probe-created-change model predicts. No experiment conducted or physical effect measured in P4.
+5. **Decision gate:** if standard causal experimental-design/observability theories already explain every legitimate prediction, retire MQR-specific novelty and retain only the physical application; if an explicit shared-target rival-divergent prediction survives and new source evidence supports it, return for a stronger 4.111 stage.
+
+### Proposed only — MQR-4.111, NOT OPENED
+
+**MQR-4.111 — When Measurement Changes the World It Tests: Irreversible Experimental Histories, Pre-Intervention State Identifiability, Reset Witnesses & the Limits of Scientific Retrodiction**
+
+The primitive target is **the scientifically defensible reconstruction of an original physical state from evidence produced by interventions that may make that state unrecoverable**, separating instrument response, probe-created change, source-selected histories and the conditions under which an actual return/reset claim can be established.
+
+**P4 conclusion:** Direction D wins as an *ambitious falsifiable question*; 4.110 stays **OPEN / DISTINCTNESS HOLD**. No new executable experiment, data collection, automatic code retirement, 4.111 creation or new CI workflow is implied by this document.
