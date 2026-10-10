@@ -84,13 +84,35 @@ writeLines(c(paste("source_2021_git_blob",sourcehash),
              "same_data_argument=historical_2021_snapshot_processed.rds",
              "same_gamma_prior_strata_model=yes",
              "seed_control=R_only_JAGS_chain_initials_not_explicit",
-             "output_only_bridge=2021_list_BayLum_container_in_modern_namespace",
+             "output_only_bridge=2021_list_BayLum_and_ArchaeoPhases_defunct_CredibleInterval",
              "scope=pilot_comparison_not_historical_author_runtime"),
           "p1f_out/contract.txt")
 # Preserve historically exact function BODY; only make its historical namespace
 # helper accessible without modifying that source or its scientific formulas.
 old_env <- new.env(parent=globalenv())
-eval(parse(file=sourcepath,keep.source=TRUE),envir=old_env)
+# Original source is checked byte-for-byte above, then patched IN MEMORY in
+# POSTERIOR REPORTING ONLY: 2026 ArchaeoPhases removed CredibleInterval.
+# The adapted helper operates after coda.samples, never in likelihood/JAGS.
+# Preserve exact original file, and record the exact output-only delta.
+source_text <- paste(readLines(sourcepath,warn=FALSE),collapse="\n")
+old_reporter <- "ArchaeoPhases::CredibleInterval"
+occur <- gregexpr(old_reporter,source_text,fixed=TRUE)[[1]]
+stopifnot(length(occur)>=4L,all(occur>0))
+old_env$p1f_historical_output_interval <- function(x,level,roundingOfValue=3){
+  m <- coda::HPDinterval(coda::mcmc(as.numeric(x)),prob=level)
+  c(mean(as.numeric(x)),as.numeric(m[1,1]),as.numeric(m[1,2]))
+}
+adapted_source <- gsub(old_reporter,"p1f_historical_output_interval",source_text,fixed=TRUE)
+stopifnot(!grepl(old_reporter,adapted_source,fixed=TRUE))
+writeLines(c(
+ "2021 inference function source Git blob preserved and verified",
+ paste("Output-only CredibleInterval calls replaced:",length(occur)),
+ "Historical ArchaeoPhases::CredibleInterval defunct on current CI runtime",
+ "Only post-sampling interval reporting reimplemented by coda::HPDinterval",
+ "Historical posterior draws and JAGS likelihood/priors untouched",
+ "Output interval from old library NOT claimed byte/semantic identical"),
+ "p1f_out/historical_output_compatibility_receipt.txt")
+eval(parse(text=adapted_source,keep.source=TRUE),envir=old_env)
 stopifnot(exists("AgeS_Computation",envir=old_env,inherits=FALSE))
 # 2021 code invoked its package-internal list constructor. Modern BayLum
 # relocated that constructor inside its wrapper. Rebuild only the output
