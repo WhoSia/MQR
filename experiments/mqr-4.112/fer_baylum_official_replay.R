@@ -102,7 +102,7 @@ cat("CREATE_DATAFILE_REPLACEMENT_PASS keys:", paste(names(dat),collapse=","),"\n
 cat("Model J selected grains:",paste(dat$J,collapse=","),"regeneration K:",paste(dat$K,collapse=","),"\n")
 stopifnot(all(dat$J==49L))
 saveRDS(dat,file.path("out","FER1_FER3_BayLum_source_generated_data.rds"))
-params <- list(DATA=dat,SampleNames=names,Nb_sample=2,
+params <- list(DATA=dat,SampleNames=samples,Nb_sample=2,
    PriorAge=rep(c(10,100),2),BinPerSample=rep(1,2),
    SavePdf=FALSE,OutputFileName=character(),OutputFilePath="out/",
    SaveEstimates=FALSE,OutputTableName=character(),OutputTablePath="out/",
