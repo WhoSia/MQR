@@ -1,0 +1,13 @@
+REALCHANNEL 0.44-CANDIDATE
+id incomparable_rivals
+basis FINITE_SYNTHETIC
+source_quantity ABSTRACT_STATE
+target_quantity ABSTRACT_STATE
+source_operation SYNTHETIC_STATE_0
+target_operation SYNTHETIC_STATE_1
+calibration_ancestry UNGROUNDED
+source_0 1 0
+source_1 1/2 1/2
+target_0 1/2 1/2
+target_1 0 1
+END
