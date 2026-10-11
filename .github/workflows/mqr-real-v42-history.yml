@@ -30,12 +30,15 @@ jobs:
           set -euo pipefail
           mkdir -p real_v42_out
           BIN=language/real/target/debug/real-v42-history
-          for type in fer-selection-twin destructive-measurement-history calibration-common-root local-factorization-nonworld; do
+          for type in fer-selection-twin destructive-measurement-history calibration-common-root local-factorization-nonworld joint-ancestry-required; do
             "$BIN" "language/real/fixtures/v42/${type}.real" > "real_v42_out/${type}.receipt"
             cat "real_v42_out/${type}.receipt"
             grep -q 'history.world_authority=HOLD' "real_v42_out/${type}.receipt"
             grep -q 'history.extrapolation_to_unmodeled_histories=FORBIDDEN' "real_v42_out/${type}.receipt"
           done
+          grep -q 'history.base_ambiguous_pairs=3' real_v42_out/joint-ancestry-required.receipt
+          grep -q 'history.probe_minimal_resolving_sets=analysis_revision+original_roster' real_v42_out/joint-ancestry-required.receipt
+          grep -q 'history.all_available_probe_ambiguous_pairs=0' real_v42_out/joint-ancestry-required.receipt
           grep -q 'history.base_ambiguous_pairs=1' real_v42_out/fer-selection-twin.receipt
           grep -q 'history.all_available_probe_ambiguous_pairs=0' real_v42_out/fer-selection-twin.receipt
           grep -q 'history.nonavailable_probe_fields=preserved_prestate+original_chain\|history.nonavailable_probe_fields=original_chain+preserved_prestate' real_v42_out/destructive-measurement-history.receipt || true
