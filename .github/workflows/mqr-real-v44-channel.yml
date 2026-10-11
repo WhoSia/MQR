@@ -1,0 +1,74 @@
+name: MQR Real Lang v0.44 stochastic measurement channel candidate
+on:
+  push:
+    branches: [main]
+    paths:
+      - "language/real/real_channel_v44.py"
+      - "language/real/fixtures/v44/**"
+      - "experiments/mqr-4.113/p1_exact_binary_experiments.py"
+      - ".github/workflows/mqr-real-v44-channel.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  stochastic-channel-language-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check previous exact source engine and language script syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p real_v44_out
+          python3 -m py_compile experiments/mqr-4.113/p1_exact_binary_experiments.py language/real/real_channel_v44.py
+          python3 experiments/mqr-4.113/p1_exact_binary_experiments.py --test 2>&1 | tee real_v44_out/underlying_exact_math_tests.txt
+      - name: Execute operationally distinct Real Lang stochastic channel fixtures
+        shell: bash
+        run: |
+          set -euo pipefail
+          for x in binary-stochastic-dominance same-law-different-measurand incomparable-rivals; do
+            python3 language/real/real_channel_v44.py "language/real/fixtures/v44/${x}.real" > "real_v44_out/${x}.json"
+          done
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          get=lambda s: json.loads(Path(f'real_v44_out/{s}.json').read_text())
+          a=get('binary-stochastic-dominance')
+          assert a['le_cam_directional_delta_source_to_target']=='0'
+          assert a['le_cam_directional_delta_target_to_source']=='1/5'
+          b=get('same-law-different-measurand')
+          assert b['le_cam_directional_delta_source_to_target']=='0'
+          assert b['le_cam_directional_delta_target_to_source']=='0'
+          assert b['physical_measurand_declared_match']=='DECLARED_DIFFERENT_QUANTITIES'
+          assert b['measured_physical_equivalence']=='HOLD'
+          c=get('incomparable-rivals')
+          assert c['mathematical_experiment_order']=='INCOMPARABLE_EXPERIMENTS'
+          assert c['le_cam_directional_delta_source_to_target']=='1/6'
+          assert c['le_cam_directional_delta_target_to_source']=='1/6'
+          assert all(r['real_language_promotion']=='UNPROMOTED_CANDIDATE' for r in (a,b,c))
+          assert all(r['empirical_source_warrant']=='UNVERIFIED_EVEN_WITH_HASH' for r in (a,b,c))
+          print('REALCHANNEL_0_44_TYPED_EXACT_STOCHASTIC_MATH_PASS_WORLD_AUTHORITY_HOLD')
+          PY
+      - name: Real Lang reject invented unanchored empirical origin
+        shell: bash
+        run: |
+          set -euo pipefail
+          if python3 language/real/real_channel_v44.py language/real/fixtures/v44/source-self-attestation-reject.real > real_v44_out/rejected_source.txt 2>&1; then
+            echo 'UNSAFE_SOURCE_REPORT_ACCEPTED';exit 1
+          fi
+          grep -q 'SOURCE_REPORTED_REQUIRES_HASH_POINTER' real_v44_out/rejected_source.txt
+          echo 'SOURCE_GUARD_FAIL_CLOSED_PASS' >> real_v44_out/verdict.txt
+      - name: Older Real Lang binaries remain buildable
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo build --manifest-path language/real/Cargo.toml --bins
+          cargo test --manifest-path language/real/Cargo.toml --bin real-v43-represent --bin real-v42-history | tail -n 8
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqr-real-v44-binary-stochastic-language-receipts
+          path: real_v44_out/
+          retention-days: 45
+          if-no-files-found: warn
