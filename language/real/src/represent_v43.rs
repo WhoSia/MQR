@@ -132,8 +132,20 @@ fn parse(input:&str)->Result<Court,String>{
   transformation,histories:worlds,
  })
 }
-fn valid_unit(q:&str,u:&str)->bool{\n match u {\n  "Gy"|"mGy"=>q=="DOSE",\n  "s"|"ms"=>q=="TIME",\n  "m"|"cm"|"mm"=>q=="LENGTH",\n  "COUNT"=>q=="COUNT",\n  "SYMBOL"=>true,\n  _=>false,\n }\n}\nfn declared_type_valid(c:&Court)->bool{
- if c.source_quantity!=c.destination_quantity ||\n    !valid_unit(&c.source_quantity,&c.source_unit)||\n    !valid_unit(&c.destination_quantity,&c.destination_unit){return false;}
+fn valid_unit(q:&str,u:&str)->bool{
+ match u {
+  "Gy"|"mGy"=>q=="DOSE",
+  "s"|"ms"=>q=="TIME",
+  "m"|"cm"|"mm"=>q=="LENGTH",
+  "COUNT"=>q=="COUNT",
+  "SYMBOL"=>true,
+  _=>false,
+ }
+}
+fn declared_type_valid(c:&Court)->bool{
+ if c.source_quantity!=c.destination_quantity ||
+    !valid_unit(&c.source_quantity,&c.source_unit)||
+    !valid_unit(&c.destination_quantity,&c.destination_unit){return false;}
  match &c.transformation{
   Transform::Table(_)=>c.source_unit=="SYMBOL"&&c.destination_unit=="SYMBOL",
   Transform::FloorDiv(_)=>c.source_unit==c.destination_unit,
@@ -153,7 +165,10 @@ fn valid_unit(q:&str,u:&str)->bool{\n match u {\n  "Gy"|"mGy"=>q=="DOSE",\n  "s"
     if c.source_unit==c.destination_unit {
        *n==1 && *d==1 && *b==0
     }else {
-       expected.is_some_and(|(x,y,z): (i128,i128,i128)|{\n          let lhs=n.checked_mul(y);let rhs=x.checked_mul(*d);\n          lhs.is_some()&&lhs==rhs&&*b==z\n       })
+       expected.is_some_and(|(x,y,z): (i128,i128,i128)|{
+          let lhs=n.checked_mul(y);let rhs=x.checked_mul(*d);
+          lhs.is_some()&&lhs==rhs&&*b==z
+       })
     }
   }
  }
