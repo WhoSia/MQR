@@ -1,0 +1,76 @@
+name: MQR-4.112 P1-J original physical grain-to-JAGS bridge
+on:
+  push:
+    branches: [main]
+    paths:
+      - "experiments/mqr-4.112/p1j_real_*"
+      - ".github/workflows/mqr-4.112-p1j-real-key-bridge.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-2021-source-row-identity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pin official author published dataset exactly
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLSs --retry 3 https://gchron.copernicus.org/articles/3/229/2021/gchron-3-229-2021-supplement.zip -o author2021.zip
+          echo "25d1129d2eea403dfd5f622dae74721420de223c03542d4e367ca2331bfb9228  author2021.zip" | sha256sum -c -
+          unzip -q author2021.zip
+          echo "8328723705b6cdf33d65ab9c946fb7a1461b51f0861b4bbc3bf531f2d4460786  PracticalGuideToBayLum_Data/data/FER1/bin.BIN" | sha256sum -c -
+          echo "510c0af01b4eaf6b8283aac857b093682e158f2a900da39db1dabdd3780e56d4  PracticalGuideToBayLum_Data/data/FER3/bin.BIN" | sha256sum -c -
+      - name: Actual Rust native raw-record physical membership verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p p1j_out
+          rustc --edition=2021 --test experiments/mqr-4.112/p1j_real_bin_witness.rs -o p1j_rust_tests
+          ./p1j_rust_tests
+          rustc --edition=2021 -Dwarnings experiments/mqr-4.112/p1j_real_bin_witness.rs -o p1j_rust
+          ./p1j_rust PracticalGuideToBayLum_Data/data | tee p1j_out/native_bin_identity.csv
+          grep -q 'FER1,PASS_PUBLIC_SUBSET,49,882,88200,592704' p1j_out/native_bin_identity.csv
+          grep -q 'FER3,PASS_PUBLIC_SUBSET,49,784,78400,526848' p1j_out/native_bin_identity.csv
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5.2"
+          use-public-rspm: true
+      - name: Install actual native JAGS engine
+        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends jags
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::BayLum
+            any::ArchaeoPhases
+            any::coda
+            any::runjags
+          dependencies: '"hard"'
+          cache: false
+      - name: Replay 2021 original-author implementation and reconstruct exact frozen JAGS arrays
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLSs --retry 3 https://raw.githubusercontent.com/crp2a/BayLum/2c267b63c2b7017cae1e141d0969eb0765ad2500/R/Generate_DataFile.R -o upstream_BayLum_Generate_DataFile_2021.R
+          curl -fLSs --retry 3 https://raw.githubusercontent.com/crp2a/BayLum/2c267b63c2b7017cae1e141d0969eb0765ad2500/R/AgeS_Computation.R -o upstream_BayLum_AgeS_Computation_2021.R
+          test "$(git hash-object upstream_BayLum_Generate_DataFile_2021.R)" = 5c9aeefda52b7be8a5ae28aaf0e3fef055e5bdf8
+          test "$(git hash-object upstream_BayLum_AgeS_Computation_2021.R)" = 8f269dc7d417aaf677b9ab7fba0ba42c71fd45f7
+          Rscript experiments/mqr-4.112/p1/2021_source_preprocessing_comparison.R > p1j_out/preprocess.log 2>&1 || { cat p1j_out/preprocess.log; exit 1; }
+          Rscript experiments/mqr-4.112/p1/same_model_wrapper_comparison.R > p1j_out/contract_rebuild.log 2>&1 || { cat p1j_out/contract_rebuild.log; exit 1; }
+      - name: Actual joint physical-key versus JAGS historical row bijection
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript experiments/mqr-4.112/p1j_real_physical_crosswalk.R 2>&1 | tee p1j_out/real_key_bridge.log
+          test -s p1j_out/public_key_to_jags_bridge.csv
+          test "$(wc -l < p1j_out/public_key_to_jags_bridge.csv)" -eq 99
+          grep -q 'MISSING_GRAIN_AGE_EFFECT=UNIDENTIFIED' p1j_out/binding_verdict.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqr-4112-p1j-native-public-grain-to-jags-bridge
+          path: p1j_out/
+          retention-days: 60
+          if-no-files-found: warn
