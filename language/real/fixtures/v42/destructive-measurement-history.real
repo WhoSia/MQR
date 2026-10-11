@@ -1,0 +1,12 @@
+# Two incompatible pre-intervention histories produce the same post-event signal.
+REALHISTORY 0.42-CANDIDATE
+id MQR4111_destruction
+basis FINITE_COUNTERMODEL
+target prior_material_state
+observe post_test_reading
+observe post_calibration
+probe preserved_prestate DESTROYED
+probe original_chain UNKNOWN
+world virgin post_test_reading=SAME post_calibration=PASS preserved_prestate=VIRGIN original_chain=ORIGINAL prior_material_state=VIRGIN
+world altered post_test_reading=SAME post_calibration=PASS preserved_prestate=PREHEATED original_chain=RECONSTRUCTED prior_material_state=ALTERED
+END
