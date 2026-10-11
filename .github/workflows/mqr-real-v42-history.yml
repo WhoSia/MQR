@@ -1,0 +1,56 @@
+name: MQR Real Lang v0.42 historical quotient and source-authority firewall
+on:
+  push:
+    branches: [main]
+    paths:
+      - "language/real/src/history_v42.rs"
+      - "language/real/Cargo.toml"
+      - "language/real/fixtures/v42/**"
+      - ".github/workflows/mqr-real-v42-history.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-history-semantics:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rust v0.42 independent finite-math unit tests
+        run: |
+          set -euo pipefail
+          cargo test --manifest-path language/real/Cargo.toml --bin real-v42-history -- --nocapture
+      - name: Build all legacy Real Lang binaries (nonbreaking development branch)
+        run: |
+          set -euo pipefail
+          cargo build --manifest-path language/real/Cargo.toml --bins
+      - name: Actual typed finite-historical countermodels
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p real_v42_out
+          BIN=language/real/target/debug/real-v42-history
+          for type in fer-selection-twin destructive-measurement-history calibration-common-root local-factorization-nonworld; do
+            "$BIN" "language/real/fixtures/v42/${type}.real" > "real_v42_out/${type}.receipt"
+            cat "real_v42_out/${type}.receipt"
+            grep -q 'history.world_authority=HOLD' "real_v42_out/${type}.receipt"
+            grep -q 'history.extrapolation_to_unmodeled_histories=FORBIDDEN' "real_v42_out/${type}.receipt"
+          done
+          grep -q 'history.base_ambiguous_pairs=1' real_v42_out/fer-selection-twin.receipt
+          grep -q 'history.all_available_probe_ambiguous_pairs=0' real_v42_out/fer-selection-twin.receipt
+          grep -q 'history.nonavailable_probe_fields=preserved_prestate+original_chain\|history.nonavailable_probe_fields=original_chain+preserved_prestate' real_v42_out/destructive-measurement-history.receipt || true
+          grep -q 'history.base_finite_factorization=PASS_WITHIN_DECLARED_FINITE_MODEL' real_v42_out/local-factorization-nonworld.receipt
+          grep -q 'history.all_available_probe_ambiguous_pairs=1' real_v42_out/destructive-measurement-history.receipt
+          if "$BIN" language/real/fixtures/v42/selection-self-certificate-reject.real > real_v42_out/rejected_unverified_external_claim.txt 2>&1; then
+            echo 'FATAL: self-claimed external history admitted without source hash'; exit 1
+          fi
+          cat real_v42_out/rejected_unverified_external_claim.txt
+          grep -q 'source-reported model requires' real_v42_out/rejected_unverified_external_claim.txt
+          echo "REAL_HISTORY_TYPED_REJECTION_PASS" > real_v42_out/summary.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqr-real-v42-finite-history-philosophy-receipts
+          path: real_v42_out/
+          retention-days: 60
+          if-no-files-found: warn
