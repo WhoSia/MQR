@@ -1,0 +1,12 @@
+# Agreement across descendants of one reference is not independent calibration.
+REALHISTORY 0.42-CANDIDATE
+id MQR4108_common_standard
+basis FINITE_COUNTERMODEL
+target absolute_offset
+observe instrument_a
+observe instrument_b
+probe independent_reference AVAILABLE
+probe lost_origin DESTROYED
+world miscalibrated instrument_a=MEAN instrument_b=MEAN independent_reference=OFF1 lost_origin=OLD_A absolute_offset=NONZERO
+world calibrated instrument_a=MEAN instrument_b=MEAN independent_reference=OFF0 lost_origin=OLD_B absolute_offset=ZERO
+END
