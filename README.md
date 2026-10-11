@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## Natural-philosophical Real-Language development (0.42-CANDIDATE, NOT PROMOTED)
+
+The active [Real-Language development surface](language/real/README.md) now has a separate Rust [historical observational-quotient checker](language/real/V42-HISTORICAL-WARRANT-CANDIDATE.md). The [native read-only CI #38133519768 SUCCESS](https://github.com/WhoSia/MQR/actions/runs/38133519768) tested 12 finite logical obligations, built all legacy Real-Language binaries and executed five model-history counterexamples (including joint grain-roster × analysis-revision necessity). [Natural-science philosophy/rival research](research/mqr_real_language_historical_warrant_natural_philosophy.md). **Finite semantic validity ≠ real-world historical truth, missing FER full raw cohort, or scientific discovery.** MQR-4.112 remains OPEN; neither new MQR version nor Real-Language promotion has occurred.
+
 ## MQR-4.112 — Source-indexed calibration transport / retrodictive identifiability (FORMALLY OPEN)
 
 **User approved new formal version 2026-10-10.** [Notion 4.112](https://app.notion.com/p/3f5ef561cf9281ee98e9ed6009932b82) · [P0 evidence court](research/mqr_4112_calibration_transport.md). Full title: **Source-Indexed Calibration Transport & the Boundary of Retrodictive Identifiability: Grain-Level Response Reconstruction, Independent Chronology Ancestry & Cross-Regime Rival Falsification**.
