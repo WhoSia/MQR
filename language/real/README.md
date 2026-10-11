@@ -1,5 +1,9 @@
 # Real-Language / Real-Packet v0.3–v0.31 development line
 
+## MQR-4.113 P2 research track — Rust/Lean exact path semantics, not v0.44 promotion
+
+[Read-only Rust CI #38140464011](https://github.com/WhoSia/MQR/actions/runs/38140464011) and [Lean CI #38140849240](https://github.com/WhoSia/MQR/actions/runs/38140849240) verify classical constructed finite channel composition, a noncommuting path and endpoint-equivalent distinct factorizations. This is a prospective **Rust/Lean-first implementation and proof direction**, documented in the [P2 scientific ledger](../../research/mqr_4113_p2_calibration_path_warrant.md), not a replacement for the executable `REALCHANNEL 0.44-CANDIDATE` Python P1 prototype. Haskell or Prolog may be selected for an independently motivated semantic, search or dependency-ancestry constraint, never as decorative duplication. Source-linked real calibration witnesses, all v0.44 promotion criteria and original FER whole-cohort evidence **remain HOLD**. Do not infer a physical calibration theorem from a finite rational channel example.
+
 ## v0.44-CANDIDATE — typed stochastic experiment channel (NOT PROMOTED)
 
 [MQR-4.113](../../research/mqr_4113_p0_constitution.md) is **formally OPEN** by explicit user approval, while historical full-FER source work [MQR-4.112](../../research/mqr_4112_p1j_grain_identity_full_admission_and_selection.md) remains **OPEN**. `REALCHANNEL 0.44-CANDIDATE` is an independent [Python experimental front end](real_channel_v44.py) over the mathematically exact 2×2 rational [Blackwell / directional Le Cam comparison engine](../../experiments/mqr-4.113/p1_exact_binary_experiments.py). The [typed example packets](fixtures/v44/) require explicit shared latent state, source/target quantity and operation labels, calibration-lineage declaration, full 2×2 probability kernels. They compute exact optimal stochastic garbling and directional total-variation deficiency, **not physical experiment data**.
