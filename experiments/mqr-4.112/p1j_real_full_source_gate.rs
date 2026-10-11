@@ -104,7 +104,7 @@ fn audit(public_dir:&Path,full_dir:&Path)->Result<Vec<String>,String>{
                       else{"2015_COUNT_DIFF_REQUIRES_MANUAL_REVIEW"};
         rows.push(format!("{sample},{},{},{},{},{},{},STRUCTURAL_ONLY_EXTERNAL_PROVENANCE_REVIEW_REQUIRED",
             pubkeys.len(),allkeys.len(),allkeys.len()-pubkeys.len(),origin.len(),
-            match2015,rec.license.replace(',',';')));
+            match2015,rec.license.replace(',',";")));
     }
     Ok(rows)
 }
