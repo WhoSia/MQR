@@ -1,0 +1,16 @@
+REALREPRESENT 0.43-CANDIDATE
+id dose_wrong_numeric
+basis FINITE_COUNTERMODEL
+target latent_state
+source original
+destination report
+quantity_source DOSE
+quantity_destination DOSE
+unit_source Gy
+unit_destination mGy
+operation_source SAME
+operation_destination SAME
+transform AFFINE 1000 1 0
+world a original=1 report=1000 latent_state=ONE
+world b original=2 report=2100 latent_state=TWO
+END
