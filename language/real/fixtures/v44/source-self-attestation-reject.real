@@ -1,0 +1,13 @@
+REALCHANNEL 0.44-CANDIDATE
+id invalid_unanchored_source
+basis SOURCE_REPORTED
+source_quantity DOSE
+target_quantity DOSE
+source_operation SOURCE_A
+target_operation SOURCE_B
+calibration_ancestry INDEPENDENT_UNVERIFIED
+source_0 3/4 1/4
+source_1 1/4 3/4
+target_0 3/4 1/4
+target_1 1/4 3/4
+END
