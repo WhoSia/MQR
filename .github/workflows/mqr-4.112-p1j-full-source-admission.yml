@@ -1,0 +1,68 @@
+name: MQR-4.112 P1-J real full source admission gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - "experiments/mqr-4.112/p1j_real_full_source_gate.rs"
+      - "experiments/mqr-4.112/p1j_future_full_vs_public.R"
+      - ".github/workflows/mqr-4.112-p1j-full-source-admission.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  strict-source-admission-with-genuine-public-negative-control:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Freeze authentic 2021 author data (negative control only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fLSs --retry 3 https://gchron.copernicus.org/articles/3/229/2021/gchron-3-229-2021-supplement.zip -o author2021.zip
+          echo "25d1129d2eea403dfd5f622dae74721420de223c03542d4e367ca2331bfb9228  author2021.zip" | sha256sum -c -
+          unzip -q author2021.zip
+      - name: Independently unit-test Rust prospective source admission
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p p1j_admission
+          rustc --edition=2021 --test experiments/mqr-4.112/p1j_real_full_source_gate.rs -o p1j_full_gate_tests
+          ./p1j_full_gate_tests | tee p1j_admission/rust_unit_tests.log
+          rustc --edition=2021 -Dwarnings experiments/mqr-4.112/p1j_real_full_source_gate.rs -o p1j_full_gate
+      - name: Negative control – authentic public 49-grain tutorial MUST NOT be admitted as full source
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd PracticalGuideToBayLum_Data/data
+          printf 'sample\tbin_sha256\tdiscpos_sha256\tsource_identifier\tlicense_status\n' > source_receipt.tsv
+          for s in FER1 FER3; do
+            b=$(sha256sum "$s/bin.BIN" | cut -d' ' -f1)
+            d=$(sha256sum "$s/DiscPos.csv" | cut -d' ' -f1)
+            printf '%s\t%s\t%s\t%s\t%s\n' "$s" "$b" "$d" "PUBLIC_2021_TUTORIAL_NOT_FULL" "CC_BY_4_AUTHOR_PUBLIC" >> source_receipt.tsv
+          done
+          cd ../..
+          if ./p1j_full_gate PracticalGuideToBayLum_Data/data PracticalGuideToBayLum_Data/data > p1j_admission/public_as_full.log 2>&1; then
+            cat p1j_admission/public_as_full.log
+            echo "UNSAFE: public tutorial falsely admitted as full sample"; exit 1
+          fi
+          cat p1j_admission/public_as_full.log
+          grep -q 'not a full cohort' p1j_admission/public_as_full.log
+          echo "PASS_REJECTED_ACTUAL_PUBLIC_TUTORIAL_AS_FULL"
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.5.2"
+          use-public-rspm: true
+      - name: Check future full versus public Bayesian inference source syntax without fabricating full data
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript -e 'parse(file="experiments/mqr-4.112/p1j_future_full_vs_public.R"); cat("P1J_FUTURE_JAGS_RUNNER_SYNTAX_PASS_NOT_EXECUTED_NO_FULL_DATA\n")' > p1j_admission/r_syntax.log
+          cat p1j_admission/r_syntax.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqr-4112-p1j-full-source-negative-admission
+          path: p1j_admission/
+          retention-days: 45
+          if-no-files-found: warn
