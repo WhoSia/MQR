@@ -146,3 +146,7 @@ path = "src/upgrade_v33.rs"
 [[bin]]
 name = "real-v41-reference"
 path = "src/reference_v41.rs"
+
+[[bin]]
+name = "real-v42-history"
+path = "src/history_v42.rs"
