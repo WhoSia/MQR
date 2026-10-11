@@ -1,0 +1,41 @@
+name: "MQR 4.113 P2 exact Rust calibration paths"
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.113/p2_calibration_path_exact.rs'
+      - '.github/workflows/mqr-4113-p2-rust-calibration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-calibration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Native Rust toolchain and exact regression tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --version
+          rustc --edition=2021 --test experiments/mqr-4.113/p2_calibration_path_exact.rs -o "$RUNNER_TEMP/mqr_p2_tests"
+          "$RUNNER_TEMP/mqr_p2_tests" --nocapture
+      - name: Constructed-path execution and epistemic boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 experiments/mqr-4.113/p2_calibration_path_exact.rs -o "$RUNNER_TEMP/mqr_p2"
+          "$RUNNER_TEMP/mqr_p2" | tee "$RUNNER_TEMP/mqr_p2_receipt.txt"
+          grep -Fx 'worst_state_TV=8/64' "$RUNNER_TEMP/mqr_p2_receipt.txt"
+          grep -Fx 'physical_calibration_ancestry=HOLD' "$RUNNER_TEMP/mqr_p2_receipt.txt"
+          grep -Fx 'empirical_measurand_equivalence=HOLD' "$RUNNER_TEMP/mqr_p2_receipt.txt"
+          grep -Fx 'real_language_v044_promotion=UNPROMOTED' "$RUNNER_TEMP/mqr_p2_receipt.txt"
+      - name: Preserve exact bounded computation receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4113-p2-finite-rust-receipt
+          path: ${{ runner.temp }}/mqr_p2_receipt.txt
+          retention-days: 30
