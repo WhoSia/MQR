@@ -1,0 +1,23 @@
+name: MQR 4.113 P2 Lean calibration proof
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.113/lean/**'
+      - '.github/workflows/mqr-4113-p2-lean-calibration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-source-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Build standalone Lean exact calibration witness
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: experiments/mqr-4.113/lean
+          build: true
