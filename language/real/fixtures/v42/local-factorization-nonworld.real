@@ -1,0 +1,11 @@
+# Finite factorization is not evidence of complete world hypothesis enumeration.
+REALHISTORY 0.42-CANDIDATE
+id MQR43_local_quotient
+basis FINITE_COUNTERMODEL
+target model_value
+observe reported_signal
+probe supplemental_measurement UNKNOWN
+world a reported_signal=UP model_value=POS supplemental_measurement=A
+world b reported_signal=DOWN model_value=NEG supplemental_measurement=B
+world c reported_signal=UP model_value=POS supplemental_measurement=C
+END
