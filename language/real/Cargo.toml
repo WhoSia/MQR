@@ -150,3 +150,11 @@ path = "src/reference_v41.rs"
 [[bin]]
 name = "real-v42-history"
 path = "src/history_v42.rs"
+
+[[bin]]
+name = "real-v43-represent"
+path = "src/represent_v43.rs"
+
+[[bin]]
+name = "real-v43-crosswalk"
+path = "src/crosswalk_v43.rs"
