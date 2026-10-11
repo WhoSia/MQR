@@ -1,0 +1,6 @@
+name = "mqr4113_calibration_paths"
+version = "0.1.0"
+defaultTargets = ["MQR4113CalibrationPaths"]
+
+[[lean_lib]]
+name = "MQR4113CalibrationPaths"
