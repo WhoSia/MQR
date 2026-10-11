@@ -101,7 +101,7 @@ for(r in seq_len(2L)){
    name<-sprintf("A[%d]",i)
    x<-values[,name]
    h<-coda::HPDinterval(coda::mcmc(x),prob=.95)
-   results[[length(results)+1L]]<-data.frame(repeat=r,cohort=cohort,
+   results[[length(results)+1L]]<-data.frame(replicate_id=r,cohort=cohort,
      sample=c("FER1","FER3")[i],n_grains=d$J[i],
      mean_ka=mean(x),hpd_low_ka=h[1,1],hpd_high_ka=h[1,2],
      ess=unname(ess[name]),psrf_upper=unname(g[name,"Upper C.I."]),
@@ -115,10 +115,10 @@ out$diagnostic<-ifelse(out$adapted & out$ess>=400 &
 write.csv(out,"p1j_full_out/independent_cohort_posteriors.csv",row.names=FALSE)
 deltas<-list()
 for(r in 1:2)for(sample in c("FER1","FER3")){
-  p<-out[out$repeat==r & out$cohort=="public49" & out$sample==sample,,drop=FALSE]
-  f<-out[out$repeat==r & out$cohort=="original_full" & out$sample==sample,,drop=FALSE]
+  p<-out[out$replicate_id==r & out$cohort=="public49" & out$sample==sample,,drop=FALSE]
+  f<-out[out$replicate_id==r & out$cohort=="original_full" & out$sample==sample,,drop=FALSE]
   stopifnot(nrow(p)==1L,nrow(f)==1L)
-  deltas[[length(deltas)+1L]]<-data.frame(repeat=r,sample=sample,
+  deltas[[length(deltas)+1L]]<-data.frame(replicate_id=r,sample=sample,
     full_minus_public_mean_ka=f$mean_ka-p$mean_ka,
     independent_mcse_ka=sqrt(p$mcse_ka^2+f$mcse_ka^2),
     diagnostic=if(p$diagnostic=="PASS"&f$diagnostic=="PASS")
