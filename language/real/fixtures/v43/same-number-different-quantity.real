@@ -1,0 +1,16 @@
+REALREPRESENT 0.43-CANDIDATE
+id numeric_alias_is_not_quantity_identity
+basis FINITE_COUNTERMODEL
+target physical_state
+source channel_A
+destination channel_B
+quantity_source DOSE
+quantity_destination TIME
+unit_source Gy
+unit_destination Gy
+operation_source SAME
+operation_destination SAME
+transform AFFINE 1 1 0
+world a channel_A=1 channel_B=1 physical_state=ONE
+world b channel_A=2 channel_B=2 physical_state=TWO
+END
