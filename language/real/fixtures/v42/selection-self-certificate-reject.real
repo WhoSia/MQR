@@ -1,0 +1,10 @@
+# Must fail: self-asserted SOURCE_REPORTED without any source evidence digest.
+REALHISTORY 0.42-CANDIDATE
+id must_reject
+basis SOURCE_REPORTED
+target whole_cohort
+observe tutorial_digest
+probe lost_roster DESTROYED
+world a tutorial_digest=A lost_roster=UNKNOWN whole_cohort=P
+world b tutorial_digest=A lost_roster=UNKNOWN whole_cohort=Q
+END
