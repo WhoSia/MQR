@@ -1,0 +1,16 @@
+REALREPRESENT 0.43-CANDIDATE
+id same_reading_different_operation
+basis FINITE_COUNTERMODEL
+target physical_age
+source first_method
+destination next_method
+quantity_source TIME
+quantity_destination TIME
+unit_source s
+unit_destination s
+operation_source PRIMARY_CLOCK
+operation_destination RETROSPECTIVE_MODEL
+transform AFFINE 1 1 0
+world a first_method=1 next_method=1 physical_age=A
+world b first_method=2 next_method=2 physical_age=B
+END
