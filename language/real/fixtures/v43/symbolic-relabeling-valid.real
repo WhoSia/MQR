@@ -1,0 +1,18 @@
+REALREPRESENT 0.43-CANDIDATE
+id change_of_code
+basis FINITE_COUNTERMODEL
+target physical_mechanism
+source label_A
+destination label_B
+quantity_source HISTORY_TAG
+quantity_destination HISTORY_TAG
+unit_source SYMBOL
+unit_destination SYMBOL
+operation_source SAME
+operation_destination SAME
+transform TABLE
+map PRE_OLD A1
+map POST_OLD B2
+world a label_A=PRE_OLD label_B=A1 physical_mechanism=PRE
+world b label_A=POST_OLD label_B=B2 physical_mechanism=POST
+END
