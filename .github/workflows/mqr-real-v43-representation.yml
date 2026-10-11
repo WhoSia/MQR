@@ -6,6 +6,7 @@ on:
       - "language/real/src/represent_v43.rs"
       - "language/real/src/crosswalk_v43.rs"
       - "language/real/fixtures/v43/**"
+      - "language/real/independent_v43_finite.py"
       - "language/real/Cargo.toml"
       - ".github/workflows/mqr-real-v43-representation.yml"
   workflow_dispatch:
@@ -24,6 +25,12 @@ jobs:
           set -euo pipefail
           mkdir -p real_v43_out
           cargo test --manifest-path language/real/Cargo.toml --bin real-v43-represent --bin real-v43-crosswalk -- --nocapture | tee real_v43_out/native_unit_tests.log
+      - name: Independent 19,683-case deterministic informational-order exhaustion
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 language/real/independent_v43_finite.py | tee real_v43_out/independent_finite_19683.txt
+          grep -q 'FINITE_SCIENTIFIC_INFORMATION_ORDER_EXHAUSTIVE_19683_PASS' real_v43_out/independent_finite_19683.txt
       - name: Build every legacy Real-Language executable without promotion
         shell: bash
         run: |
