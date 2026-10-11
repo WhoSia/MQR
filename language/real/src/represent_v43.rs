@@ -132,8 +132,8 @@ fn parse(input:&str)->Result<Court,String>{
   transformation,histories:worlds,
  })
 }
-fn declared_type_valid(c:&Court)->bool{
- if c.source_quantity!=c.destination_quantity{return false;}
+fn valid_unit(q:&str,u:&str)->bool{\n match u {\n  "Gy"|"mGy"=>q=="DOSE",\n  "s"|"ms"=>q=="TIME",\n  "m"|"cm"|"mm"=>q=="LENGTH",\n  "COUNT"=>q=="COUNT",\n  "SYMBOL"=>true,\n  _=>false,\n }\n}\nfn declared_type_valid(c:&Court)->bool{
+ if c.source_quantity!=c.destination_quantity ||\n    !valid_unit(&c.source_quantity,&c.source_unit)||\n    !valid_unit(&c.destination_quantity,&c.destination_unit){return false;}
  match &c.transformation{
   Transform::Table(_)=>c.source_unit=="SYMBOL"&&c.destination_unit=="SYMBOL",
   Transform::FloorDiv(_)=>c.source_unit==c.destination_unit,
@@ -153,7 +153,7 @@ fn declared_type_valid(c:&Court)->bool{
     if c.source_unit==c.destination_unit {
        *n==1 && *d==1 && *b==0
     }else {
-       expected.is_some_and(|(x,y,z)|*n*y==x**d&&*b==z)
+       expected.is_some_and(|(x,y,z): (i128,i128,i128)|n.checked_mul(y)==x.checked_mul(*d).filter(|_|*b==z))
     }
   }
  }
