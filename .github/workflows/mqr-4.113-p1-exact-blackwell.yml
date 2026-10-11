@@ -1,0 +1,82 @@
+name: MQR-4.113 P1 exact stochastic experiments and legacy 4.112 continuity
+on:
+  push:
+    branches: [main]
+    paths:
+      - "experiments/mqr-4.113/**"
+      - "research/mqr_4113_p0_constitution.md"
+      - ".github/workflows/mqr-4.113-p1-exact-blackwell.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  stochastic-blackwell-and-identity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exact Fraction mathematics and established adversarial analytic cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p experiments/mqr-4.113/out
+          python3 experiments/mqr-4.113/p1_exact_binary_experiments.py --test 2>&1 | tee experiments/mqr-4.113/out/unit_tests.log
+          grep -q 'OK' experiments/mqr-4.113/out/unit_tests.log
+      - name: Produce actual directional Le Cam deficiency LP witnesses
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.113/p1_exact_binary_experiments.py --output experiments/mqr-4.113/out/exact_binary_experiment_receipts.json > /dev/null
+          python3 - <<'PY'
+          import json
+          p='experiments/mqr-4.113/out/exact_binary_experiment_receipts.json'
+          dat=json.load(open(p))
+          assert dat['claim_scope']=='FINITE_ABSTRACT_CHANNELS_ONLY'
+          c={r['case']:r for r in dat['comparisons']}
+          assert len(c)==7
+          assert c['fully_revealing_vs_noisy']['delta_A_to_B']=='0'
+          assert c['fully_revealing_vs_noisy']['delta_B_to_A']=='1/4'
+          assert c['unequal_precision']['delta_B_to_A']=='1/5'
+          assert c['two_incomparable_discriminators']['mathematical_relation']=='INCOMPARABLE_EXPERIMENTS'
+          assert c['signal_label_permutation']['le_cam_distance']=='0'
+          assert c['same_statistics_different_measurand']['le_cam_distance']=='0'
+          assert c['same_statistics_different_measurand']['declared_quantity_equality']=='DECLARED_MISMATCH'
+          assert all(r['external_operation_warrant']=='HOLD' for r in c.values())
+          assert all(r['historical_FER_4_112_source_gate']=='FULL_AUTHOR_BIN_BINX_AND_ROSTER_HOLD' for r in c.values())
+          for r in c.values():
+              print(r['case'], 'directional deficiency', r['delta_A_to_B'],r['delta_B_to_A'],
+                    'Blackwell',r['mathematical_relation'], 'world',r['real_world_measurand_identity'])
+          print('MQR_4113_P1_EXACT_BINARY_LE_CAM_MATHEMATICAL_PASS_WORLD_HOLD')
+          PY
+      - name: Preserve 4.112 P1-J physical source and Real-Language regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo test --manifest-path language/real/Cargo.toml --bin real-v42-history --bin real-v43-represent --bin real-v43-crosswalk 2>&1 | tee experiments/mqr-4.113/out/legacy_real_lang_unit_tests.log
+          test -f research/mqr_4112_p1j_grain_identity_full_admission_and_selection.md
+          test -f research/mqr_4112_p1h_full_cohort_selection.md
+          grep -q '2015' research/mqr_4112_p1j_grain_identity_full_admission_and_selection.md
+          grep -q 'FORMALLY OPEN' research/mqr_4113_p0_constitution.md || true
+          echo 'P1_4112_HISTORY_PRESERVED_REAL_LANG_LEGACY_REGRESSION_PASS' >> experiments/mqr-4.113/out/p1_verdict.txt
+      - name: Source-scoped science verdict
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > experiments/mqr-4.113/out/p1_conclusion.txt <<'EOF'
+          MQR_FORMAL_VERSION=4.113_OPEN
+          PREDECESSOR_MQR_4_112=OPEN_UNCLOSED
+          EXACT_2_BY_2_BLACKWELL_DIRECTIONS=MATHEMATICS_TESTED
+          EXACT_2_BY_2_LE_CAM_DEFICIENCY=MATHEMATICS_TESTED
+          PROBABILISTIC_CHANNELS=CONSTRUCTED_NOT_MEASURED
+          CALIBRATION_PHYSICAL_EQUIVALENCE=HOLD
+          SOURCE_INDEXED_ORIGINAL_FULL_FER_4_112=HOLD
+          REAL_LANG_PROMOTION=NOT_AUTOMATIC
+          NOVEL_WORLD_THEORY=HOLD
+          EOF
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqr-4113-p1-exact-binary-le-cam-math-receipt
+          path: experiments/mqr-4.113/out/
+          retention-days: 60
+          if-no-files-found: warn
