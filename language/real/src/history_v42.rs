@@ -131,7 +131,7 @@ fn assess(c:&Court)->Verdict{
     let all_available=ambiguous(c,&combined);
     let missing=c.probes.iter().filter(|(_,s)|**s!=ProbeStatus::Available)
         .map(|(k,_)|k.clone()).collect();
-    let mut minimal_sets=Vec::new();
+    let mut minimal_sets:Vec<Vec<String>>=Vec::new();
     for mask in 0..(1usize<<available.len()){
         let mut keys=c.visible.clone();let mut set=Vec::new();
         for (i,k) in available.iter().enumerate(){
