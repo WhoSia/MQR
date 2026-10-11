@@ -19,8 +19,8 @@ struct Court {
     source_operation:String,destination_operation:String,
     transformation:Transform,histories:Vec<History>,
 }
-fn atom(s:&str)->bool{!s.is_empty()&&s.len()<=90&&s.bytes().all(|c|
-    c.is_ascii_alphanumeric()||c==b'_'||c==b'-'||c==b'.')}
+fn atom(s:&str)->bool{!s.is_empty()&&s.chars().count()<=90&&s.chars().all(|c|
+    c.is_alphanumeric()||c=='_'||c=='-'||c=='.')}
 fn one(map:&mut BTreeMap<String,String>,key:&str,v:&str)->Result<(),String>{
     if !atom(v){return Err(format!("invalid {key}"));}
     if map.insert(key.into(),v.into()).is_some(){return Err(format!("duplicate {key}"));}
