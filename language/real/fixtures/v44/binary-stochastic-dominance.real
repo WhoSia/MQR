@@ -1,0 +1,14 @@
+# Synthetic binary stochastic channels; no claim of physical instrument properties.
+REALCHANNEL 0.44-CANDIDATE
+id binary_dominance
+basis FINITE_SYNTHETIC
+source_quantity ABSTRACT_STATE
+target_quantity ABSTRACT_STATE
+source_operation CONSTRUCTED_HIGH_RES
+target_operation CONSTRUCTED_LOW_RES
+calibration_ancestry NO_REAL_CALIBRATION
+source_0 4/5 1/5
+source_1 1/5 4/5
+target_0 3/5 2/5
+target_1 2/5 3/5
+END
