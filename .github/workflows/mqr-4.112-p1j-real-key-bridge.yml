@@ -67,10 +67,20 @@ jobs:
           test -s p1j_out/public_key_to_jags_bridge.csv
           test "$(wc -l < p1j_out/public_key_to_jags_bridge.csv)" -eq 99
           grep -q 'MISSING_GRAIN_AGE_EFFECT=UNIDENTIFIED' p1j_out/binding_verdict.txt
+      - name: Real observed physical-grain informative selection and direct JAGS rival test
+        shell: bash
+        run: |
+          set -euo pipefail
+          Rscript experiments/mqr-4.112/p1j_real_signal_tail_selection.R 2>&1 | tee p1j_out/signal_tail_runtime.log
+          test -s p1j_signal_out/real_signal_tail_jags.csv
+          test -s p1j_signal_out/selection_shift_from_full49.csv
+          grep -q 'NO_DIRECT_ESTIMATE_OF_UNOBSERVED_47_GRAINS' p1j_signal_out/interpretation_scope.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: mqr-4112-p1j-native-public-grain-to-jags-bridge
-          path: p1j_out/
+          path: |
+            p1j_out/
+            p1j_signal_out/
           retention-days: 60
           if-no-files-found: warn
