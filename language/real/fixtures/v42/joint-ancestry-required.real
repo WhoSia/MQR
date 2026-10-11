@@ -1,0 +1,17 @@
+# Adversarial repair: a full roster alone does NOT identify a mechanism.
+# To identify the target inside this deliberately finite model requires
+# the proposed roster AND an independently versioned analysis trace.
+# Actual FER provenance not acquired; illustrative logical worlds only.
+REALHISTORY 0.42-CANDIDATE
+id MQR4112_joint_ancestry_discriminator
+basis FINITE_COUNTERMODEL
+target claimed_mechanism
+observe tutorial_digest
+observe printed_interval
+probe original_roster AVAILABLE
+probe analysis_revision AVAILABLE
+probe measured_d0 UNKNOWN
+world h_selection tutorial_digest=PUB printed_interval=REPORTED original_roster=R1 analysis_revision=V1 measured_d0=UNSEEN claimed_mechanism=SELECTION
+world h_version tutorial_digest=PUB printed_interval=REPORTED original_roster=R1 analysis_revision=V2 measured_d0=UNSEEN claimed_mechanism=WRAPPER
+world h_quality tutorial_digest=PUB printed_interval=REPORTED original_roster=R2 analysis_revision=V1 measured_d0=UNSEEN claimed_mechanism=QUALITY
+END
