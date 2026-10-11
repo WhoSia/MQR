@@ -1,0 +1,17 @@
+REALREPRESENT 0.43-CANDIDATE
+id lossy_but_target_factors
+basis FINITE_COUNTERMODEL
+target broad_class
+source exact_count
+destination rounded_count
+quantity_source COUNT
+quantity_destination COUNT
+unit_source COUNT
+unit_destination COUNT
+operation_source SAME
+operation_destination SAME
+transform FLOOR_DIV 10
+world a exact_count=10 rounded_count=1 broad_class=LOW
+world b exact_count=11 rounded_count=1 broad_class=LOW
+world c exact_count=20 rounded_count=2 broad_class=HIGH
+END
