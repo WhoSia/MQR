@@ -1,5 +1,11 @@
 # Real-Language / Real-Packet v0.3–v0.31 development line
 
+## v0.42-CANDIDATE — historical observational quotients & warrant (NOT PROMOTED)
+
+MQR-4.107–4.112 history-sensitive natural philosophy is developed as **a separate Rust CLI**: [`REALHISTORY 0.42-CANDIDATE`](V42-HISTORICAL-WARRANT-CANDIDATE.md), [`src/history_v42.rs`](src/history_v42.rs), [five executable finite countermodels](fixtures/v42/). It checks whether a target historical property factors through a **declared finite model's observable projection**, emits explicit twin histories if not, and computes minimal **declared AVAILABLE** additional probe sets while ignoring DESTROYED/UNKNOWN ones. This does **not** attest the correctness/completeness of the finite histories, physical measurement semantics, historical source authority, or external calibration. Source hash and code build do not certify world truth; `world_authority=HOLD` always.
+
+[GitHub read-only CI #38133519768 SUCCESS](https://github.com/WhoSia/MQR/actions/runs/38133519768): 12 Rust tests; build **all legacy Real binaries**; five observational history fixtures (including a **two-field joint original-roster plus analysis-revision discriminator**) and invalid-source rejection. Original `REALPACKET 0.2/0.3`, promoted `REALACQUIRE 0.29`, and unpromoted `REALREFERENCE 0.41` are unmodified. [Natural-philosophy research and primary-source competitors](../../research/mqr_real_language_historical_warrant_natural_philosophy.md). This is developer and finite-model PASS, **not language promotion or a new scientific law**.
+
 Real-Language is MQR's active event-to-realist-authority language.
 
 It compiles a scientific, methodological, or engineering event into a scoped authority packet while preserving open-world residue and successor vulnerability.
