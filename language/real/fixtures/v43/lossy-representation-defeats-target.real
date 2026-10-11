@@ -1,0 +1,17 @@
+REALREPRESENT 0.43-CANDIDATE
+id lossy_defeats_inference
+basis FINITE_COUNTERMODEL
+target original_history
+source exact_count
+destination rounded_count
+quantity_source COUNT
+quantity_destination COUNT
+unit_source COUNT
+unit_destination COUNT
+operation_source ORIGINAL_MEASUREMENT
+operation_destination ORIGINAL_MEASUREMENT
+transform FLOOR_DIV 10
+world a exact_count=10 rounded_count=1 original_history=A
+world b exact_count=11 rounded_count=1 original_history=B
+world c exact_count=20 rounded_count=2 original_history=C
+END
