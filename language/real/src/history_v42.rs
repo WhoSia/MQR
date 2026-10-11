@@ -188,5 +188,17 @@ mod tests {
     #[test]fn synthetic_must_not_use_empirical_sha(){let s=TWO.replace("basis FINITE_COUNTERMODEL","basis FINITE_COUNTERMODEL\nsource_sha256 0000000000000000000000000000000000000000000000000000000000000000");assert!(parse(&s).is_err());}
     #[test]fn reject_bad_duplicate_and_trailing(){assert!(parse(&TWO.replace("id selection","id selection\nid duplicate")).is_err());assert!(parse(&(TWO.to_string()+"world illegal x=y\n")).is_err());}
     #[test]fn reject_target_laundering_as_observable(){assert!(parse(&TWO.replace("observe tutorial","observe tutorial\nobserve published_full")).is_err());}
+    #[test]fn joint_history_probes_required_not_single_source(){
+        let s="REALHISTORY 0.42-CANDIDATE\nid three\nbasis FINITE_COUNTERMODEL\ntarget cause\nobserve published\nprobe roster AVAILABLE\nprobe revision AVAILABLE\nworld a published=X roster=R1 revision=V1 cause=A\nworld b published=X roster=R1 revision=V2 cause=B\nworld c published=X roster=R2 revision=V1 cause=C\nEND\n";
+        let c=parse(s).unwrap();
+        let v=assess(&c);
+        assert_eq!(v.base.len(),3);
+        assert_eq!(v.all_available.len(),0);
+        assert_eq!(v.minimal_sets,vec![vec!["revision".to_string(),"roster".to_string()]]);
+        let roster_only=vec!["published".to_string(),"roster".to_string()];
+        let revision_only=vec!["published".to_string(),"revision".to_string()];
+        assert!(!ambiguous(&c,&roster_only).is_empty());
+        assert!(!ambiguous(&c,&revision_only).is_empty());
+    }
     #[test]fn refusal_to_infer_world_completeness(){let c=parse(TWO).unwrap();assert!(render(&c).contains("extrapolation_to_unmodeled_histories=FORBIDDEN"));}
 }
