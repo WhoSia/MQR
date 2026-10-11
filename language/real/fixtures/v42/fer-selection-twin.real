@@ -1,0 +1,12 @@
+# Entirely synthetic alternatives; NOT missing FER grain measurements.
+REALHISTORY 0.42-CANDIDATE
+id MQR4112_fer_cohort_twin
+basis FINITE_COUNTERMODEL
+target publication_age_mechanism
+observe tutorial_digest
+observe published_interval
+probe full_roster AVAILABLE
+probe unrecorded_filter UNKNOWN
+world selection_path tutorial_digest=SAME49 published_interval=SAME_CI full_roster=R_PATH_A unrecorded_filter=U_A publication_age_mechanism=GRAIN_SELECTION
+world model_path tutorial_digest=SAME49 published_interval=SAME_CI full_roster=R_PATH_B unrecorded_filter=U_B publication_age_mechanism=MODEL_VERSION
+END
