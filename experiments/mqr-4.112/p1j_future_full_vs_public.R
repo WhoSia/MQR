@@ -115,8 +115,9 @@ out$diagnostic<-ifelse(out$adapted & out$ess>=400 &
 write.csv(out,"p1j_full_out/independent_cohort_posteriors.csv",row.names=FALSE)
 deltas<-list()
 for(r in 1:2)for(sample in c("FER1","FER3")){
-  p<-subset(out,repeat==r&cohort=="public49"&out$sample==sample)
-  f<-subset(out,repeat==r&cohort=="original_full"&out$sample==sample)
+  p<-out[out$repeat==r & out$cohort=="public49" & out$sample==sample,,drop=FALSE]
+  f<-out[out$repeat==r & out$cohort=="original_full" & out$sample==sample,,drop=FALSE]
+  stopifnot(nrow(p)==1L,nrow(f)==1L)
   deltas[[length(deltas)+1L]]<-data.frame(repeat=r,sample=sample,
     full_minus_public_mean_ka=f$mean_ka-p$mean_ka,
     independent_mcse_ka=sqrt(p$mcse_ka^2+f$mcse_ka^2),
