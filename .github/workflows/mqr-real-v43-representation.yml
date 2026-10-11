@@ -1,0 +1,101 @@
+name: MQR Real Lang 0.43 typed representations and real FER crosswalk
+on:
+  push:
+    branches: [main]
+    paths:
+      - "language/real/src/represent_v43.rs"
+      - "language/real/src/crosswalk_v43.rs"
+      - "language/real/fixtures/v43/**"
+      - "language/real/Cargo.toml"
+      - ".github/workflows/mqr-real-v43-representation.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  source-and-representation-invariance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Native Rust 0.43 logical invariance and source crosswalk unit tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p real_v43_out
+          cargo test --manifest-path language/real/Cargo.toml --bin real-v43-represent --bin real-v43-crosswalk -- --nocapture | tee real_v43_out/native_unit_tests.log
+      - name: Build every legacy Real-Language executable without promotion
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo build --manifest-path language/real/Cargo.toml --bins
+      - name: Direct execution of seven distinct typed physical/philosophical rival models
+        shell: bash
+        run: |
+          set -euo pipefail
+          BIN=language/real/target/debug/real-v43-represent
+          for f in dose-units-valid dose-unit-noncommutation same-number-different-quantity lossy-representation-defeats-target lossy-representation-preserves-local-target same-numbers-different-operations symbolic-relabeling-valid; do
+            "$BIN" "language/real/fixtures/v43/${f}.real" > "real_v43_out/${f}.receipt"
+            grep -q 'representation.world_authority=HOLD' "real_v43_out/${f}.receipt"
+            grep -q 'representation.real_language_promotion=UNPROMOTED_CANDIDATE' "real_v43_out/${f}.receipt"
+          done
+          grep -q 'conditional_transport=PASS_CONDITIONAL_FINITE_MODEL' real_v43_out/dose-units-valid.receipt
+          grep -q 'conditional_transport=FAIL_NONCOMMUTING_TRANSFORM' real_v43_out/dose-unit-noncommutation.receipt
+          grep -q 'conditional_transport=FAIL_QUANTITY_OR_UNIT' real_v43_out/same-number-different-quantity.receipt
+          grep -q 'conditional_transport=FAIL_TARGET_WARRANT_LOST' real_v43_out/lossy-representation-defeats-target.receipt
+          grep -q 'observation_partition=DESTINATION_COARSER' real_v43_out/lossy-representation-preserves-local-target.receipt
+          grep -q 'conditional_transport=PASS_CONDITIONAL_FINITE_MODEL' real_v43_out/lossy-representation-preserves-local-target.receipt
+          grep -q 'conditional_transport=HOLD_DIFFERENT_OPERATION' real_v43_out/same-numbers-different-operations.receipt
+          grep -q 'observation_partition=EQUIVALENT' real_v43_out/symbolic-relabeling-valid.receipt
+          echo 'PASS_SEVEN_FINITE_REPRESENTATIONAL_COUNTERMODELS' | tee real_v43_out/finite_summary.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: mqr-4112-p1j-native-public-grain-to-jags-bridge
+          run-id: 38132359197
+          github-token: ${{ github.token }}
+          path: real_v43_p1j_original
+      - name: SHA-pin original FER source-key bridge from P1-J native witness
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo '883b538f9ee5e457f41d89d291a7a6b92c2db70cae762447e23cf70a390128a4  real_v43_p1j_original/p1j_out/public_key_to_jags_bridge.csv' | sha256sum -c -
+          cp real_v43_p1j_original/p1j_out/binding_verdict.txt real_v43_out/upstream_source_authority_scope.txt
+          grep -q 'MISSING_GRAIN_AGE_EFFECT=UNIDENTIFIED' real_v43_out/upstream_source_authority_scope.txt
+      - name: Actual physically keyed original-vs-modern BayLum representation invariance
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILE=real_v43_p1j_original/p1j_out/public_key_to_jags_bridge.csv
+          language/real/target/debug/real-v43-crosswalk "$FILE" | tee real_v43_out/actual_98_grain_crosswalk.receipt
+          grep -q 'representation.physical_grain_key_bijection=PASS_FINITE_98' real_v43_out/actual_98_grain_crosswalk.receipt
+          grep -q 'representation.FER1_row_displacement=21' real_v43_out/actual_98_grain_crosswalk.receipt
+          grep -q 'representation.FER3_row_displacement=49' real_v43_out/actual_98_grain_crosswalk.receipt
+          grep -q 'representation.FULL_AUTHOR_COHORT=HOLD' real_v43_out/actual_98_grain_crosswalk.receipt
+      - name: Independent Python keyed bijection audit on the exact same original data
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' | tee real_v43_out/independent_python_witness.txt
+          import csv
+          path='real_v43_p1j_original/p1j_out/public_key_to_jags_bridge.csv'
+          with open(path,encoding='utf-8',newline='') as f: rows=list(csv.DictReader(f))
+          assert len(rows)==98
+          for sample,offset,expected in [('FER1',0,21),('FER3',49,49)]:
+              sub=[r for r in rows if r['sample']==sample]
+              assert len(sub)==49
+              assert len({(int(r['position']),int(r['grain'])) for r in sub})==49
+              assert sorted(int(r['csv_row']) for r in sub)==list(range(1,50))
+              assert sorted(int(r['modern_matched_row']) for r in sub)==list(range(1,50))
+              assert all(int(r['jags_global_row'])==int(r['csv_row'])+offset for r in sub)
+              count=sum(int(r['modern_matched_row'])!=int(r['csv_row']) for r in sub)
+              assert count==expected
+              print(f'{sample}: original 49 physical keys, differing modern positions {count}, independently verified')
+          print('INDEPENDENT_98_PUBLIC_PHYSICAL_KEYS_PERMUTATION_PASS_NOT_WORLD_PROOF')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mqr-real-v43-representation-real-grain-receipts
+          path: real_v43_out/
+          retention-days: 60
+          if-no-files-found: warn
