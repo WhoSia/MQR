@@ -153,7 +153,7 @@ fn valid_unit(q:&str,u:&str)->bool{\n match u {\n  "Gy"|"mGy"=>q=="DOSE",\n  "s"
     if c.source_unit==c.destination_unit {
        *n==1 && *d==1 && *b==0
     }else {
-       expected.is_some_and(|(x,y,z): (i128,i128,i128)|n.checked_mul(y)==x.checked_mul(*d).filter(|_|*b==z))
+       expected.is_some_and(|(x,y,z): (i128,i128,i128)|{\n          let lhs=n.checked_mul(y);let rhs=x.checked_mul(*d);\n          lhs.is_some()&&lhs==rhs&&*b==z\n       })
     }
   }
  }
