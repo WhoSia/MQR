@@ -1,0 +1,17 @@
+REALREPRESENT 0.43-CANDIDATE
+id calibrated_dose_units
+basis FINITE_COUNTERMODEL
+target latent_dose_state
+source instrument_Gy
+destination published_mGy
+quantity_source DOSE
+quantity_destination DOSE
+unit_source Gy
+unit_destination mGy
+operation_source SAME_MEASUREMENT
+operation_destination SAME_MEASUREMENT
+transform AFFINE 1000 1 0
+world a instrument_Gy=1 published_mGy=1000 latent_dose_state=LOW
+world b instrument_Gy=2 published_mGy=2000 latent_dose_state=HIGH
+world c instrument_Gy=3 published_mGy=3000 latent_dose_state=HIGH
+END
