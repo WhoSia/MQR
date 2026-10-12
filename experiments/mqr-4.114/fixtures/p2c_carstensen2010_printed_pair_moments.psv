@@ -5,6 +5,6 @@
 # unique record ID and individual row sequences are in the PDF, not in this aggregate fixture
 # Table 1 glucose 46 at 120 min: plasma A vs capillary B, mmol/L, multiplier 100; derives from prior reported study
 # Table 2 normal plasma volume 99: Nadler A vs Hurley B, percent normal, multiplier 10; adapted from earlier Bland-Altman comparison, two NORMALIZATION bases not independent apparatus
-# schema dataset|n|scale|sum_a|sum_b|sum_a2|sum_b2|sum_ab|difference_orientation|source_doi|original_reference|physical_ancestry
-GLUCOSE_TABLE_I|46|100|36768|35070|31538762|27894500|29343870|A_MINUS_B|10.1002/sim.3769|CARSTENSEN_PREVIOUS_STUDY_REUSED|UNVERIFIED
-PLASMA_NORMAL_TABLE_II|99|10|97516|88346|98312314|80729844|89068095|B_MINUS_A|10.1002/sim.3769|BLAND_ALTMAN_1999_REUSED_ALTERNATE_NORMAL_REFERENCES|UNVERIFIED
+# schema dataset|n|scale|sum_a|sum_b|sum_a2|sum_b2|sum_ab|difference_orientation|source_doi|original_reference|physical_ancestry|referent_relation
+GLUCOSE_TABLE_I|46|100|36768|35070|31538762|27894500|29343870|A_MINUS_B|10.1002/sim.3769|CARSTENSEN_PREVIOUS_STUDY_REUSED|UNVERIFIED|DISTINCT_BIOLOGICAL_MATRICES
+PLASMA_NORMAL_TABLE_II|99|10|97516|88346|98312314|80729844|89068095|B_MINUS_A|10.1002/sim.3769|BLAND_ALTMAN_1999_REUSED_ALTERNATE_NORMAL_REFERENCES|UNVERIFIED|ALTERNATE_NORMALIZATION_RULES
