@@ -1,0 +1,37 @@
+name: MQR 4.114 P2B cross-domain identifiability
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.114/p2b_cross_domain_rival_identifiability.rs'
+      - '.github/workflows/mqr-4114-p2b-identifiability.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-rival-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Execute exact no-dependency Rust rivals and HOLD firewalls
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 --test experiments/mqr-4.114/p2b_cross_domain_rival_identifiability.rs -o "$RUNNER_TEMP/rival_tests"
+          "$RUNNER_TEMP/rival_tests"
+          rustc --edition=2021 experiments/mqr-4.114/p2b_cross_domain_rival_identifiability.rs -o "$RUNNER_TEMP/rival"
+          "$RUNNER_TEMP/rival" | tee "$RUNNER_TEMP/receipt.txt"
+          grep -Fx 'physical_observational_equivalence=TRUE' "$RUNNER_TEMP/receipt.txt"
+          grep -Fx 'third_device_same_calibration_root=NO_NEW_IDENTIFICATION' "$RUNNER_TEMP/receipt.txt"
+          grep -Fx 'behavior_age_horizon_observation=NONIDENTIFYING' "$RUNNER_TEMP/receipt.txt"
+          grep -Fx 'empirical_intervention=NOT_PERFORMED' "$RUNNER_TEMP/receipt.txt"
+          grep -Fx 'physical_calibration_ancestry=HOLD' "$RUNNER_TEMP/receipt.txt"
+      - name: Save source-scoped receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4114-p2b-rival-receipt
+          path: ${{ runner.temp }}/receipt.txt
+          retention-days: 30
