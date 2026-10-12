@@ -1,0 +1,10 @@
+# MQR-4.114 P2-C; DERIVED MOMENTS FROM THE USER'S ORIGINAL SOURCE PDF, NOT ORIGINAL LAB RECORDS
+# Original source: Bendix Carstensen (2010), Statistics in Medicine 29:401-410, DOI 10.1002/sim.3769
+# Original Drive file ID: 1G4kq_UOCs5F_BgdyWringOXg8WKtAUt6; original full printed tables intentionally not redistributed
+# sum_a2 etc are exact integer products of source-printed decimal entries after scale conversion
+# unique record ID and individual row sequences are in the PDF, not in this aggregate fixture
+# Table 1 glucose 46 at 120 min: plasma A vs capillary B, mmol/L, multiplier 100; derives from prior reported study
+# Table 2 normal plasma volume 99: Nadler A vs Hurley B, percent normal, multiplier 10; adapted from earlier Bland-Altman comparison, two NORMALIZATION bases not independent apparatus
+# schema dataset|n|scale|sum_a|sum_b|sum_a2|sum_b2|sum_ab|difference_orientation|source_doi|original_reference|physical_ancestry
+GLUCOSE_TABLE_I|46|100|36768|35070|31538762|27894500|29343870|A_MINUS_B|10.1002/sim.3769|CARSTENSEN_PREVIOUS_STUDY_REUSED|UNVERIFIED
+PLASMA_NORMAL_TABLE_II|99|10|97516|88346|98312314|80729844|89068095|B_MINUS_A|10.1002/sim.3769|BLAND_ALTMAN_1999_REUSED_ALTERNATE_NORMAL_REFERENCES|UNVERIFIED
