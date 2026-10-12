@@ -1,6 +1,9 @@
 name = "mqr4114_evidence_separation"
 version = "0.1.0"
-defaultTargets = ["MQR4114EvidenceSeparation"]
+defaultTargets = ["MQR4114EvidenceSeparation", "MQR4114PublishedMethodGauge"]
 
 [[lean_lib]]
 name = "MQR4114EvidenceSeparation"
+
+[[lean_lib]]
+name = "MQR4114PublishedMethodGauge"
