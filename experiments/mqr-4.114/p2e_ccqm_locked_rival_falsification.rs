@@ -36,7 +36,13 @@ fn decode(text:&str)->Result<Vec<Row>,String>{
   }else if role==Role::Late {
     if p!=Kind::K12 || vial1.is_none() || vial2.is_some() {return Err("late_result_handling_invalid".into())}
   }else if vial1.is_some()||vial2.is_some(){return Err("unreported_reference_vials_cannot_be_invented".into())}
-  if role==Role::Participant && p==Kind::K11 && v[9]!="T5_A3" && v[9]!="T5_A2_A3"{return Err("wrong_primary_source_table".into())}
+  match (p,role,v[9]) {
+    (Kind::K11,Role::Participant,"T5_A3"|"T5_A2_A3")=>{},
+    (Kind::K11,Role::Anchor | Role::Solicited,"T6_A3")=>{},
+    (Kind::K12,Role::Participant | Role::Late,"T10")=>{},
+    (Kind::K12,Role::Anchor | Role::Solicited,"T11")=>{},
+    _=>return Err("source_table_role_mismatch".into())
+  }
   if p==Kind::K11 && v[2]=="VNIIM" && v[8]!="CONFLICT_A2_917a_A3_917c"{return Err("reported_calibrant_conflict_erased".into())}
   out.push(Row{project:p,role,name:v[2].into(),x,u,vial1,vial2,family,calibrant:v[8].into(),source_table:v[9].into()});
  }
@@ -97,6 +103,9 @@ fn adjudicate()->Result<String,String>{
  let anchors:Vec<_>=rows.iter().filter(|r|r.project==Kind::K11&&r.role!=Role::Participant).collect();
  if p11.len()!=9||p12.len()!=7||anchors.len()!=3||rows.iter().filter(|r|r.role==Role::Late).count()!=1{return Err("cohort_contract_changed".into())}
  if rows.iter().filter(|r|r.project==Kind::K11 && r.calibrant=="NIST_SRM_917c").count()!=7{return Err("common_calibrant_catalog_count_mismatch".into())}
+ if p11.iter().filter(|r|r.family==Method::Mixed && r.name=="HSA").count()!=1 {return Err("hybrid_method_lab_provenance_mismatch".into())}
+ if rows.iter().any(|r|r.source_table.is_empty()){return Err("missing_per_row_source".into())}
+ let reported_vial_summaries=p11.iter().flat_map(|r|[r.vial1,r.vial2]).filter(|o|o.is_some()).count();
  let r=q_stat(p11.iter().copied())?;
  let r12=q_stat(p12.iter().copied())?;
  let ranchor=q_stat(anchors.iter().copied())?;
@@ -111,7 +120,7 @@ fn adjudicate()->Result<String,String>{
  let (ng,nl,diff,z)=family_contrast(&rows)?;
  Ok(format!(
 "source_type=PUBLISHED_INSTITUTE_VIAL_SUMMARIES_NOT_RAW_DETECTOR_TRACES\nsource_doi=10.1088/0026-1394/55/1A/08012\npreregistered_analysis=research/mqr_4114_p2e_pre_result_falsification_contract.md\nk11_original_participant_institutes={}\nk11_participant_vial_summary_count={}\nk11_q={:.6}\nk11_weighted_location_mg_g={:.6}\nk11_q99_cutoff={:.6}\nk11_nominal_p={:.8}\nk11_R0_status={}\nk11_rounding_sensitivity_q_plus_0_0005={:.6}\nk11_rounding_sensitivity_crosses_1pct_gate={}\nk11_leave_one_lab_out_non_rejections={}\nk11_gc_only_institutes={}\nk11_lc_only_institutes={}\nk11_mixed_route_institutes=1\nk11_gc_minus_lc_weighted_mg_g={:.6}\nk11_gc_lc_diagnostic_z={:.6}\nk11_family_contrast_threshold_3sigma_pass={}\nk11_known_917c_catalog_entries_including_followup={}\nk11_917a_917c_source_table_conflict=VNIIM\nk11_reference_labs_excluded_primary={}\nk11_reference_only_q={:.6}\nk11_reference_only_p={:.10}\nk11_all12_posthoc_q={:.6}\nk12_distinct_material_institutes={}\nk12_q={:.6}\nk12_q99_cutoff={:.6}\nk12_secondary_R0_status={}\nk12_CENAM_late_result=EXCLUDED_FROM_TEST\ncommon_mode_bias_identified=NO\ncalibrant_catalog_sharing_proves_actual_error_correlation=NO\nphysical_calibration_source_independence=HOLD\nreference_KCRV_is_external_witness=NO_CONSENSUS_FROM_CONTRIBUTORS\nprospective_material_perturbation=NOT_PERFORMED\nreal_lang_promotion=HOLD\n",
- r.n,2*r.n,r.q,r.mean,r.critical99,p,
+ r.n,reported_vial_summaries,r.q,r.mean,r.critical99,p,
  if r.q>r.critical99{"REJECT_CONDITIONAL"}else{"NOT_REJECT_CONDITIONAL"},
  optimistic,if (optimistic>r.critical99)!=(r.q>r.critical99){"YES"}else{"NO"},
  flips,ng,nl,diff,z,if z.abs()>3.0{"YES"}else{"NO"},
@@ -139,5 +148,7 @@ fn main(){print!("{}",adjudicate().expect("frozen prereg source contract must pa
  #[test]fn reject_double_counted_institute(){let line=SOURCE.lines().find(|l|l.starts_with("K11_GLUCOSE|PARTICIPANT|HSA|")).unwrap();let s=format!("{SOURCE}\n{line}\n");assert!(decode(&s).is_err());}
  #[test]fn reject_vial_as_independent_source(){let s=SOURCE.replace("1.155|1.156|MIXED","NA|NA|MIXED");assert!(decode(&s).is_err());}
  #[test]fn refuse_self_certified_physical_authority(){let s=adjudicate().unwrap();assert!(s.contains("common_mode_bias_identified=NO"));assert!(s.contains("physical_calibration_source_independence=HOLD"));assert!(s.contains("prospective_material_perturbation=NOT_PERFORMED"));}
+ #[test]fn reject_wrong_report_section(){let s=SOURCE.replace("|T6_A3","|T5_A3");assert!(decode(&s).is_err());}
+ #[test]fn original_shared_material_but_no_independent_glucose_value(){let r=decode(SOURCE).unwrap();let p=r.iter().filter(|r|r.project==Kind::K11&&r.role==Role::Participant).collect::<Vec<_>>();assert_eq!(p.len(),9);assert!(adjudicate().unwrap().contains("reference_KCRV_is_external_witness=NO_CONSENSUS_FROM_CONTRIBUTORS"));}
  #[test]fn reproducibility(){assert_eq!(adjudicate().unwrap(),adjudicate().unwrap());}
 }
