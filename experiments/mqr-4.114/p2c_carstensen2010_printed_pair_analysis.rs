@@ -11,7 +11,7 @@ impl Orientation { fn sign(self)->f64{if self==Self::AMinusB {1.0}else{-1.0}} }
 struct PrintedMoments {
  id:String, n:usize, scale:f64, sum_a:f64,sum_b:f64,
  sum_a2:f64,sum_b2:f64,sum_ab:f64,orientation:Orientation,
- previous_source:String, source_doi:String, ancestry:String,
+ previous_source:String, source_doi:String, ancestry:String, referent_relation:String,
 }
 #[derive(Debug,Clone)]
 struct Fit {
@@ -24,7 +24,7 @@ fn parse(src:&str)->Result<Vec<PrintedMoments>,String>{
  let mut found=BTreeSet::new();let mut out=Vec::new();
  for (i,line) in src.lines().enumerate(){
   let s=line.trim();if s.is_empty()||s.starts_with('#'){continue}
-  let f:Vec<_>=s.split('|').collect();if f.len()!=12{return Err(format!("wrong_columns_line_{}",i+1))}
+  let f:Vec<_>=s.split('|').collect();if f.len()!=13{return Err(format!("wrong_columns_line_{}",i+1))}
   if !found.insert(f[0].to_string()){return Err("duplicate_dataset".into())}
   let parse_usize=|x:&str|->Result<usize,String>{x.parse::<usize>().map_err(|_|"bad_count".into())};
   let parse_u=|x:&str|->Result<f64,String>{x.parse::<u64>().map(|v|v as f64).map_err(|_|"bad_nonnegative_integer_moment".into())};
@@ -35,9 +35,14 @@ fn parse(src:&str)->Result<Vec<PrintedMoments>,String>{
   if f[9]!="10.1002/sim.3769"{return Err("wrong_paper_doi".into())}
   if f[10].is_empty(){return Err("missing_prior_origin".into())}
   if f[11]!="UNVERIFIED"{return Err("self_certified_ancestry_rejected".into())}
+  match (f[0],f[12]){
+   ("GLUCOSE_TABLE_I","DISTINCT_BIOLOGICAL_MATRICES")=>{},
+   ("PLASMA_NORMAL_TABLE_II","ALTERNATE_NORMALIZATION_RULES")=>{},
+   _=>return Err("source_referent_type_mismatch".into())
+  }
   out.push(PrintedMoments{
    id:f[0].into(),n,scale,sum_a:v[0],sum_b:v[1],sum_a2:v[2],sum_b2:v[3],sum_ab:v[4],
-   orientation,source_doi:f[9].into(),previous_source:f[10].into(),ancestry:f[11].into(),
+   orientation,source_doi:f[9].into(),previous_source:f[10].into(),ancestry:f[11].into(),referent_relation:f[12].into(),
   });
  }
  if out.is_empty(){return Err("no_source_moments".into())}Ok(out)
@@ -74,12 +79,12 @@ fn report(src:&str)->Result<String,String>{
  for m in &list{
   let f=fit(m)?;total+=m.n;
   out.push_str(&format!(
-   "{}.n={}\n{}.source_parent={}\n{}.intercept={:.6}\n{}.slope={:.6}\n{}.residual_sd={:.6}\n{}.B_given_A_intercept={:.6}\n{}.B_given_A_slope={:.6}\n{}.A_given_B_intercept={:.6}\n{}.A_given_B_slope={:.6}\n",
-   m.id,m.n,m.id,m.previous_source,m.id,f.intercept,m.id,f.slope,m.id,f.residual_sd,
+   "{}.n={}\n{}.source_parent={}\n{}.referent_relation={}\n{}.intercept={:.6}\n{}.slope={:.6}\n{}.residual_sd={:.6}\n{}.B_given_A_intercept={:.6}\n{}.B_given_A_slope={:.6}\n{}.A_given_B_intercept={:.6}\n{}.A_given_B_slope={:.6}\n",
+   m.id,m.n,m.id,m.previous_source,m.id,m.referent_relation,m.id,f.intercept,m.id,f.slope,m.id,f.residual_sd,
    m.id,f.b_given_a_intercept,m.id,f.b_given_a_slope,m.id,f.a_given_b_intercept,m.id,f.a_given_b_slope,
   ));
  }
- out.push_str(&format!("source_printed_paired_rows={}\nunique_published_tables={}\noriginal_lab_trace_independently_inspected=NO\nplasma_normal_reference_schemes_are_independent_instruments=NO\nmethod_specific_error_variances_from_single_pairs=NOT_IDENTIFIED\nprediction_interval_is_independent_physical_calibration=NO\nexternal_reference_ancestry=HOLD\nreal_language_promotion=HOLD\n",total,list.len()));
+ out.push_str(&format!("source_printed_paired_rows={}\nunique_published_tables={}\noriginal_lab_trace_independently_inspected=NO\nplasma_normal_reference_schemes_are_independent_instruments=NO\nglucose_same_biological_matrix_proven=NO\nmethod_specific_error_variances_from_single_pairs=NOT_IDENTIFIED\nprediction_interval_is_independent_physical_calibration=NO\nexternal_reference_ancestry=HOLD\nreal_language_promotion=HOLD\n",total,list.len()));
  Ok(out)
 }
 fn main(){print!("{}",report(FIXTURE).expect("frozen published summary"))}
@@ -101,5 +106,7 @@ fn main(){print!("{}",report(FIXTURE).expect("frozen published summary"))}
  #[test]fn reject_bad_orientation(){let s=FIXTURE.replace("A_MINUS_B","MAYBE");assert!(parse(&s).is_err());}
  #[test]fn reject_duplicated_source_table(){let x=FIXTURE.lines().find(|x|x.starts_with("GLUCOSE_TABLE_I|")).unwrap();let s=format!("{FIXTURE}\n{x}");assert!(parse(&s).is_err());}
  #[test]fn zero_raw_lab_evidence_claim(){let s=report(FIXTURE).unwrap();assert!(s.contains("original_lab_trace_independently_inspected=NO"));assert!(s.contains("external_reference_ancestry=HOLD"));}
+ #[test]fn semantic_matrix_guard(){let s=FIXTURE.replace("DISTINCT_BIOLOGICAL_MATRICES","ALTERNATE_NORMALIZATION_RULES");assert!(parse(&s).is_err());}
+ #[test]fn shared_reference_is_not_an_extra_instrument(){let s=report(FIXTURE).unwrap();assert!(s.contains("plasma_normal_reference_schemes_are_independent_instruments=NO"));assert!(s.contains("glucose_same_biological_matrix_proven=NO"));}
  #[test]fn source_table_status_counts(){let s=report(FIXTURE).unwrap();assert!(s.contains("source_printed_paired_rows=145"));assert!(s.contains("unique_published_tables=2"));}
 }
