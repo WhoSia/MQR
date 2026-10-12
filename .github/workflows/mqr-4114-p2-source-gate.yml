@@ -25,8 +25,9 @@ jobs:
           "$RUNNER_TEMP/source_gate_tests"
           rustc --edition=2021 experiments/mqr-4.114/p2_source_evidence_gate.rs -o "$RUNNER_TEMP/source_gate"
           "$RUNNER_TEMP/source_gate" | tee "$RUNNER_TEMP/source_receipt.txt"
-          grep -Fx 'cases=4' "$RUNNER_TEMP/source_receipt.txt"
-          grep -Fx 'unique_source_documents=3' "$RUNNER_TEMP/source_receipt.txt"
+          grep -Fx 'cases=5' "$RUNNER_TEMP/source_receipt.txt"
+          grep -Fx 'unique_source_documents=4' "$RUNNER_TEMP/source_receipt.txt"
+          grep -Fx 'literature_review_cases=1' "$RUNNER_TEMP/source_receipt.txt"
           grep -Fx 'independent_physical_reference_verified=0' "$RUNNER_TEMP/source_receipt.txt"
           grep -Fx 'real_experiment_population_hub_distribution=HOLD' "$RUNNER_TEMP/source_receipt.txt"
       - name: Preserve source verdict
