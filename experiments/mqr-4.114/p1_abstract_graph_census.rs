@@ -21,16 +21,16 @@ fn degrees(xs:&[Template])->BTreeMap<String,usize>{let mut deg=BTreeMap::new();f
 fn split_normalize(xs:&[Template])->Vec<Template>{xs.iter().map(|x|{let mut t=x.clone();if t.roles.remove("normalize"){t.roles.insert(format!("normalize__{}",t.domain));}t}).collect()}
 fn edge_total(xs:&[Template])->usize{xs.iter().map(|x|x.roles.len()).sum()}
 fn report(s:&str)->Result<String,String>{
- let xs=parse(s)?;let degrees=degrees(&xs);let edge_count=edge_total(&xs);
- let sum:usize=degrees.values().sum();if sum!=edge_count{return Err("edge_conservation_failure".into())}
- let mut ranking:Vec<_>=degrees.iter().map(|(k,v)|(k.clone(),*v)).collect();ranking.sort_by(|a,b|b.1.cmp(&a.1).then(a.0.cmp(&b.0)));
+ let xs=parse(s)?;let degree_map=degrees(&xs);let edge_count=edge_total(&xs);
+ let sum:usize=degree_map.values().sum();if sum!=edge_count{return Err("edge_conservation_failure".into())}
+ let mut ranking:Vec<_>=degree_map.iter().map(|(k,v)|(k.clone(),*v)).collect();ranking.sort_by(|a,b|b.1.cmp(&a.1).then(a.0.cmp(&b.0)));
  let universals=ranking.iter().filter(|(_,n)|*n==xs.len()).count();
  let split=split_normalize(&xs);let after=degrees(&split);
  let after_universals=after.values().filter(|&&n|n==xs.len()).count();
  let domains=xs.iter().map(|x|x.domain.as_str()).collect::<BTreeSet<_>>().len();
  let top5:usize=ranking.iter().take(5).map(|(_,n)|n).sum();
  let ranked=ranking.into_iter().map(|(a,b)|format!("{a}:{b}")).collect::<Vec<_>>().join(",");
- Ok(format!("corpus=ILLUSTRATIVE_NOT_EMPIRICAL\ntemplates={}\ndomains={}\noperators={}\narrows={}\ncolumn_sums={}\ntop5_arrows={}\ntop5_share={}/{}\nuniversal_nodes_before={}\nuniversal_nodes_after_normalize_split={}\narrows_after_split={}\nranked={}\nphysical_instrument_warrant=HOLD\nindependent_evidence_count=NOT_IDENTIFIED\npower_law_claim=NOT_TESTABLE_WITH_THIS_CORPUS\n",xs.len(),domains,degrees.len(),edge_count,sum,top5,top5,edge_count,universals,after_universals,edge_total(&split),ranked))
+ Ok(format!("corpus=ILLUSTRATIVE_NOT_EMPIRICAL\ntemplates={}\ndomains={}\noperators={}\narrows={}\ncolumn_sums={}\ntop5_arrows={}\ntop5_share={}/{}\nuniversal_nodes_before={}\nuniversal_nodes_after_normalize_split={}\narrows_after_split={}\nranked={}\nphysical_instrument_warrant=HOLD\nindependent_evidence_count=NOT_IDENTIFIED\npower_law_claim=NOT_TESTABLE_WITH_THIS_CORPUS\n",xs.len(),domains,degree_map.len(),edge_count,sum,top5,top5,edge_count,universals,after_universals,edge_total(&split),ranked))
 }
 fn main(){print!("{}",report(include_str!("fixtures/p1_abstract_graph.tsv")).expect("frozen corpus must parse"))}
 #[cfg(test)]mod tests{use super::*;
