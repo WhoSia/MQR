@@ -1,0 +1,41 @@
+name: MQR 4.114 P2E CCQM locked source falsification
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.114/p2e_ccqm_locked_rival_falsification.rs'
+      - 'experiments/mqr-4.114/fixtures/p2e_ccqm_published_lab_summaries.psv'
+      - '.github/workflows/mqr-4114-p2e-ccqm-locked.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  locked-source-contrasts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Evaluate source-locked published institute summaries and HOLD controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 --test experiments/mqr-4.114/p2e_ccqm_locked_rival_falsification.rs -o "$RUNNER_TEMP/p2e_tests"
+          "$RUNNER_TEMP/p2e_tests" --nocapture
+          rustc --edition=2021 experiments/mqr-4.114/p2e_ccqm_locked_rival_falsification.rs -o "$RUNNER_TEMP/p2e"
+          "$RUNNER_TEMP/p2e" | tee "$RUNNER_TEMP/p2e_receipt.txt"
+          grep -Fx 'k11_original_participant_institutes=9' "$RUNNER_TEMP/p2e_receipt.txt"
+          grep -Fx 'k11_participant_vial_summary_count=18' "$RUNNER_TEMP/p2e_receipt.txt"
+          grep -Fx 'k11_R0_status=REJECT_CONDITIONAL' "$RUNNER_TEMP/p2e_receipt.txt"
+          grep -Fx 'k11_rounding_sensitivity_crosses_1pct_gate=YES' "$RUNNER_TEMP/p2e_receipt.txt"
+          grep -Fx 'k11_gc_only_institutes=4' "$RUNNER_TEMP/p2e_receipt.txt"
+          grep -Fx 'k11_lc_only_institutes=4' "$RUNNER_TEMP/p2e_receipt.txt"
+          grep -Fx 'k12_secondary_R0_status=NOT_REJECT_CONDITIONAL' "$RUNNER_TEMP/p2e_receipt.txt"
+          grep -Fx 'common_mode_bias_identified=NO' "$RUNNER_TEMP/p2e_receipt.txt"
+          grep -Fx 'physical_calibration_source_independence=HOLD' "$RUNNER_TEMP/p2e_receipt.txt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr4114-p2e-locked-prereg-and-lab-receipt
+          path: ${{ runner.temp }}/p2e_receipt.txt
+          retention-days: 30
