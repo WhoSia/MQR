@@ -1,0 +1,9 @@
+# MQR-4.114 abstract illustration: seven unnamed analysis templates
+# NOT physical protocols, NOT experimentally extracted observation records
+A	a	observe,boundary,normalize,encode,compare,infer,decide
+B	b	observe,boundary,partition,normalize,encode,compare,infer,decide
+C	c	observe,boundary,snapshot,normalize,encode,compare,infer,decide
+D	d	observe,boundary,normalize,encode,calibrate,infer,decide
+E	e	observe,boundary,iterate,normalize,encode,compare,infer,decide
+F	f	observe,boundary,normalize,encode,calibrate,decide
+G	g	observe,boundary,normalize,encode,compare,infer,decide
