@@ -1,0 +1,23 @@
+name: MQR 4.114 P2B Lean evidence separation
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.114/lean/**'
+      - '.github/workflows/mqr-4114-p2b-lean.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  no-information-multiplication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Prove constructed evidential non-amplification
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: experiments/mqr-4.114/lean
+          build: true
