@@ -1,0 +1,37 @@
+name: MQR 4.114 P2 source evidence gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.114/p2_source_evidence_gate.rs'
+      - 'experiments/mqr-4.114/fixtures/p2_source_vignettes.psv'
+      - '.github/workflows/mqr-4114-p2-source-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Source-count and independent-world-contact anti-laundering
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 --test experiments/mqr-4.114/p2_source_evidence_gate.rs -o "$RUNNER_TEMP/source_gate_tests"
+          "$RUNNER_TEMP/source_gate_tests"
+          rustc --edition=2021 experiments/mqr-4.114/p2_source_evidence_gate.rs -o "$RUNNER_TEMP/source_gate"
+          "$RUNNER_TEMP/source_gate" | tee "$RUNNER_TEMP/source_receipt.txt"
+          grep -Fx 'cases=4' "$RUNNER_TEMP/source_receipt.txt"
+          grep -Fx 'unique_source_documents=3' "$RUNNER_TEMP/source_receipt.txt"
+          grep -Fx 'independent_physical_reference_verified=0' "$RUNNER_TEMP/source_receipt.txt"
+          grep -Fx 'real_experiment_population_hub_distribution=HOLD' "$RUNNER_TEMP/source_receipt.txt"
+      - name: Preserve source verdict
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4114-p2-source-ledger-receipt
+          path: ${{ runner.temp }}/source_receipt.txt
+          retention-days: 30
