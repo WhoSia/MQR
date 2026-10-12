@@ -1,0 +1,6 @@
+# Source-anchored literature vignettes manually annotated by one researcher; NOT raw experiment rows
+# vignette_id | source_doi | source_kind | acquisition_claim | direct_raw_available | verified_independent_reference | described_roles
+EXPO_TOP_QUARK_REANALYSIS|10.1098/rsif.2006.0134|SECONDARY_ANNOTATION|REANALYSIS_ONLY|NO|NO|source_reuse,statistical_inference,hypothesis_reconstruction
+EXPO_SOLENODON_PHYLOGENY|10.1098/rsif.2006.0134|SECONDARY_ANNOTATION|ORIGINAL_OBSERVATION_DESCRIBED|NO|NO|biological_observation,computational_inference,classification
+OBI_GLUCOSE_ILLUSTRATION|10.1371/journal.pone.0154556|ONTOLOGY_SCHEMATIC|ILLUSTRATION_NOT_OBSERVATION|NO|NO|specimen_role,assay_role,measurement_role
+NAMI_RFQ_EPR|10.1007/s00723-016-0783-7|PUBLISHED_PRIMARY_REPORT|ORIGINAL_OBSERVATION_DESCRIBED|NO|NO|temporal_capture,physical_readout,collection_efficiency,model_inference
