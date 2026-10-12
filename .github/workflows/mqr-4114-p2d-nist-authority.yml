@@ -1,0 +1,37 @@
+name: MQR 4.114 P2D NIST source authority and unit ancestry
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.114/p2d_nist_glucose_reference_authority.rs'
+      - '.github/workflows/mqr-4114-p2d-nist-authority.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  document-authority-not-sample-authority:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Compile and execute certificate-source classification tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 --test experiments/mqr-4.114/p2d_nist_glucose_reference_authority.rs -o "$RUNNER_TEMP/p2d_tests"
+          "$RUNNER_TEMP/p2d_tests" --nocapture
+          rustc --edition=2021 experiments/mqr-4.114/p2d_nist_glucose_reference_authority.rs -o "$RUNNER_TEMP/p2d"
+          "$RUNNER_TEMP/p2d" | tee "$RUNNER_TEMP/p2d_receipt.txt"
+          grep -Fx 'certified_material_levels=4' "$RUNNER_TEMP/p2d_receipt.txt"
+          grep -Fx 'unit_conversion_creates_independent_measurements=NO' "$RUNNER_TEMP/p2d_receipt.txt"
+          grep -Fx '965c_nominal_date_eligible_on_2026_10_12=true' "$RUNNER_TEMP/p2d_receipt.txt"
+          grep -Fx '965b_nominal_date_eligible_on_2026_10_12=false' "$RUNNER_TEMP/p2d_receipt.txt"
+          grep -Fx 'carstensen_2010_pairs_referenced_to_965c=NO_MATCHED_MEASUREMENTS' "$RUNNER_TEMP/p2d_receipt.txt"
+          grep -Fx 'external_intervention_by_MQR=NOT_PERFORMED' "$RUNNER_TEMP/p2d_receipt.txt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr4114-p2d-nist-source-status
+          path: ${{ runner.temp }}/p2d_receipt.txt
+          retention-days: 30
