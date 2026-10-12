@@ -1,0 +1,38 @@
+name: MQR 4.114 P1 finite typed graph census
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.114/p1_abstract_graph_census.rs'
+      - 'experiments/mqr-4.114/fixtures/p1_abstract_graph.tsv'
+      - '.github/workflows/mqr-4114-p1-graph-census.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  count-and-defeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exact bounded Rust graph regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 --test experiments/mqr-4.114/p1_abstract_graph_census.rs -o "$RUNNER_TEMP/mqr4114_tests"
+          "$RUNNER_TEMP/mqr4114_tests" --nocapture
+          rustc --edition=2021 experiments/mqr-4.114/p1_abstract_graph_census.rs -o "$RUNNER_TEMP/mqr4114_graph"
+          "$RUNNER_TEMP/mqr4114_graph" | tee "$RUNNER_TEMP/mqr4114_receipt.txt"
+          grep -Fx 'arrows=51' "$RUNNER_TEMP/mqr4114_receipt.txt"
+          grep -Fx 'top5_share=35/51' "$RUNNER_TEMP/mqr4114_receipt.txt"
+          grep -Fx 'universal_nodes_before=5' "$RUNNER_TEMP/mqr4114_receipt.txt"
+          grep -Fx 'universal_nodes_after_normalize_split=4' "$RUNNER_TEMP/mqr4114_receipt.txt"
+          grep -Fx 'physical_instrument_warrant=HOLD' "$RUNNER_TEMP/mqr4114_receipt.txt"
+      - name: Store finite graph receipt without source modification
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4114-p1-abstract-graph-receipt
+          path: ${{ runner.temp }}/mqr4114_receipt.txt
+          retention-days: 30
