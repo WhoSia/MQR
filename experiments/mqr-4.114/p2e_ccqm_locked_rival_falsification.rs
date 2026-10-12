@@ -112,6 +112,11 @@ fn adjudicate()->Result<String,String>{
  let full=q_stat(rows.iter().filter(|r|r.project==Kind::K11))?;
  let p=p_even_chi_square(8,r.q)?;
  let ref_p=p_even_chi_square(2,ranchor.q)?;
+ // A shared additive origin shift cannot reduce between-institute Q.
+ let mut shifted:Vec<Row>=p11.iter().map(|r|(*r).clone()).collect();
+ for rr in &mut shifted{rr.x+=0.05;}
+ let q_shifted=q_stat(shifted.iter())?.q;
+ if (q_shifted-r.q).abs()>1e-8{return Err("common_shift_did_not_cancel".into())}
  let optimistic=q_with_uncertainty_increment(&p11,0.0005);
  let flips=(0..p11.len()).filter(|&i|{
     let g=q_stat(p11.iter().enumerate().filter(|(k,_)|*k!=i).map(|(_,r)|*r)).unwrap();
@@ -119,7 +124,7 @@ fn adjudicate()->Result<String,String>{
  }).count();
  let (ng,nl,diff,z)=family_contrast(&rows)?;
  Ok(format!(
-"source_type=PUBLISHED_INSTITUTE_VIAL_SUMMARIES_NOT_RAW_DETECTOR_TRACES\nsource_doi=10.1088/0026-1394/55/1A/08012\npreregistered_analysis=research/mqr_4114_p2e_pre_result_falsification_contract.md\nk11_original_participant_institutes={}\nk11_participant_vial_summary_count={}\nk11_q={:.6}\nk11_weighted_location_mg_g={:.6}\nk11_q99_cutoff={:.6}\nk11_nominal_p={:.8}\nk11_R0_status={}\nk11_rounding_sensitivity_q_plus_0_0005={:.6}\nk11_rounding_sensitivity_crosses_1pct_gate={}\nk11_leave_one_lab_out_non_rejections={}\nk11_gc_only_institutes={}\nk11_lc_only_institutes={}\nk11_mixed_route_institutes=1\nk11_gc_minus_lc_weighted_mg_g={:.6}\nk11_gc_lc_diagnostic_z={:.6}\nk11_family_contrast_threshold_3sigma_pass={}\nk11_known_917c_catalog_entries_including_followup={}\nk11_917a_917c_source_table_conflict=VNIIM\nk11_reference_labs_excluded_primary={}\nk11_reference_only_q={:.6}\nk11_reference_only_p={:.10}\nk11_all12_posthoc_q={:.6}\nk12_distinct_material_institutes={}\nk12_q={:.6}\nk12_q99_cutoff={:.6}\nk12_secondary_R0_status={}\nk12_CENAM_late_result=EXCLUDED_FROM_TEST\ncommon_mode_bias_identified=NO\ncalibrant_catalog_sharing_proves_actual_error_correlation=NO\nphysical_calibration_source_independence=HOLD\nreference_KCRV_is_external_witness=NO_CONSENSUS_FROM_CONTRIBUTORS\nprospective_material_perturbation=NOT_PERFORMED\nreal_lang_promotion=HOLD\n",
+"source_type=PUBLISHED_INSTITUTE_VIAL_SUMMARIES_NOT_RAW_DETECTOR_TRACES\nsource_doi=10.1088/0026-1394/55/1A/08012\npreregistered_analysis=research/mqr_4114_p2e_pre_result_falsification_contract.md\nk11_original_participant_institutes={}\nk11_participant_vial_summary_count={}\nk11_q={:.6}\nk11_weighted_location_mg_g={:.6}\nk11_q99_cutoff={:.6}\nk11_nominal_p={:.8}\nk11_R0_status={}\nk11_rounding_sensitivity_q_plus_0_0005={:.6}\nk11_rounding_sensitivity_crosses_1pct_gate={}\nk11_leave_one_lab_out_non_rejections={}\nk11_gc_only_institutes={}\nk11_lc_only_institutes={}\nk11_mixed_route_institutes=1\nk11_gc_minus_lc_weighted_mg_g={:.6}\nk11_gc_lc_diagnostic_z={:.6}\nk11_family_contrast_threshold_3sigma_pass={}\nk11_known_917c_catalog_entries_including_followup={}\nk11_917a_917c_source_table_conflict=VNIIM\nk11_uniform_additive_shift_changes_q=NO\nk11_single_common_shift_only_reconciles_scatter=NO_CONDITIONAL\nk11_reference_labs_excluded_primary={}\nk11_reference_only_q={:.6}\nk11_reference_only_p={:.10}\nk11_all12_posthoc_q={:.6}\nk12_distinct_material_institutes={}\nk12_q={:.6}\nk12_q99_cutoff={:.6}\nk12_secondary_R0_status={}\nk12_CENAM_late_result=EXCLUDED_FROM_TEST\ncommon_mode_bias_identified=NO\ncalibrant_catalog_sharing_proves_actual_error_correlation=NO\nphysical_calibration_source_independence=HOLD\nreference_KCRV_is_external_witness=NO_CONSENSUS_FROM_CONTRIBUTORS\nprospective_material_perturbation=NOT_PERFORMED\nreal_lang_promotion=HOLD\n",
  r.n,reported_vial_summaries,r.q,r.mean,r.critical99,p,
  if r.q>r.critical99{"REJECT_CONDITIONAL"}else{"NOT_REJECT_CONDITIONAL"},
  optimistic,if (optimistic>r.critical99)!=(r.q>r.critical99){"YES"}else{"NO"},
@@ -150,5 +155,6 @@ fn main(){print!("{}",adjudicate().expect("frozen prereg source contract must pa
  #[test]fn refuse_self_certified_physical_authority(){let s=adjudicate().unwrap();assert!(s.contains("common_mode_bias_identified=NO"));assert!(s.contains("physical_calibration_source_independence=HOLD"));assert!(s.contains("prospective_material_perturbation=NOT_PERFORMED"));}
  #[test]fn reject_wrong_report_section(){let s=SOURCE.replace("|T6_A3","|T5_A3");assert!(decode(&s).is_err());}
  #[test]fn original_shared_material_but_no_independent_glucose_value(){let r=decode(SOURCE).unwrap();let p=r.iter().filter(|r|r.project==Kind::K11&&r.role==Role::Participant).collect::<Vec<_>>();assert_eq!(p.len(),9);assert!(adjudicate().unwrap().contains("reference_KCRV_is_external_witness=NO_CONSENSUS_FROM_CONTRIBUTORS"));}
+ #[test]fn common_calibrant_shift_cannot_reconcile_lab_scatter(){let r=decode(SOURCE).unwrap();let p=r.iter().filter(|r|r.project==Kind::K11&&r.role==Role::Participant).cloned().collect::<Vec<_>>();let q=q_stat(p.iter()).unwrap().q;let mut ps=p.clone();for item in &mut ps{item.x+=0.05;}let q2=q_stat(ps.iter()).unwrap().q;near(q,q2,1e-8);assert!(q2>critical(8).unwrap());}
  #[test]fn reproducibility(){assert_eq!(adjudicate().unwrap(),adjudicate().unwrap());}
 }
