@@ -55,10 +55,17 @@ fn report()->Result<String,String>{
  let current=certificate_period_contains(CURRENT,today)?;
  let old=certificate_period_contains(HISTORICAL,today)?;
  if !current||old{return Err("certificate_period_contract_failure".into())}
+ if CURRENT.id!="NIST_SRM_965c"||HISTORICAL.id!="NIST_SRM_965b"
+    ||CURRENT.source!="NIST_CERTIFICATE_2025_09_18"
+    ||CURRENT.material_kind!="CERTIFIED_FROZEN_HUMAN_SERUM"
+    ||HISTORICAL.source!="NIST_CERTIFICATE_2019_08_01"
+    ||HISTORICAL.material_kind!="HISTORICAL_CERTIFIED_FROZEN_HUMAN_SERUM"{
+  return Err("certificate_id_or_material_kind_mismatch".into());
+ }
  if CURRENT.matched_to_2010_samples||HISTORICAL.matched_to_2010_samples{return Err("false_matched_calibration".into())}
  Ok(format!(
-  "source=NIST_SRM_965c_2025_09_18_CERTIFICATE\ncertified_material_levels={}\nreported_unit_views_per_level=3\nunit_conversion_creates_independent_measurements=NO\nmillimolar_values_derived_from_mass_concentration=YES\nSI_traceability_claim_source_certified={}\n965c_nominal_date_eligible_on_2026_10_12={}\n965b_nominal_date_eligible_on_2026_10_12={}\nmaterial_specific_certificate_condition=NOT_INSPECTED\ncarstensen_2010_pairs_referenced_to_965c=NO_MATCHED_MEASUREMENTS\nplasma_vs_capillary_matrix_commutability=HOLD\nCCQM_K11_2_anchor_consensus_difference_not_reproduced_in_code=TRUE\nexternal_intervention_by_MQR=NOT_PERFORMED\nreal_lang_promotion=HOLD\n",
-  CERTIFIED_LEVELS.len(),CURRENT.traceable_to_si, current,old))
+  "source={}\ncertificate_kind={}\ncertified_material_levels={}\nreported_unit_views_per_level=3\nunit_conversion_creates_independent_measurements=NO\nmillimolar_values_derived_from_mass_concentration=YES\nSI_traceability_claim_source_certified={}\n965c_nominal_date_eligible_on_2026_10_12={}\n965b_nominal_date_eligible_on_2026_10_12={}\nmaterial_specific_certificate_condition=NOT_INSPECTED\ncarstensen_2010_pairs_referenced_to_965c=NO_MATCHED_MEASUREMENTS\nplasma_vs_capillary_matrix_commutability=HOLD\nCCQM_K11_2_anchor_consensus_difference_not_reproduced_in_code=TRUE\nexternal_intervention_by_MQR=NOT_PERFORMED\nreal_lang_promotion=HOLD\n",
+  CURRENT.source,CURRENT.material_kind,CERTIFIED_LEVELS.len(),CURRENT.traceable_to_si, current,old))
 }
 fn main(){print!("{}",report().expect("source typed certificate audit"))}
 #[cfg(test)]mod tests{
