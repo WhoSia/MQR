@@ -1,0 +1,17 @@
+# Published summary witness, not individually accessible raw pairs.
+# Bland & Altman 1986 DOI; figures transcribed from the original article text.
+# Publisher explicitly says illustrative convenience sample, not instrument validation.
+REALWARRANT 0.44-P2-CANDIDATE
+id BLAND_ALTMAN_1986_PEFR
+basis PUBLISHED_AGGREGATE
+source_doi 10.1016/S0140-6736(86)90837-8
+source_drive_id 1HyV_DwLEOoNSHWPah_NUHh9_NKHBxzEe
+quantity PEFR
+unit L_per_min
+source_operation Wright_peak_flow
+target_operation Mini_Wright_peak_flow
+calibration UNVERIFIED
+mean_difference -2.1
+sd_difference 38.8
+correlation 0.94
+END
