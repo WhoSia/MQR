@@ -1,0 +1,38 @@
+name: MQR 4.114 P2C real source printed-pair moments
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.114/p2c_carstensen2010_printed_pair_analysis.rs'
+      - 'experiments/mqr-4.114/fixtures/p2c_carstensen2010_printed_pair_moments.psv'
+      - '.github/workflows/mqr-4114-p2c-source-pairs.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  published-source-reconstruction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Reconstruct regressions and verify evidence firewall
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 --test experiments/mqr-4.114/p2c_carstensen2010_printed_pair_analysis.rs -o "$RUNNER_TEMP/p2c_tests"
+          "$RUNNER_TEMP/p2c_tests" --nocapture
+          rustc --edition=2021 experiments/mqr-4.114/p2c_carstensen2010_printed_pair_analysis.rs -o "$RUNNER_TEMP/p2c_reproduce"
+          "$RUNNER_TEMP/p2c_reproduce" | tee "$RUNNER_TEMP/p2c_source_receipt.txt"
+          grep -Fx 'source_printed_paired_rows=145' "$RUNNER_TEMP/p2c_source_receipt.txt"
+          grep -Fx 'unique_published_tables=2' "$RUNNER_TEMP/p2c_source_receipt.txt"
+          grep -Fx 'original_lab_trace_independently_inspected=NO' "$RUNNER_TEMP/p2c_source_receipt.txt"
+          grep -Fx 'plasma_normal_reference_schemes_are_independent_instruments=NO' "$RUNNER_TEMP/p2c_source_receipt.txt"
+          grep -Fx 'external_reference_ancestry=HOLD' "$RUNNER_TEMP/p2c_source_receipt.txt"
+      - name: Save bounded source receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4114-p2c-source-printed-moment-receipt
+          path: ${{ runner.temp }}/p2c_source_receipt.txt
+          retention-days: 30
