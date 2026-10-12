@@ -1,0 +1,34 @@
+# MQR-4.114 P2-D — Certified-Value Ancestry, Unit-View Multiplicity and the Missing Co-Measurement Bridge
+
+**2026-10-12 | P2-D source document audit PASS_BOUNDED, external Carstensen reference perturbation HOLD.** The only activity in MQR here is publication and certificate analysis. **No physical specimen, instrument, reference batch, laboratory handling, independent reference measurement or newly collected data was accessed or used.** This is not an experimental protocol.
+
+## Public original bibliographic material (not new Drive uploads)
+
+1. NIST, *Certification of Standard Reference Material 965c Glucose in Frozen Human Serum*, Special Publication **NIST SP 260-253**, issued **2025**, DOI [10.6028/NIST.SP.260-253](https://doi.org/10.6028/NIST.SP.260-253). Its associated **certificate issued 2025-09-18** is a public dated source of certified values, explicitly SI-traceable. The certificate declares four different material levels, providing data views as **mass fraction**, **mass concentration**, and **amount concentration**. The latter two are computed by declared density and molar-mass transformations; **three display units per level are not three independent calibrations**. Certified amount concentrations are published with their own expanded uncertainties. The stated *nominal* certificate validity ends **2035-01-31**, conditional on the circumstances specified in the authoritative document; dates alone do not attest the state of any individual material or laboratory.
+2. **Historical NIST SRM 965b certificate**, issued 2019 with stated expiry **2024-12-31**. As of 2026-10-12 it cannot be cited as a still-nominally-valid certification on the basis of this old certificate. Check the governing current certificate for any real-world work.
+3. NIST/BIPM **CCQM-K11.2 glucose in human serum and K12.2 creatinine in human serum key comparisons**, published in 2018, report DOI [10.1088/0026-1394/55/1A/08012](https://doi.org/10.1088/0026-1394/55/1A/08012). The official publication reports greater-than-anticipated differences between participant consensus and designated anchor results (2.5% and 3.0% for the two corresponding projects), additional anchor laboratories, continuing unexplained variability, **Track C** handling and eventual assignment of **consensus** key-comparison reference values. This is direct documented resistance to treating 'the reference number' as an automatically unquestionable oracle.
+4. The immediately preceding source [Bendix Carstensen (2010), *Comparing Methods of Measurement: Extending the LoA by Regression*](https://drive.google.com/file/d/1G4kq_UOCs5F_BgdyWringOXg8WKtAUt6/view), DOI 10.1002/sim.3769, uses **different biological matrices** for its 46 published glucose comparison pairs and **two alternative normal-value schemes**, not two independent detectors, for its 99 published plasma-volume pairs. Those earlier published pairs are **not** the samples measured in the NIST 965c certification, and their raw instrument calibration history cannot be retrospectively repaired simply by adding a 2025 certificate.
+
+As of this run, the public NIST and CCQM source documents **are not verified stored in the user's Drive**. The source references are directly to authoritative publications; neither certificate values nor the 2018 report are original MQR measurements. No text from the certificates about biological material handling is retained in code or this ledger.
+
+## Mechanism that answers the founding MQR arrow question
+
+For each certified level `j`, a published data path can be schematized as
+
+`source-anchored material-level assignment → certified mass fraction → density conversion → mass concentration → molar-mass conversion → amount concentration`.
+
+The several numerical representations are distinct nodes on one **directed, typed, derivational graph**, not separate independent experimental contacts. Counting 'mass fraction', 'mg/dL' and 'mmol/L' as three independent 'methods' would produce a spurious hub even while all expressions share the same material-level ancestry. **Source-measurand identity**, **reference certification**, **unit conversion** and **independent apparatus** are incompatible edge types.
+
+The dated certificate has a validity scope and an uncertainty; a prediction equation from Carstensen's published pairs is a different kind of evidential claim. **Even a current external certificate cannot provide a paired intervention receipt for old, nonmatched specimens.** Cross-matrix suitability, original traceability, individual specimen condition and method-specific comparison performance require their own evidence.
+
+## Bounded executable audit
+
+[Native source-document authority test](../experiments/mqr-4.114/p2d_nist_glucose_reference_authority.rs), [read-only Rust CI #38209412949 SUCCESS](https://github.com/WhoSia/MQR/actions/runs/38209412949), **15 passed** on initial source SHA 1f126721121a04277c96cbe96c4a2816d7e26115; subsequent code refinement uses the provenance identifiers instead of dead fields and is re-tested on its separate source SHA. The four published certificate amount-concentration and expanded-uncertainty tuples are verified for internal conversion consistency with the corresponding published mg/dL representations, using the certificate's stated glucose molar mass. Rounding is explicit; **no recalculation of the certification's original laboratory uncertainty budget** is claimed.
+
+The test asserts: different unit presentations add **zero new independent measurements** by themselves; 965c's nominal date includes 2026-10-12 while 965b's printed nominal validity does not; real material-condition validation is NOT INSPECTED; **Carstensen 2010 original pairs are NOT CO-MEASURED against SRM 965c**; physical intervention by MQR NOT PERFORMED; relevant cross-matrix applicability HOLD.
+
+## Strong physical counter-claim and next bounded P2 step
+
+An actual reference document is evidence that calibrated world-contact is a materially meaningful practice, not that MQR automatically inherited that contact. The scientifically important next work would be an independently released historical study that reports a reference measurement, its source-data provenance, model-appropriate uncertainty and a distinct tested measuring system **on the same materials**, with both evidence pathways inspectable. The published CCQM original final report with contributor-wise results and provenance may furnish an appropriate *observational* comparison, but it does not by itself prove an isolated physical intervention.
+
+**Status:** MQR-4.114 remains OPEN; P2-D certificate-scoped representational nonindependence PASS_BOUNDED; independently executed physical calibration equivalence and independent physical perturbation HOLD; MQR-4.113 and 4.112 separately OPEN/HOLD, Real Lang v0.44 UNPROMOTED. No P3/P4.
