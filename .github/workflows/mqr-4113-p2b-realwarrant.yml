@@ -1,0 +1,38 @@
+name: MQR 4.113 P2-B RealWarrant Rust
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.113/p2b_realwarrant_source_agreement.rs'
+      - 'experiments/mqr-4.113/fixtures/p2b_bland_altman_1986.real'
+      - '.github/workflows/mqr-4113-p2b-realwarrant.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  typed-source-warrant:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Compile and test bounded RealWarrant semantics
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --version
+          rustc --edition=2021 --test experiments/mqr-4.113/p2b_realwarrant_source_agreement.rs -o "$RUNNER_TEMP/mqr_realwarrant_tests"
+          "$RUNNER_TEMP/mqr_realwarrant_tests" --nocapture
+          rustc --edition=2021 experiments/mqr-4.113/p2b_realwarrant_source_agreement.rs -o "$RUNNER_TEMP/mqr_realwarrant"
+          "$RUNNER_TEMP/mqr_realwarrant" experiments/mqr-4.113/fixtures/p2b_bland_altman_1986.real | tee "$RUNNER_TEMP/mqr_realwarrant_receipt.txt"
+          grep -Fx 'parametric_loa_95=-78.148,73.948' "$RUNNER_TEMP/mqr_realwarrant_receipt.txt"
+          grep -Fx 'physical_measurand_identity=HOLD_DECLARATION_ONLY' "$RUNNER_TEMP/mqr_realwarrant_receipt.txt"
+          grep -Fx 'instrument_substitution=HOLD_NO_PROSPECTIVE_TOLERANCE_OR_EXTERNAL_VALIDATION' "$RUNNER_TEMP/mqr_realwarrant_receipt.txt"
+          grep -Fx 'real_language_promotion=UNPROMOTED_CANDIDATE' "$RUNNER_TEMP/mqr_realwarrant_receipt.txt"
+      - name: Store read-only receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: mqr-4113-p2b-realwarrant-receipt
+          path: ${{ runner.temp }}/mqr_realwarrant_receipt.txt
+          retention-days: 30
