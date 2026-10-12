@@ -16,7 +16,7 @@ theorem affine_reference_shift_invariant
   unfold reported
   calc
     (α - β*c) + β*(θ+c) + ε
-       = (α - β*c) + (β*θ + β*c) + ε := by rw [mul_add]
+       = (α - β*c) + (β*θ + β*c) + ε := by rw [Int.mul_add]
     _ = ((α - β*c) + β*c) + β*θ + ε := by ac_rfl
     _ = α + β*θ + ε := by simp
 
