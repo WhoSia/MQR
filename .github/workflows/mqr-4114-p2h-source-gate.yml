@@ -1,0 +1,37 @@
+name: MQR 4.114 P2H source typed evidence gate
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.114/p2h_source_gate.rs'
+      - 'experiments/mqr-4.114/fixtures/p2h_evidence_matrix.psv'
+      - '.github/workflows/mqr-4114-p2h-source-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  p2h-documentary-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Compile Rust and run contract tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 --test experiments/mqr-4.114/p2h_source_gate.rs -o "$RUNNER_TEMP/p2h_tests"
+          "$RUNNER_TEMP/p2h_tests" --nocapture
+          rustc --edition=2021 experiments/mqr-4.114/p2h_source_gate.rs -o "$RUNNER_TEMP/p2h_audit"
+          "$RUNNER_TEMP/p2h_audit" | tee "$RUNNER_TEMP/p2h_receipt.txt"
+          grep -Fx 'p2h_fixture_rows=8' "$RUNNER_TEMP/p2h_receipt.txt"
+          grep -Fx 'p2h_source_gate=PASS_BOUNDED' "$RUNNER_TEMP/p2h_receipt.txt"
+          grep -Fx 'p2h_marginal_covariance_counterexample=PASS_MATHEMATICAL' "$RUNNER_TEMP/p2h_receipt.txt"
+          grep -Fx 'p2h_raw_workbooks=UNVERIFIED' "$RUNNER_TEMP/p2h_receipt.txt"
+          grep -Fx 'p2h_independent_same_serum_reference=HOLD' "$RUNNER_TEMP/p2h_receipt.txt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mqr4114-p2h-bounded-source-gate
+          path: ${{ runner.temp }}/p2h_receipt.txt
+          retention-days: 30
