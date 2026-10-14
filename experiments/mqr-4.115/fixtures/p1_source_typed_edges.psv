@@ -1,0 +1,11 @@
+source|target|type|origin|status
+carstensen2010|bland_altman1999|CITATION|doi:10.1002/sim.3769:refs1|DIRECT
+carstensen2010|carstensen_etal2008|CITATION|doi:10.1002/sim.3769:refs2|DIRECT
+carstensen2010|carstensen_glucose2008|CITATION|doi:10.1002/sim.3769:refs3|DIRECT
+carstensen2010|cornbleet_gochman1973|CITATION|doi:10.1002/sim.3769:refs4|DIRECT
+method_gc|calibration|DEPENDENCY|CCQM_K11.2_methods:analytic_decomposition|ANALYST_CODED
+method_lcms|calibration|DEPENDENCY|CCQM_K11.2_methods:analytic_decomposition|ANALYST_CODED
+method_gc|sample_preparation|DEPENDENCY|CCQM_K11.2_methods:analytic_decomposition|ANALYST_CODED
+method_lcms|sample_preparation|DEPENDENCY|CCQM_K11.2_methods:analytic_decomposition|ANALYST_CODED
+method_gc|signal_measurement|DEPENDENCY|CCQM_K11.2_methods:analytic_decomposition|ANALYST_CODED
+method_lcms|signal_measurement|DEPENDENCY|CCQM_K11.2_methods:analytic_decomposition|ANALYST_CODED
