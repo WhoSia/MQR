@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.115 P1-R2 — Original citation-network supplement and typed arrow composition
+
+[Source custody and logic/category-theoretic contract](research/mqr_4115_p1r2_greenberg_supplement_and_typed_composition.md), 2026-10-14. Actual Greenberg (2009) BMJ 2.12MB supplemental PDF was verified and moved from Drive 00_INTAKE to canonical 10_PAPERS under stable file ID `1N7iO3C15_dCjANtX0FLxPAWqTKE5NzJN`. Original author-provided Tables 3 and 4 contain statement-specific citation information, including supportive, critical and neutral labels, but no exhaustive graph reconstruction has been completed. Free-category composable directed paths do **not** automatically constitute admissible epistemic warrant. Representation-invariant source ancestry under operation refinement is the next falsification question. No new executable CI or independent source-root proof. See [Notion Lab](https://app.notion.com/p/3c8ef561cf92815693b6fcf6de9955f7). MQR 4.115 OPEN.
+
 ## MQR-4.115 (OPEN, P0)
 
 User-approved full name: **Traceability-Indexed Reference Identification under Archival Selection: Historical Calibration Custody, Cross-Laboratory Error Dependence, Independent Same-Material Witnesses & the Limits of Retrospective Metrological Repair**. [P0 research contract](research/mqr_4115_p0_traceability_arrow_authority_contract.md) restores experimental-method-to-logical-operation directed arrows and distinguishes evidence production, authority reproduction, and subsequent changes in the observed world. Existing CCQM raw-data and reference independence HOLD; no empirical claims or new CI. [Notion journal](https://app.notion.com/p/3c8ef561cf92815693b6fcf6de9955f7).
