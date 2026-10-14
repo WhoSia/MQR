@@ -1,0 +1,35 @@
+# MQR-4.114 P2-H — Source-Typed Calibration-Ancestry Evidence Matrix (2026-10-14)
+
+**Stage:** MQR-4.114 OPEN / internal P2-H documentary and finite-identifiability contract. **No new physical observations, no P3/P4, Real Lang 0.44 UNPROMOTED.** This is a research audit, not a certificate of independent calibration. Pre-existing P2-E Rust [CI #38210946544](https://github.com/WhoSia/MQR/actions/runs/38210946544) SUCCESS (20 tests per prior ledger); main HEAD Real-Language [CI #38219215792](https://github.com/WhoSia/MQR/actions/runs/38219215792) SUCCESS is **not P2-H experiment CI**.
+
+## Matrix semantics
+
+Each row has independent axes: **document link existence**, **bytes personally inspected**, **source-vs-derived status**, **period-specific custody**, **same-material independent reference**, **cross-lab covariance witness**, and **identification authority**. The statuses `PUBLIC_URL_VERIFIED`, `SOURCE_REPORTED`, `DRIVE_FILE_FOUND`, `ORIGINAL_BYTES_INSPECTED`, `INDEPENDENT_PHYSICAL_WITNESS` are noninterchangeable. `NOT_FOUND_IN_TARGETED_DRIVE_SEARCH` is never `NONEXISTENT`. File location may have changed: stable Drive IDs and current parent IDs, not guessed folder names, are authoritative.
+
+| Evidence object | Public source / custody | Physical/material independence | What it can warrant | What remains HOLD |
+|---|---|---|---|---|
+| 2018 BIPM CCQM-K11.2/K12.2 final report | Original [official report](https://www.bipm.org/documents/20126/44596658/CCQM-K11.2_and_12.2.pdf/1e39817b-940d-09a5-d098-651f65a2ab27), prior P2-F/G original document inspected; institute means, uncertainties, forms screenshots | It records multiple institutes, but does not certify error independence | Source-reported aggregate results; some within-lab analytic inputs and named calibrants | Original machine-readable submitted forms and injection traces not verified |
+| NIST SRM 917c archived CoA | [Official archived certificate](https://tsapps.nist.gov/srmext/certificates/archives/917c.pdf), 2020 revision, 2009/2013 events | Certifies particular reference chemical properties subject to certificate conditions, **not** the CCQM serum's glucose value | Historical published 917c certified purity statement, NOT actual each-lab physical label | Institute-held effective revisions and stock preparation records unknown |
+| Four unambiguous 917c citations (HSA, INMETRO, LNE, NMIJ) | BIPM Appendix A3 catalogue-level ancestry; VNIIM Appendix A2/A3 source label conflict | Shared catalogue designation neither proves one shared bottle nor zero common calibration effect | Common nominal *catalogue label* | Actual per-lab `a_i`, `Var(Z)`, `Cov(e_i,e_j)` and VNIIM inconsistency unresolved |
+| 2024 NIST CCQM_Retrospectoscope .xlsm | [PDR DOI 10.18434/mds2-2952](https://doi.org/10.18434/mds2-2952), [public file URL](https://data.nist.gov/od/ds/mds2-2952/CCQM_Retrospectoscope_Public_20240901.xlsm) | Later compiled comparison-summary resource; independent physical reference not established | Public dataset link existence; **workbook bytes/sheets not inspected** | K11.2 sheet inclusion, submission originals, detector traces, covariance not established |
+| 2012/2013 participant Reporting Forms | Historically existed, evidenced by 2018 report screenshots | Could expose participant-specific calibration recipes, not automatically cross-lab covariance | Historical form existence | Present custodial availability and complete submitted files UNKNOWN |
+| Original per-injection response traces | Not located in prior public P2-G custody checks | Would improve instrument-level observation audits; reference independence would still require calibration provenance | No current claim | Custody, completeness, physical reference graph |
+| Independent same-serum external reference | No matched independently certified original serum-glucose reference identified | Needed to challenge common-origin gauge symmetry | Nothing yet | **PHYSICAL_WITNESS_HOLD** |
+| User Drive at 2026-10-14 targeted title/content search | Queries `CCQM-K11`, `917c`, `CCQM_Retrospectoscope`, `Reporting Form` returned no matching original CCQM/K11.2 report, CoA, .xlsm, or lab form files; some matches were archive transcripts or unrelated titles | Drive search does not measure physics | `NOT_IDENTIFIED_BY_CURRENT_SEARCH` only; user reports recent moves | No absolute absence conclusion; broader folder-by-folder inventory/ID match not completed |
+
+## Finite identifiability contract
+
+Let `Y_i = theta + b_i + a_i Z + epsilon_i`, where `Z` is a hypothesized common calibrant ancestor, `a_i` sensitivities, `b_i` lab-specific biases, and errors independent only under an explicit model assumption. Then for `i != j`, `Cov(Y_i,Y_j)=a_i a_j Var(Z)` **only if** other cross-lab covariance terms are absent. Reported standard uncertainties `u_i` alone specify no off-diagonal covariance. For two labs, `u²[[1,0],[0,1]]` and `u²[[1,rho],[rho,1]]` for any `0<rho<1` share identical marginal uncertainties and are positive definite. Therefore published `u_i` cannot identify a cross-institute correlation. This is standard covariance algebra, **not a new theorem or source-observed laboratory correlation**. Repeated independent paired observations or an authenticated shared-input sensitivity and uncertainty genealogy are required for empirical correlation claims.
+
+## Specific source-acquisition gates
+
+1. Passive, no-macro, byte- and sheet-level inspection of the NIST Retrospectoscope dataset only after an authenticated successful file retrieval. A compilation remains a compilation.
+2. For historical source documents: seek 2009/2013 917c CoA revisions and original institutional form custody via verified archival channels, without assuming they remain stored.
+3. For the **same serum material**: require physically independent same-measurand reference evidence or declare the common-reference origin unidentifiable. The NIST 917c pure glucose calibrant is **not** this reference.
+4. If a new observation arrives, freeze data inclusion, unit conversion, covariance hypotheses, uncertainty budget and falsification criteria **before inspecting new outcomes**; label any retrospective check accordingly.
+
+## Governance and sync
+
+The single canonical MQR `Labs` database record stays [MQR central lab](https://app.notion.com/p/3c8ef561cf92815693b6fcf6de9955f7). Earlier `doctrine/MQR-NOTION-SINGLE-LAB-CONTRACT.md` forbids *any* child stage pages, whereas later archive handoffs authorize using already approved per-stage Notion pages while prohibiting a duplicate `Labs` row. Preserve the single-Lab invariant, do not fabricate a universal child-page prohibition as the newest author rule. Use incremental, section-specific Notion updates and source-specific verdicts. GitHub commit author/committer must be human `WhoSia`, CI `contents: read`; never introduce bot-authored commits or a new branch.
+
+**Verdict:** `P2H_DOCUMENTARY_MATRIX_PASS_BOUNDED / P2H_MARGINAL_COVARIANCE_NONIDENTIFICATION_MATH_PASS / SOURCE_WORKBOOK_BYTES_HOLD / PERIOD_CERTIFICATE_CUSTODY_HOLD / PHYSICAL_INDEPENDENCE_HOLD`. Does not close MQR-4.114.
