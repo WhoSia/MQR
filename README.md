@@ -8,6 +8,12 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## CURRENT AUTHORITY — MQR-4.118 ACTIVE / P0
+
+**User-approved title:** MQR-4.118 — The Politics of Epistemic Legibility & the Plurality of Scientific Reasons: Incommensurable Problem Formulations, Material Practice, Institutional Contestability, Counterfactual Exclusion & the Limits of Methodological Self-Correction.
+
+[P0 current research contract](research/mqr_4118_p0_legibility_plural_reasons.md), 2026-10-17. **4.117 CLOSED-TO-NEW-WORK / INHERITED** is administrative succession, NOT epistemic completion. Earlier README sections reporting older ACTIVE statuses are historical snapshots and do not override this current section. P0 examines cross-encoding translation of UV–Vis logical-operation and material/practice descriptions, rights to challenge evidential admission, and the distinction between failed translation and demonstrated incommensurability. Inherited Greenberg ambiguities, CCQM calibration custody, independent provenance, selective archival observation, and unencoded objections stay OPEN as research obligations. No new branch.
+
 ## MQR-4.117 P1 — Rival descriptions and unencoded objections
 
 [UV–Vis rival descriptions and bidirectional countermodels](research/mqr_4117_p1_rival_experimental_descriptions.md), 2026-10-17. Logic/dependency encoding and material/institutional-practice encoding can make different distinctions even for the same reported measurement. Hypothetical countermodels show each encoding has blind spots; **no empirical laboratory misconduct, independent calibration certification or philosophical superiority demonstrated**. The research question and source standards remain open to revision. Proposed next title 4.118 only; 4.117 ACTIVE.
