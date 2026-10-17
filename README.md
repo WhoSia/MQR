@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.118 P5 — Three Types of Theoretical Disagreement
+
+[P5 argument map and proposed Harvest H-MQR-4118-P5-B](research/mqr_4118_p5_disagreement_types.md), 2026-10-17. Source-text rereading of Thomas S. Kuhn 1983, Sankey 1993, Wang 2002 distinguishes (I) opposite truth assessments of a shared proposition, (II) taxonomy-dependent translation, and (III) conflict over which questions or evidence are admissible. III is an MQR analytical proposal, NOT an attributed Kuhnian theorem. No full original-page collation or eighteenth-century source audit. Earlier proposed P4 Harvest remains a candidate, not formally registered in Research OS. **4.118 ACTIVE**; 4.119 not opened.
+
 ## MQR-4.118 P4 — Kuhn–Sankey–Wang and Harvest Candidate
 
 [Source-grounded P4 comparison](research/mqr_4118_p4_kuhn_sankey_wang_collision.md), 2026-10-17. Compared original extracted text of Thomas S. Kuhn (1983), Sankey (1993) sections 2–4, and Wang (2002) on localized translation, semantic taxonomy and truth-value gaps. Candidate `H-MQR-4118-P4-A`: translation failure cannot be equated automatically with falsity, a truth-value gap, failed interpretation/comparison, or normative exclusion. This is **MQR's proposed new Harvest synthesis, not a canonical Research OS Harvest entry**. D. Richard Kuhn (1999) computer-science Harvest items must not be attributed to Thomas S. Kuhn. Full page-image collation and eighteenth-century primary text alignment remain HOLD. 4.118 ACTIVE.
