@@ -48,6 +48,26 @@ Thus generally C[-log(y/y0)] ≠ -log[(C y)/(C y0)]. Both transformations are le
 
 **Connection to MQR-1.12:** instrument correction, wavelength mixing, calibration and the nonlinear report coordinate have order-dependent semantics. If an experiment reverses operations without verifying a commutation relation, 'same stated absorption' need not have the same physical warrant.
 
+## NBS Part II close-reading update — printed pp.33–43, text read (2026-10-18)
+
+**Source-scoped correction of previous TOC-only status:** after the first tranche, printed Part II text (§§5–9, including descriptions and tabulated examples) was read. Figures/tables remain OCR extraction-level, not visually verified. Update does not apply to the 140-page appended reprints/certificates, still OPEN.
+
+**Cuvette / thermometry is not incidental (§6, printed pp.33–34):** sample-cuvette positioning and orientation can dominate precision; experimental differences may be caused by cuvette handling or blank subtraction. Authors' reproducibility Table 9 reports different blank/sample cycles even under an NBS high-accuracy apparatus. Table 11 reports bath and *actual solution* temperature differences: one text-extracted example is nominal bath 40.0°C vs solution 37.0°C, a **3.0°C discrepancy**. This difference makes stated treatment temperature a poor proxy for sample temperature if not measured. As a measurement-ontology case, the controlled bath is **not** automatically the sample's thermodynamic state; a physical transport/lag relation is needed. No procedures for handling hazardous reagents are reproduced here.
+
+**NBS trace-element results uncover common preparation bias (§7.2, printed pp.37–39, Table 13 and Fig.21):** for Ni in NBS trace-element glass, authors compare spectroscopy and polarography against isotope-dilution mass spectrometry (IDMS). Text-extracted averages:
+- 500-ppm-class SRM: spectrophotometry **451 ppm**, polarography **450 ppm**, IDMS **458.7 ppm**. Spectrophotometry/IDMS ratio ≈0.9832, polarography/IDMS ≈0.9810.
+- 50-ppm-class SRM: spectrophotometry **37.6 ppm**, polarography **37.8 ppm**, IDMS **38.8 ppm**. Spectrophotometry/IDMS ratio ≈0.9691, polarography/IDMS ≈0.9742.
+
+The paper considers the *shared* sample dissolution/preparation route a plausible source of missing nickel rather than positing two independent optical/polarographic instrument biases of precisely the same magnitude. **It explicitly presents a mechanistic explanation, not definitive source-specific proof.** This is a good historically real, multi-method **common-mode** example for MQR-1.5 nonduplication, 4.109 provenance, 4.114 cross-laboratory dependent calibration; far stronger as an epistemic lesson than a further invented example.
+
+**Analyst’s alternative hypotheses / falsifiers:** Shared sample recovery issue, independent calibration of the IDMS source, sample heterogeneity, matrix-dependent extraction or standards could contribute. A discriminating design would compare independently prepared aliquots, independently traceable methods and matched specimens with disclosed cross-method covariance. The exact chemistry/reagents are **not** necessary for the conceptual analysis, and the cited paper does not quantify every covariance. It is legitimate to distinguish agreement conditional on a shared preparation step from truly noncommon measurement contact.
+
+**Additional Part II cases (§§7.3–7.4, printed pp.39–40):** simultaneous multi-element optical analysis uses different colorimetric response spectra and changes chemical context; different analyte-specific response bands plus controlled changes can provide separate constraints, but interferences mean the inverse problem is not automatically full rank. A comparison of copper values with an isotope dilution method is presented in Table 15; numerical transcription and causal interpretation remain OCR/visual HOLD. These are source-based examples of a state/target-specific intervention bridge, not claims of chemically invariant coefficients.
+
+**Most important new synthesis:** Two measurements can be close because both correctly track **the same biased prepared analyte**, not because each independently reveals the original specimen’s true concentration. The route
+specimen -> shared preparation -> {optical signal, electrochemical signal}
+can generate correlated failure. Measurement-independence is a property of the **evidence-generating causal graph**, not the names of the instruments.
+
 ## Next bounded reading segments
 1. NBS printed pp.7–29: table-by-table SRM identity, bandpass, uncertainty, calibration conditional; photographic audit.
 2. NBS printed pp.33–43: chemical procedure and IDMS comparison, real source figures; separate original chart images.
