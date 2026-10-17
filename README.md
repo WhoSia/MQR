@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.116 P2 — Missingness Fibers & Review of Research Lineage
+
+[P2 archival missingness audit](research/mqr_4116_p2_missingness_review.md) and [four-regime finite test](experiments/mqr-4.116/p2_missingness_fibers.py), 2026-10-17. Reread 4.115 P0 method-operation arrow doctrine and loops, 4.114 P2-H calibration provenance constraints, and 4.116 P1 minimum-observation limits. Missing lineage certification or defeater status can make a claim judgment observationally ambiguous; no missing value is treated as verified false. Greenberg unverified citation column alignments and same-serum independent witnesses remain HOLD; 4.115 and 4.116 both OPEN. No causal or physical validation claimed.
+
 ## MQR-4.116 P1 — Minimum Added Evidence for Warrant Identification
 
 [P1 research contract](research/mqr_4116_p1_minimal_identifying_evidence.md) · [finite exhaustive test](experiments/mqr-4.116/p1_minimal_observation_sets.py), 2026-10-17. In a four-world countermodel with three candidate fields, the unique inclusion-minimal identifying set is {independently certified lineage, defeater status}; selection-authority label alone does not identify the verdict. This is **model-relative**, not universal or a real certified source finding. Existing Greenberg 161-edge bounded subgraph/7 ambiguous rows and 4.115 witness HOLD remain. 4.116 and 4.115 both OPEN; no GitHub CI claimed.
