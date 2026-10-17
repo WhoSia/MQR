@@ -1,0 +1,7 @@
+# MQR-4.120 P8 — Prior JTPA Cohort Crosscheck
+
+2026-10-17. An independently hosted earlier methodological manuscript, *Identification and Inference for Welfare Gains without Unconfoundedness*, describes a 9,223-person JTPA analysis cohort: Z=1 count 6,133, Z=0 count 3,090, and D-by-Z cells 4,015, 2,118, 43, 3,047. These numbers exactly agree with the presently analyzed Han/Zenodo cohort. The earlier manuscript attributes its analytic cohort to adult applicants with complete 30-month earnings, schooling and pre-program earnings, following Kitagawa and Tetenov (2018). Source: https://www.researchgate.net/publication/361922564_Identification_and_Inference_for_Welfare_Gains_without_Unconfoundedness
+
+This is a historical attribution correction: N=9,223 should not be presumed to have originated from Han's later Census/NCES school-density merge. A previously used speculation that 1,981 rows were necessarily lost in Han's density-data merge is unsupported. The exact exclusions and pre-processing code remain unresolved. Previous conditional MIT recid recovery and descriptive analyses are unaffected. The prior appearance of the same N and assignment cells is a strong cohort-lineage clue, not proof of row-level identity or research custody.
+
+Next: inspect Kitagawa–Tetenov 2018 original sample definition and compare its missing-data/eligibility predicates to the recovered 1,981 original MIT recids. Source bytes and author's original ZIP remain unauthenticated. Maintain 4.120 ACTIVE/P8; no causal effect or novel theorem asserted.
