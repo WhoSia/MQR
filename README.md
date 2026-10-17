@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.120 — Natural Successor Proposed (NOT YET ACTIVE)
+
+[4.120 P0 candidate and historical genealogy audit](research/mqr_4120_p0_contestable_judgment_candidate.md), 2026-10-17. Proposed name: **Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus**. Historical README 4.107–4.113 demonstrates fluid version progression despite inherited scientific HOLDs. Accordingly proposed 4.120 naturally inherits 4.119 P4: separate claim-level validity within a protocol (J1) from legitimacy and contestability of the protocol itself (J2). **4.119 remains ACTIVE until the user approves the name**; original MQR/Greenberg/CCQM/Harvest research obligations persist. No new empirical result.
+
 ## MQR-4.119 P4 — Consensus Can Erase the Question
 
 [P4 philosophical countermodels](research/mqr_4119_p4_consensus_question_erasure.md), 2026-10-17. Three hypothetical disputes distinguish rubric conformity, missing discriminating experimental evidence, and contesting the authority of the rubric itself. Majority agreement is not proof of legitimate question choice; dissent likewise is not automatically correct. P5 proposes a two-level audit separating conditional evaluation from authorization of the evaluative court. No empirical judges or model scores; original MQR genealogy and Greenberg/CCQM holds inherited. 4.119 ACTIVE.
