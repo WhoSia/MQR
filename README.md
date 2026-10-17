@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.119 P2 — Constructed Holdout Cards and Contract Sanity
+
+[P2 research and evidence ceiling](research/mqr_4119_p2_case_contract.md), 2026-10-17. Five **constructed** UV–Vis cases: two training families (blank drift, calibration range) and three held-out families (spectral overlap, matrix nonlinearity, standard custody conflict). A deterministic local Python check passed case-identity, family separation and expected counts (5 cases / 2 train / 3 held-out); **not** R0/R+/E performance, human epistemic skill, independent evaluation, or GitHub CI. Holdout must still be sealed and judged independently. Original MQR and all Greenberg/CCQM/Harvest obligations inherited. 4.119 ACTIVE.
+
 ## MQR-4.119 P1 — Preregistered Anomaly Recognition Challenge
 
 [P1 design contract](research/mqr_4119_p1_recognition_protocol.md), 2026-10-17. Freeze baseline rule SOP R0, richer rule system R+, and exemplar-conditioned strategy E; hold out UV–Vis interference, matrix effect, and standard custody discrepancy *families*. Score recognition, diagnosis, discriminating test, question revision, confidence and provenance separately. Reciprocal falsifiers prevent assuming tacit knowledge is intrinsically unformalizable or that a rich rule model always succeeds. **Design only: no participant experiment, independent court or CI run.** Older Greenberg/CCQM source holds and 4.118 candidate Harvest fragments inherited. 4.119 ACTIVE.
