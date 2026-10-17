@@ -8,11 +8,15 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
-## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P5
+## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P6
 
 **Formal title:** MQR-4.120 — Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus.
 
 [4.119 P5 two-level judgment handoff](research/mqr_4119_p5_two_level_judgment_handoff.md) · [4.120 ACTIVE P0 research contract](research/mqr_4120_p0_active_contestable_judgment.md), 2026-10-17. User authorized progression through 4.120, activating the previously proposed name. 4.119 is **CLOSED-TO-NEW-WORK / INHERITED**, not scientifically solved. P0 establishes distinct J1 claim-relative evidential validity and J2 legitimate, contestable authority to select/revise the evaluative court. A J1 pass cannot certify J2; a J2 objection does not automatically falsify J1; preserve claim scope, dissent and independent authority ancestry. All scenarios are **constructed conceptual cases**, not independent experiments, measured calibration, model-comparison outcomes or demonstrated normative legitimacy. Greenberg/CCQM physical source holds and 4.118 candidate Harvest obligations remain HOLD. MAIN_ONLY and human WhoSia commit authorship remain required. Previous ACTIVE/PROPOSED headings below are historical snapshots.
+
+## MQR-4.120 P6 — Remedial Consequences Are Not Causal Effects
+
+[P6 causal-identification court](research/mqr_4120_p6_consequence_identification_court.md) · [eight synthetic consequence gates](experiments/mqr-4.120/p6_consequence_gate.py), 2026-10-17. Separates order, implemented remedy, independently recorded post-outcome, comparable baseline and justified counterfactual attribution. Eight local synthetic checks passed their intended status classification; the strongest status is **CONDITIONAL_CAUSAL_SUPPORT_IN_FIXTURE**, not real-world evidence. Boolean gate satisfaction does not identify E[Y(1)-Y(0)] or validate independent provenance, confounding control or mandate. P7 will test observationally equivalent causal worlds with divergent effects. Greenberg/CCQM/Harvest and 4.119 assessment HOLDs persist.
 
 ## MQR-4.120 P5 — Hearing Is Not Repair
 
