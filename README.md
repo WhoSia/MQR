@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## P8 Genealogy and Promotion Scope Court (2026-10-17)
+
+[Deep reread of 4.101 / 4.107 / 4.109 / 4.119–4.120 and promotion gates](research/mqr_4120_p8_genealogy_promotion_scope_court.md). The 11,204-to-9,223 JTPA lineage, 1,981 conditionally excluded IDs, full-row feature checks and 36 changed median-derived labels are **real bounded J1 audits**, but they do **not** establish a J2 appeal authority, verified remedial implementation or new foundational theorem. Prior MQR already treated target-relative informativeness, selection, history/provenance and causal nonidentification; maintain these non-novelty gates. Next major evidence target: one first-party scientific assessment with an externally grounded challenged standard, dissent, actual correction adoption and independent downstream observable. No P9 or new generation until an independent discriminating witness passes.
+
 ## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P8
 
 **Formal title:** MQR-4.120 — Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus.
