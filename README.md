@@ -8,11 +8,15 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
-## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P3
+## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P4
 
 **Formal title:** MQR-4.120 — Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus.
 
 [4.119 P5 two-level judgment handoff](research/mqr_4119_p5_two_level_judgment_handoff.md) · [4.120 ACTIVE P0 research contract](research/mqr_4120_p0_active_contestable_judgment.md), 2026-10-17. User authorized progression through 4.120, activating the previously proposed name. 4.119 is **CLOSED-TO-NEW-WORK / INHERITED**, not scientifically solved. P0 establishes distinct J1 claim-relative evidential validity and J2 legitimate, contestable authority to select/revise the evaluative court. A J1 pass cannot certify J2; a J2 objection does not automatically falsify J1; preserve claim scope, dissent and independent authority ancestry. All scenarios are **constructed conceptual cases**, not independent experiments, measured calibration, model-comparison outcomes or demonstrated normative legitimacy. Greenberg/CCQM physical source holds and 4.118 candidate Harvest obligations remain HOLD. MAIN_ONLY and human WhoSia commit authorship remain required. Previous ACTIVE/PROPOSED headings below are historical snapshots.
+
+## MQR-4.120 P4 — Provenance Mutation and Missing-Edge Nonpromotion
+
+[P4 bounded court](research/mqr_4120_p4_provenance_mutation_and_contestability.md) · [eight synthetic mutation checks](experiments/mqr-4.120/p4_provenance_mutation.py), 2026-10-17. A recorded authority-dependency edge removed from an observed graph but retained in a separate expected registry causes HOLD rather than a spurious upgrade to structural independence. Also tests unsupported mandate, appeal-scope failure, empty receipt, unregistered edge and delegation cycle. Local Python fixture checks passed **only their constructed classifications**. The expected registry, receipt tokens, mandate and appeal power are **not authenticated**; joint removal from both registry and observed graph can evade detection. Shared institutional ancestry is a warning, not a verdict of illegitimacy. 4.120 remains ACTIVE, Greenberg/CCQM/Harvest inherited HOLDs untouched. P5 targets actual remedial capacity and independent provenance challenges.
 
 ## MQR-4.120 P3 — Authority Ancestry and Appeal Scope
 
