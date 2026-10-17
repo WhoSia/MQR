@@ -8,6 +8,14 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.116 P6 — Evidential Constitution & Audit-Value Framing
+
+[P6 conceptual and bounded mathematical research](research/mqr_4116_p6_evidential_constitution_audit_value.md), 2026-10-17. In the P5 stipulated scenario, narrowing the identified interval from [1/4,3/4] to [1/3,2/3] reduces interval width by 1/6; this is **not** a monetized or probabilistic value of information. Philosophical P6 distinguishes evidence selection from the institutional constitution of admissible evidence, and distinguishes descriptive, epistemic, and normative authority. Proposed competing method→operation vs practice-centered representations remain a falsifiable agenda, not empirical support. MQR-4.116 ACTIVE; predecessor 4.115 INHERITED, outstanding source and independence HOLD.
+
+## MQR-4.116 P5 — Partial Identification Record
+
+[P5 derivation](research/mqr_4116_p5_partial_identification.md) · [fraction assertions](experiments/mqr-4.116/p5_partial_id.py). Sample q1=q0=1/4 leads to [1/4,3/4] unrestricted, [1/3,2/3] under stipulated selection ratio G=2, and point {1/2} under G=1. G is unverified sensitivity input, not observed selection odds.
+
 ## Current authority — 4.116 ACTIVE; 4.115 INHERITED
 
 **4.115 = CLOSED-TO-NEW-WORK / INHERITED**, an administrative handoff only, NOT a claim that the Greenberg/custody/independence questions were resolved. **4.116 is the sole active working version.** All prior 4.115 empirical HOLDs and former 4.114 calibration-custody HOLDs are live obligations within 4.116. Older historical sections mentioning 4.115 OPEN describe the state *at the time* and do not override this current authority paragraph.
