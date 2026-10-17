@@ -4,7 +4,7 @@ MQR investigates what observation and measurement can justify, what they cannot 
 
 This repository is the **live formal substrate**, not a chronological lab notebook. Historical source reviews and superseded README narrative are archived in Drive / Research OS; Notion remains the research notebook.
 
-## Current authority — MQR-4.121 ACTIVE / P0
+## Current authority — MQR-4.121 ACTIVE / P1A
 
 **Formal title:** *World-Contact across Changing Representations: Measurement Nonlinearity, Intervention-Sequence Coherence, State Sufficiency, Hysteresis & the Transport of Physical Warrant.*
 
