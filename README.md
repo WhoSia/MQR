@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.116 P7 — Reflexive Failure of MQR's Own Method
+
+[Adversarial self-critique and 4.117 candidate](research/mqr_4116_p7_reflexive_method_failure.md), 2026-10-17. Question is **not** merely alternative graph encodings: MQR's preferred formal language, verification gates and HOLD register can suppress questions it cannot express. Three counterpressures: pre-graph exclusions, certifier authority capture, and use of empirical HOLD to silence conceptual/normative criticism. Proposed unencoded-objection register and epistemic/normative/interpretive/empirical standards separation. This is a philosophical analysis, not an externally validated empirical finding. 4.116 remains ACTIVE; 4.117 title only a proposal.
+
 ## MQR-4.116 P6 — Evidential Constitution & Audit-Value Framing
 
 [P6 conceptual and bounded mathematical research](research/mqr_4116_p6_evidential_constitution_audit_value.md), 2026-10-17. In the P5 stipulated scenario, narrowing the identified interval from [1/4,3/4] to [1/3,2/3] reduces interval width by 1/6; this is **not** a monetized or probabilistic value of information. Philosophical P6 distinguishes evidence selection from the institutional constitution of admissible evidence, and distinguishes descriptive, epistemic, and normative authority. Proposed competing method→operation vs practice-centered representations remain a falsifiable agenda, not empirical support. MQR-4.116 ACTIVE; predecessor 4.115 INHERITED, outstanding source and independence HOLD.
