@@ -8,7 +8,13 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
-## MQR-4.120 — Natural Successor Proposed (NOT YET ACTIVE)
+## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P0
+
+**Formal title:** MQR-4.120 — Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus.
+
+[4.119 P5 two-level judgment handoff](research/mqr_4119_p5_two_level_judgment_handoff.md) · [4.120 ACTIVE P0 research contract](research/mqr_4120_p0_active_contestable_judgment.md), 2026-10-17. User authorized progression through 4.120, activating the previously proposed name. 4.119 is **CLOSED-TO-NEW-WORK / INHERITED**, not scientifically solved. P0 establishes distinct J1 claim-relative evidential validity and J2 legitimate, contestable authority to select/revise the evaluative court. A J1 pass cannot certify J2; a J2 objection does not automatically falsify J1; preserve claim scope, dissent and independent authority ancestry. All scenarios are **constructed conceptual cases**, not independent experiments, measured calibration, model-comparison outcomes or demonstrated normative legitimacy. Greenberg/CCQM physical source holds and 4.118 candidate Harvest obligations remain HOLD. MAIN_ONLY and human WhoSia commit authorship remain required. Previous ACTIVE/PROPOSED headings below are historical snapshots.
+
+## MQR-4.120 — Historical Proposal (NOW ACTIVATED)
 
 [4.120 P0 candidate and historical genealogy audit](research/mqr_4120_p0_contestable_judgment_candidate.md), 2026-10-17. Proposed name: **Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus**. Historical README 4.107–4.113 demonstrates fluid version progression despite inherited scientific HOLDs. Accordingly proposed 4.120 naturally inherits 4.119 P4: separate claim-level validity within a protocol (J1) from legitimacy and contestability of the protocol itself (J2). **4.119 remains ACTIVE until the user approves the name**; original MQR/Greenberg/CCQM/Harvest research obligations persist. No new empirical result.
 
