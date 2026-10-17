@@ -42,3 +42,9 @@ Falsifier to easy 3-species inference: independent chemical assay showing altern
 
 ## Acquisition/custody state
 PASS: complete 16-page original PDF in Drive, full text accessible with imperfect extraction, bibliographic identity publisher confirmed, original 1974 explanation now inspectable. HOLD: visual table/plot cell-by-cell audit, instrument output digitized arrays, independent chemical validation, source program code, exact new numerical rank analysis. Current research generation 4.121/P1B close reading; synthesis/citation is valuable without new-theorem gating.
+
+## 2026-10-18 exact-rational countermodel execution receipt (local, NOT CI)
+
+The committed `experiments/mqr-4.121/p1b_spectral_rank_countermodel.py` uses finite rational linear algebra with four declared spectral channels and three independent endmember response vectors. The same stated algorithm and constructed matrices were evaluated locally in Python: `rank(E)=3`, fixed yellow-form ratio `affine_rank(Y)=1`, changing ratio at fixed acid concentration `affine_rank(Y)=2`. All three returned as expected. This **validates the internal constructed counterexample only**; it does not replicate the 1974 spectra and is not a GitHub Actions result. A future independent source-file/CI replay should be recorded separately.
+
+The mathematical issue is sharpened: the number of chemically possible species and the number of independent endmember spectral vectors can both equal three, while the *experimentally traversed concentration pathway* has affine dimension only one. One more controlled regime allowing change in the previously fixed composition ratio expands the observed centered rank to two without requiring any newly invented species. Observational rank is therefore a joint property of response operator and reached states, not simply an ontology count.
