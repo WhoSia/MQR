@@ -8,11 +8,15 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
-## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P0
+## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P1
 
 **Formal title:** MQR-4.120 — Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus.
 
 [4.119 P5 two-level judgment handoff](research/mqr_4119_p5_two_level_judgment_handoff.md) · [4.120 ACTIVE P0 research contract](research/mqr_4120_p0_active_contestable_judgment.md), 2026-10-17. User authorized progression through 4.120, activating the previously proposed name. 4.119 is **CLOSED-TO-NEW-WORK / INHERITED**, not scientifically solved. P0 establishes distinct J1 claim-relative evidential validity and J2 legitimate, contestable authority to select/revise the evaluative court. A J1 pass cannot certify J2; a J2 objection does not automatically falsify J1; preserve claim scope, dissent and independent authority ancestry. All scenarios are **constructed conceptual cases**, not independent experiments, measured calibration, model-comparison outcomes or demonstrated normative legitimacy. Greenberg/CCQM physical source holds and 4.118 candidate Harvest obligations remain HOLD. MAIN_ONLY and human WhoSia commit authorship remain required. Previous ACTIVE/PROPOSED headings below are historical snapshots.
+
+## MQR-4.120 P1 — Dual-Ledger Contestability Contract
+
+[P1 constructed-case and audit schema](research/mqr_4120_p1_dual_ledger_contestability_contract.md), 2026-10-17. Four explicitly hypothetical courts separate J1 claim-relative inference from J2 authorization/contestability: numerical formula PASS with custody HOLD; empirical discrimination HOLD despite a conditionally authorized appeal process; SOP conformity PASS alongside exclusion-based governance FAIL; and bounded PASS/PASS where the second audit adds no forced disagreement. Includes eight audit invariants, source-ancestry conditions and reciprocal counterexamples. **All verdicts are stipulated examples**; no human reviewers, independent physical custody, legitimate external authorization or actual experimental R0/R+/E performance certified. 4.120 ACTIVE; inherited Greenberg/CCQM and Harvest obligations remain HOLD.
 
 ## MQR-4.120 — Historical Proposal (NOW ACTIVATED)
 
