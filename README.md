@@ -4,7 +4,10 @@ MQR investigates what observation and measurement can justify, what they cannot 
 
 This repository is the **live formal substrate**, not a chronological lab notebook. Historical source reviews and superseded README narrative are archived in Drive / Research OS; Notion remains the research notebook.
 
-## Current authority — MQR-4.121 ACTIVE / P1B
+## Current authority — MQR-4.121 ACTIVE / P1B (P1C DESIGN-READY)
+
+- **P1C bounded research design and historical correction:** [Origin-grounded discrimination and operational audit](research/mqr_4121_p1c_origin_grounded_discriminants_and_operational_audit.md). Direct archival spot-reading of MQR 1–4, 22, 24, 25 shows that authority, translation loss and dissent were already present in the founding period; the later theory branch is not merely an unrelated detour. Rival discrimination of chemistry, stray light and finite-bandpass remains a prospective design without new measurements. Recent 12 YAML files checked for repository write operations; three legacy workflows additionally request `statuses: write`, so blanket **globally read-only** wording is not warranted. Full Actions/contributor audit HOLD.
+
 
 - **P1B primary-source reading:** [Griffiths–Potts, NBS, Zong, Sethna and EvoNOMOS origin-drift comparative annotated reading](research/mqr_4121_p1b_source_partition_reading_and_origin_drift.md). Five requested PDF sources already in Research OS canonical literature commons; source custody verified by file metadata, all-figure/full-NBS sequential reading still open; no reupload or forced duplicate files.
 
