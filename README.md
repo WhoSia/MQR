@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.118 P3 — Thomas Kuhn Primary Text and Harvest Disambiguation
+
+[P3 source-bound audit](research/mqr_4118_p3_kuhn_harvest_disambiguation.md), 2026-10-17. Read Thomas S. Kuhn's 1983 original essay from Drive: local incommensurability, translation versus interpretation, and limited taxonomy translation in phlogiston/modern chemistry. **Translation failure is not automatically comparison, communication or historical interpretation failure.** Critical provenance correction: Harvest LR-20260905-A K02/K04 refer to **D. Richard Kuhn (1999), software testing**, not Thomas S. Kuhn. Other Kuhn philosophy papers are available on Drive but not all reread; historical eighteenth-century first-person claims remain unverified. 4.118 ACTIVE.
+
 ## MQR-4.118 P2 — Historical Translation: Phlogiston and Chemical Revolution
 
 [Source-bounded historical case and genealogy rereading](research/mqr_4118_p2_historical_translation_case.md), 2026-10-17. Secondary historical scholarship on mass gain upon calcination, rival gas theories, and the contested referent of phlogiston gives a candidate for testing claim-level translation and evidential legibility. No primary-era passage collation yet; **historical incommensurability NOT certified**. 4.118 ACTIVE; preserve Greenberg/CCQM and original method-to-operation problems. P3 should align original historical texts before stronger attribution. 4.119 not opened.
