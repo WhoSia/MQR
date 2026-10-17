@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.118 P1 — Cross-Encoding Loss Ledger
+
+[P1 claim-by-claim translation and loss audit](research/mqr_4118_p1_cross_encoding_loss_ledger.md), 2026-10-17. Operation-graph and practice/custody descriptions of UV–Vis support different claims; a reference-node name cannot be translated into independent custody evidence, and omission of institutional challenge procedures can erase contestability. Translation is **partial**, not proven historically incommensurable. Five claim-level witness requirements and bidirectional hypothetical counterexamples documented. 4.118 ACTIVE; source-independent empirical tests pending.
+
 ## CURRENT AUTHORITY — MQR-4.118 ACTIVE / P0
 
 **User-approved title:** MQR-4.118 — The Politics of Epistemic Legibility & the Plurality of Scientific Reasons: Incommensurable Problem Formulations, Material Practice, Institutional Contestability, Counterfactual Exclusion & the Limits of Methodological Self-Correction.
