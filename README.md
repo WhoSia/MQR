@@ -8,11 +8,15 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
-## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P4
+## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P5
 
 **Formal title:** MQR-4.120 — Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus.
 
 [4.119 P5 two-level judgment handoff](research/mqr_4119_p5_two_level_judgment_handoff.md) · [4.120 ACTIVE P0 research contract](research/mqr_4120_p0_active_contestable_judgment.md), 2026-10-17. User authorized progression through 4.120, activating the previously proposed name. 4.119 is **CLOSED-TO-NEW-WORK / INHERITED**, not scientifically solved. P0 establishes distinct J1 claim-relative evidential validity and J2 legitimate, contestable authority to select/revise the evaluative court. A J1 pass cannot certify J2; a J2 objection does not automatically falsify J1; preserve claim scope, dissent and independent authority ancestry. All scenarios are **constructed conceptual cases**, not independent experiments, measured calibration, model-comparison outcomes or demonstrated normative legitimacy. Greenberg/CCQM physical source holds and 4.118 candidate Harvest obligations remain HOLD. MAIN_ONLY and human WhoSia commit authorship remain required. Previous ACTIVE/PROPOSED headings below are historical snapshots.
+
+## MQR-4.120 P5 — Hearing Is Not Repair
+
+[P5 research court](research/mqr_4120_p5_remedial_authority_and_consequences.md) · [eight synthetic remedial-capacity tests](experiments/mqr-4.120/p5_remedial_capacity.py), 2026-10-17. Distinguishes complaint reception, question reopening, power to require evidence/change a rule, remedy executed and outcome independently observed. Local fixtures separate no access, hearing without repair, repair possible but unused, and remedy reported with outcome unverified; the positive outcome is explicitly fictional. **Fixture PASS is schema logic only**, neither proof of real mandate nor causal consequence. P6 should type remedy scope and test independent outcome evidence. Existing Greenberg/CCQM/Harvest and R0/R+/E empirical HOLDs remain inherited.
 
 ## MQR-4.120 P4 — Provenance Mutation and Missing-Edge Nonpromotion
 
