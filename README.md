@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.119 P1 — Preregistered Anomaly Recognition Challenge
+
+[P1 design contract](research/mqr_4119_p1_recognition_protocol.md), 2026-10-17. Freeze baseline rule SOP R0, richer rule system R+, and exemplar-conditioned strategy E; hold out UV–Vis interference, matrix effect, and standard custody discrepancy *families*. Score recognition, diagnosis, discriminating test, question revision, confidence and provenance separately. Reciprocal falsifiers prevent assuming tacit knowledge is intrinsically unformalizable or that a rich rule model always succeeds. **Design only: no participant experiment, independent court or CI run.** Older Greenberg/CCQM source holds and 4.118 candidate Harvest fragments inherited. 4.119 ACTIVE.
+
 ## CURRENT AUTHORITY — MQR-4.119 ACTIVE / P0
 
 **Approved formal name:** MQR-4.119 — Exemplars, Epistemic Agency & the Limits of Rule Reconstruction: Problem Recognition, Tacit Scientific Competence, Situated Anomaly Judgment, Contestable Standards of Understanding & the Revisability of Formal Method.
