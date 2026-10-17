@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.118 P4 — Kuhn–Sankey–Wang and Harvest Candidate
+
+[Source-grounded P4 comparison](research/mqr_4118_p4_kuhn_sankey_wang_collision.md), 2026-10-17. Compared original extracted text of Thomas S. Kuhn (1983), Sankey (1993) sections 2–4, and Wang (2002) on localized translation, semantic taxonomy and truth-value gaps. Candidate `H-MQR-4118-P4-A`: translation failure cannot be equated automatically with falsity, a truth-value gap, failed interpretation/comparison, or normative exclusion. This is **MQR's proposed new Harvest synthesis, not a canonical Research OS Harvest entry**. D. Richard Kuhn (1999) computer-science Harvest items must not be attributed to Thomas S. Kuhn. Full page-image collation and eighteenth-century primary text alignment remain HOLD. 4.118 ACTIVE.
+
 ## MQR-4.118 P3 — Thomas Kuhn Primary Text and Harvest Disambiguation
 
 [P3 source-bound audit](research/mqr_4118_p3_kuhn_harvest_disambiguation.md), 2026-10-17. Read Thomas S. Kuhn's 1983 original essay from Drive: local incommensurability, translation versus interpretation, and limited taxonomy translation in phlogiston/modern chemistry. **Translation failure is not automatically comparison, communication or historical interpretation failure.** Critical provenance correction: Harvest LR-20260905-A K02/K04 refer to **D. Richard Kuhn (1999), software testing**, not Thomas S. Kuhn. Other Kuhn philosophy papers are available on Drive but not all reread; historical eighteenth-century first-person claims remain unverified. 4.118 ACTIVE.
