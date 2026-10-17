@@ -4,7 +4,7 @@ MQR investigates what observation and measurement can justify, what they cannot 
 
 This repository is the **live formal substrate**, not a chronological lab notebook. Historical source reviews and superseded README narrative are archived in Drive / Research OS; Notion remains the research notebook.
 
-## Current authority — MQR-4.121 ACTIVE / P1A
+## Current authority — MQR-4.121 ACTIVE / P1B
 
 **Formal title:** *World-Contact across Changing Representations: Measurement Nonlinearity, Intervention-Sequence Coherence, State Sufficiency, Hysteresis & the Transport of Physical Warrant.*
 
@@ -15,7 +15,7 @@ This repository is the **live formal substrate**, not a chronological lab notebo
 - **P1A analytical continuation:** [Two UV–Vis nonlinearity mechanisms](research/mqr_4121_p1a_uvvis_nonlinearity_two_mechanisms.md): stray-light saturation versus finite spectral-bandwidth log-mixture concavity. Explicit derivative proof, numeric examples, counterexample to uniqueness of a curvature diagnosis and prospective discrimination protocols. Literature cited; **no new physical measurements**.
 - **Notion research memory:** [MQR-4.121 P0](https://app.notion.com/p/3fcef561cf9281389fecf57ead3bb348).
 - **Research doctrine:** [cited synthesis and rigorous reconstruction are legitimate contributions](doctrine/research-contribution-prior-art.md). No requirement of unprecedented novelty; do not infer physical validation or independent model comparison from an illustrative counterexample. P1 may proceed through substantive source-backed analysis.
-- **Immediate source acquisitions:** Griffiths & Potts (1974) *Analytica Chimica Acta*, DOI 10.1016/S0003-2670(01)82866-X; NBS/NIST *Accuracy in Analytical Spectrophotometry*, SP 260-81; NIST Zong et al. (2007/2010) stray light; Sethna et al. (1993), PRL 70 3347. Canonical Drive copies not verified.
+- **P1B primary-source custody and close reading:** all five originals (Griffiths–Potts 1974, Burke–Mavrodineanu 1983 NBS SP 260-81, Zong et al. 2007, Zong 2010, Sethna et al. 1993) were verified and ID-preservingly normalized from `00_INTAKE` to [Literature Commons `10_PAPERS`](https://drive.google.com/drive/folders/1D2M4LHcejREhlyp6vTd71xxLLx-6ldUP). Annotated readings: [1974 full-spectrum internal linearity and chemical-species count](research/mqr_4121_p1b_griffiths_potts_1974_annotated_close_read.md), [NBS Part One](research/mqr_4121_p1b_nbs26081_part_one_annotated_notes.md), [NBS Part Two and reproduced-appendix audit boundary](research/mqr_4121_p1b_nbs26081_part_two_appendix_gate.md), [Zong correction/uncertainty and Sethna return-memory reading](research/mqr_4121_p1b_zong_sethna_operator_memory_notes.md). [Exact rational toy](experiments/mqr-4.121/p1b_spectral_rank_countermodel.py) distinguishes chemical endmember count, spectral trajectory rank and changed mixing path. **No new laboratory measurement or original 1974 digitized arrays; NBS reproduced appendices and figure-by-figure numerical checking remain HOLD.**
 
 ### Inherited MQR-4.120 — CLOSED-TO-NEW-WORK / P8-HOLD
 
@@ -52,4 +52,4 @@ This repository is the **live formal substrate**, not a chronological lab notebo
 - Earlier README archival snapshots are in the same Drive history folder; individual current research files remain accessible through linked `research/` paths.
 - P8 retired after verbatim Drive readback: [prior JTPA cohort crosscheck](https://docs.google.com/document/d/1cRxsJg8H8uw8L18K9VRX6ihIBHo0njg2A5t2Lh86BY0/edit) (superseded by original Kitagawa–Tetenov source audit); [initial CCQM Track C J1/J2 restatement](https://docs.google.com/document/d/1EySZX-u1hzsQb20hq5Zpo62DL-niPqeHeLHFHSh2IVU/edit) (subsumed by dated OAWG decision/KCDB publication court). Git history retains both original Markdown blobs.
 
-**Next physical research action:** acquire the complete 1974 indicator-equilibrium study and historical NBS/NIST source where possible, discriminate stray-light from chemical-equilibrium model changes with explicit conditions, and test whether initial 1.12–1.15 intervention-history distinctions explain any measured difference. Inherited R0/R+/E remains a distinct unexecuted obligation.
+**Next physical research action:** compare the 1974 published figures/tables with extracted text and evaluate spectral affine-rank counterexamples against original full-spectral conditions; inventory NBS 260-81's reproduced appendices page by page; formulate testable discriminants for chemical equilibria versus spectral bandwidth versus instrument stray light, then state-history/return-point probes. [Origin-return and EvoNOMOS recurring drift history](research/mqr_4121_origin_return_evonomos_drift_history.md). Inherited R0/R+/E remains a separate unexecuted obligation.
