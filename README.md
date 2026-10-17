@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## Current research authority — MQR-4.117 ACTIVE
+
+**Approved full name:** MQR-4.117 — Epistemic Self-Limitation & the Revisability of Scientific Reason: Representational Exclusion, Methodological Capture, Normative Authority, Unencoded Objections & the Right to Transform the Question. [P0 contract and researched genealogy](research/mqr_4117_p0_reflexive_question_revisability.md), 2026-10-17. **4.116 CLOSED-TO-NEW-WORK / INHERITED** means administrative handoff only, not proof of resolution. Prior passages describing 4.116 as ACTIVE are historical at their time of writing. No new branches. Outstanding source authentication, Greenberg table ambiguity, calibration independence and authority-selection identification are inherited, NOT erased. The first 4.117 object is an **unencoded objection register** and competing criteria for empirical, conceptual, interpretive, formal and normative objections; mathematical test passage cannot automatically certify that a chosen question is legitimate.
+
 ## MQR-4.116 P7 — Reflexive Failure of MQR's Own Method
 
 [Adversarial self-critique and 4.117 candidate](research/mqr_4116_p7_reflexive_method_failure.md), 2026-10-17. Question is **not** merely alternative graph encodings: MQR's preferred formal language, verification gates and HOLD register can suppress questions it cannot express. Three counterpressures: pre-graph exclusions, certifier authority capture, and use of empirical HOLD to silence conceptual/normative criticism. Proposed unencoded-objection register and epistemic/normative/interpretive/empirical standards separation. This is a philosophical analysis, not an externally validated empirical finding. 4.116 remains ACTIVE; 4.117 title only a proposal.
