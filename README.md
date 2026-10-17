@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.119 P3 — Contestable Adjudication and Dissent Preservation
+
+[P3 research contract](research/mqr_4119_p3_contestable_adjudication.md) · [finite documentation checker](experiments/mqr-4.119/p3_court_contract.py), 2026-10-17. An evaluator who predetermines the 'correct question' may circularly judge scientific problem recognition. Proposed four **unrecruited** independent roles: method, inference, provenance, critical challenger. Preserve six distinct axes, grounds, uncertainty and framework dissent instead of scalar winner or majority-as-truth. The finite constructed checker verifies required fields and divergent judgments; local documentation sanity PASS, **not experimental validity, actual assessor independence, model performance, or normative legitimacy**. 4.119 ACTIVE. All inherited Greenberg/CCQM/Harvest obligations remain.
+
 ## MQR-4.119 P2 — Constructed Holdout Cards and Contract Sanity
 
 [P2 research and evidence ceiling](research/mqr_4119_p2_case_contract.md), 2026-10-17. Five **constructed** UV–Vis cases: two training families (blank drift, calibration range) and three held-out families (spectral overlap, matrix nonlinearity, standard custody conflict). A deterministic local Python check passed case-identity, family separation and expected counts (5 cases / 2 train / 3 held-out); **not** R0/R+/E performance, human epistemic skill, independent evaluation, or GitHub CI. Holdout must still be sealed and judged independently. Original MQR and all Greenberg/CCQM/Harvest obligations inherited. 4.119 ACTIVE.
