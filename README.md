@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.119 P4 — Consensus Can Erase the Question
+
+[P4 philosophical countermodels](research/mqr_4119_p4_consensus_question_erasure.md), 2026-10-17. Three hypothetical disputes distinguish rubric conformity, missing discriminating experimental evidence, and contesting the authority of the rubric itself. Majority agreement is not proof of legitimate question choice; dissent likewise is not automatically correct. P5 proposes a two-level audit separating conditional evaluation from authorization of the evaluative court. No empirical judges or model scores; original MQR genealogy and Greenberg/CCQM holds inherited. 4.119 ACTIVE.
+
 ## MQR-4.119 P3 — Contestable Adjudication and Dissent Preservation
 
 [P3 research contract](research/mqr_4119_p3_contestable_adjudication.md) · [finite documentation checker](experiments/mqr-4.119/p3_court_contract.py), 2026-10-17. An evaluator who predetermines the 'correct question' may circularly judge scientific problem recognition. Proposed four **unrecruited** independent roles: method, inference, provenance, critical challenger. Preserve six distinct axes, grounds, uncertainty and framework dissent instead of scalar winner or majority-as-truth. The finite constructed checker verifies required fields and divergent judgments; local documentation sanity PASS, **not experimental validity, actual assessor independence, model performance, or normative legitimacy**. 4.119 ACTIVE. All inherited Greenberg/CCQM/Harvest obligations remain.
