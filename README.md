@@ -8,6 +8,12 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## CURRENT AUTHORITY — MQR-4.119 ACTIVE / P0
+
+**Approved formal name:** MQR-4.119 — Exemplars, Epistemic Agency & the Limits of Rule Reconstruction: Problem Recognition, Tacit Scientific Competence, Situated Anomaly Judgment, Contestable Standards of Understanding & the Revisability of Formal Method.
+
+[P0 competing hypotheses and genealogy](research/mqr_4119_p0_exemplars_agency_reconstruction.md) · [delayed 4.118 P6 source receipt](research/mqr_4118_p6_exemplars_and_rules.md). **4.118 CLOSED-TO-NEW-WORK / INHERITED** is an administrative handoff, not scientific settlement. Main is the sole authorized branch. Kuhn (1974) distinguishes exemplary learning and explicit-rule reconstruction; P0 pits enriched formal modeling against exemplar-conditioned novel problem recognition, refusing to assume either cannot work. No experimental skill evidence or physical calibration independence certified. Historical Greenberg/CCQM HOLDs and unregistered 4.118 P4/P5 Harvest candidates remain live. Previous README ACTIVE labels are historical snapshots, not current authority.
+
 ## MQR-4.118 P5 — Three Types of Theoretical Disagreement
 
 [P5 argument map and proposed Harvest H-MQR-4118-P5-B](research/mqr_4118_p5_disagreement_types.md), 2026-10-17. Source-text rereading of Thomas S. Kuhn 1983, Sankey 1993, Wang 2002 distinguishes (I) opposite truth assessments of a shared proposition, (II) taxonomy-dependent translation, and (III) conflict over which questions or evidence are admissible. III is an MQR analytical proposal, NOT an attributed Kuhnian theorem. No full original-page collation or eighteenth-century source audit. Earlier proposed P4 Harvest remains a candidate, not formally registered in Research OS. **4.118 ACTIVE**; 4.119 not opened.
