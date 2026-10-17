@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.117 P1 — Rival descriptions and unencoded objections
+
+[UV–Vis rival descriptions and bidirectional countermodels](research/mqr_4117_p1_rival_experimental_descriptions.md), 2026-10-17. Logic/dependency encoding and material/institutional-practice encoding can make different distinctions even for the same reported measurement. Hypothetical countermodels show each encoding has blind spots; **no empirical laboratory misconduct, independent calibration certification or philosophical superiority demonstrated**. The research question and source standards remain open to revision. Proposed next title 4.118 only; 4.117 ACTIVE.
+
 ## Current research authority — MQR-4.117 ACTIVE
 
 **Approved full name:** MQR-4.117 — Epistemic Self-Limitation & the Revisability of Scientific Reason: Representational Exclusion, Methodological Capture, Normative Authority, Unencoded Objections & the Right to Transform the Question. [P0 contract and researched genealogy](research/mqr_4117_p0_reflexive_question_revisability.md), 2026-10-17. **4.116 CLOSED-TO-NEW-WORK / INHERITED** means administrative handoff only, not proof of resolution. Prior passages describing 4.116 as ACTIVE are historical at their time of writing. No new branches. Outstanding source authentication, Greenberg table ambiguity, calibration independence and authority-selection identification are inherited, NOT erased. The first 4.117 object is an **unencoded objection register** and competing criteria for empirical, conceptual, interpretive, formal and normative objections; mathematical test passage cannot automatically certify that a chosen question is legitimate.
