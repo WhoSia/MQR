@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.115 P1-R7 — Stratified Warrant Transport
+
+[Research contract](research/mqr_4115_p1r7_stratified_warrant_transport.md) and [executable five-case witness countermodel](experiments/mqr-4.115/p1r7_witness_judgments.py), 2026-10-17. Separates J0 existence, J1 independently certified roots, and J2 strength-and-defeater scoped warrant. Toy distinct-root-ID predicate is **not** empirical independence certification; local five-case tests passed, GitHub CI unrun. P1-R5/R6 historical Notion backfill submitted asynchronously and must be confirmed as completed. MQR-4.115 stays OPEN; original source column-ambiguity HOLD.
+
 ## MQR-4.115 P1-R5–R6 — Proof-class transport and contextual congruence
 
 [P1-R5 recovered source/Harvest audit](research/mqr_4115_p1r5_proof_class_harvest_receipt.md) and [P1-R6 congruence contract](research/mqr_4115_p1r6_contextual_proof_congruence.md), 2026-10-14. Source-bounded Greenberg Table 4 audit: 161 edges, 45 citation targets, seven column-ambiguous rows excluded; independent reference roots not certified. A quotient of proof objects supports composition only if equivalence is a contextual congruence and preserves admissibility, source-root constraints and defeater obligations. Surjective, sound transport on valid proof classes preserves *existence* of evidence proof, not its strength or physical independence. Harvest LR-20260905-A W05/K02/K04/C2 cited as prior work, not reharvested. Notion insertion currently tool safety blocked; do not claim synchronized. No new CI.
