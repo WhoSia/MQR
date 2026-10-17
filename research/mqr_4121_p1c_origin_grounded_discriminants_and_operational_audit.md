@@ -81,3 +81,22 @@ For relative concentration c = 0.5, 1, 2, benchmark ideal absorption A=2c, simpl
 These values are **constructed mathematics**, not Griffiths–Potts raw data. This construction models optical rival mechanisms only; chemical-equilibrium competition remains conceptually proposed, not quantified by this table. A first two-factor physical **screening** grid of 3 concentrations × 2 independently characterized slit widths × 2 independently validated stray-light regimes = **12 cells**, plus blanks, references, repetitions, random order and sample-history controls; it is *not a theorem of minimal sample count, not a power calculation and not a three-hypothesis identification guarantee*. Independent chemical-state evidence and pH/temperature interventions require additional conditions. Notion research ledger updated 2026-10-18 at https://app.notion.com/p/3fcef561cf9281389fecf57ead3bb348.
 
 **Historical extension:** Directly inspected archival transcripts 6–21 at conversation-question/transition level after the initial P1C filing. Highlights: 4.42 rival-frontier limitations; 4.53 progress scalar skepticism; 4.66 state quotient; 4.69 ancestry nonfungibility; 4.70 intervention-family endogeneity; 4.90–4.100 detection/sampling observational selection. Not a claim of 16 transcripts read word-for-word, nor independent replication of historic science outcomes.
+
+
+## 7. Intervention-contrast numerical stress test (2026-10-18)
+
+For the predeclared constructed optical models, compare *same concentration* under independently manipulated instrument parameters. These numerical knobs are toy models, not asserted physical slit-setting calibrations.
+
+- Stray fraction old s=.01 versus new s=.001: A_s(c)=-log10[(10^(-2c)+s)/(1+s)].
+- Equal two-bin effective bandpass old eps=(1.5,2.5) versus narrower eps=(1.9,2.1): A_b(c)=-log10[(10^(-eps1*c)+10^(-eps2*c))/2].
+
+| relative c | A(s=.01) | A(s=.001) | delta (new−old) | A(band broad) | A(band narrow) | delta (new−old) |
+|--:|--:|--:|--:|--:|--:|--:|
+| 0.5 | .962929 | .996113 | .033184 | .931699 | .997128 | .065429 |
+| 1 | 1.703291 | 1.959041 | .255750 | 1.759637 | 1.988587 | .228950 |
+| 2 | 2.000000 | 2.959041 | .959041 | 3.296709 | 3.955490 | .658781 |
+
+At c=2, two modeled responses differ by .300260 AU, without any inference about instrument noise or experimentally feasible settings. The previous section's 12 cells are *design candidates* and not an identified mathematical minimum. A meaningful empirical ranking requires source/intensity/reference/dark observations, independently measured wavelength response and stray-light change, replication, stochastic noise model, controls for changing chemical state, and a predeclared decision metric. Difference in a single probe does not make the chemical species count uniquely identifiable.
+
+### Pre-observation selection of a probe
+Do not privilege c=2 solely because toy-model separation is largest: absorbance 4 for ideal optics corresponds to very low transmitted light and could violate detector dynamic range. Define a feasible set before maximizing separation and compute standardized expected differences using independently estimated `sigma(A)`, concentration errors and nuisance parameters. Hold any claim of power or unique discrimination pending these inputs.
