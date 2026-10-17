@@ -1,0 +1,5 @@
+# MQR-4.116 P5 — Bounded-Retention Partial Identification
+
+For observed retained joint masses q1=P(Y=1,R=1)=1/4 and q0=P(Y=0,R=1)=1/4, unknown population prevalence p=P(Y=1) is sharply bounded by [1/4,3/4] with unrestricted outcome-dependent retention. Under selection probability ratio restriction 1/G <= r1/r0 <= G, and r1=q1/p, r0=q0/(1-p), the identified set is the intersection of [q1,1-q0] with [q1/(q1+G*q0), G*q1/(q0+G*q1)]. For G=1 this is {1/2}; for G=2 it is [1/3,2/3]; for G=3 it is [1/4,3/4]. These are exact algebraic consequences of a constructed example, not estimated effects in the Greenberg record. Ratio bounds require external certification; tuning G is sensitivity analysis, not evidence.
+
+4.116 ACTIVE, 4.115 CLOSED-TO-NEW-WORK/INHERITED. Revisit earlier method-to-operation graph and retain graph coding/refinement and selection bias as separate uncertainty axes. Real source ancestry, seven Greenberg ambiguous Table 4 rows and independent calibration remain HOLD. Next: unequal observed retained masses, interval-valued missingness and a domain-specific witness-acquisition decision rule.
