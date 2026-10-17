@@ -8,11 +8,15 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
-## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P7
+## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P8
 
 **Formal title:** MQR-4.120 — Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus.
 
 [4.119 P5 two-level judgment handoff](research/mqr_4119_p5_two_level_judgment_handoff.md) · [4.120 ACTIVE P0 research contract](research/mqr_4120_p0_active_contestable_judgment.md), 2026-10-17. User authorized progression through 4.120, activating the previously proposed name. 4.119 is **CLOSED-TO-NEW-WORK / INHERITED**, not scientifically solved. P0 establishes distinct J1 claim-relative evidential validity and J2 legitimate, contestable authority to select/revise the evaluative court. A J1 pass cannot certify J2; a J2 objection does not automatically falsify J1; preserve claim scope, dissent and independent authority ancestry. All scenarios are **constructed conceptual cases**, not independent experiments, measured calibration, model-comparison outcomes or demonstrated normative legitimacy. Greenberg/CCQM physical source holds and 4.118 candidate Harvest obligations remain HOLD. MAIN_ONLY and human WhoSia commit authorship remain required. Previous ACTIVE/PROPOSED headings below are historical snapshots.
+
+## MQR-4.120 P8 — Intervention Definition and Genealogy Gate
+
+[P8 prior-art and source-typed research contract](research/mqr_4120_p8_intervention_definition_genealogy_gate.md), 2026-10-17. Revisited 4.89's pre-existing Bernoulli causal nonidentification, 4.107 Lindsey stopping-rule history, 4.111 intervention-altered states, 4.113 stochastic experiment/physical warrant separation and 4.101 fallible-reference bounds. P8 separates remedy **ordered Z**, **implemented D** and **outcome Y**, with ITT vs implemented-remedy effects, noncompliance, selection, treatment-version consistency, receipt ancestry and institutional authority as independent evidence obligations. **P8 is a research-design gate, not an executed empirical study or synthetic PASS.** Source-grounded intervention, implementation records, outcome and defensible identification design all remain HOLD. No new theorem or version; Greenberg/CCQM/Harvest and 4.119 evaluator debts persist.
 
 ## MQR-4.120 P7 Retrospective — MQR-4.89 Bernoulli Prior Art
 
