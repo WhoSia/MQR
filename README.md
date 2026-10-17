@@ -8,6 +8,10 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## MQR-4.116 P3 — Archival Selection Mechanism Review
+
+[P3 MCAR/MAR/MNAR source-selection study](research/mqr_4116_p3_archival_selection_mechanisms.md) and [exact rational finite countermodel](experiments/mqr-4.116/p3_selection_mechanisms.py), 2026-10-17. Under a fixed toy population P(Y=1)=1/2, outcome-selective retention yields observed selected P(Y=1|R=1)=3/4; MCAR and an authority-conditioned MAR selector yield 1/2 in the specified example. Authority-dependent selection is not by itself MNAR when authority is observed. Local rational check PASS, no empirical causal evidence or GitHub CI. Continues original method→operation graph representation-sensitivity review, 4.114 ancestry/4.115 formal warrant HOLD. Both 4.115 and 4.116 OPEN.
+
 ## MQR-4.116 P2 — Missingness Fibers & Review of Research Lineage
 
 [P2 archival missingness audit](research/mqr_4116_p2_missingness_review.md) and [four-regime finite test](experiments/mqr-4.116/p2_missingness_fibers.py), 2026-10-17. Reread 4.115 P0 method-operation arrow doctrine and loops, 4.114 P2-H calibration provenance constraints, and 4.116 P1 minimum-observation limits. Missing lineage certification or defeater status can make a claim judgment observationally ambiguous; no missing value is treated as verified false. Greenberg unverified citation column alignments and same-serum independent witnesses remain HOLD; 4.115 and 4.116 both OPEN. No causal or physical validation claimed.
