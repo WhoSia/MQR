@@ -6,6 +6,9 @@ This repository is the **live formal substrate**, not a chronological lab notebo
 
 ## Current authority — MQR-4.121 ACTIVE / P1B
 
+- **P1B primary-source reading:** [Griffiths–Potts, NBS, Zong, Sethna and EvoNOMOS origin-drift comparative annotated reading](research/mqr_4121_p1b_source_partition_reading_and_origin_drift.md). Five requested PDF sources already in Research OS canonical literature commons; source custody verified by file metadata, all-figure/full-NBS sequential reading still open; no reupload or forced duplicate files.
+
+
 **Formal title:** *World-Contact across Changing Representations: Measurement Nonlinearity, Intervention-Sequence Coherence, State Sufficiency, Hysteresis & the Transport of Physical Warrant.*
 
 - **Opened 2026-10-18 at user's instruction.** [P0 formal research contract](research/mqr_4121_p0_world_contact_changing_representations.md) · [original physical synthesis](research/mqr_origin_uvvis_micro_macro_gluing_borderlands.md).
