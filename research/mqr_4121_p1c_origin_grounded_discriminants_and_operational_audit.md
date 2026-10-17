@@ -66,3 +66,18 @@ This turn fetched original YAML for 12 workflows, including legacy 4.57/4.59, 4.
 - Preserve original GitHub/Notion/Drive boundaries; research P1C is **PROPOSED / DESIGN-READY**, not laboratory PASS and not a promotion to 4.122.
 
 **Next:** original figures with units plus uncertainty and independent negative controls; fully inspect NBS appendices and calibration editions; assess proposed physical protocol against feasible instruments; revisit MQR 5–21 in detail and source-specific counterexamples; finish complete Actions tree and contributors audit.
+
+
+## 6. P1C synthetic numerical anchor and scoped minimum screening (2026-10-18)
+
+For relative concentration c = 0.5, 1, 2, benchmark ideal absorption A=2c, simplified stray light s=0.01 with A_s=-log10[(10^(-2c)+.01)/1.01], and equal-bin finite bandwidth ε=(1.5,2.5) with A_b=-log10[(10^(-1.5c)+10^(-2.5c))/2].
+
+| Relative c | Ideal A | Stray-light A | Finite-bandwidth A |
+|---:|---:|---:|---:|
+| 0.5 | 1.000000 | 0.962929 | 0.931699 |
+| 1.0 | 2.000000 | 1.703291 | 1.759637 |
+| 2.0 | 4.000000 | 2.000000 | 3.296709 |
+
+These values are **constructed mathematics**, not Griffiths–Potts raw data. This construction models optical rival mechanisms only; chemical-equilibrium competition remains conceptually proposed, not quantified by this table. A first two-factor physical **screening** grid of 3 concentrations × 2 independently characterized slit widths × 2 independently validated stray-light regimes = **12 cells**, plus blanks, references, repetitions, random order and sample-history controls; it is *not a theorem of minimal sample count, not a power calculation and not a three-hypothesis identification guarantee*. Independent chemical-state evidence and pH/temperature interventions require additional conditions. Notion research ledger updated 2026-10-18 at https://app.notion.com/p/3fcef561cf9281389fecf57ead3bb348.
+
+**Historical extension:** Directly inspected archival transcripts 6–21 at conversation-question/transition level after the initial P1C filing. Highlights: 4.42 rival-frontier limitations; 4.53 progress scalar skepticism; 4.66 state quotient; 4.69 ancestry nonfungibility; 4.70 intervention-family endogeneity; 4.90–4.100 detection/sampling observational selection. Not a claim of 16 transcripts read word-for-word, nor independent replication of historic science outcomes.
