@@ -1,0 +1,31 @@
+# MQR-4.120 P8 — Genealogy Review, Promotion-Scent Audit, and J1/J2 Reconnection
+
+2026-10-17. Formal generation: **MQR-4.120 — Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus**. Status **ACTIVE / P8**. This court is a research-direction audit, not a new causal estimator, universal theorem or promotion approval.
+
+## Actual previous-theory reread
+- Read current 4.120 P0: J1(e,c|r) claim-level validity conditional on a rubric r; J2(r,a) legitimate authorizing/correcting court. Neither implies the other. P0 falsifiers explicitly include disputes resolvable by a *new measurement*, critiques excluded by the court itself, and avoidance of infinite appeal regress. The previous work says actual human evaluator testing is NOT complete.
+- Read 4.119 P5: no collapse of statistical source-custody validity into institutional authority; C1 standard custody, C2 peak diagnosis, C3 excluded question, C4 self-authorization. Separate lineages J1 and J2, preserve specific unresolved debt and dissent.
+- Read MQR-4.101 charter: selected population, fallible reference, dependence-robust 0–1 risk and assumption certificates; no authority from two nominally separate annotators or unverified true labels. This is older, prior art for target conditionality.
+- Read 4.107: Lindsey 1997 stopped-sample countercases; the acquisition history may not be inferable from the reported likelihood, but a valid adapted stopping rule must not be confused with a nonadapted data-dependent procedure. Existing history-equivalence analysis contains an original source-page erratum.
+- Read 4.109: statistical sufficiency, Blackwell comparison, physical calibration/traceability and historical record authenticity are distinct. Original Regnault graphic/table page indices were corrected in 4.110. The word 'provenance' alone cannot solve any of these different obligations.
+- Earlier work 4.53 disallows universal scalar progress and establishes target-specific statistical comparison; 4.89 already built causal nonidentification countermodels. Therefore P8 cannot market the JTPA arithmetic as a novel universal inference theory or reconstructed original experiment.
+
+## What P8 JTPA really resolved
+Source text from MIT JTPA (11,204) and a publicly posted third-party Han tabulation (9,223) with MIT recid permitted 9,223/9,223 ID and shared-variable matches and a 1,981-ID conditional complement. Differences in selection correlates and a public historical reference to a revised Kitagawa–Tetenov 9,223 complete-case education/prior-earnings population narrowed the plausible genealogy. Original authors' raw ZIP authentication and rowwise original selection command remain HOLD.
+Additional exact empirical targets: median earnings 11,010 (source) vs 11,187 (selected), with 36 retained-unit changes in thresholded outcomes; four derived binary coding rules matched 9,223/9,223 rows, including strict Y1 tie at 6,000 causing 220 mismatches. These are concrete **conditional J1** findings about chosen empirical targets and sources. They have no demonstrated direct effect on original Han dynamic-policy partial-order LP and no J2 appraisal authority outcome.
+
+## Why these are not yet promotion-worthy
+1. **Domain transport failure**: a JTPA job training program is not a scientific evaluation or appeal forum; cohort genealogy tests statistical measurement, not institutional revisability.
+2. **Established theoretical ancestry**: target sensitivity, noncommuting sample restriction/thresholding, selective adjudication and source-history separation have appeared in MQR well before 4.120. Repeating a known formal obstacle plus empirical counts is an excellent audit but not independently a new theorem.
+3. **J2 empirical gap**: the specified 4.119 R0/R+/E assessor comparison was never actually run; the rubric authorization, dissent/objection route and repair implementation have no independent observed witness.
+4. **Historical-data gap**: verbal 9,223 eligibility explanation is not an executable original missingness predicate on all 11,204; author's archival code has not been independently inspected.
+5. **Counter-rival gate**: a correct result may come from conventional outcome-definition sensitivity alone. If so label it as an empirical reproduction of a known methodological concern, not conceptual novelty.
+
+## Productive next court — without version inflation
+Choose a genuine **scientific assessment record** (e.g. contested calibration standard with independent official correction and downstream adoption) with independently archived: O original criterion and delegated standard-setter, C claim being adjudicated, E primary evidence and physical uncertainty, X dissent/appeal, R verified revision, D actual implementation by a distinct recipient, Y consequential re-evaluation. Record source custody and timestamps for each. If no case meets these, run **P8 J1/J2 counterexample audit on existing 4.114 CCQM or 4.101 QTDB evidence** and mark exactly where J2 currently becomes unobservable. Do not invent a scalar 'court legitimacy' score.
+
+## Promotion-scent criteria (candidate future formal scope, **NOT** a named version)
+A future generation might be warranted only if a discriminating, independently evidenced *new research object* emerges: (a) a general boundary class on when contestable-rubric changes alter the warrant of the same inference under stable raw evidence; (b) an experimentally or documentary observed correction-propagation failure not equivalent to selection/criterion drift; (c) sharp identification/bounds with explicit attainability under such source-authenticated revisions; and (d) original literature audit showing this is not the same as established selection, evidence provenance, and causal-identification results. No criterion has yet jointly passed.
+
+## Bounded verdict
+4.120 P8 SOURCE-GENEALOGY / CONDITIONAL MEASUREMENT AUDIT PASS_BOUNDED; J2 REAL_CORRECTION_WITNESS_HOLD; EXTERNAL_AUTHORITY_AND_INDEPENDENCE_HOLD; CUSTODY_HOLD; REAL_EVALUATOR_COMPARISON_HOLD. **Maintain ACTIVE / P8.** Next change must be in evidence, not just stage or version label. Greenberg, CCQM, Harvest, 4.119 R0/R+/E holds unchanged.
