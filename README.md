@@ -8,11 +8,15 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
-## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P2
+## CURRENT AUTHORITY — MQR-4.120 ACTIVE / P3
 
 **Formal title:** MQR-4.120 — Contestable Epistemic Judgment & the Authority of Scientific Evaluation: Conditional Warrant, Revisable Standards, Dissent Preservation, Exemplar-Guided Problem Recognition & the Limits of Consensus.
 
 [4.119 P5 two-level judgment handoff](research/mqr_4119_p5_two_level_judgment_handoff.md) · [4.120 ACTIVE P0 research contract](research/mqr_4120_p0_active_contestable_judgment.md), 2026-10-17. User authorized progression through 4.120, activating the previously proposed name. 4.119 is **CLOSED-TO-NEW-WORK / INHERITED**, not scientifically solved. P0 establishes distinct J1 claim-relative evidential validity and J2 legitimate, contestable authority to select/revise the evaluative court. A J1 pass cannot certify J2; a J2 objection does not automatically falsify J1; preserve claim scope, dissent and independent authority ancestry. All scenarios are **constructed conceptual cases**, not independent experiments, measured calibration, model-comparison outcomes or demonstrated normative legitimacy. Greenberg/CCQM physical source holds and 4.118 candidate Harvest obligations remain HOLD. MAIN_ONLY and human WhoSia commit authorship remain required. Previous ACTIVE/PROPOSED headings below are historical snapshots.
+
+## MQR-4.120 P3 — Authority Ancestry and Appeal Scope
+
+[P3 scope-limited research court](research/mqr_4120_p3_authority_ancestry_and_appeal.md) · [six finite synthetic graph tests](experiments/mqr-4.120/p3_authority_ancestry.py), 2026-10-17. Same upstream authority across different panels is a dependency warning; distinct declared ancestry is not real independence without source-verified mandate. Synthetic checks distinguish shared ancestry, unsupported external mandate, conditionally separate sources, delegation cycles and undocumented nodes. **Local fixture PASS applies only to constructed graph classifications**; no genuine institutional mandate, appeal effectiveness or empirical evidence of source independence is certified. P4 will require provenance receipts and actual contestability conditions. 4.120 ACTIVE; all inherited Greenberg/CCQM/Harvest HOLDs persist.
 
 ## MQR-4.120 P2 — Illicit Authority Transfer and Finite Contract
 
