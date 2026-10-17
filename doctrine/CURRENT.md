@@ -1,5 +1,8 @@
 # MQR Current Doctrine
 
+> **LIVE RESEARCH-CONTRIBUTION OVERRIDE (2026-10-18):** [research-contribution-prior-art.md](research-contribution-prior-art.md). Accurate citation, conceptual synthesis, rigorous reconstruction, meaningful cross-domain application, replication, and theoretical clarification are legitimate scholarship. A completely unprecedented phenomenon or theorem is **NOT** a necessary condition for research value or version/stage consideration. Historical novelty-kill instructions remain attribution/overclaim safeguards only; they cannot veto substantive cited synthesis. This override governs contrary wording anywhere below, including old promotion rhetoric. Empirical PASS/HOLD criteria remain claim-specific.
+
+
 Status: live through **MQR-4.76**.
 
 ## Generation-IV authority kernel
