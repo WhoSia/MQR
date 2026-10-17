@@ -8,6 +8,14 @@ This repository is the **living formal substrate** of MQR.
 - Retired or superseded files should be deleted from the repository once their live successor is established; history remains recoverable from Git and external archives.
 - Notion remains the live lab notebook. This repository contains only the parts that benefit from byte-level versioning, reuse, validation, or implementation.
 
+## Current authority — 4.116 ACTIVE; 4.115 INHERITED
+
+**4.115 = CLOSED-TO-NEW-WORK / INHERITED**, an administrative handoff only, NOT a claim that the Greenberg/custody/independence questions were resolved. **4.116 is the sole active working version.** All prior 4.115 empirical HOLDs and former 4.114 calibration-custody HOLDs are live obligations within 4.116. Older historical sections mentioning 4.115 OPEN describe the state *at the time* and do not override this current authority paragraph.
+
+## MQR-4.116 P4 — Selection Nonidentification
+
+[P4 research contract](research/mqr_4116_p4_selection_nonidentification.md) · [exact finite counterexample](experiments/mqr-4.116/p4_observationally_equivalent_selection.py). MCAR and MNAR population/retention models produce exactly the same observed retained positive/negative counts (1/4,1/4), even though their full-population prevalences are 1/2 and 1/4 respectively. This proves observational nonidentifiability in the constructed class, not an empirical selection claim. Local exact-rational tests PASS; no CI claim.
+
 ## MQR-4.116 P3 — Archival Selection Mechanism Review
 
 [P3 MCAR/MAR/MNAR source-selection study](research/mqr_4116_p3_archival_selection_mechanisms.md) and [exact rational finite countermodel](experiments/mqr-4.116/p3_selection_mechanisms.py), 2026-10-17. Under a fixed toy population P(Y=1)=1/2, outcome-selective retention yields observed selected P(Y=1|R=1)=3/4; MCAR and an authority-conditioned MAR selector yield 1/2 in the specified example. Authority-dependent selection is not by itself MNAR when authority is observed. Local rational check PASS, no empirical causal evidence or GitHub CI. Continues original method→operation graph representation-sensitivity review, 4.114 ancestry/4.115 formal warrant HOLD. Both 4.115 and 4.116 OPEN.
