@@ -12,7 +12,7 @@ This repository is the **live formal substrate**, not a chronological lab notebo
 - **J1** `J1(e,c | r)`: is claim `c` supported by evidence `e` under declared rule `r`?
 - **J2** `J2(r,a)`: who may authorize, challenge, revise and apply the evaluative rule `r` under institutional arrangement `a`?
 - J1 PASS **never automatically licenses** J2. An objection to J2 does not itself falsify J1. Legitimate dissent is preserved without converting every dispute into institutional illegitimacy. No universal legitimacy scalar.
-- **Promotion gate:** an independent, discriminating J2 witness or actual blinded/controlled R0/R+/E evaluation is required; there is **no P9 or successor-generation promotion** at present.
+- **Contribution and stage policy:** [living research-contribution doctrine](doctrine/research-contribution-prior-art.md). Fully cited synthesis, rigorous reconstruction, conceptual clarification, meaningful application and replication are legitimate contributions. Neither unprecedented novelty nor a J2 empirical witness is a universal prerequisite to valuable work or stage consideration. Empirical validity claims still require their appropriate witnesses. **Current administrative status: 4.120 ACTIVE / P8**; stage change is a separate, honest scope decision.
 
 ### Active empirical direction
 
@@ -44,7 +44,7 @@ This repository is the **live formal substrate**, not a chronological lab notebo
 3. **Source before promotion.** Archive external primary sources with provenance/bytes if available; never claim unseen originals, invented CI checks, human scores or institutional actions.
 4. **Distinct testing purpose.** Use Rust for reusable finite native checks, Lean for mathematically exact formal claims and Python for reference/analysis where warranted. A test of code contracts is not a scientific test.
 5. **Conserve live surface.** Put detailed experimental findings in `research/` and `experiments/`; keep the README a readable authority and navigation map. Retire old narrative only after canonical preservation/readback; use Git history and Drive to recover exact wording.
-6. **No inflation.** A P-number is an internal audit stage, not a separate formal research title. A version promotion needs distinct, falsifiable, independently grounded evidence.
+6. **No inflation.** A P-number is an internal audit stage, not a separate formal research title. A version or stage change needs a meaningful, well-scoped research contribution and correct type of warrant; conceptual synthesis and reconstruction may qualify without claiming new empirical discovery.
 
 ## Archives and continuity
 
