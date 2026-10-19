@@ -9,6 +9,7 @@ on:
       - 'experiments/mqr-4.121/p1h_cross_intervention_rivals.py'
       - 'experiments/mqr-4.121/p1i_raw_byte_time_calibration_gate.py'
       - 'experiments/mqr-4.121/p1i_matrix_uncertainty_rival_grid.py'
+      - 'experiments/mqr-4.121/p1i_matrix_continuous_norm_certificate.py'
       - 'experiments/mqr-4.121/p1i_elan_archive_admission.py'
       - 'research/mqr_4121_p1h_bootstrap_pin_candidates.json'
       - 'tools/mqr_workflow_transitive_inventory.py'
@@ -59,6 +60,8 @@ jobs:
           grep -F 'MQR_P1I_RAW_BYTE_AND_TIME_GATES=PASS_SYNTHETIC' /tmp/mqr-p1i-bytes.txt
           python3 experiments/mqr-4.121/p1i_matrix_uncertainty_rival_grid.py | tee /tmp/mqr-p1i-matrix.txt
           grep -F 'MQR_P1I_MATRIX_UNCERTAINTY=PASS_FINITE_GRID_SYNTHETIC' /tmp/mqr-p1i-matrix.txt
+          python3 experiments/mqr-4.121/p1i_matrix_continuous_norm_certificate.py | tee /tmp/mqr-p1i-continuous.txt
+          grep -F 'MQR_P1I_CONTINUOUS_MATRIX_ENCLOSURE=PASS_SYNTHETIC_THEOREM_PREMISES' /tmp/mqr-p1i-continuous.txt
           python3 experiments/mqr-4.121/p1i_elan_archive_admission.py | tee /tmp/mqr-p1i-elan.txt
           grep -F 'MQR_P1I_INSTALLER_ARCHIVE_GATE=PASS_SYNTHETIC' /tmp/mqr-p1i-elan.txt
       - name: Enumerate external Actions and invoked repo-root scripts
