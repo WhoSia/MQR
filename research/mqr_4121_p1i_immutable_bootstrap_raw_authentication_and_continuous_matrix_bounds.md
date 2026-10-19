@@ -28,13 +28,13 @@ CI [#39206021068 SUCCESS](https://github.com/WhoSia/MQR/actions/runs/39206021068
 
 Original P1H proof-of-concept: (y = Mx+q+\eta) with two optical configurations and two chemical/pH states, 3 synthetic spectral channels. P1I first [tested all 512 corners](../experiments/mqr-4.121/p1i_matrix_uncertainty_rival_grid.py) of independent `±0.002` uncertainties for 9 matrix entries in each optical setting, with `±0.0015` per-channel combined intensity/OOB discrepancy. Corner tests are **not** an enclosure of every continuous possible `M`.
 
-Now [P1I inverse-norm certificate](../experiments/mqr-4.121/p1i_matrix_continuous_norm_certificate.py) proves a **uniform, conservative bound** over all (Delta M) obeying the predeclared (|\Delta M|_\infty\le \varepsilon). For a fixed center (M_0) with inverse (V=M_0^{-1}), nominally corrected (\hat x=V(y-q_0)), unknown intensity perturbation (\|\Delta q+\eta\|_\infty\le\delta), and (|V|_\infty\varepsilon<1),
+Now [P1I inverse-norm certificate](../experiments/mqr-4.121/p1i_matrix_continuous_norm_certificate.py) proves a **uniform, conservative bound** over all \(\Delta M\) obeying the predeclared \(\|\Delta M\|_\infty\le\varepsilon\). For a fixed center \(M_0\) with inverse \(V=M_0^{-1}\), nominally corrected \(\hat x=V(y-q_0)\), unknown intensity perturbation \(\|\Delta q+\eta\|_\infty\le\delta\), and \(\|V\|_\infty\varepsilon<1\),
 
-[
+\[
 \|x-\hat x\|_\infty \le \frac{\|V\|_\infty}{1-\|V\|_\infty\varepsilon}\left(\varepsilon\|\hat x\|_\infty + \delta\right).
-]
+\]
 
-This follows from (x-\hat x=-V(\Delta M x+\Delta q+\eta)) and (\|x\|\le \|\hat x\|+\|x-\hat x\|). Therefore the rectangular intensity enclosure followed by positive-intensity monotone (-\log_{10}(S/R)) bounds **every member of the stated continuous matrix box**, not merely its corners. For 3 rows of 3 entries each with (|\Delta M_{ij}|\le .002), take (arepsilon=.006) in the infinity norm. This is a mathematical statement *conditional on measured upper bounds being valid*.
+This follows from \(x-\hat x=-V(\Delta M x+\Delta q+\eta)\) and \(\|x\|\le\|\hat x\|+\|x-\hat x\|\). Therefore the rectangular intensity enclosure followed by positive-intensity monotone \(-\log_{10}(S/R)\) bounds **every member of the stated continuous matrix box**, not merely its corners. For 3 rows of 3 entries each with \(|\Delta M_{ij}|\le .002\), take \(\varepsilon=.006\) in the infinity norm. This is a mathematical statement *conditional on measured upper bounds being valid*.
 
 Conservative cross-optic intersection of chemical high-minus-low absorbance (Delta A) (constructed two chemical states, not measured methyl red):
 
