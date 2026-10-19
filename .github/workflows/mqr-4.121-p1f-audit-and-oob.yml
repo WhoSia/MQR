@@ -7,6 +7,9 @@ on:
       - 'experiments/mqr-4.121/p1g_bounded_raw_signal_enclosure.py'
       - 'experiments/mqr-4.121/p1h_instrument_raw_intake.py'
       - 'experiments/mqr-4.121/p1h_cross_intervention_rivals.py'
+      - 'experiments/mqr-4.121/p1i_raw_byte_time_calibration_gate.py'
+      - 'experiments/mqr-4.121/p1i_matrix_uncertainty_rival_grid.py'
+      - 'experiments/mqr-4.121/p1i_elan_archive_admission.py'
       - 'research/mqr_4121_p1h_bootstrap_pin_candidates.json'
       - 'tools/mqr_workflow_transitive_inventory.py'
       - 'tools/mqr_workflow_authority_inventory.py'
@@ -49,6 +52,15 @@ jobs:
           assert d['linux_x86_64_elan_binary_candidate']['binary_execution_tested'] is False
           print('MQR_P1H_DEPENDENCY_PIN_LEDGER=PASS_ADVISORY')
           PY
+      - name: Test P1I source-integrity and matrix-nuisance gates
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.121/p1i_raw_byte_time_calibration_gate.py | tee /tmp/mqr-p1i-bytes.txt
+          grep -F 'MQR_P1I_RAW_BYTE_AND_TIME_GATES=PASS_SYNTHETIC' /tmp/mqr-p1i-bytes.txt
+          python3 experiments/mqr-4.121/p1i_matrix_uncertainty_rival_grid.py | tee /tmp/mqr-p1i-matrix.txt
+          grep -F 'MQR_P1I_MATRIX_UNCERTAINTY=PASS_FINITE_GRID_SYNTHETIC' /tmp/mqr-p1i-matrix.txt
+          python3 experiments/mqr-4.121/p1i_elan_archive_admission.py | tee /tmp/mqr-p1i-elan.txt
+          grep -F 'MQR_P1I_INSTALLER_ARCHIVE_GATE=PASS_SYNTHETIC' /tmp/mqr-p1i-elan.txt
       - name: Enumerate external Actions and invoked repo-root scripts
         run: |
           set -euo pipefail
