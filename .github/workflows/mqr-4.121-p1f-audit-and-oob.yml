@@ -1,0 +1,41 @@
+name: MQR-4.121 P1F Synthetic Identification and Workflow Authority
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.121/p1f_oob_identifiability.py'
+      - 'tools/mqr_workflow_authority_inventory.py'
+      - '.github/workflows/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-identification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Execute OOB nonidentification tests
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.121/p1f_oob_identifiability.py | tee /tmp/mqr-p1f.txt
+          grep -F 'MQR-P1F: SYNTHETIC PASS' /tmp/mqr-p1f.txt
+      - name: Audit fixture cases and whole workflow tree
+        run: |
+          set -euo pipefail
+          python3 tools/mqr_workflow_authority_inventory.py . | tee /tmp/mqr-authority.txt
+          grep -F 'MQR_WORKFLOW_AUDIT_FIXTURE=PASS' /tmp/mqr-authority.txt
+          python3 - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, 'tools')
+          from mqr_workflow_authority_inventory import scan
+          result = scan(Path('.'))
+          assert result['count'] >= 163, 'Unexpected workflow removal; re-audit scope'
+          assert len(result['statuses_write']) <= 54, 'Status-write grants increased'
+          assert not result['contents_write'], 'Content write detected'
+          assert not result['other_write'], 'Other write grant detected'
+          assert not result['direct_git_mutation'], 'Git mutation pattern detected'
+          print('MQR_WORKFLOW_STATIC_AUTHORITY=PASS_BOUNDED')
+          PY
