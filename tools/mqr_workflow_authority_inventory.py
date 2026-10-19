@@ -16,8 +16,8 @@ def examine(text):
         'write_permissions': sorted(set(PERM.findall(active))),
         'direct_git_mutation': bool(DIRECT_PUSH.search(active)),
         'explicit_status_post_pattern': bool(POST_STATUS.search(active)),
-        'has_top_level_permissions': bool(re.search(r'^permissions\\s*:',active,re.M)),
-        'listens_to_workflow_run': bool(re.search(r'^\\s{2}workflow_run\\s*:',active,re.M)),
+        'has_top_level_permissions': bool(re.search(r'^permissions\s*:',active,re.M)),
+        'listens_to_workflow_run': bool(re.search(r'^\s{2}workflow_run\s*:',active,re.M)),
     }
 
 def scan(root):
@@ -42,6 +42,7 @@ def test():
     assert not examine('run: git fetch origin main')['direct_git_mutation']
     assert examine('run: gh api --method POST "repos/x/y/statuses/abc"')['explicit_status_post_pattern']
     assert not examine('# contents: write\npermissions:\n  contents: read')['write_permissions']
+    assert examine('permissions:\n  contents: read')['has_top_level_permissions']
     assert not examine('on: push\njobs:\n  foo: {}')['has_top_level_permissions']
     assert examine('on:\n  workflow_run:\n    types: [completed]')['listens_to_workflow_run']
     print('MQR_WORKFLOW_AUDIT_FIXTURE=PASS')
