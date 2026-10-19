@@ -50,7 +50,8 @@ def test():
     targets=(2.,-log10(.5/.8))
     assert all(lo<=t<=hi for (lo,hi),t in zip(bounds,targets))
     assert all(lo<hi for lo,hi in bounds)
-    assert absorbance_interval(matvec(m,(.01,.5)),matvec(m,(1.,.8)),m,(0.,0.),(0.,0.),(0.,0.))[0] == (2.,2.)
+    exact=absorbance_interval(matvec(m,(.01,.5)),matvec(m,(1.,.8)),m,(0.,0.),(0.,0.),(0.,0.))[0]
+    assert all(isclose(v,2.,abs_tol=1e-12) for v in exact)
     try: absorbance_interval(sample,ref,m,None,(.001,.001),(.0001,.0001))
     except ValueError as e: assert "no independent bound" in str(e)
     else: raise AssertionError("missing OOB bound must not silently pass")
