@@ -4,7 +4,11 @@ MQR investigates what observation and measurement can justify, what they cannot 
 
 This repository is the **live formal substrate**, not a chronological lab notebook. Historical source reviews and superseded README narrative are archived in Drive / Research OS; Notion remains the research notebook.
 
-## Current authority — MQR-4.121 ACTIVE / P1B (P1C DESIGN-READY)
+## Current authority — MQR-4.121 ACTIVE / P1F SOURCE-AND-SYNTHETIC-PASS_BOUNDED
+
+- **P1F direct original + executed numerical stress and complete YAML enumeration (2026-10-19):** [Zong/NIST source closure, inversion versus identification and full 163-file workflow audit](research/mqr_4121_p1f_source_closure_vs_inverse_and_full_actions_audit.md) · [P1F executable NumPy stress code](experiments/mqr-4.121/p1f_outside_range_identifiability_stress.py). Key proof boundary: a well-conditioned invertible optical response does not constrain unknown off-array additive light or identify chemical states; 20,000 seeded **synthetic** Monte Carlo draws locally computed, no external CI run or laboratory data. **163 workflow YAML files source-read**, 54 declare statuses: write, 3 lack top-level permissions, 1 workflow_run listener; no literal contents: write or git commit/push, but transitive execution and security default audit HOLD. NIST SP260-140 original Table 7 and reporting/proficiency/uncertainty sections read. 4.122 UNPROMOTED.
+
+
 
 - **P1C bounded research design and historical correction:** [Origin-grounded discrimination and operational audit](research/mqr_4121_p1c_origin_grounded_discriminants_and_operational_audit.md). Direct archival spot-reading of MQR 1–4, 22, 24, 25 shows that authority, translation loss and dissent were already present in the founding period; the later theory branch is not merely an unrelated detour. Rival discrimination of chemistry, stray light and finite-bandpass remains a prospective design without new measurements. Recent 12 YAML files checked for repository write operations; three legacy workflows additionally request `statuses: write`, so blanket **globally read-only** wording is not warranted. Full Actions/contributor audit HOLD.
 
