@@ -1,0 +1,47 @@
+{
+  "schema_version": "MQR-4.121-P1H/bootstrap-source-map-1",
+  "observed_at": "2026-10-19",
+  "scope": "ADVISORY_NOT_DEPLOYED",
+  "action": {
+    "repository": "leanprover/lean-action",
+    "pinned_commit": "38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9",
+    "manifest_path": "action.yml",
+    "script_path": "scripts/install_elan.sh",
+    "observed_remote_script": "https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh",
+    "existing_action_verified_sha": true,
+    "downstream_installer_pinned_in_current_workflows": false
+  },
+  "elan_script_candidate": {
+    "repository": "leanprover/elan",
+    "observed_master_commit": "9605b24b08cf68b78dce0014b6fa01be1f8e2cee",
+    "immutable_candidate_url": "https://raw.githubusercontent.com/leanprover/elan/9605b24b08cf68b78dce0014b6fa01be1f8e2cee/elan-init.sh",
+    "note": "Even pinned elan-init.sh internally references releases/latest/download, so script pinning alone is insufficient."
+  },
+  "linux_x86_64_elan_binary_candidate": {
+    "release_tag": "v4.2.4",
+    "asset_name": "elan-x86_64-unknown-linux-gnu.tar.gz",
+    "release_asset_url": "https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz",
+    "sha256": "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63",
+    "digest_source": "GitHub releases/latest asset metadata, independently downloaded and rehashed=false",
+    "binary_execution_tested": false
+  },
+  "mqr_lean_toolchain": {
+    "file": "language/real/lean/lean-toolchain",
+    "value": "leanprover/lean4:v4.34.0",
+    "fixed_dependencies_claimed": false
+  },
+  "rust_dependency": {
+    "repo": "dtolnay/rust-toolchain",
+    "ref_in_legacy_workflows": "stable",
+    "observed_stable_commit": "b725eda525362e7cf34af9a7243cac1e3f01a7ec",
+    "candidate_requires_full_toolchain_lock": true,
+    "note": "Action SHA pin does not alone freeze rustup mirror toolchain payload or transitive packages."
+  },
+  "migration_policy": "No automated change to 43+ historical Lean workflows without source, platform, binary digest, repeatable build and before/after CI audit.",
+  "limits": [
+    "No binary downloaded and independently hashed",
+    "No live production runtime changed",
+    "No assertion of entire transitive dependency closure",
+    "Windows/macOS/aarch64 installer assets and toolchain lock unverified"
+  ]
+}
