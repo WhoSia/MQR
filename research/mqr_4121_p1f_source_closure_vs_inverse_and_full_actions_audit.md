@@ -52,3 +52,7 @@ Authenticated GitHub tree for main resolved SHA 64f76cf894ff9c4ba00bcb32285e649f
 REST history query authored by github-actions[bot] returned 0 matching commits. Latest P1F authored and committed by WhoSia. These are **scoped facts**: third-party action behavior, all invoked scripts, repo-level token default, earlier revisions, other push syntaxes and externally granted credentials remain security HOLD. No workflow files were changed; Actions execution and success remain unclaimed.
 
 **Next physical gate:** independent calibration source traces, bounded outside-wavelength light, dark/reference/raw signals, same physical sample with independently verified optical interventions, optical detector dynamic range and uncertain nuisance covariance, and independently evaluated chemical model candidates. P1F synthetic reproducibility is not a chemical-species claim or 4.122 promotion.
+
+## Post-write Git tree reconciliation
+
+The GitHub REST comparison 64f76cf894ff9c4ba00bcb32285e649f3dec2bf4...93075ee39a2356af9061160f3835e3dd1cb94d67 reported exactly three changed paths: README.md, experiments/mqr-4.121/p1f_outside_range_identifiability_stress.py, and this research note; **zero .github/workflows changes**. Thus the 163-file YAML source audit at the base Git tree also applies to the YAML file contents at that later README commit. This is not a transitive security validation nor an all-history authorship audit.
