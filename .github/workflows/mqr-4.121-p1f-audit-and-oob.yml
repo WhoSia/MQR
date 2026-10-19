@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - 'experiments/mqr-4.121/p1f_oob_identifiability.py'
+      - 'experiments/mqr-4.121/p1g_bounded_raw_signal_enclosure.py'
+      - 'tools/mqr_workflow_transitive_inventory.py'
       - 'tools/mqr_workflow_authority_inventory.py'
       - '.github/workflows/**'
   workflow_dispatch:
@@ -21,6 +23,11 @@ jobs:
           set -euo pipefail
           python3 experiments/mqr-4.121/p1f_oob_identifiability.py | tee /tmp/mqr-p1f.txt
           grep -F 'MQR-P1F: SYNTHETIC PASS' /tmp/mqr-p1f.txt
+      - name: Check finite optical OOB enclosure
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.121/p1g_bounded_raw_signal_enclosure.py | tee /tmp/mqr-p1g.txt
+          grep -F 'MQR_P1G_INTERVAL_FIXTURE=PASS_SYNTHETIC' /tmp/mqr-p1g.txt
       - name: Enumerate external Actions and invoked repo-root scripts
         run: |
           set -euo pipefail
@@ -36,6 +43,8 @@ jobs:
           assert not report['missing_explicit_repo_root_scripts'].get('mqr-4.121-p1f-audit-and-oob.yml')
           print('MQR_TRANSITIVE_AUDIT=PASS_SCOPED')
           print('ACTION_REFERENCES',len(report['external_action_refs']))
+          for ref,count in report['external_action_refs'].items():
+              print('ACTION_REF',ref,count)
           print('FLOATING_ACTION_WORKFLOWS',len(report['floating_action_uses']))
           print('ROOT_SCRIPT_PATHS',len(report['repo_root_scripts']))
           print('UNRESOLVED_SCRIPT_WORKFLOWS',len(report['missing_explicit_repo_root_scripts']))
