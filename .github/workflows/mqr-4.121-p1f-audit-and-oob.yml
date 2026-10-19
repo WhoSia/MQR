@@ -37,5 +37,7 @@ jobs:
           assert not result['contents_write'], 'Content write detected'
           assert not result['other_write'], 'Other write grant detected'
           assert not result['direct_git_mutation'], 'Git mutation pattern detected'
+          assert len(result['missing_top_level_permissions']) <= 3, 'New unscoped permission case'
+          assert len(result['workflow_run_listeners']) <= 1, 'New workflow_run listener'
           print('MQR_WORKFLOW_STATIC_AUTHORITY=PASS_BOUNDED')
           PY
