@@ -21,6 +21,25 @@ jobs:
           set -euo pipefail
           python3 experiments/mqr-4.121/p1f_oob_identifiability.py | tee /tmp/mqr-p1f.txt
           grep -F 'MQR-P1F: SYNTHETIC PASS' /tmp/mqr-p1f.txt
+      - name: Enumerate external Actions and invoked repo-root scripts
+        run: |
+          set -euo pipefail
+          python3 tools/mqr_workflow_transitive_inventory.py . > /tmp/mqr-transitive-audit.txt
+          grep -F 'MQR_TRANSITIVE_AUDIT_FIXTURE=PASS' /tmp/mqr-transitive-audit.txt
+          python3 - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, 'tools')
+          from mqr_workflow_transitive_inventory import scan
+          report=scan(Path('.'))
+          assert report['workflow_count'] >= 164
+          assert not report['missing_explicit_repo_root_scripts'].get('mqr-4.121-p1f-audit-and-oob.yml')
+          print('MQR_TRANSITIVE_AUDIT=PASS_SCOPED')
+          print('ACTION_REFERENCES',len(report['external_action_refs']))
+          print('FLOATING_ACTION_WORKFLOWS',len(report['floating_action_uses']))
+          print('ROOT_SCRIPT_PATHS',len(report['repo_root_scripts']))
+          print('UNRESOLVED_SCRIPT_WORKFLOWS',len(report['missing_explicit_repo_root_scripts']))
+          PY
       - name: Audit fixture cases and whole workflow tree
         run: |
           set -euo pipefail
