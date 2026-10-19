@@ -1,0 +1,50 @@
+name: MQR-4.121 P1I Elan Immutable Release Byte Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-4.121-p1i-elan-release-verify.yml'
+      - 'experiments/mqr-4.121/p1i_elan_archive_admission.py'
+      - 'research/mqr_4121_p1h_bootstrap_pin_candidates.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Independent download and archive digest
+        env:
+          ASSET_URL: https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 2 --connect-timeout 15 --max-time 180 --silent --show-error "$ASSET_URL" -o "$RUNNER_TEMP/elan-v4.2.4.tar.gz"
+          test "$(stat -c %s "$RUNNER_TEMP/elan-v4.2.4.tar.gz")" -gt 100000
+          sha256sum "$RUNNER_TEMP/elan-v4.2.4.tar.gz"
+          echo 'MQR_P1I_BINARY_FETCH=COMPLETE'
+      - name: Verify reviewed digest and stage without system installation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.121/p1i_elan_archive_admission.py \
+            --archive "$RUNNER_TEMP/elan-v4.2.4.tar.gz" \
+            --manifest research/mqr_4121_p1h_bootstrap_pin_candidates.json \
+            --stage-to "$RUNNER_TEMP/mqr-elan-stage" | tee "$RUNNER_TEMP/elan-intake.log"
+          grep -F '"sha256_match": true' "$RUNNER_TEMP/elan-intake.log"
+          echo 'MQR_P1I_INDEPENDENT_SHA256=PASS'
+      - name: Version-only smoke in temporary HOME with reduced environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          export STAGE="$RUNNER_TEMP/mqr-elan-stage"
+          test -x "$STAGE/elan-init"
+          mkdir -p "$RUNNER_TEMP/mqr-elan-home"
+          cd "$RUNNER_TEMP"
+          env -i HOME="$RUNNER_TEMP/mqr-elan-home" PATH="/usr/bin:/bin" LANG=C LC_ALL=C \
+            timeout 8 "$STAGE/elan-init" --version | tee "$RUNNER_TEMP/elan-version.log"
+          echo 'MQR_P1I_ELAN_VERSION_SMOKE=PASS_TEMP_ONLY'
