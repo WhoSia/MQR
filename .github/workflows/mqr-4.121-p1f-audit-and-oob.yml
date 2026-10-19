@@ -5,6 +5,9 @@ on:
     paths:
       - 'experiments/mqr-4.121/p1f_oob_identifiability.py'
       - 'experiments/mqr-4.121/p1g_bounded_raw_signal_enclosure.py'
+      - 'experiments/mqr-4.121/p1h_instrument_raw_intake.py'
+      - 'experiments/mqr-4.121/p1h_cross_intervention_rivals.py'
+      - 'research/mqr_4121_p1h_bootstrap_pin_candidates.json'
       - 'tools/mqr_workflow_transitive_inventory.py'
       - 'tools/mqr_workflow_authority_inventory.py'
       - '.github/workflows/**'
@@ -28,6 +31,24 @@ jobs:
           set -euo pipefail
           python3 experiments/mqr-4.121/p1g_bounded_raw_signal_enclosure.py | tee /tmp/mqr-p1g.txt
           grep -F 'MQR_P1G_INTERVAL_FIXTURE=PASS_SYNTHETIC' /tmp/mqr-p1g.txt
+      - name: Test P1H physical-intake gating and rival controls
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.121/p1h_instrument_raw_intake.py | tee /tmp/mqr-p1h-raw.txt
+          grep -F 'MQR_P1H_INTAKE_SCHEMA=PASS_SYNTHETIC' /tmp/mqr-p1h-raw.txt
+          python3 experiments/mqr-4.121/p1h_cross_intervention_rivals.py | tee /tmp/mqr-p1h-rivals.txt
+          grep -F 'MQR_P1H_RIVAL_CROSS_INTERVENTION=PASS_SYNTHETIC' /tmp/mqr-p1h-rivals.txt
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('research/mqr_4121_p1h_bootstrap_pin_candidates.json').read_text())
+          assert d['scope']=='ADVISORY_NOT_DEPLOYED'
+          assert len(d['action']['pinned_commit'])==40
+          assert len(d['elan_script_candidate']['observed_master_commit'])==40
+          assert len(d['linux_x86_64_elan_binary_candidate']['sha256'])==64
+          assert d['linux_x86_64_elan_binary_candidate']['binary_execution_tested'] is False
+          print('MQR_P1H_DEPENDENCY_PIN_LEDGER=PASS_ADVISORY')
+          PY
       - name: Enumerate external Actions and invoked repo-root scripts
         run: |
           set -euo pipefail
