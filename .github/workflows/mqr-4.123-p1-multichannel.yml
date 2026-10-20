@@ -1,0 +1,28 @@
+name: MQR 4.123 P1 Multichannel Nuisance Contrast
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.123/p1_multichannel_nuisance_contrast.py'
+      - '.github/workflows/mqr-4.123-p1-multichannel.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-rational:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify exact three-channel nuisance claims
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.123/p1_multichannel_nuisance_contrast.py | tee /tmp/mqr4123p1.txt
+          grep -Fx 'MQR_4123_P1_NULLSPACE_IDENTITY=PASS' /tmp/mqr4123p1.txt
+          grep -Fx 'MQR_4123_P1_MULTICHANNEL_BOUNDED_ERROR_MARGIN=1/5' /tmp/mqr4123p1.txt
+          grep -Fx 'MQR_4123_P1_ALIGNED_NUISANCE_ERASES_SIGNAL=PASS' /tmp/mqr4123p1.txt
+          grep -Fx 'MQR_4123_P1_INDEPENDENT_CALIBRATION_MARGIN=2/25' /tmp/mqr4123p1.txt
+          grep -Fx 'MQR_4123_P1_EMPIRICAL_IDENTIFICATION=HOLD' /tmp/mqr4123p1.txt
