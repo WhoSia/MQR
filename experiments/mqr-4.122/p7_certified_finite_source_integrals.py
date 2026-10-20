@@ -92,6 +92,12 @@ def main():
         for i,(lo,hi) in enumerate(intervals):
             print(f"P7_{label}{i+1}_LOWER={float(lo):.17g} UPPER={float(hi):.17g} WIDTH={float(hi-lo):.3g}")
     print(f"P7_DET_SCALED_LOWER={float(d_lower):.17g} UPPER={float(d_upper):.17g}")
+    # Rational outward decimal endpoints; use integer floor/ceiling, never float.
+    scale = 10**18
+    lower_out = (d_lower.numerator*scale)//d_lower.denominator
+    upper_out = -((-d_upper.numerator*scale)//d_upper.denominator)
+    print(f"P7_DET_OUTWARD_1E18=[{lower_out}/10^18,{upper_out}/10^18]")
+    assert Q(lower_out,scale)<=d_lower<=d_upper<=Q(upper_out,scale)
     print("P7_DET_SIGN_STRICT_POSITIVE=",d_lower>0)
     assert d_lower>0, "failed to certify nonzero continuum determinant"
     assert d_upper-d_lower < Q(1,10**15), "enclosure too wide"
