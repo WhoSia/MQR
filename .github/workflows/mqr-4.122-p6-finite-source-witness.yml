@@ -1,0 +1,46 @@
+name: MQR 4.122 P6 finite source and formal scope
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.122/p6_finite_ball_oscillation_witness.rs'
+      - 'experiments/mqr-4.122/lean/**'
+      - '.github/workflows/mqr-4.122-p6-finite-source-witness.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rust-continuous-finite-ball:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Rust unit tests and finite-ball forward response
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustc --edition=2021 --test experiments/mqr-4.122/p6_finite_ball_oscillation_witness.rs -o /tmp/mqr4122p6-tests
+          /tmp/mqr4122p6-tests
+          rustc --edition=2021 experiments/mqr-4.122/p6_finite_ball_oscillation_witness.rs -o /tmp/mqr4122p6
+          /tmp/mqr4122p6 | tee /tmp/mqr4122p6-receipt.txt
+          grep -Fx 'MQR_4122_P6_FINITE_SOURCE_TOY_SEPARATION=PASS' /tmp/mqr4122p6-receipt.txt
+          grep -Fx 'MQR_4122_P6_ACTUAL_BEST_GEOMETRY_REPRODUCTION=HOLD' /tmp/mqr4122p6-receipt.txt
+  lean-discrete-exact-scope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: No sorry/admit axioms
+        shell: bash
+        run: |
+          set -euo pipefail
+          ! grep -nE '^[[:space:]]*(sorry|admit)([[:space:]]|$)' experiments/mqr-4.122/lean/MQR4122P6.lean
+      - name: Build exact rational finite-support witness
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: experiments/mqr-4.122/lean
+          build: true
