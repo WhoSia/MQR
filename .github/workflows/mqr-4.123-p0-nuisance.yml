@@ -1,0 +1,24 @@
+name: MQR 4.123 P0 Nuisance Relative Separation
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.123/p0_shared_nuisance_discrimination.py'
+      - '.github/workflows/mqr-4.123-p0-nuisance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-paired-contrast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.123/p0_shared_nuisance_discrimination.py | tee /tmp/p0.txt
+          grep -Fx 'MQR_4123_P0_SHARED_BIAS_PAIRED_CONTRAST=PASS' /tmp/p0.txt
+          grep -Fx 'MQR_4123_P0_BOUNDED_DRIFT_MARGIN=4/25' /tmp/p0.txt
+          grep -Fx 'MQR_4123_P0_ORIGINAL_DATA_EXPERIMENTAL_DISCRIMINATION=HOLD' /tmp/p0.txt
