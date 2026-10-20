@@ -1,0 +1,26 @@
+name: MQR 4.122 P7 Exact Rational Continuum Enclosure
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.122/p7_certified_finite_source_integrals.py'
+      - '.github/workflows/mqr-4.122-p7-continuum-enclosure.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-averaged-interval-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Exact rational series / Taylor enclosure
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.122/p7_certified_finite_source_integrals.py | tee /tmp/mqr4122p7.txt
+          grep -Fx 'MQR_4122_P7_CONTINUUM_RATIONAL_ENCLOSURE=PASS' /tmp/mqr4122p7.txt
+          grep -Fx 'MQR_4122_P7_BEST_FIG8_REPRODUCTION=HOLD' /tmp/mqr4122p7.txt
+          grep -Fx 'MQR_4122_P7_LEAN_CONTINUUM_INTEGRAL_PROOF=HOLD' /tmp/mqr4122p7.txt
