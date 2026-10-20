@@ -1,0 +1,24 @@
+name: MQR-4.122 Finite Source Geometry Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.122/p3_finite_source_geometry_and_line_cross_sections.py'
+      - '.github/workflows/mqr-4.122-finite-source-geometry.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  finite-source-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Published dimensional baselines and separate finite-source pilot
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.122/p3_finite_source_geometry_and_line_cross_sections.py --samples 75000 --dm2 10 | tee /tmp/mqr_best_p3.txt
+          grep -Fx 'MQR_4122_FINITE_SOURCE_INTEGRAND_TEST=PASS' /tmp/mqr_best_p3.txt
+          grep -Fx 'MQR_4122_INDEPENDENT_FULL_GEOMETRY_REPRODUCTION=HOLD' /tmp/mqr_best_p3.txt
