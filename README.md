@@ -6,6 +6,9 @@ This repository is the **live formal substrate**, not a chronological lab notebo
 
 ## Current research entry — MQR-4.122 OPEN / P0; MQR-4.121 P1I RUN-VERIFIED BOUNDED / PHYSICAL-HOLD
 
+**Writing Loop Essay 7 (2026-10-20):** [BEST original published dimensions and four Cr-51 branches, point-source geometric averaging and exact limits](writing/mqr_4122_essay07_best_actual_dimensions_point_source_limits_ko.md) · [auditable Python point-source approximation](experiments/mqr-4.122/p2_best_published_dimensions_point_source.py) · [verified canonical Notion receipt](https://app.notion.com/p/3feef561cf92811ab91bfd52a78966f6). Original BEST inner sphere diameter 133.5 cm, outer cylinder diameter 218 cm and max height 211.2 cm; four published Cr-51 lines. Toy numbers **do not** reproduce BEST finite source, geometry factors, energy-dependent capture rates, or best-fit likelihood. Physical replication HOLD.
+
+
 **Writing Loop recent receipts (2026-10-19):** [Essay 5: GALLEX/SAGE/BEST calibration without unique cause](writing/mqr_4122_essay05_gallium_anomaly_calibration_without_identification_ko.md) · [Essay 6: two-zone BEST oscillation averaging and external reactor/solar tension](writing/mqr_4122_essay06_best_baseline_averaging_and_external_constraints_ko.md) · [toy finite-radius averaging code](experiments/mqr-4.122/p1_best_baseline_averaging_toy.py). [Canonical Notion MQR 4.122](https://app.notion.com/p/3feef561cf92811ab91bfd52a78966f6) includes full WRITE–ATTACK–REVISE–DRAFT-CLOSED records. All BEST toy numbers are explicitly **not** the actual cylindrical outer target, isotope lines or original experiment fit; true geometry, external statistical fit and laboratory provenance remain HOLD.
 
 
