@@ -1,0 +1,29 @@
+name: MQR 4.122 P9 Independent Cosine Integral
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.122/p9_cosine_integral_independent_numerical_audit.py'
+      - '.github/workflows/mqr-4.122-p9-independent-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cosine-integral-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Pin Python numeric reference dependency
+        run: |
+          set -euo pipefail
+          python3 -m pip install --user --disable-pip-version-check mpmath==1.3.0
+      - name: Independent angular cosine-integral evaluation
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.122/p9_cosine_integral_independent_numerical_audit.py | tee /tmp/mqr4122p9.txt
+          grep -Fx 'MQR_4122_P9_INDEPENDENT_ANGLE_CI_QUADRATURE=PASS' /tmp/mqr4122p9.txt
+          grep -Fx 'MQR_4122_P9_INDEPENDENT_RIGOROUS_ERROR_BOUND=HOLD' /tmp/mqr4122p9.txt
+          grep -Fx 'MQR_4122_P9_BEST_GEOMETRY=HOLD' /tmp/mqr4122p9.txt
