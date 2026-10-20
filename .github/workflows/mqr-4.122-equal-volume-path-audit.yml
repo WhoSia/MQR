@@ -1,0 +1,24 @@
+name: MQR-4.122 Equal Volume Geometric Warrant
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.122/p4_equal_volume_distinct_inverse_square_paths.py'
+      - '.github/workflows/mqr-4.122-equal-volume-path-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  analytic-counterexample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Equal volume and independent numerical integral
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.122/p4_equal_volume_distinct_inverse_square_paths.py | tee /tmp/mqr-p4.txt
+          grep -Fx 'MQR_4122_P4_EQUAL_VOLUME_LOCATION_COUNTEREXAMPLE=PASS' /tmp/mqr-p4.txt
+          grep -Fx 'MQR_4122_P4_ACTUAL_BEST_PATH_REPLICATION=HOLD' /tmp/mqr-p4.txt
