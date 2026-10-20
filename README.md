@@ -6,6 +6,9 @@ This repository is the **live formal substrate**, not a chronological lab notebo
 
 ## Current research entry — MQR-4.122 OPEN / P0; MQR-4.121 P1I RUN-VERIFIED BOUNDED / PHYSICAL-HOLD
 
+**P3 source-volume and spectral-weight audit (2026-10-20):** [Finite emission-volume and nuclear-line weighting pilot with explicit non-reproduction of BEST path lengths](research/mqr_4122_p3_finite_source_ga_capture_and_best_path_length_gap.md) · [pure-Python QMC fixture](experiments/mqr-4.122/p3_finite_source_geometry_and_line_cross_sections.py) · [actual read-only Actions #39345704705 SUCCESS](https://github.com/WhoSia/MQR/actions/runs/39345704705) · [Notion canonical Writing Loop receipt](https://app.notion.com/p/3feef561cf92811ab91bfd52a78966f6). Published 52.03/54.41 cm not reproduced: finite toy 60.17/55.46 cm; the modeled inner cavity is **NOT actual BEST geometry**, and secondary 2021 line-dependent cross sections are **NOT the original BEST Bahcall input**. Successful CI verifies only algorithm execution, not physics reproduction. No calibration or parameter tuning to make the paper's targets match. Original Fig. 8 geometry, complete capture-response function, experimental data and independent identification remain HOLD.
+
+
 **Writing Loop Essay 7 (2026-10-20):** [BEST original published dimensions and four Cr-51 branches, point-source geometric averaging and exact limits](writing/mqr_4122_essay07_best_actual_dimensions_point_source_limits_ko.md) · [auditable Python point-source approximation](experiments/mqr-4.122/p2_best_published_dimensions_point_source.py) · [verified canonical Notion receipt](https://app.notion.com/p/3feef561cf92811ab91bfd52a78966f6). Original BEST inner sphere diameter 133.5 cm, outer cylinder diameter 218 cm and max height 211.2 cm; four published Cr-51 lines. Toy numbers **do not** reproduce BEST finite source, geometry factors, energy-dependent capture rates, or best-fit likelihood. Physical replication HOLD.
 
 
