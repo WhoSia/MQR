@@ -1,0 +1,25 @@
+name: MQR 4.122 P8 Independent Exact Moment Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/mqr-4.122/p8_independent_angular_moment_audit.py'
+      - '.github/workflows/mqr-4.122-p8-independent-moments.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-moment-independence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Independently derive source angular moments
+        run: |
+          set -euo pipefail
+          python3 experiments/mqr-4.122/p8_independent_angular_moment_audit.py | tee /tmp/mqr4122p8.txt
+          grep -Fx 'MQR_4122_P8_INDEPENDENT_MOMENTS_102_OVER_102=PASS' /tmp/mqr4122p8.txt
+          grep -Fx 'MQR_4122_P8_KERNEL_FORMALIZATION_IN_LEAN=HOLD' /tmp/mqr4122p8.txt
+          grep -Fx 'MQR_4122_P8_ACTUAL_BEST_GEOMETRY=HOLD' /tmp/mqr4122p8.txt
