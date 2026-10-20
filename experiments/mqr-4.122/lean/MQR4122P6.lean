@@ -76,4 +76,33 @@ theorem witness_cannot_be_erased_by_same_baseline :
   intro h
   exact oscillation_distinguishes (congrArg (fun p => p.2.2) h)
 
+/-!
+P7 extension: arbitrary continuous-radius kernel weights enter only by their
+three shell integrals. The following linear-algebra separation statement is
+valid regardless of whether those integrals are computed analytically or by a
+certified interval algorithm. This is NOT a formalization of Lebesgue/Riemann
+integration or an interval rounding certificate.
+-/
+
+structure Triple where
+  x : Rat
+  y : Rat
+  z : Rat
+
+def dot3 (a b : Triple) : Rat := a.x*b.x+a.y*b.y+a.z*b.z
+
+def cross3 (a b : Triple) : Triple :=
+  ⟨a.y*b.z-a.z*b.y, a.z*b.x-a.x*b.z, a.x*b.y-a.y*b.x⟩
+
+theorem nullspace_volume_example :
+    dot3 ⟨1,1,1⟩ (cross3 ⟨1,1,1⟩ ⟨5/9,5/32,17/225⟩) = 0 := by decide
+
+theorem nullspace_baseline_example :
+    dot3 ⟨(5/9:Rat),5/32,17/225⟩
+      (cross3 ⟨1,1,1⟩ ⟨5/9,5/32,17/225⟩) = 0 := by decide
+
+theorem independent_kernel_witness_example :
+    dot3 ⟨(5/9:Rat),0,17/225⟩
+       (cross3 ⟨1,1,1⟩ ⟨5/9,5/32,17/225⟩) ≠ 0 := by decide
+
 end MQR4122P6
