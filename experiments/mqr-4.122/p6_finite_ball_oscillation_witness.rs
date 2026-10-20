@@ -108,9 +108,9 @@ mod tests {
     #[test]
     fn source_normalization_and_analytic_kernel_match() {
         for r in [0.22,0.42,0.62] {
-            let n=kernel_numeric(r,0.0,8.0,72,96);
+            let n=kernel_numeric(r,0.0,8.0,128,128);
             let exact=kernel_zero_analytic(r);
-            assert!((n-exact).abs()<5.0e-5, "{r}: {n} != {exact}");
+            assert!((n-exact).abs()<2.0e-5, "{r}: {n} != {exact}");
         }
     }
     #[test]
