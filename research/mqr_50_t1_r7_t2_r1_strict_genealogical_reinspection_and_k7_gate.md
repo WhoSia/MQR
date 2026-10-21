@@ -74,3 +74,23 @@ Chang on measurement standards/epistemic iteration; Kuhn/Carnap/Feyerabend on fr
 This work has deliberately read many **short verdict-only D pages**. It has **not** thereby read every corresponding A/B/C source, all full historic chat exports line by line, the complete 0.X or 1.X corpus, nor the 2.X research primary data. Titles and page counts are not independent scholarly outputs.
 
 **T1 full-reading status: HOLD; T2 partial-reading status: OPEN/HOLD; T3–T5 still pending in this new exhaustive round. Manuscript: ZERO.**
+
+
+## Additional close-read addendum (nine more original Courts; total new original pages in this turn: 65)
+
+Originals directly fetched after the first ledger commit:
+- [1.180-A](https://app.notion.com/p/3cbef561cf9281709311e0438b929dc3), [1.180-B](https://app.notion.com/p/3cbef561cf9281538041d35348394bdb), [1.180-C](https://app.notion.com/p/3cbef561cf9281528956c57045d7e1f6) — **published Cottet et al. (2017)** experimental quantum Maxwell demon, superconducting transmon and cavity-memory study ([original public article](https://pmc.ncbi.nlm.nih.gov/articles/PMC5530687/)). The MQR Court re-accounted the same *published* physical system across thermodynamic partitions. This is actual published empirical-world contact, but **MQR did not independently rerun the physical apparatus or measure a new experiment**. Reset-cost/full-cycle closure still HOLD. MQR's B already conceded direct subsystem/entropy/memory accounting is PRIOR ART. Do not mislabel D's PASS as original MQR experimental confirmation.
+- [1.181-D](https://app.notion.com/p/3cbef561cf9281e0906fca3003c0763a) — conditional relation-reality criterion for joint structure; a relation is not automatically granted a new ontological token by every correlation.
+- [1.81-D](https://app.notion.com/p/3cbef561cf9281ab814bc08d56fd991c) — reported 16-case terminology-conditioned discovery corpus and 8-case sealed holdout with 8/8 in-frame decomposition. **Important limit openly admitted in D:** retrieval was conditioned on the target operator vocabulary, so this provides no broad-population recall estimate.
+- [1.82-D](https://app.notion.com/p/3cbef561cf928116beaad073dc1d3102) — retrieval-decoupled second sample: only **3 of 8 typeable, 5 of 8 outside ontology**, with a BROAD-RECALL-GATE-FAIL. Two were legitimately outside the focal representation domain; three showed actual missing distinctions. Original report also warns merged web retrieval lacked stable per-query ranks, weakening exact sampling provenance. This ***supersedes any reading of 1.81's perfect score as global success***. These are source-claimed Court results, not independent audit of the underlying cases in this tranche.
+- [2.93-D](https://app.notion.com/p/3cdef561cf92811e845e-d45f6d160622), [2.94-D](https://app.notion.com/p/3cdef561cf928146aac1d6419aed6b2e), [2.95-D](https://app.notion.com/p/3cdef561cf92818abf96e3f5b683d718) — explicitly marked historically preserved but not mainline reauthorized beyond 2.91; 2.95's own deletion test PASS cannot overturn the retrospective mainline freeze.
+
+**Reviewer correction:** The earlier declaration in 1.80 that a new frozen corpus was still required should not be read as saying there was never a later case test: 1.81 did carry one out; 1.82 detected substantial out-of-vocabulary failures. Conversely 'external empirical evaluation' in 1.81 should not be confused with genuinely blind independent human coders or a probability sample from the entire legal domain. Verify exact 16/8 corpus case receipts separately before allowing paper-grade measurement claims.
+
+### Study debt after the addendum
+
+- Original Cottet paper [PMC5530687](https://pmc.ncbi.nlm.nih.gov/articles/PMC5530687/) identified from the Court and requires independent primary-text/methods inspection for any quantitative transfer.
+- Version 1.81/1.82 real-case corpus, frozen retrieval rule, sampling log, and coder independence still unverified here.
+- All numbered T1 and T2 Courts have NOT been read despite 65 original pages fetched; the appendix grows **breadth of genuine reading**, not authority to declare exhaustive closure.
+
+**CURRENT TURN TOTAL: 65 UNIQUE ORIGINAL NOTION COURTS DIRECTLY FETCHED/READ, WITH MANY D COURTS SHORT VERDICT-ONLY.**
