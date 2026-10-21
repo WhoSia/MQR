@@ -1,3 +1,5 @@
+**MQR-5.0 PAPER/HISTORY MODE (2026-10-21):** [P0 full-lineage partitioned archival / candidate manuscript triage](research/mqr_50_p0_full_lineage_partitioned_paper_triage.md) · [new Notion canonical](https://app.notion.com/p/400ef561cf9281f9bba6cfc7cfbe7686). T1 0.X–1.X, T2 2.X, T3 3.X, T4 4.0–4.99, T5 4.100–4.123. Actual P0 readings selected original Notion Courts/Harvest and repository reports; the MQR 1–28 full Drive chat exports are **located but NOT all reread**. Manuscript candidate A: measurement equivalence ≠ scientific claim equivalence across instruments, calibration, selection and intervention. Novelty and complete manuscript HOLD pending full primary archive and prior art. **No automatic math sequel.**
+
 # MQR — Measurement-Quotient Realism
 
 MQR investigates what observation and measurement can justify, what they cannot identify, and how evidence, physical operations, reference standards and scientific judgment acquire *target-relative* warrant.
