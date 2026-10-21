@@ -4,7 +4,7 @@ Date 2026-10-21. READING-ONLY. MANUSCRIPT ZERO.
 
 ## Actual direct read
 12 original Notion Court pages, individually fetched, inspected, and provenance checked:
-2.10-D https://app.notion.com/p/3ccef561cf9281c99cec f64c902a5616
+2.10-D https://app.notion.com/p/3ccef561cf9281c99cecf64c902a5616
 2.40-D https://app.notion.com/p/3ccef561cf92811c8dbae88f2a59e22c
 2.70-D https://app.notion.com/p/3ccef561cf9281d8bebfc98bf4654913
 2.90-D https://app.notion.com/p/3cdef561cf9281c18042cee914d0fcd5
@@ -13,7 +13,7 @@ Date 2026-10-21. READING-ONLY. MANUSCRIPT ZERO.
 2.71-D https://app.notion.com/p/3ccef561cf92819d8761d08e3fa50c04
 3.0 https://app.notion.com/p/3cfef561cf9281a08a57fb471df2c64c
 3.4 https://app.notion.com/p/3cfef561cf928190b65be9023b85c724
-Also directly read this tranche initial pages 3.1 https://app.notion.com/p/3cfef561cf92819c82dec9da1c7489ed , 3.2 https://app.notion.com/p/3cfef561cf9281fb9e7ecde730141b8e , 3.3 https://app.notion.com/p/3cfef561cf92813a92fdd4e7adae09ec , 3.5 https://app.notion.com/p/3cfef561cf92818c938ecb9932b61ea8 , 3.10 https://app.notion.com/p/3cfef561cf92819a9ce1da31af107fa4 . Total **14 original documents**, because 2.31 has three distinct D and 3.0/3.1/3.2/3.3/3.4/3.5/3.10 span 7 documents (2.X 9, 3.X 7 => 16). **Correct count: 16 unique originals**. Title counts are not rigorous proof of original empirical work.
+Also directly read this tranche initial pages 3.1 https://app.notion.com/p/3cfef561cf92819c82dec9da1c7489ed , 3.2 https://app.notion.com/p/3cfef561cf9281fb9e7ecde730141b8e , 3.3 https://app.notion.com/p/3cfef561cf92813a92fdd4e7adae09ec , 3.5 https://app.notion.com/p/3cfef561cf92818c938ecb9932b61ea8 , 3.10 https://app.notion.com/p/3cfef561cf92819a9ce1da31af107fa4 . Total **16 unique original documents**: nine 2.X Court pages and seven 3.X Court pages. Title counts are not rigorous proof of original empirical work.
 
 ## Critical format correction
 3.0–3.10 are **single substantive numbered Courts**, not all A/B/C/D quadrants. Earlier failure to find `MQR-3.0-A` etc was a QUERY SCHEMA ERROR. The correct 3.0 origin is a long reconstitution Court, internally showing 2.91 as actual frozen mainline and 2.96 as history/material boundary, not retro-ratifying the 2.92–2.96 appendix or post-2.96 unnumbered stresses.
