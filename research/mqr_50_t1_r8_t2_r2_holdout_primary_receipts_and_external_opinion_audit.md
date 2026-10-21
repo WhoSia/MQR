@@ -35,3 +35,8 @@ Exact searches for 3.0 A/B/C/D returned no matching pages. This is a *search mis
 - Retrieve frozen 1.81-A and 1.82-A, actual search log and primary case law for remaining cases, confirm independent human coder availability/absence.
 - Find 3.0 origin by alternate title and chat archive temporal section; do not infer a Notion A/B/C/D quartet from a failed search.
 - Full 0.X–4.X read HOLD, no manuscript.
+
+## Frozen protocols independently reopened (two more primary Courts)
+- [1.81-A](https://app.notion.com/p/3cbef561cf9281fdb516f51f185d741d): explicit pre-discovery 16-case/4-query design, discovery-order odd/even split, fixed 15 operator dictionary, 9 primary labels including OUT-OF-ONTOLOGY, issue-hit ≥75%, operator-hit ≥75%, OOO ≤25%. This is a frozen protocol **as recorded in the Court**, but independent proof of chronology and unbiased retrieval remains HOLD.
+- [1.82-A](https://app.notion.com/p/3cbef561cf9281bb84e5ccba4dd2132e): explicitly forbids query words including authority, proxy, ratification, mandate and standing, freezes four broader procedural query families, ≥75% typeability, ≤25% OOO and zero erased dispositive distinctions. The following B Court acknowledges merged search-engine rank provenance defective, so strict odd/even selection audit HOLD.
+These pages make a paper-relevant methodological contrast concrete but NOT a novel algorithm or publication-ready performance estimate. **Current turn total: 13 directly read original Court pages (11 earlier + A/A).**
