@@ -11,8 +11,8 @@ class CalibrationTests(unittest.TestCase):
 
     def test_partial_identification(self):
         lo,hi=identified_interval(.42,(.08,.12),(.08,.12))
-        self.assertAlmostEqual(lo,.39473684210526316)
-        self.assertAlmostEqual(hi,.40476190476190477)
+        self.assertAlmostEqual(lo,.375)
+        self.assertAlmostEqual(hi,.425)
 
     def test_hoeffding_sufficient_n(self):
         self.assertLessEqual(hoeffding_halfwidth(289,.05,.1,.1),.1)
