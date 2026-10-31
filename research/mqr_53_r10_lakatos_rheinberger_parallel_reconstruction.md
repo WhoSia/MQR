@@ -1,0 +1,15 @@
+# MQR-5.3 R10: Parallel Reconstruction of Proof and Experimental Object Formation
+
+Date: 2026-10-31. Notion canonical: https://app.notion.com/p/40aef561cf928165977af8e05ffc1b4f. Source-bounded close reading; historical analogies are not new scientific discoveries.
+
+## Lakatos original
+*Proofs and Refutations* (1976; Cambridge Philosophy Classics 2015 PDF edition), Google Drive 1qpRtwZLjZBgio5W6ptQorzu1MY7l970G. Chapter 1 printed pp. 6–9, 13–14, 35–38 examined. In the Cauchy-inspired proof sketch, remove a face and flatten the surface, triangulate each face (one diagonal must add one edge and one face), then remove triangles preserving V-E+F. Each step relies on hidden conditions. Nested-cube hollow solid has V-E+F=4. The crested cube described by Lakatos gives V=16, E=24, F=11 and value 3 under his face conventions; ring-shaped faces defeat the simple diagonal-splitting lemma. Lemma incorporation investigates proof-generated domain restrictions rather than ad hoc exemption. A proof sketch in a heuristic philosophical dialogue is not a comprehensive, modern topology theorem.
+
+## Rheinberger original
+*Toward a History of Epistemic Things* (1997), Google Drive 1DDrn0i1jOZ79tx8VxftIgQmdTrNH4tr8. Chapter 4 printed pp.59–67 and Chapter 6 approx. pp.84–87 examined. Ultracentrifugation introduced in Claude's cancer-agent program unexpectedly opened normal-cell fractionation. Early radiolabel incorporation in homogenates was weak, and nonspecific reactions and contamination challenged attribution to genuine protein synthesis. Bucher's gentle homogenization method, from cell/cholesterol work, traveled to Zamecnik's cell-free protein research, substantially increasing incorporation signal (Rheinberger reports at least tenfold). Technical changes can change the researchable objects and questions, not merely increase measurement accuracy.
+
+## Philosophical comparison
+Proof decomposition reveals additional mathematical premises and changes theorem/concept scope, while biological fractionation provides intervention handles before molecular referents are settled. Both move beyond selecting among a fixed set of hypotheses, but logical refutation and experimental causal control have different warrant structures. 'Concept formation' does not entail that science invents a material world. Distinguish candidate creation, stabilization, explanatory integration, independent acceptance and limits of transfer. Current historical evidence is Rheinberger's reconstruction, not separately collated 1950s originals.
+
+## Next inquiry
+Investigate whether the distinction between local and global proof counterexamples has a precise experimental analogue. Seek adversarial cases where a newly manipulable fraction proves biochemically irrelevant, and where a mathematics lemma-incorporation move leads to a vacuous or circular theorem. Preserve negative cases and prior art.
