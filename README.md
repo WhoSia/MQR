@@ -1,10 +1,21 @@
-# MQR 5.1 — Methods of Quantitative Realism
+# MQR — Methods of Quantitative Realism
 
-**Current phase: 5.1 — Scientific Discovery, Concept Formation, Evidential Authority & Cross-Framework Inquiry**
+**Current phase: 5.3 — Evidence-Lineage Transport, Calibration and Causal Abstraction**
 
 MQR investigates how scientific and mathematical knowledge becomes possible, what limits its authority, and how inquiry can generate new concepts, observables, explanations, and questions. Its ambition is not a narrow history of particular discoveries or an ever-growing taxonomy of audit gates. It asks how fallible contact with a world can support scientific understanding and how inquiry can advance when its original problem representation is inadequate.
 
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
+
+
+## MQR-5.3 — Evidence-Lineage Transport (2026-10-31)
+
+**Formal active research version:** [MQR-5.3 Notion master](https://app.notion.com/p/40aef561cf928165977af8e05ffc1b4f) and [Google Drive research manuscript](https://docs.google.com/document/d/1rSArpBZ9GvYLkJrI5j3oEu6o-cdGobpi0xzmVj7SiH8/edit). Follows [MQR-5.2](https://app.notion.com/p/409ef561cf9281e99712d11eeaf5e98b). Historical analysis compares Galison's 1974 detector records and Rheinberger's 1952–55 fraction/assay studies without treating historical numbers as synthetic-model parameters.
+
+**Real Lang development, not promoted syntax:** [calibration experiment and tests](language/real/experiments/MQR53-CALIBRATION-README.md). The binary calibration boundary q=f+(1-f-n)b exposes nonidentification if false-positive and false-negative rates are unknown. Separate independent error intervals [0.08,0.12] imply b in [0.375,0.425] when q=0.42; the symmetric-error restriction f=n yields narrower bounds. Finite-sample Hoeffding bounds require iid testing and known calibration rates.
+
+**Method and limitations:** Reuses prior causal transport/abstraction results (Pearl–Bareinboim; Rubenstein et al.; Rischel–Weichwald), does not assert novelty of established algebra. Real Lang analysis is a Python prototype, not a Rust compiler release. Historical figure digitization, calibration covariance, original run files, external prediction tests and CI receipt remain unverified. GitHub Actions must remain read-only; commits are made through the author-controlled repository interface.
+
+---
 
 ## Working questions
 
