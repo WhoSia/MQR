@@ -27,6 +27,10 @@ The historical trajectory runs from measurement and observational equivalence (0
 
 **Next falsification:** 2×2 preparation-route × device crossovers with known controls; separate relative biases from global offset, and prospectively test shared-error signatures. Tests are committed but no CI success receipt has yet been established.
 
+### R33 — Crossed measurement exposes differential bias, not absolute truth (2026-11-03)
+
+[Crossed-design argument](research/mqr_53_r33_crossed_preparation_detector_nonidentification.md) · [model](language/real/experiments/mqr53_r33_crossed_measurement.py) · [tests](language/real/experiments/test_mqr53_r33_crossed_measurement.py). In a 2×2 preparation×detector model, row/column/interaction contrasts can expose relative deviations, but shifting the measurand and shared bias by opposite amounts leaves the data invariant. This is a standard identifiability limitation formalized as an adversarial baseline, not a new theorem. Physical preparation may change the measurand; randomized replicates and an independent reference are separate verification gates. No physical historical confirmation or CI success claimed.
+
 ## Working questions
 
 1. **World and representation.** When do different scientific representations describe the same physical constraints, and when does observational equivalence conceal distinct causal implementations? Translation may exist without being discoverable.
