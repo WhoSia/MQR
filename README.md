@@ -17,6 +17,16 @@ The historical trajectory runs from measurement and observational equivalence (0
 
 ---
 
+## MQR-5.3 R32 — Representation versus independent evidence (2026-11-03)
+
+[Research proof and source audit](research/mqr_53_r32_predictive_access_vs_evidence_independence.md) · [Executable witness](language/real/experiments/mqr53_r32_representation.py) · [Regression tests](language/real/experiments/test_mqr53_r32_representation.py).
+
+**Two non-equivalent gains.** In a fair XOR model, enriching raw features (A,B) with a deterministic parity feature improves a restricted affine-threshold model's best accuracy from 3/4 to 1 **without adding Shannon information**. Measuring a new noisy B-channel with error rate 0.1 instead provides 1-h₂(0.1)≈0.531 bits about the XOR outcome conditional on A, under independence assumptions.
+
+**Calibration failure boundary.** Two conditionally independent symmetric-error sensors have disagreement d=2η(1−η), identifying η within that model. Two sensors sharing one latent error E can always agree even when η=0.1; for hidden fair B their observed joint distribution is identical to two perfect sensors. Agreement alone does not validate error independence or truth. These are constructed models, not historical facts or claims of methodological priority. Source parallels: Chang (2004) ch. 5, Tal (2017), Dennett (1991), Rheinberger (1997), Nersessian (2006).
+
+**Next falsification:** 2×2 preparation-route × device crossovers with known controls; separate relative biases from global offset, and prospectively test shared-error signatures. Tests are committed but no CI success receipt has yet been established.
+
 ## Working questions
 
 1. **World and representation.** When do different scientific representations describe the same physical constraints, and when does observational equivalence conceal distinct causal implementations? Translation may exist without being discoverable.
