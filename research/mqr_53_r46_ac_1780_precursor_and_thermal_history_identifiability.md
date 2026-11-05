@@ -3,7 +3,7 @@
 Date: 2026-11-05 KST. Status: archival source discovery and analytical reconstruction; NOVELTY HOLD.
 
 ## 1. Corrected archival genealogy
-The three *published* Wedgwood pyrometer papers of 1782, 1784 and 1786 are not an exhaustive documentary chronology. The Royal Society identifies Wedgwood's earlier unpublished manuscript **“A method of ascertaining very great degrees of heat”**, read **14 December 1780**, **L&P/7/178**, 7-page manuscript:
+The three *published* Wedgwood clay-contraction pyrometer papers of 1782, 1784 and 1786 are not an exhaustive documentary chronology. **Crucial difference:** the Royal Society's 1780 manuscript belongs to an earlier *colour-tint/mixture-calorimetry* approach, not yet the published clay-contraction device. John A. Chaldecott (1975), DOI 10.1017/S0007087400013674, pp. 1–4, traces this proposal, its abandoned status in 1781, and subsequent different principle. The first surviving notebook idea for a *ceramic contraction* pyrometer is dated 19 May 1781; experiments on that device began 1 January 1782. Do NOT collapse the 1780 proposal into the later device. The Royal Society identifies Wedgwood's earlier unpublished manuscript **“A method of ascertaining very great degrees of heat”**, read **14 December 1780**, **L&P/7/178**, 7-page manuscript:
 https://makingscience.royalsociety.org/items/l-and-p_7_178/paper-a-method-of-ascertaining-very-great-degrees-of-heat-by-josiah-wedgwood
 
 1782 published experimental instrument proposal: DOI https://doi.org/10.1098/rstl.1782.0021 (full image scan held, transcription incomplete).
@@ -37,4 +37,8 @@ C. Separate three propositions: 'repeatable firing protocol', 'invariant under d
 D. Explicitly adjudicate whether Chang (2004), Tal (2019), and Ohnesorge (2022) already account for the case. A difference in vocabulary is not philosophical novelty.
 E. Keep missing registry separately current, including 1780 manuscript as unheld (although digitized online); do not treat archive catalog access as original-byte acquisition.
 
-Outcome: revised archival genealogy **1780 → 1782 → 1784 → 1786**, mechanistic alternative with falsifiable requirements, and no unearned claim of historical source transcription or new theory.
+Outcome: revised genealogy **1780 colour-tint/calorimetric proposal → 1781 conceptual redirection → 1782 clay-shrinkage pyrometer → 1784 scale bridge → 1786 manufacturing amendments**, mechanistic alternative with falsifiable requirements, and no unearned claim of historical source transcription or new theory.
+
+
+## 5. Newly available direct rival: Ohnesorge (2022)
+The full 17-page paper, *Pluralizing Measurement: Physical Geodesy's Measurement Problem and Its Resolution*, DOI 10.1016/j.shpsa.2022.08.011, is already in Google Drive's `PGN` folder (`1fW8X_9Xn2irCXks7vrJHqOZKYxzapgAa`) and was text-read today, contrary to the prior MQR registry's 'Drive missing' assertion. Its operational pluralism explicitly addresses alternative physical indicators to control otherwise unpredictable perturbations. The thermal-history countermodel is **not** a challenge to Ohnesorge until it supplies predictions or historically defensible evidence not explained by that framework. Preserve its existing cross-project location rather than moving it out of PGN without provenance review.
