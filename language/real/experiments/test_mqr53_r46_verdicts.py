@@ -29,6 +29,24 @@ class R46VerdictTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             competing_witnesses(self.left, other, self.names, Question.PURSUIT)
 
+    def test_pursuit_admissibility_vs_priority_is_type_error(self):
+        priority = Rival(
+            "priority",
+            lambda c: Verdict(Question.PURSUIT_PRIORITY, Judgment.YES),
+        )
+        with self.assertRaises(ValueError):
+            competing_witnesses(
+                self.left, priority, self.names, Question.PURSUIT
+            )
+
+    def test_priority_comparison_same_type_can_be_distinct(self):
+        yes = Rival("cost-weighted-A", lambda c: Verdict(Question.PURSUIT_PRIORITY, Judgment.YES))
+        no = Rival("cost-weighted-B", lambda c: Verdict(Question.PURSUIT_PRIORITY, Judgment.NO))
+        witnesses = competing_witnesses(
+            yes, no, ("resource_available",), Question.PURSUIT_PRIORITY
+        )
+        self.assertEqual(len(witnesses), 2)
+
     def test_invalid_axes_are_rejected(self):
         for names in (("x", "x"), (), tuple(map(str, range(17)))):
             with self.assertRaises(ValueError):
