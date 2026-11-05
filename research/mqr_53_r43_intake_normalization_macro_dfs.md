@@ -58,3 +58,8 @@ Primary book reinspection:
 5. If existing scholars already resolve all these questions, record a negative literature synthesis rather than announce a paradigm-changing theory.
 
 **Provenance:** The 13 moves were independently provider-verified. PDF full-volume/page-image inspection and SHA checks were not completed. Major philosophic arguments directly sampled and read; do not claim exhaustive end-to-end reading of every uploaded article. Steinle Drive source held for document-level verification. No files deleted and no GitHub Actions bot used.
+
+
+## Post-write reconciliation (2026-11-05)
+
+After the original custody audit was recorded, a fresh Drive metadata query showed that Steinle (2002) file `1Ux1PayHiIr8shB0BOLqTBRvtC2rk04Zl` is **now located in `10_PAPERS`**, and named `Steinle (2002) — Challenging Established Concepts - Ampere and Exploratory Experimentation — Theoria 17(2) 291-316 — IMAGE SCAN.pdf`. This was **not performed by the 13 recorded Drive move calls in this R43 execution**. Who or what moved it is unknown. As of that check, 14/14 newly inventoried PDFs have the canonical papers folder as their parent. **Steinle remains TEXT-EXTRACTION / BYTE-IDENTITY HOLD notwithstanding its changed folder**; uploading/renaming does not certify the content. No destructive or byte-replacement operation was performed by this research execution.
