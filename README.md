@@ -7,6 +7,14 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46-Z — Thermometry return and mandatory live missing-source ledger (2026-11-05)
+
+[Regnault 1847 / Wedgwood 1782–86 source-typed comparison](research/mqr_53_r46_z_wedgwood_regnault_thermometry_historical_bridge_audit.md) · **[LIVE MQR missing sources registry: full titles, editions, DOI and official links](research/MQR_LIVE_MISSING_SOURCES_REGISTRY.md)**.
+
+Historical basis: Chang (2004) ch.2 Table 2.5/2.6 (secondary transcriptions of Regnault 1847) and ch.3 Wedgwood; Royal Society archive locators for 1782 DOI `10.1098/rstl.1782.0021`, 1786 DOI `10.1098/rstl.1786.0022`. Regnault 1847 824-page **ORIGINAL SCAN HELD** in Drive `1oMK9-9K_f4SIxLkOtZpTzW2Dxhr_6OAe`, extraction empty, numbers **NOT** yet primary-table parity verified. Tal (2019) already develops the model-dependent individuation philosophy, and Ohnesorge (2022) DOI `10.1016/j.shpsa.2022.08.011` offers operational pluralism (abstract directly verified, full PDF **not** in Drive). Comparison documents concrete validation/transport assumptions but NO new philosophical or quantitative theorem.
+
+**MQR standing rule:** In **every** subsequent research reply, open, re-verify, update, and display the complete-title missing-source table with DOI/ISBN/primary repository links even if nothing changed; maintain separate buckets for **not held / full book partially held / held image only / raw-byte parity HOLD**. A publicly accessible PDF is not automatically a Drive holding. Do not claim unread scans read, do not promote without identifiable evidence and don't erase records on mere name matches. Notion semantic canon and Drive source bytes remain distinct.
+
 ## R46-W/X/Y — Target continuity novelty killed by Tal, triangulation and 2026 discordance, aligned with MQR 5.3 original canon (2026-11-05)
 
 [Direct-source target individuation and prior-art kill](research/mqr_53_r46_w_target_individuation_tal_triangulation_lineage_novelty_kill.md) · [2026 Blanco Sequeiros evidential-discordance rival](research/mqr_53_r46_x_blanco_sequeiros_2026_evidential_discordance_rival.md) · [internal MQR-5.3 master genealogy and 1956 transport nonidentification](research/mqr_53_r46_y_internal_53_master_transport_genealogy_and_novelty_kill.md).
