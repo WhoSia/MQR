@@ -1,0 +1,11 @@
+# MQR R45-H — Scientific significance vs plurality vs second-order criticism
+
+**Sources, directly checked:** [Kitcher (1993), *The Advancement of Science*, §"Significant Questions and Accepted Statements"](https://drive.google.com/file/d/1-dqXnIObLoPTVXFyeRAKCG0Astd9oqM-/view); [Chang (2012), *Is Water H2O?*, ch.5](https://drive.google.com/file/d/1ZZPVnMOCco8J2ORdtJxs5fC27kQ9sE15/view); [Lari (2024), *What Counts as Relevant Criticism?*](https://drive.google.com/file/d/1w_d53dSeovNArYQ69kna_a1NjpwMKCHO/view).
+
+Kitcher explicitly rejects equating *any grammatically posed question* with *a significant question*, or treating all significant questions as equal. His 1993 examples include dismissed false-presupposition questions, scientifically uninteresting true-presupposition questions, and divisive projects (e.g., whole-genome sequence versus whole-organism biology). Thus MQR's 'maximize available questions' would be both historically and normatively unsound.
+
+Chang 2012 describes **active normative epistemic pluralism**: toleration offers insurance against contingency and different aims; interaction permits integration and productive rivalry. His section "Can We Afford It All?" directly recognizes finite resources and distinguishes 'cannot fund all approaches' from 'must fund only one'. No unrestricted plurality rule follows.
+
+Lari 2024 separates first-level method critique *relative to accepted community goals* from second-level critique of those goals themselves. Judging goal-changing criticism only by current goals is circular. However Lari offers appeal to more general scientific aims; this invites questions about disagreement over *those* aims, not automatic evidence that her account fails.
+
+**MQR adversarial choice:** If a high-performing incumbent program resists a new research agenda, Kitcher may grade its question significance, Chang may grade pluralism's insurance/interaction benefits, and Lari may assess the rational status of second-level criticism. This is not yet a case of conflicting predictions: the accounts address different dimensions and may be jointly true. To show incompatibility we need explicit case-level commitments from each author. Keep as a research hypothesis, no novelty claim.
