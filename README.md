@@ -7,6 +7,12 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46-D — 1954 negative-control matrix and ex-ante rationality
+
+[Historical Table I analysis](research/mqr_53_r46_d_historical_control_matrix_and_ex_ante_nonidentification.md) · [descriptive contrast code](language/real/experiments/mqr53_r46_d_contrast_audit.py) · [regression tests](language/real/experiments/test_mqr53_r46_d_contrast_audit.py).
+
+Zamecnik–Keller (1954) reports five experimental conditions (8, 64, 0.8, 9, 21 counts/min/mg). Within-bundle supplement contrasts are 56 and 12, but the contrasting homogenization regimes change **both** duration and mechanical clearance; their separate effects are not identified. Alternative energy donors later reduce dependence on the original glycolytic pathway: an initially weak signal is not a universal negative verdict on the research program. This is a historical negative-control **within a successful research program**, NOT an independently failed research program, a causal estimate, or evidence of historic funding priorities. Real Lang research remains a Python descriptive probe; CI and image/table visual parity HOLD. Current missing canonical books: Feest (2025), Steinle (2016) (Drive search only).
+
 ## R46 — Historical discrimination of scientific rationality (2026-11-05)
 
 [Research design, case and falsification gates](research/mqr_53_r46_a_historical_discriminability_gate.md) · [Finite typed verdict probe](language/real/experiments/mqr53_r46_verdicts.py) · [Regression tests](language/real/experiments/test_mqr53_r46_verdicts.py).
