@@ -7,6 +7,12 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46 — Historical discrimination of scientific rationality (2026-11-05)
+
+[Research design, case and falsification gates](research/mqr_53_r46_a_historical_discriminability_gate.md) · [Finite typed verdict probe](language/real/experiments/mqr53_r46_verdicts.py) · [Regression tests](language/real/experiments/test_mqr53_r46_verdicts.py).
+
+R45's macro-question is retained: under what conditions is changing scientific research problems or evaluative criteria rationally justified? R46 separates *pursuit*, *acceptance* and *progress*, and will first compare source-grounded philosophical rivals on a single 1952–1955 experimental-history candidate. The Python prototype is a **synthetic Boolean discriminator**, not a faithful model of Dewey/Kuhn/Chang, historical evidence, new Real Lang syntax or a new scientific theorem. Local equivalent prototype tests passed; repository CI has not been verified. **Historical source collation, genuine rival conflict and originality remain HOLD.** No bot commits.
+
 ## MQR-5.3 — Evidence-Lineage Transport (2026-10-31)
 
 **Formal active research version:** [MQR-5.3 Notion master](https://app.notion.com/p/40aef561cf928165977af8e05ffc1b4f) and [Google Drive research manuscript](https://docs.google.com/document/d/1rSArpBZ9GvYLkJrI5j3oEu6o-cdGobpi0xzmVj7SiH8/edit). Follows [MQR-5.2](https://app.notion.com/p/409ef561cf9281e99712d11eeaf5e98b). Historical analysis compares Galison's 1974 detector records and Rheinberger's 1952–55 fraction/assay studies without treating historical numbers as synthetic-model parameters.
