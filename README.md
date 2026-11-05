@@ -7,6 +7,16 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46-AA/AB — Wedgwood's original 1782 scan received, missing 1784 bridge discovered (2026-11-05)
+
+[1782 scan custody and 1782–1786 three-paper genealogy](research/mqr_53_r46_aa_wedgwood_1782_intake_and_three_paper_calibration_genealogy.md) · [historical invariance/calibration falsification matrix](research/mqr_53_r46_ab_wedgwood_invariance_calibration_falsification_matrix.md) · [updated MQR live missing-sources registry](research/MQR_LIVE_MISSING_SOURCES_REGISTRY.md).
+
+New `00_INTAKE` file `wedgwood1782.pdf` (2,263,418 bytes, Drive ID `17bsv_UoQpzvCtG93tDWAezu52g3GLtZA`) was bibliographically validated and **metadata-only renamed/moved** to `10_PAPERS`. It is a JSTOR **IMAGE SCAN**: Drive text returns only the 167-character digitization cover, so **no complete original firsthand reading or line-accurate transcription may be claimed**. Chang (2004) ch.3 was directly reread, and contemporary Royal Society manuscript metadata and a 1783 review support the bounded initial reconstruction.
+
+The decisive overlooked genealogy includes THREE different contemporaneous articles: **1782** instrument proposal (DOI `10.1098/rstl.1782.0021`; now held original scan, full reading HOLD), **1784** independent clay→silver→mercury calibration bridge (DOI `10.1098/rstl.1784.0028`, source not held, Royal Society L&P/8/79 includes three plates), **1786** material-production standardization/corrections (DOI `10.1098/rstl.1786.0022`, source not held). Distinguish repeatability, inter-batch transfer and high-temperature scale extension; 1784's historical `20*6.5=130 °F per °W` as transmitted by Chang is not a validated modern conversion. Existing Chang/Tal philosophy explains the central problem; **no new MQR theorem or superior philosophical prediction**.
+
+**Mandatory missing registry updated:** Wedgwood 1782 moved from missing to **held-image/parity HOLD**, Wedgwood **1784 newly added** to missing, count stays **7**. Full titles, editions, DOI/ISBN, official links and Drive state must be rechecked and shown each research turn. No delete, no overwrite, no bot-author commits. Regnault 1847 original remains held unreadable image scan; 1784/1786 and Feest 2025 full book remain missing.
+
 ## R46-Z — Thermometry return and mandatory live missing-source ledger (2026-11-05)
 
 [Regnault 1847 / Wedgwood 1782–86 source-typed comparison](research/mqr_53_r46_z_wedgwood_regnault_thermometry_historical_bridge_audit.md) · **[LIVE MQR missing sources registry: full titles, editions, DOI and official links](research/MQR_LIVE_MISSING_SOURCES_REGISTRY.md)**.
