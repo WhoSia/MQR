@@ -7,6 +7,14 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46-J/K — Feest archive promotion and strongest operationism baseline (2026-11-05)
+
+[Feest 2005/2025 direct reading and 3-file Drive move audit](research/mqr_53_r46_j_feest_2005_2025_intake_and_strong_prior_art_audit.md) · [Campbell–Fiske observational equivalence kill test](research/mqr_53_r46_k_observational_convergence_nonidentifiability_witness.md).
+
+Three source PDFs entered via Research OS `00_INTAKE` and were moved (metadata only; original Drive IDs preserved; all destination parent IDs and sizes verified): **Feest (2005)** → `10_PAPERS`, **Steinle (2016)** complete monograph → `11_BOOKS`, **Feest (2025)** *Introduction pp.1–29 only* → `11_SOURCES`. Full Feest (2025) book remains absent; article and introduction are not a full substitute for unexamined chapters. User-held Feest 2011 remains canonical in 10_PAPERS.
+
+Feest (2005) argues operational definitions are empirically revisable research tools, not exhaustive meaning specifications; its own critique centers on circular self-validation. Feest (2025) introduction already distinguishes actor norms, implementation, exploratory classification, measurement/individuation and construct validity. Campbell & Fiske (1959) likewise distinguishes common-trait and common-method correlations; a minimal H1/H2/H3 toy shows observational convergence is not sufficient for unique object identification but provides **no new MQR theorem**. Novelty HOLD. Full raw-byte SHA/page visual parity of the relocated PDFs is NOT asserted.
+
 ## R46-I — Steinle full-book reading and Feest article substitution (2026-11-05)
 
 [Research note and reading ledger](research/mqr_53_r46_i_steinle_2016_close_reading_feest_substitution.md).
