@@ -7,6 +7,14 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46-M/N/O — Full 00_INTAKE sweep and decisive prior-art result (2026-11-05)
+
+[24-file intake audit, 15 placements, nine holds](research/mqr_53_r46_m_20261105_00_intake_full_24_file_audit.md) · [Garner–Hake–Eriksen 1956 source read](research/mqr_53_r46_n_garner_1956_full_primary_methodology_kill_test.md) · [D'Alessandro's quadratic-reciprocity rival](research/mqr_53_r46_o_quadratic_reciprocity_explanatory_virtues_prior_art.md).
+
+Research OS `00_INTAKE` direct children went from 24 to 9: **13 metadata-only transfers performed and 2 concurrent pre-existing promotions verified**. `10_PAPERS` gained a mathematical-explanation preprint, already had Garner (1956) and Kultgen (1972). `11_SOURCES` gained an annotated historical Book of Enoch republication and an educational physics problem book. `12_IMAGE_SCANS` received Grace (2001) two *distinct* image-only articles and 6 other unreadable/identity-unverified scans. `12_INTERNAL` received 2 version/provenance-held documents. **9 stay in 00** pending byte parity, PDF corruption recovery or source-quality review; do not delete, blindly promote or call these fully read.
+
+R46-K's observational-convergence/probe idea is **NOT novel** in view of Garner, Hake & Eriksen (1956), 'Operationism and the Concept of Perception', *Psychological Review* 63(3):149–159 (DOI `10.1037/h0042992`): it already separates independent converging operations that discriminate rival perceptual vs response explanations from mere repetition or transformed protocols. D'Alessandro's QR transparency/depth discussion also undercuts treating different explanatory aims as an immediate formal dispute. Hold MQR meta-theory; preserve all originals, no bot-author commits. PDF text extraction and source metadata checks are not independent full-page image/SHA verification.
+
 ## R46-J/K — Feest archive promotion and strongest operationism baseline (2026-11-05)
 
 [Feest 2005/2025 direct reading and 3-file Drive move audit](research/mqr_53_r46_j_feest_2005_2025_intake_and_strong_prior_art_audit.md) · [Campbell–Fiske observational equivalence kill test](research/mqr_53_r46_k_observational_convergence_nonidentifiability_witness.md).
