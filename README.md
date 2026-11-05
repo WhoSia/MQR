@@ -7,6 +7,14 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46-I — Steinle full-book reading and Feest article substitution (2026-11-05)
+
+[Research note and reading ledger](research/mqr_53_r46_i_steinle_2016_close_reading_feest_substitution.md).
+
+Full Steinle (2016), *Exploratory Experiments: Ampère, Faraday, and the Origins of Electrodynamics*, is now **in Research OS Drive** (`1-kviuErWDAEJMRlcbACBX7FbLR55hV1G`). Introduction, key chapters 3, 4, 6 and philosophical chapter 7 have been directly examined in extracted text. Original sketches and all appendices not yet image-parity checked. Steinle already analyzes formative phases, competing inquiry strategies, actor-level decisions, exploratory experiments as concept-making, and retrospective source distortion: these are **strong prior-art novelty constraints**, not new MQR findings.
+
+Feest's still-unverified complete 2025 *Operationism in Psychology* book can be **partially substituted** for current research by the full available Feest (2010) paper (DOI `10.4245/sponge.v4i1.11938`, Drive `1LePHrGcp10C4Lr5135YsMKzMc5A64a9A`) plus her 2012 chapter (DOI `10.1515/9783110253610.167`, Drive `1WJyJHhYFi3R27QNfNOu5Jr4pmsdq5Ua9`). Feest (2005), DOI `10.1002/jhbs.20079`, is further recommended but full PDF not verified in Drive. Author-hosted 2025 book introduction is public; this does NOT make the complete book available. Differences in converging operations and epistemic-blurriness chapters remain important. No new Real Lang feature or historical theory proof asserted.
+
 ## R46-G/H — Weyl, Brouwer and Fraenkel: reconstruct actual standards (2026-11-05)
 
 [Weyl 1921–1925/27 and Brouwer's objections](research/mqr_53_r46_g_weyl_brouwer_primary_disagreement_and_plural_standards.md) · [Fraenkel 1923 source-transmission audit](research/mqr_53_r46_h_fraenkel_1923_secondary_transmission_and_provenance.md) · [Real Lang provenance probe](language/real/experiments/mqr53_r46_g_source_provenance.py) · [regression tests](language/real/experiments/test_mqr53_r46_g_source_provenance.py).
