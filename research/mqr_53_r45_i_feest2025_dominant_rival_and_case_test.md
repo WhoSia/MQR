@@ -1,0 +1,9 @@
+# MQR R45-I — Feest 2025 and the strongest nearby conceptual-science rival
+
+**Source:** [Uljana Feest, *Operationism in Psychology: An Epistemology of Exploration* (University of Chicago Press, 2025)](https://doi.org/10.7208/chicago/9780226838380.001.0001); publisher's book abstract, chapter I (1–29), chapter IV "Operational Definitions as Tools" (102–134) and chapter V "Objects of Research as Targets of Exploration" (135–162) abstracts consulted. Public first chapter accessible: https://www.philos.uni-hannover.de/fileadmin/philos/Publikationen/Feest/Feest_U.__2025_._Operationism_in_Psychology._An_Epistemology_of_Exploration._First_Chapter.pdf . Full book **not** verified in user's Drive; do not pretend to have read locked chapters.
+
+Feest's project makes **scientific concepts rather than theories** central to understanding exploratory psychology. Chapter IV discusses preliminary operational definitions as instruments that specify interventions and measurements of initially under-characterized objects. Chapter V studies **epistemically blurry** objects whose taxonomic and descriptive properties remain underdetermined. This directly challenges the originality of MQR's 'pre-articulated object' and 'tool-produced problem space' themes.
+
+**Candidate question left open:** Can a community rationally compare research aims whose objects are not yet adequately individuated? Feest may already address the epistemic side; Kitcher, Chang, Dewey and Longino address community and resource aspects. Not enough to distinguish an MQR mechanism.
+
+**Novelty status:** candidate subsumed until chapter-by-chapter refutation or new historical countercase, not an MQR original meta-theory.
