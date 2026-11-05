@@ -7,6 +7,12 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46-G/H — Weyl, Brouwer and Fraenkel: reconstruct actual standards (2026-11-05)
+
+[Weyl 1921–1925/27 and Brouwer's objections](research/mqr_53_r46_g_weyl_brouwer_primary_disagreement_and_plural_standards.md) · [Fraenkel 1923 source-transmission audit](research/mqr_53_r46_h_fraenkel_1923_secondary_transmission_and_provenance.md) · [Real Lang provenance probe](language/real/experiments/mqr53_r46_g_source_provenance.py) · [regression tests](language/real/experiments/test_mqr53_r46_g_source_provenance.py).
+
+Mancosu's 1998 translated anthology contains Weyl's original 1921 foundational argument and 1925–27 reconsideration, plus Brouwer's edited marginal and draft-letter objections. Weyl praises the intuitively grounded route but later also sees value in pursuing Hilbert's symbolic route. Brouwer contests mathematical object/function restrictions in Weyl's version, a **genuine actor-level foundations disagreement**, not a direct disagreement between rival philosophies *of* scientific inquiry. Fraenkel's 18 April 1923 correspondence is presently available only through Kish Bar-On's 2022 citation of Hesseling, not the primary letter; Fraenkel's 1923/1927 original works remain to locate independently. Research remains novelty-HOLD and remote CI-HOLD. Distinguish original author/date from later translation/estate/secondary quotation.
+
 ## R46-E — Non-adoption is not failed inquiry (2026-11-05)
 
 [Brouwer and the historical prior-art challenge](research/mqr_53_r46_e_brouwer_nonadoption_and_temporal_evidence.md) · [historical comparability Python probe](language/real/experiments/mqr53_r46_e_comparability.py) · [7 local regression tests](language/real/experiments/test_mqr53_r46_e_comparability.py).
