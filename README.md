@@ -7,6 +7,14 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46-P/Q — Actual Grace–Green dispute and causal measurement-validity rival (2026-11-05)
+
+[2001 operationism controversy and provenance](research/mqr_53_r46_p_grace_green_rogers_2001_opposed_claims.md) · [Cronbach/Meehl vs Borsboom ontic-causal validity](research/mqr_53_r46_q_construct_vs_causal_validity_borsboom_2004.md) · [finite measurement-causality Python probe](language/real/experiments/mqr53_r46_q_measurement_causality.py) · [four regression tests](language/real/experiments/test_mqr53_r46_q_measurement_causality.py).
+
+Grace (2001) defends convergent operationism as a way beyond naive one-operation constructs; Green (2001) argues **mere convergence cannot repair** the strict thesis `concept = operation`, because operations then cannot share an independently intelligible referent. Rogers (2001) points out earlier multi-measure precedents and the mismatch between methodology rhetoric and laboratory practices. Grace scans are **image-only** in `12_IMAGE_SCANS`: use the SAGE publisher abstracts, not invented full-paper quotations. Green's author-hosted long draft is readable, but not independently print-collated. Directly held Cronbach & Meehl (1955), Campbell & Fiske (1959) and Borsboom et al. (2004; DOI `10.1037/0033-295X.111.4.1061`) show a further split between nomological/construct validation, convergent-discriminant evidence, and ontology + attribute-to-measurement causation. A deterministic two-graph toy has observational equivalence but different `do(X)` distributions; elementary prior-art illustration, no novel MQR result. Four tests passed in an equivalent **local reproduction**; remote CI and exact GitHub checkout execution are NOT asserted.
+
+Research OS `00_INTAKE` was re-listed at **9 held direct children**, no fresh arrivals or deletions in this run; raw-byte SHA equality of three suspected duplicates and PDF recovery remain unverified. R46-P/Q NOVELTY HOLD.
+
 ## R46-M/N/O — Full 00_INTAKE sweep and decisive prior-art result (2026-11-05)
 
 [24-file intake audit, 15 placements, nine holds](research/mqr_53_r46_m_20261105_00_intake_full_24_file_audit.md) · [Garner–Hake–Eriksen 1956 source read](research/mqr_53_r46_n_garner_1956_full_primary_methodology_kill_test.md) · [D'Alessandro's quadratic-reciprocity rival](research/mqr_53_r46_o_quadratic_reciprocity_explanatory_virtues_prior_art.md).
