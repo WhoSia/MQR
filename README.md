@@ -7,6 +7,12 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
 
+## R46-E — Non-adoption is not failed inquiry (2026-11-05)
+
+[Brouwer and the historical prior-art challenge](research/mqr_53_r46_e_brouwer_nonadoption_and_temporal_evidence.md) · [historical comparability Python probe](language/real/experiments/mqr53_r46_e_comparability.py) · [7 local regression tests](language/real/experiments/test_mqr53_r46_e_comparability.py).
+
+R46-E contrasts a 1954 biochemical negative-control matrix with the historical *non-adoption of Brouwer's intuitionistic foundation program*. These cases **are not matched outcomes**: experimental readout and framework uptake cannot be placed on a single success scale. Kish Bar-On (2022) already analyzed the failed framework transition against Friedman and the decisions of Weyl/Fraenkel, so 'failed revolutions deserve explanation' has **no novelty** for MQR. The 1975 Brouwer collected edition and 1998 Mancosu anthology provide historical primary writings in retrospective editions, not time-stamped contemporaneous decision records by themselves. Research verdict: **prior art strong; ex-ante actor evidence and rival conflict HOLD**. Seven comparable-fixture local Python regression checks passed; remote CI not asserted. No Real Lang syntax release.
+
 ## R46-D — 1954 negative-control matrix and ex-ante rationality
 
 [Historical Table I analysis](research/mqr_53_r46_d_historical_control_matrix_and_ex_ante_nonidentification.md) · [descriptive contrast code](language/real/experiments/mqr53_r46_d_contrast_audit.py) · [regression tests](language/real/experiments/test_mqr53_r46_d_contrast_audit.py).
