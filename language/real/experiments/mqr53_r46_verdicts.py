@@ -16,7 +16,8 @@ class Judgment(str, Enum):
 
 
 class Question(str, Enum):
-    PURSUIT = "pursuit"
+    PURSUIT = "pursuit"  # Legacy probe: permissibility, not comparative priority.
+    PURSUIT_PRIORITY = "pursuit_priority"
     ACCEPTANCE = "acceptance"
     PROGRESS = "progress"
 
@@ -46,7 +47,7 @@ def competing_witnesses(
     """Locate determinate verdict disagreements over a finite case space.
 
     UNKNOWN never counts as disagreement. All verdicts must address
-    the same question: pursuit, acceptance and progress are not synonyms.
+    the same question: pursuit-permissibility, pursuit-priority, acceptance\n    and progress are not synonyms.
     """
     if len(set(condition_names)) != len(condition_names):
         raise ValueError("Condition names must be unique")
