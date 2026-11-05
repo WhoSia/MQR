@@ -28,6 +28,10 @@ The toy demonstrates only a *logical underdetermination* and an elementary way t
 
 A genuinely new MQR contribution requires a historically or empirically grounded case where a strong alternative (Feest's converging operations, Campbell–Fiske MTMM, contextualism/measurement theory) fails a precommitted discrimination task, while a new method succeeds. Without that, stop extending the MQR framework and treat the strong previous theories as the correct explanation.
 
+## Newly identified exact prior-art item (bibliography verified, original article not yet read)
+
+Wendell R. Garner, Harold W. Hake, and Charles W. Eriksen (1956), **'Operationism and the Concept of Perception'**, *Psychological Review* **63(3):149–159**, DOI **10.1037/h0042992**, PMID 13323170. Independently verified via PubMed bibliographic record (https://pubmed.ncbi.nlm.nih.gov/13323170/) and OpenAlex (https://openalex.org/W1964664458). Current Drive keyword search did not yield the primary full PDF; publicly indexed bibliographic pages do not license a claim to have read the eleven-page paper. This article is the exact provenance source to obtain for the next kill test.
+
 ## Next source gate
 
 Find and verify *Garner, Hake & Eriksen (1956)* original article (currently only Feest bibliographic transmission; exact source title and journal to check), read its discrimination method rather than citing only Feest, and test this exact model against the strongest historical baseline. Also read Feest (2025) full book only if acquired; its introduction alone cannot certify the withheld chapters' conclusions.
