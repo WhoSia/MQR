@@ -1,6 +1,18 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 Last verified: **2026-11-10 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
 
+## 2026-11-11 MQR 41 — targeted prior-art radar (NOT VERIFIED HELD; do not add to confirmed missing counts)
+
+The following are **exact-title Drive search nonmatches only**, not corpus-wide absence proofs; source provenance is publisher/abstract level, not full-text deep reading. Verify within Drive/00 and editions before promoting to missing or importing. The confirmed three outstanding complete originals (Feest 2025 monograph, Fraenkel 1927 first-edition lectures, Fraenkel→Brouwer 1923 signed-autograph facsimile) are unchanged.
+
+| Candidate | Identifier | Drive checking status | Reading/authority ceiling |
+|---|---|---|---|
+| Henry, Neele, Mousavi & Sammartino (2025), *Compositional Active Learning of Synchronizing Systems Through Automated Alphabet Refinement* | DOI [10.4230/LIPIcs.CONCUR.2025.20](https://doi.org/10.4230/LIPIcs.CONCUR.2025.20) | Exact-title result not confirmed in Drive on Nov 11; **PROSPECT** | Proceedings metadata/abstract inspected, paper not full-text audited; strong alphabet-refinement prior art |
+| Wang & Huang (2026), *An Automated Framework for Input Alphabet Construction in Stateful Protocol Implementation Learning* | [arXiv:2606.23464](https://arxiv.org/abs/2606.23464) | Exact-title result not confirmed in Drive; **PROSPECT** | arXiv abstract; preprint, peer-review not established |
+| Hasib et al. (2026), *Unifying AI-assisted scientific discovery around exploration, hypothesis generation, and testing* | DOI [10.1016/j.patter.2026.101660](https://doi.org/10.1016/j.patter.2026.101660) | Exact-title result not confirmed in Drive; **PROSPECT** | Published 2026-10-09; review abstract/overview inspected; full article not yet deeply read |
+
+**Verified held, NOT missing:** Angluin 1987 `1X3W7YC5QKwN2MDWnplPlU8f0GBxuod68`; Schmidhuber 2013 `1u16bbVxiSAJG2WQslJRe-cnC-ESAvhjQ`; Steinle 1997 `1rl444ab9HV-Q285EwbPq1QBR2z5g3JcR`; Steinle 2016 `1-kviuErWDAEJMRlcbACBX7FbLR55hV1G`. MQR 41 paper/code: `research/mqr_54_mqr41_compositional_protocol_horizons_and_paradigm_grammar.md`.
+
 ## A. Not verified in Google Drive as complete original (priority-ranked)
 
 | Priority | Full title and bibliographic identity | DOI / author or institutional source link | Google Drive verification and deficiency | Replaceable by held materials? |
