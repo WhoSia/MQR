@@ -89,3 +89,13 @@ Actual local exhaustive run PASS after a documented corrected expectation. Authe
 ### Postscript / source-level correction (same date)
 
 The initial note treated Steinle's complete 1997 paper as a potential future acquisition. Actual Drive dedup identified the exact held PDF (`1rl444ab9HV-Q285EwbPq1QBR2z5g3JcR`) and the complete 2016 English book (`1-kviuErWDAEJMRlcbACBX7FbLR55hV1G`). This **overrides** the previous acquisition suggestion. In §3 Steinle 1997 explicitly describes purposeful parameter variation, separating indispensable from modifying factors, finding stable empirical rules, and forming suitable representations and classifications. In Steinle 2016 Chapter 7 and an earlier discussion of Faraday, the availability of workshop apparatus and ability to vary apparatus are identified as material constraints on exploratory work. Implication for MQR: experimental grammar search has resource and institutional constraints; the idealized operation set in the 3-bit script cannot be mistaken for a historical account of how operations become available. Authority: direct excerpt reading, not comprehensive historian-source collation.
+
+
+### Postscript 2 — Actual Harvest genealogy collision and reuse (2026-11-10)
+
+Notion cross-search located EXISTING MQR Harvests documenting Steinle well before this MQR 42 note:
+- [LR-20260916-B: exploratory experimentation and model-family criticism](https://app.notion.com/p/3ddef561cf9281f1975bd07b6883ab8f), **H-QRP-02**: experimental concept formation already prior art; no MQR novelty for 'experiment precedes theory'. Also H-QRP-04 warns interventionism requires articulated contrasts.
+- [LR-20260916-C: concept individuation and ontology-proliferation restraint](https://app.notion.com/p/3ddef561cf9281ed8085cca1290f447f), **H-QR-01**, **H-QR-04**, **H-QR-07**: exploratory category genesis already known, operational split does not entail natural kind, epistemic iteration prior art.
+- [LR-20260928-D: experimental autonomy and local realism](https://app.notion.com/p/3e9ef561cf928109956eedd9c52ac300), Harvest 1: theory-free in the narrow sense, theory-laden in wider sense, and concept-forming activity already recognized.
+
+**Corrected interpretation:** This MQR42 program is not a first account of experimental conceptual novelty and not a fresh global Harvest fragment. It is a return-to-origin synthesis connecting held original Steinle 1997 + Steinle 2016 and Nersessian's Maxwell mechanism to a locally reproducible Boolean observation algebra, together with an explicit operation-discovery gap. The previously harvested prior-art kills transfer in their original scoped meaning; no historical novelty resurrected.
