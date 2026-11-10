@@ -152,7 +152,23 @@ This is not Fraenkel 1927 book acquisition; user's 1927 pause remains fully resp
 - **Revised missing E rows:** old 7-item grouped table includes Chaldecott 1975 HELD; Lodwig/Smeaton 1974 HELD; 1783 Monthly Review 69 HELD, so **3 held / 4 without complete Drive originals**: 1783 Lavoisier–Laplace first printing, Wedgwood 1784 26pp offprint, Guyton 1810/1814 grouped (but directly identified free online vol74), McKendrick 1973. Additional 1784 Wedgwood–Blagden archival manuscript `CB/1/6/202` cataloged, physical scan not in Drive. Keep separate existing Feest 2025 intro-only and Fraenkel 1923 autographed letter image gap. Search is not proof of absolute non-holding.
 - **Genuine scientific novelty HOLD** until directly reconstructed archive causal route and rival operational explanations are tested against original primary source. Primary correction itself is valuable source criticism, not broad groundbreaking theory.
 
+## R46-AR addendum — exact Google Play free historical volumes (2026-11-10)
+
+| Edition | Verified Google Play listing | Distinction |
+|---|---|---|
+| The Monthly Review vol69 (1783), 624pp | https://play.google.com/store/books/details/The_monthly_review_or_literary_journal?id=45pKAAAAcAAJ — **Get for free** | Full original in Drive 12dGo6qqAOSXd-1o5PwYmvRBHih7e0uHp, pp568–579 read |
+| Annales de chimie vol74 (1810), 352pp | https://play.google.com/store/books/details/Annales_de_chimie?id=L4zvRgGJ45UC — **Get for free** | Exact journal tome for Guyton 1810, pages 129–152 still need original page check; not in Drive |
+| Annales de chimie vol90 (1814), 384pp | https://play.google.com/store/books/details/Louis_Bernard_Guyton_de_Morveau_Annales_de_chimie?id=g7lPgnnfvHIC — **Get for free** | Exact journal tome for Guyton 1814, pages 113–137, 225–238 uncollated; not in Drive |
+| Lavoisier & Laplace, Mémoire sur la chaleur, 1920 Gauthier-Villars 78pp | https://play.google.com/store/books/details/Antoine_Laurent_Lavoisier_Mémoire_sur_la_chaleur?id=BJ0O6MzcD7cC — **Get for free** | **Later 1920 edition**, not 1783 first 56pp printing; BnF https://catalogue.bnf.fr/ark:/12148/cb30739046p |
+| Fraenkel, Einleitung in die Mengenlehre, 1919 158pp | https://play.google.com/store/books/details/Abraham_Adolf_Fraenkel_Einleitung_in_die_Mengenleh?id=b9o3AAAAMAAJ — **Get for free** | Different book/edition, not 1927 Zehn Vorlesungen |
+| Fraenkel, Einleitung in die Mengenlehre, 1923 251pp | https://play.google.com/store/books/details/Abraham_Adolf_Fraenkel_Einleitung_in_die_mengenleh?id=K8BKAAAAMAAJ — **Get for free** | Different book already held in Drive; 1927 title shown as Free in recommendations but stable individual free book URL not confirmed |
+
+Fraenkel Zehn Vorlesungen 1927 user-reopened acquisition remains FULL ORIGINAL UNHELD; official gated eBook DOI https://link.springer.com/book/10.1007/978-3-663-15741-0, historic 1927 Open Library metadata https://openlibrary.org/books/OL6704304M. Free label on Google Play recommendations of other Fraenkel works is insufficient to claim a legal download for the requested edition; there is also a PAID 2013 publisher scan in Google Play.
+
+**Download limitation:** 'Get for free' confirms a zero-cost eBook library offer, not necessarily direct PDF export for every territory/account/book. Google Play official export help https://support.google.com/googleplay/answer/179863 describes Library and devices > Books > More > Export > Download EPUB or Download PDF; some publishers disallow exporting and very large files cannot be exported. Google Books free full-view source https://books.google.com/googlebooks/about/free_books.html.
 ## C. Change log and procedure
+
+- **2026-11-10 R46-AR update:** verified direct Google Play free 1810 Annales vol74, 1814 vol90, 1920 Mémoire sur la chaleur, Fraenkel 1919/1923 editions; 1927 Fraenkel stable free item still unverified. Original 1783 12pp Monthly Review directly read with nuanced corrected claim.
 
 - **2026-11-10 R46-AR:** 48 MB Google Books original _Monthly Review_ vol69 fully received and specific pp568–579 directly collated; both cavities explicitly 'at melting point' but actual colder-than-zero ice recovery procedure omitted. User reopened 1927 Fraenkel; Google Play free listing only indirect, dedicated link still unverified. Additional 1810/1814 Annales free scanned volumes found. E 3 held / 4 pending.
 
