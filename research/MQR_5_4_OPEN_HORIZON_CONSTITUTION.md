@@ -5,6 +5,12 @@
 ## Root question
 How many radically different sciences might intelligent agents create through contact with one resisting world, and how can they discover whether their descriptions, experiments, and technologies speak about that same reality, especially when current conceptual vocabularies cannot yet express the next question?
 
+## Newly recovered earliest written precursor — February 5, 2026 (FOUND AFTER INITIAL 5.4 OPEN)
+
+The user's personal original HWPX in Library, **`과학 이론의 구조적 전환—설명에서 구조 생성으로의 인식론적 이동.hwpx`**, dated **2026-02-05**, Library ID `libfile_76f9bcd51e4c8191a7bb4ec6d882db25`, 156,725 bytes and 336 extracted text lines, is now directly read. It predates the MQR 1 August 26 UV–Vis prompt. On September 10 in MQR 3 the user explicitly supplied this same file as an original personal study predating MQR. Its distinctive problem is: when a scientific theory organizes/model-generates a space of structural possibilities rather than simply depicting the world, **what counts as explanation, understanding, truth, and the constitution of science itself?** This concretely grounds the 5.4 *paradigm of paradigms* branch. Some equations are lost in textual extraction and require visual-parity verification.
+
+The archive also contains contentious historical and logical overstatements (e.g. Gödel did not refute all Platonism; chaos doesn't nullify mathematical explanation; model coherence isn't automatically truth). Preserve the precursor as **an ambitious collection of revisable hypotheses**, not canonical error-free philosophical conclusions. Distinguish this file from the user's separately authored July report on compost maturity and Chang's `온도계의 철학` influence. [Direct critical first-source reading](research/mqr_54_founder_20260205_hwpx_explanation_to_structure_generation_critical_read.md).
+
 ## Source-grounded origins
 - 2026-08-26 first MQR prompt: UV-Vis and measuring apparatus → logical-circuit reduction and relation of the digitized output to scientific verification. [MQR 1 original archive](https://drive.google.com/file/d/190Sh9592ogYTcaYEGtMNksdbqYzDhsTS/view).
 - 2026-08-27 childhood intellectual question recorded by user: wholly different conceptual and arithmetic primitives, Aristotelian-style physics reconstructing relativity, alien civilizations, and whether theory-dependent communication could discover a bridge. Root history is more ambitious than ordinary calibration.
