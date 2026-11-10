@@ -1,11 +1,21 @@
 # MQR — Methods of Quantitative Realism
 
-**Current phase: 5.3 — Evidence-Lineage Transport, Calibration and Causal Abstraction**
+**Current phase: 5.4 — The Open Horizon of Scientific Inquiry: Measurement, Possible Sciences, Paradigm Genesis & World-Constrained Concept Creation**
+
+**Official 5.4 constitution:** [Open Horizon, seven founding questions, DFS/BFS navigation and history of the 5.3 partial success](research/MQR_5_4_OPEN_HORIZON_CONSTITUTION.md). **[Notion 5.4 canonical page](https://app.notion.com/p/414ef561cf9281118f47daa04cc330b1)**. Commenced 2026-11-10. 5.3 source-lineage/calibration work is retained as a partial success and an evidence library, not erased.
 
 MQR investigates how scientific and mathematical knowledge becomes possible, what limits its authority, and how inquiry can generate new concepts, observables, explanations, and questions. Its ambition is not a narrow history of particular discoveries or an ever-growing taxonomy of audit gates. It asks how fallible contact with a world can support scientific understanding and how inquiry can advance when its original problem representation is inadequate.
 
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
+
+## 2026-11-10 — 5.4 formally opens from MQR's original intellectual questions
+
+- **Origins:** UV-Vis measurement/logic reduction (Aug 26 2026), radically alternative primitive sciences and cross-civilization science communication (Aug 27), unknown ontology and paradigm genesis, engineering selection of mathematical representation and concept creation. They are the leading research questions, not auxiliary links to classical thermometry.
+- **5.3 verdict:** substantive partial success in Chang/Tal, historical thermometry, calibration, publication and primary document collation; prior source-specific archaeology is preserved but no longer decides the next global research question by default.
+- **Operational style:** BFS exploration of distinct bold questions; DFS reading/experiments on one branch for a bounded number of meaningful steps; backtrack with explicit resumable research trail and test conditions. Reading and genuine curiosity take priority over forced paper novelty. Historical arguments are useful when they affect an originating question.
+- **User's Chang influence:** the directly fetched authored PDF [측정값은 부숙도를 어떻게 구성하는가](https://drive.google.com/file/d/1TGdTa4s1W6DWppS2hz4SR5qVkl8PLjw7/view) explicitly connects *The Philosophy of Thermometers / Inventing Temperature*'s circular calibration puzzle to the user’s compost-maturity indicator work; this motivates, but does not confine, MQR. Exact HWPX original remains to be located for byte-level parity.
+- **Research record:** [MQR-5.4 OPEN HORIZON CONSTITUTION](research/MQR_5_4_OPEN_HORIZON_CONSTITUTION.md). The [LIVE missing-source ledger](research/MQR_LIVE_MISSING_SOURCES_REGISTRY.md) stays alive but its file count is never a proxy for scientific progress.
 
 ## R46-AA/AB — Wedgwood's original 1782 scan received, missing 1784 bridge discovered (2026-11-05)
 
