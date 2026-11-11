@@ -10,7 +10,7 @@ Sources are all already HELD in Drive. Do not claim to newly acquire them.
 
 ## 1. Experimental discovery and variation: Ørsted, as reconstructed by Steinle
 
-**Source:** Friedrich Steinle, *Exploratory Experiments: Ampère, Faraday, and the Origins of Electrodynamics* (2016 English translation from 2005 German), University of Pittsburgh Press. Drive: https://drive.google.com/file/d/1-kviuErWDAEJMRlcbACBX7Fb55hV1G/view . **Direct reading:** discussion in the chapter 'Electromagnetism', around printed pp. 55–67, including reported Ørsted (1820) conductor–compass variations and accounts of replication.
+**Source:** Friedrich Steinle, *Exploratory Experiments: Ampère, Faraday, and the Origins of Electrodynamics* (2016 English translation from 2005 German), University of Pittsburgh Press. Drive: https://drive.google.com/file/d/1-kviuErWDAEJMRlcbACBX7FbLR55hV1G/view . **Direct reading:** discussion in the chapter 'Electromagnetism', around printed pp. 55–67, including reported Ørsted (1820) conductor–compass variations and accounts of replication.
 
 **Episode and evidence roles:** Ørsted varied the conducting wire's location relative to a magnetized needle, replaced materials, interposed various substances, and found some failures/negative results. Needle deflection reversed for above/below wire, changed with geometry and polarity; replacing a magnetized needle with brass, glass or shellac did not reproduce the effect. Steinle reports broad replication including with smaller batteries, though the earliest conceptual interpretation of geometry and surrounding space remained unsettled.
 
