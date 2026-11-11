@@ -1,5 +1,5 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
-Last verified: **2026-11-10 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
+Last verified: **2026-11-11 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
 
 ## 2026-11-11 MQR 41 — targeted prior-art radar (NOT VERIFIED HELD; do not add to confirmed missing counts)
 
@@ -8,10 +8,13 @@ The following are **exact-title Drive search nonmatches only**, not corpus-wide 
 | Candidate | Identifier | Drive checking status | Reading/authority ceiling |
 |---|---|---|---|
 | Henry, Neele, Mousavi & Sammartino (2025), *Compositional Active Learning of Synchronizing Systems Through Automated Alphabet Refinement* | DOI [10.4230/LIPIcs.CONCUR.2025.20](https://doi.org/10.4230/LIPIcs.CONCUR.2025.20) | Exact-title result not confirmed in Drive on Nov 11; **PROSPECT** | Proceedings metadata/abstract inspected, paper not full-text audited; strong alphabet-refinement prior art |
-| Wang & Huang (2026), *An Automated Framework for Input Alphabet Construction in Stateful Protocol Implementation Learning* | [arXiv:2606.23464](https://arxiv.org/abs/2606.23464) | Exact-title result not confirmed in Drive; **PROSPECT** | arXiv abstract; preprint, peer-review not established |
-| Hasib et al. (2026), *Unifying AI-assisted scientific discovery around exploration, hypothesis generation, and testing* | DOI [10.1016/j.patter.2026.101660](https://doi.org/10.1016/j.patter.2026.101660) | Exact-title result not confirmed in Drive; **PROSPECT** | Published 2026-10-09; review abstract/overview inspected; full article not yet deeply read |
+| Wang & Huang (2026), *An Automated Framework for Input Alphabet Construction in Stateful Protocol Implementation Learning* | [arXiv:2606.23464v1](https://arxiv.org/abs/2606.23464) | **HELD IN 10_PAPERS**; Drive `1g0-2mURv2XL0CPT2OonO0E6emrtBW9sz`. User-added 2026-11-11, renamed from `2606.23464v1.pdf` and moved from 00_INTAKE, original bytes unchanged. | Original arXiv v1 full extractable; §§1,4,5,6–8 directly read in relevant passages; ASE 2026 header not proof this is a final proceedings copy. |
+| Hasib et al. (2026), *Unifying AI-assisted scientific discovery around exploration, hypothesis generation, and testing* | DOI [10.1016/j.patter.2026.101660](https://doi.org/10.1016/j.patter.2026.101660) | **HELD IN 10_PAPERS**; Drive `12dDPLmrn9-W-SDkw7SzY-4sN7eUR8BHu`. User-added 2026-11-11, renamed from publisher `PIIS2666389926001698.pdf` and moved from 00_INTAKE, original bytes unchanged. | 2026-10-09 *Patterns* publisher open-access PDF; EXHYTE, corpus selection, interpretative caveats, future discussion passages directly read; no independent verification of 87-paper survey coding. |
 
 **Verified held, NOT missing:** Angluin 1987 `1X3W7YC5QKwN2MDWnplPlU8f0GBxuod68`; Schmidhuber 2013 `1u16bbVxiSAJG2WQslJRe-cnC-ESAvhjQ`; Steinle 1997 `1rl444ab9HV-Q285EwbPq1QBR2z5g3JcR`; Steinle 2016 `1-kviuErWDAEJMRlcbACBX7FbLR55hV1G`. MQR 41 paper/code: `research/mqr_54_mqr41_compositional_protocol_horizons_and_paradigm_grammar.md`.
+
+
+**2026-11-11 R41 intake verification (two exact files):** Wang & Huang arXiv:2606.23464v1 and Hasib et al. *Patterns* 7 (2026) publisher PDF received under download filenames, physically located in `00_INTAKE`, renamed and moved into `10_PAPERS` with unchanged Drive IDs. The 2025 Henry et al. CONCUR paper is the sole **unresolved candidate** from this three-work radar; confirmed missing-original count remains 3 (Feest 2025 whole monograph; Fraenkel 1927 lectures; Fraenkel→Brouwer 1923 autograph facsimile). This was verified using the newly added file IDs, not a guess from title matches.
 
 ## A. Not verified in Google Drive as complete original (priority-ranked)
 
