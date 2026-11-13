@@ -1,6 +1,11 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 Last reviewed: **2026-11-13 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
 
+## 2026-11-13 MQR 41 — Maxwell chapter and primary-text comparison
+
+Nersessian (2008), *Creating Scientific Concepts*, chapter 2, and de Regt (2017), *Understanding Scientific Understanding*, §6.1.2, were read from held copies. The relevant passages of Maxwell's *Scientific Papers* vol. I (1890 collected edition) and *Treatise* vol. II, arts. 788–789, and Chalmers (1986), *The heuristic role of Maxwell's mechanical model of electromagnetic phenomena*, pp. 415–427, were consulted online. An exact-title/author Drive search did not confirm separate canonical copies of those online sources. The original journal fascicles and the online collected edition remain distinct source objects. See the [reading note](mqr_54_mqr41_maxwell_nersessian_model_generated_questions.md) for the editions, links and passages. [Chalmers DOI](https://doi.org/10.1016/0039-3681(86)90002-6).
+
+
 ## 2026-11-13 MQR 41 — Calibration transfer literature and raw-data check
 
 **Talone et al. (2016)**, *Stray light effects in above-water remote-sensing reflectance from hyperspectral radiometers*, Applied Optics 55(15), 3966–3977, [DOI](https://doi.org/10.1364/AO.55.003966). Journal abstract and accessible methods passages checked. A targeted Drive title and author search did not confirm a canonical copy. The [JRC record](https://publications.jrc.ec.europa.eu/repository/handle/JRC97328) lists no associated datasets or supporting files. Published same-production-batch reuse results are scoped to the studied sensors and derived reflectance. Paired raw response data from a controlled input-optics swap on a single instrument were not located in this pass. [Research record](mqr_54_mqr41_task_specific_calibration_transfer.md).
