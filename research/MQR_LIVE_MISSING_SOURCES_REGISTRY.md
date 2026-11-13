@@ -1,6 +1,12 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 Last verified: **2026-11-11 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
 
+## 2026-11-13 MQR 41 — macro-genealogy custody check
+
+This session directly re-opened the live registry and read relevant passages from already-held **Galison (1999), Friedman (2001), Daston & Galison (2007), Shapin (1994), and Longino (2002)**. These are **HELD**, and none is a newly missing source or a newly acquired file. The 2026-02-05 user-authored founding HWPX is held in the **Library**, with some original mathematical glyphs still requiring visual parity; that is a *source interpretation HOLD*, not a missing scholarly paper.
+
+The standing 3 original/full-volume gaps and the separate **Henry et al. (2025) PROSPECT** remain unchanged. No complete Drive-wide rescan or newly received file is claimed by this 2026-11-13 review. The original 2026-11-11 intake verdicts for **Wang & Huang** and **Hasib et al.** remain HELD. See [MQR 5.4 macro genealogy](mqr_54_mqr41_macro_genealogy_science_studies_real_language_reflection.md) and [Real Language bounded bridge](../language/real/experiments/OPEN-HORIZON-BRIDGE-V54.md).
+
 ## 2026-11-11 MQR 41 — targeted prior-art radar (NOT VERIFIED HELD; do not add to confirmed missing counts)
 
 The following are **exact-title Drive search nonmatches only**, not corpus-wide absence proofs; source provenance is publisher/abstract level, not full-text deep reading. Verify within Drive/00 and editions before promoting to missing or importing. The confirmed three outstanding complete originals (Feest 2025 monograph, Fraenkel 1927 first-edition lectures, Fraenkel→Brouwer 1923 signed-autograph facsimile) are unchanged.
