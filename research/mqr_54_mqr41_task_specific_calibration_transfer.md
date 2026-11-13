@@ -1,0 +1,25 @@
+# MQR 5.4 / MQR 41 — When can a calibration move with the measurement?
+
+2026-11-13 KST
+
+## What prior work already establishes
+
+[Zong et al. (2006), §§4 and 6](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=840968) validated within one setup with a 516 nm source held out of characterization. They explicitly discuss rechecking line-spread functions after input-optics changes, and describe limited-probe transfer to a similar instrument as ongoing work. [Zong (2010), §2](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=906999) lists illumination geometry, input optics, detector behavior and off-array light as uncertainty sources. [Tal (2017), §2.2](https://drive.google.com/file/d/1P5guGX-EJBfjr0fKigoSyTOghk5q8Ff2/view) distinguishes the forward map to indications from the backward inference to measurement results under specified conditions.
+
+[Talone et al. (2016)](https://doi.org/10.1364/AO.55.003966), a separate group, already studied common-matrix reuse for above-water remote-sensing reflectance. The journal abstract reports a typical additional uncertainty well below 0.5% in blue-green and up to 1% in red, conditional on spectrographs of the same production batch. These are author-reported, product-specific results. They do not measure a controlled optics swap in one device. The [JRC record](https://publications.jrc.ec.europa.eu/repository/handle/JRC97328) has no linked dataset or supporting files in its dataset fields. Targeted searching and the accessible published descriptions did not yield paired raw responses for the planned same-instrument intervention. No raw data were analyzed.
+
+## An exact scope criterion
+
+Let x be a common reference input, let B be the new setup's forward linear map from x to dark-subtracted indications, and let C_A be the old correction expressed on the shared output grid. Compare the old correction on new data to the reference, e(x) = (C_A B - I)x. If the intended result is a linear functional w^T x, its transfer bias is w^T e(x). On a declared linear input subspace U, exact transfer of that result is equivalent to w^T(C_A B - I)u = 0 for every basis element u of U. This follows from linearity. A finite error bound from those basis measurements additionally requires a bound on the coefficients or an induced norm, as well as measurement uncertainties and a valid linear-response regime. The same test cannot be applied directly to a nonlinear ratio or to absorbance computed by a log. Validate that derived quantity directly, including its reference and the denominator or intensity range.
+
+In a three-band example set C_A=I and B=I+d e_3^T with d=(0.08,0.04,0). The first two unit probes give zero channel error, yet the third leaks into two channels. The illustrative contrast w=(1,-2,0) has zero bias for all inputs, while the second channel has bias 0.04 x_3. This is exact arithmetic under deliberately chosen synthetic coefficients. It is not a claim that real instrumental errors cancel or an estimate of the example from Talone et al.
+
+[Python check](../experiments/mqr-5.4/mqr41_task_specific_calibration_transfer.py). Run `python experiments/mqr-5.4/mqr41_task_specific_calibration_transfer.py` from the repository root.
+
+## A test capable of deciding reuse
+
+1. Define the measurand, optical input at the common interface, signal domain, and error tolerance before opening validation results. A change from radiance to irradiance can change the measurand. An independent reference or an explicitly tested geometry conversion is needed to place those outputs on a common scale.
+2. Compare A and B with paired source preparations and counterbalanced repeated acquisitions. Collect dark and reference signals and retain wavelength registration, illumination geometry and acquisition settings. Characterize B independently of the validation spectra. Use the same held-out B readings with C_A and C_B. Include a strong narrowband probe near a channel where the leakage responses are predicted to differ and a held-out spectrum representative of the intended use.
+3. Compare each corrected result to an external reference. Agreement between corrections alone is compatible with shared error. For a declared tolerance, use an uncertainty interval for the transfer error with the common reference and shared corrections accounted for in the covariance. An interval entirely inside the tolerance supports bounded reuse. One entirely outside refutes reuse on that condition. An overlap leaves the decision unresolved. Also report whether B's independent correction itself met the tolerance.
+
+The 5.4 question now has a concrete distinction. Two scientific descriptions may support the same shared inference for one agreed operation and disagree on a different observable. A comparison can therefore improve by designing the next probe around the disagreement the users actually need to resolve. The historical waveguide case supplies the analogy of retaining a specified terminal response. Empirical optical transfer in the proposed setup remains open.
