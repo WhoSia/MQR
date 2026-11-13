@@ -1,6 +1,11 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 Last reviewed: **2026-11-13 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
 
+## 2026-11-13 MQR 41 — Calibration transfer literature and raw-data check
+
+**Talone et al. (2016)**, *Stray light effects in above-water remote-sensing reflectance from hyperspectral radiometers*, Applied Optics 55(15), 3966–3977, [DOI](https://doi.org/10.1364/AO.55.003966). Journal abstract and accessible methods passages checked. A targeted Drive title and author search did not confirm a canonical copy. The [JRC record](https://publications.jrc.ec.europa.eu/repository/handle/JRC97328) lists no associated datasets or supporting files. Published same-production-batch reuse results are scoped to the studied sensors and derived reflectance. Paired raw response data from a controlled input-optics swap on a single instrument were not located in this pass. [Research record](mqr_54_mqr41_task_specific_calibration_transfer.md).
+
+
 ## 2026-11-13 MQR 41 — CONCUR article accession
 
 **HELD in 10_PAPERS.** Léo Henry, Mohammad Reza Mousavi, Thomas Neele, and Matteo Sammartino (2025), *Compositional Active Learning of Synchronizing Systems Through Automated Alphabet Refinement*, CONCUR, LIPIcs 348, pp. 20:1–20:22, [DOI](https://doi.org/10.4230/LIPIcs.CONCUR.2025.20). User-provided proceedings article, 1,501,429 bytes. Renamed and moved from 00_INTAKE with the [same Drive file ID](https://drive.google.com/file/d/1fXGRCUTiP8zDwIU2pZ9GywabB6vQzxjc/view). Sections 3–7 and selected Appendix A proofs read. The three Section A gaps are still open. See [close reading and the pairwise-projection example](mqr_54_mqr41_alphabet_refinement_joint_operation.md).
