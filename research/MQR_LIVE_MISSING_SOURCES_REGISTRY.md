@@ -1,5 +1,11 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
-Last verified: **2026-11-11 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
+Last reviewed: **2026-11-13 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
+
+## 2026-11-13 MQR 41 — CONCUR article accession
+
+**HELD in 10_PAPERS.** Léo Henry, Mohammad Reza Mousavi, Thomas Neele, and Matteo Sammartino (2025), *Compositional Active Learning of Synchronizing Systems Through Automated Alphabet Refinement*, CONCUR, LIPIcs 348, pp. 20:1–20:22, [DOI](https://doi.org/10.4230/LIPIcs.CONCUR.2025.20). User-provided proceedings article, 1,501,429 bytes. Renamed and moved from 00_INTAKE with the [same Drive file ID](https://drive.google.com/file/d/1fXGRCUTiP8zDwIU2pZ9GywabB6vQzxjc/view). Sections 3–7 and selected Appendix A proofs read. The three Section A gaps are still open. See [close reading and the pairwise-projection example](mqr_54_mqr41_alphabet_refinement_joint_operation.md).
+
+**Scoped historical lead:** N. Marcuvitz (ed.), *Waveguide Handbook*, McGraw-Hill, 1951, MIT Radiation Laboratory Series vol. 10. [First-edition catalog](https://openlibrary.org/books/OL33042480M/Waveguide_handbook). Online scan title page located. Exact Drive holding and chapter-level collation not verified.
 
 ## 2026-11-13 MQR 41 — macro-genealogy custody check
 
@@ -7,13 +13,13 @@ This session directly re-opened the live registry and read relevant passages fro
 
 The standing 3 original/full-volume gaps and the separate **Henry et al. (2025) PROSPECT** remain unchanged. No complete Drive-wide rescan or newly received file is claimed by this 2026-11-13 review. The original 2026-11-11 intake verdicts for **Wang & Huang** and **Hasib et al.** remain HELD. See [MQR 5.4 macro genealogy](mqr_54_mqr41_macro_genealogy_science_studies_real_language_reflection.md) and [Real Language bounded bridge](../language/real/experiments/OPEN-HORIZON-BRIDGE-V54.md).
 
-## 2026-11-11 MQR 41 — targeted prior-art radar (NOT VERIFIED HELD; do not add to confirmed missing counts)
+## 2026-11-11 MQR 41 — historical prior-art radar (see 2026-11-13 accession above)
 
 The following are **exact-title Drive search nonmatches only**, not corpus-wide absence proofs; source provenance is publisher/abstract level, not full-text deep reading. Verify within Drive/00 and editions before promoting to missing or importing. The confirmed three outstanding complete originals (Feest 2025 monograph, Fraenkel 1927 first-edition lectures, Fraenkel→Brouwer 1923 signed-autograph facsimile) are unchanged.
 
 | Candidate | Identifier | Drive checking status | Reading/authority ceiling |
 |---|---|---|---|
-| Henry, Neele, Mousavi & Sammartino (2025), *Compositional Active Learning of Synchronizing Systems Through Automated Alphabet Refinement* | DOI [10.4230/LIPIcs.CONCUR.2025.20](https://doi.org/10.4230/LIPIcs.CONCUR.2025.20) | Exact-title result not confirmed in Drive on Nov 11; **PROSPECT** | Proceedings metadata/abstract inspected, paper not full-text audited; strong alphabet-refinement prior art |
+| Henry, Mousavi, Neele & Sammartino (2025), *Compositional Active Learning of Synchronizing Systems Through Automated Alphabet Refinement* | DOI [10.4230/LIPIcs.CONCUR.2025.20](https://doi.org/10.4230/LIPIcs.CONCUR.2025.20) | Nov 11: prospect. **Nov 13: HELD in 10_PAPERS** | Proceedings version read, including §§3–7 and selected proofs |
 | Wang & Huang (2026), *An Automated Framework for Input Alphabet Construction in Stateful Protocol Implementation Learning* | [arXiv:2606.23464v1](https://arxiv.org/abs/2606.23464) | **HELD IN 10_PAPERS**; Drive `1g0-2mURv2XL0CPT2OonO0E6emrtBW9sz`. User-added 2026-11-11, renamed from `2606.23464v1.pdf` and moved from 00_INTAKE, original bytes unchanged. | Original arXiv v1 full extractable; §§1,4,5,6–8 directly read in relevant passages; ASE 2026 header not proof this is a final proceedings copy. |
 | Hasib et al. (2026), *Unifying AI-assisted scientific discovery around exploration, hypothesis generation, and testing* | DOI [10.1016/j.patter.2026.101660](https://doi.org/10.1016/j.patter.2026.101660) | **HELD IN 10_PAPERS**; Drive `12dDPLmrn9-W-SDkw7SzY-4sN7eUR8BHu`. User-added 2026-11-11, renamed from publisher `PIIS2666389926001698.pdf` and moved from 00_INTAKE, original bytes unchanged. | 2026-10-09 *Patterns* publisher open-access PDF; EXHYTE, corpus selection, interpretative caveats, future discussion passages directly read; no independent verification of 87-paper survey coding. |
 
