@@ -1,5 +1,9 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
-Last reviewed: **2026-11-13 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
+Last reviewed: **2026-11-14 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
+
+## 2026-11-14 MQR 5.4 — Protocol study and primary-history check
+
+Poincaré's 1890 Acta paper and the held English translation of *Science and Hypothesis*, Zuchowski (2014), and Nersessian (2008) were directly consulted from held copies. The relevant passages of John Clement (1989), *Learning via Model Construction and Criticism: Protocol Evidence on Sources of Creativity in Science*, in *Handbook of Creativity*, pp. 341–381, were checked in the [author-hosted chapter scan](https://people.umass.edu/~clement/pdf/Learning%20via%20Model%20Construction%20and%20Criticism.pdf). The [December 1988 ERIC report](https://files.eric.ed.gov/fulltext/ED303357.pdf) is a separate version. No separately filed Drive copy of either was confirmed by name/author. This gap is about custody, not access to the chapter. Feest's introduction was found again without evidence of a held full volume. No verified status change for the inherited Fraenkel/Brouwer, Marcuvitz, Talone or Maxwell/Chalmers items in the targeted search. [Research note](mqr_54_bold_claims_and_paradigm_blindness.md).
 
 ## 2026-11-13 MQR 41 — Maxwell chapter and primary-text comparison
 
