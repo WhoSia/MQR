@@ -61,3 +61,22 @@ A future Real Language design could model partial translation as a *typed, witne
 
 Research history and evidence map:
 [2026-11-13 MQR 41 macro-genealogy](../../research/mqr_54_mqr41_macro_genealogy_science_studies_real_language_reflection.md) (subject to its own independent evidential scope).
+
+
+## Follow-up: admissible experiment sequences
+
+[Protocol frontier experiment](protocol_frontier_v54.py) searches declared finite
+models and a protocol automaton for the minimum-cost separating observation.
+A reset requirement can make two models equivalent on every allowed trace
+even while both expose the same elementary actions. A separate budget result
+retains the minimum witness when it cannot currently be afforded.
+
+```bash
+python -m unittest discover -s language/real/experiments -p 'test_protocol_frontier_v54.py' -v
+```
+
+The comparison starts from known initial states and assumes deterministic
+transitions, commonly interpreted labels and an observation at each prefix.
+The existing paired-receipt audit still handles declarations about calibration
+and evidence ancestry. See the [research note](../../../research/mqr_54_protocol_frontier_and_waveguide_design.md)
+for the finite-model result and the historical comparison.
