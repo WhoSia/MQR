@@ -76,6 +76,30 @@ class ActionWordTests(unittest.TestCase):
         self.assertEqual(low_budget.kind, ResultKind.BEYOND_BUDGET)
         self.assertEqual(low_budget.witness, result.witness)
 
+    def test_shared_pulse_can_discriminate_by_timing_without_middle_readout(self):
+        left = Machine(("0", "0", "1", "1"), {
+            "begin": (0, 1, 2, 3),
+            "finish": (2, 2, 0, 0),
+            "pulse": (0, 1, 2, 3),
+        })
+        right = Machine(("0", "0", "1", "1"), {
+            "begin": (1, 1, 3, 3),
+            "finish": (0, 2, 2, 0),
+            "pulse": (0, 0, 2, 2),
+        })
+        early = ("pulse", "begin", "finish")
+        middle = ("begin", "pulse", "finish")
+        late = ("begin", "finish", "pulse")
+        for word in (early, late):
+            self.assertEqual(left.trace(word), right.trace(word))
+        self.assertEqual(left.trace(middle)[-1], "1")
+        self.assertEqual(right.trace(middle)[-1], "0")
+        self.assertEqual(left.trace(middle)[:-1], right.trace(middle)[:-1])
+
+        shielded = Machine(right.observations, {**right.transitions, "pulse": (0, 1, 2, 3)})
+        for word in (early, middle, late):
+            self.assertEqual(left.trace(word), shielded.trace(word))
+
     def test_word_compilation_keeps_initial_state_and_rejects_bad_specs(self):
         machine = Machine(ATOMIC.observations, ATOMIC.transitions, initial=3)
         self.assertEqual(compile_words(machine, {"apply": ("finish",)}).initial, 3)
