@@ -1,6 +1,12 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 Last reviewed: **2026-11-17 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
 
+## 2026-11-17 MQR 5.4 — Optical order and drift
+
+[Procopio et al. (2015)](https://doi.org/10.1038/ncomms8913) and publisher supplement inspected online as an optical operation-order near-neighbor, along with the [NIST drift design](https://www.itl.nist.gov/div898/handbook/mpc/section3/mpc3312.htm), [Sutton and Clarkson's publisher abstract](https://doi.org/10.1088/0026-1394/30/5/004), and [Nguyen's Prouhet construction](https://arxiv.org/abs/1411.6168). No matching named Procopio Drive copy appeared in the scoped lookup. No paired two-order intensity logs with independently measured blocked/full/intermediate references were located for the present two-element model. Prior tracked source statuses have no confirmed changes in this round. [Protocol and tests](mqr_54_polarization_order_drift_protocol.md).
+
+## 2026-11-17 MQR 5.4 — Detector readout and Malus repeat measurements
+
 Rivera-Ortega, Barcelata-Pinzon and Saldaña-Gonzalez (2025), [DOI 10.3390/physics7040067](https://doi.org/10.3390/physics7040067), is readable at the publisher; its Table 2 has 35 individual printed sensor readings. Named Drive copy not confirmed. The [Zenodo companion record](https://doi.org/10.5281/zenodo.17268611) has verified software and CAD archive bytes; neither archive lists a separate measurement file. A direct paired two-module, two-order run with independently measured detector references remains unconfirmed. [Readout replay and source hashes](mqr_54_readout_identifiability_results.md).
 
 ## 2026-11-17 MQR 5.4 — Unknown action correspondence
