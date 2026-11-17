@@ -1,6 +1,22 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 Last reviewed: **2026-11-17 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
 
+## 2026-11-17 MQR 42 — Seven full papers moved from 00_INTAKE to 10_PAPERS
+
+Post-move reads confirm all seven titles, original Drive IDs, the new 10_PAPERS parent and byte-for-byte equality. The older nonmatches below are historical observations superseded for these seven items. The 1989 proceedings paper and the 2001 journal expansion are different publications.
+
+| Source and DOI | Held PDF | Pages |
+|---|---|---:|
+| Lee et al. (2013), *An ac quantum voltmeter based on a 10 V programmable Josephson array*, [DOI](https://doi.org/10.1088/0026-1394/50/6/612) | [Publisher PDF](https://drive.google.com/file/d/1Oa_-AfvuGNE9MjkKL_xJABC2Y2HRlXS4/view) | 12 |
+| Granger, Flowers-Jacobs & Rüfenacht (2018), *AC-DC Difference of a Thermal Transfer Standard Measured with a Pulse-Driven Josephson Voltage Standard*, [DOI](https://doi.org/10.1109/CPEM.2018.8500791) | [CPEM paper](https://drive.google.com/file/d/10WDh__KimfClrRkNtsxsZfsVQWZWlx-N/view) | 2 |
+| Behr et al. (2015), *Direct comparison of a 1 V Josephson arbitrary waveform synthesizer and an ac quantum voltmeter*, [DOI](https://doi.org/10.1088/0026-1394/52/4/528) | [Publisher PDF](https://drive.google.com/file/d/1eD6bv3lAvRNwI4K6TZF6RvXC2Wwq_O76/view) | 11 |
+| Burroughs et al. (2013), *Method for Ensuring Accurate AC Waveforms with Programmable Josephson Voltage Standards*, [DOI](https://doi.org/10.1109/TIM.2013.2250192) | [Publisher PDF](https://drive.google.com/file/d/1iBb4bLrSuwwN_QC24_fgIzBnIgpheMTA/view) | 7 |
+| Herlihy & Wing (1990), *Linearizability: A Correctness Condition for Concurrent Objects*, [DOI](https://doi.org/10.1145/78969.78972) | [Journal scan](https://drive.google.com/file/d/1ZkZSgrbjl89ka5ubda-D6xyxDQF1O_p0/view) | 30 |
+| van Glabbeek & Goltz (2001), *Refinement of actions and equivalence notions for concurrent systems*, [DOI](https://doi.org/10.1007/s002360000041) | [Publisher PDF](https://drive.google.com/file/d/13dFFQgdE45bZkI8pqqKoiIhZhupcRtr_/view) | 99 |
+| van Glabbeek & Goltz (1989), *Equivalence Notions for Concurrent Systems and Refinement of Actions (Extended Abstract)*, [DOI](https://doi.org/10.1007/3-540-51486-471) | [Proceedings scan, pp. 237–248](https://drive.google.com/file/d/1pTL82pHSfHCOECE6RFvJLpVx84WnCAeI/view) | 12 |
+
+Lee et al. §§5.2–5.3 contain a **parallel thermal comparison with the ac-QVM**, using the Fluke calibrator and PMJTC references. The published uncertainty budget applies up to 1 kHz. It supplies an empirical connection between procedures but does not supply the outstanding paired comparison of the **same PTB JAWS** at 1 V and 2 kHz. The matched 2 kHz records and independent optical order logs remain acquisition targets. No raw logs are embedded in these seven article PDFs.
+
 ## 2026-11-17 MQR 5.4 — Action sequences, thermal transfer, and live source reconciliation
 
 [van Glabbeek and Goltz (1989 author-hosted original)](https://cgi.cse.unsw.edu.au/~rvg/pub/refinement89.pdf), [2001 journal expansion](https://doi.org/10.1007/s002360000041), and [Herlihy and Wing (1990 author-hosted original)](https://www.cs.columbia.edu/~wing/publications/HerlihyWing90.pdf) anchor the action-refinement comparison. Relevant opening and concluding claims in the conference paper and the motivation of the 1990 paper were checked. The 2001 expansion was verified at institutional metadata and abstract level. Scoped Drive title and surname searches found no matching files. [Formal comparison](mqr_54_composed_actions_and_midcourse_interventions.md).
