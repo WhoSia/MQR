@@ -80,3 +80,16 @@ transitions, commonly interpreted labels and an observation at each prefix.
 The existing paired-receipt audit still handles declarations about calibration
 and evidence ancestry. See the [research note](../../../research/mqr_54_protocol_frontier_and_waveguide_design.md)
 for the finite-model result and the historical comparison.
+
+## Follow-up: unknown action correspondences
+
+[Action translation](action_translation_v54.py) screens finite candidate
+bijections on initial and single-action traces, constructs the protocol
+admissible under every survivor, and uses the existing minimum-cost search
+to compare composed experiments. See the [research record](../../../research/mqr_54_action_translation_and_joint_experiments.md)
+for the polarization example, the symmetric control, and the case where
+uncertainty about the dictionary restricts the set of shared experiments.
+
+```bash
+python -m unittest discover -s language/real/experiments -p 'test_action_translation_v54.py' -v
+```

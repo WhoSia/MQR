@@ -1,5 +1,9 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
-Last reviewed: **2026-11-14 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
+Last reviewed: **2026-11-17 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
+
+## 2026-11-17 MQR 5.4 — Unknown action correspondence
+
+[Angluin (1987)](https://drive.google.com/file/d/1X3W7YC5QKwN2MDWnplPlU8f0GBxuod68/view) and Moore (1956) are held. Angluin §§1.1 and 2 specify the Teacher and fixed known alphabet. The [Jones 1941 Part I](https://doi.org/10.1364/JOSA.31.000488) publisher abstract and metadata were inspected, while [public university notes](https://labs.phys.utk.edu/mbreinig/phys421/modules/m10/Jones.html) supplied the ordered matrix convention used in the optical case. A named Drive original of Jones Part I was not confirmed. There is no acquisition dependency for replay of the exact calculation. A targeted files-by-name recheck found no verified state change for Clement, Feest, Fraenkel, Marcuvitz, the 1948 microwave works, Schwinger–Saxon, Maxwell, Chalmers or Talone. [Research note](mqr_54_action_translation_and_joint_experiments.md).
 
 ## 2026-11-14 MQR 5.4 — Sequence experiments and waveguide synthesis
 
