@@ -1,5 +1,20 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
-Last reviewed: **2026-11-17 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
+Last reviewed: **2026-11-21 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
+
+## 2026-11-21 MQR 42 — Four paper accessions and two byte-identical copies
+
+Four publisher article PDFs were normalized and moved to 10_PAPERS. Post-move verification confirmed original Drive IDs, destination, and exact original bytes. These holdings supersede earlier Drive nonmatches.
+
+| Article | Identifier | Canonical Drive copy |
+|---|---|---|
+| Schubert et al. (2015), *An AC Josephson Voltage Standard up to the Kilohertz Range Tested in a Calibration Laboratory* | [DOI](https://doi.org/10.1109/TIM.2015.2416454) | [8-page issue PDF](https://drive.google.com/file/d/1eecl98o25F7Zn1KnvkaZ3jVqk4ajuFxr/view) |
+| Behr & Palafox (2021), *An AC Quantum Voltmeter for Frequencies up to 100 kHz Using Sub-Sampling* | [DOI](https://doi.org/10.1088/1681-7575/abe453) | [12-page article plus cover](https://drive.google.com/file/d/1Cm1-lCE_7T51FeFAmzUBQZENIzwqfJ9Y/view) |
+| Procopio et al. (2015), *Experimental Superposition of Orders of Quantum Gates* | [DOI](https://doi.org/10.1038/ncomms8913) | [6-page article](https://drive.google.com/file/d/1dIOtHm9oww2wOMLncJJ4BGTPdVUzF2ld/view) |
+| Rivera-Ortega, Barcelata-Pinzon & Saldaña-Gonzalez (2025), *Custom Mobile Application Development for Demonstrating Malus’s Law Using LEGO EV3 and Integrated Light Sensors* | [DOI](https://doi.org/10.3390/physics7040067) | [13-page article plus cover](https://drive.google.com/file/d/1opKbF2I9jO-56NR8R0slVLrSm_obm6fy/view) |
+
+The two new redundant copies were separately preserved in [90_DUPLICATE_COPIES](https://drive.google.com/drive/folders/1HLswlW2t54x-FKR3G2e8Y0Y0GP0GXtSH) after byte comparison and SHA-256 verification. The [canonical van Dalen (2011) book](https://drive.google.com/file/d/1LgBIu9gNJM4H7YscflIaCwM0IJ6_j-1X/view) in 11_BOOKS includes the translated 18 April 1923 letter on printed pp. 253–254; the German autograph facsimile remains unverified. The [canonical Federal Register issue](https://drive.google.com/file/d/1fDzmbtfsN4nlD2TiJ7bj8nsW06Voq7Zm/view) is held elsewhere in Research OS. Its pp. 8855–8857 are an SEC notice and order for a hearing concerning Federal Water and Gas Corporation, not an MQR measurement source.
+
+No accession covers the PTB 1 V/2 kHz same-waveform paired thermal and differential data, transition raw samples, or MQR's paired optical order logs. The Procopio journal PDF has no embedded raw counts or publisher supplement. Rivera-Ortega's 35 published readings remain an angle-repeatability series. No new complete Feest (2025) or Fraenkel (1927) copy was confirmed. See [this round's close reading](mqr_54_mqr42_detector_swap_and_cable_transfer.md).
 
 ## 2026-11-17 MQR 42 — Seven full papers moved from 00_INTAKE to 10_PAPERS
 
