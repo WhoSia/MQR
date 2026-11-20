@@ -4,7 +4,7 @@ from fractions import Fraction as F
 from itertools import combinations, product
 import unittest
 
-from readout_alignment_v54 import Reading, compatible
+from readout_alignment_v54 import Reading, compatible, swapped_port_odds_squared
 
 
 def exact(x, y):
@@ -55,6 +55,18 @@ class ReadoutAlignmentTests(unittest.TestCase):
         self.assertTrue(compatible((), strict=True))
         with self.assertRaises(ValueError):
             Reading(0, 2, 1)
+
+    def test_detector_swap_cancels_gains_and_per_run_source_scale(self):
+        self.assertEqual(swapped_port_odds_squared((18, 2), (12, 12)), F(9))
+
+    def test_detector_swap_does_not_remove_fixed_port_loss(self):
+        # Halve port 0 in both assignments, leaving its upstream loss in place.
+        self.assertEqual(swapped_port_odds_squared((9, 2), (6, 12)), F(9, 4))
+
+    def test_zero_or_negative_expected_readings_are_outside_the_check(self):
+        for count in (0, -1):
+            with self.subTest(count=count), self.assertRaises(ValueError):
+                swapped_port_odds_squared((count, 2), (12, 6))
 
     def test_against_finite_grid_oracle(self):
         grid = tuple(F(i, 3) for i in range(7))

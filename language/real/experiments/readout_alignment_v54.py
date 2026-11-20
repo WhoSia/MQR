@@ -41,3 +41,18 @@ def compatible(
                 return False
         max_lower = lower if max_lower is None else max(max_lower, lower)
     return True
+
+
+def swapped_port_odds_squared(
+    direct: tuple[Fraction, Fraction], swapped: tuple[Fraction, Fraction]
+) -> Fraction:
+    """Return squared port-0 odds for multiplicative, stable detector gains.
+
+    Both pairs are indexed by physical port. Only the detector assignments
+    are exchanged. Port-dependent loss upstream of the exchange is retained.
+    """
+    direct_zero, direct_one = map(Fraction, direct)
+    swapped_zero, swapped_one = map(Fraction, swapped)
+    if min(direct_zero, direct_one, swapped_zero, swapped_one) <= 0:
+        raise ValueError("Both expected port readings must be positive in both assignments")
+    return (direct_zero * swapped_zero) / (direct_one * swapped_one)
