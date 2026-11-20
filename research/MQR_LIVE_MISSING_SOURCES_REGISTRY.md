@@ -1,6 +1,20 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 Last reviewed: **2026-11-21 (KST)**. Owner: MQR / Research OS. Applies to future MQR research answers: **always open, re-check, update and show this table** even if unchanged. This document is the ongoing GitHub readout; Notion MQR-5.3 is semantic canonical; Drive contains the actual source bytes. Search-only absence is not proof of global absence. Historical source already present as an image scan is **not missing**.
 
+## 2026-11-21 MQR 42 — Five originals accessioned in the second intake
+
+All five retain the original Drive ID and identical PDF bytes after renaming and filing. Earlier nonmatches for these exact works are superseded.
+
+| Original | Verified destination and file | SHA-256 |
+|---|---|---|
+| Chalmers (1986), *The Heuristic Role of Maxwell’s Mechanical Model of Electromagnetic Phenomena*, [DOI](https://doi.org/10.1016/0039-3681(86)90002-6) | [10_PAPERS, journal scan, pp. 415–427](https://drive.google.com/file/d/1MpDvvehCk3UuGhWQNCnkyCOblebyXoTt/view) | `ae54948ffb67ed8c0d9b6bb817e3c34a24fc6b0a234fa1b4a649c26f61a2c496` |
+| Talone et al. (2016), *Stray Light Effects in Above-Water Remote-Sensing Reflectance from Hyperspectral Radiometers*, [DOI](https://doi.org/10.1364/AO.55.003966) | [10_PAPERS, journal PDF, pp. 3966–3977](https://drive.google.com/file/d/1UTyF6FbgNx3FWkeKFUYd7F34OeeSFld2/view) | `74579ba677bdbdc9a16052f9fc7aff67f16d4a29e57796a37659348eeefd7029` |
+| Kerns (1948), *The Basis of the Application of Network Equations to Waveguide Problems*, [NBS CRPL-9-5](https://doi.org/10.6028/NBS.CRPL.9-5), issued June 30 | [11_SOURCES, 74 PDF pages](https://drive.google.com/file/d/1ybN0urHvW9-N4tlVCZwByZUx4TZvTNMw/view) | `1229d3652278d33fedc44d0a20701d6d627b4d71b5bcd91032781d3eba098244` |
+| Nathan Marcuvitz, ed. (1951), *Waveguide Handbook*, McGraw-Hill first edition, vol. 10 | [11_BOOKS, 446 PDF pages](https://drive.google.com/file/d/10dSZwzUgz9MyAf9kBZV1jA___jf5ezd6/view) | `5a1e601fdf4b5934b29942d65126fb9e44af5161974ab28bd53a76dd93857776` |
+| Jones (1941), *A New Calculus for the Treatment of Optical Systems. I. Description and Discussion of the Calculus*, [DOI](https://doi.org/10.1364/JOSA.31.000488) | [10_PAPERS, journal scan, pp. 488–493](https://drive.google.com/file/d/1AzCCSWyZDPsT-Aj5G1mn2vfjeSOP383T/view) | `579a308c0fb95783f6756e769f3f9b2d927da1fac00775068b8c1364123e9851` |
+
+The same-instrument input-optics-change response pairs remain unconfirmed. Kerns cites the independent Saxon February 1945 memorandum but does not include its full text. The 1968 lecture notes, Montgomery et al.'s 1948 vol. 8, and the separate Maxwell originals retain their previous acquisition status.
+
 ## 2026-11-21 MQR 42 — Four paper accessions and two byte-identical copies
 
 Four publisher article PDFs were normalized and moved to 10_PAPERS. Post-move verification confirmed original Drive IDs, destination, and exact original bytes. These holdings supersede earlier Drive nonmatches.
