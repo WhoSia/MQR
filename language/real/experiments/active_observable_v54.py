@@ -20,7 +20,7 @@ class ObservationTable:
     experiments: tuple[Experiment, ...]
 
     def __post_init__(self) -> None:
-        if not self.worlds or len(set(self.worlds)) != len(self.worlds):
+        if not self.worlds or any(not world for world in self.worlds) or len(set(self.worlds)) != len(self.worlds):
             raise ValueError("World labels must be nonempty and distinct")
         names = [experiment.name for experiment in self.experiments]
         if len(set(names)) != len(names) or any(not name for name in names):

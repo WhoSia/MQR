@@ -57,7 +57,7 @@ class ActiveObservableTests(unittest.TestCase):
 
     def test_invalid_experiment_names_worlds_and_lengths(self):
         for worlds, experiments in (
-            ((), ()), (("a", "a"), ()),
+            ((), ()), (("",), ()), (("a", "a"), ()),
             (("a",), (Experiment("x", ()),)),
             (("a",), (Experiment("x", ("0",)), Experiment("x", ("1",)))),
             (("a",), (Experiment("", ("0",)),)),
