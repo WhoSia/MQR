@@ -1,0 +1,82 @@
+{
+  "protocol": "MQR_5_4_chat43_reference_lineage_v1",
+  "scope": "Observed byte hashes and conditional same-local-clock temporal adjacency. NOT formal calibration pairing.",
+  "source_archive_DOI": "10.5281/zenodo.10046413",
+  "source_archive_sha256": "a4a68342b1e514d7611e6bd6a93d12a4afe5cc5531b92af5ae711a3eb233583e",
+  "correction_paths_all_four_runs_identical_bytes": [
+    {
+      "path": "DIGITIZER/Digitizer correction with MX.info",
+      "sha256": "ffb9ece673532afdea65005bc89a3b4d8a5a9041d2d4fd052c1f1881dbb1b757"
+    },
+    {
+      "path": "DIGITIZER/chn1/dummy_chn1.info",
+      "sha256": "c515bc3b35a340ed682338514fad1d69786e6497999548c911a5fa8a4b05bada"
+    },
+    {
+      "path": "DIGITIZER/chn1/csv/SFDR.csv",
+      "sha256": "641c4169c1cada9009a00a199fd701cd481815e0c551a0a5deaf083c6db9e013"
+    },
+    {
+      "path": "DIGITIZER/chn1/csv/Y_inp.csv",
+      "sha256": "aa89b9aebd98fb0d58945b5ec23d47a6ce4c064caddd621100585044acfe34a9"
+    },
+    {
+      "path": "TRANSDUCERS/T01/dummy.info",
+      "sha256": "d059565e77c2dd1ae139b5cc0c9ef483b2f2f6fcd2e1465794e3e1a32bc408a2"
+    },
+    {
+      "path": "TRANSDUCERS/T01/csv/Z_low.csv",
+      "sha256": "05ae7bf6158ea1d3e1f23c836e99f18e5361f94cf41879a1acbd1d688b0ef9b4"
+    }
+  ],
+  "PJVS_reference_logs": {
+    "count": 7,
+    "valid_measurement_events": 69,
+    "earliest": "2023-03-10 14:34:00 (naive local time)",
+    "latest": "2023-03-10 18:08:49 (naive local time)",
+    "reference_early_candidate": {
+      "timestamp": "2023-03-10 16:22:05",
+      "voltage_V": 0.799998157,
+      "log": "Fluke5720A7465206_Ch-A_10March2023_16-03-52.txt"
+    },
+    "reference_late_candidate": {
+      "timestamp": "2023-03-10 17:15:13",
+      "voltage_V": 0.799998529,
+      "log": "Fluke5720A7465206_Ch-A_10March2023_17-12-56.txt"
+    }
+  },
+  "QPSW_nominal_run_times_declared_timezone_plus_01": [
+    {
+      "id": "0015",
+      "time": "2023-03-10T16:50:40.167183+01:00",
+      "seconds_since_candidate_early_ref": 1715.167183,
+      "seconds_before_candidate_late_ref": 1472.832817
+    },
+    {
+      "id": "0016",
+      "time": "2023-03-10T16:55:22.028724+01:00",
+      "seconds_since_candidate_early_ref": 1997.028724,
+      "seconds_before_candidate_late_ref": 1190.971276
+    },
+    {
+      "id": "0019",
+      "time": "2023-03-10T17:04:08.328930+01:00",
+      "seconds_since_candidate_early_ref": 2523.32893,
+      "seconds_before_candidate_late_ref": 664.67107
+    },
+    {
+      "id": "0020",
+      "time": "2023-03-10T17:05:55.789805+01:00",
+      "seconds_since_candidate_early_ref": 2630.789805,
+      "seconds_before_candidate_late_ref": 557.210195
+    }
+  ],
+  "interpretation": [
+    "The six calibration-associated artifacts are reused byte-identically in every run; different runs therefore DO NOT supply independent calibration-file evidence.",
+    "Seven PJVS reference text logs are real original files but naive time stamps omit timezone.",
+    "Candidate temporal bracketing assumes the QPSW +01:00 local wall clock matches PJVS reference clock; this sync has NOT been certified.",
+    "Nearest measurements may be correlated and are NOT proven formal calibration references for QPSW U_t; do not interpolate or propagate as such.",
+    "Equal correction files do not prove identical physical conditions, nor does their presence establish traceable uncertainty."
+  ],
+  "tests": "8/8 new local tests; 41/41 selected cross-unit regression with previous source/segmentation/anomaly suites."
+}
