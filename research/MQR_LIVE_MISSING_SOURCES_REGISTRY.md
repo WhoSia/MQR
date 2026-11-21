@@ -1,5 +1,14 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## MQR 43 · 기록 03–06 (2026-11-21) — No false source closure from synthetic cross-lab research
+
+- MQR 43 [records03–05](mqr_54_chat43_05_alignment_blind_active_query_learner.md) implement **synthetic native-action composition, alignment-symmetry no-go, passive readout ablation, and an active finite-query learner**. These are formal/simulated results only: they do **not** obtain A1/A2's historical raw laboratory records or accomplish A3/A4's independent, physically paired prospective experiments. They do not close any item in the 17 tracked groups.
+- [Record06 source reading](mqr_54_chat43_06_concept_genesis_source_grounded_bfs.md) revisits the **already held Feest & Steinle (2012) full book** [Drive PDF](https://drive.google.com/file/d/1WJyJHhYFi3R27QNfNOu5Jr4pmsdq5Ua9/view), focusing on the editorial introduction, Feest, Boon, Nersessian and Andersen. This known holding is **not a newly acquired Feest (2025) monograph**, so entry #5 (2025 full text) remains unresolved. The 2012 reading is targeted text analysis, not completed page-by-page image verification.
+- The Research OS [00_INTAKE folder](https://drive.google.com/drive/folders/1MLtYh0pv8QUZDReYzRqjDrOjRkSJAD16) was fetched during this run and returned an **empty current listing**, not a claim about every intake folder. No new MQR source file was moved, renamed or discarded. No raw-byte duplicate dismissal was inferred from metadata.
+- The **17 group denominator, status distinctions, and A/B/C priorities below are unchanged**. Do not substitute newly generated simulation data for the missing real experiment evidence. For historical printed variants, re-open the exact provenance gate only when the corresponding claim needs it.
+
+---
+
 ## MQR 43 · 기록 02 (2026-11-21) — 핵심 미보유 검색·상태 재확인, 분모 유지
 
 **Research version MQR 5.4; conversation MQR 43.** 직접 서지 검색 8묶음(`Behr 2015`, `Burroughs 2013`, `Feest 2025`, `Fraenkel 1927`, `Wedgwood Blagden`, `Vauquelin 1799`, `McKendrick 1973`, `Talone 2016`)을 연결된 Google Drive에서 수행. **새로운 과거 원시계측자료의 확보나 신규 전향 실험 수행을 확인하지 못했다.** 아래 역사적 17개 *추적 그룹* 분류는 유지하고, 단순 17개 PDF 미보유라는 표현은 여전히 금지한다.
