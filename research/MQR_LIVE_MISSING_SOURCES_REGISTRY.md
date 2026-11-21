@@ -1,5 +1,14 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## MQR 43 · 기록 07–09 (2026-11-21) — Source-custody distinction preserved for actual concept-genesis cases
+
+- **New focus, already held primary scholarly volume:** [Feest & Steinle (eds.) (2012), Scientific Concepts and Investigative Practice, complete held PDF](https://drive.google.com/file/d/1WJyJHhYFi3R27QNfNOu5Jr4pmsdq5Ua9/view). New targeted direct-text research reads [Nersessian pp. 245–269](mqr_54_chat43_07_nersessian_cat_historical_concept_genesis.md) and [Steinle pp. 105–126](mqr_54_chat43_09_steinle_magnetic_poles_concept_displacement.md). This is a known 2012 volume, **not** a newly received Feest (2025) complete monograph (#5). Source title/author/version distinctions remain.
+- **Source hierarchy:** The Nersessian and Steinle *authored historical/ethnographic accounts* were read directly, but the underlying historical original texts, Faraday 1832 handwritten diary, or in-vitro dish raw electrical recordings were **not newly ingested or independently verified**. A secondary narrative cannot by itself close a missing primary original or prospective physical evidence target.
+- [Record08](mqr_54_chat43_08_temporal_representation_nonfactorization.md) provides synthetic Python code/tests (43/43 cumulative local MQR 43 tests) for information lost by aggregate-channel releases. **No claim that the studied historical MEAscope device was histogram-only**; the toy model is explicitly not actual CAT reconstruction or device data. No unverified candidate classified as received literature.
+- **Count/status unchanged:** the older 17 *tracking groups* (2 historical raw-record gaps, 2 prospective experiments not yet performed, 13 archival/version groups) remain the same; do not label them 17 missing PDFs. **00_INTAKE not searched anew in this specific check**, so no fresh claim of its current inventory. No files renamed/moved/deleted and no new physical experiments were performed.
+
+---
+
 ## MQR 43 · 기록 03–06 (2026-11-21) — No false source closure from synthetic cross-lab research
 
 - MQR 43 [records03–05](mqr_54_chat43_05_alignment_blind_active_query_learner.md) implement **synthetic native-action composition, alignment-symmetry no-go, passive readout ablation, and an active finite-query learner**. These are formal/simulated results only: they do **not** obtain A1/A2's historical raw laboratory records or accomplish A3/A4's independent, physically paired prospective experiments. They do not close any item in the 17 tracked groups.
