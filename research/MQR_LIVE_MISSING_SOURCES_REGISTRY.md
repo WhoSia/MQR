@@ -1,5 +1,18 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## MQR 43 · 기록 02 (2026-11-21) — 핵심 미보유 검색·상태 재확인, 분모 유지
+
+**Research version MQR 5.4; conversation MQR 43.** 직접 서지 검색 8묶음(`Behr 2015`, `Burroughs 2013`, `Feest 2025`, `Fraenkel 1927`, `Wedgwood Blagden`, `Vauquelin 1799`, `McKendrick 1973`, `Talone 2016`)을 연결된 Google Drive에서 수행. **새로운 과거 원시계측자료의 확보나 신규 전향 실험 수행을 확인하지 못했다.** 아래 역사적 17개 *추적 그룹* 분류는 유지하고, 단순 17개 PDF 미보유라는 표현은 여전히 금지한다.
+
+- **A1/A2:** Behr(2015) [보유 논문](https://drive.google.com/file/d/1eD6bv3lAvRNwI4K6TZF6RvXC2Wwq_O76/view), Burroughs(2013) [보유 논문](https://drive.google.com/file/d/1iBb4bLrSuwwN_QC24_fgIzBnIgpfeMTA/view) 및 제목에 verified byte-identical copy로 표시된 [별도 보유 사본](https://drive.google.com/file/d/1WEpoNuNZ0mX44ZQdio4iCDnQB7BHk6g-/view) 확인. 논문 보유가 원시 전압·바이어스·ADC/클록 기록 확보를 뜻하지 않는다. 두 사본의 바이트 일치는 현재 검색 결과 이름만으로 독립 재검증하지 않았음.
+- **A3/A4:** 제안 실험은 논문 누락과 구별. Talone et al.(2016) [완전 제목의 PDF](https://drive.google.com/file/d/1UTyF6FbgNx3FWkeKFUYd7F34OeeSFld2/view)는 Drive에서 다시 확인했지만, 동일 장치 광학계 교체의 짝지은 원시 관측은 확인되지 않았다. 이번 새 MQR 43 혼합비/순서 실험 역시 **형식 모형만 검증**했으며 실제 전향 실험 집계에 추가하지 않는다.
+- **5, 6, 16, 17, 15의 표적 검색:** Feest(2025)는 [서론만 보유](https://drive.google.com/file/d/1mHLsGGz88TDiXy9suW-Kizyd2h1eqbNl/view). Fraenkel(1927)의 정확한 판본, Wedgwood→Blagden 원고 이미지, Vauquelin(1799) 개별 출판 증인, McKendrick(1973) 장의 정확한 파일은 이번 제목 검색으로 새롭게 확인되지 않았다. 관련 이차자료나 다른 판본 검색 결과는 원본 파일로 대체하지 않음. Google Drive 제목검색의 무결과는 전체 접근 가능 문헌의 부재 증명이 아님.
+- **나머지 9개 그룹:** 이번 회차에서 추가로 독립 판본 검사를 수행하지 않았으므로 기존 조건부 상태 유지. 파일 이동·삭제·원본 교체 없음.
+
+**신규 연구와의 연결:** [MQR 43 기록 01](mqr_54_chat43_01_preparation_mixture_identifiability.md)은 준비 혼합비에 의한 순서효과 식별, [기록 02](mqr_54_chat43_02_stochastic_mixture_negative_control.md)는 단일 불균등 혼합에서도 가능한 확률적 상쇄를 검증. 새 기초 문헌/실측 자료가 없이 얻은 **조건부 수학 결과**이므로 미보유 항목을 임의로 종결하지 않는다.
+
+---
+
 ## MQR 42 · 기록 06 (2026-11-21) — 원전 #17 서지 검증 및 실제 '미보유' 상태 판정
 
 **현재 대화 번호는 MQR 42, 연구 버전 MQR 5.4.** 작업기록 06은 새 채팅이나 연구 버전을 뜻하지 않는다. **추적 그룹 17개**라는 분모를 유지하되 실제 '누락된 PDF 17편'이라는 통계는 사용하지 않는다. 연구의 직접 장애물은 과거 미공개 실험 원시자료 2건(A1/A2)과 미수행 전향 실험 2건(A3/A4)이고, 나머지 13개는 **특정 원전 판형/서지 검증 그룹**이다. 새로운 실측 파일을 입고한 것으로 오해하지 말 것.
