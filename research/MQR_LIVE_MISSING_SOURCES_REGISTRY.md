@@ -1,5 +1,17 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## MQR 43 · 기록 19–20 (2026-11-21) — Work-mode source acquisition handoff, not a download claim
+
+The [full 17-group Work/computer-use source intake brief](ops/mqr_54_work_source_intake_brief_20261121.md) has been prepared and committed for **user-initiated Work execution**. It includes stable source/catalog/held-version links for each group and the verified Research OS canonical commons folders: [00_INTAKE](https://drive.google.com/drive/folders/1MLtYh0pv8QUZDReYzRqjDrOjRkSJAD16) · [10_PAPERS](https://drive.google.com/drive/folders/1D2M4LHcejREhlyp6vTd71xxLLx-6ldUP) · [11_SOURCES](https://drive.google.com/drive/folders/1Ee2UDLahRj4ozlnNUXZcQk6Xsbr1Bqfv) · [20_NON_PAPER_SOURCES](https://drive.google.com/drive/folders/1Zj340-3rxurizWemBEoR__AzkKY9op9H). At the **2026-11-21 inspection instant**, common 00_INTAKE returned an empty direct-children list; its later state must be checked fresh. Large 10/11 folder read previews are **not complete exhaustive inventories**.
+
+This is **NO EXECUTED WORK-MODE JOB, NO NEWLY DOWNLOADED PDF, NO MOVED DRIVE SOURCE, AND NO CLOSED SOURCE GAP**. A1–A2 remain requests for source-specific historical raw records; A3–A4 remain future experiments; groups 5–17 concern heterogeneous exact books/editions/manuscripts. Publicly hosted candidate full texts include [Clement 1989 author-institution PDF](https://people.umass.edu/clement/pdf/Learning%20via%20Model%20Construction%20and%20Criticism.pdf) and [Maxwell 1873 volume II Wikimedia source](https://commons.wikimedia.org/wiki/File:A_treatise_on_electricity_and_magnetism_(IA_electricandmagne02maxwrich).pdf), but their **exact item edition, completeness, licensing and Drive acquisition are not yet newly verified by Work**.
+
+The separate [42-chat prompt archive analysis](mqr_54_chat43_19_archived_prompt_patterns_delegation_and_reorientation.md) and [historical philosophical record20](mqr_54_chat43_20_masterman_poincare_lakatos_question_genesis.md) show why Work should handle lawful source discovery and byte-preserving transfers while Chat spends intellectual time on substantive philosophy-of-science, structural physics, and **history of science as an independent research line**. This separation is a workflow decision, not an assumption that Chat continues work asynchronously.
+
+**Denominator unchanged: 17 mixed tracking groups.** No source gap retired by preparing a prompt.
+
+---
+
 ## MQR 43 · 기록 17 (2026-11-21) — Real shared correction files and PJVS reference logs; formal calibration still HOLD
 
 - The [already-held Šíra (2023) 7z](https://drive.google.com/file/d/178ypBIq_G460hGi7oHoweTBfNfb5qmK_/view) was re-extracted for its **original calibration correction files and seven PJVS/Fluke reference measurement text logs**, separate from previously inspected raw MATs. Six named correction paths (digitizer INFO, channel INFO, SFDR.csv, Y_inp.csv, transducer INFO, Z_low.csv) were **byte-identical SHA-256 across all four QPSW runs**, providing concrete *shared calibration-file ancestry*. Full file hashes and relative paths are preserved in [record17 receipt](evidence/mqr_54_chat43_reference_lineage_receipt.json) and [research note](mqr_54_chat43_17_shared_calibration_lineage_and_pjvs_time_brackets.md).
