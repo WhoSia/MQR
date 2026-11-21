@@ -1,5 +1,41 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## MQR 42 · 기록 05 (2026-11-21) — 번호 정정 및 미보유 전수 재분류
+
+**중요한 기록 체계 수정:** \`MQR 41\`, \`MQR 42\`는 연구 버전이 아닌 **채팅 번호**다. 실제 연구 버전은 **MQR 5.4**이며, 같은 MQR 42 대화에서 임의로 붙인 \`MQR 43/44/45/46\` 표기를 **MQR 42 · 기록 01/02/03/04**로 바로잡았다. 연구 파일 23개의 현재 경로도 \`research/mqr_54_chat42_{01..04}_...\`로 수정했다. 기존 Git 커밋 메시지와 과거 SHA는 증거 이력이라 재작성하지 않는다. 역사적 텍스트·시점·실험 수치를 바꾸지 않고 메타데이터·상호참조만 교정한다.
+
+### '미보유 17건'이라는 표현은 부정확하다
+
+**17은 '확보되지 않은 PDF 17개'가 아니라 17개의 *추적 그룹*이다.** 실제 범주: A1–A2 **과거 실험의 미공개 원시 기록 요청 2건**; A3–A4 **아직 수행하지 않은 전향적 실험 제안 2건**; 번호 5–17 **원전의 특정 인쇄판/수고/판본/서지 문제 13그룹**. 특히 17번은 복수 저작을 하나로 합친 묶음이어서 물리적 파일 개수로 세면 안 된다. 현재 중점 논증을 위한 읽을거리들이 많이 보유되어 있다는 사실과 원본 제본물의 부재를 구별한다. **단순 '미보유 17편' 또는 '17개 반드시 다운로드'라는 안내는 폐기한다.**
+
+| # | 정확한 요구 대상 | 이번 재검토 결과·기능적으로 확보된 증거 | 현 상태/실행 우선순위 |
+|---:|---|---|---|
+| A1 | Behr et al. (2015), JAWS–ac-QVM 실제 동일 세션의 비집계 원시 기록 | 2015 논문은 [Drive 보유](https://drive.google.com/file/d/1eD6bv3lAvRNwI4K6TZF6RvXC2Wwq_O76/view). PTB 2025 그래프 ZIP은 *다른 실험*. 2015 논문에 2015 JAWS+thermal 동시 결합 측정이 존재했다고 주장하지 말 것 | **원시자료 미보유 / 연구자 요청**, A |
+| A2 | Burroughs et al. (2013), PJVS 스위칭 원시 전압·바이어스·ADC/클록 세부 정보 | [2013 논문 보유](https://drive.google.com/file/d/1iBb4bLrSuwwN_QC24_fgIzBnIgpfeMTA/view); [Šíra 2023 원시 QPSW 데이터 보유](https://drive.google.com/file/d/178ypBIq_G460hGi7oHoweTBfNfb5qmK_/view)하지만 서로 다른 실험 | **원시자료 미보유 / 연구자 요청**, A |
+| A3 | 동일 장치의 물리적 편광 AB/BA 순서 교환·암/기준/광량 실측 | [Malus 앱](https://drive.google.com/file/d/1dmiuP_h92Qv0PMvoZKLLrkJjk-rmhkgh/view)과 [LEGO 모델](https://drive.google.com/file/d/1Bz6_KSRf5nzB4P34lmn134uIRoamOa2l/view)은 이미 보유하지만 이 비교의 실제 결과는 아님 | **미보유 문헌 아님 — 제안된 신규 실험**, A |
+| A4 | 동일 초분광 측정계의 광학장치 교체 전후 동시 추적 판독 | [Talone 2016 논문](https://doi.org/10.1364/AO.55.003966)과 일반 반사율 데이터는 동일 세션 광학계 교체 기록이 아님 | **미보유 문헌 아님 — 제안된 신규 실험**, A |
+| 5 | Feest (2025), [*Operationism in Psychology*](https://academic.oup.com/chicago-scholarship-online/book/61052) 본문 전권 | [도입부 PDF 보유](https://drive.google.com/file/d/1mHLsGGz88TDiXy9suW-Kizyd2h1eqbNl/view); 2012년 장도 보유하지만 2025년 전권이 아님 | **전권 Drive 미보유**, 중요 주장에 필요할 때만 접근 요청, B |
+| 6 | Fraenkel (1927), [*Zehn Vorlesungen*](https://link.springer.com/book/10.1007/978-3-663-15741-0)의 정확한 1927 판본 | [Fraenkel 1923 *Einleitung*](https://drive.google.com/file/d/1u9Woz-vDxjFFkvYnugn6zOVFIiEskXKx/view)는 별개 저작. Springer Book Archives에는 1927 저작 디지털 판본/재인쇄가 존재 | **Drive 미입고, 외부 디지털 서지·접근 경로 확인**, C |
+| 7 | Fraenkel→Brouwer, 1923-04-18 자필 원본 | [van Dalen (2011) 편집 번역 보유](https://drive.google.com/file/d/1LgBIu9gNJM4H7YscflIaCwM0IJ6_j-1X/view); 서신 문구 접근 가능, 필적/삭제·수정은 미확인 | **본문 보유 / 필사 원고만 미확인**, C |
+| 8 | Weyl 1921 및 1925–27 독일어 초판의 특정 용어 | [Mancosu (1998) 영어 편집선집 보유](https://drive.google.com/file/d/1x98toxjYnbbHUNJbJVaBKPofGvqKtCAI/view) | **번역본 보유 / 원어·판본 검증 미완료**, C |
+| 9 | Saxon, 1945.02 자필/등사 독립 인쇄 형태 | **해당 1945 메모 본문 자체는 [1968년 완본에 수록되어 보유](https://drive.google.com/file/d/15ulEVw7MuEVfRNaxVQM30LoMQYdsxzm1/view)** | **원문 내용 확보 / 물리적 원본만 미확인**. 일반 '미보유'에서 제거하고 장치/인쇄사 논증 때만 C |
+| 10 | Clement (1989), [*Handbook of Creativity* Chapter 20 pp. 341–381](https://people.umass.edu/clement/pdf/Learning%20via%20Model%20Construction%20and%20Criticism.pdf) | [1988 99쪽 SRRI 보고서 보유](https://drive.google.com/file/d/1X_EeNfK7g5ablkwQweNpyU_Jhy0uIxTk/view); **1989 출판 장 전문이 저자 소속 기관 사이트에서 공개**되어 있음. 파일 최종 판본/본문 지면은 이미 상당 부분 접근 가능 | **외부 전문 공개 / Drive 해당 장 미입고**, B→C. 더 이상 '찾을 수 없는 원문'이 아님 |
+| 11 | Maxwell, 1873 *Treatise* 제2권 완본 및 별도 원 논문 인쇄판 | [1890 *Scientific Papers* 제1권 보유](https://drive.google.com/file/d/1-qXo5QdLZ09WYZLNK9As3NrcMxuoN7bk/view); [1873 *Treatise* vol. II 원판 PDF 공개](https://commons.wikimedia.org/wiki/File:A_treatise_on_electricity_and_magnetism_(IA_electricandmagne02maxwrich).pdf); 교육용 발췌문은 전권 아님 | **1873 II권 원판 공개 / Drive 미입고**, 원 논문 각 분책은 별도 범주 C |
+| 12 | Lavoisier–Laplace, 1783 *Mémoire sur la chaleur* 56쪽 독립 별쇄 | [동시대 1783 리뷰 보유](https://drive.google.com/file/d/12dGo6qqAOSXd-1o5PwYmvRBHih7e0uHp/view); [후대 프랑스어 전재 전문](https://fr.wikisource.org/wiki/%C5%92uvres_compl%C3%A8tes_de_Laplace/M%C3%A9moire_sur_la_chaleur) 공개, [원본 별쇄 서지](https://catalogue.bnf.fr/ark:/12148/cb30739046p) 존재. [Laplace 연구 복사본](https://drive.google.com/file/d/1LYSA1HYUbzHdWRWNBffAJ4J35TbBbcCD/view)도 Drive에 있으나 추출 텍스트 품질이 낮아 판본 비교 미완 | **후대 본문 접근 가능 / 1783 별쇄 인쇄 형태 미보유**, C. 첫 발표일 18/28 June 자료 불일치는 별도 점검 |
+| 13 | Wedgwood (1784), Joseph Cooper 26쪽 소책자 | [Folger 서지](https://catalog.folger.edu/record/862801)는 이 소책자가 **1782년 Royal Society 논문에서 발췌된 판본**임을 명시. 그 [1782 논문 전문은 Drive에 보유](https://drive.google.com/file/d/17bsv_UoQpzvCtG93tDWAezu52g3GLtZA/view), 1784년 비교논문도 별도로 보유 | **핵심 1782 내용 보유 / Cooper 소책자의 편집·표지·배포 형태만 미확인**, C |
+| 14 | Guyton de Morveau, Institut 회고록 제2부(1811 권호, 실제 1814 간행) pp89–120 | [1814 Annales 판본 Drive 보유](https://drive.google.com/file/d/1aduJ1HnToExzThB9gKPOTmseIht5C-JO/view). [1975 Chaldecott 계보](https://www.cambridge.org/core/journals/british-journal-for-the-history-of-science/article/josiah-wedgwood-173095-scientist/D1F1C821024D2B6AC186DDCA224F561A)는 Institut 1811권호가 *1814년에 실제 출판*되었으며 Annales는 약간 수정된 전재라고 구별 | **역사상 중요한 1814 전재는 보유 / Institut 인쇄판만 미입고**, C |
+| 15 | McKendrick (1973), “The Role of Science in the Industrial Revolution: A Study of Josiah Wedgwood as a Scientist and Industrial Chemist,” pp274–319 | [1975 Chaldecott 인용](https://www.cambridge.org/core/journals/british-journal-for-the-history-of-science/article/josiah-wedgwood-173095-scientist/D1F1C821024D2B6AC186DDCA224F561A)으로 *Changing Perspectives in the History of Science* 편집서 수록과 페이지 직접 검증. 기존 사료와 Chang 2004 보유 | **해당 장 Drive 미입고**, C; 서지 오류로 만든 가짜 표적은 아님 |
+| 16 | Wedgwood→Blagden, 1784-09-11 원고 이미지 | [Royal Society CB/1/6/202](https://catalogues.royalsociety.org/CalmView/Record.aspx?id=CB%2F1%2F6%2F202&src=CalmView.Catalog) 목록 소장처 확인, 본문 이미지 미검증 | **원고 이미지 미입고 / 소장 위치 확인**, C |
+| 17 | Vauquelin (1799), Nicholson (1800), Oppenheim (1807) 등 초기 전재 출처 **묶음** | 관련 [Guyton 1810](https://drive.google.com/file/d/1Kv8_l8ruhIuInXLUv67QW6fxB4GLkQbG/view) 및 1814 전재 보유. **세 판본의 정확한 제목·쪽수·초판 존재를 각각 실증하지 못한 상태** | **서지 검증 우선 / '단일 미보유 문헌' 판정 보류**, C-HOLD |
+
+**Practical action order under "use existing sources":** (i) stop hunting 1783/1945 autograph/edition as prerequisites; (ii) read held 1968 Saxon, 1782 Wedgwood, 1814 Guyton, Feest 2012, QPSW 2023, PTB 2025; (iii) verify 1989 Clement chapter and 1873 Maxwell II using public links **before** asking the user to download (their sources are already located); (iv) keep raw 2013/2015 requests as optional exact-data contacts, not guaranteed public downloads. **No new Drive acquisition asserted this turn** for the external online sources; publicly reachable ≠ byte accessioned. Items 5–17 remain **edition-specific verification groups**, not thirteen undread scientific works.
+
+### Next research consequence of corrected classification
+
+The difficult substantive problem remains MQR 5.4 **action-generation**: the physical-state/operation mapping in [chat 42 record 04](mqr_54_chat42_04_contact_stabilizer_conditional_proposition.md) is standard conditional graph matching. The original [Hadot/Feest/Clement sources](mqr_54_chat42_04_founder_structure_generativity_audit.md) suggest the science can change its repertoire. The next research unit must exhibit a *new executable operation* that splits an observational equivalence class which no old accessible action distinguished; it must give an expressibility proof and a preregistered physical validation gate. This conceptual work can proceed **without any of the archival exact 13 prints**.
+
+---
+
 ## 2026-11-21 MQR 42 · 기록 04 — **LIVE: 17 precise target groups, no newly closed sources**
 
 **Actual source recheck:** Research OS [00_INTAKE](https://drive.google.com/drive/folders/1MLtYh0pv8QUZDReYzRqjDrOjRkSJAD16) direct folder listing returned **0 current children** when this research unit began. The study explicitly used already held source bytes/volumes instead of inventing acquisitions. **Missing count remains 17**; 4 experimental/data tasks, 13 precise older editions/archival forms. The full 17-row table with **document-level links** remains in the MQR42-R02 section immediately below this and the next heading. No exact missing file was falsely closed merely because MQR42-R04 developed a theoretical model.
