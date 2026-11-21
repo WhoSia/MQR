@@ -6,7 +6,7 @@ Each of 4 vertices has a fixed unique label; an undirected loop-free edge is the
 
 ## Exact labeled four-graph census
 
-| |Aut(G)| remaining initial mappings | Number of labeled graphs (of 64) | Minimum verified anchor base size |
+| Automorphism count (candidate mappings) | Labeled graphs (of 64) | Minimum verified anchors |
 |---:|---:|---:|
 | 2 | 36 | 1 |
 | 4 | 12 | 2 |
@@ -23,7 +23,7 @@ There are zero asymmetric graphs with only four vertices (no |Aut|=1 case). Acro
 
 The 64 graphs include repeated *isomorphic* configurations. A graph with automorphism group size a has 4!/a =24/a distinct labeled copies. Dividing the labeled counts by those orbit sizes shows **11 nonisomorphic graph types**:
 
-| |Aut(G)| | Nonisomorphic types | Base size b |
+| Automorphism count | Nonisomorphic graph types | Minimum anchors |
 |---:|---:|---:|
 | 2 | 3 | 1 |
 | 4 | 2 | 2 |
