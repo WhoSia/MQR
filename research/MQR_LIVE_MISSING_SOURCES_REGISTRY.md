@@ -1,5 +1,24 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## MQR 42 · 기록 06 (2026-11-21) — 원전 #17 서지 검증 및 실제 '미보유' 상태 판정
+
+**현재 대화 번호는 MQR 42, 연구 버전 MQR 5.4.** 작업기록 06은 새 채팅이나 연구 버전을 뜻하지 않는다. **추적 그룹 17개**라는 분모를 유지하되 실제 '누락된 PDF 17편'이라는 통계는 사용하지 않는다. 연구의 직접 장애물은 과거 미공개 실험 원시자료 2건(A1/A2)과 미수행 전향 실험 2건(A3/A4)이고, 나머지 13개는 **특정 원전 판형/서지 검증 그룹**이다. 새로운 실측 파일을 입고한 것으로 오해하지 말 것.
+
+**17번 그룹 실질적 해명:** 보유 [Chaldecott(1975) 원문](https://drive.google.com/file/d/1BgDT9kpU6byESnwUGA5No8EpikYc6ipv/view)의 각주 43–47과 11–12쪽 표를 다시 확인했다. 그 결과 Vauquelin의 1799년 프랑스어 원저, 1799년 영어 번역, 1799년 독일어 전재, Nicholson이 *편집*한 저널의 1800년 영어 전재, O***[Oppenheim]의 1807년 공예서 등 **서로 다른 출판 증인**을 한 그룹으로 합친 것이었다. Nicholson은 1800년 실험의 독립 저자로 간주하지 않는다. 1799년 독일어 Scherer의 별도 계측기 설명(II권 50–62쪽)과 III권 734–737쪽의 전재는 구분한다.
+
+원저 정확한 서지: N.-L. Vauquelin, “Réflexions sur la qualité des poteries, et résultats de quelques analyses de terres et de poteries communes”, *Bulletin des sciences, par la Société Philomathique de Paris*, II, no.26 (1799), **10–12쪽**. 영어 선행전재: Vauquelin, “Reflections on the Quality of Earthen-Ware…”, *Philosophical Magazine* **5** (1799), **288–290쪽**. 1800년 Nicholson 편집저널 *A Journal of Natural Philosophy, Chemistry, and the Arts* III **264–265쪽**. O*** [Oppenheim], *L'art de fabriquer la poterie, façon anglaise* (Paris, **1807**), 해당 160쪽. [정확한 서지와 각 판본의 검증 단계](mqr_54_chat42_06_vauquelin_reprint_correction_lineage.md).
+
+**핵심 역사 연구 질문도 수정:** 1799년에 Vauquelin에게 귀속되어 발표된 도자기 분석 비율이 실제 그의 원기록과 일치하지 않았다는 점과 1810년 정정이 Chaldecott(1975)에 기록돼 있다. 따라서 이 그룹은 아직 읽지 않은 '세 논문'이 아니라 **원자료→전재→오기/권위 이동→정정**의 계보를 교차 검증하는 과제다. 오류가 어떤 특정 판본에서 처음 발생했는지 원시 초판들을 직접 보기 전에는 단정하지 않는다. Chaldecott PDF 추출에서 Table 2 열 정렬이 깨져 **성분별 정확한 숫자 대조는 아직 보류**한다.
+
+**새 유한 모형의 교훈:** [순차 측정의 관측 비간섭 조건](mqr_54_chat42_06_sequential_contact_and_order_effects.md)을 3상태 이진 판독·결정적 상태 변환 조합 **46,656건**으로 검증했다. 이 작업은 현실 AB/BA 관측을 획득한 것이 아니라 **서로 다른 출력의 결합이 허용될 조건**을 정의한 것이다. 기록 표와 물리적 측정 과정의 동일성을 혼동하지 않는다는 점에서만 #17 역사 사례와 연결된다.
+
+**00_INTAKE 보관 처리:** 같은 날 들어온 [Pucci & Batterham(2020) NCBI Endotext 비논문형 교과서 장 PDF](https://drive.google.com/file/d/1Zgt2ElG6cgHJ69XTQj2mx6QKNYYXjlN-/view)는 원문 저자/갱신일 확인 후 공통 `20_NON_PAPER_SOURCES`로 **파일 ID를 보존하며 메타데이터만 이동**했다. MQR 관련 자료가 아니므로 MQR 소스나 Chat Archive로 넣지 않았고 MQR 17그룹 집계에는 포함되지 않는다. 마지막 00 폴더 상태는 조회 시점에만 유효하다.
+
+**현행 우선순위:** A1/A2 원본은 보유 논문과 구별하여 연구자에게 문의하는 장기 게이트; A3/A4는 *미수행 실험*; 역사 13그룹은 판형별 단서가 필요한 논증에만 동원한다. **17/17 추적 그룹을 유지하지만 '17종의 학술 PDF가 부족하다'는 표현을 금지.**
+
+---
+
+
 ## MQR 42 · 기록 05 (2026-11-21) — 번호 정정 및 미보유 전수 재분류
 
 **중요한 기록 체계 수정:** `MQR 41`, `MQR 42`는 연구 버전이 아닌 **채팅 번호**다. 실제 연구 버전은 **MQR 5.4**이며, 같은 MQR 42 대화에서 임의로 붙인 `MQR 43/44/45/46` 표기를 **MQR 42 · 기록 01/02/03/04**로 바로잡았다. 연구 파일 23개의 현재 경로도 `research/mqr_54_chat42_{01..04}_...`로 수정했다. 기존 Git 커밋 메시지와 과거 SHA는 증거 이력이라 재작성하지 않는다. 역사적 텍스트·시점·실험 수치를 바꾸지 않고 메타데이터·상호참조만 교정한다.
@@ -26,7 +45,7 @@
 | 14 | Guyton de Morveau, Institut 회고록 제2부(1811 권호, 실제 1814 간행) pp89–120 | [1814 Annales 판본 Drive 보유](https://drive.google.com/file/d/1aduJ1HnToExzThB9gKPOTmseIht5C-JO/view). [1975 Chaldecott 계보](https://www.cambridge.org/core/journals/british-journal-for-the-history-of-science/article/josiah-wedgwood-173095-scientist/D1F1C821024D2B6AC186DDCA224F561A)는 Institut 1811권호가 *1814년에 실제 출판*되었으며 Annales는 약간 수정된 전재라고 구별 | **역사상 중요한 1814 전재는 보유 / Institut 인쇄판만 미입고**, C |
 | 15 | McKendrick (1973), “The Role of Science in the Industrial Revolution: A Study of Josiah Wedgwood as a Scientist and Industrial Chemist,” pp274–319 | [1975 Chaldecott 인용](https://www.cambridge.org/core/journals/british-journal-for-the-history-of-science/article/josiah-wedgwood-173095-scientist/D1F1C821024D2B6AC186DDCA224F561A)으로 *Changing Perspectives in the History of Science* 편집서 수록과 페이지 직접 검증. 기존 사료와 Chang 2004 보유 | **해당 장 Drive 미입고**, C; 서지 오류로 만든 가짜 표적은 아님 |
 | 16 | Wedgwood→Blagden, 1784-09-11 원고 이미지 | [Royal Society CB/1/6/202](https://catalogues.royalsociety.org/CalmView/Record.aspx?id=CB%2F1%2F6%2F202&src=CalmView.Catalog) 목록 소장처 확인, 본문 이미지 미검증 | **원고 이미지 미입고 / 소장 위치 확인**, C |
-| 17 | Vauquelin (1799), Nicholson (1800), Oppenheim (1807) 등 초기 전재 출처 **묶음** | 관련 [Guyton 1810](https://drive.google.com/file/d/1Kv8_l8ruhIuInXLUv67QW6fxB4GLkQbG/view) 및 1814 전재 보유. **세 판본의 정확한 제목·쪽수·초판 존재를 각각 실증하지 못한 상태** | **서지 검증 우선 / '단일 미보유 문헌' 판정 보류**, C-HOLD |
+| 17 | **Vauquelin 1799 및 1799/1800 다국어 전재 + O*** [Oppenheim] 1807**의 발행 증인·실측 수치 계보 **(단일 논문 아님)** | [Chaldecott(1975) 보유](https://drive.google.com/file/d/1BgDT9kpU6byESnwUGA5No8EpikYc6ipv/view), [Guyton 1810](https://drive.google.com/file/d/1Kv8_l8ruhIuInXLUv67QW6fxB4GLkQbG/view) 보유. Vauquelin 1799 *Bulletin* II no26 pp10–12, 1799 *Philosophical Magazine* V pp288–290, 1800 Nicholson **편집** 저널 III pp264–265, 1807 Oppenheim 공예서 p160 등 서지 확인. 독일어 1799 Scherer III pp734–737은 독립 판본 비교 대기. | **그룹의 서지 일부 검증 완료 / 정확한 초기 인쇄·수치 판독 미보유 또는 미검증**, C-HOLD. [비교 연구노트](mqr_54_chat42_06_vauquelin_reprint_correction_lineage.md) |
 
 **Practical action order under "use existing sources":** (i) stop hunting 1783/1945 autograph/edition as prerequisites; (ii) read held 1968 Saxon, 1782 Wedgwood, 1814 Guyton, Feest 2012, QPSW 2023, PTB 2025; (iii) verify 1989 Clement chapter and 1873 Maxwell II using public links **before** asking the user to download (their sources are already located); (iv) keep raw 2013/2015 requests as optional exact-data contacts, not guaranteed public downloads. **No new Drive acquisition asserted this turn** for the external online sources; publicly reachable ≠ byte accessioned. Items 5–17 remain **edition-specific verification groups**, not thirteen undread scientific works.
 
