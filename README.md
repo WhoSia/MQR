@@ -1,6 +1,6 @@
 # MQR — Methods of Quantitative Realism
 
-**Correction (2026-11-21):** **MQR 42 is the current *conversation number*, not a research version.** MQR 5.4 is the actual program version. Prior assistant-created references to “MQR 43/44/45/46” in this same chat were mistaken; they have been relabeled as **MQR 42 · 기록 01/02/03/04**, with source file prefixes `mqr_54_chat42_01_...` through `mqr_54_chat42_04_...`. Old Git commits retain immutable original messages for audit; only current-tree filenames, links and records are corrected. There is **no** MQR 43 conversation or MQR 5.5 phase invented here.
+**Current conversation:** MQR 43 (2026-11-21). **Research program version remains MQR 5.4**; the conversation number is not a scientific version or stage. During MQR 42, interim records mistakenly labeled “MQR 43/44/45/46” were repaired to **MQR 42 · records 01/02/03/04**. Those repairs are historical and remain valid; this newly opened MQR 43 is the first actual conversation bearing the number after MQR 42. No MQR 5.5 phase is asserted. GitHub Actions may compute/read, but must not author repository commits, push or tag as `github-actions[bot]`.
 
 **Current phase: 5.4 — The Open Horizon of Scientific Inquiry: Measurement, Possible Sciences, Paradigm Genesis & World-Constrained Concept Creation**
 
@@ -10,6 +10,12 @@ MQR investigates how scientific and mathematical knowledge becomes possible, wha
 
 The historical trajectory runs from measurement and observational equivalence (0.X), through scientific individuality and cross-domain lawhood (1.X), evidence transport and prospective validation (3.X), fallible reference standards and physical identifiability (4.X), to sustained philosophical and historical inquiry (5.0–5.1). This is a *selective thematic reconstruction*, not a certification that every intervening version or result has been revalidated.
 
+
+## 2026-11-21 MQR 43 · 기록 01 — Preparation mixtures expose pooled order-effect cancellation
+
+The [exact finite preparation-mixture experiment](research/mqr_54_chat43_01_preparation_mixture_identifiability.md) joins MQR 42 record06's paired sequential-observation criterion with a design that varies preparation proportions. In a two-state model, AB/BA order-specific outputs disagree for each state while **their pooled distributions agree** at equal mixture weights. Shifting P(s=0) from 1/2 to 3/4 changes total-variation order gap from **0 to 1/2**. A nondisturbing alternative reproduces the balanced pooled distributions, showing that balanced observational agreement does not identify the underlying order mechanism. More generally, observed difference matrices obey **Delta = W D**; a known full-column-rank preparation-weight matrix W identifies equality of state-conditional output distributions from equal mixtures, subject to fixed kernels and certified shared preparation identities. This does **not** imply hidden-state non-disturbance or ontological translation.
+
+[Exact Python model](language/real/experiments/preparation_mixture_bridge_v54.py) · [8 passing local tests](language/real/experiments/test_preparation_mixture_bridge_v54.py), including **256 fully enumerated deterministic two-state map combinations**. The local git-blob hashes of model and tests match GitHub file blobs. No complete repository suite or physical AB/BA experiment was performed. The result uses familiar linear identifiability/tomography principles: **formal reconstruction/application, not claimed mathematical novelty**. [Notion 5.4](https://app.notion.com/p/414ef561cf9281118f47daa04cc330b1) was updated. MQR 43 is a conversation index; **formal program version 5.4 stays open**.
 
 ## 2026-11-21 MQR 42 · 기록 06 — Sequential measurement bridge and Vauquelin lineage
 
