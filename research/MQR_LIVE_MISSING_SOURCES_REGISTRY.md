@@ -1,5 +1,15 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## MQR 43 · 기록 10–12 (2026-11-21) — DFS/BFS completed without fabricated source closure
+
+- [DFS record10](mqr_54_chat43_10_open_world_anomaly_dfs.md) creates a formal, synthetic *off-model native-observation* register. Its 13 local tests do **not** acquire independently authenticated physical specimen transfers, time-stamped raw instrument logs or cross-device calibration. **A1/A2 original raw-record gaps and A3/A4 proposed prospective instrument experiments remain open.**
+- [BFS record11](mqr_54_chat43_11_gene_pluralism_and_andersen_failed_bridge_bfs.md) directly reads previously held [Feest & Steinle (eds.) (2012) scholarly volume](https://drive.google.com/file/d/1WJyJHhYFi3R27QNfNOu5Jr4pmsdq5Ua9/view), specifically MacLeod pp.47–73, Brigandt pp.75–103 and Andersen pp.271–292. These chapters are **inside the known held 2012 volume**, not fresh individual 2012 paper acquisitions and **not the missing full Feest (2025) monograph**. Brigandt's related older [author-hosted accessible manuscript](https://sites.ualberta.ca/~brigandt/The_epistemic_goal_of_a_concept.pdf) was independently read via web, but a Google Drive raw-byte intake or versioned PDF acquisition for that URL was **not performed**.
+- Andersen's scholarly historical interpretation of early inter-specialist scientific disagreements does not establish possession or independent verification of original laboratory raw records, historical autographs, or full primary correspondence.
+- [Director seven-frontier readout](mqr_54_chat43_12_executed_dfs_bfs_seven_frontier_return.md) recommends **BACKTRACK** from permutation-only formal models and prioritize meaningful external world-facing comparisons. This is a research direction, not a new experimental observation, historical source acquisition, or source-gap closure.
+- **Registry denominator remains the pre-existing 17 mixed *tracking groups*, not 17 absent PDFs.** No source moved, deleted, renamed, imported or authenticated; no new empirical claim upgraded and no file-inventory exhaustiveness claimed by this update.
+
+---
+
 ## MQR 43 · 기록 07–09 (2026-11-21) — Source-custody distinction preserved for actual concept-genesis cases
 
 - **New focus, already held primary scholarly volume:** [Feest & Steinle (eds.) (2012), Scientific Concepts and Investigative Practice, complete held PDF](https://drive.google.com/file/d/1WJyJHhYFi3R27QNfNOu5Jr4pmsdq5Ua9/view). New targeted direct-text research reads [Nersessian pp. 245–269](mqr_54_chat43_07_nersessian_cat_historical_concept_genesis.md) and [Steinle pp. 105–126](mqr_54_chat43_09_steinle_magnetic_poles_concept_displacement.md). This is a known 2012 volume, **not** a newly received Feest (2025) complete monograph (#5). Source title/author/version distinctions remain.
