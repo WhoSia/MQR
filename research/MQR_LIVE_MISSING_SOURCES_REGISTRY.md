@@ -1,5 +1,13 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## 2026-11-21 MQR 44 R23–R26 — 2014 저자 공식 보충자료 확인 / 실바이트 미입고 (추적 그룹 17 유지)
+
+2014 Rinaldelli 외의 [원 논문](https://pmc.ncbi.nlm.nih.gov/articles/PMC4306559/)은 **보충자료 두 건**을 직접 명시한다: [2014 정밀화 방법 27KB DOC](https://doi.org/10.1107/S1399004713034160/dz5299sup1.doc) 및 [저자 프로토콜·좌표·NMR/X선 관련 파일 10.8MB ZIP](https://doi.org/10.1107/S1399004713034160/dz5299sup2.zip). [Carlon 외 2018 online / 2019 volume](https://link.springer.com/article/10.1007/s10858-018-0212-3)에도 [3.3MB supplementary DOCX](https://static-content.springer.com/esm/art%3A10.1007%2Fs10858-018-0212-3/MediaObjects/10858_2018_212_MOESM1_ESM.docx)가 실려 있다. 웹 원문 제공 사실 확인 완료. **브라우저 직접 첨부 접근 cache miss 및 컨테이너 HTTPS DNS 오류로 실제 바이너리 다운로드 0, ZIP 멤버 조사 0, SHA-256 봉인 0.** 원시 측정 값이나 독립 재현을 획득했다고 쓰지 않는다.
+
+추가로 GB3 X선 [1IGD](https://www.rcsb.org/structure/1IGD)와 RDC-refined solution [1P7F](https://www.rcsb.org/structure/1P7F), CaM–DAPk-peptide X선 [1YR5](https://www.rcsb.org/structure/1YR5)와 solution [2K61](https://www.rcsb.org/structure/2K61), 전체 단백질 결합 복합체 2X0G 등은 **다른 실험체계/자료유형**으로 구분해야 하며 단순 ID 대응으로 동일 시료의 원시 측정 쌍을 가정하지 않는다. 공식 [R23 보충자료 원장](mqr_54_chat44_23_iucr_supplement_primary_source_discovery_and_access_hold.md), [R25 과학사 계보](mqr_54_chat44_25_gb3_cam_protein_source_genealogy_and_world_question.md), [R26 실물 검증 분기](mqr_54_chat44_26_real_mismatch_artifact_vs_regime_discriminating_protocol.md). 이 신규 Rinaldelli/Carlon 관련 보충자료는 **현재 공식 17개 혼합 항목과 별도의 연구 특정 미입고 후보**이며 자동으로 그룹 18~20으로 추가하지 않는다. 기존 원전 17개 상태 변화 없음, Drive 이동·삭제·추가 0.
+
+---
+
 ## 2026-11-21 · MQR 44 R21–R22 — 신규 00_INTAKE 원문 1건 확인, 17개 기존 추적 그룹 그대로
 
 Google Drive [Research OS 00_INTAKE](https://drive.google.com/drive/folders/1MLtYh0pv8QUZDReYzRqjDrOjRkSJAD16) 최신 직접 목록에서 PDF 1건 확인: [Arriagada, Prato & Munizaga (2025)](https://drive.google.com/file/d/18_dp4wTC7zCTkUfUnDwNuzH3Ui4yF_YD/view), *Transportation Research Part A* **196:104467**, DOI [10.1016/j.tra.2025.104467](https://doi.org/10.1016/j.tra.2025.104467), 파일 제목 `1-s2.0-S0965856425000953-main.pdf`, 크기 2,646,521 bytes. 파일 직접 텍스트 추출과 서지 확인을 완료했으며, 이 PDF가 연구 주제의 증거로 쓰일 가능성은 별도 판정한다. **파일 이동/이름 변경/삭제/신규 업로드 없음**.
