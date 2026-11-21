@@ -1,5 +1,14 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## MQR 43 · 기록 17 (2026-11-21) — Real shared correction files and PJVS reference logs; formal calibration still HOLD
+
+- The [already-held Šíra (2023) 7z](https://drive.google.com/file/d/178ypBIq_G460hGi7oHoweTBfNfb5qmK_/view) was re-extracted for its **original calibration correction files and seven PJVS/Fluke reference measurement text logs**, separate from previously inspected raw MATs. Six named correction paths (digitizer INFO, channel INFO, SFDR.csv, Y_inp.csv, transducer INFO, Z_low.csv) were **byte-identical SHA-256 across all four QPSW runs**, providing concrete *shared calibration-file ancestry*. Full file hashes and relative paths are preserved in [record17 receipt](evidence/mqr_54_chat43_reference_lineage_receipt.json) and [research note](mqr_54_chat43_17_shared_calibration_lineage_and_pjvs_time_brackets.md).
+- The seven reference logs contain 69 numeric voltage observations in their actual original text rows, plus one missing value. Under an **uncertified same-local-wall-clock assumption** only, nominal QPSW run timestamps fall between reference readings at 2023-03-10 16:22:05 and 17:15:13. PJVS text timestamps **lack timezone**, QPSW timestamps use +01:00; no independently verified clock synchronization, run-to-reference pairing, measurand correspondence or calibrated uncertainty is established. The model defaults to HOLD and creates no automatic measured-voltage correction from temporal proximity.
+- [Source-code tests](../language/real/experiments/test_reference_lineage_v54.py) passed 8/8; selected 41/41 with previous metrology/segmentation/anomaly tests. The test fixture only validates failures and arithmetic logic; it does not authenticate instruments or their correction application.
+- **No change** to the prior 17 mixed missing-source groups or to A1 Behr(2015)/A2 Burroughs(2013) historic raw-record gaps, A3/A4 proposed yet-unexecuted experiments, or outstanding historical editions. These newly analyzed records belong to **another already held 2023 public dataset**, not new archival source acquisitions. No Drive files moved, renamed or deleted.
+
+---
+
 ## MQR 43 · 기록 13–16 (2026-11-21) — Actual published metrology bytes audited; 17 tracked gaps remain open
 
 **Research version 5.4, conversation MQR 43.** Two already-held scientific datasets were retrieved from connected Drive and locally processed using their **original complete binary files**, with the publisher-issued DOI, SHA-256, instrument metadata, executable code and scoped findings preserved. This represents a substantial *methodological evidence advance* but **not acquisition of the formerly missing A1/A2 raw archives**.
