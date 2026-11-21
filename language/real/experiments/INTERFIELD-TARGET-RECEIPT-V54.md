@@ -11,7 +11,7 @@ Input is one Claim specifying the exact target, specimen, regime and expected li
 ### Source kinds
 - SYNTHETIC: model-specified inputs and synthetic reports.
 - PUBLISHED_SUMMARY: an author's printed aggregate or table. It does not mean paper bytes constitute detector traces.
-- SOURCE_RAW: claimed actual original source bytes, not necessarily independently analysed.
+- SOURCE_RAW: claimed actual original source bytes, not necessarily independently analysed. Without an independent replay, report `RAW_SOURCE_BYTES_CLAIMED_NOT_REPLAYED` (never use the published-summary label).
 - INDEPENDENT_REPLAY: a claimed independent reproduction with distinct processing/provenance. Lab independence **still not certified** by its label or Boolean.
 
 ### Targets
@@ -39,7 +39,7 @@ python -m unittest discover -s language/real/experiments -p 'test_interfield_tar
 python -m unittest discover -s language/real/experiments -p 'test_interfield_published_refmac5_v54.py' -v
 ```
 
-A container where outbound GitHub raw downloads were blocked by DNS was supplied a local text reconstruction of exactly these modules/tests; **20 local unit tests passed**, 16 general and 4 published-case tests. The GitHub commits themselves are verified using authenticated repository reads. **Bitwise identity of local copy to repo blobs was not independently established**, and no full repo or Rust CI passed in this work session.
+A container where outbound GitHub raw downloads were blocked by DNS was supplied a local text reconstruction of exactly these modules/tests; **31 local unit tests passed** after adding 10 frozen-byte tests and 1 raw-source-kind regression: 17 general, 4 published-case, 10 byte-integrity. The GitHub commits themselves are verified using authenticated repository reads. **Bitwise identity of local copy to repo blobs was not independently established**, and no full repo or Rust CI passed in this work session.
 
 ### Published original example
 
@@ -50,3 +50,9 @@ Next change in this experimental lane should be a **source-backed signed provena
 ### Research and governance
 
 [Original protein source analysis](../../../research/mqr_54_chat44_16_primary_refmac5_five_protein_success_and_failure.md), [PDB scope correction](../../../research/mqr_54_chat44_17_pdb_chain_specimen_and_refinement_identity_gate.md), [Real-Lang existing experimental bridge](OPEN-HORIZON-BRIDGE-V54.md), [live Real-Lang doctrines](../../../doctrine/CURRENT.md). No new Harvest authority and no MQR5.5 / Real-Lang release promotion.
+
+## Addition R22 — Frozen byte manifest gate
+
+[Source-byte verifier](frozen_byte_witness_v54.py) validates an explicitly *previously frozen* lowercase SHA-256 digest and byte count against a local file, reads in chunks and fails on mutation, truncation, extension or absent data. [10 integrity regression tests](test_frozen_byte_witness_v54.py) passed locally. The calling workflow must establish that the expected hash was independently sealed before new evidence; computing an expected hash from the same suspect file at check time proves nothing useful. **Byte identity does not establish molecule/sample identity, sensor calibration, lineage independence or physical correctness.** No network access or external provider login is needed for these local tests.
+
+Source-order distinction is preserved: `SOURCE_RAW` still needs a separately reproducible process; `INDEPENDENT_REPLAY` source-kind can be *declared* but must not become scientific authority without external provenance. Unit tests are not a production release signoff.
