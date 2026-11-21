@@ -1,0 +1,19 @@
+{
+  "research": "MQR-5.4/MQR45",
+  "analysis_date": "2026-11-21",
+  "source": {"title":"Dataset for comparison of QuantumPower method to the differential PJVS method",
+             "archive_drive_id":"178ypBIq_G460hGi7oHoweTBfNfb5qmK_", "zenodo_doi":"10.5281/zenodo.10046413"},
+  "status": "PUBLISHER_ARCHIVED_PROCESSED_OUTPUTS_PARSED_NOT_QWTB_REPLAYED",
+  "units": {"U":"V","within_run_sd":"V","first_vs_second_half_difference":"V"},
+  "common": {"MAT_count":3420000,"sample_rate_sps":60000,"M_count":60,"S_count":61,"Uref_count":20,
+             "interval_count_11999":2,"interval_count_12000":28,
+             "interval_count_102000":28,"interval_count_102001":2,"per_run_U_t_count":30},
+  "sessions": [
+    {"id":"0015","U":1.13136932024924,"sample_sd":0.0000028031793380556254,"second_minus_first_half":-0.0000009522420152396904},
+    {"id":"0016","U":1.13136842965589,"sample_sd":0.000002470135512602776,"second_minus_first_half":-0.000000005114883405710202},
+    {"id":"0019","U":1.13136786503653,"sample_sd":0.000002984978467794743,"second_minus_first_half":-0.0000017619216059472365},
+    {"id":"0020","U":1.13136773999032,"sample_sd":0.000001995161975093324,"second_minus_first_half":-0.0000003003744446505863}
+  ],
+  "max_between_session_U_difference_V":0.0000015802589201641126,
+  "warning":"Manufacturer-produced outputs with uncertainty mode none; no independent calibration, ground-loop causal effect, or RMS/peak normalization proof."
+}
