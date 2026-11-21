@@ -1,14 +1,14 @@
-# MQR 46 — Research director's root-return decision after finite bootstrap and first-source critique
+# MQR 42 · 기록 04 — Research director's root-return decision after finite bootstrap and first-source critique
 
 **Date:** 2026-11-21 KST; **version:** MQR 5.4, unit 46. No renaming to MQR 5.5 without a real conceptual phase transition.
 
 ## A. Status assessment (not rhetorical progress)
 
 **Actually established:**
-1. Held PTB 2025 **processed graph exports** show an arithmetic alignment-sensitive residual but do not certify original session synchronization. [MQR45](mqr_54_mqr45_ptb_graph_alignment_not_clock_identity.md).
-2. Held Šíra 2023 7z has genuine raw MAT channels and **original experimenters' processed U_t outputs**; it is not independently replayed or SI-certified, and an RMS/peak scale question remains. [MQR45](mqr_54_mqr45_qwtb_author_outputs_and_semantic_hold.md).
-3. Finite source-grounded conceptual construction: **no justified cross-lab contact, no label-level pairing; verified contact plus independently justified structural invariance can reduce graph-isomorphism symmetries**. For C4, 24 arbitrary→8 graph-preserving→2 after one certifiable anchor→1 if an informative second neighbor anchor. The mathematics is standard stabilizer theory and is not claimed as a novel theorem. [MQR46](mqr_54_mqr46_contact_stabilizer_conditional_proposition.md).
-4. [Actual founder essay from February 5, 2026 was re-opened](mqr_54_mqr46_founder_structure_generativity_audit.md). Its future horizon is creating new feasible questions and action kinds, **not** choosing a map from a fixed set. Prior art [Feest & Steinle 2012](https://drive.google.com/file/d/1WJyJHhYFi3R27QNfNOu5Jr4pmsdq5Ua9/view) studies how experiments, concepts and theory formation jointly evolve. [Clement 1988](https://drive.google.com/file/d/1X_EeNfK7g5ablkwQweNpyU_Jhy0uIxTk/view) is near-neighbor on constructive model hypotheses.
+1. Held PTB 2025 **processed graph exports** show an arithmetic alignment-sensitive residual but do not certify original session synchronization. [MQR42-R03](mqr_54_chat42_03_ptb_graph_alignment_not_clock_identity.md).
+2. Held Šíra 2023 7z has genuine raw MAT channels and **original experimenters' processed U_t outputs**; it is not independently replayed or SI-certified, and an RMS/peak scale question remains. [MQR42-R03](mqr_54_chat42_03_qwtb_author_outputs_and_semantic_hold.md).
+3. Finite source-grounded conceptual construction: **no justified cross-lab contact, no label-level pairing; verified contact plus independently justified structural invariance can reduce graph-isomorphism symmetries**. For C4, 24 arbitrary→8 graph-preserving→2 after one certifiable anchor→1 if an informative second neighbor anchor. The mathematics is standard stabilizer theory and is not claimed as a novel theorem. [MQR42-R04](mqr_54_chat42_04_contact_stabilizer_conditional_proposition.md).
+4. [Actual founder essay from February 5, 2026 was re-opened](mqr_54_chat42_04_founder_structure_generativity_audit.md). Its future horizon is creating new feasible questions and action kinds, **not** choosing a map from a fixed set. Prior art [Feest & Steinle 2012](https://drive.google.com/file/d/1WJyJHhYFi3R27QNfNOu5Jr4pmsdq5Ua9/view) studies how experiments, concepts and theory formation jointly evolve. [Clement 1988](https://drive.google.com/file/d/1X_EeNfK7g5ablkwQweNpyU_Jhy0uIxTk/view) is near-neighbor on constructive model hypotheses.
 
 **Not established:** physically verified cross-science material transfer, new lab-measured AB/BA interchange, identical PTB/Šíra experimental runs, independent QWTB calibration, general proof that no translation is possible, L2 action-generation, L3 ontology-creation, or empirical truth of any “alien science” model.
 

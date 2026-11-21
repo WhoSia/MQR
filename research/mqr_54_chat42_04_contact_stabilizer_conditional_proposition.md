@@ -1,7 +1,7 @@
-# MQR 46 (5.4) — Contact-stabilizer boundary: what establishes cross-science preparation identity?
+# MQR 42 · 기록 04 (5.4) — Contact-stabilizer boundary: what establishes cross-science preparation identity?
 
 **Status:** finite conditional result / explicit prior-art boundary / 2026-11-21.
-**Root:** [MQR 5.4 constitution](MQR_5_4_OPEN_HORIZON_CONSTITUTION.md), particularly possible sciences, new observables, and open-ended inquiry. **Earlier assumptions:** [MQR 43 bridge](../language/real/experiments/unknown_preparation_bridge_v54.py) and [MQR 42 action alignment](../language/real/experiments/action_alignment_v54.py) presuppose either common outcome semantics or already shared preparations.
+**Root:** [MQR 5.4 constitution](MQR_5_4_OPEN_HORIZON_CONSTITUTION.md), particularly possible sciences, new observables, and open-ended inquiry. **Earlier assumptions:** [MQR 42 · 기록 01 bridge](../language/real/experiments/unknown_preparation_bridge_v54.py) and [MQR 42 action alignment](../language/real/experiments/action_alignment_v54.py) presuppose either common outcome semantics or already shared preparations.
 
 ## 1. Different operations require different kinds of evidence
 
@@ -41,7 +41,7 @@ This is a decision heuristic given cost-free, error-free, preparation-stable tra
 
 ## 5. How this changes the research question
 
-The original [founder 2026-02-05 essay, directly re-read](mqr_54_mqr46_founder_structure_generativity_audit.md) distinguishes representation from world identity and asks how theories generate possible structures and questions. Our construction addresses the *earlier* stage of establishing what can count as a shared preparation. It does not yet generate new experimental primitives or show that an alien science can independently discover the same graph predicate.
+The original [founder 2026-02-05 essay, directly re-read](mqr_54_chat42_04_founder_structure_generativity_audit.md) distinguishes representation from world identity and asks how theories generate possible structures and questions. Our construction addresses the *earlier* stage of establishing what can count as a shared preparation. It does not yet generate new experimental primitives or show that an alien science can independently discover the same graph predicate.
 
 The constructive path is **preparation contact → experimentally justified relation comparison → conditional identification → new action that could falsify that relation**. Do not equate success of graph isomorphism with ontological realism.
 

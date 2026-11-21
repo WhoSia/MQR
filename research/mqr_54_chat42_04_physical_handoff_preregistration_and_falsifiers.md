@@ -1,4 +1,4 @@
-# MQR 46 — Prospective intervention protocol and evidential gate
+# MQR 42 · 기록 04 — Prospective intervention protocol and evidential gate
 
 **Research objective:** distinguish (i) mere relabeling, (ii) physically certified preparation transfer, (iii) measured action semantics, (iv) creation of a novel executable experiment. This is a proposal, **not a record of an experiment already performed**. Avoid expensive/dangerous hardware; an initial classroom-safe manipulation of opaque tokens, paper cards, and randomized order may test the *procedure only*, not precision quantum metrology or independent aliens.
 

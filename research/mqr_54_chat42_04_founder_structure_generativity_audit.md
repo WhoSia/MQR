@@ -1,4 +1,4 @@
-# MQR 46 — The founder's 2026-02-05 essay: return to structural generation, not just translation
+# MQR 42 · 기록 04 — The founder's 2026-02-05 essay: return to structural generation, not just translation
 
 **Primary source re-opened now:** the user's HWPX in the ChatGPT Library, 「과학 이론의 구조적 전환—설명에서 구조 생성으로의 인식론적 이동」, dated 2026-02-05 (336 lines of extracted text). The [5.4 constitution](MQR_5_4_OPEN_HORIZON_CONSTITUTION.md) already described this document; this pass reopened the **actual textual source**. Several formulas are absent from the extracted representation, so no unseen mathematical expressions are guessed. Treat the original as a set of ambitious revisable propositions, not automatically established historical facts.
 
@@ -36,6 +36,6 @@ If E_old is the partition induced by the old executable experiments, L1 is captu
 
 ## New severe counterexample
 
-Two laboratories can study the *same four stable physical preparations* while one has C4 allowed operations and the other only P4 operations. Their local graphs are nonisomorphic; the MQR 46 finite matcher returns 0 under the assumption of a common isomorphism. This is NOT a world-disagreement result. It indicates their action grammars differ. The scientific response is to seek a **new shared manipulation**, not to conclude they inhabit different worlds. This is a concrete route back to the founder's structure-generation ambition.
+Two laboratories can study the *same four stable physical preparations* while one has C4 allowed operations and the other only P4 operations. Their local graphs are nonisomorphic; the MQR 42 · 기록 04 finite matcher returns 0 under the assumption of a common isomorphism. This is NOT a world-disagreement result. It indicates their action grammars differ. The scientific response is to seek a **new shared manipulation**, not to conclude they inhabit different worlds. This is a concrete route back to the founder's structure-generation ambition.
 
-**Research directive:** move beyond finding a bijection. Model how one agent's experiment leads the other to learn/build a new primitive *that could not previously be executed*. Keep both conceptual and empirical authority distinct. Current MQR 46 = conditional alignment result, not L2/L3 achieved.
+**Research directive:** move beyond finding a bijection. Model how one agent's experiment leads the other to learn/build a new primitive *that could not previously be executed*. Keep both conceptual and empirical authority distinct. Current MQR 42 · 기록 04 = conditional alignment result, not L2/L3 achieved.
