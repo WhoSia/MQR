@@ -1,6 +1,6 @@
-# MQR 45 — Šíra QPSW: original archived processing results are evidence, not yet a calibration reproduction
+# MQR 42 · 기록 03 — Šíra QPSW: original archived processing results are evidence, not yet a calibration reproduction
 
-**Source:** [Šíra (2023), original Zenodo 10046413 archive](https://drive.google.com/file/d/178ypBIq_G460hGi7oHoweTBfNfb5qmK_/view), 71,607,511-byte 7z with original experimental MAT and sidecar `qwtb.info`, `session.info`, `DIGITIZER`, `RESULTS/TWM-QPSW-G0001-A0001.info`, several `QPSW_plots`. Source-relative paths preserved in extracted local analysis, the original 7z is canonical on Drive; no edited archive was uploaded. Previous [uncorrected signal audit](mqr_54_mqr44_qpsw_four_run_diagnostic.md) reported 4×3,420,000 integer counts at 60kSa/s; the previous warning "reference correction not yet reproduced" remains true.
+**Source:** [Šíra (2023), original Zenodo 10046413 archive](https://drive.google.com/file/d/178ypBIq_G460hGi7oHoweTBfNfb5qmK_/view), 71,607,511-byte 7z with original experimental MAT and sidecar `qwtb.info`, `session.info`, `DIGITIZER`, `RESULTS/TWM-QPSW-G0001-A0001.info`, several `QPSW_plots`. Source-relative paths preserved in extracted local analysis, the original 7z is canonical on Drive; no edited archive was uploaded. Previous [uncorrected signal audit](mqr_54_chat42_02_qpsw_four_run_diagnostic.md) reported 4×3,420,000 integer counts at 60kSa/s; the previous warning "reference correction not yet reproduced" remains true.
 
 ## Work unit and executable checks
 

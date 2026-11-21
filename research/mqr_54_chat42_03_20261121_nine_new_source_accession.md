@@ -1,4 +1,4 @@
-# MQR 45 — 2026-11-21, continuing intake: Hadot/practice philosophy and two Korean assessment papers
+# MQR 42 · 기록 03 — 2026-11-21, continuing intake: Hadot/practice philosophy and two Korean assessment papers
 
 This research turn began from **previously held PTB / Šíra physical-data files**; further uploads appeared in [Research OS 00_INTAKE](https://drive.google.com/drive/folders/1MLtYh0pv8QUZDReYzRqjDrOjRkSJAD16) during the turn. **Nine newly arrived originals were independently opened and classified by bibliographic / source role**, checked against existing Drive title searches, moved by metadata-only operations, and read back with the *same IDs, new parent and matching byte sizes*. Never use MQR Chat Archive for source custody. Scholarly paper PDFs went to the common `10_PAPERS`, two Hadot monographs and the 2013 edited anthology EPUB to `11_BOOKS`. Uploading or moving bytes does not by itself verify publisher byte identity; no independent comparison hashes were calculated for these nine.
 

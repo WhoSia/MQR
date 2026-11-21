@@ -1,6 +1,6 @@
-# MQR 45 — PTB 2025 figure-export graph alignment falsifiability
+# MQR 42 · 기록 03 — PTB 2025 figure-export graph alignment falsifiability
 
-**Input source:** [PTB Original Optical JAWS 2025 ZIP](https://drive.google.com/file/d/1iE96PNpjXKVqROx1GXprQ7N7D42KOabF/view), DOI [10.7795/720.20250210](https://doi.org/10.7795/720.20250210); source ZIP SHA-256 `cdc5cfe15c2d5f81e59515113b78a5eff5abdcffda624849a154cd3ca5836a8c` matched official publisher value in MQR44. Its `fig3b.txt`, `fig3d.txt`, and `fig3f.txt` are **processed plot export tables**, not synchronized digitizer session raw logs. Previous [MQR44 closure analysis](mqr_54_mqr44_offset_nonidentifiability_and_bridges.md) obtained same-grid 999 rows and `mean(A+B−C) ≈−0.2295063964mV`.
+**Input source:** [PTB Original Optical JAWS 2025 ZIP](https://drive.google.com/file/d/1iE96PNpjXKVqROx1GXprQ7N7D42KOabF/view), DOI [10.7795/720.20250210](https://doi.org/10.7795/720.20250210); source ZIP SHA-256 `cdc5cfe15c2d5f81e59515113b78a5eff5abdcffda624849a154cd3ca5836a8c` matched official publisher value in MQR42-R02. Its `fig3b.txt`, `fig3d.txt`, and `fig3f.txt` are **processed plot export tables**, not synchronized digitizer session raw logs. Previous [MQR42-R02 closure analysis](mqr_54_chat42_02_offset_nonidentifiability_and_bridges.md) obtained same-grid 999 rows and `mean(A+B−C) ≈−0.2295063964mV`.
 
 ## New holdout sensitivity analysis
 
