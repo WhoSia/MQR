@@ -1,0 +1,106 @@
+{
+  "protocol": "MQR_5_4_43_real_metrology_v1",
+  "date": "2026-11-21",
+  "claim_scope": "Two distinct public metrology datasets; NOT an independent cross-laboratory comparison of the same specimen or measurand.",
+  "software": "language/real/experiments/metrology_source_audit_v54.py",
+  "dataset_kraus": {
+    "doi": "10.7795/720.20250210",
+    "drive_file_id": "1iE96PNpjXKVqROx1GXprQ7N7D42KOabF",
+    "original_zip_sha256": "cdc5cfe15c2d5f81e59515113b78a5eff5abdcffda624849a154cd3ca5836a8c",
+    "figure6_sha256": "c6e286941e7def4c8b66fa6ed8b3d32b89c9bdb44e108dac175f12d4f6791d8a",
+    "source_kind": "processed plot export, NOT raw 500 kSa/s ADC samples",
+    "row_count": 2101,
+    "t_seconds_first_last": [
+      0,
+      2100
+    ],
+    "analysis_windows": "first 300 and last 300 rows",
+    "deviation_microV_per_V": {
+      "early_mean": -97.48351053333333,
+      "late_mean": -99.14835656666668,
+      "difference_late_minus_early": -1.6648460333333475,
+      "lag1": 0.8386471358753229,
+      "moving_block_bootstrap_95_exploratory": [
+        -2.715407740000008,
+        -0.5743827424999807
+      ]
+    },
+    "THD_dB": {
+      "early_mean": -103.87451356666666,
+      "late_mean": -103.65155706666665,
+      "difference_late_minus_early": 0.22295650000000933,
+      "lag1": 0.7188669887634156,
+      "moving_block_bootstrap_95_exploratory": [
+        0.13857097166664403,
+        0.3056682808333484
+      ]
+    },
+    "mean_same_row_channel1_minus_channel0_dBV": 0.00015995240361669426,
+    "bootstrap": {
+      "block_length_seconds": 60,
+      "replications": 2000,
+      "seed": 43,
+      "meaning": "heuristic sensitivity analysis, NOT calibrated instrument uncertainty"
+    },
+    "moving_average_derived_column_lag1": {
+      "amplitude": 0.9997762162385551,
+      "THD": 0.9997342647476836
+    },
+    "prohibitions": [
+      "not an intervention comparison",
+      "two channels share a measurement ancestry",
+      "moving averages are not independent world-contact routes",
+      "Figure3 traces do not establish same-run specimen pairing"
+    ]
+  },
+  "dataset_sira": {
+    "doi": "10.5281/zenodo.10046413",
+    "drive_file_id": "178ypBIq_G460hGi7oHoweTBfNfb5qmK_",
+    "archive_sha256": "a4a68342b1e514d7611e6bd6a93d12a4afe5cc5531b92af5ae711a3eb233583e",
+    "archive_entries": 769,
+    "file_entries": 728,
+    "MAT_files": 4,
+    "sample_count_per_MAT": 3420000,
+    "sample_rate_Sa_per_s": 60000,
+    "nominal_duration_seconds": 57,
+    "record_sample_gain_V_per_count": 5.5250876e-9,
+    "processed_U_t_count_per_run": 30,
+    "QWTB_uncertainty_mode": "none",
+    "runs": [
+      {
+        "id": "0015",
+        "mat_sha256": "88e72aee287742ea358acb2d460d04754fd270b3556472b157ba24faa00a2f38",
+        "timestamp": "2023-03-10T16:50:40.167183+01:00",
+        "full_trace_rms_V": 0.8126092926115207,
+        "mean_processed_U_t_V": 1.1313693202492423
+      },
+      {
+        "id": "0016",
+        "mat_sha256": "0628ac21fabcf1ecbd1bf0e1836058369cddfbec2e451e8e725a933a78d33ee0",
+        "timestamp": "2023-03-10T16:55:22.028724+01:00",
+        "full_trace_rms_V": 0.8130359699037096,
+        "mean_processed_U_t_V": 1.131368429655887
+      },
+      {
+        "id": "0019",
+        "mat_sha256": "3de5159515ee6b05052349e368a7294b47c5d4ebe44a4e2aa7ec67b3544ef050",
+        "timestamp": "2023-03-10T17:04:08.328930+01:00",
+        "full_trace_rms_V": 0.8130236077178223,
+        "mean_processed_U_t_V": 1.1313678650365269
+      },
+      {
+        "id": "0020",
+        "mat_sha256": "57d157558d6c3521ffb86c15612fac3975309f6c29b736cfb2ae3c48a4e37d62",
+        "timestamp": "2023-03-10T17:05:55.789805+01:00",
+        "full_trace_rms_V": 0.8133000922527136,
+        "mean_processed_U_t_V": 1.1313677399903164
+      }
+    ],
+    "prohibitions": [
+      "do not equate raw all-sample RMS with QWTB selected and processed RMS",
+      "runs share instruments and are not independent laboratories",
+      "not a replicate of the two calibration methods' full comparison",
+      "uncertainty mode none precludes calibrated confidence claims"
+    ]
+  }
+}
