@@ -9,7 +9,7 @@
 
 ## 1. The central research correction
 
-The six-state-permutation active learner cannot construct a new scientific **question** out of a failed candidate match; its best-query objective is frozen and its output type fixed in advance. The new anomaly register repairs the loss of a possible reason to reopen that vocabulary but **does not generate revised concepts or certify evidence**.
+The six-permutation active learner on three latent states cannot construct a new scientific **question** out of a failed candidate match; its best-query objective is frozen and its output type fixed in advance. The new anomaly register repairs the loss of a possible reason to reopen that vocabulary but **does not generate revised concepts or certify evidence**.
 
 Historical comparisons imply at least three distinct open-world transitions:
 
