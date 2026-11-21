@@ -29,6 +29,10 @@ class TestInterfieldEvidence(unittest.TestCase):
     def test_published_no_replay(self):
         self.assertEqual(assess(CLAIM,(make(paired_target_verified=True,calibration_verified=True),)),
                          "PUBLISHED_COMPATIBILITY_NOT_REPLAYED")
+    def test_raw_input_not_mislabeled_as_published_or_replayed(self):
+        r=make(source_kind="SOURCE_RAW",paired_target_verified=True,calibration_verified=True)
+        self.assertEqual(assess(CLAIM,(r,)),"RAW_SOURCE_BYTES_CLAIMED_NOT_REPLAYED")
+
     def test_preservation_gate(self):
         self.assertEqual(assess(CLAIM,(make(original_scope_retained=False),)),
                          "HOLD_ORIGINAL_SCOPE_NOT_PRESERVED")
