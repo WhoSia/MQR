@@ -1,5 +1,14 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## 2026-11-21 · MQR 44 R13 — 정확한 Drive 원문 발견에 따른 미보유 후보 정정
+
+**Deulofeu & Suárez (2023), “Pluralism and Complexity without Integration?” is ALREADY HELD, full journal PDF.** Direct authenticated Google Drive title search **and** source fetch confirmed exact [Drive full PDF](https://drive.google.com/file/d/1bgd9vw84e3tZ80MEGBPmonjg0xUk-Kb_/view), *Theoria* 38(3):299–317, DOI [10.1387/theoria.23871](https://doi.org/10.1387/theoria.23871). The earlier MQR44 R10 note that its exact PDF was unverified is superseded: **do not recommend re-acquiring this article**. Also [Mitchell (2020), “Through the Fractured Looking Glass”](https://drive.google.com/file/d/1LnEhdfgvcOQtIwGmL1arFveInkE2AZXm/view) held as preprint. [Primary-text and custody correction R13](mqr_54_chat44_13_deulofeu_2023_held_correction_and_mitchell_original.md).
+
+This was a **separate proposed missing candidate**, not one of the established 17 heterogeneous groups, so the official group count **remains 17** (A1/A2 old raw records, A3/A4 future unperformed experiments, #5–17 editions/manuscript/source exactness). Weiskopf (2025) publisher full HTML is accessible but exact Drive PDF unverified; Hoagland et al. (1958) original public PDF accessible but exact Drive PDF unverified. Neither is proved globally absent. No source files moved, imported or deleted. The exact PDF content was read from the already-held Drive file; no new acquisition is implied.
+
+---
+
+
 ## 2026-11-21 MQR 43 · Work source-acquisition attempt reported unsuccessful (security URL-verification stop; 0 new items)
 
 **Source of attempt status:** The user supplied an explicit completion/failure report from a separate **Windows Work/Computer Use** task. The report says the computer-use tool could not sufficiently verify the browser's current URL and instructed the task to stop. The Work operator respected the security stop and did **not** bypass it. We do not have the original Work session's action log in this Chat; these activity details are **user-relayed Work reporting**, not a claim that Chat independently replayed the browser session.
