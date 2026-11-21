@@ -1,0 +1,17 @@
+# MQR44 — Rorty, Hadot, Timmenga: three meanings of “doing philosophy”
+
+## Direct primary text: Richard Rorty (1984)
+[“The Historiography of Philosophy: Four Genres”](https://drive.google.com/file/d/1jFjhCBBvTNVt1EoDXW8zNmJLQCvXyWT9/view), pp. 49–75 in *Philosophy in History* (Cambridge digital edition DOI [10.1017/CBO9780511625534.006](https://doi.org/10.1017/CBO9780511625534.006)). Rorty contrasts **rational reconstruction** (past arguments treated as present interlocutors) and **historical reconstruction** (past questions/terms reconstructed in their own setting), before his broader intellectual-history and Geistesgeschichte kinds. He explicitly says we should do rational and historical reconstruction **separately**, rather than pretending there is one neutral description.
+
+**MQR consequence:** A 1783 calorimetry memoir analyzed with 2026 Bayesian uncertainty language is a *rational reconstruction*. Its contemporary correspondence and Wedgwood's access to specific German/French instructions are *historical reconstruction*. Both can be valuable, but neither licences treating modern algebraic vocabulary as an author's own terms. A history-of-science example can motivate prospective experiments but cannot by itself validate their physical identity. The requirement to keep source roles explicit is thus philosophical, not just bibliographic bureaucracy.
+
+## Secondary reference: Matthew Sharpe, *Internet Encyclopedia of Philosophy*
+[Sharpe's “Pierre Hadot”](https://drive.google.com/file/d/1aS0L_RDEqGWEkM7e0kFMqQvZSNKlwnGe/view) is a secondary encyclopedia entry, no confirmed publication year. Sharpe describes Hadot's framing of ancient philosophy as **way of life**, learned through dialogue, exercises, rational reflection and transformed comportment; the entry states modern academic theoretical discourse can lose this practical dimension. Do not attribute the modern encyclopedia author's exposition or its interpretive choices to a directly read original Hadot book.
+
+## Newly held Friso Timmenga (2024)
+[“Academic Philosophy: A Way of Life?”, *Pli* 35:47–72](https://drive.google.com/file/d/1hrd4TzGJmkYQlW8WQANAobSTB6JniAB8/view). 27-page university-hosted PDF; first page bibliographic and rest are image scan. Initial page/abstract visually checked, whole argumentative detail **OCR/read-through HOLD**. This source bears directly on whether lived inquiry and academic incentive-driven publication can be reconciled; do not invent page-level claims until the scan is fully read.
+
+## Research-director discrimination
+(a) **World responsiveness**: a model generates discriminatory experimental predictions and is corrected by evidence. (b) **Professional legitimation**: how a field defines and rewards publishability and methodology. (c) **Practical philosophical orientation**: a way of intellectual life, including training and experience. Neither (b) nor (c) substitutes for (a), but they can affect which (a)-tests are ever considered. MQR should not let bibliometrics crowd out the more difficult original question: how two alien research traditions can jointly **discover preparations and reference operations** that they did not previously share.
+
+Working falsifier: if a claimed common test is accepted solely because the file labels coincide, replace labels by an arbitrary bijection. If every purported conclusion survives unchanged, semantic cross-identification has *not* been learned.
