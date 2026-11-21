@@ -1,5 +1,16 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## 2026-11-21 · MQR44 R28–R32 — Faraday diary EDITED FULL ENTRIES OPEN, autograph photo HOLD
+
+New *research-specific* discovery source does not close any pre-existing official 17 mixed missing/source groups. Royal Institution's [2008 Faraday's Diary preview](https://www.faradaysdiary.com/ws2/faraday.pdf), original author notebook published in a later edited transcription, was read directly at Vol. I printed pp.367–372, PDF pages 36–41: **29 Aug 1831 §§1–13** success and chemistry negative; **30 Aug §14/15/18** first-circuit vs detector-circuit negative controls, spark failure, iron-cylinder substitution; **24 Sep §§21–33** many no-signal coil variants, ring/cylinder retained positives and permanent magnet contact positive. The historical edited full passage IS ONLINE AVAILABLE, not 'original diary absent'; **handwritten autograph page photographic source collation and exact editorial differences remain HOLD**, the PDF web page-image screenshot failed despite extracted text working. [R31 source-specific research](mqr_54_chat44_31_faraday_original_dated_diary_success_negative_controls.md).
+
+[Original surviving induction-ring hardware](https://www.rigb.org/explore-science/explore/collection/michael-faradays-ring-coil-apparatus) is a museum object and distinct from notebook/microdata files; [Royal Society original Faraday 1831 manuscript catalogue PT/20/4](https://catalogues.royalsociety.org/CalmView/Record.aspx?id=PT%2F20%2F4&src=CalmView.Catalog) is locator, NOT a digitally verified autograph leaf. [Steinle (1997) full paper](https://drive.google.com/file/d/1rl444ab9HV-Q285EwbPq1QBR2z5g3JcR/view) and [Steinle (2016) full English book](https://drive.google.com/file/d/1-kviuErWDAEJMRlcbACBX7FbLR55hV1G/view) are **already HELD** in Research OS Drive, NOT missing or new acquisitions. Earlier [MQR41 source audit](mqr_54_mqr41_ersted_maxwell_trna_question_genesis_historical_episode_ledger.md) already used Steinle on 1820 Ørsted; new MQR44 direct 1831 diary original-actor record is supplementary.
+
+No manuscripts or PDF bytes imported/moved/deleted, legacy 17 groups **remain 17**, extra 1831 autograph-image parity is a separately qualified research radar without manufactured group 18.
+
+---
+
+
 ## 2026-11-21 MQR 44 R23–R26 — 2014 저자 공식 보충자료 확인 / 실바이트 미입고 (추적 그룹 17 유지)
 
 2014 Rinaldelli 외의 [원 논문](https://pmc.ncbi.nlm.nih.gov/articles/PMC4306559/)은 **보충자료 두 건**을 직접 명시한다: [2014 정밀화 방법 27KB DOC](https://doi.org/10.1107/S1399004713034160/dz5299sup1.doc) 및 [저자 프로토콜·좌표·NMR/X선 관련 파일 10.8MB ZIP](https://doi.org/10.1107/S1399004713034160/dz5299sup2.zip). [Carlon 외 2018 online / 2019 volume](https://link.springer.com/article/10.1007/s10858-018-0212-3)에도 [3.3MB supplementary DOCX](https://static-content.springer.com/esm/art%3A10.1007%2Fs10858-018-0212-3/MediaObjects/10858_2018_212_MOESM1_ESM.docx)가 실려 있다. 웹 원문 제공 사실 확인 완료. **브라우저 직접 첨부 접근 cache miss 및 컨테이너 HTTPS DNS 오류로 실제 바이너리 다운로드 0, ZIP 멤버 조사 0, SHA-256 봉인 0.** 원시 측정 값이나 독립 재현을 획득했다고 쓰지 않는다.
