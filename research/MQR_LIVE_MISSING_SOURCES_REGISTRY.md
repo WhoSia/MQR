@@ -1,5 +1,18 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## 2026-11-21 · MQR 44 R21–R22 — 신규 00_INTAKE 원문 1건 확인, 17개 기존 추적 그룹 그대로
+
+Google Drive [Research OS 00_INTAKE](https://drive.google.com/drive/folders/1MLtYh0pv8QUZDReYzRqjDrOjRkSJAD16) 최신 직접 목록에서 PDF 1건 확인: [Arriagada, Prato & Munizaga (2025)](https://drive.google.com/file/d/18_dp4wTC7zCTkUfUnDwNuzH3Ui4yF_YD/view), *Transportation Research Part A* **196:104467**, DOI [10.1016/j.tra.2025.104467](https://doi.org/10.1016/j.tra.2025.104467), 파일 제목 `1-s2.0-S0965856425000953-main.pdf`, 크기 2,646,521 bytes. 파일 직접 텍스트 추출과 서지 확인을 완료했으며, 이 PDF가 연구 주제의 증거로 쓰일 가능성은 별도 판정한다. **파일 이동/이름 변경/삭제/신규 업로드 없음**.
+
+원문에서 저자들의 **data availability 문구는 연구자가 개별 교통카드 거래 원시자료를 공유할 권한이 없다고 명시한다.** 따라서 논문 PDF 보유는 개별 승객 원시거래자료 보유 또는 재현 가능한 raw data를 뜻하지 않는다. 환경 변화·행동 관성 연구의 독자적 자료로 분류하며 기존 A1/A2 메트롤로지 원자료 또는 A3/A4 미실시 광학실험, #5–#17 역사 원고 누락을 해소하지 않는다. [직접 연구 및 인수 분류 R21](mqr_54_chat44_21_00_intake_new_transit_inertia_and_transport_gate.md).
+
+추가 연구 대상 [Rinaldelli 외(2014) 단백질 정밀화 논문](https://pubmed.ncbi.nlm.nih.gov/24699641/)의 재현 경로는 RCSB 공식 다운로드 문서에 따라 각 PDB 파일의 **좌표와 별도 구조인자**, 원 NMR restraint, 생물학적 사슬·시료조건·R-free flags가 필요하다. 현재 그 개별 원시 파일들의 확보·독립 실험 재정밀화는 **HOLD**다. [R20 감독 원장](mqr_54_chat44_20_director_r16_r19_world_facing_roadmap.md). PDB 원본 온라인 링크의 존재만으로 MQR의 raw custody closure로 승격하지 않는다.
+
+**공식 분모 유지: 17개 이질적인 기존 미보유/실험 미실시 항목**, 이번 확인된 00 파일은 그 항목들 중 어느 것과도 동일한 원전이 아니다. 추가 자료 후보를 자동으로 그룹 18로 추가하지 않는다. 문헌 분류보다 데이터·측정의 출처 상태를 우선 구별한다.
+
+---
+
+
 ## 2026-11-21 · MQR 44 R13 — 정확한 Drive 원문 발견에 따른 미보유 후보 정정
 
 **Deulofeu & Suárez (2023), “Pluralism and Complexity without Integration?” is ALREADY HELD, full journal PDF.** Direct authenticated Google Drive title search **and** source fetch confirmed exact [Drive full PDF](https://drive.google.com/file/d/1bgd9vw84e3tZ80MEGBPmonjg0xUk-Kb_/view), *Theoria* 38(3):299–317, DOI [10.1387/theoria.23871](https://doi.org/10.1387/theoria.23871). The earlier MQR44 R10 note that its exact PDF was unverified is superseded: **do not recommend re-acquiring this article**. Also [Mitchell (2020), “Through the Fractured Looking Glass”](https://drive.google.com/file/d/1LnEhdfgvcOQtIwGmL1arFveInkE2AZXm/view) held as preprint. [Primary-text and custody correction R13](mqr_54_chat44_13_deulofeu_2023_held_correction_and_mitchell_original.md).
