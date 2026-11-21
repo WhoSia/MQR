@@ -1,4 +1,4 @@
-# MQR 43 / 2026-11-21 13:18 KST — 00_INTAKE five new files, 1968 witness and source priority correction
+# MQR 42 · 기록 01 / 2026-11-21 13:18 KST — 00_INTAKE five new files, 1968 witness and source priority correction
 
 At ~2026-11-21 04:16–04:19 UTC, five new PDF children arrived in `00_INTAKE`. Direct Drive PDF text was read, original title pages/issue citations were compared, per-title Drive search performed, then metadata-only rename+move. **All five ID, destination folder and exact file sizes were rechecked by name/ID queries.** Final `00_INTAKE` direct-children check returned zero at that instant. No original deleted.
 
@@ -27,4 +27,4 @@ The same volume's Introduction describes a choice between engineering reduction 
 
 The actual held Behr et al. (2015), *Metrologia* 52:528–537, DOI [10.1088/0026-1394/52/4/528](https://doi.org/10.1088/0026-1394/52/4/528), reports **JAWS vs ac quantum voltmeter (ac-QVM) differential sampling** from 30 Hz–2 kHz, with 1 V RMS at 250 Hz and 14 measurements over three days. Its thermal converter references describe **other** calibration/validation work, **not a simultaneous matched thermal channel in this same experiment**. The old registry phrase “2015 JAWS 1V 2kHz paired differential and thermal” overclaimed what this paper supports. New precise request: *figure-level time-stamped/acquisition records and acquisition metadata for same-session JAWS–ac-QVM 1 V RMS sweeps, and separately where available any independent thermal-standard cross-validation runs*. Two-channel thermal pairing must not be invented.
 
-See [new practical data-acquisition register](mqr_54_mqr43_acquisition_practical_guide.md) and [pairing identifiability methods note](mqr_54_mqr43_pairwise_data_identifiability.md).
+See [new practical data-acquisition register](mqr_54_chat42_01_acquisition_practical_guide.md) and [pairing identifiability methods note](mqr_54_chat42_01_pairwise_data_identifiability.md).

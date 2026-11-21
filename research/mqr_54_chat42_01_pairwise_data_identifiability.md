@@ -1,6 +1,6 @@
 # MQR 5.4 / 43 — 공유 준비가 주어지지 않은 두 과학의 대응: permutation obstruction
 
-2026-11-21 KST · prior program [MQR 42 action translation](mqr_54_mqr42_action_alignment_shared_preparation_limit.md) · [finite implementation](../language/real/experiments/unknown_preparation_bridge_v54.py) · [exhaustive tests](../language/real/experiments/test_unknown_preparation_bridge_v54.py) · [source acquisition](mqr_54_mqr43_acquisition_practical_guide.md).
+2026-11-21 KST · prior program [MQR 42 action translation](mqr_54_mqr42_action_alignment_shared_preparation_limit.md) · [finite implementation](../language/real/experiments/unknown_preparation_bridge_v54.py) · [exhaustive tests](../language/real/experiments/test_unknown_preparation_bridge_v54.py) · [source acquisition](mqr_54_chat42_01_acquisition_practical_guide.md).
 
 ## 1. 새로 드러난 실질적 결손
 
