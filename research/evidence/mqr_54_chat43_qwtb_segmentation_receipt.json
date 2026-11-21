@@ -1,0 +1,53 @@
+{
+  "protocol": "MQR_5_4_chat43_QWTB_segmentation_energy_audit_v1",
+  "archive_DOI": "10.5281/zenodo.10046413",
+  "archive_sha256": "a4a68342b1e514d7611e6bd6a93d12a4afe5cc5531b92af5ae711a3eb233583e",
+  "intervals_per_run": 60,
+  "boundaries_per_run": 61,
+  "nominal_samples_per_run": 3420000,
+  "segment_widths_distribution_per_run": {
+    "short_11999": 2,
+    "short_12000": 28,
+    "long_102000": 28,
+    "long_102001": 2
+  },
+  "metadata_M": "Sixty alternating -1/+1 labels, not physical sign verification",
+  "rms_identity": "sqrt(sum(segment_len * segment_rms^2) / 3420000) = full-record RMS",
+  "max_abs_reconstruction_discrepancy_V": 1.1102230246251565e-16,
+  "runs": [
+    {
+      "run_id": "0015",
+      "mat_sha256": "88e72aee287742ea358acb2d460d04754fd270b3556472b157ba24faa00a2f38",
+      "mean_short_segment_rms_V": 0.9285781141377979,
+      "mean_long_segment_rms_V": 0.7978585636411902,
+      "full_trace_rms_V": 0.8126092926115207
+    },
+    {
+      "run_id": "0016",
+      "mat_sha256": "0628ac21fabcf1ecbd1bf0e1836058369cddfbec2e451e8e725a933a78d33ee0",
+      "mean_short_segment_rms_V": 0.930776713393573,
+      "mean_long_segment_rms_V": 0.7980429791538881,
+      "full_trace_rms_V": 0.8130359699037096
+    },
+    {
+      "run_id": "0019",
+      "mat_sha256": "3de5159515ee6b05052349e368a7294b47c5d4ebe44a4e2aa7ec67b3544ef050",
+      "mean_short_segment_rms_V": 0.9283025781497821,
+      "mean_long_segment_rms_V": 0.7983678391665089,
+      "full_trace_rms_V": 0.8130236077178223
+    },
+    {
+      "run_id": "0020",
+      "mat_sha256": "57d157558d6c3521ffb86c15612fac3975309f6c29b736cfb2ae3c48a4e37d62",
+      "mean_short_segment_rms_V": 0.9363163119036311,
+      "mean_long_segment_rms_V": 0.7975812564982384,
+      "full_trace_rms_V": 0.8133000922527136
+    }
+  ],
+  "limits": [
+    "A partition energy identity is mathematical, NOT validation of QWTB TWM-PSFE measurement processing",
+    "Software's RMS voltage U_t still not independently reconstructed",
+    "Segment labels and confidence flags are not physical independence certificates",
+    "Four runs originate from one equipment/calibration lineage"
+  ]
+}
