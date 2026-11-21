@@ -10,6 +10,8 @@
 
 **핵심 역사 연구 질문도 수정:** 1799년에 Vauquelin에게 귀속되어 발표된 도자기 분석 비율이 실제 그의 원기록과 일치하지 않았다는 점과 1810년 정정이 Chaldecott(1975)에 기록돼 있다. 따라서 이 그룹은 아직 읽지 않은 '세 논문'이 아니라 **원자료→전재→오기/권위 이동→정정**의 계보를 교차 검증하는 과제다. 오류가 어떤 특정 판본에서 처음 발생했는지 원시 초판들을 직접 보기 전에는 단정하지 않는다. Chaldecott PDF 추출에서 Table 2 열 정렬이 깨져 **성분별 정확한 숫자 대조는 아직 보류**한다.
 
+**공동 관측의 더 기본적인 식별 한계:** [원래부터 짝지어지지 않은 두 과학의 출력](mqr_54_chat42_06_unpaired_native_observables.md)이 각기 (a,a,b,b), (x,x,y,y)여도, 가능한 시료 대응 24개 가운데 **8개는 공동 2개 상태**, **16개는 공동 4개 상태**를 만든다. 시료가 실제로 같다는 유효한 물리적 인계 기록이 없으면 상보적 계측을 결합해 얻은 분해능 자체도 확정되지 않는다. 정확한 [실행 코드](../language/real/experiments/unpaired_native_readouts_v54.py)와 [7개 테스트](../language/real/experiments/test_unpaired_native_readouts_v54.py)는 기존 순차측정 8개와 함께 15/15 로컬 통과. 이는 통계적 matching/coupling의 알려진 식별 문제를 MQR 준비 상태에 적용한 것이며, 신규 물리 측정을 뜻하지 않는다.
+
 **새 유한 모형의 교훈:** [순차 측정의 관측 비간섭 조건](mqr_54_chat42_06_sequential_contact_and_order_effects.md)을 3상태 이진 판독·결정적 상태 변환 조합 **46,656건**으로 검증했다. 이 작업은 현실 AB/BA 관측을 획득한 것이 아니라 **서로 다른 출력의 결합이 허용될 조건**을 정의한 것이다. 기록 표와 물리적 측정 과정의 동일성을 혼동하지 않는다는 점에서만 #17 역사 사례와 연결된다.
 
 **00_INTAKE 보관 처리:** 같은 날 들어온 [Pucci & Batterham(2020) NCBI Endotext 비논문형 교과서 장 PDF](https://drive.google.com/file/d/1Zgt2ElG6cgHJ69XTQj2mx6QKNYYXjlN-/view)는 원문 저자/갱신일 확인 후 공통 `20_NON_PAPER_SOURCES`로 **파일 ID를 보존하며 메타데이터만 이동**했다. MQR 관련 자료가 아니므로 MQR 소스나 Chat Archive로 넣지 않았고 MQR 17그룹 집계에는 포함되지 않는다. 마지막 00 폴더 상태는 조회 시점에만 유효하다.
