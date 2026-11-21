@@ -1,4 +1,4 @@
-# MQR 44 — Nov 21 2026 accession / seven immutable Drive objects
+# MQR 42 · 기록 02 — Nov 21 2026 accession / seven immutable Drive objects
 
 Seven objects were identified by **reopening the actual Research OS `00_INTAKE` folder**, because a raw Drive parent search initially returned an incorrect zero count. The folder was rechecked after each set of moves. All seven retain their source Drive IDs and raw byte sizes; only names and parents were changed. At close, direct children of [00_INTAKE](https://drive.google.com/drive/folders/1MLtYh0pv8QUZDReYzRqjDrOjRkSJAD16) = 0, a time-scoped observation. **No file was moved to the MQR Chat Archive.** The Research OS [naming](https://docs.google.com/document/d/1OY2hQdUH0xYwiJr6HKTg5wixWLWcfymYM5U-XDeMoyM/edit) and [custody](https://docs.google.com/document/d/1GK7OrfZfr4nBEfpHEszzmp8LCPFYAxP_g46YVek-rlc/edit) standards were read.
 

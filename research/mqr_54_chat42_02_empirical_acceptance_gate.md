@@ -1,4 +1,4 @@
-# MQR44 raw/processed data gate: what may be concluded
+# MQR42-R02 raw/processed data gate: what may be concluded
 
 Input **PTB 2025**: [original immutable processed graphs](https://drive.google.com/file/d/1iE96PNpjXKVqROx1GXprQ7N7D42KOabF/view). [SHA256](https://oar.ptb.de/resources/show/10.7795/720.20250210) is verified on local archive; its README says 12 Origin-exported figure tables. The three `fig3b,d,f` time vectors line up numerically, but identical exported x-values do not establish common physical-run timestamps. Allowed: numerical closure, explanatory mathematical model and negative controls. Not allowed: claims of measured stray-light cancellation, actual dark readings, instrument transfer calibration or nV/V metrological uncertainty.
 

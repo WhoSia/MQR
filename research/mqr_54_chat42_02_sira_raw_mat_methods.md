@@ -1,4 +1,4 @@
-# MQR44 — Šíra QuantumPower/PJVS source archive: actual raw-sample witnesses
+# MQR42-R02 — Šíra QuantumPower/PJVS source archive: actual raw-sample witnesses
 
 ## Identity and custody
 Archive: [Šíra (2023) Zenodo 10046413](https://drive.google.com/file/d/178ypBIq_G460hGi7oHoweTBfNfb5qmK_/view), deposited 2023, `71,607,511` compressed bytes, MD5 `e53319bb7d760122979e9b6c60395598`, SHA256 `a4a68342b1e514d7611e6bd6a93d12a4afe5cc5531b92af5ae711a3eb233583e`. Local `7z` listing: **769 archive members**: **41 directories + 4 MATLAB `.mat` raw streams + 28 `.info` metadata objects + 12 `.csv` tables + 7 `.txt` + 337 `.fig` + 339 `.png` + 1 `.ods` = 769 entries**, recomputed from the actual `7z` archive manifest (no missing 41-directory accounting). Original archive retained, never overwritten by extracted derivatives.

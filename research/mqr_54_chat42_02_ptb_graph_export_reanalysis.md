@@ -1,4 +1,4 @@
-# MQR 44 — PTB optical-JAWS published graph-export readout
+# MQR 42 · 기록 02 — PTB optical-JAWS published graph-export readout
 
 **Original source:** [Kraus et al. (2025) Measurement Data for “Parallelization of the optical pulse-drive for AC Josephson voltage standards”](https://drive.google.com/file/d/1iE96PNpjXKVqROx1GXprQ7N7D42KOabF/view), [DOI 10.7795/720.20250210](https://doi.org/10.7795/720.20250210); official ZIP SHA-256 `cdc5cfe15c2d5f81e59515113b78a5eff5abdcffda624849a154cd3ca5836a8c`, byte verified. The archived README states **12 tables exported from Origin for publication figures** — these are processed graph values, **not the full ADC acquisition stream**. Sampling rate 500 kSa/s and 50,000 samples per spectrum are manufacturer/reporting parameters, not evidence that all underlying samples are in this archive.
 

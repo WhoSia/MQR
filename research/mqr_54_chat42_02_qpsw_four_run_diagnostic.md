@@ -1,4 +1,4 @@
-# MQR 44 — raw channel diagnostics; NOT a quantum reference validation
+# MQR 42 · 기록 02 — raw channel diagnostics; NOT a quantum reference validation
 
 Source: [Šíra (2023) dataset, Zenodo 10046413](https://drive.google.com/file/d/178ypBIq_G460hGi7oHoweTBfNfb5qmK_/view). Measurements from 2023-03-10, F7520A nominal 0.8V 60Hz source, NI PXI-5922 serial F22D5B, 24 bit, 60kSa/s, 3,420,000 count samples =57s per MAT file. The four sessions all report gain 5.5250876e-9 V/count and zero recorded offset. No QPSW/PSFE reference corrections were applied; numbers below are exploratory.
 

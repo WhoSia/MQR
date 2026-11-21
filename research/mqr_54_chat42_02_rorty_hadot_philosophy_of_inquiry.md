@@ -1,4 +1,4 @@
-# MQR44 — Rorty, Hadot, Timmenga: three meanings of “doing philosophy”
+# MQR42-R02 — Rorty, Hadot, Timmenga: three meanings of “doing philosophy”
 
 ## Direct primary text: Richard Rorty (1984)
 [“The Historiography of Philosophy: Four Genres”](https://drive.google.com/file/d/1jFjhCBBvTNVt1EoDXW8zNmJLQCvXyWT9/view), pp. 49–75 in *Philosophy in History* (Cambridge digital edition DOI [10.1017/CBO9780511625534.006](https://doi.org/10.1017/CBO9780511625534.006)). Rorty contrasts **rational reconstruction** (past arguments treated as present interlocutors) and **historical reconstruction** (past questions/terms reconstructed in their own setting), before his broader intellectual-history and Geistesgeschichte kinds. He explicitly says we should do rational and historical reconstruction **separately**, rather than pretending there is one neutral description.

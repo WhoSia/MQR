@@ -1,4 +1,4 @@
-# MQR 44 — Research director's next-stage gates
+# MQR 42 · 기록 02 — Research director's next-stage gates
 
 **MQR 5.4 central question:** How can agents whose primitive preparations, operators, and inferential languages do not match discover an actionable shared experiment while remaining answerable to one world? This is stronger than aligning publication data fields or calibrating one already-shared instrument.
 

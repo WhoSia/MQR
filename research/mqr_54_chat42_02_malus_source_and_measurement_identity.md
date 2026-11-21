@@ -1,4 +1,4 @@
-# MQR44 — Malus mobile app and LEGO source, not experimental pair evidence
+# MQR42-R02 — Malus mobile app and LEGO source, not experimental pair evidence
 
 Two non-PDF objects arrived alongside PTB data, both related by subject and implementation to [Rivera-Ortega, Barcelata-Pinzon & Saldaña-Gonzalez (2025)](https://doi.org/10.3390/physics7040067). Original article is [held as a paper PDF](https://drive.google.com/file/d/1opKbF2I9jO-56NR8R0slVLrSm_obm6fy/view). Its *Data Availability Statement* points to [Zenodo 17268611](https://doi.org/10.5281/zenodo.17268611), but no direct provider-file byte-equivalence test has been performed on these two uploads.
 

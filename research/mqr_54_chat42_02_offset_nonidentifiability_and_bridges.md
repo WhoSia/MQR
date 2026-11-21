@@ -1,4 +1,4 @@
-# MQR 44 — Additive offset non-identifiability under apparent optical superposition
+# MQR 42 · 기록 02 — Additive offset non-identifiability under apparent optical superposition
 
 **Empirical provocation:** [PTB 2025 processed figure exports](https://drive.google.com/file/d/1iE96PNpjXKVqROx1GXprQ7N7D42KOabF/view), fig3b/d/f with 999 shared time coordinates, give `mean(A+B−C) = −0.2295063964 mV`. Training an offset on only first half lowers holdout residual RMS to `3.822 μV`, but **this does not identify which experimental component creates the offset**.
 
