@@ -86,6 +86,8 @@ def assess(claim, receipts):
     if any(r.source_kind=="SYNTHETIC" for r in relevant):
         return "SYNTHETIC_COMPATIBILITY_ONLY"
     if not any(r.independently_replayed for r in relevant):
+        if any(r.source_kind=="SOURCE_RAW" for r in relevant):
+            return "RAW_SOURCE_BYTES_CLAIMED_NOT_REPLAYED"
         return "PUBLISHED_COMPATIBILITY_NOT_REPLAYED"
     if len(actual) < 2:
         return "HOLD_NONCOMMON_ANCESTRY_UNVERIFIED"
