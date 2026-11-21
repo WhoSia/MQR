@@ -1,6 +1,6 @@
 # MQR 5.4 — MQR 42 · 기록 05: A new operation is not necessarily a new observable
 
-**Date** 2026-11-21 · **not a new chat or version**. Code: [action grammar](../language/real/experiments/action_grammar_genesis_v54.py) · [10 test cases](../language/real/experiments/test_action_grammar_genesis_v54.py). The model's downloaded-equivalent module was locally executed and byte-hash matched the GitHub blob \`0c609f7b7a4d06ad2f459d44f3757a1777ad015d\`. A locally reconstructed test module with the corresponding ten test categories passed; a GitHub-hosted test source was also fetched and its existence/blob verified separately. Do not claim this was full repository regression.
+**Date** 2026-11-21 · **not a new chat or version**. Code: [action grammar](../language/real/experiments/action_grammar_genesis_v54.py) · [10 test cases](../language/real/experiments/test_action_grammar_genesis_v54.py). The model's downloaded-equivalent module was locally executed and byte-hash matched the GitHub blob `0c609f7b7a4d06ad2f459d44f3757a1777ad015d`. A locally reconstructed test module with the corresponding ten test categories passed; a GitHub-hosted test source was also fetched and its existence/blob verified separately. Do not claim this was full repository regression.
 
 ## Formal setting and a conditional proposition
 
@@ -22,7 +22,7 @@ This is immediate from the definition of observational equivalence (a useful **c
 
 Take o=(dark,dark,bright,bright) and an old action f=(1,0,3,2), which swaps states within the two original observational classes. The closure M={id,f}; the old partition is {{0,1},{2,3}}.
 
-**Positive:** Add h=(0,2,1,3), a cross-class swap. It is not in M, and the new monoid has **8** transformations. Already the single action h yields \`o(h(0))=dark\` and \`o(h(1))=bright\`; the new observational partition is **four singletons**, strictly refining the original two classes.
+**Positive:** Add h=(0,2,1,3), a cross-class swap. It is not in M, and the new monoid has **8** transformations. Already the single action h yields `o(h(0))=dark` and `o(h(1))=bright`; the new observational partition is **four singletons**, strictly refining the original two classes.
 
 **Negative A — new executable operation, no new observable:** Add k=(1,0,2,3), which swaps only states 0 and 1. This mapping is not in the old 2-map monoid; after adding it the closure has **4** maps, but it preserves {{0,1},{2,3}}. Thus *new capability does not automatically create a new conceptually useful observation*.
 
@@ -30,7 +30,7 @@ Take o=(dark,dark,bright,bright) and an old action f=(1,0,3,2), which swaps stat
 
 **Negative C — one fixed sensor can be utterly uninformative:** If o(s)=constant for every s, then for all actions f:S→S, o∘f is also constant; no repertoire of deterministic state transformations using this sole sensor can distinguish any two states. **A new detector/readout coupling**, not just another manipulation, is required to make new distinctions. This is a mathematical impossibility result for this defined model, not a general physical impossibility for richer sensor systems.
 
-**Negative D — contact has not actually been verified:** New h is proposed but \`externally_certified_executable=False\`; the model intentionally preserves the old partition. A Boolean flag is not the evidence of an actual validated physical transfer. Any report claiming that two independent sciences carried out a new joint experiment based solely on the flag is unsupported.
+**Negative D — contact has not actually been verified:** New h is proposed but `externally_certified_executable=False`; the model intentionally preserves the old partition. A Boolean flag is not the evidence of an actual validated physical transfer. Any report claiming that two independent sciences carried out a new joint experiment based solely on the flag is unsupported.
 
 ## Full four-state transformation census
 
