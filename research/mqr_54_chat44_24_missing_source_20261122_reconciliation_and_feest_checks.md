@@ -1,0 +1,26 @@
+# MQR 5.4 · MQR 44 · R24 — MISSING SOURCE RECONCILIATION & SEARCH RECEIPT — 2026-11-22
+
+**Scope:** canonical [live missing-source registry](MQR_LIVE_MISSING_SOURCES_REGISTRY.md) re-read in full; authenticated connected Google Drive title searches for Feest (2025), Clement (1989), Maxwell (1873 II), and Fraenkel (1927). **Zero new raw bytes downloaded, uploaded, renamed, moved or deleted.** MQR research status 5.4 OPEN. This is a specific *metadata and readable-source* audit, NOT a complete global inventory across thousands of PDF files, nor negative proof of nonexistence.
+
+## Canonical tracking denominator: 17 mixed groups, unchanged
+A1 Behr (2015) genuine same-run JAWS/ac-QVM nonaggregated records, paper held; A2 Burroughs (2013) PJVS switching/bias/clock samples, paper held. **Not** missing papers, historical primary data not held.
+A3 same-device optical AB/BA order reversal; A4 same-serial hyperspectral input-optic swap: **unperformed proposed interventions**, not missing downloadable papers.
+Exact-edition/manuscript groups: #5 Feest 2025 full book, #6 Fraenkel 1927 *Zehn Vorlesungen*, #7 Fraenkel→Brouwer 1923 autograph photograph, #8 Weyl 1921/1925–27 German print parity, #9 Saxon 1945 independently mimeographed artifact (*text held in 1968 book*), #10 Clement 1989 published chapter (*author-hosted full text publicly located*), #11 Maxwell 1873 II original complete book (*public domain scan located*), #12 Lavoisier–Laplace 1783 standalone, #13 Wedgwood 1784 Cooper 26pp offprint, #14 Guyton 1811 original Institut volume, #15 McKendrick 1973 pp274–319 chapter, #16 Wedgwood–Blagden 1784 physical autograph image, #17 clustered Vauquelin 1799/1800 and Oppenheim 1807 original textual chain. **Counting a mixed group as 'one missing PDF' is prohibited.**
+
+## New direct checks
+**Feest search:** user Drive exact-title search returned `Feest (2025) — Operationism in Psychology ... (Introduction Only)`, ID `1mHLsGGz88TDiXy9suW-Kizyd2h1eqbNl`, plus directly readable **2005** `1JXJyWfHOAVS3Uozgf8IsL8QQ9TDlqi0V` and **2010** `1LePHrGcp10C4Lr5135YsMKzMc5A64a9A` essays and **2012** edited collection `1WJyJHhYFi3R27QNfNOu5Jr4pmsdq5Ua9`. All three specified Feest PDFs newly fetched in readable form; length 81,827, 52,116, and 91,907 characters, respectively. No full 2025 book found by this targeted Drive search; this does **not** prove it is absent from every possible unindexed location. #5 remains HELD INTRODUCTION / FULL BOOK UNVERIFIED.
+
+**Clement search:** Drive returned 1988 SRRI-162 report `1X_EeNfK7g5ablkwQweNpyU_Jhy0uIxTk` but no 1989 published chapter title match; publicly accessible author-hosted manuscript [Clement 1989 candidate](https://people.umass.edu/clement/pdf/Learning%20via%20Model%20Construction%20and%20Criticism.pdf) located in prior audit, but not byte-imported or newly inspected in this audit. #10 remains PUBLIC AVAILABLE / EXACT DRIVE EDITION HOLD.
+
+**Maxwell search:** Drive returned *Treatise* 1873 **edited excerpt** `1FSUZ4-VZZ_xLgajjXJVHw8IVqQ1XOnzE` and 1890 *Scientific Papers* vol.I `1-qXo5QdLZ09WYZLNK9As3NrcMxuoN7bk`; full 1873 vol.II original was not returned as an exact title. [Wikimedia 1873 vol II scan](https://commons.wikimedia.org/wiki/File:A_treatise_on_electricity_and_magnetism_(IA_electricandmagne02maxwrich).pdf) already located, but exact bytes not accessioned. #11 remains FREE SOURCE LOCATED / DRIVE ORIGINAL HOLD.
+
+**Fraenkel search:** Google Drive returned 1923 *Einleitung in die Mengenlehre* `1u9Woz-vDxjFFkvYnugn6zOVFIiEskXKx` and van Dalen 2000 related studies, but no *Zehn Vorlesungen* 1927 full. 1923 and 1927 are **different books**. Springer https://link.springer.com/book/10.1007/978-3-663-15741-0 and first edition https://openlibrary.org/books/OL6704304M/ are bibliographic/access leads, not files in custody.
+
+## Untracked exact materials, not automatic additions to 17
+The earlier MQR44 R23–R26 registrar already identified author supplemental DOC/ZIP for **Rinaldelli et al. (2014)** and Carlon et al. (2018-online/2019-volume), with links in the canonical registry; source archive and SHA-256 still not obtained. Also Faraday 1831 edited diary full entries read from https://www.faradaysdiary.com/ws2/faraday.pdf while autograph photographic collation remains HOLD. These are research-specific target lines, **not automatic new official rows 18–20**.
+Deulofeu & Suárez (2023) *Pluralism and Complexity without Integration?*, exact [Drive PDF held](https://drive.google.com/file/d/1bgd9vw84e3tZ80MEGBPmonjg0xUk-Kb_/view). Do not put this in 'missing' list. Steinle 1997 and 2016 and Nersessian 2008 likewise already held.
+
+## Priority and action
+P0: advance substantive source-backed scientific questions with held Feest 2005/2010/2025 INTRO + Faraday letters and empirical archives. Parallel acquisition only where an exact-source argument requires it. #5 full Feest book and #10/#11 publicly located source-to-Drive parity are useful but NOT prerequisites for all MQR 5.4 inquiry. No fake zero-coverage estimates, fake downloaded files, or fabricated SHA values.
+
+**Status:** exact-identity search and Feest readable-text checks PASS; full exhaustive Drive inventory, source downloads and all remaining 13-specific checks HOLD. Official count 17 unchanged.
