@@ -1,5 +1,24 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## 2026-11-22 · MQR44 R37–R42 — Blackwell original found HELD; 1958 biochemical original ONLINE; acquisition-light unchanged
+
+**17 canonical mixed groups UNCHANGED** (A1–A2 unprocessed historic measurements, A3–A4 prospective unperformed interventions, #5–#17 exact manuscript/edition constraints); **0 PDF/dataset files downloaded, accessioned, moved or renamed in this tranche**. The user explicitly chose source-grounded science now with publicly verified bibliographic radar rather than compulsory source acquisition.
+
+**HELD originals newly verified and directly text-read (do NOT add to missing):**
+- David **Blackwell (1951)**, *Comparison of Experiments*, Second Berkeley Symposium pp.93–102, authentic complete [Drive original](https://drive.google.com/file/d/1AabK3bac9aNuX5ASeEqkRDRucQSDZ7JB/view), 27,520 extracted characters, definitions/main arguments inspected. [Berkeley edition](https://projecteuclid.org/euclid.bsmsp/1200500222).
+- Blackwell **(1953)**, *Equivalent Comparisons of Experiments*, *Annals of Mathematical Statistics* 24(2):265–272, [DOI 10.1214/aoms/1177729032](https://doi.org/10.1214/aoms/1177729032), [Drive PDF](https://drive.google.com/file/d/1P79HRYkphw4QwomJBfC8tkhLegFyMlHR/view) PRESENT but **text extraction 166 characters of JSTOR boilerplate only**. Content/PDF-page visual audit HOLD, not 'missing PDF'. Full source historical bibliographic identity PASS. Blackwell 1951/1953 original full source availability states differ.
+- **Zamecnik & Keller (1954)**, *Relation Between Phosphate Energy Donors and Incorporation of Labeled Amino Acids into Proteins*, original scholarly article [Drive](https://drive.google.com/file/d/1FJx6ghWM3QF4wpmQQlAdgDZcZxJlxp6n/view), 43,711 readable characters; opening/experimental interpretation directly checked.
+- **Hoagland, Keller & Zamecnik (1956)**, *Enzymatic Carboxyl Activation of Amino Acids*, original [Drive](https://drive.google.com/file/d/1G6m-pB4PG3RU-2oPuOQRXdg6sMBrKOrT/view), 32,082 extracted characters; original pre-existing mechanistic hypotheses directly checked. Prevent 'theory-free' literal misclassification.
+- **Michael Fry (2022)**, *Crick's Adaptor Hypothesis and the Discovery of Transfer RNA: Experiment Surpassing Theoretical Prediction*, *Philosophy, Theory, and Practice in Biology* 14:11, [DOI 10.3998/ptpbio.2628](https://doi.org/10.3998/ptpbio.2628), full [Drive](https://drive.google.com/file/d/1KVPJTOaL3eiu6_Z-ZCfZUw0seZ6CVOsV/view), read historical sections and original-source bibliography. Correct 1955 Crick abstract proposal vs local biochemical assays.
+- **Rheinberger (1997)** fully [Drive held](https://drive.google.com/file/d/1DDrn0i1jOZ79tx8VxftIgQmdTrNH4tr8/view), earlier p.152 signal loss historical analysis; nothing newly acquired here.
+
+**ONLINE primary article now text examined (NOT authenticated in Drive from title search):** Hoagland, Stephenson, Scott, Hecht & Zamecnik **(1958)**, *A Soluble Ribonucleic Acid Intermediate in Protein Synthesis*, *J Biol Chem* 231(1):241–257, [PMID 13538965](https://pubmed.ncbi.nlm.nih.gov/13538965/); public [original article PDF](https://njc.rockefeller.edu/pdf4/Class4-HoaglandZemecnik1958.pdf). Published authors explain why sample processing can alter the radioactivity label observable; direct browser PDF text PASS, **PDF screenshot cache miss**, independent original facsimile/archival notebook visual comparison HOLD. Do NOT confuse 1958 publisher original with 1954/1956 differently authored papers or 1950s manuscript incident. Source-specific radar not group 18.
+
+**Research decisions:** [R37 Blackwell theorem correction](mqr_54_chat44_37_blackwell_correction_to_epistemic_nonmonotonicity.md); [R38 1958 original evidence](mqr_54_chat44_38_1958_hoagland_original_method_signal_scope.md); [R39 exact garbling script](../language/real/experiments/mqr_blackwell_metric_mismatch_v54.py); [R40 hypothesis vs experimental discovery](mqr_54_chat44_40_crick_adaptor_vs_experimental_discovery_and_local_hypotheses.md); [R41 cross-task incomparable observation channels](mqr_54_chat44_41_question_relative_blackwell_incomparability.md); [R42 synthesis](mqr_54_chat44_42_partial_order_scientific_access_blackwell_rna_crick_synthesis.md). Source conclusion: better yield ≠ more information for a different target, and Blackwell dominance ⇒ nondecreasing *optimal* value under unchanged decision assumptions. **MQR 5.4 OPEN.**
+
+---
+
+
 ## 2026-11-22 · MQR44 R31–R35 — research from HELD Rheinberger; dated implicit-memory literature and causal alternatives
 
 **Acquisition-light decision remains effective:** no PDF or dataset downloaded, added to Drive, renamed or moved in this research tranche. **OFFICIAL 17 heterogeneous evidence/source tracking groups UNCHANGED**, with old A1/A2 raw records, unperformed A3/A4, and exact edition #5–#17 all retained. **No new missing 'paper' automatically becomes official group 18+.**
