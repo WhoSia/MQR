@@ -1,5 +1,25 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## 2026-11-22 · MQR44 R31–R35 — research from HELD Rheinberger; dated implicit-memory literature and causal alternatives
+
+**Acquisition-light decision remains effective:** no PDF or dataset downloaded, added to Drive, renamed or moved in this research tranche. **OFFICIAL 17 heterogeneous evidence/source tracking groups UNCHANGED**, with old A1/A2 raw records, unperformed A3/A4, and exact edition #5–#17 all retained. **No new missing 'paper' automatically becomes official group 18+.**
+
+**HELD and directly read primary scholarly book:** [Rheinberger (1997) *Toward a History of Epistemic Things* complete Drive scan](https://drive.google.com/file/d/1DDrn0i1jOZ79tx8VxftIgQmdTrNH4tr8/view), original book text extract 788,430 characters, sections Prologue, Chapter 2 (pp.28–30) and soluble RNA account near printed p.152 newly inspected for [R34](mqr_54_chat44_34_rheinberger_experimental_question_generation_signal_loss.md). **Do NOT list as missing.** Book analyses production of new scientific questions and epistemic/technical object transitions, including a historical description in which a yield-improving neutral-pH RNA extraction erased radioactivity signal. Original laboratory notebook facsimile / chemical causal mechanism **NOT newly authenticated**.
+
+**NEW research-specific bibliography, exact FULL PDF not in verified Drive title-search matches (not definitive global absence):**
+- **Jacoby & Dallas (1981)**, *On the Relationship Between Autobiographical Memory and Perceptual Learning*, *Journal of Experimental Psychology: General* 110(3):306–340, DOI [10.1037/0096-3445.110.3.306](https://doi.org/10.1037/0096-3445.110.3.306); [PubMed PMID 6457080](https://pubmed.ncbi.nlm.nih.gov/6457080/), [public author original PDF route](https://larryjacoby.ca/images/jacoby%20%26%20dallas%20%281981%29.pdf). Precedes 1985 implicit-memory label; **source full PDF externally LOCATED but not accessioned or table-collated**.
+- **Schacter (1987)**, *Implicit Memory: History and Current Status*, *J Exp Psychol Learn Mem Cogn* 13(3):501–518, [DOI](https://doi.org/10.1037/0278-7393.13.3.501), [Harvard original bibliography](https://dschacter.scholars.harvard.edu/publications/implicit-memory-history-and-current-status). A later first-person [1993 Schacter historical essay](https://garfield.library.upenn.edu/classics1993/A1993MJ84000001.pdf) says Graf and Schacter used the label in 1985. 1987 source bibliographic record verified; full original PDF NOT newly held or collated.
+- **Schacter & Graf (1989)**, *Modality Specificity of Implicit Memory for New Associations*, [PubMed PMID 2522139](https://pubmed.ncbi.nlm.nih.gov/2522139/). Original abstract reports associative priming reduced after study/test modality change, though elaboration-dependent; **do not claim fully verified original table-level causal estimates**. Bibliographic full-article source lookup remains optional source radar.
+- **Graf & Schacter (1985)** original [PMID 3160813](https://pubmed.ncbi.nlm.nih.gov/3160813/) confirms context benefit **conditional on elaboration**; exact full paper author PDF route already in prior R26/R30 radar, not newly downloaded.
+- **Roediger (1990)** original [PMID 2221571](https://pubmed.ncbi.nlm.nih.gov/2221571/) provides general processing-theory rival to compulsory independent memory stores; exact PDF was previously located but not imported.
+
+**Research outputs:** [R31 chronological correction](mqr_54_chat44_31_memory_1981_before_1985_and_conditional_priming.md) · [R32 matched latent models](mqr_54_chat44_32_two_memory_ontologies_one_joint_table_and_intervention_gap.md) and [locally exact executable](../language/real/experiments/mqr_memory_latent_nonidentifiability_v54.py) · [R33 1985→1989 modality constraint](mqr_54_chat44_33_implicit_memory_1985_to_1989_modality_scope_revision.md) · [R34 Rheinberger](mqr_54_chat44_34_rheinberger_experimental_question_generation_signal_loss.md) · [R35 director synthesis](mqr_54_chat44_35_three_domain_question_capability_adversarial_synthesis.md).
+
+**Status:** 17 official groups still open; new bibliography does not block substantive research. Synthetic paired-test observation vs latent intervention nonidentifiability PASS; claim of empirically established memory architecture, complete archival RNA mechanism, and universal law of question creation HOLD. Version MQR 5.4 OPEN.
+
+---
+
+
 ## 2026-11-22 · MQR44 R27–R29 — existing-corpus-first policy; new *noncanonical* primary bibliography
 
 **User-approved workflow:** conduct substantive MQR research using held source texts, find lawful public bibliography and exact original text locations online, preserve missing/edition distinctions in this registry, and postpone downloads/acquisition until convenient. **Official 17 mixed tracking groups unchanged**; A1/A2 remain old unpublished raw, A3/A4 are unperformed proposed experiments, #5–#17 exact edition/manuscript groups. No Drive PDF moved, downloaded, uploaded, deleted, renamed, or SHA-sealed in R27–R29.
