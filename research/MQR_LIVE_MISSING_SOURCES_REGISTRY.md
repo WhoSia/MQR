@@ -1,5 +1,18 @@
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
+## 2026-11-22 · MQR44 R24–R26 — targeted holdings recheck, no false source closure
+
+The canonical **17 heterogeneous tracking groups are unchanged**: A1/A2 historical unpublished raw data, A3/A4 prospective unperformed experiments, #5–#17 edition/manuscript-specific targets. **17 ≠ 17 missing PDF papers.** Direct authenticated Drive title search rechecked **Feest 2025, Clement 1989, Maxwell 1873 vol.II, Fraenkel 1927**. Searches did not yield verified complete exact originals in the Drive returned results; title search does not prove global absence and no raw bytes were downloaded/uploaded/renamed/moved.
+
+Useful source access confirmed: **Feest (2005)** exact full original [Drive](https://drive.google.com/file/d/1JXJyWfHOAVS3Uozgf8IsL8QQ9TDlqi0V/view), **Feest (2010)** exact full original [Drive](https://drive.google.com/file/d/1LePHrGcp10C4Lr5135YsMKzMc5A64a9A/view) and **Feest (2025)** *Introduction Only* [Drive](https://drive.google.com/file/d/1mHLsGGz88TDiXy9suW-Kizyd2h1eqbNl/view) all directly fetched and used in [R25 close reading](mqr_54_chat44_25_feest_concepts_as_tools_against_instrument_ontology_shortcut.md). **Full 2025 monograph remains unverified/unheld**, not rescued by the earlier essays. #10 Clement 1989 [author-institution full text candidate](https://people.umass.edu/clement/pdf/Learning%20via%20Model%20Construction%20and%20Criticism.pdf) and #11 Maxwell 1873 II [public scan](https://commons.wikimedia.org/wiki/File:A_treatise_on_electricity_and_magnetism_(IA_electricandmagne02maxwrich).pdf) were known externally; exact Drive editions not found. #6 Fraenkel 1923 *Einleitung* is held but is **not** the 1927 *Zehn Vorlesungen*.
+
+Cross-domain MQR science-creation work continued without pretending source closure: [R26](mqr_54_chat44_26_implicit_memory_primary_1983_1985_and_competing_ontologies.md) tracks original 1983 Jacoby / 1985 Graf–Schacter research bibliographies and three rival implicit-memory ontologies. 1983/1985 original full paper paths are externally located but **not newly accessioned into Drive or table-level fully collated**. R24 exact identification audit [here](mqr_54_chat44_24_missing_source_20261122_reconciliation_and_feest_checks.md). Source-specific noncanonical 2014 IUCr author supplements, 1831 Faraday autograph photographic parity remain separate HOLDs, not silently added to official 17.
+
+**Priority:** keep substantive possible-sciences/question-genesis research alive; source acquisition is a targeted tool, not the goal. No GitHub Actions bot authored this update; MQR 5.4 OPEN.
+
+---
+
+
 ## 2026-11-21 · MQR44 R28–R32 — Faraday diary EDITED FULL ENTRIES OPEN, autograph photo HOLD
 
 New *research-specific* discovery source does not close any pre-existing official 17 mixed missing/source groups. Royal Institution's [2008 Faraday's Diary preview](https://www.faradaysdiary.com/ws2/faraday.pdf), original author notebook published in a later edited transcription, was read directly at Vol. I printed pp.367–372, PDF pages 36–41: **29 Aug 1831 §§1–13** success and chemistry negative; **30 Aug §14/15/18** first-circuit vs detector-circuit negative controls, spark failure, iron-cylinder substitution; **24 Sep §§21–33** many no-signal coil variants, ring/cylinder retained positives and permanent magnet contact positive. The historical edited full passage IS ONLINE AVAILABLE, not 'original diary absent'; **handwritten autograph page photographic source collation and exact editorial differences remain HOLD**, the PDF web page-image screenshot failed despite extracted text working. [R31 source-specific research](mqr_54_chat44_31_faraday_original_dated_diary_success_negative_controls.md).
