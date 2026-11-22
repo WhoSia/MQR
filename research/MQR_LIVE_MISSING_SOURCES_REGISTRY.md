@@ -1,3 +1,20 @@
+## 2026-11-23 · MQR45 R57–R59 — mathematical question-generation source audit, 17 groups unchanged
+
+**Acquisition status:** official **17 heterogeneous tracked gaps unchanged**. No new PDF downloaded, no Drive move, no purchased Feest (2025), no new source group. This is a *metadata and held-text audit*, not certification of original paper full-text reading.
+
+| Work | Verified/public route | Source custody and scope |
+|---|---|---|
+| Maxwell (1865), *A Dynamical Theory of the Electromagnetic Field*, DOI 10.1098/rstl.1865.0008 | [Royal Society original-publication catalog](https://makingscience.royalsociety.org/items/PT_72_7), [Smithsonian digital catalog](https://library.si.edu/digital-library/book/dynamicaltheoryo00maxw) | 1890 Niven edited *Scientific Papers* vol. I facsimile **HELD** Drive `1-qXo5QdLZ09WYZLNK9As3NrcMxuoN7bk`; standalone 1865 exact fascicle **not confirmed Drive-held**. |
+| Bell (1964), *On the Einstein Podolsky Rosen Paradox*, DOI 10.1103/PhysicsPhysiqueFizika.1.195 | [APS primary-publication entry](https://doi.org/10.1103/physicsphysiquefizika.1.195), [CERN public original file index](https://cds.cern.ch/record/111654/files/) | APS/CERN indexing read; publisher/CERN downloadable text **not read in this research unit**, targeted Drive title query not conclusive about existence. |
+| Clauser, Horne, Shimony & Holt (1969), *Proposed Experiment to Test Local Hidden-Variable Theories*, DOI 10.1103/PhysRevLett.23.880 | [APS article](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.23.880) | Publisher abstract read; exact full original PDF Drive custody not verified. |
+| Freedman & Clauser (1972), *Experimental Test of Local Hidden-Variable Theories*, DOI 10.1103/PhysRevLett.28.938 | [APS article](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.28.938) | Publisher abstract read; full original PDF Drive custody not verified. |
+| Popescu & Rohrlich (1994), *Quantum Nonlocality as an Axiom*, *Foundations of Physics* 24 | [University of Bristol scholarly record](https://research-information.bris.ac.uk/en/publications/quantum-nonlocality-as-an-axiom/) | Public bibliographic record read; no original full-text claim in this audit. |
+| Abramsky & Brandenburger (2011), *The Sheaf-Theoretic Structure of Non-Locality and Contextuality*, arXiv:1102.0264 | [arXiv record](https://arxiv.org/abs/1102.0264) | **HELD original readable PDF** Drive `1QMYaqy7naNJj43-M9zbBMZJ2AaVv5I2y`; retrieved and read Abstract/Introduction including global-section, contextuality hierarchy, no-signalling. NOT missing. |
+
+**Findings:** Bell–CHSH and contextual global-extension analysis have major prior art; MQR R57–R59 synthesize mathematically testable question-generation criteria, exact CHSH/selection counterexamples, and negative controls. No original discovery, quantum measurement, cross-domain empirical validation or authority promotion. [R57](mqr_54_chat45_57_maxwell_bell_mathematical_question_generation_history.md) · [R58](mqr_54_chat45_58_local_global_contextuality_and_postselection.md) · [R59](mqr_54_chat45_59_question_genesis_positive_negative_controls_and_rivals.md). **MQR 5.4 OPEN. AUTHORITY TRANSFERRED = NONE.**
+
+---
+
 # MQR — LIVE MISSING-SOURCE REGISTRY / 미보유 원전 상시 표
 
 ## 2026-11-23 · MQR44 R51–R55 — real-science BFS, no compulsory acquisition; 17 groups unchanged
