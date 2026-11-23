@@ -1,0 +1,89 @@
+{
+  "schema": "MQR-FARADAY-DATED-CLAIM-MATRIX-1.0",
+  "case_id": "faraday-1831-1832",
+  "claim_scope": "Historical investigation of experimental question change; discriminates first-person source, edited diary indexes, secondary interpretive theses and failed observations.",
+  "records": [
+    {
+      "date": "1831-08-29",
+      "event": "Transient induction effects on closing/opening battery circuit via ring",
+      "witness": "edited Diary first volume index; early entry in public preview",
+      "source_url": "https://faradaysdiary.com/ws3/faraday.pdf",
+      "first_person_text_directly_inspected": false,
+      "inference": "initial success and immediate perturbation constraint",
+      "limit": "diary index/edited quotation are not a handwritten manuscript witness"
+    },
+    {
+      "date": "1831-11-24",
+      "event": "First Series presented to Royal Society; Faraday states results deliberately not narrated in discovery order",
+      "witness": "Faraday First Series section 1 paras 1-5 in publisher public excerpt",
+      "source_url": "https://assets.cambridge.org/97811080/53570/excerpt/9781108053570_excerpt.pdf",
+      "first_person_text_directly_inspected": true,
+      "inference": "published rhetorical order is not equivalent to experimental chronology",
+      "limit": "a contemporary authored publication is distinct from laboratory diary; printed 1832"
+    },
+    {
+      "date": "1831-12-23/26",
+      "event": "Index lists varied induction tests, earth magnetism and loop movement; later elementary experiment must be checked",
+      "witness": "edited Diary table of contents pp. 400-407, section 274",
+      "source_url": "https://faradaysdiary.com/ws3/faraday.pdf",
+      "first_person_text_directly_inspected": false,
+      "inference": "candidate shift from apparatus-specific testing to systematic general rule",
+      "limit": "full dated primary entry text/handwriting not read; Steinle 1997 supports secondary interpretation"
+    },
+    {
+      "date": "1831-12-28",
+      "event": "Parallel long copper/iron wires aligned to Earth's magnetic meridian, reported as failed",
+      "witness": "Faraday Correspondence editorial note linked to 1832 Jan6 letter",
+      "source_url": "https://epsilon.ac.uk/view/faraday/letters/Faraday0526",
+      "first_person_text_directly_inspected": false,
+      "inference": "negative observation belongs in chronology",
+      "limit": "editor's reconstruction from Diary; physical setup not independently reconstructed"
+    },
+    {
+      "date": "1832-01-06",
+      "event": "Faraday schedules further pond experiment with John S. Acton",
+      "witness": "Faraday first-person letter (RI MS) through Epsilon transcription",
+      "source_url": "https://epsilon.ac.uk/view/faraday/letters/Faraday0526",
+      "first_person_text_directly_inspected": true,
+      "inference": "documents planned experiment independently of later success narrative",
+      "limit": "letter is schedule, not an outcome record"
+    },
+    {
+      "date": "1832-01-10",
+      "event": "Kensington pond circuit attempt without expected effect",
+      "witness": "Epsilon historical editor note citing Faraday Diary",
+      "source_url": "https://epsilon.ac.uk/view/faraday/letters/Faraday0526",
+      "first_person_text_directly_inspected": false,
+      "inference": "negative case against teleological all-success narrative",
+      "limit": "secondary summary; original Diary pages 293-302 not yet reviewed"
+    },
+    {
+      "date": "1832-01-12/13",
+      "event": "Waterloo Bridge long-wire current experiment: no satisfactory result",
+      "witness": "Epsilon editor note citing Faraday Diary and reports",
+      "source_url": "https://epsilon.ac.uk/view/faraday/letters/Faraday0526",
+      "first_person_text_directly_inspected": false,
+      "inference": "negative case; failure does not by itself reveal exact cause",
+      "limit": "no full apparatus or notebook data audited"
+    }
+  ],
+  "comparison": {
+    "competing_interpretations": [
+      "Theory proposes a target then experimental system monotonically verifies it.",
+      "Prior speculation motivates an early experiment, an unexpected transient effect expands exploratory variation, later paper reorganizes findings into explanatory form.",
+      "Apparatus/instrumentation trajectory and historical concept work are inseparable; conventional Steinle narrative already explains important transitions."
+    ],
+    "discriminator": "To adjudicate, compare dated diary question formulations, modifications of apparatus, failures and retrospective editorial wording. Do not infer discovery causation from publication sequence.",
+    "positive_scope": "Question repertoire and experiment menu can be revised even when no new formal equation appears.",
+    "novelty_status": "KNOWN_PRIOR_ART_STEINLE_1997_2016"
+  },
+  "remaining_work": [
+    "Read complete dated December 23-26 1831 Diary original text or an authenticated critical facsimile, with precise volume/page concordance.",
+    "Read original January 10 and 12-13 1832 diary entries, compare editorial note to Faraday's exact wording.",
+    "Compare November 1831 submitted original or final 1832 First Series and 1832 Second Series sections with contemporaneous diary order.",
+    "Run explicit Bell 1969/1972 contrast: written theory-guided test vs Faraday's mixed guided-exploratory pathway.",
+    "Compare at least one independent Steinle rival and a primary negative case before generalizing."
+  ],
+  "source_custody": "PUBLIC_WEB_READ_OR_LOCATED_ONLY; NO_NEW_DRIVE_ACQUISITION",
+  "scientific_status": "MQR_5_4_OPEN_AUTHORITY_NOT_TRANSFERRED"
+}
