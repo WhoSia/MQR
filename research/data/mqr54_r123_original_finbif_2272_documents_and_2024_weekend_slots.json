@@ -112,9 +112,9 @@
     "schedule_slots": [
       {
         "date": "2024-02-24/25",
-        "recorded_absent": 130,
+        "recorded_absent": 131,
         "recorded_present": 0,
-        "total": 130
+        "total": 131
       },
       {
         "date": "2024-03-09/10",
@@ -161,7 +161,9 @@
     ],
     "first_four_weekend_slots_all_absent": true,
     "reported_weekend_slot_counts_decline_from": 130,
-    "reported_weekend_slot_counts_decline_to": 29
+    "reported_weekend_slot_counts_decline_to": 29,
+    "corrected_period_slots_total": 866,
+    "noninterval_first_sighting_rows": 109
   },
   "source_authoritative_interpretation": {
     "finbif_variables": "https://luomus.github.io/finbif/reference/variables.html",
@@ -182,5 +184,6 @@
   "certified_repeated_physical_sites": null,
   "strict_R122_event_id_screen_candidate_sites": 0,
   "interpretation_revision": "R119/R120/R114 statement of missing explicit eventID remains correct, but interpretation 'no other grouping evidence' is superseded. Source-level document and unit hierarchy retained; candidates for panel form/weekend slots, not certified field visits.",
-  "authority_transfer": false
+  "authority_transfer": false,
+  "correction_note": "2026-11-23 R123b: earlier 2024 first interval omitted one single-row document due to a >=2-record filter in transition inspection. Correct first date count 131 and all eight scheduled slots total 866. All original-document grouping results unchanged."
 }
