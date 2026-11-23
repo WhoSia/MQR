@@ -1,0 +1,243 @@
+{
+  "schema": "MQR-5.4-PI-RESEARCH-CENSUS-R106",
+  "date": "2026-11-23",
+  "head_before_audit": "c42c9f6486d6f62e0d619c4e1e9ac2e9896fdbf6",
+  "status": "MQR_5_4_OPEN",
+  "provenance": {
+    "chat_archive": "MQR 1–44 in Drive discovered and accessible as text; 6 duplicated; 45 file not located. Important documents read and chronology sampled per file, NOT complete independent line-by-line reproof.",
+    "notion": [
+      "https://app.notion.com/p/414ef561cf9281118f47daa04cc330b1",
+      "https://app.notion.com/p/40aef561cf928165977af8e05ffc1b4f",
+      "https://app.notion.com/p/401ef561cf928168af79d84afd4a8588"
+    ],
+    "github": [
+      "README.md",
+      "doctrine/CURRENT.md",
+      "research/MQR_5_4_OPEN_HORIZON_CONSTITUTION.md",
+      "research/MQR_LIVE_MISSING_SOURCES_REGISTRY.md",
+      "docs/MQR-4.95-FINAL-BOUNDED-SCIENTIFIC-CLOSEOUT.md",
+      "docs/MQR-4.97-FINAL-BOUNDED-REAL-FIELD-DETECTION-AND-LEAN-CLOSEOUT.md",
+      "docs/MQR-4.98-FINAL-BOUNDED-EFFORT-ZEROTRUNCATION-AND-LEAN-COURT.md"
+    ]
+  },
+  "weights_sum": "1.00",
+  "aggregate": 0.5928,
+  "rubric": "Declared PI planning judgment on 0-1, NOT independently calibrated interval-scale measures, probabilities, confidence intervals, percentile rankings or peer review. Numeric precision reflects arithmetic only, not knowledge precision.",
+  "axes": [
+    {
+      "id": "root_question_and_vision",
+      "weight": "0.08",
+      "score": "0.90",
+      "weighted_contribution": "0.0720",
+      "evidence_note": "MQR founder Feb 2026 HWPX; MQR1 UV/Vis and possible sciences; 5.4 seven question charter"
+    },
+    {
+      "id": "program_coherence",
+      "weight": "0.10",
+      "score": "0.73",
+      "weighted_contribution": "0.0730",
+      "evidence_note": "Repeated R40/R41 and R81 correction; recurring drift into thermometry, source intake or toy enumeration"
+    },
+    {
+      "id": "prior_art_and_rival_comparison",
+      "weight": "0.12",
+      "score": "0.76",
+      "weighted_contribution": "0.0912",
+      "evidence_note": "Chang, Tal, Kuhn, Galison, Nersessian, Steinle, Nappo, Massimi and Blackwell/LeCam systematically challenged"
+    },
+    {
+      "id": "historical_primary_scholarship",
+      "weight": "0.12",
+      "score": "0.82",
+      "weighted_contribution": "0.0984",
+      "evidence_note": "1783 Monthly Review primary correction; Guyton 1810/1814; CHSH 1969, Hoagland 1958 and Faraday 1831-56"
+    },
+    {
+      "id": "mathematical_formalization",
+      "weight": "0.10",
+      "score": "0.70",
+      "weighted_contribution": "0.0700",
+      "evidence_note": "Several finite countermodels and exact rational calculations; mostly standard mathematics"
+    },
+    {
+      "id": "code_reproducibility",
+      "weight": "0.10",
+      "score": "0.63",
+      "weighted_contribution": "0.0630",
+      "evidence_note": "Historical CI and original Git blob verification, but R84-R105 Python tests not all source-byte executed or integrated"
+    },
+    {
+      "id": "external_real_data_research",
+      "weight": "0.14",
+      "score": "0.55",
+      "weighted_contribution": "0.0770",
+      "evidence_note": "GBIF 29543 rows; 2001 NAAMP 337 site-visits on 130 stations; 2005 Alder Flycatcher, but source-local observational inference and gaps"
+    },
+    {
+      "id": "independent_theory_novelty",
+      "weight": "0.12",
+      "score": "0.24",
+      "weighted_contribution": "0.0288",
+      "evidence_note": "Existing science philosophies and statistics absorb many insights; no established distinct explanation theorem"
+    },
+    {
+      "id": "distinctive_prospective_predictions",
+      "weight": "0.07",
+      "score": "0.17",
+      "weighted_contribution": "0.0119",
+      "evidence_note": "No predeclared cross-practice world-facing discriminant with distinct outcome vs prior theories"
+    },
+    {
+      "id": "peer_review_ready_manuscript",
+      "weight": "0.05",
+      "score": "0.15",
+      "weighted_contribution": "0.0075",
+      "evidence_note": "Open research dossier and manuscript fragments, no complete independently replicated externally refereed paper"
+    }
+  ],
+  "stages": [
+    {
+      "id": "founder_0x_2x",
+      "conceptual": "0.68",
+      "world_contact": "0.18",
+      "independent_novelty": "0.22",
+      "note": "founding metaphysics/authority thought experiments and conceptual branching; extensive Court outputs, little externally tested theoretical law"
+    },
+    {
+      "id": "generation_3x",
+      "conceptual": "0.76",
+      "world_contact": "0.24",
+      "independent_novelty": "0.29",
+      "note": "world resistance/defeat geometry and transport, largely normative/synthetic; extensive prior art overlap"
+    },
+    {
+      "id": "generation_4x",
+      "conceptual": "0.78",
+      "world_contact": "0.69",
+      "independent_novelty": "0.30",
+      "note": "4.95 original GBIF and 4.97/4.98 field data with bounded limits; logic, Rust/Lean/CI; externally calibrated ordinal W/I in 4.30 but full profile not validated"
+    },
+    {
+      "id": "generation_5_0_to_5_2",
+      "conceptual": "0.80",
+      "world_contact": "0.44",
+      "independent_novelty": "0.30",
+      "note": "full genealogy attempted, serious publication triage and awareness of dependent evidence roots; global census HOLD"
+    },
+    {
+      "id": "generation_5_3",
+      "conceptual": "0.82",
+      "world_contact": "0.46",
+      "independent_novelty": "0.32",
+      "note": "serious original history of thermometry and calibration transfer, some source correction, no independent new full theory"
+    },
+    {
+      "id": "generation_5_4_to_R105",
+      "conceptual": "0.86",
+      "world_contact": "0.31",
+      "independent_novelty": "0.26",
+      "note": "restored seven founding questions and cross-case primary historical work; new math mostly toy and new raw world data absent in 5.4"
+    }
+  ],
+  "founding_questions": [
+    {
+      "question": "Q1",
+      "E": "0.76",
+      "C": "0.80",
+      "G": "0.31",
+      "L": "0.89",
+      "remark": "Digital readout vs physical measurement, source calibration and sample identity"
+    },
+    {
+      "question": "Q2",
+      "E": "0.46",
+      "C": "0.43",
+      "G": "0.09",
+      "L": "0.96",
+      "remark": "Non-given reference and translation bridge untested in genuinely independent sciences"
+    },
+    {
+      "question": "Q3",
+      "E": "0.72",
+      "C": "0.79",
+      "G": "0.20",
+      "L": "0.86",
+      "remark": "Historical standard/criterion genesis prior art strong"
+    },
+    {
+      "question": "Q4",
+      "E": "0.82",
+      "C": "0.89",
+      "G": "0.27",
+      "L": "0.91",
+      "remark": "Faraday/Maxwell source evidence strong locally; Steinle/Nersessian/Nappo prior art"
+    },
+    {
+      "question": "Q5",
+      "E": "0.75",
+      "C": "0.81",
+      "G": "0.28",
+      "L": "0.92",
+      "remark": "CHSH theory-to-experiment recorded; engineering math survival general account open"
+    },
+    {
+      "question": "Q6",
+      "E": "0.83",
+      "C": "0.88",
+      "G": "0.37",
+      "L": "0.88",
+      "remark": "Best elaborated realism/defeater bounds; independent novel ontology absent"
+    },
+    {
+      "question": "Q7",
+      "E": "0.66",
+      "C": "0.70",
+      "G": "0.14",
+      "L": "0.96",
+      "remark": "Concept/experimental novelty history without universal grammar generation test"
+    }
+  ],
+  "lira": {
+    "rubric_traceability": "0.79",
+    "declared_evidence_scoping": "0.75",
+    "source_dependency_control": "0.74",
+    "independent_metric_calibration": "0.22",
+    "inter_rater_validation": "0.10",
+    "risk_of_false_precision": "0.76",
+    "note": "Strong provenance conventions but E/C/G/L values are subjective: 4.30 external W/I ordinal audit does not validate the newly added 2026-11-23 LIRA scale."
+  },
+  "milestones": {
+    "independent_4x_data": [
+      "4.95 GBIF source labels 29,543 records; 11,165 / 11,166 apparent negatives concentrated in one source",
+      "4.97 NAAMP 2001 337 records from 130 stations, same visits for two frog species",
+      "4.98 alder flycatcher 2005 3x5-minute protocol zero-truncated survey",
+      "4.30 29/32 ordinal criterion matches in cross-project synthetic/prior constitutions, W/I externally ordinal but no full profile numeric validity"
+    ],
+    "bounded_54": [
+      "source-original CHSH 1969 and Freedman-Clauser 1972 0.050±0.008 author-reported",
+      "Hoagland 1958 intermediate tests",
+      "Faraday 1831-1852 to Maxwell 1856 reconstruction",
+      "finite mathematical counterexamples",
+      "R100 2364 independent grid paths verified again 2026-11-23"
+    ],
+    "unresolved": [
+      "17 heterogeneous groups = 13 editions/manuscript and 4 physical data/protocol tasks",
+      "Faraday December 1831 and January 1832 original diary passage/variants",
+      "Maxwell 1856 source-image equation parity",
+      "CHSH 1972 original event count and covariance",
+      "cross-science shared physical entity/interaction without pre-given mapping",
+      "internal LIRA metric inter-rater/criterion calibration",
+      "full verified 0.X-4.X Court census",
+      "README current-conversation header says 43 while latest chat/work sequence higher"
+    ]
+  },
+  "decision": {
+    "no_5_5_promotion": true,
+    "existing_program_scholarship_valuable": true,
+    "priority_first": "test distinct world-facing effect in Q2 or Q5, not more standard four-bit proofs",
+    "priority_second": "Faraday manuscript/Maxwell original equation variant comparison must stay protected as historical and conceptual case",
+    "priority_third": "audit 4.95 ecological label-source confounding as small externally reproducible paper candidate conditional on novel claim",
+    "most_consequential_failure": "absence of an independent cross-domain prediction that excludes serious rivals",
+    "authority_transferred": false
+  }
+}
