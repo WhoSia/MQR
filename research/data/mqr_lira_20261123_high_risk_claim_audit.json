@@ -1,0 +1,148 @@
+{
+  "schema": "MQR-LIRA-CLAIMS-1.0",
+  "date": "2026-11-23",
+  "scope": "TEN_HIGH_RISK_PARAPHRASES_FROM_R58_R61_R62_R63_R67_R68_R69_NOT_WHOLE_NOTION_OR_REPO",
+  "score_definition": "editorial review urgency 0..1, not factual truth or probability",
+  "claims": [
+    {
+      "claim_id": "R58-C1",
+      "unit": "R58",
+      "urgency": "0.92",
+      "severity": "P1",
+      "decision": "REVISE",
+      "paraphrase_to_avoid": "Contexts with consistent marginals imply experimentally measured nonlocality.",
+      "accepted_narrow_claim": "Consistent marginals and CHSH>2 alone do not identify nonlocal physics without admissible sampling and measurement assumptions.",
+      "evidence_refs": [
+        "R58",
+        "R61",
+        "R70"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    },
+    {
+      "claim_id": "R61-C1",
+      "unit": "R61",
+      "urgency": "0.97",
+      "severity": "P0",
+      "decision": "REVISE",
+      "paraphrase_to_avoid": "The rho<1/3 condition is a detection-efficiency threshold.",
+      "accepted_narrow_claim": "The rho<1/3 bound belongs solely to a globally coordinated outcome-and-setting-dependent synthetic filter; no physical detector-efficiency threshold follows.",
+      "evidence_refs": [
+        "R61",
+        "R70"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    },
+    {
+      "claim_id": "R61-C2",
+      "unit": "R61",
+      "urgency": "0.85",
+      "severity": "P1",
+      "decision": "KEEP_WITH_SCOPE",
+      "paraphrase_to_avoid": "Global postselection yields selected S>2 on local hidden assignments.",
+      "accepted_narrow_claim": "In the exactly specified globally coordinated retrospective filter, S=4(1-rho)/(1+rho)>2 for rho<1/3; no physical local-detector realization was modeled.",
+      "evidence_refs": [
+        "R61",
+        "R70"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    },
+    {
+      "claim_id": "R62-C1",
+      "unit": "R62",
+      "urgency": "0.83",
+      "severity": "P1",
+      "decision": "REVISE",
+      "paraphrase_to_avoid": "Dirac's 1928 equation unambiguously discovered the positron.",
+      "accepted_narrow_claim": "Dirac's 1928 formalism preceded an evolving interpretation; his explicit 1931 anti-electron proposal and Anderson's 1932 observation are distinct historical events.",
+      "evidence_refs": [
+        "R62",
+        "R64"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    },
+    {
+      "claim_id": "R62-C2",
+      "unit": "R62",
+      "urgency": "0.76",
+      "severity": "P2",
+      "decision": "KEEP_WITH_ATTRIBUTION",
+      "paraphrase_to_avoid": "Anderson was not guided by Dirac's prediction.",
+      "accepted_narrow_claim": "Anderson later maintained that Dirac's theory played no causal role in his discovery; this is attributed historical testimony, not an experimental counterfactual proof.",
+      "evidence_refs": [
+        "R62"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    },
+    {
+      "claim_id": "R63-C1",
+      "unit": "R63",
+      "urgency": "0.94",
+      "severity": "P1",
+      "decision": "KEEP_WITH_SCOPE",
+      "paraphrase_to_avoid": "Identical histories can imply distinct causal effects.",
+      "accepted_narrow_claim": "Two deliberately synthetic binary SCMs produce the same observed joint distribution but different do(P) effects; no numerical effect is estimated for historical scientists.",
+      "evidence_refs": [
+        "R63",
+        "R70"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    },
+    {
+      "claim_id": "R67-C1",
+      "unit": "R67",
+      "urgency": "0.87",
+      "severity": "P1",
+      "decision": "REVISE",
+      "paraphrase_to_avoid": "CHSH 1969 assumes a loophole-free physical test of ideal S.",
+      "accepted_narrow_claim": "The 1969 source adds photon-detection and rate-bridge assumptions to operationalize ideal local-variable inequalities for then-limited detectors.",
+      "evidence_refs": [
+        "R67",
+        "R70"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    },
+    {
+      "claim_id": "R68-C1",
+      "unit": "R68",
+      "urgency": "0.98",
+      "severity": "P0",
+      "decision": "REVISE",
+      "paraphrase_to_avoid": "The rounded 1972 rates reproduce the authors' D(67.5°) exactly.",
+      "accepted_narrow_claim": "The four rounded ratios yield D(67.5°)=-1.096; the preprint reports -1.097 from its more precise underlying data, so they must not be presented as identical.",
+      "evidence_refs": [
+        "R68",
+        "R70"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    },
+    {
+      "claim_id": "R68-C2",
+      "unit": "R68",
+      "urgency": "0.93",
+      "severity": "P1",
+      "decision": "REVISE",
+      "paraphrase_to_avoid": "The 1972 δ=0.050±0.008 is assumption-free evidence of all hidden variables being impossible.",
+      "accepted_narrow_claim": "The authors' δ=0.050±0.008 rejects a specified local model subject to its detection and experimental assumptions; it does not remove all Bell loopholes.",
+      "evidence_refs": [
+        "R68",
+        "R70"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    },
+    {
+      "claim_id": "R69-C1",
+      "unit": "R69",
+      "urgency": "0.89",
+      "severity": "P1",
+      "decision": "REVISE",
+      "paraphrase_to_avoid": "RNA labeling by itself establishes functional tRNA intermediacy.",
+      "accepted_narrow_claim": "1958 RNA-associated labeling was accompanied by transfer and dependence tests; contamination, storage and unresolved chemical steps remained serious alternatives.",
+      "evidence_refs": [
+        "R69",
+        "R64"
+      ],
+      "review_status": "AUTHOR_DRAFT_NOT_INDEPENDENTLY_ADJUDICATED"
+    }
+  ]
+}
