@@ -1,0 +1,149 @@
+{
+  "schema": "MQR-LIRA-FOUNDING-SCOPE-SPLIT-1.0",
+  "date": "2026-11-23",
+  "status": "MQR_5_4_OPEN",
+  "description": "Explicitly separate evidence quality and support for a BOUNDED witnessed claim from support for a GENERAL theory across the original founding question. Every 0–1 entry is declared analyst judgement, not probability.",
+  "prior_ledger": "research/data/mqr_lira_20261123_seven_question_macro_evidence_audit.json",
+  "source_ledger": "research/data/mqr_lira_evidence_claim_decision_scores_R95.json",
+  "founding_questions": [
+    {
+      "question": "Q1",
+      "bounded_claim": "Can an instrument faithfully reproduce a signal yet lack grounded calibration or same-physical-unit reference?",
+      "bounded_evidence_quality": "0.815",
+      "bounded_claim_support": ".88",
+      "generalized_answer_support": ".33",
+      "continuation_priority": "0.96",
+      "prior_bounded_support": "0.84",
+      "source_ids": [
+        "E02",
+        "E09",
+        "E27"
+      ],
+      "scope_barrier": "Operational difference between data representation and measurement reference illustrated; no universal complete criterion for all measuring systems.",
+      "independent_validation_status": "HOLD",
+      "reason_for_change": "Prior bounded C was too easily read as resolution of the corresponding constitutional question; supplementary Faraday/Maxwell witnesses support mechanism, not universal generalization."
+    },
+    {
+      "question": "Q2",
+      "bounded_claim": "Can divergent scientific languages, inferential norms and observation practices learn a non-given partial bridge?",
+      "bounded_evidence_quality": "0.506",
+      "bounded_claim_support": ".51",
+      "generalized_answer_support": ".10",
+      "continuation_priority": "0.97",
+      "prior_bounded_support": "0.44",
+      "source_ids": [
+        "E08",
+        "E09",
+        "E23",
+        "E27"
+      ],
+      "scope_barrier": "Partial translation in related Faraday/Maxwell and formal alternatives only, NOT cultures with independent science and no shared starting language.",
+      "independent_validation_status": "HOLD",
+      "reason_for_change": "Prior bounded C was too easily read as resolution of the corresponding constitutional question; supplementary Faraday/Maxwell witnesses support mechanism, not universal generalization."
+    },
+    {
+      "question": "Q3",
+      "bounded_claim": "Can criteria for what counts as valid experimental evidence change within a documented research process?",
+      "bounded_evidence_quality": "0.844",
+      "bounded_claim_support": ".90",
+      "generalized_answer_support": ".23",
+      "continuation_priority": "0.96",
+      "prior_bounded_support": "0.88",
+      "source_ids": [
+        "E02",
+        "E17",
+        "E19",
+        "E21",
+        "E22",
+        "E25"
+      ],
+      "scope_barrier": "Documented revisions of criteria and explanatory commitments in a connected 19th-century case, not a theory of all paradigm genesis.",
+      "independent_validation_status": "HOLD",
+      "reason_for_change": "Prior bounded C was too easily read as resolution of the corresponding constitutional question; supplementary Faraday/Maxwell witnesses support mechanism, not universal generalization."
+    },
+    {
+      "question": "Q4",
+      "bounded_claim": "Can a new scientific concept be provisionally proposed then rationally withdrawn with nonfinal status?",
+      "bounded_evidence_quality": "0.875",
+      "bounded_claim_support": ".97",
+      "generalized_answer_support": ".28",
+      "continuation_priority": "0.97",
+      "prior_bounded_support": "0.96",
+      "source_ids": [
+        "E17",
+        "E18",
+        "E19",
+        "E21",
+        "E22",
+        "E23",
+        "E25"
+      ],
+      "scope_barrier": "Faraday/Maxwell show concept coined, suspended, recovered, differently formalized; historical prior art describes it already.",
+      "independent_validation_status": "HOLD",
+      "reason_for_change": "Prior bounded C was too easily read as resolution of the corresponding constitutional question; supplementary Faraday/Maxwell witnesses support mechanism, not universal generalization."
+    },
+    {
+      "question": "Q5",
+      "bounded_claim": "How do formal discriminators affect feasible experiments and engineering choices?",
+      "bounded_evidence_quality": "0.853",
+      "bounded_claim_support": ".95",
+      "generalized_answer_support": ".31",
+      "continuation_priority": "0.92",
+      "prior_bounded_support": "0.92",
+      "source_ids": [
+        "E06",
+        "E07",
+        "E23",
+        "E24",
+        "E25",
+        "E26"
+      ],
+      "scope_barrier": "Mathematics changes theoretical and possible experimental discriminations in bounded electromagnetism, but cross-domain account of why math works in engineering remains open.",
+      "independent_validation_status": "HOLD",
+      "reason_for_change": "Prior bounded C was too easily read as resolution of the corresponding constitutional question; supplementary Faraday/Maxwell witnesses support mechanism, not universal generalization."
+    },
+    {
+      "question": "Q6",
+      "bounded_claim": "When does a measurable signal survive alternate causal explanations and independent calibration?",
+      "bounded_evidence_quality": "0.891",
+      "bounded_claim_support": ".96",
+      "generalized_answer_support": ".39",
+      "continuation_priority": "0.95",
+      "prior_bounded_support": "0.95",
+      "source_ids": [
+        "E02",
+        "E11",
+        "E13",
+        "E22",
+        "E24",
+        "E27"
+      ],
+      "scope_barrier": "Limited observations and competing physical mechanisms constrain which ontological inferences can be licensed; general theory still unresolved.",
+      "independent_validation_status": "HOLD",
+      "reason_for_change": "Prior bounded C was too easily read as resolution of the corresponding constitutional question; supplementary Faraday/Maxwell witnesses support mechanism, not universal generalization."
+    },
+    {
+      "question": "Q7",
+      "bounded_claim": "Does changing the available explanatory and experimental repertoire create questions not merely solve old ones?",
+      "bounded_evidence_quality": "0.767",
+      "bounded_claim_support": ".86",
+      "generalized_answer_support": ".17",
+      "continuation_priority": "0.99",
+      "prior_bounded_support": "0.74",
+      "source_ids": [
+        "E01",
+        "E17",
+        "E18",
+        "E05",
+        "E21",
+        "E23",
+        "E25"
+      ],
+      "scope_barrier": "New research questions can arise as experimental and formal vocabularies interact; genuinely unthinkable questions and grammar-generating law unverified.",
+      "independent_validation_status": "HOLD",
+      "reason_for_change": "Prior bounded C was too easily read as resolution of the corresponding constitutional question; supplementary Faraday/Maxwell witnesses support mechanism, not universal generalization."
+    }
+  ],
+  "general_theory_authority_transfer": false,
+  "notes": "E scores are conditional on specifically delimited historical or mathematical claims. The G numbers are declared adequacy of current generalization evidence, not likelihood the universal proposition is true. Case study novelty diminishes due to Steinle/Nappo/SEP prior art."
+}
