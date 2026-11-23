@@ -1,11 +1,10 @@
-"""MQR 5.4 R91: audit E/C/L manifests and shared evidentiary ancestry.
+"""MQR 5.4 R97: audit current E/C/L/G manifests and shared evidentiary ancestry.
 
 Read-only repo-root deterministic validator; all arithmetic uses Decimal.
 Scores are declared research judgments, NOT objective probabilities.
 No package imports outside the Python standard library.
 """
 from __future__ import annotations
-from collections import defaultdict
 from decimal import Decimal as D
 from pathlib import Path
 import json
@@ -19,18 +18,19 @@ def load(name: str) -> dict:
 
 
 def check():
-    ledger = load("mqr_lira_evidence_claim_decision_scores_R88.json")
-    family = load("mqr_lira_20261123_source_dependency_families.json")
+    ledger = load("mqr_lira_evidence_claim_decision_scores_R95.json")
+    family = load("mqr_lira_20261123_source_dependency_families_R95.json")
     macro = load("mqr_lira_20261123_seven_question_macro_evidence_audit.json")
+    scope_split = load("mqr_lira_20261123_seven_question_scope_split_R96.json")
     metadata = load("mqr_faraday_second_series_dec1831_jan1832_version_paradox.json")
     assert ledger["schema"] == "MQR-LIRA-EVIDENCE-1.0"
     weights = {k: D(str(v)) for k, v in ledger["weights"].items()}
     assert sum(weights.values()) == 1
     source_ids = {s["id"] for s in ledger["evidence"]}
-    assert len(source_ids) == len(ledger["evidence"]) == 20
+    assert len(source_ids) == len(ledger["evidence"]) == 27
     source_families = family["evidence_to_family"]
     assert set(source_families) == source_ids
-    assert len(set(source_families.values())) == 14
+    assert len(set(source_families.values())) == 21
     for source in ledger["evidence"]:
         assert source["source_uri"] and source["limitations"]
         score = sum((weights[k]*D(str(source["axes"][k])) for k in weights), D(0))
@@ -57,7 +57,7 @@ def check():
                 "citations": len(claim["evidence_ids"]),
                 "conservative_families": len(groups)
             }
-    assert len(ids) == len(ledger["claims"]) == 27
+    assert len(ids) == len(ledger["claims"]) == 42
     assert set(sharing) >= {"C02"}
     assert sorted(row["question"] for row in macro["rows"]) == [f"Q{i}" for i in range(1,8)]
     mw = {k:D(str(v)) for k,v in macro["weights"].items()}
@@ -67,6 +67,19 @@ def check():
         assert abs(val-D(row["declared_evidence_quality"])) <= D(".0005")
         assert all(D(0)<=D(row[x])<=D(1) for x in ("support","research_retention_priority"))
         assert row["evidence_ids"] and row["falsifier"] and row["limitation"]
+    assert scope_split["schema"] == "MQR-LIRA-FOUNDING-SCOPE-SPLIT-1.0"
+    assert len(scope_split["founding_questions"]) == 7
+    split_ids = {x["question"] for x in scope_split["founding_questions"]}
+    assert split_ids == {f"Q{i}" for i in range(1, 8)}
+    for row in scope_split["founding_questions"]:
+        assert row["source_ids"] and set(row["source_ids"]) <= source_ids
+        assert row["scope_barrier"]
+        for k in ("bounded_evidence_quality", "bounded_claim_support",
+                  "generalized_answer_support", "continuation_priority"):
+            assert D(0) <= D(row[k]) <= D(1)
+        assert D(row["generalized_answer_support"]) <= D(row["bounded_claim_support"])
+        assert row["independent_validation_status"] == "HOLD"
+    assert not scope_split["general_theory_authority_transfer"]
     assert metadata["next_direct_test"]["access_status"].startswith("ARCHIVE_CATALOG")
     return {
         "status": "PASS_LIRA_MANIFEST_CONSISTENCY",
@@ -74,6 +87,8 @@ def check():
         "source_families": len(set(source_families.values())),
         "claims_and_director_decisions": len(ids),
         "founding_questions": len(macro["rows"]),
+        "scope_split_questions": len(scope_split["founding_questions"]),
+        "general_theory_promoted": False,
         "overlapping_source_claims": sharing,
         "scientific_version": "5.4_OPEN",
         "promote_by_score": False,
