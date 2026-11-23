@@ -1,0 +1,294 @@
+{
+  "schema": "MQR-LIRA-R99-R102-EVIDENCE-DECISIONS-1.0",
+  "date": "2026-11-23",
+  "basis": "declared 0..1 judgment; not confidence intervals, not subjective probabilities, not empirical accuracy",
+  "E_weights": {
+    "directness": ".30",
+    "independence": ".20",
+    "reproducibility": ".20",
+    "discrimination": ".20",
+    "scope_fit": ".10"
+  },
+  "evidence": [
+    {
+      "id": "R99-E01",
+      "scope": "Maxwell Niven original 1856 text, Law I and Law VI, pp. 204-207",
+      "type": "PRIMARY_TEXT_READ",
+      "uri": "https://strangebeautiful.com/other-texts/maxwell-scientific-papers-vol-1.pdf",
+      "axes": {
+        "directness": "0.96",
+        "independence": "0.58",
+        "reproducibility": "0.87",
+        "discrimination": "0.90",
+        "scope_fit": "0.96"
+      },
+      "limitation": "Source text read and PDF screenshot attempted, but image cache failed; original symbols/line-by-line facsimile not certified.",
+      "quality": "0.854"
+    },
+    {
+      "id": "R99-E02",
+      "scope": "Physics Today 2014 historical interpretation of Maxwell electro-tonic functions and Thomson potential",
+      "type": "SECONDARY_ANALYSIS",
+      "uri": "https://physicstoday.aip.org/features/the-conceptual-origins-of-maxwells-equations-and-gauge-theory",
+      "axes": {
+        "directness": "0.86",
+        "independence": "0.75",
+        "reproducibility": "0.97",
+        "discrimination": "0.85",
+        "scope_fit": "0.95"
+      },
+      "limitation": "Modern reexpression and explicit historian opinion, not verbatim 1856 notation.",
+      "quality": "0.867"
+    },
+    {
+      "id": "R100-E01",
+      "scope": "Independent exact Fraction grid-gauge enumeration 2364 paths 168 closed loops",
+      "type": "INDEPENDENT_SYNTHETIC_RECONSTRUCTION",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/language/real/experiments/mqr54_r100_gauge_representation_exact.py",
+      "axes": {
+        "directness": "0.99",
+        "independence": "0.55",
+        "reproducibility": "0.97",
+        "discrimination": "0.95",
+        "scope_fit": "0.99"
+      },
+      "limitation": "Local check reconstructs mathematical model independently, not byte-identical source test or empirical measurement.",
+      "quality": "0.890"
+    },
+    {
+      "id": "R101-E01",
+      "scope": "Independent exact 24-permutation test of unpaired binary marginal matching",
+      "type": "INDEPENDENT_SYNTHETIC_RECONSTRUCTION",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/language/real/experiments/mqr54_r101_unpaired_cross_language_mapping.py",
+      "axes": {
+        "directness": "0.99",
+        "independence": "0.55",
+        "reproducibility": "0.97",
+        "discrimination": "0.96",
+        "scope_fit": "0.99"
+      },
+      "limitation": "Toy deterministic mapping with 4 balanced states; does not model alien civilization or sensor disturbance.",
+      "quality": "0.892"
+    },
+    {
+      "id": "R101-E02",
+      "scope": "JCGM 200:2012 VIM §2.41 metrological traceability",
+      "type": "STANDARD_DIRECT_TEXT",
+      "uri": "https://jcgm.bipm.org/vim/en/2.41.html",
+      "axes": {
+        "directness": "0.97",
+        "independence": "0.86",
+        "reproducibility": "0.99",
+        "discrimination": "0.87",
+        "scope_fit": "0.98"
+      },
+      "limitation": "Authoritative definition of traceability of measurement results; not sufficient condition for unique ontology.",
+      "quality": "0.933"
+    },
+    {
+      "id": "R101-E03",
+      "scope": "Galison trading zones / SEP Unity of Science local cooperation",
+      "type": "SECONDARY_AND_PRIMARY_PHILOSOPHY",
+      "uri": "https://plato.stanford.edu/entries/scientific-unity/",
+      "axes": {
+        "directness": "0.82",
+        "independence": "0.84",
+        "reproducibility": "0.96",
+        "discrimination": "0.81",
+        "scope_fit": "0.96"
+      },
+      "limitation": "Existing philosophical prior art; does not solve all alien-primitive grounding or demonstrate calibration.",
+      "quality": "0.864"
+    },
+    {
+      "id": "R101-E04",
+      "scope": "Statistical matching partial identification source abstract",
+      "type": "SCHOLARLY_RESEARCH_ABSTRACT",
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5423529/",
+      "axes": {
+        "directness": "0.73",
+        "independence": "0.79",
+        "reproducibility": "0.82",
+        "discrimination": "0.80",
+        "scope_fit": "0.95"
+      },
+      "limitation": "PMC text attempted but anti-bot reCAPTCHA, search abstract only; not an independent paper full-text audit.",
+      "quality": "0.796"
+    }
+  ],
+  "claims_and_director_decisions": [
+    {
+      "id": "R99-C01",
+      "claim": "Maxwell 1856 relates electro-tonic closed contour to induction flux and time variation to induced emf",
+      "evidence_ids": [
+        "R99-E01",
+        "R99-E02"
+      ],
+      "C": ".96",
+      "L": ".90",
+      "G": ".25",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Printed text claims Laws I/VI in author's terms, with 1/4pi in component equation; original image symbol-level parity remains open.",
+      "falsifier": "Obtain page image and compare exact algebra/symbols to OCR."
+    },
+    {
+      "id": "R99-C02",
+      "claim": "Modern SI vector potential formula can be substituted as Maxwell's literal 1856 notation without conversions",
+      "evidence_ids": [
+        "R99-E01",
+        "R99-E02"
+      ],
+      "C": ".09",
+      "L": ".04",
+      "G": ".06",
+      "verdict": "COUNTEREVIDENCE",
+      "rationale": "1856 text predates modern vector notation and uses different units; historical quotation must not be replaced by modern formula.",
+      "falsifier": "Direct primary source in modern notation, contrary to chronology."
+    },
+    {
+      "id": "R100-C01",
+      "claim": "Two smooth gauge-related potentials yield equal closed integrals yet differ on some open paths in a simply connected planar toy",
+      "evidence_ids": [
+        "R100-E01",
+        "R99-E01"
+      ],
+      "C": ".99",
+      "L": ".90",
+      "G": ".12",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "2,364 enumerated walks and exact telescoping proof; this is a standard mathematical fact.",
+      "falsifier": "Find path with dχ not integrating to endpoint difference under stated differentiability assumptions."
+    },
+    {
+      "id": "R101-C01",
+      "claim": "Unpaired balanced binary marginals cannot identify an unknown reversal mapping z",
+      "evidence_ids": [
+        "R101-E01",
+        "R101-E04"
+      ],
+      "C": ".99",
+      "L": ".94",
+      "G": ".10",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Both z values give identical marginal histograms; 24 wrong pairing permutations yield 4/16/4 count.",
+      "falsifier": "A marginal-only statistic distinguishing z under the stated symmetric uniform design."
+    },
+    {
+      "id": "R101-C02",
+      "claim": "A truly same-event, nondisturbing stable paired readout identifies z in the noiseless toy",
+      "evidence_ids": [
+        "R101-E01",
+        "R101-E02"
+      ],
+      "C": ".96",
+      "L": ".89",
+      "G": ".13",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Paired agreement is 1 or 0 depending on z; requires authentic shared identity, stable sensor and non-disturbing measurements.",
+      "falsifier": "A valid paired record with same assumptions yielding ambiguous z."
+    },
+    {
+      "id": "R102-C01",
+      "claim": "Trading zones plus measurement traceability logically guarantee identical metaphysical referents across all sciences",
+      "evidence_ids": [
+        "R101-E02",
+        "R101-E03"
+      ],
+      "C": ".07",
+      "L": ".04",
+      "G": ".04",
+      "verdict": "COUNTEREVIDENCE",
+      "rationale": "Neither standards nor local hybrid language alone warrants ontological uniqueness.",
+      "falsifier": "A universal constructive correspondence theorem with independent grounding of both systems."
+    },
+    {
+      "id": "R102-D01",
+      "claim": "Keep Faraday–Maxwell mathematically informative but disallow 1856 source-native equation parity claim without images",
+      "evidence_ids": [
+        "R99-E01",
+        "R99-E02"
+      ],
+      "C": ".94",
+      "L": ".96",
+      "G": ".20",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Text confirms narrative laws; screenshot failed and equations OCR may corrupt factors.",
+      "falsifier": "Get publication page images and verify all printed terms."
+    },
+    {
+      "id": "R102-D02",
+      "claim": "Promote Q2 via real paired-sample or negotiated-intervention physical bridge only after traceability and disturbance controls",
+      "evidence_ids": [
+        "R101-E01",
+        "R101-E02",
+        "R101-E03"
+      ],
+      "C": ".91",
+      "L": ".97",
+      "G": ".12",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Toy shows ID linkage is indispensable for this identification strategy; prior work already covers matching and trading zones.",
+      "falsifier": "Existing independent experimental physical bridge succeeds without any paired identity/intervention/calibration under documented alternative assumptions."
+    },
+    {
+      "id": "R102-D03",
+      "claim": "Prioritize evidence acquisition for Faraday Diary and Maxwell original figures but do not require downloads when public text suffices",
+      "evidence_ids": [
+        "R99-E01",
+        "R99-E02"
+      ],
+      "C": ".90",
+      "L": ".88",
+      "G": ".16",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Current hard evidence gap is original equation image and diary chronology; avoid unnecessary full duplicate documents.",
+      "falsifier": "New verified equivalent facsimile already held and readable."
+    },
+    {
+      "id": "R102-D04",
+      "claim": "Interpret R100/R101 synthetic PASS as physical world-facing validation",
+      "evidence_ids": [
+        "R100-E01",
+        "R101-E01"
+      ],
+      "C": ".03",
+      "L": ".02",
+      "G": ".02",
+      "verdict": "COUNTEREVIDENCE",
+      "rationale": "Deterministic exact arithmetic tests only verify deliberately stipulated toy premises; cannot substitute real raw recordings.",
+      "falsifier": "Actual independent measured data with predeclared protocol and calibrations."
+    }
+  ],
+  "dependencies": [
+    [
+      "R99-E01",
+      "MAXWELL_1856_PRINT"
+    ],
+    [
+      "R99-E02",
+      "PHYSICS_TODAY_2014"
+    ],
+    [
+      "R100-E01",
+      "R100_SYNTHETIC_RECONSTRUCTION"
+    ],
+    [
+      "R101-E01",
+      "R101_SYNTHETIC_RECONSTRUCTION"
+    ],
+    [
+      "R101-E02",
+      "VIM3_2012_STANDARD"
+    ],
+    [
+      "R101-E03",
+      "SEP_SCIENTIFIC_UNITY_GALISON"
+    ],
+    [
+      "R101-E04",
+      "STAT_MATCHING_RESEARCH_ABSTRACT"
+    ]
+  ],
+  "no_autopromotion": true,
+  "status": "5.4_OPEN"
+}
