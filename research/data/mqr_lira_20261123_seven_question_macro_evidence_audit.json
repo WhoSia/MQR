@@ -1,0 +1,170 @@
+{
+  "schema": "MQR-LIRA-FOUNDING-QUESTIONS-1.0",
+  "date": "2026-11-23",
+  "status": "MQR_5_4_OPEN",
+  "definition": "Ratings from research director's contextual judgments against available source record; not truth probabilities or globally comparable measurements.",
+  "weights": {
+    "directness": "0.3",
+    "independence": "0.2",
+    "reproducibility": "0.2",
+    "discrimination": "0.2",
+    "scope_fit": "0.1"
+  },
+  "rows": [
+    {
+      "question": "Q1",
+      "topic": "measurement-vs-data-processing",
+      "scoped_claim": "Can an instrument faithfully reproduce a signal yet lack grounded calibration or same-physical-unit reference?",
+      "evidence_dimensions": {
+        "directness": "0.87",
+        "independence": "0.62",
+        "reproducibility": "0.90",
+        "discrimination": "0.79",
+        "scope_fit": "0.92"
+      },
+      "declared_evidence_quality": "0.815",
+      "support": "0.84",
+      "research_retention_priority": "0.96",
+      "evidence_ids": [
+        "E02",
+        "E09"
+      ],
+      "limitation": "No new cross-instrument same-unit physical data; synthetic model and historical instrument controls demonstrate limited countermodels.",
+      "falsifier": "Would need physically linked calibration protocol with independent negative controls."
+    },
+    {
+      "question": "Q2",
+      "topic": "possible-different-sciences",
+      "scoped_claim": "Can divergent scientific languages, inferential norms and observation practices learn a non-given partial bridge?",
+      "evidence_dimensions": {
+        "directness": "0.48",
+        "independence": "0.31",
+        "reproducibility": "0.81",
+        "discrimination": "0.30",
+        "scope_fit": "0.78"
+      },
+      "declared_evidence_quality": "0.506",
+      "support": "0.44",
+      "research_retention_priority": "0.97",
+      "evidence_ids": [
+        "E08",
+        "E09"
+      ],
+      "limitation": "Current evidence mostly conceptual/analogy; no two genuinely independently originating sciences with verified shared intervention.",
+      "falsifier": "Independent jointly learned perturbation matching different initial logics and observation vocabularies."
+    },
+    {
+      "question": "Q3",
+      "topic": "norms-and-paradigm-genesis",
+      "scoped_claim": "Can criteria for what counts as valid experimental evidence change within a documented research process?",
+      "evidence_dimensions": {
+        "directness": "0.92",
+        "independence": "0.61",
+        "reproducibility": "0.89",
+        "discrimination": "0.87",
+        "scope_fit": "0.94"
+      },
+      "declared_evidence_quality": "0.844",
+      "support": "0.88",
+      "research_retention_priority": "0.96",
+      "evidence_ids": [
+        "E02",
+        "E17",
+        "E19"
+      ],
+      "limitation": "Faraday's changing interpretation is historical evidence, but universal paradigm law not proven.",
+      "falsifier": "Dated diary plus comparative independent cases contradict interpretation of norm change."
+    },
+    {
+      "question": "Q4",
+      "topic": "genesis-of-scientific-concept",
+      "scoped_claim": "Can a new scientific concept be provisionally proposed then rationally withdrawn with nonfinal status?",
+      "evidence_dimensions": {
+        "directness": "0.97",
+        "independence": "0.67",
+        "reproducibility": "0.84",
+        "discrimination": "0.92",
+        "scope_fit": "0.98"
+      },
+      "declared_evidence_quality": "0.875",
+      "support": "0.96",
+      "research_retention_priority": "0.97",
+      "evidence_ids": [
+        "E17",
+        "E18",
+        "E19"
+      ],
+      "limitation": "Original §242 plus retrospective histories document provisional electro-tonic-state withdrawal, not permanent elimination.",
+      "falsifier": "Original/variant proof Faraday never revised concept or text actually says otherwise."
+    },
+    {
+      "question": "Q5",
+      "topic": "mathematics-for-engineering",
+      "scoped_claim": "How do formal discriminators affect feasible experiments and engineering choices?",
+      "evidence_dimensions": {
+        "directness": "0.90",
+        "independence": "0.70",
+        "reproducibility": "0.86",
+        "discrimination": "0.88",
+        "scope_fit": "0.95"
+      },
+      "declared_evidence_quality": "0.853",
+      "support": "0.92",
+      "research_retention_priority": "0.92",
+      "evidence_ids": [
+        "E06",
+        "E07"
+      ],
+      "limitation": "CHSH→apparatus precise but prior art; broader explanation of mathematical success remains untested.",
+      "falsifier": "Strong same-design control showing no influence of theory in case chosen."
+    },
+    {
+      "question": "Q6",
+      "topic": "world-resistance-and-realism",
+      "scoped_claim": "When does a measurable signal survive alternate causal explanations and independent calibration?",
+      "evidence_dimensions": {
+        "directness": "0.95",
+        "independence": "0.71",
+        "reproducibility": "0.87",
+        "discrimination": "0.96",
+        "scope_fit": "0.98"
+      },
+      "declared_evidence_quality": "0.891",
+      "support": "0.95",
+      "research_retention_priority": "0.95",
+      "evidence_ids": [
+        "E02",
+        "E11",
+        "E13"
+      ],
+      "limitation": "Faraday contamination/method warning supports criteria; two source excerpts are one family, not independent repeated test.",
+      "falsifier": "Original archived experiments showing inference was fully resolved."
+    },
+    {
+      "question": "Q7",
+      "topic": "generation-of-unthinkable-questions",
+      "scoped_claim": "Does changing the available explanatory and experimental repertoire create questions not merely solve old ones?",
+      "evidence_dimensions": {
+        "directness": "0.83",
+        "independence": "0.54",
+        "reproducibility": "0.83",
+        "discrimination": "0.77",
+        "scope_fit": "0.90"
+      },
+      "declared_evidence_quality": "0.767",
+      "support": "0.74",
+      "research_retention_priority": "0.99",
+      "evidence_ids": [
+        "E01",
+        "E17",
+        "E18",
+        "E05"
+      ],
+      "limitation": "Faraday covers concrete concept revision, not formal proof of generally unthinkable new problem grammar.",
+      "falsifier": "Show all reconstructed changes are only definitional rewordings of prior executable questions."
+    }
+  ],
+  "claims_all_universally_proven": false,
+  "promotion": "HOLD",
+  "uncertainty": "No confidence intervals: these are declared values without empirical calibration."
+}
