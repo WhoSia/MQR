@@ -1,0 +1,50 @@
+{
+  "schema": "MQR-5.4-R111-PI-SCORE-SENSITIVITY-1.0",
+  "date": "2026-11-23",
+  "source": "research/data/mqr54_r106_pi_global_scorecard_20261123.json",
+  "axis_order": [
+    "root_question_and_vision",
+    "program_coherence",
+    "prior_art_and_rival_comparison",
+    "historical_primary_scholarship",
+    "mathematical_formalization",
+    "code_reproducibility",
+    "external_real_data_research",
+    "independent_theory_novelty",
+    "distinctive_prospective_predictions",
+    "peer_review_ready_manuscript"
+  ],
+  "weights": [
+    0.08,
+    0.1,
+    0.12,
+    0.12,
+    0.1,
+    0.1,
+    0.14,
+    0.12,
+    0.07,
+    0.05
+  ],
+  "scores": [
+    0.9,
+    0.73,
+    0.76,
+    0.82,
+    0.7,
+    0.63,
+    0.55,
+    0.24,
+    0.17,
+    0.15
+  ],
+  "base": 0.5928,
+  "experiment": "Each of ten axis weights individually multiplied by 0.75 or 1.25, renormalized by sum(weights), for all 2^10 extreme vectors. Scores frozen and subjective.",
+  "scenarios": 1024,
+  "min": 0.538735632,
+  "max": 0.64049505,
+  "conclusion": "The 0.5928 total is not robust to all plausible weight perturbations. Weight sweep tests arithmetic sensitivity only and cannot calibrate the score itself.",
+  "supersedes": "Earlier R106 narrative offered illustrative scholarship-first 0.685 and novelty-first 0.489 without complete published weight vectors; these must not be treated as independently reproducible sensitivity endpoints. Use R111 explicitly defined 1024-case perturbations for the verifiable comparison.",
+  "not_new_empirical_data": true,
+  "no_5_5_promotion": true
+}
