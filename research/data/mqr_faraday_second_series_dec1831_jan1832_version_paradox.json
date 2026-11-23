@@ -1,0 +1,73 @@
+{
+  "schema": "MQR-FARADAY-CHRONOLOGY-CRITICAL-1.0",
+  "date": "2026-11-23",
+  "scientific_version": "5.4_OPEN",
+  "question": "Can the printed Second Series with January 1832 laboratory reports be treated as an unchanged manuscript dated December 21 1831?",
+  "witnesses": [
+    {
+      "id": "F86-RS-CATALOG",
+      "kind": "ARCHIVAL_INSTITUTION_METADATA",
+      "date": "1831-12-21",
+      "claim": "The Royal Society lists Second Series manuscript PT/20/5 dated 21 December 1831, read 12 January 1832.",
+      "url": "https://catalogues.royalsociety.org/CalmView/Record.aspx?AddBasket=PT%2F20%2F5&id=PT%2F20%2F5&src=CalmView.Catalog",
+      "limits": "Catalog entry (not a byte-verified archival manuscript text); direct web page open cache missed; search indexed metadata verified."
+    },
+    {
+      "id": "F86-PRINTED-SECOND-SERIES",
+      "kind": "PRIMARY_PUBLICATION_TEXT",
+      "date": "1832",
+      "claim": "Printed Second Series contains Kensington pond, Waterloo Bridge and induced water-current discussions in §§183–190.",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/The_Bakerian_Lecture.-Experimental_Researches_in_Electricity.-Second_Series_%28IA_jstor-107957%29.pdf",
+      "limits": "Original periodical PDF textual opening succeeded, image screenshot cache failed; cannot compare manuscript variant or whether late passages were inserted as note."
+    },
+    {
+      "id": "F86-EPSILON-CHRONOLOGY",
+      "kind": "EDITORIAL_SECONDARY_WITH_DIARY_REFERENCES",
+      "date": "1832-01-10/13",
+      "claim": "Editors cite experiment at Kensington Pond on January 10, Waterloo Bridge January 12–13, and 1831 December 28 failed earlier attempt.",
+      "url": "https://epsilon.ac.uk/view/faraday/letters/Faraday0526",
+      "limits": "Dates taken from scholarly editorial annotations referencing original diary, not direct diary witness read."
+    },
+    {
+      "id": "F86-ORIGINAL-LETTER-1840",
+      "kind": "FIRST_PERSON_RETROSPECTIVE",
+      "date": "1840",
+      "claim": "Faraday himself described his Second Series as bearing the date 21 Dec 1831 and read 12 Jan 1832.",
+      "url": "https://commons.princeton.edu/josephhenry/wp-content/uploads/sites/71/2023/06/Faraday-Letter-Arago-1840.pdf",
+      "limits": "Retrospective authored letter; accessible search snippet only, full original PDF text and image not independently read this pass."
+    },
+    {
+      "id": "F86-REPRINT-1825-NOTE",
+      "kind": "AUTHOR_LATER_PUBLICATION_QUOTING_EARLIER_NOTE",
+      "date": "1825-11-28",
+      "claim": "Later volume reproduces Faraday's 1825 entry of no detected induction despite a parallel galvanometer arrangement.",
+      "url": "https://museufaraday.tecnico.ulisboa.pt/Books/Experimental%20Researches%20in%20Electricity%2C%20Volume%201%2C%20by%20Michael%20Faraday.html",
+      "limits": "Later source quotes notebook; original 1825 notebook handwriting not independently verified."
+    }
+  ],
+  "logical_findings": [
+    {
+      "claim": "A copy of 21 Dec 1831 manuscript cannot report experiments performed 12–13 Jan 1832 without subsequent insertion or a chronology discrepancy.",
+      "status": "DATE_LOGIC_VALID_IF_EDITOR_CHRONOLOGY_CORRECT",
+      "rival": "Catalog date may designate first draft; text might have been supplemented during/after delivery, or editorial dated experiment attribution might require correction."
+    },
+    {
+      "claim": "The 21 December 1831 archive manuscript necessarily contains the exact Waterloo Bridge paragraphs of the printed Second Series.",
+      "status": "NOT_ESTABLISHED",
+      "rival": "Draft/print variants could be different; 1832 appendices or revised text."
+    },
+    {
+      "claim": "Faraday always adhered to one theory-guided experiment sequence from 1825 to 1832.",
+      "status": "NOT_ESTABLISHED",
+      "rival": "1825 reported failure, 1831 transient detection, December exploratory variations, January negative field tests require multiple practice phases."
+    }
+  ],
+  "next_direct_test": {
+    "source": "Royal Society manuscript PT/20/5 First Series/Second Series + printed 1832 Second Series, §§183–190",
+    "compare": "Locate last contemporary entry available in paper dated Dec 21 vs statements requiring Jan 10–13; inspect manuscript marginalia, ink insertions and later corrections.",
+    "access_status": "ARCHIVE_CATALOG_AVAILABLE_MANUSCRIPT_PAGES_NOT_VERIFIED_DOWNLOADABLE",
+    "no_false_claim": "Dated catalog and printed final cannot alone establish when specific paragraphs were added."
+  },
+  "originality": "historical textual criticism, no new universal MQR law",
+  "authority_transfer": false
+}
