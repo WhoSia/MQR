@@ -1,0 +1,149 @@
+{
+  "schema": "MQR-PROSPECTIVE-PAIRED-DESIGN-0.1",
+  "purpose": "Discriminate true within-unit treatment/measurement effects from cross-specimen, order, calibration and dropout artifacts. Design contract only; no physical experiment authorized or performed.",
+  "unit_of_analysis": "independently verified physical specimen ID, not inferred by shared batch labels",
+  "preconditions": [
+    {
+      "name": "same_unit_identity",
+      "status": "PENDING",
+      "evidence_id": null,
+      "interpretation": "If only matched aliquots exist, call them distinct units and change the estimand."
+    },
+    {
+      "name": "measurement_nondestructiveness",
+      "status": "PENDING",
+      "evidence_id": null,
+      "interpretation": "When measuring A destroys or materially changes the specimen, the within-unit AB/BA crossover estimand is not identified."
+    },
+    {
+      "name": "temporal_stability_or_model",
+      "status": "PENDING",
+      "evidence_id": null,
+      "interpretation": "Order contrasts require separation of drift, carryover and target contrast."
+    },
+    {
+      "name": "protocol_approval",
+      "status": "PENDING",
+      "evidence_id": null,
+      "interpretation": "No apparatus, human sample, medical or other laboratory procedure is initiated by this schema."
+    }
+  ],
+  "record_fields": [
+    {
+      "name": "unit_id",
+      "type": "pseudonymous_string",
+      "required": true
+    },
+    {
+      "name": "batch_id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "assignment_id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "planned_order",
+      "type": "AB_or_BA",
+      "required": true
+    },
+    {
+      "name": "actual_order",
+      "type": "AB_or_BA_or_incomplete",
+      "required": true
+    },
+    {
+      "name": "A_value",
+      "type": "number_or_null",
+      "required": true
+    },
+    {
+      "name": "B_value",
+      "type": "number_or_null",
+      "required": true
+    },
+    {
+      "name": "A_missing_reason",
+      "type": "enum_or_null",
+      "required": true
+    },
+    {
+      "name": "B_missing_reason",
+      "type": "enum_or_null",
+      "required": true
+    },
+    {
+      "name": "measurement_timestamp_A",
+      "type": "timestamp_or_null",
+      "required": true
+    },
+    {
+      "name": "measurement_timestamp_B",
+      "type": "timestamp_or_null",
+      "required": true
+    },
+    {
+      "name": "calibration_ref",
+      "type": "versioned_reference",
+      "required": true
+    },
+    {
+      "name": "raw_record_ref",
+      "type": "immutable_raw_receipt",
+      "required": true
+    }
+  ],
+  "planned_estimands": [
+    {
+      "label": "complete_case_within_unit_difference",
+      "formula": "mean(B_i - A_i | M_iA=0 and M_iB=0)",
+      "status": "DESCRIPTIVE_ONLY_WITHOUT_MISSINGNESS_ASSUMPTIONS"
+    },
+    {
+      "label": "order_interaction",
+      "formula": "mean(B-A | AB,complete)-mean(B-A | BA,complete)",
+      "status": "DIAGNOSTIC_NOT_CAUSAL_PROOF"
+    },
+    {
+      "label": "intention_to_measure_missing_rate_by_order",
+      "formula": "P(any missing | assigned AB) - P(any missing | assigned BA)",
+      "status": "IDENTIFIABLE_FROM_RANDOMIZED_ASSIGNMENT_AND_LOGGED_MISSINGNESS"
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "pair_label_shuffle",
+      "role": "Destroy true within-unit linking while holding marginal distributions; should attenuate design-specific pairing gain if the gain is genuine."
+    },
+    {
+      "name": "order_permutation",
+      "role": "Preserve observations but perturb order labels as a pipeline integrity test; does not replace randomized order assignment."
+    },
+    {
+      "name": "calibration_drift_monitor",
+      "role": "Repeated stable reference channels reveal drift confounding; may not by itself solve outcome-dependent attrition."
+    }
+  ],
+  "blocking_ambiguities": [
+    "Missingness dependent on unobserved outcomes is non-identifiable without additional assumptions or design controls.",
+    "Order interaction can reflect biological evolution, carryover, degradation or instrument drift; unequal order groups alone do not identify its physical cause.",
+    "Paired-assay measurements from different cells or aliquots cannot be falsely called repeated measurements of one unit.",
+    "Any result here would still require independent samples and replication before an ontological inference."
+  ],
+  "decision_gate": {
+    "world_facing_data_collected": false,
+    "primary_raw_data": false,
+    "independent_replication": false,
+    "release": "HOLD",
+    "auto_experiment": false
+  },
+  "source_lineage": [
+    "MQR44 pairing/selection/destructive measurement counterexamples",
+    "R61 global postselection",
+    "R63 causal indistinguishability",
+    "R66 BFS roadmap",
+    "LIRA R76 remaining-value priority"
+  ]
+}
