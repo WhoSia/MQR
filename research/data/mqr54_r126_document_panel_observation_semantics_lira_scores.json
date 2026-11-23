@@ -1,0 +1,296 @@
+{
+  "schema": "MQR54-R126-FINBIF-FORM-PANEL-EVIDENCE-1.0",
+  "date": "2026-11-23",
+  "official_version": "5.4_OPEN",
+  "score_contract": "E=source quality; C=bounds-scoped support; G=foundation-question generalization evidence; L=decision/retention priority; expert declared 0..1 ratings, NOT numerical probability or inter-rater calibrated.",
+  "weights": {
+    "directness": 0.3,
+    "independence": 0.2,
+    "reproducibility": 0.2,
+    "rival_discrimination": 0.2,
+    "scope_fit": 0.1
+  },
+  "evidence": [
+    {
+      "id": "E01",
+      "scope": "Original SHA-pinned 2024 GBIF 29,543-occurence archive, Spring 14,651 source records",
+      "source_family": "GBIF_2024_ORIGINAL_ROOT",
+      "url": "https://www.gbif.org/occurrence/download/0031144-240626123714530",
+      "axes": {
+        "directness": "0.99",
+        "independence": "0.82",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.97",
+        "scope_fit": "0.99"
+      },
+      "E": "0.952",
+      "limitation": "Original observation years 2013–2024, so 2024 is export year, not all original observation dates."
+    },
+    {
+      "id": "E02",
+      "scope": "FinBIF catalogNumber document ID vs eventID and occurrenceID source specification",
+      "source_family": "FINBIF_SCHEMA_DOC",
+      "url": "https://luomus.github.io/finbif/reference/variables.html",
+      "axes": {
+        "directness": "0.99",
+        "independence": "0.83",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.94",
+        "scope_fit": "0.99"
+      },
+      "E": "0.948",
+      "limitation": "Documents can share source metadata across several events; not a verified fixed-site or independent sampling visit."
+    },
+    {
+      "id": "E03",
+      "scope": "Spring monitoring current public observation protocol and form, flowering/first observation/weekend mode",
+      "source_family": "LUONTOLIITTO_PROTOCOL",
+      "url": "https://luontoliitto.fi/kevatseuranta/ohjeet/",
+      "axes": {
+        "directness": "0.96",
+        "independence": "0.79",
+        "reproducibility": "0.95",
+        "rival_discrimination": "0.96",
+        "scope_fit": "0.95"
+      },
+      "E": "0.923",
+      "limitation": "Current form directions are not direct proof that all earlier 2013–2024 forms share identical implementation."
+    },
+    {
+      "id": "E04",
+      "scope": "Contemporaneous spring 2024 report describes first observations and monitoring weekends",
+      "source_family": "LUONTOLIITTO_2024_NOTICE",
+      "url": "https://luontoliitto.fi/polyttajat-ovat-liikkeella-vaihtelevasta-kevatsaasta-huolimatta/",
+      "axes": {
+        "directness": "0.91",
+        "independence": "0.78",
+        "reproducibility": "0.92",
+        "rival_discrimination": "0.91",
+        "scope_fit": "0.92"
+      },
+      "E": "0.887",
+      "limitation": "Confirms modes existed in 2024, not full 2013–2024 mapping of each occurrence to native gathering event."
+    },
+    {
+      "id": "E05",
+      "scope": "R124 exact original ZIP SHA-pinned hierarchical aggregation, byte-identical Git SHA and local Python pass",
+      "source_family": "R124_SOFTWARE_RECEIPT",
+      "url": "https://github.com/WhoSia/MQR/blob/main/language/real/experiments/mqr54_r124_finbif_document_panel_audit.py",
+      "axes": {
+        "directness": "0.99",
+        "independence": "0.65",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.96",
+        "scope_fit": "0.99"
+      },
+      "E": "0.916",
+      "limitation": "Derivative of E01 observation root; no new independent field data; error in initial 2024 first-slot filtering and R125 subtotal subsequently corrected."
+    },
+    {
+      "id": "E06",
+      "scope": "NAAMP 2001 authentic field station-key repeated visit study in prior MQR 4.97",
+      "source_family": "NAAMP_2001_FIELD_ROOT",
+      "url": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.97-FINAL-BOUNDED-REAL-FIELD-DETECTION-AND-LEAN-CLOSEOUT.md",
+      "axes": {
+        "directness": "0.93",
+        "independence": "0.84",
+        "reproducibility": "0.97",
+        "rival_discrimination": "0.89",
+        "scope_fit": "0.91"
+      },
+      "E": "0.910",
+      "limitation": "Independent distinct species/time/place root; cannot calibrate spring Anemone occupancy directly."
+    }
+  ],
+  "claims_and_decisions": [
+    {
+      "id": "C01",
+      "claim": "Spring source GBIF catalogNumber is FinBIF document-level identifier and occurrenceID has matching document prefix for 14651/14651 rows",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E05"
+      ],
+      "C": "0.99",
+      "G": "0.23",
+      "L": "0.95",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Exact source content and formal FinBIF variable meaning, not certified field-site visits."
+    },
+    {
+      "id": "C02",
+      "claim": "Spring 2272 documents contain 2269 multiple dates, 2260 mixed status and 1873 exactly one standalone PRESENT timestamp",
+      "evidence_ids": [
+        "E01",
+        "E05"
+      ],
+      "C": "0.99",
+      "G": "0.25",
+      "L": "0.93",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Original hash-pinned local execution. All 12 observation years under 2024 export."
+    },
+    {
+      "id": "C03",
+      "claim": "Spring 2024 has 131 documents, 866 scheduled weekend status slots and 109 noninterval records",
+      "evidence_ids": [
+        "E01",
+        "E05"
+      ],
+      "C": "0.99",
+      "G": "0.23",
+      "L": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Initial sample-level table omitted one single-row document; fixed in R123b and R124; R125b corrected subtotals 796/70."
+    },
+    {
+      "id": "C04",
+      "claim": "Every FinBIF Document ID uniquely represents one exactly geolocated site with independently verified repeated field visits",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E03"
+      ],
+      "C": "0.05",
+      "G": "0.03",
+      "L": "0.02",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "One municipality-level form can span habitats, optional approximate coordinates with 10-100 km uncertainty, effort unobserved."
+    },
+    {
+      "id": "C05",
+      "claim": "2024 schedule has 29 documents with all eight slots populated, certifying eight independent field excursions per document",
+      "evidence_ids": [
+        "E01",
+        "E03",
+        "E05"
+      ],
+      "C": "0.12",
+      "G": "0.04",
+      "L": "0.09",
+      "verdict": "HOLD",
+      "limitation": "Filled slots do not prove physical visit or absence effort; current instructions do not require surveys every weekend."
+    },
+    {
+      "id": "C06",
+      "claim": "Spring source monitoring focuses on flowering of target plants, including wood anemone, and first sightings vs monitoring-weekend observations",
+      "evidence_ids": [
+        "E02",
+        "E03",
+        "E04"
+      ],
+      "C": "0.95",
+      "G": "0.25",
+      "L": "0.92",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Contemporary 2024 report corroborates modes; exact earlier individual record-level native semantic transform still pending."
+    },
+    {
+      "id": "C07",
+      "claim": "Every original GBIF occurrenceStatus ABSENT in Spring unequivocally means the Anemone plant is biologically absent from one precise site",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E03"
+      ],
+      "C": "0.04",
+      "G": "0.02",
+      "L": "0.03",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "Target can be observed flowering, weekend nonreport, spatially broad area and phenology; not site occupancy."
+    },
+    {
+      "id": "C08",
+      "claim": "All ABSENT records mean the participant actually surveyed that scheduled weekend and did not see flowers",
+      "evidence_ids": [
+        "E01",
+        "E03"
+      ],
+      "C": "0.21",
+      "G": "0.05",
+      "L": "0.14",
+      "verdict": "HOLD",
+      "limitation": "Official current directions permit skipping weekends; precise old form defaults/effort provenance unverified."
+    },
+    {
+      "id": "D01",
+      "claim": "Upgrade Q2 source-practice bridge from no identifiers to candidate form/document hierarchy while preserving zero certified fixed-site repeats",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E05"
+      ],
+      "C": "0.96",
+      "G": "0.27",
+      "L": "0.97",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Real source hierarchy found, prevents overstrong R114/R119 interpretation. Does not resolve alien-science reference bootstrap."
+    },
+    {
+      "id": "D02",
+      "claim": "Require original form/gathering facts and participation flags before estimating occupancy or source-specific detection",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E03"
+      ],
+      "C": "0.97",
+      "G": "0.28",
+      "L": "0.96",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Semantics and source coverage decisive. Alternative baseline: established phenology/missing-data/occupancy theory."
+    },
+    {
+      "id": "D03",
+      "claim": "Use exact source grouped split by Form/Document ID, not record split, for any follow-up prediction study",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E05"
+      ],
+      "C": "0.97",
+      "G": "0.26",
+      "L": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Avoid cross-record dependence and source identity leakage; still need independent target/effort."
+    },
+    {
+      "id": "D04",
+      "claim": "Promote universal MQR 5.5 new law from R123/R124 classical seasonal checklist reconstruction",
+      "evidence_ids": [
+        "E01",
+        "E03",
+        "E06"
+      ],
+      "C": "0.04",
+      "G": "0.02",
+      "L": "0.02",
+      "verdict": "HOLD",
+      "limitation": "Known observational target/monitoring protocols and no MQR-specific preregistered advantage."
+    }
+  ],
+  "original_sha256": "5376aac7f12f981299bf0b4a964a4f6c453f501eb1b8ce29df1ce59f90b7b836",
+  "local_git_blob_r124": "d9ed1487347bab02c73ae530c14be997851fccb9",
+  "local_r124_python_pass": true,
+  "raw_source_2024_export_contains_years": "2013–2024",
+  "document_level_repeats_inferred": true,
+  "physical_site_repeats_certified": false,
+  "survey_effort_recovered": false,
+  "original_form_event_crosswalk_recovered": false,
+  "source_family_count": 6,
+  "protected_research_axes": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5",
+    "Q6",
+    "Q7"
+  ],
+  "archive_correction_notes": [
+    "R123 initial Feb24 2024 slot count 130 -> corrected 131 in R123b",
+    "R125 subtotal absent/present 771/95 -> corrected 796/70 in R125b",
+    "R119 missing eventID remains true but R123 recovers FinBIF document hierarchy from catalogNumber"
+  ],
+  "no_5_5_promotion": true
+}
