@@ -1,0 +1,108 @@
+{
+  "schema": "MQR-LIRA-CROSS-CASE-TRIANGULATION-1.0",
+  "status": "MQR_5_4_OPEN",
+  "date": "2026-11-23",
+  "rating_origin": "DECLARED_CONTEXTUAL_JUDGMENTS_NOT_PROBABILITIES",
+  "weights": {
+    "directness": 0.3,
+    "independence": 0.2,
+    "reproducibility": 0.2,
+    "discrimination": 0.2,
+    "scope_fit": 0.1
+  },
+  "case_studies": [
+    {
+      "case": "faraday-to-maxwell-1831-1862",
+      "questions": [
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q7"
+      ],
+      "source_urls": [
+        "https://epsilon.ac.uk/view/faraday/letters/Faraday0522",
+        "https://vinaire.me/wp-content/uploads/2018/12/1852-Faraday-Physical-Character.pdf",
+        "https://djvu.online/file/djI9c8izZPWoY",
+        "https://doi.org/10.1016/j.shpsa.2021.08.003"
+      ],
+      "evidence_dimensions": {
+        "directness": "0.94",
+        "independence": "0.72",
+        "reproducibility": "0.87",
+        "discrimination": "0.90",
+        "scope_fit": "0.96"
+      },
+      "E": "0.876",
+      "C": "0.94",
+      "L": "0.94",
+      "G": "0.25",
+      "witness": "Dated first-person coinage→conditional withdrawal→later reinterpretation→mathematical function with explicit provisional ontic status.",
+      "negative_control": "Same sign/name does NOT prove identical physical referent; prior art already reconstructs analogy method.",
+      "next_action": "Retrieve visual original 1855/56 Maxwell equations, verify signs and physical assumptions before formal equivalence.",
+      "external_review_status": "HOLD"
+    },
+    {
+      "case": "chsh1969-freedman1972",
+      "questions": [
+        "Q5",
+        "Q6",
+        "Q7"
+      ],
+      "source_urls": [
+        "https://quantum.country/assets4/Clauser1969.pdf",
+        "https://escholarship.org/content/qt5qs9830k/qt5qs9830k_noSplash_f76b31bfeb77e6b12c55f3cbd8f6de86.pdf"
+      ],
+      "evidence_dimensions": {
+        "directness": "0.94",
+        "independence": "0.76",
+        "reproducibility": "0.90",
+        "discrimination": "0.92",
+        "scope_fit": "0.95"
+      },
+      "E": "0.893",
+      "C": "0.95",
+      "L": "0.82",
+      "G": "0.24",
+      "witness": "Mathematical inequality revised feasible measurement angles and removals; 1972 preprint reports experimental rate contrasts under detector assumptions.",
+      "negative_control": "R61 globally outcome-selected sample is NOT a detector-efficiency estimate; strong Bell loophole confounds.",
+      "next_action": "Original raw coincidence/event data would permit separate sample covariance audit; absent data keep current result scoped.",
+      "external_review_status": "HOLD"
+    },
+    {
+      "case": "xray-nmr-refmac-2014-2019",
+      "questions": [
+        "Q1",
+        "Q2",
+        "Q6"
+      ],
+      "source_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/24699641/",
+        "https://link.springer.com/article/10.1007/s10858-018-0212-3",
+        "https://drive.google.com/file/d/1bgd9vw84e3tZ80MEGBPmonjg0xUk-Kb_/view"
+      ],
+      "evidence_dimensions": {
+        "directness": "0.77",
+        "independence": "0.65",
+        "reproducibility": "0.76",
+        "discrimination": "0.74",
+        "scope_fit": "0.92"
+      },
+      "E": "0.753",
+      "C": "0.82",
+      "L": "0.91",
+      "G": "0.16",
+      "witness": "Rinaldelli 2014 and Carlon 2019 published methods concern combining crystallographic and solution NMR evidence, including sample and alignment-tensor preparation effects. Only abstracts/publication excerpts and prior MQR44 reading used this turn.",
+      "negative_control": "These communities share molecular ontology, mathematics and reference samples; they are not independent civilizations or literal solution of an alien-science translation problem.",
+      "next_action": "Original matched-sample/aliquot metadata, alignment concentration records and raw-constraints supplement required before empirical same-unit claim.",
+      "external_review_status": "HOLD"
+    }
+  ],
+  "claim": "Three cases have contrasting mechanisms of question creation: experimental concept revision, mathematically targeted protocol design, and partially integrated instruments; none uniquely proves universal question-generation or alien-language bridge.",
+  "limits": [
+    "No generic probability interpretation of E/C/L/G.",
+    "2014/2019 source originals were verified in earlier MQR44; this turn only publication abstracts/excerpts, not raw supplementary byte acquisition.",
+    "Q2 bounded example does not fulfill independently originated scientific civilization experiment.",
+    "Same word/coincidence or model fit cannot settle unique ontic referent."
+  ],
+  "authority_promotion": false
+}
