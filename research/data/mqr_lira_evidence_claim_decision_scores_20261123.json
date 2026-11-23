@@ -1,0 +1,386 @@
+{
+  "schema": "MQR-LIRA-EVIDENCE-1.0",
+  "date": "2026-11-23",
+  "rubric": "DECLARED_EXPERT_ASSESSMENT_NOT_PROBABILITIES",
+  "weights": {
+    "directness": "0.30",
+    "independence": "0.20",
+    "reproducibility": "0.20",
+    "discrimination": "0.20",
+    "scope_fit": "0.10"
+  },
+  "evidence": [
+    {
+      "id": "E01",
+      "type": "PRIMARY_TEXT_READ",
+      "claim_scope": "Faraday First Series contemporary published text, Section 5, presentation order versus observation order",
+      "source_uri": "https://erenow.org/common/history-philosophy-science-reader/56.php",
+      "axes": {
+        "directness": "0.94",
+        "independence": "0.55",
+        "reproducibility": "0.88",
+        "discrimination": "0.74",
+        "scope_fit": "0.90"
+      },
+      "limitations": "Transcription/1839 republication, not independent handwritten diary. Publication explicit about editorial arrangement."
+    },
+    {
+      "id": "E02",
+      "type": "PRIMARY_TEXT_READ",
+      "claim_scope": "Faraday Second Series 1832 published first-person witness, paragraphs 183–190 on null or confounded long-wire/water effects",
+      "source_uri": "https://library.oarcloud.noaa.gov/docs.lib/htdocs/rescue/Rarebook_treasures/QC503F211839_PDF/QC503F211839v1.pdf",
+      "axes": {
+        "directness": "0.98",
+        "independence": "0.60",
+        "reproducibility": "0.83",
+        "discrimination": "0.98",
+        "scope_fit": "0.97"
+      },
+      "limitations": "1839 bound reprint; PDF image screenshot failed; inference limited to author's reported negative findings, not a raw independent repeat."
+    },
+    {
+      "id": "E03",
+      "type": "PRIMARY_TEXT_READ",
+      "claim_scope": "Faraday 6 January 1832 letter, edited transcription of proposal to lay wire at a pond",
+      "source_uri": "https://epsilon.ac.uk/view/faraday/letters/Faraday0526",
+      "axes": {
+        "directness": "0.96",
+        "independence": "0.53",
+        "reproducibility": "0.94",
+        "discrimination": "0.65",
+        "scope_fit": "0.95"
+      },
+      "limitations": "Letter evidences intention, not actual experimental success; editor's footnotes are separate secondary evidence."
+    },
+    {
+      "id": "E04",
+      "type": "SECONDARY_ANALYSIS",
+      "claim_scope": "Epsilon editorial notes from diary recording failed 28 December and January long-wire experiments",
+      "source_uri": "https://epsilon.ac.uk/view/faraday/letters/Faraday0526",
+      "axes": {
+        "directness": "0.65",
+        "independence": "0.40",
+        "reproducibility": "0.92",
+        "discrimination": "0.72",
+        "scope_fit": "0.88"
+      },
+      "limitations": "Footnote depends on source diary; not independently transcribed primary observations for every run."
+    },
+    {
+      "id": "E05",
+      "type": "SECONDARY_ANALYSIS",
+      "claim_scope": "Steinle 1997 analytic distinction between theory-guided ring experiment and later exploratory elementary experiment",
+      "source_uri": "https://drive.google.com/file/d/1rl444ab9HV-Q285EwbPq1QBR2z5g3JcR/view",
+      "axes": {
+        "directness": "0.73",
+        "independence": "0.76",
+        "reproducibility": "0.92",
+        "discrimination": "0.70",
+        "scope_fit": "0.92"
+      },
+      "limitations": "Strong established prior scholarship; interpretation cannot be counted as MQR's new discovery."
+    },
+    {
+      "id": "E06",
+      "type": "PRIMARY_TEXT_READ",
+      "claim_scope": "CHSH 1969 original published proposal concerning inequality, detection bridge, experiment angles and calibration",
+      "source_uri": "https://quantum.country/assets4/Clauser1969.pdf",
+      "axes": {
+        "directness": "0.93",
+        "independence": "0.70",
+        "reproducibility": "0.88",
+        "discrimination": "0.89",
+        "scope_fit": "0.95"
+      },
+      "limitations": "Additional photo-detection assumptions; no automatic closure of all later experimental loopholes."
+    },
+    {
+      "id": "E07",
+      "type": "PRIMARY_TEXT_READ",
+      "claim_scope": "Freedman–Clauser 1972 January original author preprint LBL-392 and published summary contrast",
+      "source_uri": "https://escholarship.org/content/qt5qs9830k/qt5qs9830k_noSplash_f76b31bfeb77e6b12c55f3cbd8f6de86.pdf",
+      "axes": {
+        "directness": "0.90",
+        "independence": "0.73",
+        "reproducibility": "0.79",
+        "discrimination": "0.91",
+        "scope_fit": "0.93"
+      },
+      "limitations": "Author source and rounded rates, but no original time-resolved counts; screening assumptions remain."
+    },
+    {
+      "id": "E08",
+      "type": "SECONDARY_ANALYSIS",
+      "claim_scope": "MQR founding seven-question comparison reconstructed in MQR 41 and MQR 44 from project records",
+      "source_uri": "https://github.com/WhoSia/MQR/blob/main/research/mqr_54_mqr41_logical_signs_possible_sciences_paradigm_genesis_synthesis.md",
+      "axes": {
+        "directness": "0.81",
+        "independence": "0.38",
+        "reproducibility": "0.98",
+        "discrimination": "0.67",
+        "scope_fit": "0.98"
+      },
+      "limitations": "Project constitution is normative internal document, not empirical proof of its philosophical validity."
+    },
+    {
+      "id": "E09",
+      "type": "EXECUTABLE_MODEL",
+      "claim_scope": "MQR R61/R63 exact countermodels and R70 validated code receipts",
+      "source_uri": "https://github.com/WhoSia/MQR/blob/main/research/mqr_54_chat45_70_primary_source_and_exact_git_blob_execution_receipts.md",
+      "axes": {
+        "directness": "0.86",
+        "independence": "0.46",
+        "reproducibility": "0.99",
+        "discrimination": "0.88",
+        "scope_fit": "0.91"
+      },
+      "limitations": "Synthetic model mathematics; not an external physical experiment or new theorem."
+    },
+    {
+      "id": "E10",
+      "type": "SOURCE_DISCOVERY_ONLY",
+      "claim_scope": "Faraday Diary Volume I scanned 1932 first edited edition identified at Internet Archive/Open Library",
+      "source_uri": "https://archive.org/details/faradaysdiarybei00fara_1",
+      "axes": {
+        "directness": "0.68",
+        "independence": "0.43",
+        "reproducibility": "0.74",
+        "discrimination": "0.38",
+        "scope_fit": "0.93"
+      },
+      "limitations": "Catalog/discovery only. Whole required 1831 Dec and 1832 Jan primary passage not independently visually read; Drive not held."
+    },
+    {
+      "id": "E11",
+      "type": "PRIMARY_TEXT_READ",
+      "claim_scope": "Faraday's Second Series numbered condition analysis distinguishing induced current and several interferents",
+      "source_uri": "https://library.oarcloud.noaa.gov/docs.lib/htdocs/rescue/Rarebook_treasures/QC503F211839_PDF/QC503F211839v1.pdf",
+      "axes": {
+        "directness": "0.97",
+        "independence": "0.58",
+        "reproducibility": "0.83",
+        "discrimination": "0.93",
+        "scope_fit": "0.98"
+      },
+      "limitations": "Same source as E02, NOT independent corroboration; distinct evidentiary passage."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C01",
+      "claim": "Faraday 1831 First Series authored published account reordered results relative to actual discovery chronology",
+      "evidence_ids": [
+        "E01"
+      ],
+      "support": "0.95",
+      "priority": "0.90",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": true,
+      "rationale": "Author states this rhetorical ordering; direct author source, not exact diary-run reconstruction.",
+      "falsifier": "Compare autograph submitted manuscript and journal printing for wording."
+    },
+    {
+      "id": "C02",
+      "claim": "Faraday 1832 Waterloo Bridge experimental observations were confounded and did not furnish satisfactory induction results",
+      "evidence_ids": [
+        "E02",
+        "E11",
+        "E04"
+      ],
+      "support": "0.97",
+      "priority": "0.90",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": true,
+      "rationale": "Contemporary author explicitly attributes galvanometer deflections to temperature, contacts, plate and water conditions; E02/E11 same source so not independent.",
+      "falsifier": "Original diary records or controlled modern repeat reveal a robust physically intended effect and distinguish alternative sources."
+    },
+    {
+      "id": "C03",
+      "claim": "Faraday 1832 6 January letter demonstrates planning of pond long-wire experiment but not its outcome",
+      "evidence_ids": [
+        "E03",
+        "E04"
+      ],
+      "support": "0.96",
+      "priority": "0.84",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": true,
+      "rationale": "Letter first person states intention; later failure supplied as distinct editorial note.",
+      "falsifier": "Contemporaneous lab report shows conducted trial or documented different intent."
+    },
+    {
+      "id": "C04",
+      "claim": "Faraday research shifted from theory-guided early ring to more exploratory condition variation",
+      "evidence_ids": [
+        "E05",
+        "E01",
+        "E02"
+      ],
+      "support": "0.84",
+      "priority": "0.86",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": true,
+      "rationale": "Steinle established mixed-regime reading and source shows theory/perturbation/negative cases.",
+      "falsifier": "Full dated notebook reconstruction shows uniform unchanged hypothesis/test architecture."
+    },
+    {
+      "id": "C05",
+      "claim": "MQR seven questions remain an appropriate broad research constitution, irrespective of local novelty-left scores",
+      "evidence_ids": [
+        "E08",
+        "E05",
+        "E09"
+      ],
+      "support": "0.84",
+      "priority": "0.96",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": false,
+      "rationale": "Normative coherence and history of program; claims only fidelity to the program, not objective universal optimality.",
+      "falsifier": "Founding user text disconfirms seven-question reconstruction or source history."
+    },
+    {
+      "id": "C06",
+      "claim": "Bell–CHSH 1969/1972 is a documented theory-guided experiment-design example under detection assumptions",
+      "evidence_ids": [
+        "E06",
+        "E07"
+      ],
+      "support": "0.93",
+      "priority": "0.89",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": true,
+      "rationale": "1969 proposal and 1972 preprint give distinct temporally ordered plan/implementation, not loophole-free result.",
+      "falsifier": "1972 original contradicts claimed geometry or measurement bridge."
+    },
+    {
+      "id": "C07",
+      "claim": "Faraday example alone proves a universal law for scientific question generation",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E05"
+      ],
+      "support": "0.09",
+      "priority": "0.25",
+      "verdict": "HOLD",
+      "requires_primary": false,
+      "rationale": "Neither a single episode nor Steinle interpretation establishes universally generalizable scientific law.",
+      "falsifier": "Independent rival cases and a prospective falsifiable quantitative prediction would be required."
+    },
+    {
+      "id": "C08",
+      "claim": "Current LIRA 1.0 scalar priority may discard mandatory founding evidence cases without constitution guard",
+      "evidence_ids": [
+        "E08",
+        "E09"
+      ],
+      "support": "0.95",
+      "priority": "0.96",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": false,
+      "rationale": "Counterexample: rank-only algorithm can deprioritize protected case even if essential; direct code-level design failure.",
+      "falsifier": "Existing code formally mandates all seven and protected Faraday under all weighting schemes."
+    },
+    {
+      "id": "C09",
+      "claim": "Not all published Faraday signals count as verified intended physical target",
+      "evidence_ids": [
+        "E02",
+        "E11"
+      ],
+      "support": "0.97",
+      "priority": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": true,
+      "rationale": "Second Series author distinguishes galvanometer deflection from satisfactory water-motion induction explanation.",
+      "falsifier": "Primary text shows those exact deflections were accepted as unambiguously target-generated."
+    },
+    {
+      "id": "C10",
+      "claim": "Full 1831 December and 1832 January original edited Diary is available to the model and has been comprehensively audited",
+      "evidence_ids": [
+        "E10"
+      ],
+      "support": "0.10",
+      "priority": "0.85",
+      "verdict": "HOLD",
+      "requires_primary": false,
+      "rationale": "Public edition identified but content-range visual/complete reading is unverified and no custody receipt.",
+      "falsifier": "Retrieve certified complete volume and inspect original dated entries, pages/figures."
+    },
+    {
+      "id": "D01",
+      "claim": "Protect Faraday as active Q3/Q4/Q7 witness even though Steinle prior art lowers novelty",
+      "evidence_ids": [
+        "E08",
+        "E05",
+        "E01",
+        "E02"
+      ],
+      "support": "0.92",
+      "priority": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": false,
+      "rationale": "Research-program coverage and contrast between guided and exploratory stages, not uniqueness of claim.",
+      "falsifier": "New founding constitution removes these research questions."
+    },
+    {
+      "id": "D02",
+      "claim": "Preserve Bell as comparative control, not another long PR-box-only modeling loop",
+      "evidence_ids": [
+        "E06",
+        "E07",
+        "E09"
+      ],
+      "support": "0.89",
+      "priority": "0.80",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": false,
+      "rationale": "Explicit documented protocol chain clarifies difference with Faraday; further local toy model has diminishing evidentiary novelty.",
+      "falsifier": "New model offers independent discriminating empirical evidence unavailable in established protocols."
+    },
+    {
+      "id": "D03",
+      "claim": "Acquire complete Faraday Diary Volume I into 00_INTAKE before claiming the precise Dec/Jan sequence",
+      "evidence_ids": [
+        "E10",
+        "E04",
+        "E01"
+      ],
+      "support": "0.91",
+      "priority": "0.92",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": false,
+      "rationale": "The missing dated primary episodes are exactly what can change historical causal interpretation.",
+      "falsifier": "Accessible complete and independently verified identical diary already held in Drive."
+    },
+    {
+      "id": "D04",
+      "claim": "Keep cross-science conceptual bridge and paired measurement as distinct open questions",
+      "evidence_ids": [
+        "E08",
+        "E09"
+      ],
+      "support": "0.87",
+      "priority": "0.90",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "requires_primary": false,
+      "rationale": "Founding program explicitly separates symbol/experiment grounding and identical samples; current synthetic tests do not close empirical gap.",
+      "falsifier": "Original program or new verified empirical bridge closes open premise."
+    },
+    {
+      "id": "D05",
+      "claim": "LIRA evidence quality and support ratings justify MQR 5.5 promotion",
+      "evidence_ids": [
+        "E08",
+        "E09"
+      ],
+      "support": "0.08",
+      "priority": "0.03",
+      "verdict": "HOLD",
+      "requires_primary": false,
+      "rationale": "Internal declared ratings cannot replace empirical validation, independence and competing accounts.",
+      "falsifier": "Independent evidence plus novel predictions/accepted cross-domain tests could motivate different evaluation."
+    }
+  ]
+}
