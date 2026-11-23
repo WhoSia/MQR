@@ -1,0 +1,186 @@
+{
+  "schema": "MQR54-R123-FINBIF-DOCUMENT-ANCESTRY-1.0",
+  "date": "2026-11-23",
+  "version": "MQR_5_4_OPEN",
+  "original_gbif_source_sha256": "5376aac7f12f981299bf0b4a964a4f6c453f501eb1b8ce29df1ce59f90b7b836",
+  "original_source": "GBIF historical download 0031144-240626123714530",
+  "dataset_key": "acf9b46d-e71a-4ccb-91d2-a021ffda4dd4",
+  "new_finding": "Original occurrence-core ZIP lacks eventID and locationID fields, but catalogNumber holds FinBIF Document ID, and occurrenceID contains that same document prefix plus per-record #Unit suffix.",
+  "source_records": 14651,
+  "distinct_document_ids": 2272,
+  "occurrence_prefix_equals_document_all_records": true,
+  "documents_multiple_original_event_dates": 2269,
+  "documents_mixed_present_absent": 2260,
+  "documents_constant_exported_coordinates": 2272,
+  "documents_one_noninterval_present": 1873,
+  "documents_zero_noninterval_present": 399,
+  "document_length_distribution": {
+    "1": 3,
+    "2": 3,
+    "3": 28,
+    "4": 223,
+    "5": 444,
+    "6": 448,
+    "7": 446,
+    "8": 457,
+    "9": 220
+  },
+  "document_geo_uncertainty_meters": {
+    "10000": 917,
+    "25000": 177,
+    "50000": 560,
+    "100000": 618
+  },
+  "years": {
+    "2013": {
+      "documents": 216,
+      "rows": 1404,
+      "multiple_dates": 216,
+      "mixed_labels": 216
+    },
+    "2014": {
+      "documents": 214,
+      "rows": 1282,
+      "multiple_dates": 213,
+      "mixed_labels": 213
+    },
+    "2015": {
+      "documents": 124,
+      "rows": 694,
+      "multiple_dates": 124,
+      "mixed_labels": 124
+    },
+    "2016": {
+      "documents": 258,
+      "rows": 1561,
+      "multiple_dates": 258,
+      "mixed_labels": 258
+    },
+    "2017": {
+      "documents": 122,
+      "rows": 762,
+      "multiple_dates": 121,
+      "mixed_labels": 120
+    },
+    "2018": {
+      "documents": 176,
+      "rows": 1180,
+      "multiple_dates": 176,
+      "mixed_labels": 176
+    },
+    "2019": {
+      "documents": 193,
+      "rows": 1227,
+      "multiple_dates": 193,
+      "mixed_labels": 193
+    },
+    "2020": {
+      "documents": 360,
+      "rows": 2290,
+      "multiple_dates": 360,
+      "mixed_labels": 352
+    },
+    "2021": {
+      "documents": 188,
+      "rows": 1310,
+      "multiple_dates": 187,
+      "mixed_labels": 187
+    },
+    "2022": {
+      "documents": 126,
+      "rows": 953,
+      "multiple_dates": 126,
+      "mixed_labels": 126
+    },
+    "2023": {
+      "documents": 164,
+      "rows": 1013,
+      "multiple_dates": 164,
+      "mixed_labels": 164
+    },
+    "2024": {
+      "documents": 131,
+      "rows": 975,
+      "multiple_dates": 131,
+      "mixed_labels": 131
+    }
+  },
+  "single_document_spans_multiple_years": 0,
+  "year_2024": {
+    "documents": 131,
+    "rows": 975,
+    "schedule_slots": [
+      {
+        "date": "2024-02-24/25",
+        "recorded_absent": 130,
+        "recorded_present": 0,
+        "total": 130
+      },
+      {
+        "date": "2024-03-09/10",
+        "recorded_absent": 130,
+        "recorded_present": 0,
+        "total": 130
+      },
+      {
+        "date": "2024-03-23/24",
+        "recorded_absent": 130,
+        "recorded_present": 0,
+        "total": 130
+      },
+      {
+        "date": "2024-04-06/07",
+        "recorded_absent": 130,
+        "recorded_present": 0,
+        "total": 130
+      },
+      {
+        "date": "2024-04-20/21",
+        "recorded_absent": 126,
+        "recorded_present": 2,
+        "total": 128
+      },
+      {
+        "date": "2024-05-04/05",
+        "recorded_absent": 79,
+        "recorded_present": 32,
+        "total": 111
+      },
+      {
+        "date": "2024-05-18/19",
+        "recorded_absent": 45,
+        "recorded_present": 32,
+        "total": 77
+      },
+      {
+        "date": "2024-06-01/02",
+        "recorded_absent": 25,
+        "recorded_present": 4,
+        "total": 29
+      }
+    ],
+    "first_four_weekend_slots_all_absent": true,
+    "reported_weekend_slot_counts_decline_from": 130,
+    "reported_weekend_slot_counts_decline_to": 29
+  },
+  "source_authoritative_interpretation": {
+    "finbif_variables": "https://luomus.github.io/finbif/reference/variables.html",
+    "meaning": "catalogNumber is document identifier encompassing events with shared metadata, occurrenceID unit identifies an occurrence within this hierarchy.",
+    "campaign_current_instructions": "https://luontoliitto.fi/kevatseuranta/ohjeet/",
+    "campaign_current_form": "https://loydos.luomus.fi/forms/kevatseuranta",
+    "campaign_contemporaneous_2024": "https://luontoliitto.fi/kevat-saapui-vauhdilla-valkovuokot-kukkivat/",
+    "limitation": "Current form design cannot automatically be asserted to have identical workflows in all historical years 2013–2024."
+  },
+  "warning": [
+    "Document ID is NOT a certified fixed ecological site or sampling visit ID; campaign allows observing within a municipality and travel across habitats; current rule says change form after 10km from starting point.",
+    "The exported coordinates are invariant within each document but have stated uncertainties of 10km to 100km; do not use them as geolocated point-revisit certification.",
+    "Dates may denote a scheduled observation weekend, not actual performed independent fieldwork; all-ABSENT slots may include nonparticipation or untargeted visits; origin form must be audited.",
+    "2013–2024 are observation years of Spring dataset inside a 2024 EXPORT; this is not 14,651 observations recorded in 2024.",
+    "2013–2024 previous form versions and data production pipeline not fully reconstructed.",
+    "No formal original document-to-event crosswalk or detection effort proof; ecological occupancy and new MQR theory HOLD."
+  ],
+  "certified_repeated_physical_sites": null,
+  "strict_R122_event_id_screen_candidate_sites": 0,
+  "interpretation_revision": "R119/R120/R114 statement of missing explicit eventID remains correct, but interpretation 'no other grouping evidence' is superseded. Source-level document and unit hierarchy retained; candidates for panel form/weekend slots, not certified field visits.",
+  "authority_transfer": false
+}
