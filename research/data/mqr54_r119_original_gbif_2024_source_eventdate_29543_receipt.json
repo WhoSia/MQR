@@ -1,0 +1,116 @@
+{
+  "schema": "MQR54-R119-ORIGINAL-GBIF-2024-EVENT-METADATA-AND-DATE-AUDIT-1.0",
+  "audit_local_date": "2026-11-23",
+  "official_version": "5.4_OPEN",
+  "origin": "Drive archived MQR-4.95 P3 source bundle (not new GBIF download)",
+  "drive_file_id": "1OBJ7DJqNKUH5-GgMX5I10xlyr6erVj3v",
+  "source_url": "https://www.gbif.org/occurrence/download/0031144-240626123714530",
+  "outer_zip_sha256": "672db21bb6b26ee35a03108df8ebfb9975ab2171028c17afcd4eca5421eb9018",
+  "inner_tar_gzip_sha256": "6c20bc07a56d4453d887ed2cbf4999a6db030f499b2e740a349b687da9a56cf0",
+  "historical_original_gbif_zip_sha256": "5376aac7f12f981299bf0b4a964a4f6c453f501eb1b8ce29df1ce59f90b7b836",
+  "gbif_zip_bytes": 1427437,
+  "raw_gbif_tsv_member": "0031144-240626123714530.csv",
+  "historical_author_csv_sha256": "35b7195ee19b8087497eb44fe4e47c8676376d2a6aad2ad94e4bd3091b2f3d0c",
+  "r112_initial_git_blob_sha1": "246a08fab3b4cb20ff50e32f043a7839fe2c310c",
+  "r118_corrected_git_blob_sha1": "0af526a272418bda6bf8e10e9a55b3c6579169c9",
+  "actual_original_input_passed_to_r118": true,
+  "verified_result": {
+    "rows": 29543,
+    "columns": 50,
+    "source_datasets": 27,
+    "status_counts": {
+      "ABSENT": 11166,
+      "PRESENT": 18377
+    },
+    "nonempty": {
+      "gbifID": 29543,
+      "occurrenceID": 29543,
+      "datasetKey": 29543,
+      "eventDate": 29543,
+      "year": 29543,
+      "decimalLatitude": 29507,
+      "decimalLongitude": 29507,
+      "eventID": 0,
+      "locationID": 0,
+      "samplingEffort": 0,
+      "samplingProtocol": 0,
+      "sampleSizeValue": 0,
+      "sampleSizeUnit": 0
+    },
+    "missing_columns": [
+      "eventID",
+      "locationID",
+      "samplingEffort",
+      "samplingProtocol",
+      "sampleSizeValue",
+      "sampleSizeUnit"
+    ],
+    "strict_candidate_revisited_sites": 0,
+    "certified_revisited_sites": null
+  },
+  "date_encoding": {
+    "ranges": 14177,
+    "timestamps": 15326,
+    "standalone_dates": 40,
+    "status_crosstab": {
+      "range": {
+        "ABSENT": 11165,
+        "PRESENT": 3012
+      },
+      "timestamp": {
+        "ABSENT": 1,
+        "PRESENT": 15325
+      },
+      "single_date": {
+        "ABSENT": 0,
+        "PRESENT": 40
+      }
+    },
+    "spring_source_id": "acf9b46d-e71a-4ccb-91d2-a021ffda4dd4",
+    "spring_by_type_and_status": {
+      "range_absent": 11165,
+      "range_present": 1613,
+      "timestamp_absent": 0,
+      "timestamp_present": 1873
+    },
+    "range_days_exact_one": 12941,
+    "range_days_gt_one": 1236,
+    "range_days_ge365": 243,
+    "range_duration_interpretation": "Interval notation means an observation date/time range; an interval of one day is NOT evidence of two visits."
+  },
+  "coordinate_ambiguity": {
+    "same_dataset_lat_lon_year": {
+      "unique_groups": 15008,
+      "duplicate_groups": 2283,
+      "rows_in_duplicate_groups": 16782,
+      "max_group": 149
+    },
+    "same_dataset_lat_lon_full_original_eventDate": {
+      "unique_groups": 25324,
+      "duplicate_groups": 1824,
+      "rows_in_duplicate_groups": 6007,
+      "max_group": 52
+    },
+    "statement": "Repeated matching geographic/time fields are NOT certified identical-site independent revisit events."
+  },
+  "in_sample_posthoc_date_format_rule": {
+    "description": "PREDICT ABSENT if / interval else PRESENT; simple post-hoc descriptive rule on original raw eventDate",
+    "true_positive_Present": 15365,
+    "true_negative_Absent": 11165,
+    "false_positive_Present": 1,
+    "false_negative_Absent": 3012,
+    "correct": 26530,
+    "n": 29543,
+    "accuracy": 0.8980130657008428,
+    "comparison_original_author_csv": "eventDate missing from 23-column Serov model CSV. This rule cannot be called an original author model shortcut or evaluated heldout performance."
+  },
+  "research_limits": [
+    "The 2024 original ZIP is occurrence-core TSV, not certified event-core full sampling-event archive.",
+    "Missing eventID/locationID/sampling effort columns in THIS exact ZIP do not prove the upstream publisher never held richer survey files.",
+    "Source status and date representation are highly associated but causal source behavior, true occupancy and detection rates are not identified.",
+    "ISO 8601 interval encoding is standard and not an error by itself.",
+    "Do not equate 0 strict candidates with 0 actual revisits.",
+    "Data originally preserved by MQR4.95; not independently collected new field observations."
+  ],
+  "authority_promotion": false
+}
