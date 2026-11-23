@@ -8,6 +8,7 @@ Output contains only counts and field coverage; biological inference HOLD.
 """
 from __future__ import annotations
 import argparse,csv,io,json,re,zipfile
+from datetime import date
 from pathlib import Path
 from collections import Counter,defaultdict
 
@@ -17,18 +18,32 @@ FIELDS=("gbifID","occurrenceID","datasetKey","eventID","locationID",
         "occurrenceStatus")
 REQUIRED={"gbifID","datasetKey","occurrenceStatus"}
 
+def valid_calendar_day(raw):
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}",raw):
+        return False
+    try:
+        return date.fromisoformat(raw).isoformat()==raw
+    except ValueError:
+        return False
+
 def audit(reader,expect=None):
     absent=set(FIELDS)-set(reader.fieldnames or [])
     if absent & REQUIRED: raise ValueError("missing required raw columns")
+    if len(reader.fieldnames or [])!=len(set(reader.fieldnames or [])):
+        raise ValueError("duplicate source header columns")
     observed=Counter();labels=Counter();providers=Counter()
     site_events=defaultdict(dict);owner={};conflicts=set();ids=set();n=0
     for row in reader:
         n+=1
+        if None in row or any(not isinstance(x,str) and x is not None for x in row.values()):
+            raise ValueError("malformed TSV row or extra unheaded fields")
         v={k:(row.get(k) or "").strip() for k in FIELDS}
         if not v["gbifID"] or v["gbifID"] in ids:
             raise ValueError("missing/duplicate original gbifID")
         ids.add(v["gbifID"])
         if not v["datasetKey"]: raise ValueError("missing datasetKey")
+        if v["occurrenceStatus"].upper() not in ("PRESENT","ABSENT"):
+            raise ValueError("unknown occurrenceStatus label")
         providers[v["datasetKey"]]+=1
         labels[v["occurrenceStatus"].upper()]+=1
         observed.update(k for k in FIELDS if v[k])
@@ -36,7 +51,7 @@ def audit(reader,expect=None):
                               "samplingProtocol")) and
             (v["samplingEffort"] or
              (v["sampleSizeValue"] and v["sampleSizeUnit"])) and
-            re.fullmatch(r"\d{4}-\d{2}-\d{2}",v["eventDate"])):
+            valid_calendar_day(v["eventDate"])):
             site=(v["datasetKey"],v["locationID"],v["samplingProtocol"])
             ev=(v["datasetKey"],v["eventID"])
             prior=owner.get(ev)
@@ -90,8 +105,25 @@ def test():
         try: audit(csv.DictReader(io.StringIO(payload),delimiter="\t"),expected)
         except ValueError: pass
         else: raise AssertionError("negative input failed to reject")
+    # Dates with the right string shape but impossible calendar dates must
+    # never contribute to a candidate repeated-site survey.
+    impossible=("5","A","PRESENT","E5","X","2024-13-01","scan","5m")
+    impossible2=("6","A","ABSENT","E6","X","2024-13-15","scan","5m")
+    badcalendar="\t".join(keys)+"\n"+"".join("\t".join(r)+"\n" for r in (impossible,impossible2))
+    result=audit(csv.DictReader(io.StringIO(badcalendar),delimiter="\t"),2)
+    assert result["strict_candidate_sites"]==0
+    for item in ("2024-02-30","2024-13-01","2024-00-01","2024-2-01","2024-04-31"):
+        assert not valid_calendar_day(item)
+    assert valid_calendar_day("2024-02-29")
+    # A duplicate TSV header and an extra unheaded column must fail closed.
+    badhead="\t".join(keys+("eventID",))+"\n"+"\t".join(rows[0]+("oops",))+"\n"
+    extra="\t".join(keys)+"\n"+"\t".join(rows[0]+("oops",))+"\n"
+    for badinput in (badhead,extra):
+        try: audit(csv.DictReader(io.StringIO(badinput),delimiter="\t"))
+        except ValueError: pass
+        else: raise AssertionError("malformed header/row accepted")
     return {"result":"PASS_SYNTHETIC_FIXTURE","candidate_sites":1,
-            "negative_controls":2,"original_2024_archive_opened":False}
+            "negative_controls":6,"original_2024_archive_opened":False}
 
 if __name__=="__main__":
     p=argparse.ArgumentParser()
