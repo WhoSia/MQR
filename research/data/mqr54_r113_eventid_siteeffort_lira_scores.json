@@ -1,0 +1,238 @@
+{
+  "schema": "MQR54-R113-ORIGINAL-EVENT-SCREEN-LIRA-1.0",
+  "date": "2026-11-23",
+  "status": "MQR_5_4_OPEN",
+  "score_semantics": "Declaration of director source quality E, scoped warrant C, generalization G, priority L, not calibrated truth probabilities.",
+  "weights": {
+    "directness": 0.3,
+    "independence": 0.2,
+    "reproducibility": 0.2,
+    "discrimination": 0.2,
+    "scope_fit": 0.1
+  },
+  "evidence": [
+    {
+      "id": "M112-E01",
+      "scope": "2024 GBIF 29543 original row and original publisher source audit, closed MQR 4.95",
+      "source_family": "SOURCE_AUDIT_ROOT",
+      "url": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.95-FINAL-BOUNDED-SCIENTIFIC-CLOSEOUT.md",
+      "axes": {
+        "directness": "0.96",
+        "independence": "0.69",
+        "reproducibility": "0.92",
+        "discrimination": "0.91",
+        "scope_fit": "0.98"
+      },
+      "E": "0.890",
+      "limitation": "2024 source ZIP not read directly this turn; document confirms original fields gbifID, datasetKey, occurrenceID, status, coords, year but does not certify eventID/locationID/samplingEffort population."
+    },
+    {
+      "id": "M112-E02",
+      "scope": "GBIF original occurrence ZIP optional eventID, locationID, eventDate and sampling effort schema",
+      "source_family": "GBIF_PUBLIC_TECHNICAL_DOC",
+      "url": "https://techdocs.gbif.org/en/data-use/download-formats",
+      "axes": {
+        "directness": "0.97",
+        "independence": "0.86",
+        "reproducibility": "0.99",
+        "discrimination": "0.91",
+        "scope_fit": "0.97"
+      },
+      "E": "0.940",
+      "limitation": "This is schema availability, not proof these fields are populated in the historical particular 2024 archive."
+    },
+    {
+      "id": "M112-E03",
+      "scope": "GBIF sampling-event data quality requirements and eventID continuity",
+      "source_family": "GBIF_PUBLIC_TECHNICAL_DOC",
+      "url": "https://www.gbif.org/data-quality-requirements-sampling-events",
+      "axes": {
+        "directness": "0.96",
+        "independence": "0.83",
+        "reproducibility": "0.97",
+        "discrimination": "0.88",
+        "scope_fit": "0.97"
+      },
+      "E": "0.921",
+      "limitation": "Same GBIF standards family as E02; do not treat as independent data root. Standard requires event semantics, not biological closure proof."
+    },
+    {
+      "id": "M112-E04",
+      "scope": "2001 NAAMP original P. crucifer and P. feriarum observation root 337 station visits/130 sites",
+      "source_family": "NAAMP_2001_FIELD_ROOT",
+      "url": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.97-FINAL-BOUNDED-REAL-FIELD-DETECTION-AND-LEAN-CLOSEOUT.md",
+      "axes": {
+        "directness": "0.94",
+        "independence": "0.81",
+        "reproducibility": "0.95",
+        "discrimination": "0.93",
+        "scope_fit": "0.94"
+      },
+      "E": "0.914",
+      "limitation": "Original 2001 single program, two frog species share 337 field visits, not 674 independent survey events and not Finnish Anemone sites."
+    },
+    {
+      "id": "M112-E05",
+      "scope": "unmarked vignette field key RouteNumStopNum and visits per site in 2001 frogs",
+      "source_family": "NAAMP_2001_FIELD_ROOT",
+      "url": "https://cloud.r-project.org/web/packages/unmarked/vignettes/unmarked.html",
+      "axes": {
+        "directness": "0.93",
+        "independence": "0.79",
+        "reproducibility": "0.98",
+        "discrimination": "0.90",
+        "scope_fit": "0.94"
+      },
+      "E": "0.907",
+      "limitation": "Official package documentation, shares NAAMP original site observations with E04; not new independent sample."
+    },
+    {
+      "id": "M112-E06",
+      "scope": "R112 explicitly fail-closed GBIF occurrence event metadata screening implementation",
+      "source_family": "MQR_SYNTHETIC_CODE",
+      "url": "https://github.com/WhoSia/MQR/blob/main/language/real/experiments/mqr54_r112_gbif_event_metadata_screen.py",
+      "axes": {
+        "directness": "0.84",
+        "independence": "0.40",
+        "reproducibility": "0.95",
+        "discrimination": "0.78",
+        "scope_fit": "0.95"
+      },
+      "E": "0.773",
+      "limitation": "Only an independent local analogous script ran synthetic fixture; GitHub-byte-identical R112 execution and 2024 real ZIP inspection are NOT verified."
+    }
+  ],
+  "claims_and_decisions": [
+    {
+      "id": "M112-C01",
+      "claim": "Publisher’s 4.95 CSV lacks event and physical-site identity columns; cannot validate repeats from author 23-column table",
+      "evidence_ids": [
+        "M112-E01"
+      ],
+      "C": "0.96",
+      "G": "0.21",
+      "L": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Publisher CSV columns: lat, long, presence, year, 19 bio; no eventID/locationID or effort; original GBIF core may carry optional fields."
+    },
+    {
+      "id": "M112-C02",
+      "claim": "GBIF published occurrence ZIP schema can expose eventID, locationID, eventDate, samplingProtocol, samplingEffort",
+      "evidence_ids": [
+        "M112-E02",
+        "M112-E03"
+      ],
+      "C": "0.98",
+      "G": "0.26",
+      "L": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Schema availability only; do not infer per-record fill rates."
+    },
+    {
+      "id": "M112-C03",
+      "claim": "Original 2024 GBIF 29543 rows already verified to contain complete eventID/locationID/effort/same-site repeats",
+      "evidence_ids": [
+        "M112-E01",
+        "M112-E02"
+      ],
+      "C": "0.12",
+      "G": "0.04",
+      "L": "0.08",
+      "verdict": "HOLD",
+      "limitation": "Historical archive header/field-value completeness not examined this turn."
+    },
+    {
+      "id": "M112-C04",
+      "claim": "Duplicate year and coordinates alone certify a repeat visit at same physical site",
+      "evidence_ids": [
+        "M112-E01",
+        "M112-E03"
+      ],
+      "C": "0.04",
+      "G": "0.02",
+      "L": "0.01",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "Temporal and geographic aggregates do not certify event/visit, distinct sampling programs or measurement unit."
+    },
+    {
+      "id": "M112-C05",
+      "claim": "2001 NAAMP data contain documented real revisits in same sampling program, 337 visits 130 sites",
+      "evidence_ids": [
+        "M112-E04",
+        "M112-E05"
+      ],
+      "C": "0.98",
+      "G": "0.31",
+      "L": "0.89",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Other frog species and country; cannot identify Finnish Anemone closed-site q/d."
+    },
+    {
+      "id": "M112-C06",
+      "claim": "R112 event scanner proves from original GBIF ZIP that appropriate repeat visits exist",
+      "evidence_ids": [
+        "M112-E06"
+      ],
+      "C": "0.01",
+      "G": "0.01",
+      "L": "0.02",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "Only synthetic fixture was locally run on analogous source; original 2024 ZIP not fetched or executed."
+    },
+    {
+      "id": "M112-D01",
+      "claim": "Preserve true raw ZIP source-file acquisition/audit as next gate, not another retrospective status-only score",
+      "evidence_ids": [
+        "M112-E01",
+        "M112-E02",
+        "M112-E06"
+      ],
+      "C": "0.95",
+      "G": "0.23",
+      "L": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Without event and effort metadata, occupancy mechanism cannot be adjudicated."
+    },
+    {
+      "id": "M112-D02",
+      "claim": "Treat 4.97 frogs as a methodological contrast but never as independent calibration of Finnish 4.95 Anemone",
+      "evidence_ids": [
+        "M112-E01",
+        "M112-E04",
+        "M112-E05"
+      ],
+      "C": "0.97",
+      "G": "0.27",
+      "L": "0.91",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Different years, places, organisms, underlying observation regimes."
+    },
+    {
+      "id": "M112-D03",
+      "claim": "Maintain Faraday–Maxwell historical Q4/Q7 research while prioritizing genuine original data provenance in Q2",
+      "evidence_ids": [
+        "M112-E01",
+        "M112-E04"
+      ],
+      "C": "0.86",
+      "G": "0.18",
+      "L": "0.92",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Programmatic choice, not empirically verified novel theory."
+    }
+  ],
+  "verification": {
+    "real_gbif_zip_fetched_this_turn": false,
+    "real_eventID_population_verified": false,
+    "real_same_site_revisits_established": false,
+    "local_analogous_synthetic_fixture_execution": true,
+    "exact_current_committed_script_exec": false
+  },
+  "gates": [
+    "Original 2024 ZIP bytes and 29543 records must be checked at known public SHA/custody root.",
+    "Tabular eventID/locationID/eventDate and source samplingProtocol/effort can be missing; no invented positive count.",
+    "Multiple eventIDs alone prove only multiple event codes, not distinct independent stable same-site physical visits.",
+    "Site-frame and organism, sampling season, closure and missingness must be checked before q/d modeling.",
+    "Only an independently testable difference beyond conventional GBIF/occupancy methods can support MQR scientific novelty."
+  ]
+}
