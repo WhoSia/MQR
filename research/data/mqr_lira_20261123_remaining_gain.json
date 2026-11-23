@@ -1,0 +1,69 @@
+{
+  "schema": "MQR-LIRA-MARGINAL-1.0",
+  "assessment_date": "2026-11-23",
+  "status": "DECLARED_JUDGMENTS_NOT_MEASURED_PROBABILITIES",
+  "tasks": [
+    {
+      "task_id": "chsh1972_raw-count-and-statistical-uncertainty-audit",
+      "remaining_gain": "0.55",
+      "action": "ACQUIRE_MISSING_SOURCE",
+      "justification": "R68 summary has no authenticated event-by-event raw coincidence data or original covariance; source acquisition is prerequisite.",
+      "evidence_refs": [
+        "R68",
+        "R70"
+      ]
+    },
+    {
+      "task_id": "hoagland1958_biochemical-functional-rival-audit",
+      "remaining_gain": "0.30",
+      "action": "ANALYZE_HELD_SOURCE",
+      "justification": "Original 1958 JBC and Fry 2022 already cover most distinguishing controls; marginal value remains in explicit assumption-by-assumption rebuttal.",
+      "evidence_refs": [
+        "R64",
+        "R69",
+        "Fry-2022-Drive"
+      ]
+    },
+    {
+      "task_id": "faraday1831_1832_original-notebooks-question-shift",
+      "remaining_gain": "0.70",
+      "action": "ACQUIRE_MISSING_SOURCE",
+      "justification": "Steinle 1997 read; direct Faraday notebook evidence on exact changing questions still unverified in held Drive.",
+      "evidence_refs": [
+        "Steinle-1997-Drive",
+        "R66"
+      ]
+    },
+    {
+      "task_id": "paired-assay-same-specimen-measurement",
+      "remaining_gain": "0.95",
+      "action": "DESIGN_PROSPECTIVE_PROTOCOL",
+      "justification": "Synthetic pairing and measurement models exist but no newly verified paired physical data; design distinct from immediate execution.",
+      "evidence_refs": [
+        "MQR44",
+        "R66"
+      ]
+    },
+    {
+      "task_id": "dirac1931_anderson1932_primary-causality",
+      "remaining_gain": "0.65",
+      "action": "ACQUIRE_MISSING_SOURCE",
+      "justification": "Standard secondary histories and synthetic SCM already analyzed; primary contemporaneous testimony and apparatus-choice documents remain to audit.",
+      "evidence_refs": [
+        "R62",
+        "R63"
+      ]
+    },
+    {
+      "task_id": "bell1964_1969_1972_theorem-bridge-triangulation",
+      "remaining_gain": "0.25",
+      "action": "ANALYZE_HELD_SOURCE",
+      "justification": "Original 1969 proposal and 1972 preprint were already read and core theory-to-apparatus contrast documented; little genuinely new gain without different original records.",
+      "evidence_refs": [
+        "R67",
+        "R68",
+        "R70"
+      ]
+    }
+  ]
+}
