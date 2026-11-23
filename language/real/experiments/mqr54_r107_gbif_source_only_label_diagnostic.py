@@ -42,7 +42,7 @@ def analyze(table=TABLE):
     outside_neg_rate = F(table[1][0]+table[2][0],
                          sum(table[1])+sum(table[2]))
     source_neg_rate = F(table[0][0],sum(table[0]))
-    assert (tp+fp == pos and tn+fn == neg)
+    assert (tp+fn == pos and tn+fp == neg)
     return {
         "status":"PASS_EXACT_IN_SAMPLE_SOURCE_LABEL_DIAGNOSTIC",
         "n":n,"absent":neg,"present":pos,
