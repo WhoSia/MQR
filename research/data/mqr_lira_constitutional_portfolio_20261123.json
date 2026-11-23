@@ -1,0 +1,121 @@
+{
+  "schema": "MQR-5.4-CONSTITUTIONAL-PORTFOLIO-20261123",
+  "purpose": "Restore founding inquiry coverage BEFORE applying local LIRA numeric priority. This is research planning, not a validated ontology.",
+  "scientific_version": "5.4_OPEN",
+  "protected_cases": [
+    "faraday-1831-1832",
+    "bell-chsh-1969-1972",
+    "cross-science-bridge"
+  ],
+  "items": [
+    {
+      "id": "faraday-genesis",
+      "questions": [
+        "Q3",
+        "Q4",
+        "Q7"
+      ],
+      "case_id": "faraday-1831-1832",
+      "state": "ACTIVE",
+      "action": "READ_PRIMARY",
+      "source_ids": [
+        "Faraday-1831-FirstSeries-para5",
+        "Epsilon-Faraday0526-1832-01-06",
+        "Steinle-1997-HELD"
+      ],
+      "rationale": "Contrast 1831 experiment diary/experiment order against reorganized November 1831 publication; include negative early-1832 field experiments and the later elementary induction case; source linkage is not closed by LIRA novelty score."
+    },
+    {
+      "id": "bell-math-protocol",
+      "questions": [
+        "Q5",
+        "Q6",
+        "Q7"
+      ],
+      "case_id": "bell-chsh-1969-1972",
+      "state": "ACTIVE",
+      "action": "COMPARE_RIVALS",
+      "source_ids": [
+        "CHSH-1969-original",
+        "Freedman-Clauser-LBL392-1972"
+      ],
+      "rationale": "Maintain explicit theory→instrument bridge, detection assumption and false-positive sampling rivals, without nested synthetic toy generation."
+    },
+    {
+      "id": "alien-bridge",
+      "questions": [
+        "Q1",
+        "Q2",
+        "Q6"
+      ],
+      "case_id": "cross-science-bridge",
+      "state": "DOCUMENTED_HOLD",
+      "action": "SOURCE_HOLD",
+      "source_ids": [
+        "MQR44-R27-unmatched-protein-assays",
+        "MQR41-Harnad-Kuhn-bridge"
+      ],
+      "rationale": "Preserve main open question of science formed from different primitives; source-only pairing not verified and true empirical bridge must not be asserted."
+    },
+    {
+      "id": "math-engineering-selection",
+      "questions": [
+        "Q5",
+        "Q7"
+      ],
+      "case_id": "math-engineering-selection",
+      "state": "ACTIVE",
+      "action": "COMPARE_RIVALS",
+      "source_ids": [
+        "MQR41-Wigner1960-HELD",
+        "MQR41-MacLane1986-HELD"
+      ],
+      "rationale": "Compare successful and failed applicability of mathematics with design choices, not only physics prediction success."
+    },
+    {
+      "id": "measurement-reference",
+      "questions": [
+        "Q1",
+        "Q4",
+        "Q6"
+      ],
+      "case_id": "measurement-and-calibration",
+      "state": "ACTIVE",
+      "action": "DESIGN_PROTOCOL_ONLY",
+      "source_ids": [
+        "MQR44-R27",
+        "MQR45-R61-R63",
+        "MQR46-R79"
+      ],
+      "rationale": "A shared display or joined aliquot does not automatically establish identical specimen referents; protocol is design only."
+    }
+  ],
+  "rules": [
+    "Research importance ≠ local novelty left; pre-existing scholarly explanations reduce novelty claims, not the requirement to study a historical counterexample.",
+    "One missing source prompts hold or alternate witness, not silent deletion of a founding dimension.",
+    "No scalar weighting can override seven founding questions or delete cross-branch protected cases.",
+    "Every completed historical mechanism needs a dated experimental witness, a failure/near-miss witness, and a viable scholarly rival.",
+    "No new scientific version or authority follows from formal unit tests or unchanged source count."
+  ],
+  "Faraday_specific_next_three": [
+    {
+      "kind": "FIRST_PERSON_PUBLICATION",
+      "witness": "Faraday 1831 First Series paragraph 5: results not presented in order obtained",
+      "source": "https://assets.cambridge.org/97811080/53570/excerpt/9781108053570_excerpt.pdf",
+      "status": "READ_TEXT_PDF_IMAGE_CACHE_MISS"
+    },
+    {
+      "kind": "FIRST_PERSON_FAILURE_CORRESPONDENCE",
+      "witness": "Faraday 6 Jan 1832 letter and scholarly editorial note on no-effect trials at pond and Waterloo Bridge",
+      "source": "https://epsilon.ac.uk/view/faraday/letters/Faraday0526",
+      "status": "PRIMARY_LETTER_READ_SECONDARY_EDITOR_NOTES_DISTINGUISHED"
+    },
+    {
+      "kind": "PRIMARY_DIARY_LATE_DECEMBER",
+      "witness": "Faraday diary original entry 23-26 December 1831 pp.400-407, specifically mobile-loop elementary experiment",
+      "source": "https://faradaysdiary.com/ws3/faraday.pdf",
+      "status": "CONTENTS_IDENTIFIED_ENTRY_TEXT_NOT_FULLY_VERIFIED"
+    }
+  ],
+  "automatic_release": false
+}
