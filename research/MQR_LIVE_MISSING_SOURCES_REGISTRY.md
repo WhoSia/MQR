@@ -1,3 +1,19 @@
+## 2026-11-23 · MQR45 R67–R70 — Primary original institutional sources, custody unchanged
+
+**Canonical missing-source number remains 17 heterogeneous groups** (4 experiment/data tasks + 13 exact editions/manuscripts), unless a truly matching, verified original is acquired into Drive with custody receipt. These new three *publicly read primary texts* do not automatically add or remove any of those 17 groups. **No shared Drive file writes, purchases, or archival migrations this pass.**
+
+| Work and date | Public primary source read | Evidence, custody, limit |
+|---|---|---|
+| Clauser, Horne, Shimony & Holt (1969), *Proposed Experiment to Test Local Hidden-Variable Theories*, PRL 23:880 | [Original printed facsimile](https://quantum.country/assets4/Clauser1969.pdf), [publisher DOI](https://doi.org/10.1103/PhysRevLett.23.880) | Original pages 880–883 text read; p. 881 PDF image inspected. **Public retrieval, not Drive-held acquisition this pass.** Extra photon-detection assumption and 0°/90° vs 22.5°/67.5° operational experiment design identified; [R67](mqr_54_chat45_67_chsh1969_primary_math_measurement_feasible_design_bridge.md). |
+| Freedman & Clauser (1972), *Experimental Test of Local Hidden-Variable Theories*, original lab preprint **LBL-392 January 1972** | [University of California institutional preprint](https://escholarship.org/content/qt5qs9830k/qt5qs9830k_noSplash_f76b31bfeb77e6b12c55f3cbd8f6de86.pdf), [April 3 1972 PRL version DOI](https://doi.org/10.1103/PhysRevLett.28.938) | Full original **preprint text** read; PDF screenshot attempt failed cache; no claim final publisher print and preprint are byte-identical. R1/R0=.497±.009, R2/R0=.499±.009, R22/R0=.400±.007, R67/R0=.100±.003. Detection-probability assumption explicit. Angle cycling, removal controls, instrument details. [R68](mqr_54_chat45_68_freedman_clauser_1972_original_preprint_rate_audit.md). |
+| Hoagland, Stephenson, Scott, Hecht & Zamecnik (1958), *A Soluble Ribonucleic Acid Intermediate in Protein Synthesis*, JBC 231:241–257 | [Original JBC scan, Rockefeller hosted](https://njc.rockefeller.edu/pdf4/Class4-HoaglandZemecnik1958.pdf), [PubMed entry](https://pubmed.ncbi.nlm.nih.gov/13538965/) | Original full paper text and Table II/discussion examined; PDF screenshot failed cache; extraction of plotted points not visual pixel-verified. Clear admission of biochemical unresolved contamination, mechanism and storage-site hypotheses; [R69](mqr_54_chat45_69_hoagland1958_primary_preparation_intermediacy_rival_controls.md). |
+
+**Run-tested exact Git byte artifacts:** local `git hash-object` and GitHub `fetch_file.sha` were identical for R61 `ac553a9ef37ce4a1d2705fef7b82eca3e7a8f295`, R63 `8b5c304ea3c709fb9b7d7b35346cd01a6b470a5a`, R68 `12e20e8257c26181afa8e29ee32b2ee42b9d4345`; Python compilation and execution PASSED for all three. See [R70 verification receipts](mqr_54_chat45_70_primary_source_and_exact_git_blob_execution_receipts.md). This is **not** a full-repo CI pass or independent raw scientific dataset analysis.
+
+**Originality/causality boundary:** A documentary chain shows theory can change experimental design, but does not prove mathematics independently causes a new discovery. Established histories and original authors already describe this. MQR 5.4 remains OPEN, AUTHORITY TRANSFERRED NONE.
+
+---
+
 ## 2026-11-23 · MQR45 R61–R64 — source-state and cross-domain question-genesis ledger
 
 **17 canonical gaps unchanged (4 experimental/data; 13 editions/manuscripts).** No new Drive files obtained/moved/deleted; no Feest(2025) book purchase; no new Harvest numbering.
