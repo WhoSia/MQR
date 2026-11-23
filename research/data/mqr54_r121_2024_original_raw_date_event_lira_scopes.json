@@ -1,0 +1,295 @@
+{
+  "schema": "MQR54-R121-ORIGINAL-GBIF-AUDIT-LIRA-1.0",
+  "date": "2026-11-23",
+  "status": "5.4_OPEN",
+  "weights": {
+    "directness": 0.3,
+    "independence": 0.2,
+    "reproducibility": 0.2,
+    "rival_discrimination": 0.2,
+    "scope_fit": 0.1
+  },
+  "evidence": [
+    {
+      "id": "E01",
+      "claim_scope": "GBIF 2024 original 29543-row core downloaded in 2024 and preserved 4.95, now SHA matched and re-read",
+      "source_family": "GBIF_2024_ORIGINAL_ROOT",
+      "uri": "https://www.gbif.org/occurrence/download/0031144-240626123714530",
+      "type": "PRIMARY_SOURCE_BYTES_VERIFIED",
+      "axes": {
+        "directness": "0.99",
+        "independence": "0.80",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.96",
+        "scope_fit": "0.99"
+      },
+      "E": "0.946",
+      "limitations": "Actual source original ZIP SHA256 5376aac7f12f981299bf0b4a964a4f6c453f501eb1b8ce29df1ce59f90b7b836. No independent site protocol detail in this occurrence-core export."
+    },
+    {
+      "id": "E02",
+      "claim_scope": "2024 original 50-column header and 29543-row field-completeness audit",
+      "source_family": "GBIF_2024_ORIGINAL_ROOT",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/research/data/mqr54_r119_original_gbif_2024_source_eventdate_29543_receipt.json",
+      "type": "SOURCE_DEPENDENT_AUDIT",
+      "axes": {
+        "directness": "0.99",
+        "independence": "0.55",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.98",
+        "scope_fit": "0.99"
+      },
+      "E": "0.900",
+      "limitations": "Derivative of E01 source; verified missing eventID/locationID/effort columns on THIS export, not upstream holdings."
+    },
+    {
+      "id": "E03",
+      "claim_scope": "Original eventDate 5-category label cross-tab and interval-duration counts",
+      "source_family": "GBIF_2024_ORIGINAL_ROOT",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/research/mqr54_r120_original_gbif_2024_eventtime_label_semantics_and_identification_boundary.md",
+      "type": "SOURCE_DEPENDENT_AUDIT",
+      "axes": {
+        "directness": "0.98",
+        "independence": "0.52",
+        "reproducibility": "0.98",
+        "rival_discrimination": "0.97",
+        "scope_fit": "0.99"
+      },
+      "E": "0.887",
+      "limitations": "Source/time/status coupling is descriptive and strongly confounded; not model cheating or causality."
+    },
+    {
+      "id": "E04",
+      "claim_scope": "Archived author model CSV 23 columns, pinned 2024 Serov original",
+      "source_family": "GBIF_2024_AUTHOR_DERIVATIVE",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.95-FINAL-BOUNDED-SCIENTIFIC-CLOSEOUT.md",
+      "type": "PINNED_AUTHOR_ORIGINAL_BYTES",
+      "axes": {
+        "directness": "0.96",
+        "independence": "0.61",
+        "reproducibility": "0.94",
+        "rival_discrimination": "0.93",
+        "scope_fit": "0.97"
+      },
+      "E": "0.881",
+      "limitations": "Derived from same original GBIF occurrence root; original author model CSV lacks eventDate and identity IDs."
+    },
+    {
+      "id": "E05",
+      "claim_scope": "Official GBIF temporal interpretation explicitly allows eventDate ISO date-time interval syntax",
+      "source_family": "GBIF_STANDARDS_FAMILY",
+      "uri": "https://techdocs.gbif.org/en/data-processing/temporal-interpretation",
+      "type": "AUTHORITATIVE_STANDARD",
+      "axes": {
+        "directness": "0.98",
+        "independence": "0.85",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.91",
+        "scope_fit": "0.99"
+      },
+      "E": "0.943",
+      "limitations": "Independent standard definition, not external confirmation of 2024 source's full site history."
+    },
+    {
+      "id": "E06",
+      "claim_scope": "Actual R112 source exact SHA execution reveals invalid calendar date false-positive; corrected R118 and R122 source-byte validated",
+      "source_family": "R112_118_122_SOFTWARE_AUDIT",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/language/real/experiments/mqr54_r112_gbif_event_metadata_screen.py",
+      "type": "EXECUTED_CODE_WITH_NEGATIVE_CONTROL",
+      "axes": {
+        "directness": "0.99",
+        "independence": "0.67",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.97",
+        "scope_fit": "0.99"
+      },
+      "E": "0.922",
+      "limitations": "One software pipeline does not supply independent ecological data. R122 handles day/ISO timestamp but rejects interval as eligible distinct-visit timestamp."
+    },
+    {
+      "id": "E07",
+      "claim_scope": "Prior 4.97 NAAMP original 337 visits/130 sites with biological survey event identifiers",
+      "source_family": "NAAMP_2001_DIFFERENT_FIELD_ROOT",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.97-FINAL-BOUNDED-REAL-FIELD-DETECTION-AND-LEAN-CLOSEOUT.md",
+      "type": "PREVIOUS_INDEPENDENT_FIELD_ROOT",
+      "axes": {
+        "directness": "0.93",
+        "independence": "0.82",
+        "reproducibility": "0.94",
+        "rival_discrimination": "0.88",
+        "scope_fit": "0.90"
+      },
+      "E": "0.897",
+      "limitations": "Independent different US frog species/year; not a matched verification of Finnish 2024 Anemone."
+    }
+  ],
+  "claims_and_director_decisions": [
+    {
+      "id": "C01",
+      "claim": "2024 archive bytes from preserved 4.95 original have exact historical SHA and 29,543 occurrences",
+      "evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "C": "0.99",
+      "G": "0.30",
+      "L": "0.91",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Original nested ZIP was verified, physically read and forced full count."
+    },
+    {
+      "id": "C02",
+      "claim": "Historical 2024 occurrence-core ZIP contains eventID, locationID, samplingProtocol and samplingEffort columns",
+      "evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "C": "0.01",
+      "G": "0.03",
+      "L": "0.03",
+      "verdict": "COUNTEREVIDENCE",
+      "rationale": "Actual 50-column header lacks all four; this says nothing about alternate upstream event-core dataset."
+    },
+    {
+      "id": "C03",
+      "claim": "This exact historical ZIP alone proves identifiable same-site independent repeat visits",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E05"
+      ],
+      "C": "0.02",
+      "G": "0.02",
+      "L": "0.02",
+      "verdict": "COUNTEREVIDENCE",
+      "rationale": "Missing event/site/effort IDs make R112 strict candidates zero; actual repeats may exist but cannot be certified here."
+    },
+    {
+      "id": "C04",
+      "claim": "Historical eventDate encoding is associated with original recorded ABSENT/PRESENT labels",
+      "evidence_ids": [
+        "E01",
+        "E03"
+      ],
+      "C": "0.99",
+      "G": "0.16",
+      "L": "0.91",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "11,165/11,166 recorded ABSENT use intervals, versus 3,012/18,377 PRESENT; association, not a causal explanation."
+    },
+    {
+      "id": "C05",
+      "claim": "Retrospective date-format status rule correctly reproduces 26,530 of 29,543 labels in original same sample",
+      "evidence_ids": [
+        "E01",
+        "E03"
+      ],
+      "C": "0.99",
+      "G": "0.07",
+      "L": "0.68",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "89.8013% in-sample label accuracy, no heldout, selected after inspecting labels, not ecological prevalence prediction."
+    },
+    {
+      "id": "C06",
+      "claim": "Serov original published predictive CSV used raw eventDate date-format as a model covariate",
+      "evidence_ids": [
+        "E04",
+        "E03"
+      ],
+      "C": "0.05",
+      "G": "0.02",
+      "L": "0.04",
+      "verdict": "COUNTEREVIDENCE",
+      "rationale": "Pinned original 23-column CSV omits eventDate entirely; source-level encoding alone does not demonstrate author model feature leakage."
+    },
+    {
+      "id": "C07",
+      "claim": "Darwin Core slash-delimited interval is an error or itself proves at least two survey visits",
+      "evidence_ids": [
+        "E05",
+        "E01"
+      ],
+      "C": "0.02",
+      "G": "0.02",
+      "L": "0.02",
+      "verdict": "COUNTEREVIDENCE",
+      "rationale": "Published ISO eventDate permits intervals, and endpoints encode window bounds not independent visits."
+    },
+    {
+      "id": "C08",
+      "claim": "Corrected R118/R122 source-byte code handles valid dates and ISO timestamps, and fails closed for invalid calendar and interval revisit candidates",
+      "evidence_ids": [
+        "E06"
+      ],
+      "C": "0.98",
+      "G": "0.10",
+      "L": "0.90",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Local execution and SHA equality confirmed; still no real individual visit ID in historical source."
+    },
+    {
+      "id": "D01",
+      "claim": "Halt 4.95 same-site occupancy estimation from this original occurrence-only file without external event-core/site protocol",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E05"
+      ],
+      "C": "0.97",
+      "G": "0.28",
+      "L": "0.96",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "No event/site/effort fields, so user cannot justify repeated-visit identifiability from archival ZIP alone."
+    },
+    {
+      "id": "D02",
+      "claim": "Seek source-producer event histories or explicitly independent matched revisits instead of reusing coordinate/year duplicates as visits",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E07"
+      ],
+      "C": "0.96",
+      "G": "0.22",
+      "L": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Provenance and sample unit required to test conditional detection; other 4.97 taxon cannot substitute."
+    },
+    {
+      "id": "D03",
+      "claim": "Protect Faraday/Maxwell independent Q3/Q4/Q5/Q7 track while grounding Q2 in real GBIF raw evidence",
+      "evidence_ids": [
+        "E01",
+        "E05",
+        "E07"
+      ],
+      "C": "0.84",
+      "G": "0.20",
+      "L": "0.92",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "rationale": "Research governance rather than a new physical-science claim."
+    },
+    {
+      "id": "D04",
+      "claim": "Promote MQR 5.5 or call the eventDate-status diagnostic an independent novel law",
+      "evidence_ids": [
+        "E01",
+        "E03",
+        "E05"
+      ],
+      "C": "0.06",
+      "G": "0.03",
+      "L": "0.02",
+      "verdict": "HOLD",
+      "rationale": "Strong standard-compliant reporting and known data selection rivals, no incremental independent physical prediction."
+    }
+  ],
+  "scientific_novelty_claim": "HOLD",
+  "families_are_ancestry_not_independent_experiments": true,
+  "raw_2024_archive_confirmed": true,
+  "actual_original_rows_verified": 29543,
+  "exact_source_file_script_test_status": "R118 and R122 Git blob SHA matched; tested local; 8 controls; original ZIP 29543 records audited",
+  "meaning": "Declared director ratings, not posterior truth probabilities, precision of tenths/ hundredths not empirically calibrated.",
+  "do_not_prematurely_promote": true
+}
