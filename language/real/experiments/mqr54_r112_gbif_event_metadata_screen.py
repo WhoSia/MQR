@@ -8,7 +8,7 @@ Output contains only counts and field coverage; biological inference HOLD.
 """
 from __future__ import annotations
 import argparse,csv,io,json,re,zipfile
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 from collections import Counter,defaultdict
 
@@ -19,12 +19,27 @@ FIELDS=("gbifID","occurrenceID","datasetKey","eventID","locationID",
 REQUIRED={"gbifID","datasetKey","occurrenceStatus"}
 
 def valid_calendar_day(raw):
-    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}",raw):
-        return False
+    """UTC calendar day for explicit ISO day or timezone-aware instant.
+
+    Slash intervals are intentionally excluded: they describe a temporal
+    range, not a single dated independent survey visit. None = ineligible.
+    """
+    if "/" in raw:
+        return None
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}",raw):
+        try:
+            return date.fromisoformat(raw).isoformat()
+        except ValueError:
+            return None
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:\d{2})",raw):
+        return None
     try:
-        return date.fromisoformat(raw).isoformat()==raw
+        stamp=datetime.fromisoformat(raw.replace("Z","+00:00"))
+        if stamp.tzinfo is None:
+            return None
+        return stamp.astimezone(timezone.utc).date().isoformat()
     except ValueError:
-        return False
+        return None
 
 def audit(reader,expect=None):
     absent=set(FIELDS)-set(reader.fieldnames or [])
@@ -58,10 +73,11 @@ def audit(reader,expect=None):
             if prior is not None and prior!=site:
                 conflicts.update((prior,site))
             owner[ev]=site
+            normalized_day=valid_calendar_day(v["eventDate"])
             prev=site_events[site].get(v["eventID"])
-            if prev is not None and prev!=v["eventDate"]:
+            if prev is not None and prev!=normalized_day:
                 conflicts.add(site)
-            site_events[site][v["eventID"]]=v["eventDate"]
+            site_events[site][v["eventID"]]=normalized_day
     if expect is not None and n!=expect:
         raise ValueError("original row count differs from expected original")
     candidates=sum(len(d)>1 and len(set(d.values()))>1 and site not in conflicts
@@ -114,7 +130,18 @@ def test():
     assert result["strict_candidate_sites"]==0
     for item in ("2024-02-30","2024-13-01","2024-00-01","2024-2-01","2024-04-31"):
         assert not valid_calendar_day(item)
-    assert valid_calendar_day("2024-02-29")
+    assert valid_calendar_day("2024-02-29")=="2024-02-29"
+    assert valid_calendar_day("2024-04-01T00:00Z")=="2024-04-01"
+    assert valid_calendar_day("2024-04-01T01:00+02:00")=="2024-03-31"
+    assert valid_calendar_day("2024-04-01T00:00Z/2024-04-02T00:00Z") is None
+    assert valid_calendar_day("2024-13-01T00:00Z") is None
+    instantrows=(("7","A","PRESENT","E7","I","2024-04-01T00:00Z","scan","5m"),
+                 ("8","A","ABSENT","E8","I","2024-04-02T00:00Z","scan","5m"),
+                 ("9","A","ABSENT","E9","J","2024-04-01T00:00Z/2024-04-02T00:00Z","scan","5m"),
+                 ("10","A","ABSENT","E10","J","2024-04-03T00:00Z/2024-04-04T00:00Z","scan","5m"))
+    insttext="\t".join(keys)+"\n"+"".join("\t".join(r)+"\n" for r in instantrows)
+    instout=audit(csv.DictReader(io.StringIO(insttext),delimiter="\t"),4)
+    assert instout["strict_candidate_sites"]==1
     # A duplicate TSV header and an extra unheaded column must fail closed.
     badhead="\t".join(keys+("eventID",))+"\n"+"\t".join(rows[0]+("oops",))+"\n"
     extra="\t".join(keys)+"\n"+"\t".join(rows[0]+("oops",))+"\n"
@@ -123,7 +150,7 @@ def test():
         except ValueError: pass
         else: raise AssertionError("malformed header/row accepted")
     return {"result":"PASS_SYNTHETIC_FIXTURE","candidate_sites":1,
-            "negative_controls":6,"original_2024_archive_opened":False}
+            "negative_controls":8,"original_2024_archive_opened":False}
 
 if __name__=="__main__":
     p=argparse.ArgumentParser()
