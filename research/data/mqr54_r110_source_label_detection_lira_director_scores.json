@@ -1,0 +1,338 @@
+{
+  "schema": "MQR-5.4-R110-PI-LIRA-BRIDGE-1.0",
+  "date": "2026-11-23",
+  "head_pre_r107": "0172dadaa519454d9b65b9028665017045742f50",
+  "weights": {
+    "directness": 0.3,
+    "independence": 0.2,
+    "reproducibility": 0.2,
+    "rival_discrimination": 0.2,
+    "scope_fit": 0.1
+  },
+  "numeric_contract": "0 to 1 declared PI ordinal judgments; not posterior probabilities or validated metric intervals. E is source relevance/quality and may be high for a claim being refuted. G global transfer, C local warrant, L continue/adopt.",
+  "evidence": [
+    {
+      "id": "E01",
+      "scope": "MQR 4.95 audited full GBIF 2024 row/source status ancestry",
+      "source_family": "GBIF_2024_SOURCE_ROOT",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.95-FINAL-BOUNDED-SCIENTIFIC-CLOSEOUT.md",
+      "axes": {
+        "directness": "0.96",
+        "independence": "0.71",
+        "reproducibility": "0.94",
+        "rival_discrimination": "0.87",
+        "scope_fit": "0.98"
+      },
+      "E": "0.890",
+      "limitation": "Historical source-bound row and provider count audit; the source ZIP is not independently redownloaded this turn."
+    },
+    {
+      "id": "E02",
+      "scope": "MQR R107 source-identity in-sample classification diagnostic",
+      "source_family": "GBIF_2024_SOURCE_ROOT",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/language/real/experiments/mqr54_r107_gbif_source_only_label_diagnostic.py",
+      "axes": {
+        "directness": "0.96",
+        "independence": "0.53",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.92",
+        "scope_fit": "0.98"
+      },
+      "E": "0.874",
+      "limitation": "Exact Git SHA and Python execution verified after fixing erroneous confusion marginal assertion; same data root as E01."
+    },
+    {
+      "id": "E03",
+      "scope": "MQR R108 occupancy/detection three-world hypothetical contrasts using source Spring counts",
+      "source_family": "GBIF_2024_SOURCE_ROOT",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/language/real/experiments/mqr54_r108_occupancy_detection_same_margin_worlds.py",
+      "axes": {
+        "directness": "0.93",
+        "independence": "0.47",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.96",
+        "scope_fit": "0.97"
+      },
+      "E": "0.860",
+      "limitation": "Exact Git SHA and Python execution verified; mathematically constructed worlds, no actual site repeats; same empirical count source as E01."
+    },
+    {
+      "id": "E04",
+      "scope": "GBIF data quality documentation: detection and sampling-event status",
+      "source_family": "GBIF_STANDARD_PUBLISHING",
+      "uri": "https://techdocs.gbif.org/en/data-publishing/data-quality-recommendations",
+      "axes": {
+        "directness": "0.96",
+        "independence": "0.83",
+        "reproducibility": "0.97",
+        "rival_discrimination": "0.89",
+        "scope_fit": "0.98"
+      },
+      "E": "0.924",
+      "limitation": "Official data-provider semantics, not independent observation of the Finnish population."
+    },
+    {
+      "id": "E05",
+      "scope": "MQR 4.97 independent original NAAMP 2001 repeated acoustic surveys",
+      "source_family": "NAAMP_2001_FIELD_ROOT",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.97-FINAL-BOUNDED-REAL-FIELD-DETECTION-AND-LEAN-CLOSEOUT.md",
+      "axes": {
+        "directness": "0.91",
+        "independence": "0.81",
+        "reproducibility": "0.92",
+        "rival_discrimination": "0.84",
+        "scope_fit": "0.87"
+      },
+      "E": "0.874",
+      "limitation": "Genuine prior data root but different species/USA sites; not a repeat of GBIF Finland."
+    },
+    {
+      "id": "E06",
+      "scope": "MQR 4.98 Alder Flycatcher 2005 encounter histories and zero truncation",
+      "source_family": "ALDER_2005_FIELD_ROOT",
+      "uri": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.98-FINAL-BOUNDED-EFFORT-ZEROTRUNCATION-AND-LEAN-COURT.md",
+      "axes": {
+        "directness": "0.90",
+        "independence": "0.80",
+        "reproducibility": "0.91",
+        "rival_discrimination": "0.85",
+        "scope_fit": "0.88"
+      },
+      "E": "0.870",
+      "limitation": "Real separate biological sampling root, but not same target sites or taxa as GBIF Finland."
+    },
+    {
+      "id": "E07",
+      "scope": "Phillips et al source selection bias and presence-only background prior-art paper",
+      "source_family": "SDM_SELECTION_BIAS_LITERATURE",
+      "uri": "https://doi.org/10.1890/07-2153.1",
+      "axes": {
+        "directness": "0.79",
+        "independence": "0.80",
+        "reproducibility": "0.87",
+        "rival_discrimination": "0.90",
+        "scope_fit": "0.87"
+      },
+      "E": "0.838",
+      "limitation": "Abstract/search source used as prior-art pointer; not counted as full paper read or newly verified effect sizes."
+    }
+  ],
+  "claims_and_decisions": [
+    {
+      "id": "C01",
+      "claim": "Historic source-label 3x2 counts are reproduced faithfully from audited 4.95 receipt",
+      "evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "C": "0.99",
+      "G": "0.12",
+      "L": "0.90",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Original aggregate is grounded; no new raw retrieval",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT"
+      ]
+    },
+    {
+      "id": "C02",
+      "claim": "A retrospectively source-only classification of the same original statuses scores 26056/29543 in sample",
+      "evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "C": "0.99",
+      "G": "0.07",
+      "L": "0.85",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Outcome-informed rule, no independent validation or original classifier execution",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT"
+      ]
+    },
+    {
+      "id": "C03",
+      "claim": "Source identity caused true ecological occupancy differences",
+      "evidence_ids": [
+        "E01",
+        "E04"
+      ],
+      "C": "0.05",
+      "G": "0.02",
+      "L": "0.08",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "Source protocol, field selection, geography and detection are confounded",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT"
+      ]
+    },
+    {
+      "id": "C04",
+      "claim": "Original authors' fitted classifier has learned a dataset-id shortcut",
+      "evidence_ids": [
+        "E01",
+        "E02"
+      ],
+      "C": "0.13",
+      "G": "0.03",
+      "L": "0.35",
+      "verdict": "HOLD",
+      "limitation": "No test of trained original model by source/environment out-of-domain heldout",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT"
+      ]
+    },
+    {
+      "id": "C05",
+      "claim": "Different occupancy and detection combinations can match source Spring observed single-visit prevalence",
+      "evidence_ids": [
+        "E01",
+        "E03",
+        "E05"
+      ],
+      "C": "0.99",
+      "G": "0.13",
+      "L": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Applies only to stipulated no-false-positive closed-site and independent-trial assumptions",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT",
+        "NAAMP_2001_FIELD_ROOT"
+      ]
+    },
+    {
+      "id": "C06",
+      "claim": "Genuine stable same-site revisits can distinguish the three stipulated models from their predicted conditional rates",
+      "evidence_ids": [
+        "E03",
+        "E05"
+      ],
+      "C": "0.98",
+      "G": "0.14",
+      "L": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "The needed revisits were NOT obtained in R107/R108 and neither dataset provides same physical target transport",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT",
+        "NAAMP_2001_FIELD_ROOT"
+      ]
+    },
+    {
+      "id": "C07",
+      "claim": "GBIF recorded ABSENT guarantees biological absence at a location independent of survey effort",
+      "evidence_ids": [
+        "E04",
+        "E01"
+      ],
+      "C": "0.03",
+      "G": "0.02",
+      "L": "0.02",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "No detection is not logical proof of no organism; inference needs effort and sampling protocol",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT"
+      ]
+    },
+    {
+      "id": "C08",
+      "claim": "Shared numeric code across two independent providers implies identical native observational operation",
+      "evidence_ids": [
+        "E01",
+        "E04"
+      ],
+      "C": "0.09",
+      "G": "0.04",
+      "L": "0.07",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "GBIF standard maps diverse source practices into one field; same status tokens insufficient",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT"
+      ]
+    },
+    {
+      "id": "C09",
+      "claim": "Our source-only and q*d observation is method-theoretically novel beyond existing SDM / occupancy prior art",
+      "evidence_ids": [
+        "E03",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "C": "0.06",
+      "G": "0.03",
+      "L": "0.20",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "Existing detection and selection bias techniques already predict the general caution",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT",
+        "NAAMP_2001_FIELD_ROOT",
+        "ALDER_2005_FIELD_ROOT"
+      ]
+    },
+    {
+      "id": "D01",
+      "claim": "Use provider-specific exact status audit as physical-world anchored Q2 limited example, without alien-science proof",
+      "evidence_ids": [
+        "E01",
+        "E02",
+        "E04"
+      ],
+      "C": "0.91",
+      "G": "0.16",
+      "L": "0.93",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Cross-practice label alignment relevant; no native-language spontaneous bridge",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT"
+      ]
+    },
+    {
+      "id": "D02",
+      "claim": "Require genuine same-target repeated detection and source-blind baselines before any world-facing Q7 difference claim",
+      "evidence_ids": [
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "C": "0.95",
+      "G": "0.16",
+      "L": "0.96",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Current matched same physical target experiment absent; competing established protocols set benchmark",
+      "independent_empirical_roots": [
+        "GBIF_2024_SOURCE_ROOT",
+        "NAAMP_2001_FIELD_ROOT",
+        "ALDER_2005_FIELD_ROOT"
+      ]
+    },
+    {
+      "id": "D03",
+      "claim": "Continue Faraday/Maxwell archival concept-generation comparison in parallel; no monolithic GBIF-only MQR",
+      "evidence_ids": [
+        "E04",
+        "E05"
+      ],
+      "C": "0.83",
+      "G": "0.14",
+      "L": "0.89",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Program director allocation; Faraday evidence is on independent R99–R105 ledger, not this source family.",
+      "independent_empirical_roots": [
+        "NAAMP_2001_FIELD_ROOT"
+      ]
+    }
+  ],
+  "verification": {
+    "git_r107_blob": "192348568c3794917b5f0a85168cfc54f691e026",
+    "git_r108_blob": "15b7ae9d296ab79a3455195386675c9c6fa82e27",
+    "local_python_r107": true,
+    "local_python_r108": true,
+    "original_gbif_redownload_this_turn": false,
+    "independent_site_revisit": false,
+    "original_serov_model_rerun": false
+  },
+  "source_independence_warning": "E01 E02 E03 share one 2024 GBIF data root; calculating different statistics, writing new code and constructing alternative models do not create new original field observations.",
+  "status": "5.4_OPEN",
+  "no_auto_promote": true
+}
