@@ -1,0 +1,275 @@
+{
+  "schema": "MQR-5.4-R117-PERSISTENT-DETECTION-LIRA-1.0",
+  "date": "2026-11-23",
+  "status": "5.4_OPEN",
+  "weights": {
+    "directness": 0.3,
+    "independence": 0.2,
+    "reproducibility": 0.2,
+    "rival_discrimination": 0.2,
+    "scope_fit": 0.1
+  },
+  "evidence": [
+    {
+      "id": "R115-E01",
+      "scope": "R115 committed exact mathematical enumeration, SHA-matched local git hash-object",
+      "source_family": "R115_SYNTHETIC_FORMAL_PROOF",
+      "url": "https://github.com/WhoSia/MQR/blob/main/language/real/experiments/mqr54_r115_persistent_detection_nonidentifiability.py",
+      "axes": {
+        "directness": "0.98",
+        "independence": "0.59",
+        "reproducibility": "0.99",
+        "rival_discrimination": "0.97",
+        "scope_fit": "0.99"
+      },
+      "E": "0.903",
+      "limitation": "Byte-equal local execution verified 2046 sequences. Standard counterexample not a new theorem nor actual intervention."
+    },
+    {
+      "id": "R116-E01",
+      "scope": "Original MQR 4.97 2001 NAAMP source field repeated visits and 4/76 and 4/40 transition counts",
+      "source_family": "NAAMP_2001_FIELD_ROOT",
+      "url": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.97-FINAL-BOUNDED-REAL-FIELD-DETECTION-AND-LEAN-CLOSEOUT.md",
+      "axes": {
+        "directness": "0.94",
+        "independence": "0.83",
+        "reproducibility": "0.97",
+        "rival_discrimination": "0.94",
+        "scope_fit": "0.96"
+      },
+      "E": "0.926",
+      "limitation": "Prior source root; original CSV not reacquired/reexecuted this pass. The same 337 physical site-visits underlie both frog species."
+    },
+    {
+      "id": "R116-E02",
+      "scope": "GBIF original 4.95 2024 29543 occurrence ancestry, Spring 3486/14651 status",
+      "source_family": "GBIF_2024_DATA_ROOT",
+      "url": "https://github.com/WhoSia/MQR/blob/main/docs/MQR-4.95-FINAL-BOUNDED-SCIENTIFIC-CLOSEOUT.md",
+      "axes": {
+        "directness": "0.94",
+        "independence": "0.68",
+        "reproducibility": "0.95",
+        "rival_discrimination": "0.89",
+        "scope_fit": "0.95"
+      },
+      "E": "0.881",
+      "limitation": "The fraction is record conditional not physical-site prevalence; network DNS failed; raw event identity still unverified."
+    },
+    {
+      "id": "R116-E03",
+      "scope": "Occupancy identifiability review and imperfect detection assumptions",
+      "source_family": "OCCUPANCY_MODEL_PRIOR_ART",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0052015",
+      "axes": {
+        "directness": "0.86",
+        "independence": "0.87",
+        "reproducibility": "0.94",
+        "rival_discrimination": "0.92",
+        "scope_fit": "0.94"
+      },
+      "E": "0.898",
+      "limitation": "Strong already-established modeling prior art. Not a novel MQR theorem."
+    },
+    {
+      "id": "R116-E04",
+      "scope": "Fractional replication paper: temporal autocorrelation and misspecification",
+      "source_family": "FRACTIONAL_REPLICATION_PRIOR_ART",
+      "url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.14275",
+      "axes": {
+        "directness": "0.89",
+        "independence": "0.90",
+        "reproducibility": "0.94",
+        "rival_discrimination": "0.92",
+        "scope_fit": "0.95"
+      },
+      "E": "0.914",
+      "limitation": "Source abstract/full public webpage reading, no independent raw dataset replicated this turn."
+    },
+    {
+      "id": "R116-E05",
+      "scope": "False positive and negative detection occupancy heterogeneity model",
+      "source_family": "FALSE_POSITIVE_OCCUPANCY_PRIOR_ART",
+      "url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210x.12442",
+      "axes": {
+        "directness": "0.84",
+        "independence": "0.89",
+        "reproducibility": "0.92",
+        "rival_discrimination": "0.94",
+        "scope_fit": "0.94"
+      },
+      "E": "0.896",
+      "limitation": "The model assumptions differ; distinct statistical literature, but neither the published paper data nor code rerun."
+    },
+    {
+      "id": "R116-E06",
+      "scope": "R112 strict GBIF eventID site/sampling effort field scanner",
+      "source_family": "R112_SYNTHETIC_SCREEN",
+      "url": "https://github.com/WhoSia/MQR/blob/main/language/real/experiments/mqr54_r112_gbif_event_metadata_screen.py",
+      "axes": {
+        "directness": "0.81",
+        "independence": "0.42",
+        "reproducibility": "0.91",
+        "rival_discrimination": "0.74",
+        "scope_fit": "0.96"
+      },
+      "E": "0.753",
+      "limitation": "R112 original source not exact-byte-executed with 2024 raw ZIP; candidate-only screen and possible false negatives."
+    }
+  ],
+  "claims_and_decisions": [
+    {
+      "id": "C01",
+      "claim": "Two latent worlds yield identical all-zero/all-one repeated detection histories for all k under persistent detection availability",
+      "evidence_ids": [
+        "R115-E01",
+        "R116-E03"
+      ],
+      "C": "0.99",
+      "G": "0.17",
+      "L": "0.94",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Closed-form identical probabilities; not true for models with independent measurement resets."
+    },
+    {
+      "id": "C02",
+      "claim": "Exact committed R115 Python executed with SHA match, all 2046 binary paths k1..10 pass",
+      "evidence_ids": [
+        "R115-E01"
+      ],
+      "C": "0.99",
+      "G": "0.07",
+      "L": "0.92",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Git SHA 63804ac702ad74e930ad797ccd40e0d06476902c; code tests exact math only."
+    },
+    {
+      "id": "C03",
+      "claim": "Every 4.97 NAAMP frog visit history is constant (no within-site status changes)",
+      "evidence_ids": [
+        "R116-E01"
+      ],
+      "C": "0.03",
+      "G": "0.02",
+      "L": "0.02",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "2001 field source reports 4 negative→positive for each frog and 76/40 positive→negative transitions."
+    },
+    {
+      "id": "C04",
+      "claim": "R115 extreme persistent detection mechanisms can serve as complete 4.97 frog data-generating models",
+      "evidence_ids": [
+        "R116-E01",
+        "R115-E01"
+      ],
+      "C": "0.05",
+      "G": "0.04",
+      "L": "0.08",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "Both predict no within-site mixed statuses, whereas actual NAAMP source reports mixed records. Does not refute general occupancy modeling."
+    },
+    {
+      "id": "C05",
+      "claim": "The observed NAAMP status changes prove biological extinction or colonization between visits",
+      "evidence_ids": [
+        "R116-E01",
+        "R116-E03"
+      ],
+      "C": "0.07",
+      "G": "0.04",
+      "L": "0.03",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "Calling phenology/detectability/protocol/source distinctions remain plausible; NAAMP protocol-specific call index."
+    },
+    {
+      "id": "C06",
+      "claim": "An exogenous independent detection-regime intervention could discriminate the two R115 worlds under fixed occupancy",
+      "evidence_ids": [
+        "R115-E01",
+        "R116-E03"
+      ],
+      "C": "0.99",
+      "G": "0.17",
+      "L": "0.90",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Toy calculation predicts nonzero 01 pair probability only in persistent availability world; actual physical reset not implemented."
+    },
+    {
+      "id": "C07",
+      "claim": "More visits alone always identify site-level occupancy and detection without independence/heterogeneity assumptions",
+      "evidence_ids": [
+        "R115-E01",
+        "R116-E04",
+        "R116-E05"
+      ],
+      "C": "0.02",
+      "G": "0.02",
+      "L": "0.02",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "Counterexample has joint observational equivalence for every repeat count; existing literature warns against assumption violation."
+    },
+    {
+      "id": "D01",
+      "claim": "Condition any Q2/Q7 identification claim on genuine independent change in measurement operation and negative controls",
+      "evidence_ids": [
+        "R115-E01",
+        "R116-E03",
+        "R116-E05"
+      ],
+      "C": "0.96",
+      "G": "0.19",
+      "L": "0.96",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Not just remeasure with same shared hidden filter; seek calibration/known perturbation."
+    },
+    {
+      "id": "D02",
+      "claim": "Treat 4.97 real frog status changes as negative controls, not 4.95 Finnish Anemone independent validation",
+      "evidence_ids": [
+        "R116-E01",
+        "R116-E02"
+      ],
+      "C": "0.97",
+      "G": "0.22",
+      "L": "0.93",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Different sampling sources, physical organisms, countries, years; no same-target transport."
+    },
+    {
+      "id": "D03",
+      "claim": "Keep Maxwell–Faraday Q3/Q4/Q7 archival proof as parallel research, limit new ecologic toy loops",
+      "evidence_ids": [
+        "R116-E01",
+        "R116-E03"
+      ],
+      "C": "0.87",
+      "G": "0.14",
+      "L": "0.89",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Portfolio governance, independent seven-question charter, not scientific proof."
+    },
+    {
+      "id": "D04",
+      "claim": "Promote MQR 5.5 from R115 symbolic PASS and old 4.97 field transitions",
+      "evidence_ids": [
+        "R115-E01",
+        "R116-E01",
+        "R116-E03"
+      ],
+      "C": "0.04",
+      "G": "0.02",
+      "L": "0.02",
+      "verdict": "HOLD",
+      "limitation": "Existing occupancy literature subsumes this idea and no independent incremental world-facing test has succeeded."
+    }
+  ],
+  "source_lineage": "Seven scored source records; seven cautious roots, but independent field roots only NAAMP 2001 and GBIF 2024. R115 code is mathematical and cannot count as a third field source.",
+  "verification": {
+    "sha_match_r115": "63804ac702ad74e930ad797ccd40e0d06476902c",
+    "local_python_r115_pass": true,
+    "paths_2046": true,
+    "original_gbif_zip_retrieved": false,
+    "real_new_site_visits": false
+  },
+  "no_authority_promotion": true,
+  "metric_semantics": "E/C/G/L are declared bounded judgment scores, not experimentally calibrated probabilities."
+}
