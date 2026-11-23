@@ -1,0 +1,46 @@
+{
+  "schema": "MQR54-R105-VERIFY-HISTORICAL-FORMULA-PARITY-1.0",
+  "date": "2026-11-23",
+  "question": "How far may Maxwell 1855/56 original electro-tonic components be mapped to modern vector potential formulas?",
+  "records": [
+    {
+      "id": "T1",
+      "source": "Maxwell 1856 (Niven 1890 facsimile) pp.204–207",
+      "uri": "https://strangebeautiful.com/other-texts/maxwell-scientific-papers-vol-1.pdf",
+      "verified": "Text-read Law I closed-integral induction flux, Law VI time change, component formula with historical 1/(4π); author calls framework temporary and not a true physical theory",
+      "evidence_score": "0.854",
+      "image_checked": false,
+      "reason": "web screenshot cache miss"
+    },
+    {
+      "id": "T2",
+      "source": "2014 Physics Today conceptual origins of Maxwell equations and gauge theory",
+      "uri": "https://physicstoday.aip.org/features/the-conceptual-origins-of-maxwells-equations-and-gauge-theory",
+      "verified": "Modern SI reexpression and Thomson priority; explicit modern gauge freedom history, historian's interpretation",
+      "evidence_score": "0.867",
+      "image_checked": false,
+      "reason": "Embedded formula image not pixel checked"
+    },
+    {
+      "id": "T3",
+      "source": "Maxwell Cambridge Philosophical Society proceedings announcement 1856",
+      "uri": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Proceedings_-_Cambridge_Philosophical_Society_%28IA_proceedingscambr01camb%29.pdf",
+      "verified": "Public bibliographic witness to February 11 1856 presentation, not equation text",
+      "evidence_score": null,
+      "image_checked": false,
+      "reason": "Bibliographic search listing; do not count as second formula witness"
+    }
+  ],
+  "not_proven": [
+    "Maxwell 1856 signs and 4pi scaling match modern SI E=-dA/dt pointwise without conventions or conversion",
+    "Complete source-native equation and diagram pixel parity",
+    "Experiment demonstrates unique physical ontology for vector potential",
+    "R100 synthetic rational program is the same source as Maxwell's original derivation"
+  ],
+  "next_actions": [
+    "Read pp. 196–209 as original page images and transcribe Maxwell alpha0/beta0/gamma0 with line numbers and exact historical units; do not assume 1856 SI.",
+    "Compare original 1855/56 published issue with 1890 Niven editorial reproduction and Thomson 1851 paper before establishing novelty or priority.",
+    "Preserve two results separately: Maxwell source-historical attribution vs modern mathematical gauge redundancy."
+  ],
+  "archive": "MQR 5.4 remains OPEN. Local synthetic tests were independently reimplemented, not Git-byte-source executed. No new Drive custody."
+}
