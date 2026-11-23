@@ -1,0 +1,75 @@
+{
+  "schema": "MQR-LIRA-EVIDENCE-FAMILIES-1.0",
+  "date": "2026-11-23",
+  "principle": "Same source family can support multiple passages, but does not count as independent witness multiplicity. URL alone is insufficient to prove epistemic independence.",
+  "evidence_to_family": {
+    "E01": "FARADAY_FIRST_SERIES_PRINT",
+    "E02": "FARADAY_SECOND_SERIES_PRINT",
+    "E03": "EPSILON_1832_LETTER_AND_EDITORIAL",
+    "E04": "EPSILON_1832_LETTER_AND_EDITORIAL",
+    "E05": "STEINLE_1997",
+    "E06": "CHSH_1969_ORIGINAL",
+    "E07": "FREEDMAN_CLAUSER_1972_PREPRINT",
+    "E08": "MQR_FOUNDER_HISTORY_RECONSTRUCTION",
+    "E09": "MQR_SYNTHETIC_CODE_AND_REPRO",
+    "E10": "FARADAY_DIARY_ARCHIVE_CATALOG",
+    "E11": "FARADAY_SECOND_SERIES_PRINT",
+    "E12": "ROYAL_SOCIETY_1831_MANUSCRIPT_CATALOG",
+    "E13": "FARADAY_SECOND_SERIES_PRINT",
+    "E14": "EPSILON_1832_LETTER_AND_EDITORIAL",
+    "E15": "FARADAY_1840_LETTER_INDEX",
+    "E16": "HISTORY_SCIENCE_2015_COMMENTARY",
+    "E17": "FARADAY_SECOND_SERIES_PRINT",
+    "E18": "FARADAY_SECOND_SERIES_PRINT",
+    "E19": "DICTIONARY_SCIENTIFIC_BIOGRAPHY",
+    "E20": "HISTORY_THESIS_1991_ABSTRACT"
+  },
+  "claim_independence_examples": [
+    {
+      "claim_id": "C02",
+      "referenced_evidence_count": 3,
+      "conservative_source_family_count": 2,
+      "families": [
+        "FARADAY_SECOND_SERIES_PRINT",
+        "EPSILON_1832_LETTER_AND_EDITORIAL"
+      ]
+    },
+    {
+      "claim_id": "C04",
+      "referenced_evidence_count": 3,
+      "conservative_source_family_count": 3,
+      "families": [
+        "STEINLE_1997",
+        "FARADAY_FIRST_SERIES_PRINT",
+        "FARADAY_SECOND_SERIES_PRINT"
+      ]
+    },
+    {
+      "claim_id": "C12",
+      "referenced_evidence_count": 3,
+      "conservative_source_family_count": 3,
+      "families": [
+        "ROYAL_SOCIETY_1831_MANUSCRIPT_CATALOG",
+        "FARADAY_SECOND_SERIES_PRINT",
+        "EPSILON_1832_LETTER_AND_EDITORIAL"
+      ]
+    },
+    {
+      "claim_id": "C15",
+      "referenced_evidence_count": 1,
+      "conservative_source_family_count": 1,
+      "families": [
+        "FARADAY_SECOND_SERIES_PRINT"
+      ]
+    },
+    {
+      "claim_id": "C17",
+      "referenced_evidence_count": 1,
+      "conservative_source_family_count": 1,
+      "families": [
+        "FARADAY_SECOND_SERIES_PRINT"
+      ]
+    }
+  ],
+  "warning": "Conservative family count, NOT independent probability multiplier or statistical effective sample size. Faraday Epsilon letter and editorial annotations are clustered conservatively despite different speaking voices."
+}
