@@ -34,7 +34,9 @@ Important date clarification: **2024 is the GBIF archive/download year, not the 
 | May 4–5 | 79 | 32 | 111 |
 | May 18–19 | 45 | 32 | 77 |
 | Jun 1–2 | 25 | 4 | 29 |
-| **All scheduled-interval rows** | **771** | **95** | **866** |
+| **All scheduled-interval rows** | **796** | **70** | **866** |
+
+Correction receipt: R125 initial totals incorrectly summed ABSENT/PRESENT as 771/95 even though each dated row and grand total were correct; R125b fixes the subtotals to 796/70. Do not silently erase the error.
 
 Additionally, **109** original 2024 rows have non-interval source records (generally first sighting). 131 documents total: scheduled slot rows 866 + 109 other rows = 975. The separate derived first-weekend tally in the previous R123 initially said 130; **R123b corrected it to 131** after detecting an otherwise excluded single-row document. This failure and fix are retained, not silently erased.
 
