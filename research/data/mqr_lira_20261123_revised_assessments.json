@@ -1,0 +1,153 @@
+{
+  "schema": "MQR-LIRA-1.0",
+  "assessment_date": "2026-11-23",
+  "revision": "post-adversarial-prior-art-reconciliation",
+  "rating_provenance": "ANALYST_JUDGMENT_NOT_PROBABILITY",
+  "assessments": [
+    {
+      "task_id": "chsh1972_raw-count-and-statistical-uncertainty-audit",
+      "dimensions": {
+        "expected_discrimination": "0.88",
+        "source_access": "0.55",
+        "rival_severity": "0.78",
+        "novelty_headroom": "0.42",
+        "execution_feasibility": "0.42"
+      },
+      "risk": "0.52",
+      "previous": "0.5985",
+      "evidence_ids": [
+        "R67",
+        "R68",
+        "R70"
+      ],
+      "gates": {
+        "primary_source_read": "R68-LBL392",
+        "reproduction_verified": "R68-rounded-only",
+        "independent_real_data": null,
+        "strong_rival_compared": "R67-R68-detection",
+        "independent_external_review": null
+      },
+      "change_reason": "1972 preprint contains rounded summaries but not a verified original sequence of coincident event timestamps or shared-denominator covariance; R68"
+    },
+    {
+      "task_id": "hoagland1958_biochemical-functional-rival-audit",
+      "dimensions": {
+        "expected_discrimination": "0.86",
+        "source_access": "0.92",
+        "rival_severity": "0.83",
+        "novelty_headroom": "0.30",
+        "execution_feasibility": "0.88"
+      },
+      "risk": "0.25",
+      "previous": "0.7740",
+      "evidence_ids": [
+        "R64",
+        "R69"
+      ],
+      "gates": {
+        "primary_source_read": "R69-JBC1958",
+        "reproduction_verified": null,
+        "independent_real_data": null,
+        "strong_rival_compared": "R69-storage-contamination",
+        "independent_external_review": null
+      },
+      "change_reason": "Fry 2022 and original 1958 paper already supply core historical and functional-rival analysis; R69"
+    },
+    {
+      "task_id": "faraday1831_1832_original-notebooks-question-shift",
+      "dimensions": {
+        "expected_discrimination": "0.89",
+        "source_access": "0.56",
+        "rival_severity": "0.8",
+        "novelty_headroom": "0.25",
+        "execution_feasibility": "0.5"
+      },
+      "risk": "0.44",
+      "previous": "0.6425",
+      "evidence_ids": [
+        "R66"
+      ],
+      "gates": {
+        "primary_source_read": null,
+        "reproduction_verified": null,
+        "independent_real_data": null,
+        "strong_rival_compared": null,
+        "independent_external_review": null
+      },
+      "change_reason": "HELD Steinle 1997 explicitly distinguishes theory-guided induction ring from later exploratory elementary experiment; no 1831 original notebook currently held; source Drive 1rl444ab9HV-Q285EwbPq1QBR2z5g3JcR"
+    },
+    {
+      "task_id": "paired-assay-same-specimen-measurement",
+      "dimensions": {
+        "expected_discrimination": "0.97",
+        "source_access": "0.26",
+        "rival_severity": "0.95",
+        "novelty_headroom": "0.72",
+        "execution_feasibility": "0.28"
+      },
+      "risk": "0.76",
+      "previous": "0.5300",
+      "evidence_ids": [
+        "MQR44",
+        "R66"
+      ],
+      "gates": {
+        "primary_source_read": null,
+        "reproduction_verified": null,
+        "independent_real_data": null,
+        "strong_rival_compared": "R66-selection-pairing",
+        "independent_external_review": null
+      },
+      "change_reason": "No new paired empirical assay data acquired; retain previous operational ratings"
+    },
+    {
+      "task_id": "dirac1931_anderson1932_primary-causality",
+      "dimensions": {
+        "expected_discrimination": "0.76",
+        "source_access": "0.49",
+        "rival_severity": "0.75",
+        "novelty_headroom": "0.24",
+        "execution_feasibility": "0.68"
+      },
+      "risk": "0.50",
+      "previous": "0.5325",
+      "evidence_ids": [
+        "R62",
+        "R63"
+      ],
+      "gates": {
+        "primary_source_read": null,
+        "reproduction_verified": "R63-SCM-SYNTHETIC",
+        "independent_real_data": null,
+        "strong_rival_compared": "R63-shared-context",
+        "independent_external_review": null
+      },
+      "change_reason": "R62 historical testimony and standard SCM already cover much of the causal counterexample; primary Anderson lab diaries still missing"
+    },
+    {
+      "task_id": "bell1964_1969_1972_theorem-bridge-triangulation",
+      "dimensions": {
+        "expected_discrimination": "0.72",
+        "source_access": "0.94",
+        "rival_severity": "0.83",
+        "novelty_headroom": "0.16",
+        "execution_feasibility": "0.9"
+      },
+      "risk": "0.21",
+      "previous": "0.7165",
+      "evidence_ids": [
+        "R67",
+        "R68",
+        "R70"
+      ],
+      "gates": {
+        "primary_source_read": "R67-R68-originals",
+        "reproduction_verified": "R68-rounded-only",
+        "independent_real_data": null,
+        "strong_rival_compared": "R70-loopholes",
+        "independent_external_review": null
+      },
+      "change_reason": "Original CHSH 1969 and Freedman–Clauser 1972 already document quantitative theory-to-apparatus bridge; R67-R68"
+    }
+  ]
+}
