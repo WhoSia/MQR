@@ -1,0 +1,276 @@
+{
+  "schema": "MQR-20261127-MODE-COHERENCE-SCORED-EVIDENCE",
+  "date": "2026-11-27",
+  "version": "5.4_OPEN",
+  "source_sha256": "5376aac7f12f981299bf0b4a964a4f6c453f501eb1b8ce29df1ce59f90b7b836",
+  "sample_size_rows": 14651,
+  "unique_document_ids": 2272,
+  "cross_mode_document_counts": {
+    "both_modes": 695,
+    "first_only": 1178,
+    "weekend_only": 391,
+    "neither": 8
+  },
+  "timing_with_both": {
+    "first_before_all_weekend_positives": 478,
+    "first_inside_weekend_positive": 217,
+    "first_after_all": 0
+  },
+  "documentation_trust": "Only source-byte original counts and document-level record categories audited locally. New Git-hosted standalone reproduction code not source-byte-run this turn.",
+  "weights": {
+    "directness": 0.3,
+    "independence": 0.2,
+    "reproducibility": 0.2,
+    "rival_discrimination": 0.2,
+    "scope_fit": 0.1
+  },
+  "evidence": [
+    {
+      "id": "GBIF_ORIGINAL",
+      "claim": "2024-historical GBIF source 29,543 records 14,651 Spring, Document ID grouping",
+      "source_family": "GBIF_2024_FIELD_SOURCE",
+      "url": "https://www.gbif.org/occurrence/download/0031144-240626123714530",
+      "axes": {
+        "directness": "0.99",
+        "independence": "0.77",
+        "reproducibility": "0.98",
+        "rival_discrimination": "0.92",
+        "scope_fit": "0.98"
+      },
+      "E": "0.929",
+      "limits": "Same field root as all derived cross-tab counts, source SHA 5376aac7f12f981299bf0b4a964a4f6c453f501eb1b8ce29df1ce59f90b7b836."
+    },
+    {
+      "id": "FINBIF_STANDARD",
+      "claim": "FinBIF public documentation identifies original Document, Gathering, Unit and partial document flag",
+      "source_family": "FINBIF_API_SCHEMA",
+      "url": "https://info.laji.fi/en/frontpage/api/api-laji-fi/data-warehouse-api/data-warehouse-fields/",
+      "axes": {
+        "directness": "0.98",
+        "independence": "0.87",
+        "reproducibility": "0.97",
+        "rival_discrimination": "0.95",
+        "scope_fit": "0.99"
+      },
+      "E": "0.951",
+      "limits": "Defines possible source hierarchy not proof of historical 2013-2024 questionnaire-specific conversion."
+    },
+    {
+      "id": "SPRING_GUIDE",
+      "claim": "Luontoliitto current spring monitoring guide: first sighting, fortnightly visits, blank unobserved",
+      "source_family": "SPRING_GUIDE_CURRENT",
+      "url": "https://luontoliitto.fi/kevatseuranta/ohjeet/",
+      "axes": {
+        "directness": "0.97",
+        "independence": "0.82",
+        "reproducibility": "0.95",
+        "rival_discrimination": "0.94",
+        "scope_fit": "0.96"
+      },
+      "E": "0.929",
+      "limits": "Current instructions cannot be treated as verbatim 2013–2024 template."
+    },
+    {
+      "id": "ALTVEGG_NICHOLS",
+      "claim": "Altwegg Nichols 2019 occupancy model overview for citizen-science non-detections",
+      "source_family": "PRIOR_ART_OCCUPANCY",
+      "url": "https://doi.org/10.1111/2041-210X.13090",
+      "axes": {
+        "directness": "0.90",
+        "independence": "0.88",
+        "reproducibility": "0.88",
+        "rival_discrimination": "0.91",
+        "scope_fit": "0.95"
+      },
+      "E": "0.899",
+      "limits": "Abstract/open text inspected; user Drive does not yet hold retained full-text file."
+    },
+    {
+      "id": "KELLING_SEMI",
+      "claim": "Kelling et al 2019 semistructured citizen-science survey design",
+      "source_family": "PRIOR_ART_SEMISTRUCTURED",
+      "url": "https://doi.org/10.1093/biosci/biz010",
+      "axes": {
+        "directness": "0.90",
+        "independence": "0.88",
+        "reproducibility": "0.89",
+        "rival_discrimination": "0.91",
+        "scope_fit": "0.93"
+      },
+      "E": "0.899",
+      "limits": "Article description and accessible public abstract, not stored in holdings."
+    },
+    {
+      "id": "JACOBUSSE_VISITS",
+      "claim": "Jacobusse Jongejans 2026 citizen science visit characteristics predict non-detection",
+      "source_family": "PRIOR_ART_VISIT_EFFECT",
+      "url": "https://doi.org/10.1016/j.ecolmodel.2026.111474",
+      "axes": {
+        "directness": "0.91",
+        "independence": "0.90",
+        "reproducibility": "0.88",
+        "rival_discrimination": "0.94",
+        "scope_fit": "0.96"
+      },
+      "E": "0.913",
+      "limits": "Full institutional abstract inspected; precise data/model not reproduced. Existing 2026 strong competitor."
+    }
+  ],
+  "claims_and_decisions": [
+    {
+      "key": "finding_1",
+      "claim": "Actual source yields 2272 documents with first/noninterval positive and weekend positive cross-table 695,1178,391,8",
+      "evidence_ids": [
+        "GBIF_ORIGINAL"
+      ],
+      "C": "0.99",
+      "G": "0.19",
+      "L": "0.93",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Exact original historical ZIP inspected; derived document-table no independent field data."
+    },
+    {
+      "key": "finding_2",
+      "claim": "695 documents with both modes have first timestamp strictly after all weekend positive periods",
+      "evidence_ids": [
+        "GBIF_ORIGINAL",
+        "SPRING_GUIDE"
+      ],
+      "C": "0.01",
+      "G": "0.02",
+      "L": "0.01",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "0 cases: 478 first before all positive weekends and 217 inside a positive weekend."
+    },
+    {
+      "key": "finding_3",
+      "claim": "A 'first sighting' record is a site occupancy proof independent of survey mode and site unit",
+      "evidence_ids": [
+        "GBIF_ORIGINAL",
+        "FINBIF_STANDARD"
+      ],
+      "C": "0.04",
+      "G": "0.02",
+      "L": "0.02",
+      "verdict": "COUNTEREVIDENCE",
+      "limitation": "Documents can contain multiple gatherings and municipality-scale sites with vague coordinates."
+    },
+    {
+      "key": "finding_4",
+      "claim": "Falling within-document weekend reports constitute independent repeated field visits",
+      "evidence_ids": [
+        "GBIF_ORIGINAL",
+        "SPRING_GUIDE"
+      ],
+      "C": "0.09",
+      "G": "0.04",
+      "L": "0.08",
+      "verdict": "HOLD",
+      "limitation": "Original Gathering flags and effort not inspected; current instructions permit unused scheduled weekends."
+    },
+    {
+      "key": "finding_5",
+      "claim": "Recording a first-sighting timestamp makes a positive weekend less likely as a causal ecological effect",
+      "evidence_ids": [
+        "GBIF_ORIGINAL",
+        "SPRING_GUIDE"
+      ],
+      "C": "0.07",
+      "G": "0.04",
+      "L": "0.04",
+      "verdict": "HOLD",
+      "limitation": "Contingency strong but form design and response selection not conditioned on; 0.371 versus 0.980 document association not causal."
+    },
+    {
+      "key": "finding_6",
+      "claim": "Current Luontoliitto protocol distinguishes first sighting from scheduled weekend estimates and permits blank unsurveyed cells",
+      "evidence_ids": [
+        "SPRING_GUIDE"
+      ],
+      "C": "0.98",
+      "G": "0.22",
+      "L": "0.89",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Current guide alone not all earlier templates."
+    },
+    {
+      "key": "finding_7",
+      "claim": "FinBIF API's Document/Gathering/Unit structure can in principle retain more fields than flat 2024 GBIF occurrence export",
+      "evidence_ids": [
+        "FINBIF_STANDARD",
+        "GBIF_ORIGINAL"
+      ],
+      "C": "0.97",
+      "G": "0.24",
+      "L": "0.95",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "API may require app token and higher privilege; never assert the original private site truth recovered."
+    },
+    {
+      "key": "finding_8",
+      "claim": "New paper on observation-mode selection is original over mature citizen-science detection and survey design prior art",
+      "evidence_ids": [
+        "ALTVEGG_NICHOLS",
+        "KELLING_SEMI",
+        "JACOBUSSE_VISITS"
+      ],
+      "C": "0.10",
+      "G": "0.05",
+      "L": "0.15",
+      "verdict": "HOLD",
+      "limitation": "Prior art covers effort, missingness, detection, full paper comparison not complete."
+    },
+    {
+      "key": "finding_9",
+      "claim": "Treat the documented cross-mode proportions as metadata provenance, not ecology or causal effect",
+      "evidence_ids": [
+        "GBIF_ORIGINAL",
+        "ALTVEGG_NICHOLS",
+        "FINBIF_STANDARD"
+      ],
+      "C": "0.97",
+      "G": "0.28",
+      "L": "0.95",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Necessary scoping of observational claim."
+    },
+    {
+      "key": "finding_10",
+      "claim": "Blind group split by Document and independent actual gathering/effort facts for any prospective prediction claim",
+      "evidence_ids": [
+        "GBIF_ORIGINAL",
+        "FINBIF_STANDARD",
+        "KELLING_SEMI"
+      ],
+      "C": "0.97",
+      "G": "0.30",
+      "L": "0.95",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Prevents a record-level leakage path; not itself an original statistical method."
+    },
+    {
+      "key": "finding_11",
+      "claim": "Preserve seven MQR founding questions while studying Q1/Q2 and historical Faraday/Q4/Q7 in parallel",
+      "evidence_ids": [
+        "GBIF_ORIGINAL",
+        "FINBIF_STANDARD"
+      ],
+      "C": "0.89",
+      "G": "0.22",
+      "L": "0.92",
+      "verdict": "SUPPORTED_IN_SCOPE",
+      "limitation": "Portfolio direction; does not claim truth from this case."
+    }
+  ],
+  "missing_literature": {
+    "canonical_drive_txt_id": "1NtFbOpy9Mcv_f-f_iIr6adDuZQTyWoy1",
+    "updated_to_records": 53,
+    "old_records": 50,
+    "exact_text_write_verified": true,
+    "do_not_create_secondary_missing_tables": true
+  },
+  "external_inter_rater_calibration": false,
+  "general_theory_authority_transfer": false,
+  "scientific_version_stays_open": true,
+  "interpretation": "Scores are management judgments 0–1, not Bayesian probabilities or an external calibration; same original source root not multiple independent observations."
+}
