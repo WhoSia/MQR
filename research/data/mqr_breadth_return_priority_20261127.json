@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-27",
+  "status": "prospective before numerical witness; source exploration already conducted",
+  "weights": [
+    0.25,
+    0.3,
+    0.2,
+    0.15,
+    0.1
+  ],
+  "criteria": [
+    "founding importance",
+    "discrimination",
+    "feasibility",
+    "independent information",
+    "resource efficiency"
+  ],
+  "rows": [
+    {
+      "n": "Turing–형태발생–수학적 구조 생성",
+      "v": [
+        0.98,
+        0.94,
+        0.91,
+        0.94,
+        0.91
+      ],
+      "gate": "ready: primary text + abstract mathematical witness",
+      "p": 0.941
+    },
+    {
+      "n": "Maxwell 개념·수학·실험",
+      "v": [
+        0.98,
+        0.9,
+        0.85,
+        0.87,
+        0.82
+      ],
+      "gate": "ready",
+      "p": 0.8975
+    },
+    {
+      "n": "과학적 규범 변화와 경쟁 이론",
+      "v": [
+        0.98,
+        0.95,
+        0.8,
+        0.89,
+        0.84
+      ],
+      "gate": "conditional: original paper custody",
+      "p": 0.9075
+    },
+    {
+      "n": "조선 의학 제도 추가 심화",
+      "v": [
+        0.91,
+        0.86,
+        0.84,
+        0.68,
+        0.82
+      ],
+      "gate": "park after prior deep step; breadth",
+      "p": 0.8375
+    },
+    {
+      "n": "양자/고전 교량과 다른 존재론",
+      "v": [
+        0.99,
+        0.92,
+        0.72,
+        0.85,
+        0.78
+      ],
+      "gate": "conditional: select a distinct primary case",
+      "p": 0.873
+    },
+    {
+      "n": "형태발생의 실제 실험 재현",
+      "v": [
+        0.88,
+        0.91,
+        0.32,
+        0.92,
+        0.38
+      ],
+      "gate": "HOLD: physical experiment not performed",
+      "p": 0.733
+    }
+  ]
+}
