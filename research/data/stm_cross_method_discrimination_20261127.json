@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-27",
+  "scope": "historical reported evidence, not a new experiment",
+  "sources": [
+    {
+      "work": "Binnig et al. 1983",
+      "doi": "10.1103/PhysRevLett.50.120",
+      "access": "publisher abstract/index",
+      "custody": "not found in bounded author/title and intake search",
+      "finding": "real-space Si(111) 7x7 reconstruction image"
+    },
+    {
+      "work": "Tersoff & Hamann 1985",
+      "doi": "10.1103/PhysRevB.31.805",
+      "access": "primary extracted pp805–806",
+      "custody": "not found",
+      "finding": "small bias and modeled tip; current proportional to sample LDOS at tip position; limited structural sensitivity in Au(110)"
+    },
+    {
+      "work": "Takayanagi et al. 1985",
+      "doi": "10.1116/1.573160",
+      "access": "publisher abstract/index",
+      "custody": "not found",
+      "finding": "DAS structural model from transmission electron diffraction"
+    },
+    {
+      "work": "Yamaguchi 1985",
+      "doi": "10.1103/PhysRevB.32.2356",
+      "access": "publisher abstract",
+      "custody": "not found",
+      "finding": "five STM-compatible models, ion scattering alone not decisive"
+    },
+    {
+      "work": "Tromp et al. 1986",
+      "doi": "10.1103/PhysRevB.34.1388",
+      "access": "primary extracted pp1388–1391, figures screenshot failed",
+      "custody": "not found",
+      "finding": "five model comparison; DAS agreement reported within .1 angstrom; charge density selected to optimize agreement; contrast changes with bias"
+    },
+    {
+      "work": "Hamers et al. 1986",
+      "doi": "10.1103/PhysRevLett.56.1972",
+      "access": "IBM author institution abstract",
+      "custody": "not found",
+      "finding": "energy-resolved spatial mapping at reported 3 angstrom lateral resolution"
+    }
+  ],
+  "model_comparison": [
+    {
+      "model": "Binnig",
+      "reported": "12 maxima reproduced; corner holes too shallow"
+    },
+    {
+      "model": "Chadi",
+      "reported": "corner holes too shallow and short diagonal mismatch"
+    },
+    {
+      "model": "Snyder",
+      "reported": "minima symmetry absent; cluster resolution poor"
+    },
+    {
+      "model": "McRae",
+      "reported": "12 maxima absent"
+    },
+    {
+      "model": "Takayanagi",
+      "reported": "best agreement among five; corner hole deeper than measured; overall within 0.1 angstrom"
+    }
+  ],
+  "limitations": [
+    "1985 and 1986 five-model sets are not identical",
+    "no image parity or original instrument data",
+    "not a calibrated likelihood comparison",
+    "tuned comparison not untouched holdout",
+    "prior evidence used in forming model, no blanket independence"
+  ],
+  "ledger": {
+    "id": "1NtFbOpy9Mcv_f-f_iIr6adDuZQTyWoy1",
+    "before_count": 42,
+    "after_count": 48,
+    "remote_bytes": 13195,
+    "sha256": "f11ed91048133d6d51ce359b311f7d9994d4309bb9ca6c5a52bf43ca203a6aca",
+    "bom": true,
+    "lf": true,
+    "triple_newlines": 0,
+    "exact_remote_match": true,
+    "idempotent": true
+  }
+}
