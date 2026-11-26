@@ -1,0 +1,174 @@
+{
+  "source": "Grimm & Baake (2008), Eq. 1, arXiv HTML and PDF page 2 image cross-check",
+  "A": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "B": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "checks": {
+    "sameCardinality": true,
+    "exactDifferenceMultisets": true,
+    "notEuclideanCongruent": true,
+    "equalDiffraction256": true,
+    "someReferenceSeparates": true,
+    "complexRecovery": true,
+    "zeroModeNoDifference": true
+  },
+  "maxDiff": 7.105427357601002e-14,
+  "maxRecovery": 1.0658141036401503e-14,
+  "example": {
+    "q": [
+      0.25,
+      0
+    ],
+    "a": [
+      -2,
+      0.9999999999999996
+    ],
+    "b": [
+      -1,
+      1.9999999999999998
+    ],
+    "diff": 0,
+    "ref0": 2,
+    "ref90": 2.0000000000000018
+  },
+  "best": {
+    "q": [
+      0.1875,
+      0.9375
+    ],
+    "a": [
+      2.6309863136978393,
+      8.964888770700062
+    ],
+    "b": [
+      5.861428811085504,
+      7.275642373458593
+    ],
+    "diff": 0,
+    "ref0": 6.460884994775327,
+    "ref90": 3.3784927944829377
+  },
+  "nonzeroVectorTypes": 52,
+  "scope": "equal unit scatterers, finite point sets, ideal coherent reference of known complex amplitude; no instrument test, no claim of practical crystallographic phasing"
+}
