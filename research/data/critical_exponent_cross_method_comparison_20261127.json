@@ -1,0 +1,49 @@
+{
+  "source": "Hocken & Moldover (1976), Table I; extracted text, page-image check unavailable",
+  "theory_source": "Kos et al. (2016), abstract, published scaling dimensions",
+  "dimensions": {
+    "sigma": 0.5181489,
+    "epsilon": 1.412625
+  },
+  "derived": {
+    "nu": 0.6299708638475471,
+    "eta": 0.03629780000000005,
+    "beta": 0.3264187101346563,
+    "gamma": 1.2370751712733286
+  },
+  "rows": [
+    {
+      "name": "Xe",
+      "beta": 0.329,
+      "gamma": 1.23,
+      "abs_delta_beta": 0.0025812898653437277,
+      "abs_delta_gamma": 0.007075171273328573,
+      "mean_field_abs_delta_beta": 0.17099999999999999,
+      "mean_field_abs_delta_gamma": 0.22999999999999998
+    },
+    {
+      "name": "SF6",
+      "beta": 0.321,
+      "gamma": 1.28,
+      "abs_delta_beta": 0.005418710134656279,
+      "abs_delta_gamma": 0.04292482872667147,
+      "mean_field_abs_delta_beta": 0.179,
+      "mean_field_abs_delta_gamma": 0.28
+    },
+    {
+      "name": "CO2",
+      "beta": 0.321,
+      "gamma": 1.24,
+      "abs_delta_beta": 0.005418710134656279,
+      "abs_delta_gamma": 0.0029248287266714357,
+      "mean_field_abs_delta_beta": 0.179,
+      "mean_field_abs_delta_gamma": 0.24
+    }
+  ],
+  "checks": {
+    "all_beta_closer_to_bootstrap": true,
+    "all_gamma_closer_to_bootstrap": true,
+    "scaling_identity": true
+  },
+  "scope": "Descriptive comparison of reported point estimates, not refit, hypothesis test, or proof of universality. No original observations or covariance."
+}
