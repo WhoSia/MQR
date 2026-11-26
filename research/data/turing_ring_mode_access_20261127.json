@@ -1,0 +1,95 @@
+{
+  "status": "synthetic linearized dimensionless model; no nonlinear saturation or empirical claims",
+  "J": {
+    "a": 1,
+    "b": -2,
+    "c": 2,
+    "d": -3
+  },
+  "D": [
+    1,
+    10
+  ],
+  "band": [
+    0.2,
+    0.5
+  ],
+  "checks": [
+    "homogeneous equilibrium locally stable",
+    "analytic determinant roots .2 and .5",
+    "continuum finite band nonempty",
+    "spectral calculation agrees with determinant criterion on every enumerated mode",
+    "fixed-spacing cycle geometry changes accessible instability nonmonotonically",
+    "equal diffusion negative control",
+    "no diffusion negative control",
+    "conjugate modes paired"
+  ],
+  "rings": [
+    {
+      "n": 6,
+      "unstable": [],
+      "peak": {
+        "m": 1,
+        "q": 0.9999999999999998,
+        "trace": -12.999999999999998,
+        "det": 3.9999999999999973,
+        "maxReal": -0.31534156157350957
+      }
+    },
+    {
+      "n": 10,
+      "unstable": [
+        1,
+        9
+      ],
+      "peak": {
+        "m": 1,
+        "q": 0.3819660112501051,
+        "trace": -6.201626123751156,
+        "det": -0.21478174124758187,
+        "maxReal": 0.03444185374863329
+      }
+    },
+    {
+      "n": 14,
+      "unstable": [],
+      "peak": {
+        "m": 1,
+        "q": 0.19806226419516174,
+        "trace": -4.1786849061467795,
+        "det": 0.00585075561500803,
+        "maxReal": -0.0014006122646663677
+      }
+    },
+    {
+      "n": 20,
+      "unstable": [
+        2,
+        18
+      ],
+      "peak": {
+        "m": 2,
+        "q": 0.3819660112501051,
+        "trace": -6.201626123751156,
+        "det": -0.21478174124758187,
+        "maxReal": 0.03444185374863329
+      }
+    },
+    {
+      "n": 40,
+      "unstable": [
+        3,
+        4,
+        36,
+        37
+      ],
+      "peak": {
+        "m": 4,
+        "q": 0.3819660112501051,
+        "trace": -6.201626123751156,
+        "det": -0.21478174124758187,
+        "maxReal": 0.03444185374863329
+      }
+    }
+  ]
+}
