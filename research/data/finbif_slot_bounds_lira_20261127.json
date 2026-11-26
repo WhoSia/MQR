@@ -1,0 +1,336 @@
+{
+  "date": "2026-11-27",
+  "version": "5.4_OPEN",
+  "source": {
+    "sha256": "5376aac7f12f981299bf0b4a964a4f6c453f501eb1b8ce29df1ce59f90b7b836",
+    "archive": "0031144-240626123714530",
+    "rows": 29543,
+    "spring_rows": 14651,
+    "documents": 2272,
+    "script_git_blob_sha1": "7d91d37a5876dec9cd54367aa44587aa69250413",
+    "executed_local_bytes_match_remote": true
+  },
+  "findings": {
+    "annual_slot_union_2013_2017": 7,
+    "annual_slot_union_2018_2024": 8,
+    "prefix_documents": 2272,
+    "intermittent_gap_documents": 0,
+    "positive_block_counts": {
+      "0": 1186,
+      "1": 1075,
+      "2": 11
+    },
+    "first_timestamp_after_last_interval_end": 505,
+    "last_slot_label_of_those_505": "ABSENT",
+    "note": "Last-timestamp relation separately calculated with raw strings in canonical UTC-like encoding; not part of committed bounds script."
+  },
+  "slots_2024": [
+    {
+      "date": "02-24",
+      "present": 0,
+      "absent": 131,
+      "missing": 0,
+      "lower_numerator": 0,
+      "upper_numerator": 0,
+      "denominator": 131
+    },
+    {
+      "date": "03-09",
+      "present": 0,
+      "absent": 130,
+      "missing": 1,
+      "lower_numerator": 0,
+      "upper_numerator": 1,
+      "denominator": 131
+    },
+    {
+      "date": "03-23",
+      "present": 0,
+      "absent": 130,
+      "missing": 1,
+      "lower_numerator": 0,
+      "upper_numerator": 1,
+      "denominator": 131
+    },
+    {
+      "date": "04-06",
+      "present": 0,
+      "absent": 130,
+      "missing": 1,
+      "lower_numerator": 0,
+      "upper_numerator": 1,
+      "denominator": 131
+    },
+    {
+      "date": "04-20",
+      "present": 2,
+      "absent": 126,
+      "missing": 3,
+      "lower_numerator": 2,
+      "upper_numerator": 5,
+      "denominator": 131
+    },
+    {
+      "date": "05-04",
+      "present": 32,
+      "absent": 79,
+      "missing": 20,
+      "lower_numerator": 32,
+      "upper_numerator": 52,
+      "denominator": 131
+    },
+    {
+      "date": "05-18",
+      "present": 32,
+      "absent": 45,
+      "missing": 54,
+      "lower_numerator": 32,
+      "upper_numerator": 86,
+      "denominator": 131
+    },
+    {
+      "date": "06-01",
+      "present": 4,
+      "absent": 25,
+      "missing": 102,
+      "lower_numerator": 4,
+      "upper_numerator": 106,
+      "denominator": 131
+    }
+  ],
+  "difference_bounds": {
+    "may04_minus_apr20": [
+      "27/131",
+      "50/131"
+    ],
+    "may18_minus_may04": [
+      "-20/131",
+      "54/131"
+    ],
+    "jun01_minus_may18": [
+      "-82/131",
+      "74/131"
+    ]
+  },
+  "estimand": "Finite-cohort hypothetical binary completion of recorded document-slot status, conditional on observed slot union and archived documents; not flowering prevalence, field visits or causal effect.",
+  "weights": {
+    "directness": 0.3,
+    "independence": 0.2,
+    "reproducibility": 0.2,
+    "rival_discrimination": 0.2,
+    "scope_fit": 0.1
+  },
+  "evidence": [
+    {
+      "id": "original",
+      "scope": "GBIF pinned archive and derivative script",
+      "family": "GBIF_2024_ROOT",
+      "url": "https://www.gbif.org/occurrence/download/0031144-240626123714530",
+      "axes": [
+        0.99,
+        0.8,
+        0.99,
+        0.94,
+        0.99
+      ],
+      "E": 0.942
+    },
+    {
+      "id": "manski",
+      "scope": "Manski 2005 full text stored in Drive; relevant sections inspected",
+      "family": "PARTIAL_IDENTIFICATION",
+      "url": "https://doi.org/10.1016/j.ijar.2004.10.006",
+      "axes": [
+        0.96,
+        0.9,
+        0.96,
+        0.98,
+        0.98
+      ],
+      "E": 0.954
+    },
+    {
+      "id": "altwegg",
+      "scope": "Altwegg Nichols 2019 held text survey-design and detection sections",
+      "family": "OCCUPANCY_PRIOR",
+      "url": "https://doi.org/10.1111/2041-210X.13090",
+      "axes": [
+        0.95,
+        0.87,
+        0.95,
+        0.94,
+        0.96
+      ],
+      "E": 0.933
+    },
+    {
+      "id": "kelling",
+      "scope": "Kelling 2019 held text protocol and observation metadata",
+      "family": "SEMISTRUCTURED_PRIOR",
+      "url": "https://doi.org/10.1093/biosci/biz010",
+      "axes": [
+        0.96,
+        0.88,
+        0.96,
+        0.94,
+        0.95
+      ],
+      "E": 0.939
+    },
+    {
+      "id": "jacobusse",
+      "scope": "Jacobusse Jongejans 2026 held text visit reconstruction assumptions",
+      "family": "VISIT_PRIOR",
+      "url": "https://doi.org/10.1016/j.ecolmodel.2026.111474",
+      "axes": [
+        0.95,
+        0.88,
+        0.96,
+        0.94,
+        0.94
+      ],
+      "E": 0.935
+    },
+    {
+      "id": "nrc",
+      "scope": "NRC 2010 chapter 4 distinguishes pattern from mechanism; clinical example reported from prior study",
+      "family": "CLINICAL_MISSINGNESS_PRIOR",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK209900/",
+      "axes": [
+        0.96,
+        0.9,
+        0.97,
+        0.97,
+        0.94
+      ],
+      "E": 0.95
+    },
+    {
+      "id": "finbif",
+      "scope": "Official notebook architecture and source form service documentation; historical source transform not recovered",
+      "family": "FINBIF_DOCUMENTATION",
+      "url": "https://info.laji.fi/en/frontpage/api/api-laji-fi/notebook-from-service/",
+      "axes": [
+        0.92,
+        0.84,
+        0.92,
+        0.82,
+        0.91
+      ],
+      "E": 0.883
+    }
+  ],
+  "claims": [
+    {
+      "claim": "All original documents have prefix availability over annual observed interval union",
+      "evidence_ids": [
+        "original"
+      ],
+      "C": 0.99,
+      "G": 0.2,
+      "L": 0.93
+    },
+    {
+      "claim": "Positive runs: 1186 none, 1075 one, 11 two",
+      "evidence_ids": [
+        "original"
+      ],
+      "C": 0.99,
+      "G": 0.15,
+      "L": 0.75
+    },
+    {
+      "claim": "Monotone missing pattern proves MNAR or actual administrative cutoff",
+      "evidence_ids": [
+        "original",
+        "nrc"
+      ],
+      "C": 0.06,
+      "G": 0.03,
+      "L": 0.08
+    },
+    {
+      "claim": "May 4 minus April 20 finite-cohort binary-completion difference strictly positive for every unrestricted completion",
+      "evidence_ids": [
+        "original",
+        "manski"
+      ],
+      "C": 0.99,
+      "G": 0.18,
+      "L": 0.92
+    },
+    {
+      "claim": "May 18 exceeds May 4 or June 1 necessarily declines",
+      "evidence_ids": [
+        "original",
+        "manski"
+      ],
+      "C": 0.04,
+      "G": 0.02,
+      "L": 0.05
+    },
+    {
+      "claim": "Observed status equals biological presence or confirmed effort",
+      "evidence_ids": [
+        "original",
+        "altwegg",
+        "kelling",
+        "finbif"
+      ],
+      "C": 0.04,
+      "G": 0.03,
+      "L": 0.04
+    },
+    {
+      "claim": "Cross-domain structural comparison with clinical missingness is valid within missing-data algebra",
+      "evidence_ids": [
+        "manski",
+        "nrc"
+      ],
+      "C": 0.96,
+      "G": 0.24,
+      "L": 0.89
+    },
+    {
+      "claim": "MQR invented partial identification or demonstrated unique scientific novelty",
+      "evidence_ids": [
+        "manski",
+        "nrc",
+        "altwegg"
+      ],
+      "C": 0.02,
+      "G": 0.02,
+      "L": 0.02
+    },
+    {
+      "claim": "Prefer new source provenance or a separate physical case over more same-source tabulations",
+      "evidence_ids": [
+        "original",
+        "finbif",
+        "jacobusse"
+      ],
+      "C": 0.93,
+      "G": 0.22,
+      "L": 0.95
+    }
+  ],
+  "literature": {
+    "current_live_txt_id": "1NtFbOpy9Mcv_f-f_iIr6adDuZQTyWoy1",
+    "current_entries": 56,
+    "uploaded_snapshot_entries": 50,
+    "held_verified_by_title": [
+      "Altwegg & Nichols 2019",
+      "Kelling et al. 2019",
+      "Jacobusse & Jongejans 2026",
+      "Manski 2005"
+    ],
+    "action": "No re-additions, no overwrite of newer shared registry; relevant four PDFs opened and selected relevant text inspected."
+  },
+  "limits": [
+    "Prefix relative to observed annual interval union, not proof of complete official schedule in all years.",
+    "Monotone pattern does not identify MCAR/MAR/MNAR.",
+    "No historical source form version or Gathering effort recovered.",
+    "Clinical example documentary comparison, not new clinical raw-data analysis.",
+    "No independent ecological collection; no novel method or promotion."
+  ]
+}
