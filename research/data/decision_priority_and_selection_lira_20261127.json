@@ -1,0 +1,342 @@
+{
+  "schema": "MQR-DECISION-AND-PRIORITY-LOOP-20261127",
+  "date": "2026-11-27",
+  "version": "5.4_OPEN",
+  "policy": {
+    "weights": {
+      "V": 0.25,
+      "D": 0.3,
+      "F": 0.2,
+      "I": 0.15,
+      "K": 0.1
+    },
+    "axes": {
+      "V": "founding-question importance",
+      "D": "potential discriminatory value",
+      "F": "current executable feasibility",
+      "I": "potential independent information",
+      "K": "cost efficiency"
+    },
+    "hard_gates": "Access, permissions and evidence prerequisites override score. No probability interpretation. Do not use P, L or C to automatically promote version. Completed-task scores are retrospective; next-task scores prospective. Retain all seven founding questions. No new R numbering."
+  },
+  "tasks": [
+    {
+      "name": "FinBIF source-selection stratified audit",
+      "axes": {
+        "V": 0.91,
+        "D": 0.95,
+        "F": 1,
+        "I": 0.64,
+        "K": 0.98
+      },
+      "P": 0.9065,
+      "state": "COMPLETED",
+      "reason": "Exact historical original now accessible; new descriptive strata and selection countermodel. Scores recorded retrospectively, not preregistration."
+    },
+    {
+      "name": "Cross-case primary structural biology refinement",
+      "axes": {
+        "V": 0.95,
+        "D": 0.94,
+        "F": 0.84,
+        "I": 0.9,
+        "K": 0.83
+      },
+      "P": 0.9055,
+      "state": "READY_NEXT",
+      "reason": "Use held Mitchell studies and primary Rinaldelli/Carlon article evidence; verify precise physical target and sample-state equivalence."
+    },
+    {
+      "name": "Integrative pluralism primary argument versus critical appraisal",
+      "axes": {
+        "V": 0.96,
+        "D": 0.89,
+        "F": 0.95,
+        "I": 0.74,
+        "K": 0.95
+      },
+      "P": 0.903,
+      "state": "COMPLETED",
+      "reason": "Held 2023 articles opened and key passages compared; not full page-by-page re-reading."
+    },
+    {
+      "name": "Verify and preserve source-matched Python and scientific receipts",
+      "axes": {
+        "V": 0.82,
+        "D": 0.9,
+        "F": 1,
+        "I": 0.54,
+        "K": 0.94
+      },
+      "P": 0.85,
+      "state": "COMPLETED",
+      "reason": "New executed Python file hash equals Git blob; previous timing-specific script not fully re-executed in this cycle."
+    },
+    {
+      "name": "Maxwell 1855/56 original equation-image and units",
+      "axes": {
+        "V": 0.93,
+        "D": 0.87,
+        "F": 0.7,
+        "I": 0.78,
+        "K": 0.82
+      },
+      "P": 0.8325,
+      "state": "READY_NEXT",
+      "reason": "Protected Q3/Q4/Q5/Q7 historical source; source-image retrieval not yet confirmed."
+    },
+    {
+      "name": "Original source form/version and Gathering fields",
+      "axes": {
+        "V": 0.97,
+        "D": 0.98,
+        "F": 0.3,
+        "I": 0.95,
+        "K": 0.48
+      },
+      "P": 0.787,
+      "state": "HOLD_ACCESS",
+      "reason": "No authenticated historical source form/event/effort bridge; public schema cannot fill this gap."
+    },
+    {
+      "name": "4.97 raw field revisit held-out model comparison",
+      "axes": {
+        "V": 0.84,
+        "D": 0.77,
+        "F": 0.74,
+        "I": 0.66,
+        "K": 0.74
+      },
+      "P": 0.762,
+      "state": "READY_NEXT",
+      "reason": "Actual different field root; avoid presenting it as same-target Finland validation."
+    },
+    {
+      "name": "Read and maintain sole live missing-literature TXT",
+      "axes": {
+        "V": 0.8,
+        "D": 0.63,
+        "F": 1,
+        "I": 0.5,
+        "K": 0.96
+      },
+      "P": 0.76,
+      "state": "COMPLETED",
+      "reason": "Latest connected TXT 56 consecutive entries, supersedes old 50-entry attachment; no overwrite by stale data, no newly mandatory acquisition established."
+    },
+    {
+      "name": "Independent LIRA rater reliability and predictive calibration",
+      "axes": {
+        "V": 0.91,
+        "D": 0.88,
+        "F": 0.22,
+        "I": 0.99,
+        "K": 0.52
+      },
+      "P": 0.736,
+      "state": "HOLD_ACCESS",
+      "reason": "Cannot invent independent human ratings. Design possible; actual independent raters not available."
+    },
+    {
+      "name": "Repeat more finite binary counterexamples without external discrimination",
+      "axes": {
+        "V": 0.4,
+        "D": 0.24,
+        "F": 0.98,
+        "I": 0.16,
+        "K": 0.7
+      },
+      "P": 0.462,
+      "state": "DEFER",
+      "reason": "Known results, limited incremental value."
+    }
+  ],
+  "next_task_sensitivity": {
+    "perturbation": "Each base axis weight independently multiplied by .8 or 1.2, then normalized; READY_NEXT only",
+    "scenarios": 32,
+    "wins": {
+      "Cross-case primary structural biology refinement": 32
+    },
+    "bounds": {
+      "Cross-case primary structural biology refinement": [
+        0.8965217391304349,
+        0.913921568627451
+      ],
+      "Maxwell 1855/56 original equation-image and units": [
+        0.8178723404255319,
+        0.8464705882352942
+      ],
+      "4.97 raw field revisit held-out model comparison": [
+        0.753061224489796,
+        0.7706666666666667
+      ]
+    }
+  },
+  "lira": [
+    {
+      "claim": "Both-positive/first-only/weekend-only/neither table 695/1178/391/8 and 8 double negatives all 2020",
+      "E": 0.95,
+      "C": 0.99,
+      "G": 0.18,
+      "L": 0.91,
+      "evidence": [
+        "Original SHA-matched archive, direct Python enumeration; same GBIF root"
+      ],
+      "verdict": "PASS_SCOPED"
+    },
+    {
+      "claim": "Year and recorded-slot strata yield 54 negative, 0 positive, 24 uninformative contrasts",
+      "E": 0.95,
+      "C": 0.99,
+      "G": 0.19,
+      "L": 0.92,
+      "evidence": [
+        "Original SHA-matched archive, Python stratified table"
+      ],
+      "verdict": "PASS_SCOPED"
+    },
+    {
+      "claim": "A hypothetical independent two-mode population can produce the observed 2x2 solely through differential selection",
+      "E": 0.96,
+      "C": 0.99,
+      "G": 0.32,
+      "L": 0.93,
+      "evidence": [
+        "Exact algebra and rational check; Cole et al 2010 existing selection bias theory"
+      ],
+      "verdict": "PASS_CONDITIONAL"
+    },
+    {
+      "claim": "FinBIF actually applied this specific document selection rule",
+      "E": 0.76,
+      "C": 0.24,
+      "G": 0.08,
+      "L": 0.95,
+      "evidence": [
+        "Observed near-empty double-negative cell; historic form selection mechanism unobserved"
+      ],
+      "verdict": "HOLD"
+    },
+    {
+      "claim": "Negative relation demonstrates causal substitution between biological observations",
+      "E": 0.92,
+      "C": 0.06,
+      "G": 0.03,
+      "L": 0.08,
+      "evidence": [
+        "Original table + exact alternative; no causal inference"
+      ],
+      "verdict": "REJECT_AS_CURRENT_WARRANT"
+    },
+    {
+      "claim": "Mitchell 2023 pp285–286 makes joint refinement conditional on reliable detection and compatible target perspectives",
+      "E": 0.93,
+      "C": 0.96,
+      "G": 0.29,
+      "L": 0.91,
+      "evidence": [
+        "Held original Mitchell 2023 text; Carlon 2016 abstract and Rinaldelli 2014 search excerpt"
+      ],
+      "verdict": "PASS_SCOPED"
+    },
+    {
+      "claim": "Deulofeu and Suárez 2023 p315 reject unconditional integration imperative",
+      "E": 0.93,
+      "C": 0.97,
+      "G": 0.32,
+      "L": 0.93,
+      "evidence": [
+        "Held article original conclusion p315"
+      ],
+      "verdict": "PASS_SCOPED"
+    },
+    {
+      "claim": "All sciences sharing labels or overlapping model sets can be integrated with unique correct ontology",
+      "E": 0.9,
+      "C": 0.04,
+      "G": 0.02,
+      "L": 0.02,
+      "evidence": [
+        "FinBIF example, Mitchell and critics, logical target mismatch"
+      ],
+      "verdict": "REJECT_AS_CURRENT_WARRANT"
+    },
+    {
+      "claim": "Continue bounded synthesis across data provenance and scientific pluralism even when prior-art is strong",
+      "E": 0.9,
+      "C": 0.95,
+      "G": 0.3,
+      "L": 0.95,
+      "evidence": [
+        "Current doctrine legitimate synthesis override; direct texts"
+      ],
+      "verdict": "ADOPT"
+    },
+    {
+      "claim": "MQR 5.5 promotion on this evidence",
+      "E": 0.89,
+      "C": 0.08,
+      "G": 0.05,
+      "L": 0.04,
+      "evidence": [
+        "No independent general scientific validation; scope remains narrow"
+      ],
+      "verdict": "HOLD"
+    },
+    {
+      "claim": "TXT single source policy and current 56 entries require preserving live file rather than overwriting with earlier attached file",
+      "E": 0.97,
+      "C": 0.99,
+      "G": 0.01,
+      "L": 0.98,
+      "evidence": [
+        "Connected Drive readback 56 consecutive; local attachment earlier 50; current doctrine"
+      ],
+      "verdict": "ADOPT"
+    }
+  ],
+  "original_data_receipt": {
+    "source_sha256": "5376aac7f12f981299bf0b4a964a4f6c453f501eb1b8ce29df1ce59f90b7b836",
+    "exact_code_git_blob": "bd5e7f8c5a90c6563a3e20915d242a09fdde0bae",
+    "raw_rows": 29543,
+    "spring_rows": 14651,
+    "docs": 2272,
+    "table": [
+      695,
+      1178,
+      391,
+      8
+    ],
+    "year_strata": [
+      12,
+      0,
+      0,
+      0
+    ],
+    "slot_strata": [
+      6,
+      0,
+      0,
+      3
+    ],
+    "joint_strata": [
+      54,
+      0,
+      0,
+      24
+    ],
+    "raw_OR": 0.012071263878696824,
+    "year_MH_OR": 0.010478066621764887,
+    "slot_MH_OR": 0.010429750594998882,
+    "joint_MH_OR": 0.01025898996173634,
+    "actual_selection_identified": false,
+    "new_independent_field_root": false
+  },
+  "literature_registry": {
+    "id": "1NtFbOpy9Mcv_f-f_iIr6adDuZQTyWoy1",
+    "live_count": 56,
+    "continuous": true,
+    "edited_this_turn": false,
+    "reason": "Do not overwrite later shared edits; relevant held articles reviewed and no newly mandatory unheld literature established this cycle."
+  }
+}
