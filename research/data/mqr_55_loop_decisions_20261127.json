@@ -287,6 +287,73 @@
           "decision": "prune: strictly dominated by reactivity bounds"
         }
       ]
+    },
+    {
+      "heading": "Which external calibration can constrain reactivity?",
+      "before_execution": true,
+      "findings": "Initial candidate Prolog 9/9; Lean failed on unavailable order identifiers and has been repaired by integer witness cases. Independent exact reactivity enumeration passed 5916 cases. Manski missing data and Bareinboim/Pearl data-fusion source passages read.",
+      "candidates": [
+        {
+          "id": "aggregate-untreated-margin",
+          "v": [
+            0.97,
+            0.97,
+            0.95,
+            0.91,
+            0.91
+          ],
+          "gate": "exact same cohort untreated total, fixed baseline groups, bounded mismatches; not automatically supplied by control mean",
+          "decision": "execute: derive sharp constrained interval and identify gaps"
+        },
+        {
+          "id": "mean-zero-mismatch",
+          "v": [
+            0.96,
+            0.95,
+            0.98,
+            0.9,
+            0.97
+          ],
+          "gate": "exact counterfactual marginal counts; no pairing",
+          "decision": "execute: quantify how average neutrality can conceal change"
+        },
+        {
+          "id": "extra-group-count-calibration",
+          "v": [
+            0.91,
+            0.9,
+            0.84,
+            0.92,
+            0.82
+          ],
+          "gate": "exact untreated group-specific counts; design cost unmeasured",
+          "decision": "retain as comparison; not independent data yet"
+        },
+        {
+          "id": "more-missingness-census-only",
+          "v": [
+            0.55,
+            0.44,
+            0.95,
+            0.34,
+            0.65
+          ],
+          "gate": "eligible",
+          "decision": "prune: dominated by mean-zero-mismatch"
+        },
+        {
+          "id": "repair-proof-with-mathlib",
+          "v": [
+            0.52,
+            0.55,
+            0.48,
+            0.42,
+            0.3
+          ],
+          "gate": "new dependency not needed",
+          "decision": "prune: direct witness proof first"
+        }
+      ]
     }
   ]
 }
