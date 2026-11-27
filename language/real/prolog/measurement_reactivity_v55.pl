@@ -1,4 +1,4 @@
-:- module(measurement_reactivity_v55, [contrast_bounds/5]).
+:- module(measurement_reactivity_v55, [contrast_bounds/5, calibrated_bounds/6, mismatch_bounds/5]).
 :- use_module(library(plunit)).
 
 % g(Negative,Positive,Missing) describes one known baseline group.
@@ -15,6 +15,20 @@ contrast_bounds(G0,G1,K,Lo,Hi) :-
         cost(G0,C0,K0),cost(G1,C1,K1), K0+K1=<K,
         D is N0*C1-N1*C0), Ds),
     min_list(Ds,Lo),max_list(Ds,Hi).
+
+% Exact same-cohort untreated total B; inconsistent observations return no solution.
+calibrated_bounds(G0,G1,K,B,Lo,Hi) :-
+    ground(G0-G1-K-B), valid_group(G0,N0), valid_group(G1,N1),
+    nonnegative(K), nonnegative(B), B=<N0+N1,
+    findall(D,(between(0,N1,C1), C0 is B-C1, C0>=0,C0=<N0,
+        cost(G0,C0,K0),cost(G1,C1,K1), K0+K1=<K,
+        D is N0*C1-N1*C0), Ds),
+    Ds \= [], min_list(Ds,Lo),max_list(Ds,Hi).
+
+% Marginal counts alone imply endpoints, with possible mismatch counts spaced by two.
+mismatch_bounds(N,A,B,Lo,Hi) :-
+    ground(N-A-B), maplist(nonnegative,[N,A,B]), A=<N,B=<N,
+    Lo is abs(A-B), Hi is min(A+B,2*N-A-B).
 
 :- begin_tests(measurement_reactivity).
 test(no_reactivity) :-
@@ -35,4 +49,13 @@ test(empty_group,[fail]) :-
     contrast_bounds(g(0,0,0),g(0,4,1),0,_,_).
 test(unbound,[fail]) :-
     contrast_bounds(g(_,0,1),g(0,4,1),0,_,_).
+test(calibrated_two) :-
+    calibrated_bounds(g(4,0,1),g(0,4,1),2,5,5,25).
+test(calibrated_three) :-
+    calibrated_bounds(g(4,0,1),g(0,4,1),3,5,5,25).
+test(calibration_inconsistent,[fail]) :-
+    calibrated_bounds(g(4,0,1),g(0,4,1),0,0,_,_).
+test(marginal_equality_can_hide_full_change) :- mismatch_bounds(8,4,4,0,8).
+test(unequal_margins) :- mismatch_bounds(8,2,5,3,7).
+test(mismatch_invalid,[fail]) :- mismatch_bounds(8,9,5,_,_).
 :- end_tests(measurement_reactivity).
