@@ -27,7 +27,8 @@
     ],
     "archiveFiles": 45,
     "archiveDirect": "MQR 1 first prompt/answer and 0.31 prompt vicinity only; all 45 filenames checked, not full text",
-    "note": "Counts from five existing manifest pages, uniqueness within each verified, cross-manifest uniqueness previously recorded, not independently rerun here. Not total historical corpus. No automatic scoring of unreviewed items."
+    "note": "Counts from five existing manifest pages, uniqueness within each verified, cross-manifest uniqueness previously recorded, not independently rerun here. Not total historical corpus. No automatic scoring of unreviewed items.",
+    "followup": "Three additional original early checkpoints 0.2-D, 0.3-D, 0.11-D read after first 15 judgments; 18 claim-level judgments total. Later 5.5 inquiries recover questions already explicit in 0.11-D, not a newly discovered root problem. Earlier numerical decision result used 15-row snapshot; action inputs unchanged."
   },
   "claims": [
     {
@@ -283,6 +284,57 @@
         0.57
       ],
       "reason": "conditional analytic result; roles, target and interface given",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.2-D",
+      "source": "3c8ef561cf92818cb71fe207fdc91bf0",
+      "claim": "theory-mediated measurement can remain corrigible if admissible perturbations expose claims to revision",
+      "type": "conceptual/methodological",
+      "v": [
+        0.94,
+        0.88,
+        0.65,
+        0.98,
+        0.12,
+        0.66,
+        0.35
+      ],
+      "reason": "original checkpoint explicitly distinguishes benign dependence, productive reflexivity and self-sealing; unresolved absolute experiment set, independence and contribution beyond Chang/robustness. Normative principle, not validated causal law",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.3-D",
+      "source": "3c8ef561cf928122b575e5f4b36dab3f",
+      "claim": "failure exposure and uptake should be separated; count of methods is not independent evidence",
+      "type": "conceptual/methodological",
+      "v": [
+        0.94,
+        0.94,
+        0.72,
+        0.96,
+        0.14,
+        0.7,
+        0.4
+      ],
+      "reason": "original checkpoint explicitly downgrades prototype PI and Corr measures and supplies retirement test against Bayesian/robustness rivals; no comparative case execution in this document",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.11-D",
+      "source": "3c8ef561cf92813a80c8c708e628fc1e",
+      "claim": "internal adversariality under a fixed taxonomy does not suffice for framework-level corrigibility",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.95,
+        0.68,
+        0.99,
+        0.16,
+        0.78,
+        0.38
+      ],
+      "reason": "original Perfect Heresy Machine and Lost Problem distinguish intra-framework critique and conceptual loss; acknowledges Kuhn/Feyerabend/Chang novelty objection; hypothetical cases, not historical evidence",
       "assessment": "retrospective single reviewer, not original-stage score"
     }
   ],
