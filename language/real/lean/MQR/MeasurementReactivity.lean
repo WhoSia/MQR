@@ -81,6 +81,30 @@ theorem equal_margin_can_hide_changes :
   intro n
   exact ⟨n,n,rfl,by omega⟩
 
+/-- Nested observations with the same absolute budget preserve restrictions:
+    new positives cannot decrease and new positives + missing cannot increase. -/
+theorem nested_observation_preserves_restrictions
+    (n m p n' m' p' k c : Int)
+    (hn : 0 ≤ n) (hm : 0 ≤ m) (hp : 0 ≤ p) (hpn : p ≤ n)
+    (hn' : 0 ≤ n') (hm' : 0 ≤ m') (hp' : 0 ≤ p') (hpn' : p' ≤ n')
+    (hk : 0 ≤ k) (hsize : n+m = n'+m')
+    (hpos : p ≤ p') (hupper : p'+m' ≤ p+m)
+    (h : Feasible n' m' p' k c) : Feasible n m p k c := by
+  have hnew := (sharp_group_bounds n' m' p' k c hn' hm' hp' hpn' hk).mp h
+  apply (sharp_group_bounds n m p k c hn hm hp hpn hk).mpr
+  exact ⟨by omega,by omega,by omega,by omega⟩
+
+/-- One admissible latent count is excluded by the old absolute budget
+    yet admitted after the protocol increases the budget. -/
+theorem coverage_with_larger_budget_can_lose_restriction :
+    ¬ Feasible 3 1 0 1 3 ∧ Feasible 4 0 1 2 3 := by
+  constructor
+  · rintro ⟨t,h0,h1,h2,h3,h4,h5⟩
+    omega
+  · exact ⟨3,by decide,by decide,by decide,by decide,by decide,by decide⟩
+
+#print axioms nested_observation_preserves_restrictions
+#print axioms coverage_with_larger_budget_can_lose_restriction
 #print axioms joint_budget_elimination
 #print axioms one_sided_equal_margin_no_change
 #print axioms equal_margin_can_hide_changes
