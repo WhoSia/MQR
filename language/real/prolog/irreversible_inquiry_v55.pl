@@ -52,9 +52,10 @@ test(all_pairs) :-
 test(no_global) :- strategy(three,[0,1,2],no_strategy).
 test(already_known) :- strategy(three,[1],identified_by(leaf(1))).
 test(adaptive_four) :-
-    strategy(four,[w(0,0),w(0,1),w(1,0),w(1,1)],
-      identified_by(node(split,[0-node(left,[0-leaf(w(0,0)),1-leaf(w(0,1))]),
-                                1-node(right,[0-leaf(w(1,0)),1-leaf(w(1,1))])])).
+    strategy(four,[w(0,0),w(0,1),w(1,0),w(1,1)],Result),
+    Left = node(left,[0-leaf(w(0,0)),1-leaf(w(0,1))]),
+    Right = node(right,[0-leaf(w(1,0)),1-leaf(w(1,1))]),
+    assertion(Result == identified_by(node(split,[0-Left,1-Right]))).
 test(invalid_world,[fail]) :- strategy(three,[3],_).
 test(empty,[fail]) :- strategy(four,[],_).
 test(unbound,[fail]) :- strategy(three,[_],_).
