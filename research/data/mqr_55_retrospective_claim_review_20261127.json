@@ -73,7 +73,8 @@
     "followup4": "Seven 0.18-D–0.24-D original verdicts directly reviewed; seven claim vectors added, 39 total. Some long source outputs truncated initially; 0.21-D and 0.22-D separately reopened. Not all A–D source pages read. Kitcher and Dubova et al selected held passages separately reread.",
     "followup5": "Six early original verdict pages 0.25-D–0.30-D fetched and bounded excerpts (opening, verdict, inheritance) reviewed; not full body close reading. Six new scoped judgments, cumulative 45. Four Harvest pages reviewed in excerpts, and three later GitHub records reopened. No new independent CI replay.",
     "followup6": "0.31-D–0.37-D seven original pages directly fetched, opening and verdict/inheritance excerpts read, not full middle. 0.35-B prior-art page directly reviewed. Seven new claim judgments, 52 total. 0.31-A already scored separately. No new independent historical execution.",
-    "followup7": "MQR 47: 0.38-D–0.42-D original pages directly fetched; selected passages reviewed, five claim vectors added; 57 total. Harvest LR-20260916-C headings checked, not full reread. Historical archive capacity case separately recorded. Earlier historical coverage snapshots retained."
+    "followup7": "MQR 47: 0.38-D–0.42-D original pages directly fetched; selected passages reviewed, five claim vectors added; 57 total. Harvest LR-20260916-C headings checked, not full reread. Historical archive capacity case separately recorded. Earlier historical coverage snapshots retained.",
+    "followup8": "MQR 47: 0.43-D–0.47-D original opening examples and verdict/handoff reviewed; 5 added claim vectors, cumulative 62. Historical LOIRP research separately recorded. No comprehensive A–D read, no independent astronomical measurement."
   },
   "claims": [
     {
@@ -1044,6 +1045,91 @@
       ],
       "reason": "Distinguishes skills, apparatus, permissions and record preservation; case-specific empirical necessity remains open.",
       "assessment": "retrospective single reviewer; original verdict page selected passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.43-D",
+      "source": "3caef561cf9281a1835ac9e5acad3010",
+      "claim": "Preserved documents do not establish functioning recovery; relevant function can be restored by substitution.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.97,
+        0.81,
+        0.97,
+        0.1,
+        0.86,
+        0.49
+      ],
+      "reason": "Conceptual cases; LOIRP supplies a bounded later comparison, not proof of irrecoverability.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.44-D",
+      "source": "3caef561cf92817b823ee366169db379",
+      "claim": "Reinstating a measurement method does not reinstate its historical target state.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.98,
+        0.84,
+        0.97,
+        0.08,
+        0.85,
+        0.48
+      ],
+      "reason": "Original historical baseline contrasts; counterfactual and observation distinguishable.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.45-D",
+      "source": "3caef561cf92812da8e8e2515b24b895",
+      "claim": "Target continuity does not entail unqualified transport of all past causal claims.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.94,
+        0.96,
+        0.79,
+        0.96,
+        0.1,
+        0.84,
+        0.45
+      ],
+      "reason": "Scoped persistence examples, no general metaphysical identity criterion established.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.46-D",
+      "source": "3caef561cf9281c78925f40fbe7534ad",
+      "claim": "Shared ancestral observations cannot become independent through later branching.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.96,
+        0.98,
+        0.84,
+        0.98,
+        0.08,
+        0.87,
+        0.49
+      ],
+      "reason": "Genealogical distinction; composition and independent fresh evidence require separate tests.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.47-D",
+      "source": "3caef561cf9281069262ec60124ccb6e",
+      "claim": "Corroboration depends on the relevant common-mode error pathways, not nominal replication count.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.96,
+        0.97,
+        0.85,
+        0.98,
+        0.08,
+        0.86,
+        0.49
+      ],
+      "reason": "Established dependence and robustness principles; local dependency-breaking not universal rank.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
     }
   ],
   "actions": [
