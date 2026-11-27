@@ -68,7 +68,8 @@
         "source": "3c8ef561cf92813a80c8c708e628fc1e"
       }
     ],
-    "followup2": "Seven early verdicts 0.4-D through 0.10-D and formal 0.4-C/0.6-C read directly, 8 new claim assessments; 26 total. Followup source IDs are within 0.X manifest; 0.6-C also read but no separate assessment. Earlier action decision snapshot retained; no claim of exhaustive early stage A–D reading."
+    "followup2": "Seven early verdicts 0.4-D through 0.10-D and formal 0.4-C/0.6-C read directly, 8 new claim assessments; 26 total. Followup source IDs are within 0.X manifest; 0.6-C also read but no separate assessment. Earlier action decision snapshot retained; no claim of exhaustive early stage A–D reading.",
+    "followup3": "Six 0.12-D–0.17-D original verdicts directly read, six additional claim vectors, 32 total. Earlier coverage fields are historical snapshots; no exhaustive A–D read. Meselson 1957/1958 original held PDFs separately reread for target succession."
   },
   "claims": [
     {
@@ -511,6 +512,108 @@
         0.46
       ],
       "reason": "original thought experiments; model selection and prior art overlap; universal bridge generator unresolved",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.12-D",
+      "source": "3c8ef561cf9281ca9acce179401b9d78",
+      "claim": "display precision does not entail warranted discrimination; domain gain differs from partition refinement",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.98,
+        0.8,
+        0.98,
+        0.09,
+        0.86,
+        0.5
+      ],
+      "reason": "Decimal Empire and thermometry thought experiments, not instrument measurements; Chang prior-art challenge explicit",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.13-D",
+      "source": "3c8ef561cf928123a5aff4fea1606e50",
+      "claim": "maximal discrimination need not maximize explanatory fertility",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.97,
+        0.78,
+        0.98,
+        0.1,
+        0.85,
+        0.47
+      ],
+      "reason": "original examples on ideal gases, classification and universality; no general causal test",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.14-D",
+      "source": "3c9ef561cf9281118858e7816f00050e",
+      "claim": "relevance can change with explanandum and intervention rather than ontology",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.94,
+        0.97,
+        0.76,
+        0.96,
+        0.1,
+        0.82,
+        0.47
+      ],
+      "reason": "original hypothetical gas, fatigue, transient dynamics examples",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.15-D",
+      "source": "3c9ef561cf9281b3b9b4d735b2b55e8e",
+      "claim": "a precursor does not automatically have successor concept identity or warrant",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.98,
+        0.8,
+        0.98,
+        0.12,
+        0.87,
+        0.48
+      ],
+      "reason": "original archive and false ancestor examples; Chang constraint; source-dated case still needed",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.16-D",
+      "source": "3c9ef561cf9281fb8b8fe1907cce04b1",
+      "claim": "historical recovery earns attention/probe authority, not automatic commitment",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.94,
+        0.96,
+        0.72,
+        0.96,
+        0.12,
+        0.82,
+        0.45
+      ],
+      "reason": "original selection and archive survivorship thought experiments; no counterfactual historical necessity",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.17-D",
+      "source": "3c9ef561cf9281ab9689eb75b1184e90",
+      "claim": "pluralism can preserve distinct task relevance, but dissent volume is not authority",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.94,
+        0.95,
+        0.7,
+        0.95,
+        0.11,
+        0.8,
+        0.45
+      ],
+      "reason": "original clinical classification is hypothetical; not actual comparative clinical evidence",
       "assessment": "retrospective single reviewer, not original-stage score"
     }
   ],
