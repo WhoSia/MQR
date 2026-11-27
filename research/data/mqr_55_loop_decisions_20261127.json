@@ -732,6 +732,61 @@
           "decision": "prune as dominated"
         }
       ]
+    },
+    {
+      "heading": "Research outputs and reusable competence (2026-11-28 KST)",
+      "before_execution": true,
+      "findings": "Rav 1999 held pp5–9 describes productive failed proof attempts and the distinction between deciding truth and creating methods; previous 4.55, 4.58 already separate scaffold and truth warrant and archive recovery. Do not rename those as new results. The remaining specific question is how short-horizon cost optimization can lose future reusable capabilities, given equal-quality current and later results.",
+      "candidates": [
+        {
+          "id": "proof-route-reuse-cost",
+          "v": [
+            0.96,
+            0.97,
+            0.98,
+            0.9,
+            0.95
+          ],
+          "gate": "fixed scope, explicit cost and equally valid outputs, no historical calibration; compare conditional planning not universal scoring",
+          "decision": "execute general threshold, regret and uncertainty counterexample; minimal native formalization"
+        },
+        {
+          "id": "historical-delayed-adoption",
+          "v": [
+            0.97,
+            0.96,
+            0.9,
+            0.95,
+            0.89
+          ],
+          "gate": "Gerontas 2026 account plus earlier evidence where accessible",
+          "decision": "execute in parallel with CI"
+        },
+        {
+          "id": "generic-archive-closure",
+          "v": [
+            0.65,
+            0.55,
+            0.96,
+            0.4,
+            0.6
+          ],
+          "gate": "already treated in prior work",
+          "decision": "prune: dominated by reuse-cost analysis"
+        },
+        {
+          "id": "infer-method-necessity-from-historical-retrospect",
+          "v": [
+            0.8,
+            0.35,
+            0.5,
+            0.3,
+            0.45
+          ],
+          "gate": "historical counterfactual not identified",
+          "decision": "reject"
+        }
+      ]
     }
   ]
 }
