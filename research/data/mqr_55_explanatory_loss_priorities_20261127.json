@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-27",
+  "status": "retrospective source exploration and prospective next choice",
+  "weights": [
+    0.25,
+    0.3,
+    0.2,
+    0.15,
+    0.1
+  ],
+  "candidates": [
+    {
+      "name": "compare question loss and schema loss",
+      "v": [
+        0.98,
+        0.97,
+        0.96,
+        0.92,
+        0.93
+      ],
+      "P": 0.959
+    },
+    {
+      "name": "alien-science bridge without shared native vocabulary",
+      "v": [
+        0.99,
+        0.96,
+        0.78,
+        0.94,
+        0.82
+      ],
+      "P": 0.9145
+    },
+    {
+      "name": "historical chemistry primary comparison",
+      "v": [
+        0.94,
+        0.92,
+        0.72,
+        0.88,
+        0.79
+      ],
+      "P": 0.866
+    },
+    {
+      "name": "new fixed-menu numerical toy",
+      "v": [
+        0.59,
+        0.5,
+        0.96,
+        0.32,
+        0.9
+      ],
+      "P": 0.6275
+    }
+  ],
+  "decisions": [
+    {
+      "action": "compare original philosophical texts",
+      "score": 0.98
+    },
+    {
+      "action": "avoid another fixed menu toy",
+      "score": 0.95
+    },
+    {
+      "action": "keep 5.5",
+      "score": 0.98
+    },
+    {
+      "action": "add no new missing work if held",
+      "score": 0.99
+    }
+  ]
+}
