@@ -1,0 +1,389 @@
+{
+  "date": "2026-11-27 KST",
+  "purpose": "disciplinary genesis / 학문학; targeted corpus retrospective",
+  "coverage": "All 46 Drive text exports retrieved and prompt blocks parsed; first/last and keyword-selected excerpts inspected; selected primary passages of chats 1, 7, 31, 32, 35, 40, 41 and earlier records re-read. Not full transcript-by-transcript close reading. Prompt blocks can include quoted prior responses; not unique user-authored statements. Connector text length not raw bytes, and no byte checksum here.",
+  "promptBlockCount": 1299,
+  "sources": [
+    {
+      "chat": 1,
+      "id": "190Sh9592ogYTcaYEGtMNksdbqYzDhsTS",
+      "raw_metadata_size": "663284",
+      "modified": "2026-10-05T06:12:31.681Z",
+      "returned_text_chars": 444504,
+      "prompt_blocks": 81
+    },
+    {
+      "chat": 2,
+      "id": "1_1YDFRJoutoEYPkKOm6HAuzZJ1AG_JTE",
+      "raw_metadata_size": "386946",
+      "modified": "2026-10-05T06:15:22.653Z",
+      "returned_text_chars": 270315,
+      "prompt_blocks": 60
+    },
+    {
+      "chat": 3,
+      "id": "1q3uSc5IjykFeIIhTzfW9PWC8nBZtbAW_",
+      "raw_metadata_size": "565717",
+      "modified": "2026-10-05T06:16:11.131Z",
+      "returned_text_chars": 406494,
+      "prompt_blocks": 73
+    },
+    {
+      "chat": 4,
+      "id": "10iNWtFbFHL5VZhndqkhYze2083ETwWkn",
+      "raw_metadata_size": "359796",
+      "modified": "2026-10-05T06:17:30.546Z",
+      "returned_text_chars": 256303,
+      "prompt_blocks": 111
+    },
+    {
+      "chat": 5,
+      "id": "1CSKfmzF_rpIfNXmd7MCvsqPyPVFYjKl1",
+      "raw_metadata_size": "249789",
+      "modified": "2026-10-05T06:19:32.739Z",
+      "returned_text_chars": 169060,
+      "prompt_blocks": 51
+    },
+    {
+      "chat": 6,
+      "id": "1s-m-uxpBRdhzAi2eQaoI3yUUTT9pzsqp",
+      "raw_metadata_size": "118415",
+      "modified": "2026-10-09T17:06:47.279Z",
+      "returned_text_chars": 91066,
+      "prompt_blocks": 47
+    },
+    {
+      "chat": 7,
+      "id": "1jYZpSyBeyKK-ETzYz38avc6vyF6fqCUG",
+      "raw_metadata_size": "394349",
+      "modified": "2026-10-06T01:37:18.501Z",
+      "returned_text_chars": 285762,
+      "prompt_blocks": 37
+    },
+    {
+      "chat": 8,
+      "id": "1EdV0ta7svXdiVvcBsDyCCIJW37TXLrLG",
+      "raw_metadata_size": "169995",
+      "modified": "2026-10-06T02:06:50.945Z",
+      "returned_text_chars": 114865,
+      "prompt_blocks": 23
+    },
+    {
+      "chat": 9,
+      "id": "1Dd3L87ZYVq88I79kMBjNpSSXRhO-UyMN",
+      "raw_metadata_size": "108596",
+      "modified": "2026-10-06T02:07:37.140Z",
+      "returned_text_chars": 70744,
+      "prompt_blocks": 8
+    },
+    {
+      "chat": 10,
+      "id": "15UPhOzRHkSHXoJgEud_LcmVEjmi1xujF",
+      "raw_metadata_size": "54271",
+      "modified": "2026-10-06T03:11:10.681Z",
+      "returned_text_chars": 34387,
+      "prompt_blocks": 6
+    },
+    {
+      "chat": 11,
+      "id": "1mh4LGULeEwGOSWhgQSrKaC8TWg_SxXd4",
+      "raw_metadata_size": "68433",
+      "modified": "2026-10-06T03:07:47.650Z",
+      "returned_text_chars": 46195,
+      "prompt_blocks": 7
+    },
+    {
+      "chat": 12,
+      "id": "119Czqv-RUYN2I5dQHjHllYEutiq1gFG8",
+      "raw_metadata_size": "46796",
+      "modified": "2026-10-06T03:08:25.933Z",
+      "returned_text_chars": 30604,
+      "prompt_blocks": 6
+    },
+    {
+      "chat": 13,
+      "id": "1Ed-V5ipv8U7E6iWneaXnJCJ8wDKEd2jv",
+      "raw_metadata_size": "104009",
+      "modified": "2026-10-06T03:09:34.959Z",
+      "returned_text_chars": 69249,
+      "prompt_blocks": 10
+    },
+    {
+      "chat": 14,
+      "id": "1GxNwRCbxUoKazi2IIOa4TVhccX5IblmZ",
+      "raw_metadata_size": "134936",
+      "modified": "2026-10-06T03:10:29.901Z",
+      "returned_text_chars": 93335,
+      "prompt_blocks": 15
+    },
+    {
+      "chat": 15,
+      "id": "14jqc6WkhEcIdcRj5WVOAQHv8azqmduVO",
+      "raw_metadata_size": "141249",
+      "modified": "2026-10-06T03:11:47.399Z",
+      "returned_text_chars": 99713,
+      "prompt_blocks": 15
+    },
+    {
+      "chat": 16,
+      "id": "1jAY5WD1oMb8ur594yX5nPB8Cku1txSS2",
+      "raw_metadata_size": "60859",
+      "modified": "2026-10-06T03:12:47.499Z",
+      "returned_text_chars": 43377,
+      "prompt_blocks": 11
+    },
+    {
+      "chat": 17,
+      "id": "15oalHIt8pWnXZSK_43xEfjTNRg3w4vEj",
+      "raw_metadata_size": "147141",
+      "modified": "2026-10-07T05:09:38.292Z",
+      "returned_text_chars": 107402,
+      "prompt_blocks": 25
+    },
+    {
+      "chat": 18,
+      "id": "1T1kffznPA_xbJYE6Fv82nDMnnDTRnDEK",
+      "raw_metadata_size": "259036",
+      "modified": "2026-10-08T07:35:35.269Z",
+      "returned_text_chars": 159246,
+      "prompt_blocks": 47
+    },
+    {
+      "chat": 19,
+      "id": "1PIpV2S_ZzOuKvXmBccVTIZhFOuc3IvT_",
+      "raw_metadata_size": "160172",
+      "modified": "2026-10-08T15:04:01.842Z",
+      "returned_text_chars": 92250,
+      "prompt_blocks": 21
+    },
+    {
+      "chat": 20,
+      "id": "1GwO3wvRUpbeQp9miDm0OuoD9vpvMxXpS",
+      "raw_metadata_size": "173835",
+      "modified": "2026-10-09T06:12:45.691Z",
+      "returned_text_chars": 100544,
+      "prompt_blocks": 15
+    },
+    {
+      "chat": 21,
+      "id": "1ivmgU7Lt3zZ2Uds-0WGomIrMR2hzRona",
+      "raw_metadata_size": "195202",
+      "modified": "2026-10-09T15:02:56.849Z",
+      "returned_text_chars": 114565,
+      "prompt_blocks": 19
+    },
+    {
+      "chat": 22,
+      "id": "1C7eWowb25gtcM0PY7jJzJ0421KF9EjtY",
+      "raw_metadata_size": "369057",
+      "modified": "2026-10-10T08:25:44.539Z",
+      "returned_text_chars": 218196,
+      "prompt_blocks": 60
+    },
+    {
+      "chat": 23,
+      "id": "1VRLcKmB9b5XTNFmMNDIL3z9ghJBtx6r6",
+      "raw_metadata_size": "172947",
+      "modified": "2026-10-10T17:04:47.173Z",
+      "returned_text_chars": 103342,
+      "prompt_blocks": 15
+    },
+    {
+      "chat": 24,
+      "id": "1yQiC5QWjb71gUoSCHoqiowjWlWS6Ve02",
+      "raw_metadata_size": "109257",
+      "modified": "2026-10-11T12:37:37.580Z",
+      "returned_text_chars": 64941,
+      "prompt_blocks": 9
+    },
+    {
+      "chat": 25,
+      "id": "1GeDsUi3duGHKVaUJ0NW_vrlBIozgdZt0",
+      "raw_metadata_size": "173685",
+      "modified": "2026-10-14T05:20:07.155Z",
+      "returned_text_chars": 92939,
+      "prompt_blocks": 17
+    },
+    {
+      "chat": 26,
+      "id": "18iJILQTxsZewF_LJzjEfv0er_2OcrGVo",
+      "raw_metadata_size": "263270",
+      "modified": "2026-10-17T10:03:50.051Z",
+      "returned_text_chars": 142858,
+      "prompt_blocks": 41
+    },
+    {
+      "chat": 27,
+      "id": "1Agy00peK2Nt3WCgDi5ExcmHR1dv0iffZ",
+      "raw_metadata_size": "282914",
+      "modified": "2026-10-17T18:33:43.069Z",
+      "returned_text_chars": 153964,
+      "prompt_blocks": 48
+    },
+    {
+      "chat": 28,
+      "id": "1zabIMTA1svp6bSRSMnD9VufW7teGzqGA",
+      "raw_metadata_size": "198289",
+      "modified": "2026-10-20T00:29:30.428Z",
+      "returned_text_chars": 109257,
+      "prompt_blocks": 27
+    },
+    {
+      "chat": 29,
+      "id": "1Ao0XmLbg0s5ZK4Le-1znz8v0s8nGzW4M",
+      "raw_metadata_size": "226077",
+      "modified": "2026-10-21T04:25:56.179Z",
+      "returned_text_chars": 125177,
+      "prompt_blocks": 30
+    },
+    {
+      "chat": 30,
+      "id": "1SR8eFJvHLALWQrR2ADxL9PtAikCuiFgZ",
+      "raw_metadata_size": "268199",
+      "modified": "2026-10-22T05:35:42.055Z",
+      "returned_text_chars": 143919,
+      "prompt_blocks": 18
+    },
+    {
+      "chat": 31,
+      "id": "174RMBwQSShRZo60cL9E5vpv6-f34sJPH",
+      "raw_metadata_size": "417948",
+      "modified": "2026-10-23T02:58:28.862Z",
+      "returned_text_chars": 246623,
+      "prompt_blocks": 31
+    },
+    {
+      "chat": 32,
+      "id": "1ZFE4VuHUW6Hk4k7pybBm3pbVrUU7wdHO",
+      "raw_metadata_size": "401538",
+      "modified": "2026-10-25T11:30:13.453Z",
+      "returned_text_chars": 232936,
+      "prompt_blocks": 25
+    },
+    {
+      "chat": 33,
+      "id": "12F0LC-Bv7mLTrxfiWOdN6C_N5XjVKj1H",
+      "raw_metadata_size": "152732",
+      "modified": "2026-10-26T04:38:48.778Z",
+      "returned_text_chars": 95217,
+      "prompt_blocks": 21
+    },
+    {
+      "chat": 34,
+      "id": "1REhQpVorlQw-ZpsgHpr1QNs--YA1R-5E",
+      "raw_metadata_size": "523380",
+      "modified": "2026-10-27T00:47:52.408Z",
+      "returned_text_chars": 263692,
+      "prompt_blocks": 28
+    },
+    {
+      "chat": 35,
+      "id": "1B_l1ZfC7JNQ0CqIh1X1yHNflt-Sa8EQb",
+      "raw_metadata_size": "313602",
+      "modified": "2026-10-28T01:01:37.953Z",
+      "returned_text_chars": 167675,
+      "prompt_blocks": 18
+    },
+    {
+      "chat": 36,
+      "id": "15T62LwCSxzyioz8jIohE8FNHnfm2oi-B",
+      "raw_metadata_size": "504598",
+      "modified": "2026-10-31T02:51:11.659Z",
+      "returned_text_chars": 273459,
+      "prompt_blocks": 36
+    },
+    {
+      "chat": 37,
+      "id": "1QywOIkRcUFnmvsias2-LqO2O4avIlxUK",
+      "raw_metadata_size": "267659",
+      "modified": "2026-11-04T02:29:59.880Z",
+      "returned_text_chars": 145712,
+      "prompt_blocks": 37
+    },
+    {
+      "chat": 38,
+      "id": "1qBduptHNIBygPROJ00P9mZzIyJYru_9L",
+      "raw_metadata_size": "173159",
+      "modified": "2026-11-05T03:13:41.152Z",
+      "returned_text_chars": 104406,
+      "prompt_blocks": 14
+    },
+    {
+      "chat": 39,
+      "id": "111Mkci6y6Fe6mbduBTaT-MzInxRJBgBM",
+      "raw_metadata_size": "163813",
+      "modified": "2026-11-05T14:44:08.303Z",
+      "returned_text_chars": 96210,
+      "prompt_blocks": 16
+    },
+    {
+      "chat": 40,
+      "id": "19zDvAyTLBYteJC107kwZWfHz--g-uBc0",
+      "raw_metadata_size": "230110",
+      "modified": "2026-11-10T08:54:32.980Z",
+      "returned_text_chars": 145092,
+      "prompt_blocks": 18
+    },
+    {
+      "chat": 41,
+      "id": "1Q9VH9iW1S34DPYHMaQ258yOfnSslQ3NR",
+      "raw_metadata_size": "267995",
+      "modified": "2026-11-17T03:41:09.761Z",
+      "returned_text_chars": 154279,
+      "prompt_blocks": 27
+    },
+    {
+      "chat": 42,
+      "id": "18jfN5z7s-wvP7vrI2uf8F-WI-Q0FySsH",
+      "raw_metadata_size": "194823",
+      "modified": "2026-11-21T08:17:58.776Z",
+      "returned_text_chars": 121758,
+      "prompt_blocks": 11
+    },
+    {
+      "chat": 43,
+      "id": "1BX17LTmcAaM_SFBS4JJx4j0Vzzzag2fs",
+      "raw_metadata_size": "178168",
+      "modified": "2026-11-21T12:15:48.000Z",
+      "returned_text_chars": 99808,
+      "prompt_blocks": 11
+    },
+    {
+      "chat": 44,
+      "id": "1BqrbhWFxj2EFNVPZN1QxJvw3uFrqA7TH",
+      "raw_metadata_size": "180421",
+      "modified": "2026-11-22T19:48:37.019Z",
+      "returned_text_chars": 96716,
+      "prompt_blocks": 14
+    },
+    {
+      "chat": 45,
+      "id": "1BkJz_3BfFNvoof2HTKRxLA0hfFfzFC16",
+      "raw_metadata_size": "217897",
+      "modified": "2026-11-26T18:13:57.192Z",
+      "returned_text_chars": 123744,
+      "prompt_blocks": 17
+    },
+    {
+      "chat": 46,
+      "id": "1EFhe3dEKeyIO5-iztaKeI4OwHR7PasHr",
+      "raw_metadata_size": "220208",
+      "modified": "2026-11-27T13:08:12.326Z",
+      "returned_text_chars": 123510,
+      "prompt_blocks": 22
+    }
+  ],
+  "direct_notions": [
+    {
+      "id": "3cbef561cf9281338c90e5eaeb5e78ad",
+      "topic": "1.35-D schema genesis and retrospective metalanguage",
+      "depth": "opening cases and verdict/inheritance/next pressure"
+    },
+    {
+      "id": "3cbef561cf9281a5847df685c77cf2d8",
+      "topic": "1.54-D constituency genesis and fission/fusion",
+      "depth": "cases, verdict and next pressure"
+    }
+  ],
+  "historical_claim_ledger": "67 reviewed claims remain unchanged; corpus prompt indexing is not claim-level review"
+}
