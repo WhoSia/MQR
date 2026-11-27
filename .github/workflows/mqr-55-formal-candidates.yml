@@ -54,5 +54,12 @@ jobs:
           git rev-parse HEAD
           swipl --version
           for module in feedback_identification_v55 feedback_dynamics_v55 partial_observation_v55 irreversible_inquiry_v55; do
-            swipl -q -s "language/real/prolog/${module}.pl" -g run_tests -t halt
+            source="language/real/prolog/${module}.pl"
+            log="/tmp/${module}.log"
+            expected=$(grep -c '^test(' "$source")
+            swipl -q -s "$source" -g run_tests -t halt 2>&1 | tee "$log"
+            if grep -E 'ERROR:|Syntax error' "$log"; then exit 1; fi
+            actual=$(grep -cE '% \[[0-9]+/[0-9]+\]' "$log" || true)
+            test "$actual" -eq "$expected"
+            echo "VERIFIED_TEST_COUNT $module $actual/$expected"
           done
