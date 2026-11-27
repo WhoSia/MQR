@@ -58,4 +58,9 @@ test(calibration_inconsistent,[fail]) :-
 test(marginal_equality_can_hide_full_change) :- mismatch_bounds(8,4,4,0,8).
 test(unequal_margins) :- mismatch_bounds(8,2,5,3,7).
 test(mismatch_invalid,[fail]) :- mismatch_bounds(8,9,5,_,_).
+test(nested_fixed_budget) :-
+    contrast_bounds(g(3,0,1),g(0,3,1),1,4,16),
+    contrast_bounds(g(3,1,0),g(1,3,0),1,4,12).
+test(coverage_with_replacement_budget_loses_sign) :-
+    contrast_bounds(g(3,1,0),g(1,3,0),2,0,16).
 :- end_tests(measurement_reactivity).
