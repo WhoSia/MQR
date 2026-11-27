@@ -1,0 +1,120 @@
+{
+  "source": "MQR 0.4-C participation-ratio formula",
+  "scope": "nonnegative abstract response matrices, not instrument data; exact ranks for displayed diagonal/support examples",
+  "zero": "undefined 0/0; no observed response is not absence of vulnerabilities",
+  "duplication": [
+    {
+      "copies": 1,
+      "rank": 2,
+      "effective": 2,
+      "analytic": 2
+    },
+    {
+      "copies": 2,
+      "rank": 2,
+      "effective": 1.8,
+      "analytic": 1.8
+    },
+    {
+      "copies": 3,
+      "rank": 2,
+      "effective": 1.6,
+      "analytic": 1.6
+    },
+    {
+      "copies": 4,
+      "rank": 2,
+      "effective": 1.4705882352941178,
+      "analytic": 1.4705882352941178
+    },
+    {
+      "copies": 5,
+      "rank": 2,
+      "effective": 1.3846153846153846,
+      "analytic": 1.3846153846153846
+    },
+    {
+      "copies": 6,
+      "rank": 2,
+      "effective": 1.3243243243243243,
+      "analytic": 1.3243243243243243
+    },
+    {
+      "copies": 7,
+      "rank": 2,
+      "effective": 1.28,
+      "analytic": 1.28
+    },
+    {
+      "copies": 8,
+      "rank": 2,
+      "effective": 1.2461538461538462,
+      "analytic": 1.2461538461538462
+    },
+    {
+      "copies": 9,
+      "rank": 2,
+      "effective": 1.2195121951219512,
+      "analytic": 1.2195121951219512
+    },
+    {
+      "copies": 10,
+      "rank": 2,
+      "effective": 1.198019801980198,
+      "analytic": 1.198019801980198
+    },
+    {
+      "copies": 11,
+      "rank": 2,
+      "effective": 1.180327868852459,
+      "analytic": 1.180327868852459
+    },
+    {
+      "copies": 12,
+      "rank": 2,
+      "effective": 1.1655172413793105,
+      "analytic": 1.1655172413793105
+    },
+    {
+      "copies": 13,
+      "rank": 2,
+      "effective": 1.1529411764705881,
+      "analytic": 1.1529411764705881
+    },
+    {
+      "copies": 14,
+      "rank": 2,
+      "effective": 1.1421319796954315,
+      "analytic": 1.1421319796954315
+    },
+    {
+      "copies": 15,
+      "rank": 2,
+      "effective": 1.1327433628318584,
+      "analytic": 1.1327433628318584
+    },
+    {
+      "copies": 16,
+      "rank": 2,
+      "effective": 1.1245136186770428,
+      "analytic": 1.1245136186770428
+    }
+  ],
+  "examples": {
+    "identity": 2,
+    "oneDuplicate": 1.8,
+    "scale10": 1.01999800019998,
+    "newDirection10": 1.0401919616076785
+  },
+  "tests": {
+    "zeroUndefined": true,
+    "identity": true,
+    "duplicate": true,
+    "scale": true,
+    "newDirection": true,
+    "uniformScale": true,
+    "duplicationExact": true,
+    "duplicationDecreases": true,
+    "independentDirectionCanLowerEffectiveRank": true
+  }
+}
