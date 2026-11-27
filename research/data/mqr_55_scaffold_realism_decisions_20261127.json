@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-27",
+  "weights": [
+    0.25,
+    0.3,
+    0.2,
+    0.15,
+    0.1
+  ],
+  "status": "retrospective source selection; prospective next discrimination",
+  "candidates": [
+    {
+      "name": "primary text role distinction",
+      "v": [
+        0.99,
+        0.97,
+        0.96,
+        0.92,
+        0.94
+      ],
+      "P": 0.9625
+    },
+    {
+      "name": "normative pluralism and competing aims",
+      "v": [
+        0.98,
+        0.94,
+        0.85,
+        0.89,
+        0.85
+      ],
+      "P": 0.9155
+    },
+    {
+      "name": "alien-science bootstrap",
+      "v": [
+        0.99,
+        0.93,
+        0.72,
+        0.92,
+        0.8
+      ],
+      "P": 0.8885
+    },
+    {
+      "name": "more Maxwell source repetition",
+      "v": [
+        0.78,
+        0.62,
+        0.9,
+        0.45,
+        0.85
+      ],
+      "P": 0.7135
+    }
+  ],
+  "decisions": [
+    {
+      "action": "use already held originals rather than duplicate acquisitions",
+      "score": 0.98
+    },
+    {
+      "action": "retain existing shared TXT if no new missing works",
+      "score": 0.97
+    },
+    {
+      "action": "open 5.6",
+      "score": 0.05,
+      "reason": "no structural successor shift"
+    }
+  ]
+}
