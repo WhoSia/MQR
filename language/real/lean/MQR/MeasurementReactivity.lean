@@ -50,6 +50,40 @@ theorem greater_budget_preserves_feasibility (n m p k l c : Int)
   obtain ⟨t,h0,h1,h2,h3,h4,h5⟩ := hf
   exact ⟨t,h0,h1,by omega,by omega,h4,h5⟩
 
+/-- One common budget for distances from two admissible count intervals.
+    The nine constraints are the pairwise sums of three lower bounds each. -/
+def JointBudget (l u a b z k : Int) : Prop :=
+  ∃ x y : Int, 0 ≤ x ∧ l-z ≤ x ∧ z-u ≤ x ∧
+    0 ≤ y ∧ a-z ≤ y ∧ z-b ≤ y ∧ x+y ≤ k
+
+theorem joint_budget_elimination (l u a b z k : Int) :
+    JointBudget l u a b z k ↔
+      0 ≤ k ∧ l-z ≤ k ∧ z-u ≤ k ∧ a-z ≤ k ∧ z-b ≤ k ∧
+      l+a-2*z ≤ k ∧ 2*z-u-b ≤ k ∧ l-b ≤ k ∧ a-u ≤ k := by
+  constructor
+  · rintro ⟨x,y,hx0,hxl,hxu,hy0,hyl,hyu,hk⟩
+    exact ⟨by omega,by omega,by omega,by omega,by omega,
+      by omega,by omega,by omega,by omega⟩
+  · rintro ⟨hk,h1,h2,h3,h4,h5,h6,h7,h8⟩
+    by_cases hx : l-z ≤ 0 ∧ z-u ≤ 0
+    · exact ⟨0,k,by omega,by omega,by omega,by omega,by omega,by omega,by omega⟩
+    · by_cases hy : z-u ≤ l-z
+      · exact ⟨l-z,k-(l-z),by omega,by omega,by omega,by omega,by omega,by omega,by omega⟩
+      · exact ⟨z-u,k-(z-u),by omega,by omega,by omega,by omega,by omega,by omega,by omega⟩
+
+/-- If measurement can only increase a binary count, equality of margins
+    rules out any 0-to-1 changes. Without monotonicity it does not. -/
+theorem one_sided_equal_margin_no_change (up down : Int)
+    (hdown : down = 0) (hequal : up-down = 0) : up = 0 := by omega
+
+theorem equal_margin_can_hide_changes :
+    ∀ n : Nat, ∃ up down : Nat, up = down ∧ up+down = 2*n := by
+  intro n
+  exact ⟨n,n,rfl,by omega⟩
+
+#print axioms joint_budget_elimination
+#print axioms one_sided_equal_margin_no_change
+#print axioms equal_margin_can_hide_changes
 #print axioms sharp_group_bounds
 #print axioms budget_characterization
 #print axioms average_invariance_does_not_preserve_association
