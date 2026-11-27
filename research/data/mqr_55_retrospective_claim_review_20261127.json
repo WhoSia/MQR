@@ -74,7 +74,8 @@
     "followup5": "Six early original verdict pages 0.25-D–0.30-D fetched and bounded excerpts (opening, verdict, inheritance) reviewed; not full body close reading. Six new scoped judgments, cumulative 45. Four Harvest pages reviewed in excerpts, and three later GitHub records reopened. No new independent CI replay.",
     "followup6": "0.31-D–0.37-D seven original pages directly fetched, opening and verdict/inheritance excerpts read, not full middle. 0.35-B prior-art page directly reviewed. Seven new claim judgments, 52 total. 0.31-A already scored separately. No new independent historical execution.",
     "followup7": "MQR 47: 0.38-D–0.42-D original pages directly fetched; selected passages reviewed, five claim vectors added; 57 total. Harvest LR-20260916-C headings checked, not full reread. Historical archive capacity case separately recorded. Earlier historical coverage snapshots retained.",
-    "followup8": "MQR 47: 0.43-D–0.47-D original opening examples and verdict/handoff reviewed; 5 added claim vectors, cumulative 62. Historical LOIRP research separately recorded. No comprehensive A–D read, no independent astronomical measurement."
+    "followup8": "MQR 47: 0.43-D–0.47-D original opening examples and verdict/handoff reviewed; 5 added claim vectors, cumulative 62. Historical LOIRP research separately recorded. No comprehensive A–D read, no independent astronomical measurement.",
+    "followup9": "MQR 47: 0.48-D–0.52-D opening examples and verdict/handoff reviewed; five added claim vectors, cumulative 67. Formal factorial-feedback candidate written in Lean and Prolog; independent Python enumeration only, no native runtime verification."
   },
   "claims": [
     {
@@ -1129,6 +1130,91 @@
         0.49
       ],
       "reason": "Established dependence and robustness principles; local dependency-breaking not universal rank.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.48-D",
+      "source": "3caef561cf9281c7ab85cdac66c73108",
+      "claim": "A probe can break a focal common-mode error route without identifying all historical dependencies.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.96,
+        0.8,
+        0.97,
+        0.1,
+        0.84,
+        0.45
+      ],
+      "reason": "Opening examples and verdict: distinguish common-mode discrimination from complete graph recovery.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.49-D",
+      "source": "3caef561cf92811cadb1f961a6c6b79f",
+      "claim": "Upstream measurement diversity can be defeated by a shared downstream transformation.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.96,
+        0.98,
+        0.84,
+        0.97,
+        0.08,
+        0.86,
+        0.49
+      ],
+      "reason": "Construction diversity, calibration and hub recoupling; precision redundancy may remain useful.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.50-D",
+      "source": "3caef561cf928149ba70e9a67a4109d3",
+      "claim": "Standardization can create common-mode error while also enabling correction propagation.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.94,
+        0.96,
+        0.76,
+        0.98,
+        0.09,
+        0.84,
+        0.45
+      ],
+      "reason": "Original thought experiments; empirical causal magnitude not established.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.51-D",
+      "source": "3caef561cf9281e98ee4d84790747020",
+      "claim": "Migrating observations to a new standard cannot by itself recover distinctions lost at original acquisition.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.96,
+        0.98,
+        0.86,
+        0.98,
+        0.06,
+        0.87,
+        0.49
+      ],
+      "reason": "Distinguish new measurement of preserved samples from transformation of existing records.",
+      "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.52-D",
+      "source": "3caef561cf9281d79922c1c2466ed278",
+      "claim": "A longitudinal measurement break cannot identify target change when simultaneous regime changes can generate the same observations.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.96,
+        0.98,
+        0.83,
+        0.98,
+        0.07,
+        0.87,
+        0.49
+      ],
+      "reason": "Counterexample and dual-run designs; factorial model in MQR 47 gives one exact conditional instantiation.",
       "assessment": "retrospective single reviewer; original verdict page opening and verdict/handoff passages, not complete A–D source reading"
     }
   ],
