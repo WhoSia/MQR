@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-27",
+  "status": "retrospective after source exploration; no claim of prospective historical prediction",
+  "weights": [
+    0.25,
+    0.3,
+    0.2,
+    0.15,
+    0.1
+  ],
+  "candidates": [
+    {
+      "name": "source-grounded reanalysis of DNA target succession",
+      "v": [
+        0.98,
+        0.95,
+        0.96,
+        0.91,
+        0.93
+      ],
+      "gate": true,
+      "P": 0.9515,
+      "geo": 0.9512230177506309,
+      "min": 0.91
+    },
+    {
+      "name": "more early source reading",
+      "v": [
+        0.99,
+        0.87,
+        0.94,
+        0.88,
+        0.88
+      ],
+      "gate": true,
+      "P": 0.9164999999999999,
+      "geo": 0.915189045645133,
+      "min": 0.87
+    },
+    {
+      "name": "new physical replication",
+      "v": [
+        0.94,
+        0.93,
+        0.18,
+        0.94,
+        0.35
+      ],
+      "gate": false,
+      "P": 0.7260000000000001,
+      "geo": 0.6098981716895234,
+      "min": 0.18
+    },
+    {
+      "name": "new arbitrary synthetic model",
+      "v": [
+        0.6,
+        0.5,
+        0.95,
+        0.35,
+        0.9
+      ],
+      "gate": true,
+      "P": 0.6325,
+      "geo": 0.5981470876970741,
+      "min": 0.35
+    }
+  ],
+  "decision": "complete documentary comparison and retain early reading; physical replication blocked by lab/data access; no synthetic extension needed",
+  "limitations": "central subjective scores, no uncertainty intervals; non-compensatory access gate"
+}
