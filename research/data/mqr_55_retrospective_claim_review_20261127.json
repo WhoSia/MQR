@@ -27,8 +27,47 @@
     ],
     "archiveFiles": 45,
     "archiveDirect": "MQR 1 first prompt/answer and 0.31 prompt vicinity only; all 45 filenames checked, not full text",
-    "note": "Counts from five existing manifest pages, uniqueness within each verified, cross-manifest uniqueness previously recorded, not independently rerun here. Not total historical corpus. No automatic scoring of unreviewed items.",
-    "followup": "Three additional original early checkpoints 0.2-D, 0.3-D, 0.11-D read after first 15 judgments; 18 claim-level judgments total. Later 5.5 inquiries recover questions already explicit in 0.11-D, not a newly discovered root problem. Earlier numerical decision result used 15-row snapshot; action inputs unchanged."
+    "note": "Five historical manifests re-parsed and cross-manifest uniqueness verified. Not total historical corpus. No automatic scoring of unreviewed items. Claim-source matches are not equivalent to full original-page close reading.",
+    "followup": "Three additional original early checkpoints 0.2-D, 0.3-D, 0.11-D read after first 15 judgments; 18 claim-level judgments total. Later 5.5 inquiries recover questions already explicit in 0.11-D, not a newly discovered root problem. Earlier numerical decision result used 15-row snapshot; action inputs unchanged.",
+    "crossManifestUnique": 2477,
+    "claimSourcesMatchingManifest": [
+      {
+        "id": "0.31-A",
+        "source": "3c9ef561cf92815cb3becdb46743a62d"
+      },
+      {
+        "id": "1.11-C",
+        "source": "3caef561cf92815da5f9f28974f3d143"
+      },
+      {
+        "id": "2.0-C",
+        "source": "3ccef561cf92814aa529e21c3b7e4060"
+      },
+      {
+        "id": "2.0-D",
+        "source": "3ccef561cf9281b1adbde4e4b6cc051b"
+      },
+      {
+        "id": "3.89",
+        "source": "3d8ef561cf9281e9a16deecc7c2845e7"
+      },
+      {
+        "id": "3.94",
+        "source": "3d9ef561cf9281e98631e6e0fb058c88"
+      },
+      {
+        "id": "0.2-D",
+        "source": "3c8ef561cf92818cb71fe207fdc91bf0"
+      },
+      {
+        "id": "0.3-D",
+        "source": "3c8ef561cf928122b575e5f4b36dab3f"
+      },
+      {
+        "id": "0.11-D",
+        "source": "3c8ef561cf92813a80c8c708e628fc1e"
+      }
+    ]
   },
   "claims": [
     {
