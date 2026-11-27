@@ -75,6 +75,73 @@
           "decision": "prune: dominated by one-shot strategy"
         }
       ]
+    },
+    {
+      "heading": "Prior art changes the next question",
+      "before_execution": true,
+      "findings": "Read held Lee & Yannakakis 1994 pp306–310: pairwise distinguishability vs global experiment, adaptive decision tree and irreversible merge already explicit; local belief solver verified. Live-seq original article body contains same-cell trajectories and selection/perturbation limits.",
+      "candidates": [
+        {
+          "id": "paired-observation-selection",
+          "v": [
+            0.98,
+            0.96,
+            0.95,
+            0.89,
+            0.94
+          ],
+          "gate": "eligible under explicit same-cohort assumptions; synthetic exact bounds, not empirical reanalysis",
+          "decision": "execute; tests whether preserving target yields actual joint knowledge"
+        },
+        {
+          "id": "native-status",
+          "v": [
+            0.92,
+            0.97,
+            0.88,
+            0.96,
+            0.88
+          ],
+          "gate": "immutable run already launched",
+          "decision": "read receipt after independent work"
+        },
+        {
+          "id": "general-ads-algorithm",
+          "v": [
+            0.6,
+            0.66,
+            0.76,
+            0.34,
+            0.51
+          ],
+          "gate": "known prior art",
+          "decision": "prune: dominated by paired-observation-selection; no novelty"
+        },
+        {
+          "id": "real-data-refit",
+          "v": [
+            0.96,
+            0.94,
+            0.37,
+            0.97,
+            0.4
+          ],
+          "gate": "raw cohort linkage and authorized inputs not yet verified",
+          "decision": "hold, do not invent missing data"
+        },
+        {
+          "id": "more-tiny-automata",
+          "v": [
+            0.48,
+            0.4,
+            0.91,
+            0.31,
+            0.73
+          ],
+          "gate": "eligible",
+          "decision": "prune as dominated"
+        }
+      ]
     }
   ]
 }
