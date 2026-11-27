@@ -464,6 +464,73 @@
           "decision": "HOLD: MQR 5.5 OPEN"
         }
       ]
+    },
+    {
+      "heading": "Disciplinary genesis: compare alternative formation mechanisms",
+      "before_execution": true,
+      "findings": "All 46 archive exports retrieved and 1299 prompt blocks parsed; selected historical passages and 1.35-D, 1.54-D examined. Darden/Maull pp43–50, Pinell pp117–119, Abbott preface and ch1 selected passages read. Krauss 2025 open HTML method-first thesis examined. 5.5 retained; disciplinary genesis is a nonexclusive research branch.",
+      "candidates": [
+        {
+          "id": "method-necessity-versus-recombination",
+          "v": [
+            0.99,
+            0.98,
+            0.88,
+            0.94,
+            0.91
+          ],
+          "gate": "independent historical coding of available methods, novel arrangement and subsequent research trajectory",
+          "decision": "priority; compare strong rival, not merely rename methods"
+        },
+        {
+          "id": "mathematics-humanities-genesis",
+          "v": [
+            0.98,
+            0.94,
+            0.86,
+            0.96,
+            0.86
+          ],
+          "gate": "contemporaneous texts and criteria appropriate to the inquiry, not experimental falsifiability by default",
+          "decision": "retain as independent non-dominated branch"
+        },
+        {
+          "id": "institutional-formation",
+          "v": [
+            0.96,
+            0.93,
+            0.91,
+            0.92,
+            0.91
+          ],
+          "gate": "distinguish new organization from new knowledge and practice",
+          "decision": "retain; Pinell and Abbott support rival mechanism"
+        },
+        {
+          "id": "generic-binary-model",
+          "v": [
+            0.53,
+            0.44,
+            0.98,
+            0.35,
+            0.68
+          ],
+          "gate": "formal feasibility alone insufficient",
+          "decision": "defer, not strictly dominated because ease of execution remains high"
+        },
+        {
+          "id": "new-label-only",
+          "v": [
+            0.5,
+            0.3,
+            0.82,
+            0.25,
+            0.6
+          ],
+          "gate": "no explanatory gain",
+          "decision": "prune as dominated"
+        }
+      ]
     }
   ]
 }
