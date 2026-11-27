@@ -1,0 +1,56 @@
+name: MQR 5.5 Formal Candidate Verification
+# Read-only proof/test verification. No generated repository commits.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mqr-55-formal-candidates.yml'
+      - 'language/real/lean/MQR/FeedbackIdentification.lean'
+      - 'language/real/lean/MQR/FeedbackDynamics.lean'
+      - 'language/real/lean/MQR/PartialObservation.lean'
+      - 'language/real/lean/MQR/ScientificStateQuotient.lean'
+      - 'language/real/lean/lean-toolchain'
+      - 'language/real/prolog/feedback_identification_v55.pl'
+      - 'language/real/prolog/feedback_dynamics_v55.pl'
+      - 'language/real/prolog/partial_observation_v55.pl'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          lake-package-directory: language/real/lean
+          build: false
+          test: false
+          lint: false
+          nanoda: false
+          use-github-cache: false
+      - name: Check exact candidate modules
+        working-directory: language/real/lean
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          lean --version
+          lake build MQR.ScientificStateQuotient
+          for module in FeedbackIdentification FeedbackDynamics PartialObservation; do
+            lake env lean "MQR/${module}.lean" | tee "/tmp/${module}.log"
+            if grep -E 'sorryAx|declaration uses .sorry.' "/tmp/${module}.log"; then exit 1; fi
+          done
+  prolog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SWI-Prolog
+        run: sudo apt-get update && sudo apt-get install -y swi-prolog-nox
+      - name: Run candidate suites
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          swipl --version
+          for module in feedback_identification_v55 feedback_dynamics_v55 partial_observation_v55; do
+            swipl -q -s "language/real/prolog/${module}.pl" -g run_tests -t halt
+          done
