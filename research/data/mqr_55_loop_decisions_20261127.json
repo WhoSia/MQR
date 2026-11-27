@@ -787,6 +787,73 @@
           "decision": "reject"
         }
       ]
+    },
+    {
+      "heading": "Reassess knowledge survival and future research capacity (2026-11-28 KST)",
+      "before_execution": false,
+      "findings": "Kung/Rota 1984 introduction and further-work section establish an active reconstruction program with constructive proofs, algorithms, and questions; Olver pp xix–xx rejects instantaneous death in 1890. Rav 1999 and Gerontas 2026 show different trajectories for proof attempts and method adoption. Read-only native run 46028660333 passed 52 theorem declarations and 74 actual Prolog tests; 5346 interval cases replayed in independent JS and Python with exact blob match. No historical effect identification.",
+      "candidates": [
+        {
+          "id": "migration-and-independent-competence",
+          "v": [
+            0.99,
+            0.97,
+            0.85,
+            0.96,
+            0.88
+          ],
+          "gate": "dated evidence of transferred practice and subsequent novel question uptake, not citation alone",
+          "decision": "retain primary; distinguish stock transfer from productive competence transfer"
+        },
+        {
+          "id": "noninstitutionalized-research-programs",
+          "v": [
+            0.98,
+            0.96,
+            0.81,
+            0.96,
+            0.87
+          ],
+          "gate": "positive evidence of ongoing questions and support, independent of department/title; no argument from silence",
+          "decision": "retain non-dominated contrast"
+        },
+        {
+          "id": "horizon-risk-and-uncertain-transfer",
+          "v": [
+            0.94,
+            0.9,
+            0.93,
+            0.85,
+            0.91
+          ],
+          "gate": "new mechanism beyond fixed additive cost; evaluate substantive research-design use first",
+          "decision": "retain lower priority; no generic cost-grid expansion"
+        },
+        {
+          "id": "more-homogeneous-cost-sweeps",
+          "v": [
+            0.51,
+            0.4,
+            0.94,
+            0.29,
+            0.69
+          ],
+          "gate": "current exact formula proven and checked",
+          "decision": "prune as dominated by prior cost analysis"
+        },
+        {
+          "id": "declare-general-theory",
+          "v": [
+            0.7,
+            0.35,
+            0.56,
+            0.32,
+            0.4
+          ],
+          "gate": "historical comparative and counterfactual evidence insufficient",
+          "decision": "HOLD; 5.5 OPEN"
+        }
+      ]
     }
   ]
 }
