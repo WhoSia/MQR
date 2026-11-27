@@ -71,7 +71,8 @@
     "followup2": "Seven early verdicts 0.4-D through 0.10-D and formal 0.4-C/0.6-C read directly, 8 new claim assessments; 26 total. Followup source IDs are within 0.X manifest; 0.6-C also read but no separate assessment. Earlier action decision snapshot retained; no claim of exhaustive early stage A–D reading.",
     "followup3": "Six 0.12-D–0.17-D original verdicts directly read, six additional claim vectors, 32 total. Earlier coverage fields are historical snapshots; no exhaustive A–D read. Meselson 1957/1958 original held PDFs separately reread for target succession.",
     "followup4": "Seven 0.18-D–0.24-D original verdicts directly reviewed; seven claim vectors added, 39 total. Some long source outputs truncated initially; 0.21-D and 0.22-D separately reopened. Not all A–D source pages read. Kitcher and Dubova et al selected held passages separately reread.",
-    "followup5": "Six early original verdict pages 0.25-D–0.30-D fetched and bounded excerpts (opening, verdict, inheritance) reviewed; not full body close reading. Six new scoped judgments, cumulative 45. Four Harvest pages reviewed in excerpts, and three later GitHub records reopened. No new independent CI replay."
+    "followup5": "Six early original verdict pages 0.25-D–0.30-D fetched and bounded excerpts (opening, verdict, inheritance) reviewed; not full body close reading. Six new scoped judgments, cumulative 45. Four Harvest pages reviewed in excerpts, and three later GitHub records reopened. No new independent CI replay.",
+    "followup6": "0.31-D–0.37-D seven original pages directly fetched, opening and verdict/inheritance excerpts read, not full middle. 0.35-B prior-art page directly reviewed. Seven new claim judgments, 52 total. 0.31-A already scored separately. No new independent historical execution."
   },
   "claims": [
     {
@@ -838,6 +839,125 @@
       ],
       "reason": "original Two Forecasters and counterperformative examples; 4.57 already extends feedback to scientific institutions",
       "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.31-D",
+      "source": "3c9ef561cf92811c8aa3f23ef9fd4b3f",
+      "claim": "nontrivial operational transport can occur without identity of native primitives",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.94,
+        0.95,
+        0.7,
+        0.99,
+        0.12,
+        0.82,
+        0.43
+      ],
+      "reason": "original alien-science hypothetical and trivial-renaming control; bridge discovery still conditional; distinct from earlier 0.31-A",
+      "assessment": "retrospective single reviewer; source opening and verdict/inheritance excerpts, not full text"
+    },
+    {
+      "id": "0.32-D",
+      "source": "3c9ef561cf92810bbe36d54da1669426",
+      "claim": "coordination and channel discrimination do not establish shared semantics",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.97,
+        0.78,
+        0.99,
+        0.1,
+        0.85,
+        0.46
+      ],
+      "reason": "original phase-deleting channel and ostension thought experiments; 5.5 common-feedback fixture does not establish autonomous bootstrap",
+      "assessment": "retrospective single reviewer; source opening and verdict/inheritance excerpts, not full text"
+    },
+    {
+      "id": "0.33-D",
+      "source": "3c9ef561cf928193bc23ebc21b2cc87c",
+      "claim": "infrastructural selection of a bridge may bias later evidence; one-way predictability need not give reciprocal corrigibility",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.94,
+        0.95,
+        0.7,
+        0.98,
+        0.12,
+        0.81,
+        0.42
+      ],
+      "reason": "original dictionary-as-observatory thought experiment; no historical causal estimate",
+      "assessment": "retrospective single reviewer; source opening and verdict/inheritance excerpts, not full text"
+    },
+    {
+      "id": "0.34-D",
+      "source": "3c9ef561cf92813b956ac08bbfe2c1f5",
+      "claim": "reversible deferral and irreversible destruction of residual distinctions require different decisions",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.94,
+        0.94,
+        0.72,
+        0.96,
+        0.11,
+        0.83,
+        0.44
+      ],
+      "reason": "original residue governance examples; normative comparison, not demonstrated optimal policy",
+      "assessment": "retrospective single reviewer; source opening and verdict/inheritance excerpts, not full text"
+    },
+    {
+      "id": "0.35-D",
+      "source": "3c9ef561cf92819a9346d760193a9009",
+      "claim": "cross-branch transport requires more than shared vocabulary or network connectivity",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.96,
+        0.76,
+        0.98,
+        0.13,
+        0.84,
+        0.45
+      ],
+      "reason": "original hub and archipelago examples; 0.35-B explicitly acknowledges integrative pluralism, trading zones, partial structures, interfield theories",
+      "assessment": "retrospective single reviewer; source opening and verdict/inheritance excerpts, not full text"
+    },
+    {
+      "id": "0.36-D",
+      "source": "3c9ef561cf928111a8a3feb0908bdd65",
+      "claim": "local claim continuity and common ancestry do not entail endpoint identity",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.98,
+        0.79,
+        0.98,
+        0.1,
+        0.86,
+        0.49
+      ],
+      "reason": "original Claim of Theseus and bifurcation; historical examples require case-specific source collation",
+      "assessment": "retrospective single reviewer; source opening and verdict/inheritance excerpts, not full text"
+    },
+    {
+      "id": "0.37-D",
+      "source": "3c9ef561cf9281f99c1cd262d1daf358",
+      "claim": "apparent contradiction requires common scope or independently licensed collision surface",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.97,
+        0.77,
+        0.97,
+        0.1,
+        0.84,
+        0.47
+      ],
+      "reason": "original contrast examples; not empirical validation of universal conflict logic",
+      "assessment": "retrospective single reviewer; source opening and verdict/inheritance excerpts, not full text"
     }
   ],
   "actions": [
