@@ -1,10 +1,9 @@
 # MQR — Methods of Quantitative Realism
 
-**Current conversation:** MQR 43 (2026-11-21). **Research program version remains MQR 5.4**; the conversation number is not a scientific version or stage. During MQR 42, interim records mistakenly labeled “MQR 43/44/45/46” were repaired to **MQR 42 · records 01/02/03/04**. Those repairs are historical and remain valid; this newly opened MQR 43 is the first actual conversation bearing the number after MQR 42. No MQR 5.5 phase is asserted. GitHub Actions may compute/read, but must not author repository commits, push or tag as `github-actions[bot]`.
+**Current conversation:** MQR 46 (2026-11-27 KST). **Current research phase: MQR 5.5 — The Genesis of Possible Sciences: Conceptual Creation, Epistemic Evolution & the Architecture of Scientific Inquiry.** Formally opened by explicit user approval. Conversation numbers are not scientific versions. GitHub Actions[bot] must not author or commit repository changes.
 
-**Current phase: 5.4 — The Open Horizon of Scientific Inquiry: Measurement, Possible Sciences, Paradigm Genesis & World-Constrained Concept Creation**
+**Official constitution:** [5.5 Genesis constitution](research/MQR_5_5_GENESIS_CONSTITUTION.md) · [Notion 5.5 canonical page](https://app.notion.com/p/425ef561cf9281489e52ddaf1c70028d). Prior [5.4 constitution](research/MQR_5_4_OPEN_HORIZON_CONSTITUTION.md) and [Notion 5.4](https://app.notion.com/p/414ef561cf9281118f47daa04cc330b1) remain preserved. Historical sections below retain their contemporaneous phase/status statements. The repository and Notion Lab root use different expansions of MQR; no renaming is asserted here.
 
-**Official 5.4 constitution:** [Open Horizon, seven founding questions, DFS/BFS navigation and history of the 5.3 partial success](research/MQR_5_4_OPEN_HORIZON_CONSTITUTION.md). **[Notion 5.4 canonical page](https://app.notion.com/p/414ef561cf9281118f47daa04cc330b1)**. Commenced 2026-11-10. 5.3 source-lineage/calibration work is retained as a partial success and an evidence library, not erased.
 
 MQR investigates how scientific and mathematical knowledge becomes possible, what limits its authority, and how inquiry can generate new concepts, observables, explanations, and questions. Its ambition is not a narrow history of particular discoveries or an ever-growing taxonomy of audit gates. It asks how fallible contact with a world can support scientific understanding and how inquiry can advance when its original problem representation is inadequate.
 
