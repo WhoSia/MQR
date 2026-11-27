@@ -598,6 +598,73 @@
           "decision": "prune: dominated by causal-necessity analysis"
         }
       ]
+    },
+    {
+      "heading": "Field autonomy and the persistence of knowledge (2026-11-28 KST)",
+      "before_execution": false,
+      "findings": "Read historical category-theory autonomy account and 1967 computer-science defense; Mullins intellectual/social model and comparative humanities. Method invention, target reversal, autonomous research and institutionalization separated. Method necessity not disproved by dates; constructed causal equivalence verified in Lean and Prolog, 46026924293 passed. Invariant theory decline/revival is a research lead, Fisher original not read.",
+      "candidates": [
+        {
+          "id": "invariant-theory-decline-revival",
+          "v": [
+            0.98,
+            0.97,
+            0.8,
+            0.95,
+            0.87
+          ],
+          "gate": "acquire Fisher original, separate historical causal accounts from textbook retrospective",
+          "decision": "retain priority; contrast emergence and disappearance"
+        },
+        {
+          "id": "method-without-autonomous-field",
+          "v": [
+            0.98,
+            0.98,
+            0.83,
+            0.96,
+            0.86
+          ],
+          "gate": "case selection independent of eventual success; contemporaneous methods and uptake",
+          "decision": "retain non-dominated branch"
+        },
+        {
+          "id": "humanities-method-differentiation",
+          "v": [
+            0.97,
+            0.94,
+            0.86,
+            0.94,
+            0.86
+          ],
+          "gate": "primary historical documents and distinct warrants",
+          "decision": "retain"
+        },
+        {
+          "id": "larger-binary-causal-model",
+          "v": [
+            0.54,
+            0.41,
+            0.96,
+            0.32,
+            0.68
+          ],
+          "gate": "existing witness already decisive under assumptions",
+          "decision": "defer; feasibility alone insufficient"
+        },
+        {
+          "id": "declare-5.6-completed",
+          "v": [
+            0.6,
+            0.31,
+            0.8,
+            0.22,
+            0.5
+          ],
+          "gate": "insufficient historical comparative evidence",
+          "decision": "reject premature promotion"
+        }
+      ]
     }
   ]
 }
