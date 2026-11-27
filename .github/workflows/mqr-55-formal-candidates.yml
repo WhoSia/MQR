@@ -11,6 +11,7 @@ on:
       - 'language/real/lean/MQR/IrreversibleInquiry.lean'
       - 'language/real/lean/MQR/MeasurementReactivity.lean'
       - 'language/real/lean/MQR/DisciplinaryGenesis.lean'
+      - 'language/real/lean/MQR/ReusableInquiry.lean'
       - 'language/real/lean/MQR/ScientificStateQuotient.lean'
       - 'language/real/lean/lean-toolchain'
       - 'language/real/prolog/feedback_identification_v55.pl'
@@ -19,6 +20,7 @@ on:
       - 'language/real/prolog/irreversible_inquiry_v55.pl'
       - 'language/real/prolog/measurement_reactivity_v55.pl'
       - 'language/real/prolog/disciplinary_genesis_v55.pl'
+      - 'language/real/prolog/reusable_inquiry_v55.pl'
   workflow_dispatch:
 permissions:
   contents: read
@@ -42,7 +44,7 @@ jobs:
           git rev-parse HEAD
           lean --version
           lake build MQR.ScientificStateQuotient
-          for module in FeedbackIdentification FeedbackDynamics PartialObservation IrreversibleInquiry MeasurementReactivity DisciplinaryGenesis; do
+          for module in FeedbackIdentification FeedbackDynamics PartialObservation IrreversibleInquiry MeasurementReactivity DisciplinaryGenesis ReusableInquiry; do
             lake env lean "MQR/${module}.lean" | tee "/tmp/${module}.log"
             if grep -E 'sorryAx|declaration uses .sorry.' "/tmp/${module}.log"; then exit 1; fi
           done
@@ -57,7 +59,7 @@ jobs:
           set -euo pipefail
           git rev-parse HEAD
           swipl --version
-          for module in feedback_identification_v55 feedback_dynamics_v55 partial_observation_v55 irreversible_inquiry_v55 measurement_reactivity_v55 disciplinary_genesis_v55; do
+          for module in feedback_identification_v55 feedback_dynamics_v55 partial_observation_v55 irreversible_inquiry_v55 measurement_reactivity_v55 disciplinary_genesis_v55 reusable_inquiry_v55; do
             source="language/real/prolog/${module}.pl"
             log="/tmp/${module}.log"
             expected=$(grep -c '^test(' "$source")
