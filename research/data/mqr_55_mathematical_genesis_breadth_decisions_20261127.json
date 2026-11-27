@@ -1,0 +1,187 @@
+{
+  "date": "2026-11-27",
+  "status": "retrospective after source exploration and prospective next-step comparison",
+  "weights": [
+    0.25,
+    0.3,
+    0.2,
+    0.15,
+    0.1
+  ],
+  "metrics": [
+    {
+      "name": "mathematical genesis: Poincare–Smale successor questions",
+      "v": [
+        0.98,
+        0.96,
+        0.91,
+        0.92,
+        0.91
+      ],
+      "lo": [
+        0.93,
+        0.86,
+        0.79,
+        0.8,
+        0.8
+      ],
+      "hi": [
+        1,
+        0.99,
+        0.97,
+        0.98,
+        0.97
+      ],
+      "P": 0.944,
+      "geo": 0.9435577381224051,
+      "min": 0.91,
+      "range": [
+        0.8485,
+        0.9849999999999999
+      ],
+      "regret": 0.12999999999999978,
+      "dominatedBy": []
+    },
+    {
+      "name": "historical shared artifact and cross-practice target",
+      "v": [
+        0.98,
+        0.95,
+        0.84,
+        0.93,
+        0.85
+      ],
+      "lo": [
+        0.91,
+        0.82,
+        0.7,
+        0.8,
+        0.72
+      ],
+      "hi": [
+        1,
+        0.99,
+        0.94,
+        0.99,
+        0.94
+      ],
+      "P": 0.9225000000000001,
+      "geo": 0.9208603900008024,
+      "min": 0.84,
+      "range": [
+        0.8054999999999999,
+        0.9774999999999998
+      ],
+      "regret": 0.1795,
+      "dominatedBy": []
+    },
+    {
+      "name": "0.38+ genealogy and Harvest source-level review",
+      "v": [
+        0.98,
+        0.88,
+        0.96,
+        0.89,
+        0.94
+      ],
+      "lo": [
+        0.94,
+        0.8,
+        0.88,
+        0.8,
+        0.84
+      ],
+      "hi": [
+        1,
+        0.95,
+        0.99,
+        0.97,
+        0.98
+      ],
+      "P": 0.9285,
+      "geo": 0.9275276255388172,
+      "min": 0.88,
+      "range": [
+        0.855,
+        0.9764999999999998
+      ],
+      "regret": 0.1299999999999999,
+      "dominatedBy": []
+    },
+    {
+      "name": "reflexive target independent historical case",
+      "v": [
+        0.96,
+        0.94,
+        0.82,
+        0.93,
+        0.85
+      ],
+      "lo": [
+        0.89,
+        0.8,
+        0.65,
+        0.79,
+        0.7
+      ],
+      "hi": [
+        1,
+        0.99,
+        0.94,
+        0.99,
+        0.95
+      ],
+      "P": 0.9105000000000001,
+      "geo": 0.908831287478069,
+      "min": 0.82,
+      "range": [
+        0.781,
+        0.9784999999999998
+      ],
+      "regret": 0.20399999999999985,
+      "dominatedBy": [
+        "historical shared artifact and cross-practice target"
+      ]
+    },
+    {
+      "name": "repeated abstract alignment toy",
+      "v": [
+        0.6,
+        0.51,
+        0.96,
+        0.32,
+        0.9
+      ],
+      "lo": [
+        0.49,
+        0.4,
+        0.84,
+        0.2,
+        0.78
+      ],
+      "hi": [
+        0.72,
+        0.65,
+        0.99,
+        0.46,
+        0.97
+      ],
+      "P": 0.633,
+      "geo": 0.5949217677413846,
+      "min": 0.32,
+      "range": [
+        0.5185,
+        0.7389999999999999
+      ],
+      "regret": 0.4664999999999999,
+      "dominatedBy": [
+        "0.38+ genealogy and Harvest source-level review"
+      ]
+    }
+  ],
+  "weightCornerWins": {
+    "mathematical genesis: Poincare–Smale successor questions": 32
+  },
+  "decision": "complete bounded mathematical source comparison, preserve historical and reflexive branches, continue genealogy/Harvest; no further depth on chaos without new source question",
+  "limitations": "subjective interval boxes, not statistical uncertainty; historical branch access conditional; no universal progress rank"
+}
