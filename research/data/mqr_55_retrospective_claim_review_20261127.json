@@ -69,7 +69,8 @@
       }
     ],
     "followup2": "Seven early verdicts 0.4-D through 0.10-D and formal 0.4-C/0.6-C read directly, 8 new claim assessments; 26 total. Followup source IDs are within 0.X manifest; 0.6-C also read but no separate assessment. Earlier action decision snapshot retained; no claim of exhaustive early stage A–D reading.",
-    "followup3": "Six 0.12-D–0.17-D original verdicts directly read, six additional claim vectors, 32 total. Earlier coverage fields are historical snapshots; no exhaustive A–D read. Meselson 1957/1958 original held PDFs separately reread for target succession."
+    "followup3": "Six 0.12-D–0.17-D original verdicts directly read, six additional claim vectors, 32 total. Earlier coverage fields are historical snapshots; no exhaustive A–D read. Meselson 1957/1958 original held PDFs separately reread for target succession.",
+    "followup4": "Seven 0.18-D–0.24-D original verdicts directly reviewed; seven claim vectors added, 39 total. Some long source outputs truncated initially; 0.21-D and 0.22-D separately reopened. Not all A–D source pages read. Kitcher and Dubova et al selected held passages separately reread."
   },
   "claims": [
     {
@@ -614,6 +615,125 @@
         0.45
       ],
       "reason": "original clinical classification is hypothetical; not actual comparative clinical evidence",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.18-D",
+      "source": "3c9ef561cf9281c9ac6fe3da7ecdfc42",
+      "claim": "formal permission to criticize does not ensure capacity to generate counterevidence",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.97,
+        0.78,
+        0.98,
+        0.12,
+        0.84,
+        0.46
+      ],
+      "reason": "Benevolent Funder and Expensive Objection explicitly hypothetical; power is not evidence, neglect alone is not merit",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.19-D",
+      "source": "3c9ef561cf9281238264f84c3545f5a2",
+      "claim": "protect nonredundant discriminatory capacity rather than permanent belief or equal shares",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.93,
+        0.68,
+        0.97,
+        0.12,
+        0.82,
+        0.44
+      ],
+      "reason": "post-court audit requires feasibility, nonredundancy, corrigibility and graceful retirement; normative policy, no field validation",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.20-D",
+      "source": "3c9ef561cf9281608075efcf65f7105e",
+      "claim": "unrealized feasible tests can constrain exclusion claims without providing first-order confirmation",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.97,
+        0.76,
+        0.98,
+        0.12,
+        0.85,
+        0.45
+      ],
+      "reason": "unbuilt discriminator thought experiment; prior art explicitly acknowledged; no imaginary outcome",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.21-D",
+      "source": "3c9ef561cf9281548c6ff1166ac5ddf5",
+      "claim": "realized convergence does not imply historical inevitability or unique ontology",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.98,
+        0.78,
+        0.98,
+        0.1,
+        0.85,
+        0.48
+      ],
+      "reason": "crossed laboratories and forced merger hypothetical; prior robustness collision; actual independence requires genealogy",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.22-D",
+      "source": "3c9ef561cf9281febb32fd6ac7ed5516",
+      "claim": "formal common refinement need not yield explanatory integration; local empirical contradiction remains testable",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.97,
+        0.77,
+        0.96,
+        0.1,
+        0.84,
+        0.47
+      ],
+      "reason": "cross-cutting clinic and atlas examples not real datasets; nonconvergence revisable",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.23-D",
+      "source": "3c9ef561cf92819a90c1db4e6ce506e4",
+      "claim": "cross-practice interfaces carry epistemic accountability only when results can affect scoped claims",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.95,
+        0.71,
+        0.98,
+        0.15,
+        0.83,
+        0.45
+      ],
+      "reason": "Red Sample Relay hypothetical; trading zones and boundary objects acknowledged; not actual interface validation",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.24-D",
+      "source": "3c9ef561cf9281eea0fbf91fedb63d53",
+      "claim": "legitimate standards revision differs from outcome-dependent goalpost shifting; decision authority differs from truth",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.96,
+        0.75,
+        0.97,
+        0.1,
+        0.85,
+        0.46
+      ],
+      "reason": "source explicitly anticipates universal procedure and score aggregation capture; Kuhn/Laudan/Longino collision, no empirical generalization",
       "assessment": "retrospective single reviewer, not original-stage score"
     }
   ],
