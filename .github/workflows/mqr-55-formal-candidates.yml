@@ -8,11 +8,13 @@ on:
       - 'language/real/lean/MQR/FeedbackIdentification.lean'
       - 'language/real/lean/MQR/FeedbackDynamics.lean'
       - 'language/real/lean/MQR/PartialObservation.lean'
+      - 'language/real/lean/MQR/IrreversibleInquiry.lean'
       - 'language/real/lean/MQR/ScientificStateQuotient.lean'
       - 'language/real/lean/lean-toolchain'
       - 'language/real/prolog/feedback_identification_v55.pl'
       - 'language/real/prolog/feedback_dynamics_v55.pl'
       - 'language/real/prolog/partial_observation_v55.pl'
+      - 'language/real/prolog/irreversible_inquiry_v55.pl'
   workflow_dispatch:
 permissions:
   contents: read
@@ -36,7 +38,7 @@ jobs:
           git rev-parse HEAD
           lean --version
           lake build MQR.ScientificStateQuotient
-          for module in FeedbackIdentification FeedbackDynamics PartialObservation; do
+          for module in FeedbackIdentification FeedbackDynamics PartialObservation IrreversibleInquiry; do
             lake env lean "MQR/${module}.lean" | tee "/tmp/${module}.log"
             if grep -E 'sorryAx|declaration uses .sorry.' "/tmp/${module}.log"; then exit 1; fi
           done
@@ -51,6 +53,6 @@ jobs:
           set -euo pipefail
           git rev-parse HEAD
           swipl --version
-          for module in feedback_identification_v55 feedback_dynamics_v55 partial_observation_v55; do
+          for module in feedback_identification_v55 feedback_dynamics_v55 partial_observation_v55 irreversible_inquiry_v55; do
             swipl -q -s "language/real/prolog/${module}.pl" -g run_tests -t halt
           done
