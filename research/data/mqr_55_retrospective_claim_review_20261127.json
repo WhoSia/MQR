@@ -72,7 +72,8 @@
     "followup3": "Six 0.12-D–0.17-D original verdicts directly read, six additional claim vectors, 32 total. Earlier coverage fields are historical snapshots; no exhaustive A–D read. Meselson 1957/1958 original held PDFs separately reread for target succession.",
     "followup4": "Seven 0.18-D–0.24-D original verdicts directly reviewed; seven claim vectors added, 39 total. Some long source outputs truncated initially; 0.21-D and 0.22-D separately reopened. Not all A–D source pages read. Kitcher and Dubova et al selected held passages separately reread.",
     "followup5": "Six early original verdict pages 0.25-D–0.30-D fetched and bounded excerpts (opening, verdict, inheritance) reviewed; not full body close reading. Six new scoped judgments, cumulative 45. Four Harvest pages reviewed in excerpts, and three later GitHub records reopened. No new independent CI replay.",
-    "followup6": "0.31-D–0.37-D seven original pages directly fetched, opening and verdict/inheritance excerpts read, not full middle. 0.35-B prior-art page directly reviewed. Seven new claim judgments, 52 total. 0.31-A already scored separately. No new independent historical execution."
+    "followup6": "0.31-D–0.37-D seven original pages directly fetched, opening and verdict/inheritance excerpts read, not full middle. 0.35-B prior-art page directly reviewed. Seven new claim judgments, 52 total. 0.31-A already scored separately. No new independent historical execution.",
+    "followup7": "MQR 47: 0.38-D–0.42-D original pages directly fetched; selected passages reviewed, five claim vectors added; 57 total. Harvest LR-20260916-C headings checked, not full reread. Historical archive capacity case separately recorded. Earlier historical coverage snapshots retained."
   },
   "claims": [
     {
@@ -958,6 +959,91 @@
       ],
       "reason": "original contrast examples; not empirical validation of universal conflict logic",
       "assessment": "retrospective single reviewer; source opening and verdict/inheritance excerpts, not full text"
+    },
+    {
+      "id": "0.38-D",
+      "source": "3c9ef561cf92819aba33edae2e7f3868",
+      "claim": "Task-local dominance does not entail global epistemic ranking.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.96,
+        0.98,
+        0.82,
+        0.96,
+        0.08,
+        0.87,
+        0.45
+      ],
+      "reason": "Scoped thought experiments; Pareto ordering already established.",
+      "assessment": "retrospective single reviewer; original verdict page selected passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.39-D",
+      "source": "3c9ef561cf9281bcaeead598c209b03a",
+      "claim": "Parameter precision under a model does not guarantee discrimination between rival models.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.98,
+        0.83,
+        0.97,
+        0.08,
+        0.86,
+        0.46
+      ],
+      "reason": "Original precision versus model-set examples; optimal experimental design is strong prior art.",
+      "assessment": "retrospective single reviewer; original verdict page selected passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.40-D",
+      "source": "3caef561cf9281caa8a6f8dd897edd90",
+      "claim": "Experiment-level evidential authority and program-level follow-up integrity can differ.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.96,
+        0.76,
+        0.98,
+        0.12,
+        0.84,
+        0.45
+      ],
+      "reason": "Adaptive repair and selective continuation examples; no empirical institutional effect identified.",
+      "assessment": "retrospective single reviewer; original verdict page selected passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.41-D",
+      "source": "3caef561cf928121bc89c08a176fd2b3",
+      "claim": "Incumbent-generated records cannot by themselves identify a counterpolicy with unsupported measurement actions.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.96,
+        0.98,
+        0.81,
+        0.98,
+        0.09,
+        0.86,
+        0.48
+      ],
+      "reason": "Off-policy support limitation and endogenous action sets; no new counterfactual theorem.",
+      "assessment": "retrospective single reviewer; original verdict page selected passages, not complete A–D source reading"
+    },
+    {
+      "id": "0.42-D",
+      "source": "3caef561cf9281ddaf61cd80adb80824",
+      "claim": "Archival records do not necessarily preserve executable reopening capacity.",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.96,
+        0.77,
+        0.98,
+        0.1,
+        0.85,
+        0.46
+      ],
+      "reason": "Distinguishes skills, apparatus, permissions and record preservation; case-specific empirical necessity remains open.",
+      "assessment": "retrospective single reviewer; original verdict page selected passages, not complete A–D source reading"
     }
   ],
   "actions": [
