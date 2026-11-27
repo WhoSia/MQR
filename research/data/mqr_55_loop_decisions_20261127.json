@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-27",
+  "phase": "5.5 OPEN",
+  "axes": {
+    "V": "importance to founding question",
+    "D": "ability to discriminate competing explanations",
+    "F": "feasibility under current constraints",
+    "I": "independent information potential",
+    "K": "resource efficiency"
+  },
+  "policy": "No scalar aggregate. Hard gates then Pareto dominance, bottleneck and reasoned tradeoffs. Prospective subjective scores, not probabilities.",
+  "rounds": [
+    {
+      "heading": "Native verification and irreversible inquiry",
+      "before_execution": true,
+      "candidates": [
+        {
+          "id": "native-readonly",
+          "v": [
+            0.91,
+            0.94,
+            0.85,
+            0.95,
+            0.84
+          ],
+          "gate": "eligible: read-only workflow; freeze tested files",
+          "decision": "launch, then work independently"
+        },
+        {
+          "id": "one-shot-strategy",
+          "v": [
+            0.98,
+            0.97,
+            0.97,
+            0.87,
+            0.94
+          ],
+          "gate": "eligible",
+          "decision": "execute in parallel with native check"
+        },
+        {
+          "id": "bigger-state-census",
+          "v": [
+            0.61,
+            0.55,
+            0.92,
+            0.4,
+            0.66
+          ],
+          "gate": "eligible",
+          "decision": "prune: dominated by one-shot strategy; no new mechanism"
+        },
+        {
+          "id": "historical-destructive-sampling",
+          "v": [
+            0.96,
+            0.88,
+            0.75,
+            0.95,
+            0.72
+          ],
+          "gate": "source custody and exact reading required",
+          "decision": "retain non-dominated; independent lane"
+        },
+        {
+          "id": "more-boolean-assertions",
+          "v": [
+            0.35,
+            0.25,
+            0.96,
+            0.2,
+            0.7
+          ],
+          "gate": "eligible",
+          "decision": "prune: dominated by one-shot strategy"
+        }
+      ]
+    }
+  ]
+}
