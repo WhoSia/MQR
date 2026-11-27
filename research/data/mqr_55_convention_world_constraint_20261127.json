@@ -1,0 +1,329 @@
+{
+  "scope": "synthetic common-interest feedback, stipulated roles, stable local action alternatives, privately recognizable success, and independently available target test; not autonomous language invention",
+  "cases": [
+    {
+      "m": 0,
+      "a": 0,
+      "b0": 0,
+      "b": 0,
+      "history": [
+        {
+          "a": 0,
+          "b": 0,
+          "r": 1
+        }
+      ],
+      "worlds": [
+        {
+          "h": 0,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            1
+          ]
+        },
+        {
+          "h": 1,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "m": 0,
+      "a": 0,
+      "b0": 1,
+      "b": 0,
+      "history": [
+        {
+          "a": 0,
+          "b": 1,
+          "r": 0
+        },
+        {
+          "a": 0,
+          "b": 0,
+          "r": 1
+        }
+      ],
+      "worlds": [
+        {
+          "h": 0,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            1
+          ]
+        },
+        {
+          "h": 1,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "m": 0,
+      "a": 1,
+      "b0": 0,
+      "b": 1,
+      "history": [
+        {
+          "a": 1,
+          "b": 0,
+          "r": 0
+        },
+        {
+          "a": 1,
+          "b": 1,
+          "r": 1
+        }
+      ],
+      "worlds": [
+        {
+          "h": 0,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            1
+          ]
+        },
+        {
+          "h": 1,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "m": 0,
+      "a": 1,
+      "b0": 1,
+      "b": 1,
+      "history": [
+        {
+          "a": 1,
+          "b": 1,
+          "r": 1
+        }
+      ],
+      "worlds": [
+        {
+          "h": 0,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            1
+          ]
+        },
+        {
+          "h": 1,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "m": 1,
+      "a": 0,
+      "b0": 0,
+      "b": 1,
+      "history": [
+        {
+          "a": 0,
+          "b": 0,
+          "r": 0
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "r": 1
+        }
+      ],
+      "worlds": [
+        {
+          "h": 0,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            1
+          ]
+        },
+        {
+          "h": 1,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "m": 1,
+      "a": 0,
+      "b0": 1,
+      "b": 1,
+      "history": [
+        {
+          "a": 0,
+          "b": 1,
+          "r": 1
+        }
+      ],
+      "worlds": [
+        {
+          "h": 0,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            1
+          ]
+        },
+        {
+          "h": 1,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "m": 1,
+      "a": 1,
+      "b0": 0,
+      "b": 0,
+      "history": [
+        {
+          "a": 1,
+          "b": 0,
+          "r": 1
+        }
+      ],
+      "worlds": [
+        {
+          "h": 0,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            1
+          ]
+        },
+        {
+          "h": 1,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "m": 1,
+      "a": 1,
+      "b0": 1,
+      "b": 0,
+      "history": [
+        {
+          "a": 1,
+          "b": 1,
+          "r": 0
+        },
+        {
+          "a": 1,
+          "b": 0,
+          "r": 1
+        }
+      ],
+      "worlds": [
+        {
+          "h": 0,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            1
+          ]
+        },
+        {
+          "h": 1,
+          "feedback": [
+            1,
+            1
+          ],
+          "target": [
+            1,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "all8": true,
+    "coordinationAtMost2": true,
+    "sameFeedbackAcrossWorlds": true,
+    "baselineTargetSame": true,
+    "externalTestSeparates": true,
+    "proxyCanSucceedWhileTargetFails": true
+  }
+}
