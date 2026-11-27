@@ -70,7 +70,8 @@
     ],
     "followup2": "Seven early verdicts 0.4-D through 0.10-D and formal 0.4-C/0.6-C read directly, 8 new claim assessments; 26 total. Followup source IDs are within 0.X manifest; 0.6-C also read but no separate assessment. Earlier action decision snapshot retained; no claim of exhaustive early stage A–D reading.",
     "followup3": "Six 0.12-D–0.17-D original verdicts directly read, six additional claim vectors, 32 total. Earlier coverage fields are historical snapshots; no exhaustive A–D read. Meselson 1957/1958 original held PDFs separately reread for target succession.",
-    "followup4": "Seven 0.18-D–0.24-D original verdicts directly reviewed; seven claim vectors added, 39 total. Some long source outputs truncated initially; 0.21-D and 0.22-D separately reopened. Not all A–D source pages read. Kitcher and Dubova et al selected held passages separately reread."
+    "followup4": "Seven 0.18-D–0.24-D original verdicts directly reviewed; seven claim vectors added, 39 total. Some long source outputs truncated initially; 0.21-D and 0.22-D separately reopened. Not all A–D source pages read. Kitcher and Dubova et al selected held passages separately reread.",
+    "followup5": "Six early original verdict pages 0.25-D–0.30-D fetched and bounded excerpts (opening, verdict, inheritance) reviewed; not full body close reading. Six new scoped judgments, cumulative 45. Four Harvest pages reviewed in excerpts, and three later GitHub records reopened. No new independent CI replay."
   },
   "claims": [
     {
@@ -734,6 +735,108 @@
         0.46
       ],
       "reason": "source explicitly anticipates universal procedure and score aggregation capture; Kuhn/Laudan/Longino collision, no empirical generalization",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.25-D",
+      "source": "3c9ef561cf928127ab8be0632bf11044",
+      "claim": "scientific closure memory requires reconstructable grounds and conditions, not merely archived answers",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.96,
+        0.78,
+        0.98,
+        0.12,
+        0.86,
+        0.45
+      ],
+      "reason": "original Vanishing Footnote and Memory Warehouse examples; practical retrieval still not independently tested",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.26-D",
+      "source": "3c9ef561cf928150a8c5e2f05d9ff831",
+      "claim": "reopening should distinguish genuinely changed warrant conditions from replicated dissent and incumbent trigger capture",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.95,
+        0.72,
+        0.97,
+        0.12,
+        0.84,
+        0.44
+      ],
+      "reason": "hypothetical adversaries, provenance firewall and tiered reopening; no measured allocation outcome",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.27-D",
+      "source": "3c9ef561cf92817ca8d0f94a2c42218a",
+      "claim": "access to evidence-producing capacity differs from first-order evidential entitlement",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.95,
+        0.72,
+        0.96,
+        0.11,
+        0.83,
+        0.44
+      ],
+      "reason": "locked telescope and credential thought experiments; normative burden claim not field-validated",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.28-D",
+      "source": "3c9ef561cf9281b09d73f8ba15234ca3",
+      "claim": "participation after measurement design need not give agency over investigated distinctions",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.94,
+        0.96,
+        0.75,
+        0.97,
+        0.12,
+        0.82,
+        0.43
+      ],
+      "reason": "hypothetical pollution and endpoint examples; Epstein mention not independently verified",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.29-D",
+      "source": "3c9ef561cf92817ca908d4b73a68d10f",
+      "claim": "post-deployment fit can reflect classification-induced changes rather than antecedent structure",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.98,
+        0.81,
+        0.97,
+        0.08,
+        0.86,
+        0.5
+      ],
+      "reason": "original thought experiments; held performative prediction literature independently reread in current review",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.30-D",
+      "source": "3c9ef561cf9281d08176e4c8d43365aa",
+      "claim": "descriptive and stabilization warrant require distinct causal provenance",
+      "type": "conceptual/thought experiment",
+      "v": [
+        0.95,
+        0.97,
+        0.77,
+        0.98,
+        0.1,
+        0.85,
+        0.48
+      ],
+      "reason": "original Two Forecasters and counterperformative examples; 4.57 already extends feedback to scientific institutions",
       "assessment": "retrospective single reviewer, not original-stage score"
     }
   ],
