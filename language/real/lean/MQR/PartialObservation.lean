@@ -64,6 +64,34 @@ theorem refinement_preserves_distinction {S O L : Type}
   intro eq
   exact h (congrArg forget eq)
 
+def constantSystem (s : Phase) : MQR.AuthoritySystem Phase Bool Bool :=
+  { label := coarseLabel, step := fun _ _ => s }
+
+theorem constant_fixed (s : Phase) (word : List Bool) :
+    MQR.run (constantSystem s) s word = s := by
+  induction word with
+  | nil => rfl
+  | cons p ps ih =>
+      change MQR.run (constantSystem s) s ps = s
+      exact ih
+
+/-- More experiments through the old sensor can never break this equivalence. -/
+theorem constant_coarse_agreement (word : List Bool) :
+    coarseLabel (MQR.run (constantSystem .zero) .zero word) =
+      coarseLabel (MQR.run (constantSystem .one) .zero word) := by
+  cases word with
+  | nil => rfl
+  | cons p ps =>
+      change coarseLabel (MQR.run (constantSystem .zero) .zero ps) =
+        coarseLabel (MQR.run (constantSystem .one) .one ps)
+      simp only [constant_fixed, coarseLabel]
+
+theorem constant_fine_separator :
+    MQR.run (constantSystem .zero) .zero [false] ≠
+      MQR.run (constantSystem .one) .zero [false] := by decide
+
+#print axioms constant_coarse_agreement
+#print axioms constant_fine_separator
 #print axioms state_agreement_two
 #print axioms coarse_agreement_three
 #print axioms coarse_separator_four
