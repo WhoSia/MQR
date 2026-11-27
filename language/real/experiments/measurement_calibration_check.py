@@ -1,6 +1,6 @@
 """Independent finite calibration bounds for the measurement-reactivity model."""
 from itertools import product
-from measurement_reactivity_check import exact_group, extrema
+from measurement_reactivity_check import exact_group, extrema, feasible, cost
 
 
 def linked_total_bounds(g0,g1,k,b):
@@ -54,4 +54,25 @@ def verify():
     for k in range(5):
         print(k,linked_total_bounds((4,0,1),(0,4,1),k,5))
 
-if __name__=='__main__':verify()
+def verify_nested():
+    comparisons=0
+    for g in product(range(6),repeat=3):
+        n=sum(g)
+        if not 1<=n<=5: continue
+        for a in range(g[2]+1):
+            for b in range(g[2]-a+1):
+                h=(g[0]+a,g[1]+b,g[2]-a-b)
+                for c in range(n+1):
+                    assert cost(g[1],g[2],c)<=cost(h[1],h[2],c)
+                    comparisons+=1
+    old=((3,0,1),(0,3,1)); new=((3,1,0),(1,3,0))
+    assert extrema(*old,1)==(4,16)
+    assert extrema(*new,1)==(4,12)
+    assert extrema(*new,2)==(0,16)
+    assert (2,2) not in feasible(*old,1) and (2,2) in feasible(*new,2)
+    assert (1,3) in feasible(*old,1)&feasible(*new,2)
+    print(f'nested comparisons: {comparisons}; fixed budget (4,12); replacement (0,16)')
+
+if __name__=='__main__':
+    verify()
+    verify_nested()
