@@ -354,6 +354,61 @@
           "decision": "prune: direct witness proof first"
         }
       ]
+    },
+    {
+      "heading": "Coverage versus epistemic architecture",
+      "before_execution": true,
+      "findings": "Reactivity one-group proof repaired and native run 46014996628 passed. Aggregate exact calibration code verified 43940 cases (10066 inconsistent, 31763 narrowed, 3156 newly signed). Marginal mismatch parity verified 203 patterns. Native joint budget proof and expanded Prolog checks running.",
+      "candidates": [
+        {
+          "id": "coverage-monotonicity-conditional",
+          "v": [
+            0.98,
+            0.96,
+            0.95,
+            0.9,
+            0.94
+          ],
+          "gate": "same cohort and target, nested observations, unchanged absolute mismatch budget",
+          "decision": "execute: characterize fixed-budget information nesting and break it under protocol changes"
+        },
+        {
+          "id": "source-architecture-concepts",
+          "v": [
+            0.96,
+            0.89,
+            0.82,
+            0.95,
+            0.84
+          ],
+          "gate": "held original work, selected text",
+          "decision": "parallel source check, avoid interpreting general causal formalism as novelty"
+        },
+        {
+          "id": "full-raw-biology-refit",
+          "v": [
+            0.94,
+            0.89,
+            0.24,
+            0.97,
+            0.3
+          ],
+          "gate": "no verified full cohort, untreated totals and perturbation bounds",
+          "decision": "HOLD"
+        },
+        {
+          "id": "rerun-larger-count-census",
+          "v": [
+            0.54,
+            0.43,
+            0.94,
+            0.39,
+            0.63
+          ],
+          "gate": "eligible",
+          "decision": "prune: strictly dominated by coverage monotonicity"
+        }
+      ]
     }
   ]
 }
