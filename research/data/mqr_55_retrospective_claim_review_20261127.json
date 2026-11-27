@@ -67,7 +67,8 @@
         "id": "0.11-D",
         "source": "3c8ef561cf92813a80c8c708e628fc1e"
       }
-    ]
+    ],
+    "followup2": "Seven early verdicts 0.4-D through 0.10-D and formal 0.4-C/0.6-C read directly, 8 new claim assessments; 26 total. Followup source IDs are within 0.X manifest; 0.6-C also read but no separate assessment. Earlier action decision snapshot retained; no claim of exhaustive early stage A–D reading."
   },
   "claims": [
     {
@@ -374,6 +375,142 @@
         0.38
       ],
       "reason": "original Perfect Heresy Machine and Lost Problem distinguish intra-framework critique and conceptual loss; acknowledges Kuhn/Feyerabend/Chang novelty objection; hypothetical cases, not historical evidence",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.4-D",
+      "source": "3c8ef561cf9281b88c99c78a1ab83b5c",
+      "claim": "observed response rank does not identify latent failure independence",
+      "type": "conceptual/formal",
+      "v": [
+        0.95,
+        0.98,
+        0.78,
+        0.96,
+        0.1,
+        0.86,
+        0.48
+      ],
+      "reason": "original verdict distinguishes diagnostic from causal independence; no new empirical independence test",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.4-C:rank",
+      "source": "3c8ef561cf9281f2b20bd7c8fa3494d6",
+      "claim": "effective rank lies in [1,rank(R)] for nonzero response matrix",
+      "type": "conceptual/formal",
+      "v": [
+        0.96,
+        0.99,
+        0.9,
+        0.82,
+        0.04,
+        0.98,
+        0.6
+      ],
+      "reason": "participation ratio via singular values; missing R=0 exception in original; conditional corrected claim",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.5-D",
+      "source": "3c8ef561cf92814d8774f4463310bf32",
+      "claim": "finite stress testing does not certify absence of unknown failures in open world",
+      "type": "conceptual/formal",
+      "v": [
+        0.95,
+        0.97,
+        0.83,
+        0.97,
+        0.08,
+        0.82,
+        0.45
+      ],
+      "reason": "original separates exposure, uptake and search; rejects ungrounded probabilities; no absolute failure coverage",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.6-D",
+      "source": "3c8ef561cf9281af8094c50299a3156f",
+      "claim": "dispersion under a chosen metric does not establish failure coverage",
+      "type": "conceptual/formal",
+      "v": [
+        0.95,
+        0.97,
+        0.78,
+        0.95,
+        0.1,
+        0.84,
+        0.43
+      ],
+      "reason": "original counterexample and metric authority HOLD; 4.53 later returns to transformation choice, not a closure",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.7-D",
+      "source": "3c8ef561cf92810ab3f4cf6e81e4f093",
+      "claim": "invariance under chosen representations is insufficient for physical identity",
+      "type": "conceptual/formal",
+      "v": [
+        0.95,
+        0.98,
+        0.78,
+        0.96,
+        0.09,
+        0.82,
+        0.51
+      ],
+      "reason": "original rejects automatic equivalence; selection of representation family remains unresolved",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.8-D",
+      "source": "3c8ef561cf92813eaa19e9eca297886c",
+      "claim": "typed preservation under partial bridges need not preserve object identity",
+      "type": "conceptual/formal",
+      "v": [
+        0.94,
+        0.96,
+        0.71,
+        0.95,
+        0.13,
+        0.78,
+        0.45
+      ],
+      "reason": "original loss and path dependence; no live rival bridge test in verdict",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.9-D",
+      "source": "3c8ef561cf9281569997ff47fce62428",
+      "claim": "retrospective bridge agreement can be trivial or path dependent",
+      "type": "conceptual/formal",
+      "v": [
+        0.94,
+        0.96,
+        0.74,
+        0.97,
+        0.12,
+        0.8,
+        0.43
+      ],
+      "reason": "original hypothetical Prism Archive/Broken Triangle/Empty Crown; no experimental validation",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "0.10-D",
+      "source": "3c8ef561cf9281a1821dd47c637d3689",
+      "claim": "idle ontology expansion and retrospective bridge fitting do not independently increase warrant",
+      "type": "conceptual/formal",
+      "v": [
+        0.94,
+        0.97,
+        0.77,
+        0.97,
+        0.1,
+        0.83,
+        0.46
+      ],
+      "reason": "original thought experiments; model selection and prior art overlap; universal bridge generator unresolved",
       "assessment": "retrospective single reviewer, not original-stage score"
     }
   ],
