@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-27",
+  "status": "after source exploration before analytical comparison",
+  "weights": [
+    0.25,
+    0.3,
+    0.2,
+    0.15,
+    0.1
+  ],
+  "candidates": [
+    {
+      "name": "compare institutional capacity and dependence-sensitive allocation",
+      "v": [
+        0.98,
+        0.96,
+        0.95,
+        0.92,
+        0.94
+      ],
+      "gate": true,
+      "P": 0.9549999999999998,
+      "geo": 0.9548025481180985,
+      "min": 0.92
+    },
+    {
+      "name": "continue 0.25+ original review",
+      "v": [
+        0.99,
+        0.87,
+        0.94,
+        0.88,
+        0.88
+      ],
+      "gate": true,
+      "P": 0.9164999999999999,
+      "geo": 0.915189045645133,
+      "min": 0.87
+    },
+    {
+      "name": "historical primary archive on neglected research route",
+      "v": [
+        0.98,
+        0.94,
+        0.72,
+        0.92,
+        0.8
+      ],
+      "gate": true,
+      "P": 0.889,
+      "geo": 0.8832599674718916,
+      "min": 0.72
+    },
+    {
+      "name": "repeat fixed-menu exploration toy",
+      "v": [
+        0.6,
+        0.5,
+        0.96,
+        0.3,
+        0.9
+      ],
+      "gate": true,
+      "P": 0.627,
+      "geo": 0.5857003717194228,
+      "min": 0.3
+    }
+  ],
+  "limitations": "subjective central values only; no calibrated uncertainty; historical access to particular archive not yet certified",
+  "decision": "compare existing models and derive dependence bounds, avoid repeating arbitrary toy; retain 5.5"
+}
