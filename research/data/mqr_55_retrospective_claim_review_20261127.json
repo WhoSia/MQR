@@ -1,0 +1,426 @@
+{
+  "date": "2026-11-27",
+  "scope": "Retrospective claim-level review, not a total project rank; no new physical experiments or historical CI rerun. Source access depth is explicit.",
+  "axes": {
+    "E": "evidence quality for stated claim",
+    "C": "scoped inferential warrant",
+    "G": "support for extension outside scope",
+    "L": "research value",
+    "N": "demonstrated originality relative to prior art (not value)",
+    "R": "reproducibility/traceability within evidence type",
+    "I": "independent corroboration appropriate to claim"
+  },
+  "coverage": {
+    "registered": [
+      246,
+      1421,
+      516,
+      187,
+      107
+    ],
+    "manifestIds": [
+      "401ef561cf92816ba19dfda9a3cb02a8",
+      "401ef561cf928127b159d23cf4c508cd",
+      "401ef561cf9281809e59c9f13afad24d",
+      "401ef561cf928152a995f577ff438a6d",
+      "401ef561cf928176bc29da084c419317"
+    ],
+    "archiveFiles": 45,
+    "archiveDirect": "MQR 1 first prompt/answer and 0.31 prompt vicinity only; all 45 filenames checked, not full text",
+    "note": "Counts from five existing manifest pages, uniqueness within each verified, cross-manifest uniqueness previously recorded, not independently rerun here. Not total historical corpus. No automatic scoring of unreviewed items."
+  },
+  "claims": [
+    {
+      "id": "0.31-A",
+      "source": "3c9ef561cf92815cb3becdb46743a62d",
+      "claim": "bridge existence differs from discoverability",
+      "type": "conceptual",
+      "v": [
+        0.94,
+        0.98,
+        0.78,
+        0.99,
+        0.22,
+        0.92,
+        0.52
+      ],
+      "reason": "original napkin read; strong distinction, external theories and feasibility not adjudicated",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "1.11-C",
+      "source": "3caef561cf92815da5f9f28974f3d143",
+      "claim": "pairwise compatibility need not entail joint satisfiability",
+      "type": "formal",
+      "v": [
+        0.92,
+        0.98,
+        0.68,
+        0.95,
+        0.12,
+        0.82,
+        0.55
+      ],
+      "reason": "formal page inspected; standard gluing; actual bridge evidence remains separate",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "2.0-C",
+      "source": "3ccef561cf92814aa529e21c3b7e4060",
+      "claim": "retain unresolved adverse obligations on evaluator change",
+      "type": "methodological",
+      "v": [
+        0.92,
+        0.86,
+        0.55,
+        0.8,
+        0.2,
+        0.72,
+        0.3
+      ],
+      "reason": "explicit policy; usefulness and irreducibility not established",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "2.0-D",
+      "source": "3ccef561cf9281b1adbde4e4b6cc051b",
+      "claim": "K7 is an irreducible new constitutional principle",
+      "type": "strong claim",
+      "v": [
+        0.42,
+        0.25,
+        0.2,
+        0.52,
+        0.15,
+        0.32,
+        0.12
+      ],
+      "reason": "founding verdict asserts irreducibility but contains no proof, explicitly novelty hold and external validation required",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "2.91 audit",
+      "source": "3cdef561cf9281fa95e9dbe834579cc3",
+      "claim": "2.92–2.96 preserved but not retro-ratified",
+      "type": "internal historical",
+      "v": [
+        0.96,
+        0.97,
+        0.45,
+        0.9,
+        0.25,
+        0.9,
+        0.6
+      ],
+      "reason": "audit documents chronology and distinguishes original next label from later CI; original 2.91 and run not rerun",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "3.89",
+      "source": "3d8ef561cf9281e9a16deecc7c2845e7",
+      "claim": "operational equivalence does not identify ultimate token identity",
+      "type": "conceptual/formal",
+      "v": [
+        0.89,
+        0.96,
+        0.65,
+        0.94,
+        0.12,
+        0.8,
+        0.48
+      ],
+      "reason": "selected source text and verdict; prior gauge and haecceitism literature; permanent idleness conditional",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "3.94",
+      "source": "3d9ef561cf9281e98631e6e0fb058c88",
+      "claim": "posterior stability alone does not establish world identification",
+      "type": "conceptual/formal",
+      "v": [
+        0.92,
+        0.98,
+        0.77,
+        0.96,
+        0.1,
+        0.8,
+        0.54
+      ],
+      "reason": "selected original argument; historical external papers not reread, no empirical test",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "4.53",
+      "source": "experiments/mqr-4.53/FINAL-SEAL.md",
+      "claim": "13 tested progress families do not license universal scalar",
+      "type": "bounded formal audit",
+      "v": [
+        0.93,
+        0.95,
+        0.47,
+        0.97,
+        0.2,
+        0.86,
+        0.47
+      ],
+      "reason": "seal and Notion result inspected; historic CI receipts reported not rerun; no exhaustive impossibility theorem",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "4.120 P8",
+      "source": "research/mqr_4120_p8_recid_source_identity_recovery.md",
+      "claim": "9223 rows match MIT IDs conditional on third-party table",
+      "type": "empirical data audit",
+      "v": [
+        0.88,
+        0.94,
+        0.28,
+        0.94,
+        0.36,
+        0.82,
+        0.56
+      ],
+      "reason": "historical record of exact joins; source bytes not reread; subsequent official lineage described in 5.0, not freshly certified",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "5.1",
+      "source": "409ef561cf92817699e8ecd784a5928e",
+      "claim": "factorial interaction identified under stated randomization assumptions",
+      "type": "formal",
+      "v": [
+        0.95,
+        0.99,
+        0.75,
+        0.86,
+        0.06,
+        0.92,
+        0.67
+      ],
+      "reason": "standard contrast, historical Meselson–Stahl causal interaction remains unobserved",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "5.2",
+      "source": "409ef561cf9281e99712d11eeaf5e98b",
+      "claim": "experiment deficiency depends on posited common state space",
+      "type": "formal",
+      "v": [
+        0.94,
+        0.98,
+        0.68,
+        0.97,
+        0.1,
+        0.89,
+        0.58
+      ],
+      "reason": "explicit finite example, conditional standard Le Cam reasoning",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "5.3",
+      "source": "research/mqr_53_r46_ar_1783_monthly_review_original_text_operational_conditions_and_google_books_census.md",
+      "claim": "reported 1783 abstract retains melting-ice condition, omits preparation detail",
+      "type": "documentary",
+      "v": [
+        0.88,
+        0.92,
+        0.3,
+        0.94,
+        0.38,
+        0.85,
+        0.48
+      ],
+      "reason": "research record reread; original scan not reread this turn; distinguishes reported text from causal attribution",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "5.4 FinBIF",
+      "source": "research/finbif_monotone_missingness_partial_identification_20261127.md",
+      "claim": "reported monotone availability for 2272 documents",
+      "type": "empirical data audit",
+      "v": [
+        0.92,
+        0.97,
+        0.28,
+        0.95,
+        0.34,
+        0.89,
+        0.5
+      ],
+      "reason": "archived actual execution and source SHA reported; no raw rerun today; physical flowering not identified",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "5.4 homometry",
+      "source": "research/representation_and_reference_observable_genesis_20261127.md",
+      "claim": "ideal finite homometric pair distinguishable by calibrated reference",
+      "type": "formal",
+      "v": [
+        0.95,
+        0.99,
+        0.46,
+        0.92,
+        0.08,
+        0.92,
+        0.65
+      ],
+      "reason": "published example and reported checks; not actual instrument",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    },
+    {
+      "id": "5.5 coordination",
+      "source": "research/mqr_55_coordination_convention_and_world_constraint_20261127.md",
+      "claim": "identical feedback need not identify stipulated external target",
+      "type": "formal",
+      "v": [
+        0.96,
+        0.99,
+        0.43,
+        0.92,
+        0.08,
+        0.94,
+        0.57
+      ],
+      "reason": "conditional analytic result; roles, target and interface given",
+      "assessment": "retrospective single reviewer, not original-stage score"
+    }
+  ],
+  "actions": [
+    {
+      "name": "early original archive claim/retraction audit",
+      "v": [
+        0.99,
+        0.95,
+        0.91,
+        0.93,
+        0.86
+      ],
+      "low": [
+        0.95,
+        0.88,
+        0.8,
+        0.83,
+        0.74
+      ],
+      "high": [
+        1,
+        0.99,
+        0.96,
+        0.98,
+        0.93
+      ],
+      "gate": true
+    },
+    {
+      "name": "historical shared artifact case with dated primary evidence",
+      "v": [
+        0.98,
+        0.94,
+        0.85,
+        0.92,
+        0.83
+      ],
+      "low": [
+        0.93,
+        0.85,
+        0.72,
+        0.8,
+        0.71
+      ],
+      "high": [
+        1,
+        0.99,
+        0.92,
+        0.97,
+        0.91
+      ],
+      "gate": true
+    },
+    {
+      "name": "reproduce 4.X actual source result with preserved inputs",
+      "v": [
+        0.96,
+        0.94,
+        0.72,
+        0.95,
+        0.75
+      ],
+      "low": [
+        0.9,
+        0.84,
+        0.55,
+        0.85,
+        0.6
+      ],
+      "high": [
+        0.99,
+        0.99,
+        0.88,
+        0.99,
+        0.86
+      ],
+      "gate": true,
+      "condition": "reopen original source and code first; no physical independent validation implied"
+    },
+    {
+      "name": "further permutation synthetic variation",
+      "v": [
+        0.68,
+        0.52,
+        0.96,
+        0.3,
+        0.9
+      ],
+      "low": [
+        0.58,
+        0.4,
+        0.89,
+        0.2,
+        0.78
+      ],
+      "high": [
+        0.79,
+        0.65,
+        0.99,
+        0.45,
+        0.96
+      ],
+      "gate": true
+    },
+    {
+      "name": "independent matched FinBIF field validation now",
+      "v": [
+        0.97,
+        0.98,
+        0.2,
+        0.98,
+        0.55
+      ],
+      "low": [
+        0.91,
+        0.9,
+        0.05,
+        0.85,
+        0.35
+      ],
+      "high": [
+        1,
+        1,
+        0.45,
+        1,
+        0.75
+      ],
+      "gate": false,
+      "reason": "same target independent data not yet verified"
+    }
+  ],
+  "weights": [
+    0.25,
+    0.3,
+    0.2,
+    0.15,
+    0.1
+  ],
+  "rule": "Claim vectors not aggregated across evidence types. Decision P retained as local policy; compare Pareto dominance, geometric mean, bottleneck, declared uncertainty bounds and worst-case regret; hard gates separate. Intervals subjective scenario bounds, not statistical CIs. No automatic version promotion."
+}
