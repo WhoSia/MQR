@@ -1,0 +1,130 @@
+{
+  "scope": "local action choice only; subjective independent interval box, not probabilities or empirically calibrated uncertainty. Worst regret max rival upper P minus own lower P; same candidate excluded. Conservative scenario only.",
+  "metrics": [
+    {
+      "name": "early original archive claim/retraction audit",
+      "gate": true,
+      "P": 0.9400000000000001,
+      "geo": 0.9391964581291985,
+      "bottleneck": 0.86,
+      "P_range": [
+        0.86,
+        0.9789999999999999
+      ],
+      "geo_range": [
+        0.8573903401559867,
+        0.9787618005035352
+      ],
+      "min_range": [
+        0.74,
+        0.93
+      ],
+      "dominatedBy": [],
+      "robustDominatedBy": [],
+      "worstRegret": 0.10749999999999993
+    },
+    {
+      "name": "historical shared artifact case with dated primary evidence",
+      "gate": true,
+      "P": 0.9179999999999999,
+      "geo": 0.9164412805328619,
+      "bottleneck": 0.83,
+      "P_range": [
+        0.8225,
+        0.9674999999999999
+      ],
+      "geo_range": [
+        0.8184690229203921,
+        0.9668698620796549
+      ],
+      "min_range": [
+        0.71,
+        0.91
+      ],
+      "dominatedBy": [
+        "early original archive claim/retraction audit"
+      ],
+      "robustDominatedBy": [],
+      "worstRegret": 0.15649999999999986
+    },
+    {
+      "name": "reproduce 4.X actual source result with preserved inputs",
+      "gate": true,
+      "P": 0.8835,
+      "geo": 0.8772781864739121,
+      "bottleneck": 0.72,
+      "P_range": [
+        0.7745,
+        0.955
+      ],
+      "geo_range": [
+        0.7605800242272557,
+        0.9534348358116589
+      ],
+      "min_range": [
+        0.55,
+        0.86
+      ],
+      "dominatedBy": [],
+      "robustDominatedBy": [],
+      "worstRegret": 0.2044999999999999
+    },
+    {
+      "name": "further permutation synthetic variation",
+      "gate": true,
+      "P": 0.653,
+      "geo": 0.6114696656507078,
+      "bottleneck": 0.3,
+      "P_range": [
+        0.5510000000000002,
+        0.754
+      ],
+      "geo_range": [
+        0.496268782183216,
+        0.7304942791320964
+      ],
+      "min_range": [
+        0.2,
+        0.45
+      ],
+      "dominatedBy": [],
+      "robustDominatedBy": [],
+      "worstRegret": 0.4279999999999997
+    },
+    {
+      "name": "independent matched FinBIF field validation now",
+      "gate": false,
+      "P": 0.7785000000000001,
+      "geo": 0.6714086555497247,
+      "bottleneck": 0.2,
+      "P_range": [
+        0.67,
+        0.865
+      ],
+      "geo_range": [
+        0.4567165454632044,
+        0.828225559790924
+      ],
+      "min_range": [
+        0.05,
+        0.45
+      ],
+      "dominatedBy": [],
+      "robustDominatedBy": [],
+      "worstRegret": null
+    }
+  ],
+  "weightCornerWins": {
+    "early original archive claim/retraction audit": 32
+  },
+  "selectedByMinimaxRegret": "early original archive claim/retraction audit",
+  "tests": {
+    "allScoresBounded": true,
+    "intervalsContainCentral": true,
+    "weightsSum": true,
+    "blockedNotSelected": true,
+    "tradeoffNotTotal": true,
+    "noncompensation": true,
+    "cornerCount": true
+  }
+}
