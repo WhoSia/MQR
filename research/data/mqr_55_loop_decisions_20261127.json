@@ -409,6 +409,61 @@
           "decision": "prune: strictly dominated by coverage monotonicity"
         }
       ]
+    },
+    {
+      "heading": "Reassess after calibration and coverage results",
+      "before_execution": false,
+      "findings": "Final exact CI 46015448292 passed 5 Lean modules (41 theorem declarations), Prolog 54/54 (17 new module tests). Prior Lean failed on unavailable generic order lemmas, repaired; one independent Python assertion initially expected the wrong upper bound at fixed budget (16 instead of 12), corrected from direct enumeration. Old 75% coverage with k=1 contrast [4,16]; complete coverage with same k=1 [4,12]; replacing by a recalculated 25% rate budget k=2 [0,16]. All 1301 nested count comparisons passed. Held Boon 2012 pp219–224 shows conceptual and material production of phenomena is established prior art.",
+      "candidates": [
+        {
+          "id": "engineered-versus-native-phenomenon",
+          "v": [
+            0.98,
+            0.94,
+            0.88,
+            0.96,
+            0.87
+          ],
+          "gate": "define distinct estimands and real case, no assumed disturbance-is-always-error",
+          "decision": "retain as primary next branch; different mechanism from more counting"
+        },
+        {
+          "id": "transport-of-reactivity-calibration",
+          "v": [
+            0.95,
+            0.97,
+            0.86,
+            0.94,
+            0.87
+          ],
+          "gate": "need exact independent calibration and explicit regime link",
+          "decision": "retain non-dominated alternative; scope-specific"
+        },
+        {
+          "id": "larger-binary-enumeration",
+          "v": [
+            0.52,
+            0.39,
+            0.86,
+            0.3,
+            0.58
+          ],
+          "gate": "eligible",
+          "decision": "prune: dominated by engineered-versus-native branch"
+        },
+        {
+          "id": "general-theory-promotion",
+          "v": [
+            0.83,
+            0.41,
+            0.45,
+            0.37,
+            0.3
+          ],
+          "gate": "real-world transport and concept-generation evidence insufficient",
+          "decision": "HOLD: MQR 5.5 OPEN"
+        }
+      ]
     }
   ]
 }
