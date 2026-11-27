@@ -665,6 +665,73 @@
           "decision": "reject premature promotion"
         }
       ]
+    },
+    {
+      "heading": "Knowledge survival versus practice renewal (2026-11-28 KST)",
+      "before_execution": true,
+      "findings": "Olver introduction and Kung/Rota 1984 pp27–29 and §7 inspected; Fisher 1966 full text unavailable, Fisher 1967 extract only; Gerontas 2026 chromatography paper found, describes a method's delayed uptake and subsequent specialty rather than an absence of specialty. Prospective scores concern next analyses.",
+      "candidates": [
+        {
+          "id": "existence-versus-construction-and-revival",
+          "v": [
+            0.99,
+            0.98,
+            0.96,
+            0.95,
+            0.93
+          ],
+          "gate": "actual mathematical content and dated primary revival source; no inferred unique historical cause",
+          "decision": "execute; test whether preserving a result preserves capability"
+        },
+        {
+          "id": "delayed-uptake-and-practice",
+          "v": [
+            0.97,
+            0.96,
+            0.9,
+            0.97,
+            0.89
+          ],
+          "gate": "read historical argument and counterevidence; no false claim of absent specialty",
+          "decision": "execute; compare scientific practice and theory trajectories"
+        },
+        {
+          "id": "competence-transfer-closure",
+          "v": [
+            0.97,
+            0.97,
+            0.96,
+            0.9,
+            0.95
+          ],
+          "gate": "explicit finite typed model, audit prior archive/closure work; no empirical fit claim",
+          "decision": "execute if distinct from earlier reopening models"
+        },
+        {
+          "id": "fisher-original-history",
+          "v": [
+            0.98,
+            0.95,
+            0.35,
+            0.97,
+            0.55
+          ],
+          "gate": "full text still not verified",
+          "decision": "HOLD; search alternative lawful source, don't substitute extract for full text"
+        },
+        {
+          "id": "generic-growth-census",
+          "v": [
+            0.48,
+            0.42,
+            0.91,
+            0.35,
+            0.65
+          ],
+          "gate": "no new historical mechanism",
+          "decision": "prune as dominated"
+        }
+      ]
     }
   ]
 }
