@@ -50,4 +50,16 @@ test(duplicate_agreement) :-
     assertion(A == B).
 test(invalid_policy,[fail]) :- worlds_for([cell(2,0,1)], _).
 test(unbound_observation,[fail]) :- worlds_for([cell(_,0,1)], _).
+test(baseline_and_policy_only_suffice) :-
+    response_status([cell(0,0,0),cell(1,0,1)], identified(1)).
+test(missing_baseline) :-
+    worlds_for([cell(1,0,1),cell(0,1,1),cell(1,1,2)], Ws),
+    assertion(memberchk(w(0,1,1,0), Ws)),
+    assertion(memberchk(w(1,0,0,1), Ws)),
+    response_status([cell(1,0,1),cell(0,1,1),cell(1,1,2)], ambiguous([0,1])).
+test(missing_policy_only) :-
+    response_status([cell(0,0,0),cell(0,1,0),cell(1,1,1)], ambiguous([0,1])).
+test(missing_standard_only) :-
+    worlds_for([cell(0,0,0),cell(1,0,0),cell(1,1,1)], Ws),
+    assertion(Ws == [w(0,0,0,1),w(0,0,1,0)]).
 :- end_tests(feedback_identification).
