@@ -16,14 +16,11 @@ theorem sharp_group_bounds (n m p k c : Int)
   · rintro ⟨t, ht0, htn, htl, htu, htc, hct⟩
     exact ⟨by omega, by omega, by omega, by omega⟩
   · rintro ⟨hc0,hcl,hcn,hcu⟩
-    let t := max 0 (max (p-k) (c-m))
-    have h0 : 0 ≤ t := le_max_left _ _
-    have h1 : p-k ≤ t := le_trans (le_max_left _ _) (le_max_right _ _)
-    have h2 : c-m ≤ t := le_trans (le_max_right _ _) (le_max_right _ _)
-    have hn' : t ≤ n := max_le hn (max_le (by omega) (by omega))
-    have hu : t ≤ p+k := max_le (by omega) (max_le (by omega) (by omega))
-    have hc : t ≤ c := max_le hc0 (max_le hcl (by omega))
-    exact ⟨t,h0,hn',h1,hu,hc,by omega⟩
+    by_cases h0 : p-k ≤ 0 ∧ c-m ≤ 0
+    · exact ⟨0, by omega, by omega, by omega, by omega, by omega, by omega⟩
+    · by_cases h1 : c-m ≤ p-k
+      · exact ⟨p-k, by omega, by omega, by omega, by omega, by omega, by omega⟩
+      · exact ⟨c-m, by omega, by omega, by omega, by omega, by omega, by omega⟩
 
 /-- The least number of observed mismatches compatible with c is
     max(0,p-c,c-p-m). Expressed as linear constraints to avoid a hidden
