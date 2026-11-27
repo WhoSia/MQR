@@ -531,6 +531,73 @@
           "decision": "prune as dominated"
         }
       ]
+    },
+    {
+      "heading": "Method emergence, target reversal, and counterfactual necessity (2026-11-28 KST)",
+      "before_execution": true,
+      "findings": "Retrospective reading already done: Eilenberg–Mac Lane 1945 introduction; Landry–Marquis 2005 pp1–8; Newell–Perlis–Simon 1967 archival reprint; Griffiths 2017 selected comparative-method passages; Mullins 1972 pp51–56 from newly held intake. Krauss explicitly denies sufficiency and includes method fusion; do not strawman. Prospective choices below concern further analysis.",
+      "candidates": [
+        {
+          "id": "causal-necessity-identification",
+          "v": [
+            0.99,
+            0.98,
+            0.96,
+            0.92,
+            0.94
+          ],
+          "gate": "construct observationally equivalent structural explanations; no claim that confounding actually occurred",
+          "decision": "execute: derive finite causal counterexample and distinguish token/type necessity"
+        },
+        {
+          "id": "field-autonomy-historical-witness",
+          "v": [
+            0.99,
+            0.96,
+            0.95,
+            0.96,
+            0.91
+          ],
+          "gate": "dated language emergence vs recognized autonomous research; secondary and original evidence distinguished",
+          "decision": "execute: deepen category theory and computer science"
+        },
+        {
+          "id": "social-reproduction-and-method-sharing",
+          "v": [
+            0.97,
+            0.94,
+            0.88,
+            0.97,
+            0.87
+          ],
+          "gate": "held Mullins and comparative humanities readings; nonexclusive explanations",
+          "decision": "execute; compare competing mechanisms, avoid universal sequence"
+        },
+        {
+          "id": "unverified-supplement-statistics",
+          "v": [
+            0.83,
+            0.86,
+            0.3,
+            0.9,
+            0.48
+          ],
+          "gate": "Krauss list supplement web retrieval failed",
+          "decision": "HOLD; no fabricated census"
+        },
+        {
+          "id": "new-generic-field-taxonomy",
+          "v": [
+            0.52,
+            0.4,
+            0.94,
+            0.3,
+            0.72
+          ],
+          "gate": "no new discrimination beyond existing taxonomy",
+          "decision": "prune: dominated by causal-necessity analysis"
+        }
+      ]
     }
   ]
 }
