@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-27",
+  "status": "prospective for calculation after reading original claims",
+  "weights": [
+    0.25,
+    0.3,
+    0.2,
+    0.15,
+    0.1
+  ],
+  "actions": [
+    {
+      "name": "audit early effective-rank claim and exact replication counterexample",
+      "v": [
+        0.97,
+        0.95,
+        0.98,
+        0.85,
+        0.96
+      ],
+      "gate": true,
+      "P": 0.947,
+      "geo": 0.9460088351161365,
+      "bottleneck": 0.85
+    },
+    {
+      "name": "read further early formal sources",
+      "v": [
+        0.99,
+        0.87,
+        0.94,
+        0.88,
+        0.88
+      ],
+      "gate": true,
+      "P": 0.9164999999999999,
+      "geo": 0.915189045645133,
+      "bottleneck": 0.87
+    },
+    {
+      "name": "historical artifact genealogy",
+      "v": [
+        0.98,
+        0.94,
+        0.85,
+        0.92,
+        0.83
+      ],
+      "gate": true,
+      "P": 0.9179999999999999,
+      "geo": 0.9164412805328619,
+      "bottleneck": 0.83
+    },
+    {
+      "name": "rerun protein joint refinement",
+      "v": [
+        0.95,
+        0.95,
+        0.4,
+        0.92,
+        0.55
+      ],
+      "gate": false,
+      "reason": "raw supplement and runtime not reverified",
+      "P": 0.7955000000000001,
+      "geo": 0.7529470294260361,
+      "bottleneck": 0.4
+    }
+  ],
+  "wins": {
+    "audit early effective-rank claim and exact replication counterexample": 32
+  },
+  "decision": "perform rank correction then resume archival and historical evidence work; no new version",
+  "limitations": "subjective central scores; weight corners alone do not bound rating uncertainty; no total progress rank"
+}
