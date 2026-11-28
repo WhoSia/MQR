@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-28 KST",
+  "phase": "5.7",
+  "axes": [
+    "V",
+    "D",
+    "F",
+    "I",
+    "K"
+  ],
+  "candidates": [
+    {
+      "id": "approximate-invariance-closure",
+      "v": [
+        0.98,
+        0.98,
+        0.95,
+        0.94,
+        0.94
+      ],
+      "decision": "execute exact and sampled graph closure against simultaneous confidence diameter criterion"
+    },
+    {
+      "id": "structural-vs-distributional-invariance",
+      "v": [
+        0.99,
+        0.99,
+        0.99,
+        0.95,
+        0.97
+      ],
+      "decision": "execute counterfactual witness"
+    },
+    {
+      "id": "real-climate-CFL",
+      "v": [
+        0.99,
+        0.96,
+        0.74,
+        0.97,
+        0.83
+      ],
+      "decision": "read original empirical method and limitations; independent replication not assumed"
+    },
+    {
+      "id": "full-GAN",
+      "v": [
+        0.86,
+        0.91,
+        0.43,
+        0.83,
+        0.55
+      ],
+      "decision": "retain deferred"
+    }
+  ],
+  "experiment": {
+    "seed": 20261128,
+    "states": 21,
+    "p": "0.1+0.04*i",
+    "epsilon": 0.05,
+    "alpha": 0.05,
+    "n": [
+      250,
+      2500,
+      25000
+    ],
+    "replications": 40,
+    "design": "compare exact connected components and diameter; finite-data compare naive single link and confidence-certified diameter; no claim of actual physical data",
+    "metrics": [
+      "cluster count",
+      "maximum within-cluster true TV diameter",
+      "fraction of runs exceeding epsilon",
+      "simultaneous confidence coverage"
+    ]
+  }
+}
