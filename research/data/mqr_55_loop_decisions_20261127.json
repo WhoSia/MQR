@@ -854,6 +854,73 @@
           "decision": "HOLD; 5.5 OPEN"
         }
       ]
+    },
+    {
+      "heading": "Transfer of competence versus transfer of representations (2026-11-28 KST)",
+      "before_execution": true,
+      "findings": "Kaiser 2005 article and book introduction inspected; book p13 page image confirms text-only Soviet learners acquired one calculational use but not observed improvisational uses to the same extent. Do not infer universal impossibility of text-only transfer.",
+      "candidates": [
+        {
+          "id": "transfer-and-adaptation",
+          "v": [
+            0.99,
+            0.98,
+            0.93,
+            0.96,
+            0.92
+          ],
+          "gate": "separate historical evidence of teaching and application, not universal causal claim",
+          "decision": "execute: compare formal calculation, new uses, and recipient-generated questions"
+        },
+        {
+          "id": "mathematical-target-transformation",
+          "v": [
+            0.98,
+            0.96,
+            0.88,
+            0.95,
+            0.9
+          ],
+          "gate": "held historical source with dated mathematical content",
+          "decision": "execute independently; Fourier-to-set-theory lineage, avoid single-cause genealogy"
+        },
+        {
+          "id": "transfer-identification-general",
+          "v": [
+            0.97,
+            0.96,
+            0.96,
+            0.9,
+            0.94
+          ],
+          "gate": "general capability equivalence under restricted task sets; check existing results before coding",
+          "decision": "retain if adds distinction beyond observational quotient"
+        },
+        {
+          "id": "extend-cost-census",
+          "v": [
+            0.5,
+            0.4,
+            0.97,
+            0.25,
+            0.66
+          ],
+          "gate": "no new mechanism",
+          "decision": "defer: ease alone not enough"
+        },
+        {
+          "id": "universal-tacit-knowledge-barrier",
+          "v": [
+            0.7,
+            0.25,
+            0.5,
+            0.35,
+            0.4
+          ],
+          "gate": "contradicted by Kaiser's own text-only example",
+          "decision": "reject"
+        }
+      ]
     }
   ]
 }
