@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-28 KST",
+  "phase": "5.7",
+  "scope": "secondary monthly index pilot; not Chalupka gridded CFL reproduction",
+  "sources": [
+    "https://psl.noaa.gov/data/correlation/nina34.anom.data",
+    "https://psl.noaa.gov/data/timeseries/month/data/soi.long.data"
+  ],
+  "source_conflict": "Nino landing V5 vs numeric file footer V6; use footer label provisionally; SOI revised Nov 2025; web-transcribed numeric rows, raw download DNS failed",
+  "window": "1990-2024",
+  "train": "1990-2004",
+  "validation": "2005-2014",
+  "test": "2015-2024",
+  "models": [
+    "climatology",
+    "persistence",
+    "OLS current SST",
+    "OLS current SOI",
+    "OLS SST+SOI",
+    "OLS SST+SOI+annual harmonic"
+  ],
+  "horizons": [
+    1,
+    3,
+    6
+  ],
+  "loss": "RMSE in Celsius, split by target and origin within same period",
+  "negative_control": "circular whole-year shifts of SOI within each split, train/test shifted separately with same shift; descriptive not exchangeable p-value",
+  "additional": "exploratory conditional mean SOI-bin representation; compare SST-only autoregression and cross-index effect; no causal inference",
+  "guardrails": [
+    "no event labels in training",
+    "no normalization fit to test",
+    "retrospectively revised indices not operational forecast",
+    "no claimed independent replication",
+    "freeze method before arithmetic; sources already seen"
+  ]
+}
