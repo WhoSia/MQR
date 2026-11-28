@@ -988,6 +988,73 @@
           "decision": "HOLD; 5.5 OPEN"
         }
       ]
+    },
+    {
+      "heading": "Return to pure genesis: reasoning styles and constituting questions (2026-11-28 KST)",
+      "before_execution": true,
+      "findings": "User explicitly prefers pure direction; current 23-entry missing TXT inspected; held Feest introduction/2010, Hacking 1992, Kusch 2010 located and selected passages read. Historical ontology and epistemology precede this project. Prospective decision concerns synthesis, not prior retrieval.",
+      "candidates": [
+        {
+          "id": "question-genesis-vs-truth",
+          "v": [
+            0.99,
+            0.98,
+            0.96,
+            0.95,
+            0.96
+          ],
+          "gate": "distinguish expressibility, recognition, warrant and evidence; confront prior art rather than rename",
+          "decision": "execute primary philosophical synthesis and precise mathematical witness"
+        },
+        {
+          "id": "provisional-object-feedback",
+          "v": [
+            0.99,
+            0.96,
+            0.95,
+            0.96,
+            0.93
+          ],
+          "gate": "held Feest, Haueis, selected passages; no empirical diagnosis",
+          "decision": "execute independent contrast"
+        },
+        {
+          "id": "stale-literature-alternatives",
+          "v": [
+            0.93,
+            0.95,
+            0.96,
+            0.93,
+            0.95
+          ],
+          "gate": "separate exact original, partial, substitute; no parallel ledger; no false acquisition",
+          "decision": "execute targeted cross-project triage"
+        },
+        {
+          "id": "institutional-case-expansion-only",
+          "v": [
+            0.81,
+            0.73,
+            0.89,
+            0.88,
+            0.83
+          ],
+          "gate": "user prefers founding question",
+          "decision": "defer: dominated by question genesis"
+        },
+        {
+          "id": "new-Boolean-metrics",
+          "v": [
+            0.44,
+            0.35,
+            0.97,
+            0.27,
+            0.65
+          ],
+          "gate": "overlap with prior MQR quotient",
+          "decision": "prune; no additional discriminator"
+        }
+      ]
     }
   ]
 }
