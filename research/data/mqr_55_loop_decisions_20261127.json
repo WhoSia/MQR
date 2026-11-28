@@ -1055,6 +1055,73 @@
           "decision": "prune; no additional discriminator"
         }
       ]
+    },
+    {
+      "heading": "Pure inquiry genesis after philosophical confrontation (2026-11-28 KST)",
+      "before_execution": false,
+      "findings": "Held Hacking 1992 pp1–5/11–15, Kusch 2010 selected critique, Feest 2010 selected sections and 2025 introduction pp1–5, Haueis 2023 introduction, Gödel 1947 pp515–521 read. Definitional conservativity and relative independence distinguished from actual question genesis. 23-item shared TXT read; existing substitutes located in collection and open routes identified, no exact originals newly acquired; local Fraenkel 1922 PDF download failed DNS. No raw TXT write. No new formal code.",
+      "candidates": [
+        {
+          "id": "constituting-questions-without-hindsight",
+          "v": [
+            0.99,
+            0.98,
+            0.91,
+            0.96,
+            0.94
+          ],
+          "gate": "dated conceptual change, compare predecessor's actual repertoire to analyst's retrospective language",
+          "decision": "retain primary; pursue mechanism rather than taxonomy"
+        },
+        {
+          "id": "cross-style-critique-and-constraint",
+          "v": [
+            0.99,
+            0.97,
+            0.89,
+            0.97,
+            0.9
+          ],
+          "gate": "partial shared challenge routes; avoid universal warrant scale and relativism by assertion",
+          "decision": "retain parallel"
+        },
+        {
+          "id": "axiom-selection-and-question-formation",
+          "v": [
+            0.98,
+            0.96,
+            0.9,
+            0.95,
+            0.92
+          ],
+          "gate": "separate consistency, consequence and fruitfulness; distinguish Gödel philosophical proposal from theorem",
+          "decision": "retain non-dominated pure-math branch"
+        },
+        {
+          "id": "institutional-census-only",
+          "v": [
+            0.77,
+            0.67,
+            0.85,
+            0.76,
+            0.76
+          ],
+          "gate": "does not address founding question directly",
+          "decision": "defer; dominated by question constitution"
+        },
+        {
+          "id": "extra-synthetic-quotient-checks",
+          "v": [
+            0.45,
+            0.38,
+            0.97,
+            0.27,
+            0.65
+          ],
+          "gate": "existing MQR results cover cases",
+          "decision": "prune; no further discriminatory return"
+        }
+      ]
     }
   ]
 }
