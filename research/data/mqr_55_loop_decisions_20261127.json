@@ -921,6 +921,73 @@
           "decision": "reject"
         }
       ]
+    },
+    {
+      "heading": "Transfer and question formation: review after historical and mathematical work (2026-11-28 KST)",
+      "before_execution": false,
+      "findings": "Kaiser article and book chapter 1 pp13–18 (p13 actual image), Gell-Mann–Brueckner 1957 first page and subsequent specific-heat abstract, held Ferreirós pp153–159/202–204 and Cantor 1872 §§2–3 read. Held Galison and Notion 2.65–2.66 verdicts confirm prior art. Explicit compact countable point sets of arbitrarily high finite derivative rank proved analytically; their countable union has perfect derivative. No new Lean proxy or native run; previous 52/74 unchanged.",
+      "candidates": [
+        {
+          "id": "field-with-external-institutional-support",
+          "v": [
+            0.99,
+            0.97,
+            0.87,
+            0.96,
+            0.89
+          ],
+          "gate": "positive evidence of ongoing native research and shared institutional support, not argument from absence",
+          "decision": "retain primary"
+        },
+        {
+          "id": "absorbed-or-failed-research-program",
+          "v": [
+            0.98,
+            0.98,
+            0.78,
+            0.96,
+            0.86
+          ],
+          "gate": "freeze case inclusion and documented fate; avoid success bias",
+          "decision": "retain non-dominated contrast"
+        },
+        {
+          "id": "cross-domain-typed-warrant",
+          "v": [
+            0.97,
+            0.96,
+            0.86,
+            0.95,
+            0.89
+          ],
+          "gate": "historical mathematics/humanities cases and domain-specific warrant",
+          "decision": "retain"
+        },
+        {
+          "id": "finite-agreement-proxy-code",
+          "v": [
+            0.52,
+            0.44,
+            0.97,
+            0.29,
+            0.66
+          ],
+          "gate": "prior MQR already covers finite task equivalence; cannot formalize topology by Bool analogy",
+          "decision": "prune for low additional discrimination; feasibility alone insufficient"
+        },
+        {
+          "id": "declare-general-theory",
+          "v": [
+            0.71,
+            0.4,
+            0.55,
+            0.32,
+            0.39
+          ],
+          "gate": "no verified negative formation case or broad comparative validation",
+          "decision": "HOLD; 5.5 OPEN"
+        }
+      ]
     }
   ]
 }
