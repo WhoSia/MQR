@@ -1201,6 +1201,73 @@
           "decision": "prefer if integration and initial investigation completed; preserve all earlier claims and debts"
         }
       ]
+    },
+    {
+      "heading": "Opening 5.6 after restoration of original frontiers (2026-11-28 KST)",
+      "before_execution": false,
+      "findings": "Wigner and Abel isoperiodic inverse problem studied. Exact continuous family identical period T=2pi but mean 3lambda E; analytic Abel inverse reconstructs two inverse branches from period and integrated position moment. 25 JS quadrature cases pass. Original source selected passages and p5 screenshot; p7 image retrieval failed. Open successor 5.6 under user authorization, not general theory acceptance. README/CURRENT/Notion updated.",
+      "candidates": [
+        {
+          "id": "discoverable-shared-probes",
+          "v": [
+            0.99,
+            0.98,
+            0.87,
+            0.95,
+            0.9
+          ],
+          "gate": "different native operations; no planted global translator",
+          "decision": "retain high priority"
+        },
+        {
+          "id": "cross-scale-invariance",
+          "v": [
+            0.98,
+            0.96,
+            0.9,
+            0.94,
+            0.91
+          ],
+          "gate": "explicit effective-model relation and failure domain",
+          "decision": "retain"
+        },
+        {
+          "id": "structure-and-explanation",
+          "v": [
+            0.99,
+            0.96,
+            0.91,
+            0.96,
+            0.91
+          ],
+          "gate": "compare causal, structural and predictive accounts without overclaim",
+          "decision": "retain"
+        },
+        {
+          "id": "question-and-discipline-genesis",
+          "v": [
+            0.97,
+            0.94,
+            0.91,
+            0.94,
+            0.91
+          ],
+          "gate": "remain live; not sole focus",
+          "decision": "retain"
+        },
+        {
+          "id": "more-oscillator-grid",
+          "v": [
+            0.48,
+            0.39,
+            0.98,
+            0.28,
+            0.68
+          ],
+          "gate": "analytic proof already given",
+          "decision": "defer no additional discrimination"
+        }
+      ]
     }
   ]
 }
