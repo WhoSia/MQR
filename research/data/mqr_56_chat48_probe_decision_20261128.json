@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-28 KST",
+  "phase": "5.6",
+  "conversation": 48,
+  "before_execution": true,
+  "scale": "V,D,F,I,K subjective planning; no weighted sum",
+  "candidates": [
+    {
+      "id": "unknown-kinetic-metric",
+      "v": [
+        0.98,
+        0.98,
+        0.94,
+        0.91,
+        0.93
+      ],
+      "gate": "common calibrated position and energy, positive smooth metric; synthetic only",
+      "decision": "execute bounded analytic countermodel and inversion"
+    },
+    {
+      "id": "cross-scale-autonomy",
+      "v": [
+        0.98,
+        0.95,
+        0.89,
+        0.95,
+        0.88
+      ],
+      "gate": "specify coarse-graining and interventions",
+      "decision": "retain independent frontier"
+    },
+    {
+      "id": "discoverable-common-probes",
+      "v": [
+        0.99,
+        0.99,
+        0.72,
+        0.96,
+        0.76
+      ],
+      "gate": "no planted translator; needs explicit native access model",
+      "decision": "retain, distinguish sufficiency from discovery"
+    },
+    {
+      "id": "repeat-constant-mass-grid",
+      "v": [
+        0.45,
+        0.31,
+        0.99,
+        0.22,
+        0.75
+      ],
+      "gate": "already analytic",
+      "decision": "defer"
+    }
+  ],
+  "source_scope": "5.6 constitution and preceding original GitHub report; recent archive excerpts, not complete close read. No external source or new novelty claim."
+}
