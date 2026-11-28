@@ -1,0 +1,59 @@
+{
+  "phase": "5.7",
+  "conversation": 48,
+  "date": "2026-11-28 KST",
+  "before_execution": true,
+  "axes": [
+    "V",
+    "D",
+    "F",
+    "I",
+    "K"
+  ],
+  "candidates": [
+    {
+      "id": "unpaired-common-quotients",
+      "v": [
+        0.99,
+        0.98,
+        0.9,
+        0.93,
+        0.91
+      ],
+      "decision": "execute exhaustive finite local models; candidate structural correspondence, not co-reference",
+      "gate": "no state or action pairing supplied to search; two native transition tables are fully supplied; synthetic positives and disjoint nulls separated"
+    },
+    {
+      "id": "physical-source-case",
+      "v": [
+        0.99,
+        0.96,
+        0.73,
+        0.96,
+        0.8
+      ],
+      "decision": "retain and audit prior art/custody",
+      "gate": "real source and independent provenance required"
+    },
+    {
+      "id": "another-oscillator-grid",
+      "v": [
+        0.4,
+        0.28,
+        0.99,
+        0.22,
+        0.75
+      ],
+      "decision": "defer"
+    }
+  ],
+  "tests": [
+    "asymmetric common quotient",
+    "symmetry ambiguity",
+    "independent systems can share common quotient",
+    "incompatible full bridge",
+    "unknown action correspondence",
+    "additional shared anchor is external evidence, not discovered by solver"
+  ],
+  "limits": "No prior-art novelty or claim of independent physical co-reference; finite native action sets assumed same cardinality and exhaustive access to deterministic local transitions."
+}
