@@ -1122,6 +1122,85 @@
           "decision": "prune; no further discriminatory return"
         }
       ]
+    },
+    {
+      "heading": "Rebalance original MQR frontiers and open successor research (2026-11-28 KST)",
+      "before_execution": true,
+      "findings": "User explicitly lowers phase-opening threshold and requests breadth. Rechecked actual MQR 1/2/7/32/40 exports, Feb founder critical-read record (not raw HWPX), 5.0 research history selected §§1–5, 1.5-C, 1.11-D, 4.42 and 5.4/5.5 constitutions. Prior 46 archive coverage remains selective; 67 claim ledger unchanged. Wigner held reprint re-read. Recent 5.5 heavily concentrated on disciplinary genesis.",
+      "candidates": [
+        {
+          "id": "physical-structural-equivalence-and-breakdown",
+          "v": [
+            0.99,
+            0.98,
+            0.96,
+            0.94,
+            0.94
+          ],
+          "gate": "scoped mathematical physics; no real experiment claim",
+          "decision": "execute: compare nonlinear oscillators and dimensionless invariants; return to math efficacy, world contact and question generation"
+        },
+        {
+          "id": "possible-sciences-and-partial-bridge",
+          "v": [
+            0.99,
+            0.97,
+            0.88,
+            0.96,
+            0.9
+          ],
+          "gate": "explicit translation scope and shared operational constraint; not a label permutation",
+          "decision": "execute companion conceptual comparison; investigate novel probes"
+        },
+        {
+          "id": "disciplinary-genesis",
+          "v": [
+            0.98,
+            0.95,
+            0.9,
+            0.94,
+            0.92
+          ],
+          "gate": "historical evidence appropriate to domain",
+          "decision": "retain as a live axis, not exclusive next step"
+        },
+        {
+          "id": "inquiry-norms-and-progress",
+          "v": [
+            0.98,
+            0.95,
+            0.87,
+            0.95,
+            0.89
+          ],
+          "gate": "inherit 4.42 and 5.5 norm critique; no universal progress score",
+          "decision": "retain; link to comparing representations"
+        },
+        {
+          "id": "stay-on-single-5.5-branch",
+          "v": [
+            0.74,
+            0.58,
+            0.98,
+            0.65,
+            0.76
+          ],
+          "gate": "eligible but repeatedly crowds out other frontiers",
+          "decision": "defer: user explicitly requests breadth"
+        },
+        {
+          "id": "promote-open-5.6",
+          "v": [
+            0.99,
+            0.95,
+            0.98,
+            0.91,
+            0.95
+          ],
+          "gate": "program opening distinct from claim acceptance, actual predecessor/successor records and substantive new frontier work",
+          "decision": "prefer if integration and initial investigation completed; preserve all earlier claims and debts"
+        }
+      ]
     }
   ]
 }
